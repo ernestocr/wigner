@@ -1,0 +1,438 @@
+\documentclass{beamer}
+
+\usepackage[spanish]{babel}
+\decimalpoint
+
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{braket}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+
+\let\H\relax
+\DeclareMathOperator{\H}{\mathcal H}
+\DeclareMathOperator{\Sz}{\mathcal S}
+
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\prob}{Prob}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Op}{Op}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\F}{F}
+
+\title{La transformación de Wigner-Weyl}
+\author{Ernesto}
+\institute{U de G}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\frame{\tableofcontents}
+
+\section{Primera vía}
+
+\begin{frame}
+\frametitle{Cuantización}
+
+La idea básica de la cuantización es traducir observables
+clásicos a observables cuánticos. Por ejemplo, pasar de las
+variables del espacio de fase $x$ y $p$, a los operadores de
+posición y momentum en el espacio de Hilbert. Pero no basta
+con simplemente reemplazar formalmente a los símbolos:
+\[
+  A \mapsto \hat{A} = A(\hat{x},\hat{p}).
+\] 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cuantización}
+
+  Es necesario elegir un orden de los operadores debido a la
+  no conmutatividad, por ejemplo el orden de Weyl (que
+  corresponde a la transformación de Wigner), es 
+  \[
+    xp \mapsto \frac{1}{2} \left( \hat{x}\hat{p} +
+    \hat{p}\hat{x} \right). 
+  \] 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cuantización de Weyl}
+
+  Informalmente podemos intentar escribir el operador
+  correspondiente a un observable $A(x)$ mediante una
+  `función delta de un operador',
+  \begin{equation}
+    \label{eqn:op_int_delta}
+    \hat{A}
+    = \int_{\R^{n}} A(x) \delta(x - \hat{x}) \, dx.
+  \end{equation} 
+  Dado que podemos expresar a la función delta mediante una
+  transformación de Fourier,
+  \[
+    \delta(x)
+    = \frac{1}{(2\pi\hbar)^{n}} 
+    \int_{\R^{n}} e^{\frac{i}{\hbar} \xi x} \, d\xi,
+  \] 
+  podemos escribir a (\ref{eqn:op_int_delta}) como
+  \[
+    \hat{A}
+    = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} A(x)
+    e^{\frac{i}{\hbar}\xi (x - \hat{x})} \, d\xi \, dx.
+  \] 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cuantización de Weyl}
+
+  Ahora consideremos un observable $A(x,p)$. Por analogía
+  nos gustaría escribir
+  \[
+    \hat{A}
+    = \int_{\R^{n}} \int_{\R^{n}}
+    A(x,p) \delta(x - \hat{x}) \delta(p - \hat{p}) \, dp \,
+    dx.
+  \] 
+  Digamos que
+  \[
+    \delta(x - \hat{x}) \delta(p - \hat{p})
+    = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{n}} \int_{\R^{n}} 
+    e^{\frac{i}{\hbar}[\xi(x-\hat{x}) + \eta(p-\hat{p})]} \,
+    d\xi \, d\eta.
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cuantización de Weyl}
+
+  Con lo anterior nuestra expresión para el operador
+  correspondiente al observable $A$ es
+  \begin{equation}
+    \label{eqn:weyl}
+    \Op(A)
+    = \frac{1}{(2\pi\hbar)^{n}} 
+    \iiiint A(x,p) e^{\frac{i}{\hbar}[\xi(x-\hat{x}) +
+    \eta(p-\hat{p})]} \, d\xi \, d\eta \, dp \, dx.
+  \end{equation}
+
+  Ésta cuantización se conoce como la \textit{cuantización
+  de Weyl}.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cuantización de Weyl}
+
+  Es más común expresar el operador de Weyl de un observable
+  operacionalmente. Para $\psi \in L^2(\R^{n})$ tenemos
+  \begin{equation}
+    (\Op(A)\psi)(x)
+    = \frac{1}{(2\pi\hbar)^{n}} \iint_{\R^{2n}} A\left(
+    \frac{x + z}{2}, p \right) e^{\frac{i}{\hbar} p (x -
+  z)} \psi(z) \, dp \, dz.
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Representación integral de un operador}
+
+  Supongamos que $\hat{A}$ tiene una representación con
+  núcleo integral $K_{\hat{A}}(x,y)$, es decir,
+  \begin{equation}
+    (\hat{A}\psi)(x)
+    = \int_{\R^{n}} K_{\hat{A}}(x,y)\psi(y) \, dy.
+  \end{equation}
+  Comparando con la ecuación anterior, podemos ver que el
+  operador de Weyl tiene el núcleo
+  \begin{equation}
+    K_{\Op(A)}(x,y)
+    = \frac{1}{(2\pi\hbar)^{n}} 
+    \int_{\R^{n}} A\left( \frac{x+y}{2}, p \right)
+    e^{\frac{i}{\hbar} p (x-y)} \, dp.
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Inversión}
+
+  Para obtener un relación inversa, hacemos un cambio de
+  variable y expresamos al núcleo como
+  \begin{equation}
+    K_{\Op(A)}\left(
+      x + \frac{1}{2}y, x - \frac{1}{2}y
+    \right)
+    = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{n}}
+    A(x,p) e^{\frac{i}{\hbar} p y} \, dy.
+  \end{equation}
+  Y finalmente aplicamos la transformación de Fourier
+  inversa para obtener lo que se llama el \textit{símbolo}
+  del operador $\Op(A)$:
+  \begin{equation}
+    A(x,p)
+    = \int_{\R^{n}} K_{\Op(A)}\left( x + \frac{1}{2}y, x -
+    \frac{1}{2}y \right) e^{-\frac{i}{\hbar} py} \, dy.
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{La función de Wigner}
+
+  El mapa anterior nos permite transformar un operador del
+  espacio de Hilbert a una función en el espacio de fase y
+  vice versa. ¿Cómo representaríamos la función de onda
+  $\psi$ en el espacio de fase?
+
+  Primero consideremos la proyección $\hat{P}_\psi$:
+  \begin{align}
+    (\hat{P}_\psi \phi)(x)
+    &= \langle \psi, \phi \rangle \psi \\
+    &= \left(
+      \int_{\R^{n}} \overline{\psi(y)}\phi(y) \, dy
+      \right) \psi(x) \\
+    &= \int_{\R^{n}} \psi(x)\overline{\psi(y)} \phi(y) \,
+    dy.
+  \end{align}
+\end{frame}
+
+\begin{frame}
+  \frametitle{La función de Wigner}
+
+  El núcleo de la representación integral de la proyección
+  es de la forma
+  \[
+    \psi(x) \overline{\psi(y)}.
+  \] 
+
+  El símbolo de $\hat{P}_\psi$ se conoce como la
+  \textit{función de Wigner} de un estado puro:
+  \begin{equation}
+    (W\psi)(x,p)
+    = \int_{\R^{n}} \psi\left( x + \frac{1}{2} y \right)
+    \overline{\psi\left( x - \frac{1}{2}y \right) }
+    e^{-\frac{i}{\hbar} p y} \, dy.
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{La función de Wigner}
+
+  Para un operador de densidad arbitrario
+  \[
+    \hat{\rho}
+    = \sum_{n}^{} p_n \ket{\psi_n} \bra{\psi_n},
+    = \sum_{n}^{} p_n \hat{P}_{\psi_n},
+  \] 
+  podemos definir su función de Wigner mediante la
+  transformación de Wigner de los elementos de la suma (?).
+\end{frame}
+
+\begin{frame}
+  \frametitle{Valor esperado de un operador}
+
+  Podemos calcular el valor esperado de un operador
+  $\hat{A}$ en un estado $\psi$ por medio de una integral
+  sobre el espacio de fase, de manera análoga a las
+  distribuciones de la mecánica clásica.
+  \begin{equation}
+    \langle \psi, \hat{A}\psi \rangle
+    = \frac{1}{(2\pi\hbar)^{n}} 
+    \iint_{\R^{2n}} (W\psi)(x,p) A(x,p) \, dx \, dp.
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Marginales}
+
+  Además, integrando sobre el `espacio de momentum',
+  obtenemos la densidad de probabilidad de la posición, y
+  vice-versa.
+
+  \begin{equation}
+    \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{n}} (W\psi)(x,p) \,
+    dp
+    = |\psi(x)|^2.
+  \end{equation}
+
+  No es dificil verificar la función de Wigner puede tomar
+  valores negativos, por lo tanto solo llega a ser una
+  \textit{cuasi-distribución}.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mecánica cuántica en el espacio de fase}
+
+  Se puede desarrollar una teoría en el espacio de fase
+  equivalente a la formulación de Schrödinger, ó a la de la
+  integral de trayectoria de Feynman. Podemos desarrollar la
+  dinámica de un sistema cuántico despues de introducir un
+  producto de los símbolos, conocido como el producto de
+  Moyal.
+\end{frame}
+
+\section{Segunda vía}
+
+\begin{frame}
+  \frametitle{Estadística en el espacio de fase}
+
+  Dada una densidad de probabilidad de Liouville $F(x,p)$, y
+  un observable $a : \R^{2n} \to \R$ que depende de la
+  posición y momentum, se puede calcular el valor esperado
+  de $a$ sobre un conjunto de partículas como
+  \begin{equation}
+    \mathbb E[a]
+    = \iint a(x,p) F(x,p) \, dx \, dp.
+  \end{equation}
+
+  \textbf{Idea}. Nos gustaría poder calcular valores
+  esperados de operadores que dependen de $\hat{x}$ y
+  $\hat{p}$ de una manera análoga.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Estadística en el espacio de fase}
+
+  En otras palabras, nos gustaría poder hacer algo como
+  \begin{equation}
+    \Tr\left( \hat{\rho}\hat{A} \right) 
+    = \iint a(x,p) F(x,p) \, dx \, dp,
+  \end{equation}
+  donde $a(x,p)$ es un observable en el espacio de fase
+  correspondiente al operador $\hat{A}$ y $F(x,p)$ es una
+  `densidad' correspondiente al estado $\hat{\rho}$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mapeo entre operadores en $\H$ y funciones en
+  $\R^{2n}$}
+
+  Dada la no conmutatividad de los operadores $\hat{x}$ y
+  $\hat{p}$, es existe una manera única de mapear $\hat{A}
+  \mapsto a$. Ésto es evidente si por ejemplo consideramos
+  el operador
+  \[
+    e^{i(\xi \hat{x} + \eta \hat{p})},
+    \quad \xi, \eta \in \R.
+  \]
+
+  Si ingenuamente sustituímos los operadores en la
+  exponencial por las variables correspondientes tenemos que
+  \[
+    e^{i(\xi \hat{x} + \eta \hat{p})} \mapsto e^{i(\xi x +
+    \eta p)},
+    \quad
+    e^{i\xi \hat{x}}e^{i\eta \hat{p}} \mapsto e^{i(\xi x +
+    \eta p)}.
+  \] 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mapeo entre operadores en $\H$ y funciones en
+  $\R^{2n}$}
+
+  Una manera de evitar ésta ambigüedad (Cohen) es eligiendo
+  un núcleo $g : \R^2 \to \C$ y haciendo la asignación
+  \begin{equation}
+    g(\xi,\eta) e^{i(\xi \hat{x} + \eta \hat{p})}
+    \mapsto
+    e^{i(\xi x + \eta p)}.
+  \end{equation}
+  Con ésto, podemos expresar la traza como
+  \begin{equation}
+    \Tr\left( 
+      \hat{\rho} g(\xi,\eta) e^{i(\xi \hat{x} + \eta
+      \hat{p})}
+    \right) 
+    = \iint e^{i(\xi x + \eta p)}F^{g}(x,p) \, dx \, dp,
+  \end{equation}
+  donde la distribución $F^{g}$ corresponde a la elección
+  del núcleo.
+\end{frame}
+
+\begin{frame}
+  \frametitle{La densidad $F^{g}$}
+
+  Se puede aplicar una transformación de Fourier respecto a
+  las variables $\xi$ y $\eta$ para obtener una expresión de
+  $F^{g}$:
+  \begin{equation}
+    F^{g}(x,p)
+    = \frac{1}{(2\pi\hbar)^2} 
+    \iint \Tr\left( \hat{\rho}g(\xi,\eta)e^{i(\xi \hat{x} +
+    \eta \hat{p})} \right) e^{-i(\xi x + \eta p)} \, d\xi \,
+    d\eta.
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{La función de Wigner}
+
+  Eligiendo el núcleo $g(\xi,\eta) = 1$ y haciendo unos
+  malabares con la notación de Dirac, podemos obtener la
+  densidad para un estado $\hat{\rho}$ (para una dimensión),
+  \begin{equation}
+    W(x,p)
+    := F^{g}(x,p)
+    = \frac{1}{2\pi\hbar} 
+    \int \braket{x - \tfrac{1}{2}y|\hat{\rho}|x +
+    \tfrac{1}{2}y} e^{-\frac{i}{\hbar} p y} \, dy.
+  \end{equation}
+  Similarmente para un observable cuántico $\hat{A}$ tenemos
+  \begin{equation}
+    a(x,p)
+    = \frac{1}{(2\pi\hbar)} 
+    \int \braket{x - \tfrac{1}{2}y|\hat{A}|x +
+    \tfrac{1}{2}y} e^{-\frac{i}{\hbar} p y} \, dy.
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{La función de Wigner}
+
+  Con la transformación de Wigner, podemos finalmente
+  expresar los valores esperados de un observable $\hat{A}$
+  en un estado $\hat{\rho}$ por medio de la integración en
+  el espacio de fase.
+
+  \begin{equation}
+    \Tr\left( \hat{\rho}\hat{A} \right) 
+    = \iint a(x,p) W(x,p) \, dx \, dp.
+  \end{equation}
+
+  Las integraciones sobre el espacio de posición o el de
+  momentum nos brindan las densidades correspondientes la
+  función de onda.
+\end{frame}
+
+\section{Tercera vía}
+
+\begin{frame}
+  \frametitle{Rigor?}
+
+  Las ideas anteriores se puede hacer rigurosas trabajando
+  en los espacios correctos. En lugar de solo considerar a
+  $\H = L^2(\R^{n})$, es necesario consider el triplete de
+  Gel'fand
+  \begin{equation}
+    \Sz(\R^{n}) \subset L^2(\R^{n}) \subset \Sz'(\R^{n}),
+  \end{equation}
+  y los espacios de operadores lineales que actúan sobre
+  ellos.
+
+  \hspace{2mm} Luego definimos la correspondencia de
+  Wigner-Weyl para observables y símbolos utilizando la
+  función de Wigner y la cuantización de Weyl. Finalmente
+  podemos acoplar todo para darle sentido en la mecánica
+  cuántica.
+
+  \vspace{2mm}
+
+  \textit{Creo que no es necesario para las necesidades del
+  trabajo.}
+\end{frame}
+
+\end{document}

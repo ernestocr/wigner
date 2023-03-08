@@ -1,0 +1,789 @@
+@article{aaronsonImprovedSimulationStabilizer2004,
+  title = {Improved Simulation of Stabilizer Circuits},
+  author = {Aaronson, Scott and Gottesman, Daniel},
+  date = {2004-11-30},
+  journaltitle = {Physical Review A},
+  shortjournal = {Phys. Rev. A},
+  volume = {70},
+  number = {5},
+  pages = {052328},
+  issn = {1050-2947, 1094-1622},
+  doi = {10.1103/PhysRevA.70.052328},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.70.052328},
+  urldate = {2023-01-31},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/TYVD443S/Aaronson and Gottesman - 2004 - Improved simulation of stabilizer circuits.pdf}
+}
+
+@article{bakerFormulationQuantumMechanics1958,
+  title = {Formulation of {{Quantum Mechanics Based}} on the {{Quasi-Probability Distribution Induced}} on {{Phase Space}}},
+  author = {Baker, George A.},
+  date = {1958-03-15},
+  journaltitle = {Physical Review},
+  shortjournal = {Phys. Rev.},
+  volume = {109},
+  number = {6},
+  pages = {2198--2206},
+  issn = {0031-899X},
+  doi = {10.1103/PhysRev.109.2198},
+  url = {https://link.aps.org/doi/10.1103/PhysRev.109.2198},
+  urldate = {2023-02-23},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/G7HEEQBH/Baker - 1958 - Formulation of Quantum Mechanics Based on the Quas.pdf}
+}
+
+@article{balazsWignerFunctionOther1984,
+  title = {Wigner's Function and Other Distribution Functions in Mock Phase Spaces},
+  author = {Balazs, N.L. and Jennings, B.K.},
+  date = {1984-02},
+  journaltitle = {Physics Reports},
+  shortjournal = {Physics Reports},
+  volume = {104},
+  number = {6},
+  pages = {347--391},
+  issn = {03701573},
+  doi = {10.1016/0370-1573(84)90151-0},
+  url = {https://linkinghub.elsevier.com/retrieve/pii/0370157384901510},
+  urldate = {2023-02-22},
+  abstract = {This review deals with the methods of associating functions with quantum mechanical operators in such a manner that these functions should furnish conveniently semiclassical approximations. We present a unified treatment of methods and results which usually appear under expressions such as Wigner’s function, Weyl’s association, Kirkwood’s expansion, Glauber’s coherent state representation, etc.; we also construct some new associations.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/7GTPJVVU/Balazs and Jennings - 1984 - Wigner's function and other distribution functions.pdf}
+}
+
+@article{bondarWignerPhasespaceDistribution2013,
+  title = {Wigner Phase-Space Distribution as a Wave Function},
+  author = {Bondar, Denys I. and Cabrera, Renan and Zhdanov, Dmitry V. and Rabitz, Herschel A.},
+  date = {2013-11-11},
+  journaltitle = {Physical Review A},
+  shortjournal = {Phys. Rev. A},
+  volume = {88},
+  number = {5},
+  pages = {052108},
+  issn = {1050-2947, 1094-1622},
+  doi = {10.1103/PhysRevA.88.052108},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.88.052108},
+  urldate = {2023-02-10},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/LV43FQ4Q/Bondar et al. - 2013 - Wigner phase-space distribution as a wave function.pdf}
+}
+
+@article{brackenBoundsIntegralsWigner1999,
+  title = {Bounds on {{Integrals}} of the {{Wigner Function}}},
+  author = {Bracken, A. J. and Doebner, H.-D. and Wood, J. G.},
+  date = {1999-11-08},
+  journaltitle = {Physical Review Letters},
+  shortjournal = {Phys. Rev. Lett.},
+  volume = {83},
+  number = {19},
+  eprint = {quant-ph/9905097},
+  eprinttype = {arxiv},
+  pages = {3758--3761},
+  issn = {0031-9007, 1079-7114},
+  doi = {10.1103/PhysRevLett.83.3758},
+  url = {http://arxiv.org/abs/quant-ph/9905097},
+  urldate = {2023-02-23},
+  abstract = {The integral of the Wigner function over a subregion of the phasespace of a quantum system may be less than zero or greater than one. It is shown that for systems with one degree of freedom, the problem of determining the best possible upper and lower bounds on such an integral, over all possible states, reduces to the problem of finding the greatest and least eigenvalues of an hermitian operator corresponding to the subregion. The problem is solved exactly in the case of an arbitrary elliptical region. These bounds provide checks on experimentally measured quasiprobability distributions.},
+  langid = {english},
+  keywords = {Quantum Physics},
+  file = {/Users/ernesto/Zotero/storage/MJLK8NCQ/Bracken et al. - 1999 - Bounds on Integrals of the Wigner Function.pdf}
+}
+
+@article{brackenComplexNumbersSymmetries2006,
+  title = {Complex Numbers and Symmetries in Quantum Mechanics, and a Nonlinear Superposition Principle for {{Wigner}} Functions},
+  author = {Bracken, A. J.},
+  date = {2006-02},
+  journaltitle = {Reports on Mathematical Physics},
+  shortjournal = {Reports on Mathematical Physics},
+  volume = {57},
+  number = {1},
+  eprint = {quant-ph/0504102},
+  eprinttype = {arxiv},
+  pages = {17--26},
+  issn = {00344877},
+  doi = {10.1016/S0034-4877(06)80005-4},
+  url = {http://arxiv.org/abs/quant-ph/0504102},
+  urldate = {2023-02-23},
+  abstract = {Complex numbers appear in the Hilbert space formulation of quantum mechanics, but not in the formulation in phase space. Quantum symmetries are described by complex, unitary or antiunitary operators defining ray representations in Hilbert space, whereas in phase space they are described by real, true representations. Equivalence of the formulations requires that the former representations can be obtained from the latter and vice versa. Examples are given. Equivalence of the two formulations also requires that complex superpositions of state vectors can be described in the phase space formulation, and it is shown that this leads to a nonlinear superposition principle for orthogonal, pure-state Wigner functions. It is concluded that the use of complex numbers in quantum mechanics can be regarded as a computational device to simplify calculations, as in all other applications of mathematics to physical phenomena.},
+  langid = {english},
+  keywords = {Mathematical Physics,Quantum Physics},
+  file = {/Users/ernesto/Zotero/storage/I2ZG4KIJ/Bracken - 2006 - Complex numbers and symmetries in quantum mechanic.pdf}
+}
+
+@article{brackenGroupTheoryQuasiprobability2003,
+  title = {Group {{Theory}} and {{Quasiprobability Integrals}} of {{Wigner Functions}}},
+  author = {Bracken, A. J. and Ellinas, D. and Wood, J. G.},
+  date = {2003-05-23},
+  journaltitle = {Journal of Physics A: Mathematical and General},
+  shortjournal = {J. Phys. A: Math. Gen.},
+  volume = {36},
+  number = {20},
+  eprint = {quant-ph/0304010},
+  eprinttype = {arxiv},
+  pages = {L297-L305},
+  issn = {0305-4470, 1361-6447},
+  doi = {10.1088/0305-4470/36/20/102},
+  url = {http://arxiv.org/abs/quant-ph/0304010},
+  urldate = {2023-02-23},
+  abstract = {The integral of the Wigner function of a quantum mechanical system over a region or its boundary in the classical phase plane, is called a quasiprobability integral. Unlike a true probability integral, its value may lie outside the interval [0, 1]. It is characterized by a corresponding selfadjoint operator, to be called a region or contour operator as appropriate, which is determined by the characteristic function of that region or contour. The spectral problem is studied for commuting families of region and contour operators associated with concentric disks and circles of given radius a. Their respective eigenvalues are determined as functions of a, in terms of the Gauss-Laguerre polynomials. These polynomials provide a basis of vectors in a Hilbert space carrying the positive discrete series representation of the algebra su(1, 1) ≈ so(2, 1). The explicit relation between the spectra of operators associated with disks and circles with proportional radii, is given in terms of the discrete variable Meixner polynomials.},
+  langid = {english},
+  keywords = {Quantum Physics},
+  file = {/Users/ernesto/Zotero/storage/KWRGAV45/Bracken et al. - 2003 - Group Theory and Quasiprobability Integrals of Wig.pdf}
+}
+
+@article{brackenNonpositivityWignerFunction2004,
+  title = {Non-Positivity of the {{Wigner}} Function and Bounds on Associated Integrals},
+  author = {Bracken, A. J. and Ellinas, D. and Wood, J. G.},
+  date = {2004-01-01},
+  journaltitle = {Acta Physica Hungarica B) Quantum Electronics},
+  shortjournal = {Acta Physica Hungarica B) Quantum Electronics},
+  volume = {20},
+  number = {1-2},
+  eprint = {quant-ph/0304110},
+  eprinttype = {arxiv},
+  pages = {121--124},
+  issn = {1589-9535, 1786-3767},
+  doi = {10.1556/APH.20.2004.1-2.24},
+  url = {http://arxiv.org/abs/quant-ph/0304110},
+  urldate = {2023-02-23},
+  abstract = {The Wigner function shares several properties with classical distribution functions on phase space, but is not positive-definite. The integral of the Wigner function over a given region of phase space can therefore lie outside the interval [0, 1]. The problem of finding bestpossible upper and lower bounds for a given region is the problem of finding the greatest and least eigenvalues of an associated Hermitian operator. Exactly solvable examples are described, and possible extensions are indicated.},
+  langid = {english},
+  keywords = {Quantum Physics},
+  file = {/Users/ernesto/Zotero/storage/WACBPLDI/Bracken et al. - 2004 - Non-positivity of the Wigner function and bounds o.pdf}
+}
+
+@article{brackenQuantumSymmetriesWeylWigner2003,
+  title = {Quantum Symmetries and the {{Weyl-Wigner}} Product of Group Representations},
+  author = {Bracken, A. J. and Cassinelli, G. and Wood, J. G.},
+  date = {2003-01-31},
+  journaltitle = {Journal of Physics A: Mathematical and General},
+  shortjournal = {J. Phys. A: Math. Gen.},
+  volume = {36},
+  number = {4},
+  eprint = {math-ph/0211001},
+  eprinttype = {arxiv},
+  pages = {1033--1056},
+  issn = {0305-4470},
+  doi = {10.1088/0305-4470/36/4/313},
+  url = {http://arxiv.org/abs/math-ph/0211001},
+  urldate = {2023-02-23},
+  abstract = {In the usual formulation of quantum mechanics, groups of automorphisms of quantum states have ray representations by unitary and antiunitary operators on complex Hilbert space, in accordance with Wigner’s Theorem. In the phase-space formulation, they have real, true unitary representations in the space of square-integrable functions on phase-space. Each such phase-space representation is a Weyl-Wigner product of the corresponding Hilbert space representation with its contragredient, and these can be recovered by ‘factorising’ the Weyl-Wigner product. However, not every real, unitary representation on phase-space corresponds to a group of automorphisms, so not every such representation is in the form of a Weyl-Wigner product and can be factorised. The conditions under which this is possible are examined. Examples are presented.},
+  langid = {english},
+  keywords = {81S30; 58D30; 81R05,Mathematical Physics,Mathematics - Group Theory},
+  file = {/Users/ernesto/Zotero/storage/K9IHLMLK/Bracken et al. - 2003 - Quantum symmetries and the Weyl-Wigner product of .pdf}
+}
+
+@article{casasInterpretationWignerTransform,
+  title = {Interpretation of the {{Wigner Transform}}},
+  author = {Casas, M and family=Mallorca, given=Palma, prefix=de, useprefix=true and Krivine, H and Martorell, J},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/VYRPX9KK/Casas et al. - Interpretation of the Wigner Transform.pdf}
+}
+
+@article{cohenGeneralizedPhaseSpaceDistribution1966,
+  title = {Generalized {{Phase-Space Distribution Functions}}},
+  author = {Cohen, Leon},
+  date = {1966-05},
+  journaltitle = {Journal of Mathematical Physics},
+  shortjournal = {Journal of Mathematical Physics},
+  volume = {7},
+  number = {5},
+  pages = {781--786},
+  issn = {0022-2488, 1089-7658},
+  doi = {10.1063/1.1931206},
+  url = {http://aip.scitation.org/doi/10.1063/1.1931206},
+  urldate = {2023-02-22},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/AMJL7Z5W/Cohen - 1966 - Generalized Phase-Space Distribution Functions.pdf}
+}
+
+@article{cormickInterferenceDiscreteWigner2006,
+  title = {Interference in Discrete {{Wigner}} Functions},
+  author = {Cormick, Cecilia and Paz, Juan Pablo},
+  date = {2006-12-22},
+  journaltitle = {Physical Review A},
+  shortjournal = {Phys. Rev. A},
+  volume = {74},
+  number = {6},
+  pages = {062315},
+  issn = {1050-2947, 1094-1622},
+  doi = {10.1103/PhysRevA.74.062315},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.74.062315},
+  urldate = {2023-01-31},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/E3IGIB6I/Cormick and Paz - 2006 - Interference in discrete Wigner functions.pdf}
+}
+
+@article{curtrightQuantumMechanicsPhase2012,
+  title = {Quantum {{Mechanics}} in {{Phase Space}}},
+  author = {Curtright, Thomas L. and Zachos, Cosmas K.},
+  date = {2012-05},
+  journaltitle = {Asia Pacific Physics Newsletter},
+  shortjournal = {Asia Pac. Phys. Newslett.},
+  volume = {01},
+  number = {01},
+  eprint = {1104.5269},
+  eprinttype = {arxiv},
+  eprintclass = {physics, physics:quant-ph},
+  pages = {37--46},
+  issn = {2251-158X, 2251-1598},
+  doi = {10.1142/S2251158X12000069},
+  url = {http://arxiv.org/abs/1104.5269},
+  urldate = {2023-02-10},
+  abstract = {Ever since Werner Heisenberg’s 1927 paper on uncertainty, there has been considerable hesitancy in simultaneously considering positions and momenta in quantum contexts, since these are incompatible observables. But this persistent discomfort with addressing positions and momenta jointly in the quantum world is not really warranted, as was first fully appreciated by Hilbrand Groenewold and Jos´e Moyal in the 1940s. While the formalism for quantum mechanics in phase space was wholly cast at that time, it was not completely understood nor widely known — much less generally accepted — until the late 20th century.},
+  langid = {english},
+  keywords = {Physics - History and Philosophy of Physics,Quantum Physics},
+  file = {/Users/ernesto/Zotero/storage/MHUR8C8T/Curtright and Zachos - 2012 - Quantum Mechanics in Phase Space.pdf}
+}
+
+@article{fairlieFormulationQuantumMechanics1964,
+  title = {The Formulation of Quantum Mechanics in Terms of Phase Space Functions},
+  author = {Fairlie, D. B.},
+  date = {1964-07},
+  journaltitle = {Mathematical Proceedings of the Cambridge Philosophical Society},
+  shortjournal = {Math. Proc. Camb. Phil. Soc.},
+  volume = {60},
+  number = {3},
+  pages = {581--586},
+  issn = {0305-0041, 1469-8064},
+  doi = {10.1017/S0305004100038068},
+  url = {https://www.cambridge.org/core/product/identifier/S0305004100038068/type/journal_article},
+  urldate = {2023-02-23},
+  abstract = {A relationship between the Hamiltonian of a system and its distribution function in phase space is sought which will guarantee that the average energy is the weighted mean of the Hamiltonian over phase space. This relationship is shown to imply the existence of a wave function satisfying the Schrodinger equation, and dictates the possible forms of time-dependence of the distribution function.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/45HVRB58/Fairlie - 1964 - The formulation of quantum mechanics in terms of p.pdf}
+}
+
+@book{follandHarmonicAnalysisPhase1989,
+  title = {Harmonic {{Analysis}} in {{Phase Space}}},
+  author = {Folland, Gerald B.},
+  date = {1989},
+  publisher = {{Princeton University Press}},
+  file = {/Users/ernesto/Zotero/storage/GXYEIJBK/folland.pdf}
+}
+
+@article{galvaoDiscreteWignerFunctions2005,
+  title = {Discrete {{Wigner}} Functions and Quantum Computational Speedup},
+  author = {Galvão, Ernesto F.},
+  date = {2005-04-01},
+  journaltitle = {Physical Review A},
+  shortjournal = {Phys. Rev. A},
+  volume = {71},
+  number = {4},
+  pages = {042302},
+  issn = {1050-2947, 1094-1622},
+  doi = {10.1103/PhysRevA.71.042302},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.71.042302},
+  urldate = {2023-01-31},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/MIZSEVYN/Galvão - 2005 - Discrete Wigner functions and quantum computationa.pdf}
+}
+
+@article{ganguliQuantumMechanicsPhase,
+  title = {Quantum {{Mechanics}} on {{Phase Space}}: {{Geometry}} and {{Motion}} of the {{Wigner Distribution}}},
+  author = {Ganguli, Surya},
+  abstract = {We study the Wigner phase space formulation of quantum mechanics and compare it to the Hamiltonian picture of classical mechanics. In this comparison we focus on the differences in initial conditions available to each theory as well as the differences in dynamics. First we derive new necessary conditions for the admissibility of Wigner functions and interpret their physical meaning. One advantage of these conditions is that they have a natural, geometric interpretation as integrals over polygons in phase space. Furthermore, they hint at what is required beyond the uncertainty principle in order for a Wigner function to be valid. Next we design and implement numerical methods to propagate Wigner functions via the quantum Liouville equation. Using these methods we study the quantum mechanical phenomena of reflection, interference, and tunnelling and explain how these phenomena arise in phase space as a direct consequence of the first quantum correction to classical mechanics.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/V5RGTNM7/Ganguli - Quantum Mechanics on Phase Space Geometry and Mot.pdf}
+}
+
+@article{gibbonsDiscretePhaseSpace2004,
+  title = {Discrete Phase Space Based on Finite Fields},
+  author = {Gibbons, Kathleen S. and Hoffman, Matthew J. and Wootters, William K.},
+  date = {2004-12-03},
+  journaltitle = {Physical Review A},
+  shortjournal = {Phys. Rev. A},
+  volume = {70},
+  number = {6},
+  pages = {062101},
+  issn = {1050-2947, 1094-1622},
+  doi = {10.1103/PhysRevA.70.062101},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.70.062101},
+  urldate = {2023-01-31},
+  abstract = {The original Wigner function provides a way of representing in phase space the quantum states of systems with continuous degrees of freedom. Wigner functions have also been developed for discrete quantum systems, one popular version being defined on a 2N × 2N discrete phase space for a system with N orthogonal states. Here we investigate an alternative class of discrete Wigner functions, in which the field of real numbers that labels the axes of continuous phase space is replaced by a finite field having N elements. There exists such a field if and only if N is a power of a prime; so our formulation can be applied directly only to systems for which the state-space dimension takes such a value. Though this condition may seem limiting, we note that any quantum computer based on qubits meets the condition and can thus be accommodated within our scheme. The geometry of our N × N phase space also leads naturally to a method of constructing a complete set of N + 1 mutually unbiased bases for the state space.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/ZVMCWCW5/Gibbons et al. - 2004 - Discrete phase space based on finite fields.pdf}
+}
+
+@book{gossonWignerTransform2017,
+  title = {The {{Wigner}} Transform},
+  author = {family=Gosson, given=Maurice, prefix=de, useprefix=false},
+  date = {2017},
+  series = {Advanced Textbooks in Mathematics},
+  publisher = {{World Scientific}},
+  location = {{New Jersey}},
+  isbn = {978-1-78634-308-6 978-1-78634-309-3},
+  langid = {english},
+  pagetotal = {229},
+  keywords = {Phase space (Statistical physics),Statistical mechanics},
+  file = {/Users/ernesto/Zotero/storage/MC23FHQY/Gosson - 2017 - The Wigner transform.pdf}
+}
+
+@incollection{gottesmanFaultTolerantQuantumComputation1999,
+  title = {Fault-{{Tolerant Quantum Computation}} with {{Higher-Dimensional Systems}}},
+  booktitle = {Quantum {{Computing}} and {{Quantum Communications}}},
+  author = {Gottesman, Daniel},
+  editor = {Williams, Colin P.},
+  date = {1999},
+  series = {Lecture {{Notes}} in {{Computer Science}}},
+  volume = {1509},
+  pages = {302--313},
+  publisher = {{Springer Berlin Heidelberg}},
+  location = {{Berlin, Heidelberg}},
+  doi = {10.1007/3-540-49208-9_27},
+  url = {http://link.springer.com/10.1007/3-540-49208-9_27},
+  urldate = {2023-01-31},
+  abstract = {Instead of a quantum computer where the fundamental units are 2-dimensional qubits, we can consider a quantum computer made up of d-dimensional systems. There is a straightforward generalization of the class of stabilizer codes to d-dimensional systems, and I will discuss the theory of fault-tolerant computation using such codes. I prove that universal fault-tolerant computation is possible with any higher-dimensional stabilizer code for prime d.},
+  editorb = {Goos, Gerhard and Hartmanis, Juris and family=Leeuwen, given=Jan, prefix=van, useprefix=true},
+  editorbtype = {redactor},
+  isbn = {978-3-540-65514-5 978-3-540-49208-5},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/E3PHDRFT/Gottesman - 1999 - Fault-Tolerant Quantum Computation with Higher-Dim.pdf}
+}
+
+@article{gottesmanHeisenbergRepresentationQuantum1998,
+  title = {The {{Heisenberg Representation}} of {{Quantum Computers}}},
+  author = {Gottesman, Daniel},
+  date = {1998-07},
+  journaltitle = {Proceedings of the XXII International Colloquium on Group Theoretical Methods in Physics},
+  abstract = {Since Shor’s discovery of an algorithm to factor numbers on a quantum computer in polynomial time, quantum computation has become a subject of immense interest. Unfortunately, one of the key features of quantum computers — the difficulty of describing them on classical computers —also makes it difficult to describe and understand precisely what can be done with them. A formalism describing the evolution of operators rather than states has proven extremely fruitful in understanding an important class of quantum operations. States used in error correction and certain communication protocols can be described by their stabilizer, a group of tensor products of Pauli matrices. Even this simple group structure is sufficient to allow a rich range of quantum effects, although it falls short of the full power of quantum computation.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/R566XAFU/arXivquant-ph9807006v1  1 Jul 1998.pdf}
+}
+
+@article{groenewoldPrinciplesElementaryQuantum,
+  title = {On the Principles of Elementary Quantum Mechanics},
+  author = {Groenewold, H J},
+  abstract = {Our problems are about the correspondence a +--+ a between physical quantities a and quantum operators a (quantization) and the possibility of understanding the statistical character of quantum mechanics by averaging over uniquely determined processes as in classical statistical mechanics (interpretation). ct a n d \textasciitilde{} are closely connected. Their m e a n i n g d e p e n d s on the notion of observability. We have tried to put these problems in a form which is fit for discussion. We could not bring them to an issue. (We are inclined to restrict the meaning of \textasciitilde{} to the t r i v i a l correspondence a --+ a (for lira h --* 0) and to d e n y the p o s s i b i l i t y suggested in [\textasciitilde ).},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/U6BEKDQY/Groenewold - ON THE PRINCIPLES OF ELEMENTARY QUANTUM MECHANICS.pdf}
+}
+
+@article{grossHudsonTheoremFinitedimensional2006,
+  title = {Hudson’s Theorem for Finite-Dimensional Quantum Systems},
+  author = {Gross, D.},
+  date = {2006-12},
+  journaltitle = {Journal of Mathematical Physics},
+  shortjournal = {Journal of Mathematical Physics},
+  volume = {47},
+  number = {12},
+  pages = {122107},
+  issn = {0022-2488, 1089-7658},
+  doi = {10.1063/1.2393152},
+  url = {http://aip.scitation.org/doi/10.1063/1.2393152},
+  urldate = {2023-01-31},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/VG2V6G3Z/Gross - 2006 - Hudson’s theorem for finite-dimensional quantum sy.pdf}
+}
+
+@online{haferkampEquivalenceContextualityWigner2021,
+  title = {Equivalence of Contextuality and {{Wigner}} Function Negativity in Continuous-Variable Quantum Optics},
+  author = {Haferkamp, Jonas and Bermejo-Vega, Juani},
+  date = {2021-12-29},
+  number = {arXiv:2112.14788},
+  eprint = {arXiv:2112.14788},
+  eprinttype = {arxiv},
+  url = {http://arxiv.org/abs/2112.14788},
+  urldate = {2023-02-10},
+  abstract = {One of the central foundational questions of physics is to identify what makes a system quantum as opposed to classical. One seminal notion of classicality of a quantum system is the existence of a non-contextual hidden variable model as introduced in the early work by Bell, Kochen and Specker. In quantum optics, the non-negativity of the Wigner function is a ubiquitous notion of classicality. In this work we establish an equivalence between these two concepts. In particular, we show that any non-contextual hidden variable model for Gaussian quantum optics has an alternative non-negative Wigner function description. Conversely, it was known that the Wigner representation provides a non-negative non-contextual description of Gaussian quantum optics. It follows that contextuality and Wigner negativity are equivalent notions of non-classicality and equivalent resources for this quantum subtheory. In particular, both contextuality and Wigner negativity are necessary for a computational speed-up of quantum Gaussian optics. At the technical level, our result holds true for any subfamily of Gaussian measurements that include homodyne measurements, i.e., measurements of standard quadrature observables.},
+  langid = {english},
+  pubstate = {preprint},
+  keywords = {Quantum Physics},
+  file = {/Users/ernesto/Zotero/storage/CTWZCRJM/Haferkamp and Bermejo-Vega - 2021 - Equivalence of contextuality and Wigner function n.pdf}
+}
+
+@book{hallQuantumTheoryMathematicians2013,
+  title = {Quantum {{Theory}} for {{Mathematicians}}},
+  author = {Hall, Brian C.},
+  date = {2013},
+  series = {Graduate {{Texts}} in {{Mathematics}}},
+  volume = {267},
+  publisher = {{Springer New York}},
+  location = {{New York, NY}},
+  doi = {10.1007/978-1-4614-7116-5},
+  url = {https://link.springer.com/10.1007/978-1-4614-7116-5},
+  urldate = {2023-02-10},
+  isbn = {978-1-4614-7115-8 978-1-4614-7116-5},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/YX28BNET/Hall - 2013 - Quantum Theory for Mathematicians.pdf}
+}
+
+@article{hileyMoyalCharacteristicFunction,
+  title = {Moyal’s {{Characteristic Function}}, the {{Density Matrix}} and von {{Neumann}}’s {{Idempotent}}},
+  author = {Hiley, B J},
+  abstract = {In the Wigner-Moyal approach to quantum mechanics, we show that Moyal’s starting point, the characteristic function M (τ, θ) = ψ∗(x)ei(τpˆ+θxˆ)ψ(x)dx, is essentially the primitive idempotent used by von Neumann in his classic paper “Die Eindeutigkeit der Schr¨odingerschen Operatoren”. This paper provides the original proof of the Stone-von Neumann equation. Thus the mathematical structure Moyal develops is simply a re-expression of what is at the heart of quantum mechanics. This means it exactly reproduces the results of the quantum formalism. The “distribution function” F (X, P, t) is not a probability distribution. It is a quantum mechanical density matrix expressed in an (X, P )-representation, where X and P are the mean co-ordinates of a cell structure in phase space. The whole approach therefore clearly has little to do with classical statistical theories.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/UI6PBIFS/Hiley - Moyal’s Characteristic Function, the Density Matri.pdf}
+}
+
+@article{hileyPhaseSpaceDescriptions,
+  title = {Phase {{Space Descriptions}} of {{Quantum Phenomena}}},
+  author = {Hiley, B J},
+  abstract = {In this paper we show the deep connection between the WignerMoyal approach and the Bohm approach to quantum mechanics. We point out that the key equations used in the Bohm approach were already contained in Moyal’s classic 1949 paper. Furthermore we argue that these two approaches can be seen as different but related aspects of standard quantum formalism when the algebraic approach, rather than the Hilbert space approach is taken as primary. This leads us to consider the non-commutative Moyal *algebra in which two key equations obtained are shown to be the analogue of algebraic equations derived by Brown and Hiley using the algebraic approach. The different phase spaces exploited in each case appear as necessary consequences of the non-commutative algebra since they are but shadow manifolds already implicit in the algebra defining the quantum formalism.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/NB63CIPN/Hiley - Phase Space Descriptions of Quantum Phenomena.pdf}
+}
+
+@article{hilleryDISTRIBUTIONFUNCTIONSPHYSICS,
+  title = {{{DISTRIBUTION FUNCTIONS IN PHYSICS}}: {{FUNDAMENTALS}}},
+  author = {Hillery, M and O’Connell, R F and Scully, M O},
+  abstract = {This is the first part of what will be a two-part review of distribution functions in physics. Here we deal with fundamentals and the second part will deal with applications. We discuss in detail the properties of the distribution function defined earlier by one of us (EPW) and we derive some new results. Next, we treat various other distribution functions. Among the latter we emphasize the so.called P distribution, as well as the generalized P distribution, because of their importance in quantum optics.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/WKRD5L8E/Hillery et al. - DISTRIBUTION FUNCTIONS IN PHYSICS FUNDAMENTALS.pdf}
+}
+
+@article{howardContextualitySuppliesMagic2014,
+  title = {Contextuality Supplies the Magic for Quantum Computation},
+  author = {Howard, Mark and Wallman, Joel and Veitch, Victor and Emerson, Joseph},
+  date = {2014-10},
+  journaltitle = {Nature 510},
+  abstract = {Quantum computers promise dramatic advantages over their classical counterparts, but the answer to the most basic question "What is the source of the power in quantum computing?" has remained elusive. Here we prove a remarkable equivalence between the onset of contextuality and the possibility of universal quantum computation via magic state distillation. This is a conceptually satisfying link because contextuality provides one of the fundamental characterizations of uniquely quantum phenomena and, moreover, magic state distillation is the leading model for experimentally realizing fault-tolerant quantum computation. Furthermore, this connection suggests a unifying paradigm for the resources of quantum information: the nonlocality of quantum theory is a particular kind of contextuality and nonlocality is already known to be a critical resource for achieving advantages with quantum communication. In addition to clarifying these fundamental issues, this work advances the resource framework for quantum computation, which has a number of practical applications, such as characterizing the efficiency and trade-offs between distinct theoretical and experimental schemes for achieving robust quantum computation and bounding the overhead cost for the classical simulation of quantum algorithms.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/NPQ33AYG/Howard et al. - Contextuality supplies the magic for quantum compu.pdf}
+}
+
+@article{hudsonWhenWignerQuasiProbability1973,
+  title = {When Is {{Wigner Quasi-Probability Density Non-Negative}}?},
+  author = {Hudson, R. L.},
+  date = {1973},
+  journaltitle = {Reports on Mathematical Physics},
+  volume = {6},
+  number = {2},
+  abstract = {It is shown that a necessary and sufficient condition for the Wigner quasi-probability density to be a true density is that the corresponding Schrödinger state function be the exponential of a quadratic polynomial.},
+  file = {/Users/ernesto/Zotero/storage/ZSZSRF8P/hudson1974.pdf}
+}
+
+@article{kantorMUBsInequivalenceAffine2012,
+  title = {{{MUBs}} Inequivalence and Affine Planes},
+  author = {Kantor, W. M.},
+  date = {2012-03},
+  journaltitle = {Journal of Mathematical Physics},
+  shortjournal = {Journal of Mathematical Physics},
+  volume = {53},
+  number = {3},
+  pages = {032204},
+  issn = {0022-2488, 1089-7658},
+  doi = {10.1063/1.3690050},
+  url = {http://aip.scitation.org/doi/10.1063/1.3690050},
+  urldate = {2023-01-31},
+  abstract = {There are fairly large families of unitarily inequivalent complete sets of N + 1 mutually unbiased bases (MUBs) known in CN for various prime powers N . The number of such sets is not bounded above by any polynomial as a function of N . While it is standard that there is a superficial similarity between complete sets of MUBs and finite affine planes, there is an intimate relationship between these large families and affine planes. This note briefly summarizes “old” results that do not appear to be well-known concerning known families of complete sets of MUBs and their associated planes.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/4H9E5JJ3/Kantor - 2012 - MUBs inequivalence and affine planes.pdf}
+}
+
+@book{kimPhaseSpacePicture1991,
+  title = {Phase Space Picture of Quantum Mechanics: Group Theoretical Approach},
+  shorttitle = {Phase Space Picture of Quantum Mechanics},
+  author = {Kim, Y. S. and Noz, Marilyn E.},
+  date = {1991},
+  series = {Lecture Notes in Physics Series},
+  number = {v. 40},
+  publisher = {{World Scientific}},
+  location = {{Singapore ; Teaneck, NJ}},
+  isbn = {978-981-02-0360-3 978-981-02-0361-0},
+  langid = {english},
+  pagetotal = {334},
+  keywords = {Phase space (Statistical physics),Quantum theory},
+  file = {/Users/ernesto/Zotero/storage/PZ2U4EKC/Kim and Noz - 1991 - Phase space picture of quantum mechanics group th.pdf}
+}
+
+@article{kociaSemiclassicalFormulationGottesmanKnill2017,
+  title = {Semiclassical {{Formulation}} of {{Gottesman-Knill}} and {{Universal Quantum Computation}}},
+  author = {Kocia, Lucas and Huang, Yifei and Love, Peter},
+  date = {2017-02},
+  journaltitle = {Phys. Rev. A 96},
+  abstract = {We give a path integral formulation of the time evolution of qudits of odd dimension. This allows us to consider semiclassical evolution of discrete systems in terms of an expansion of the propagator in powers of ℏ. The largest power of ℏ required to describe the evolution is a traditional measure of classicality. We show that the action of the Clifford operators on stabilizer states can be fully described by a single contribution of a path integral truncated at order ℏ0 and so are "classical," just like propagation of Gaussians under harmonic Hamiltonians in the continuous case. Such operations have no dependence on phase or quantum interference. Conversely, we show that supplementing the Clifford group with gates necessary for universal quantum computation results in a propagator consisting of a finite number of semiclassical path integral contributions truncated at order ℏ1 , a number that nevertheless scales exponentially with the number of qudits. The same sum in continuous systems has an infinite number of terms at order ℏ1.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/FTDRW9LK/Kocia et al. - Semiclassical Formulation of Gottesman-Knill and U.pdf}
+}
+
+@article{kohComputingQuopitClifford2017,
+  title = {Computing Quopit {{Clifford}} Circuit Amplitudes by the Sum-over-Paths Technique},
+  author = {Koh, Dax E. and Penney, Mark D. and Spekkens, Robert W.},
+  date = {2017-11},
+  journaltitle = {Quantum Information and Computation},
+  shortjournal = {QIC},
+  volume = {17},
+  pages = {1081--1095},
+  issn = {15337146, 15337146},
+  doi = {10.26421/QIC17.13-14-1},
+  url = {http://www.rintonpress.com/journals/doi/QIC17.13-14-1.html},
+  urldate = {2023-01-31},
+  abstract = {By the Gottesman-Knill Theorem, the outcome probabilities of Clifford circuits can be computed efficiently. We present an alternative proof of this result for quopit Clifford circuits (i.e., Clifford circuits on collections of p-level systems, where p is an odd prime) using Feynman’s sum-over-paths technique, which allows the amplitudes of arbitrary quantum circuits to be expressed in terms of a weighted sum over computational paths. For a general quantum circuit, the sum over paths contains an exponential number of terms, and no efficient classical algorithm is known that can compute the sum. For quopit Clifford circuits, however, we show that the sum over paths takes a special form: it can be expressed as a product of Weil sums with quadratic polynomials, which can be computed efficiently. This provides a method for computing the outcome probabilities and amplitudes of such circuits efficiently, and is an application of the circuit-polynomial correspondence which relates quantum circuits to low-degree polynomials.},
+  issue = {13\&14},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/JAKEDT96/Koh et al. - 2017 - Computing quopit Clifford circuit amplitudes by th.pdf}
+}
+
+@article{leafWeylTransformNonrelativistic1968,
+  title = {Weyl {{Transform}} in {{Nonrelativistic Quantum Dynamics}}},
+  author = {Leaf, Boris},
+  date = {1968-05},
+  journaltitle = {Journal of Mathematical Physics},
+  shortjournal = {Journal of Mathematical Physics},
+  volume = {9},
+  number = {5},
+  pages = {769--781},
+  issn = {0022-2488, 1089-7658},
+  doi = {10.1063/1.1664640},
+  url = {http://aip.scitation.org/doi/10.1063/1.1664640},
+  urldate = {2023-02-10},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/3KX6H4AC/Leaf - 1968 - Weyl Transform in Nonrelativistic Quantum Dynamics.pdf}
+}
+
+@article{leeTheoryApplicationQuantum1995,
+  title = {Theory and Application of the Quantum Phase-Space Distribution Functions},
+  author = {Lee, Hai-Woong},
+  date = {1995-08},
+  journaltitle = {Physics Reports},
+  shortjournal = {Physics Reports},
+  volume = {259},
+  number = {3},
+  pages = {147--211},
+  issn = {03701573},
+  doi = {10.1016/0370-1573(95)00007-4},
+  url = {https://linkinghub.elsevier.com/retrieve/pii/0370157395000074},
+  urldate = {2023-02-10},
+  abstract = {A review is given of the quantum phase-space distribution functions with emphasis on both the fundamental characteristics and practical applications of the distribution functions. The distribution functions, such as the Wigner distribution function, the Glauber-Sudarshan P and Q functions, the Kirkwood distribution function and the Husimi distribution function, are treated in a unified fashion based on the classification scheme of Cohen.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/FNJKPPMP/Lee - 1995 - Theory and application of the quantum phase-space .pdf}
+}
+
+@article{lernerIntegratingWignerDistribution,
+  title = {Integrating the {{Wigner}} Distribution on Subsets of the Phase Space, a Survey},
+  author = {Lerner, Nicolas},
+  abstract = {We review several properties of integrals of the Wigner distribution on subsets of the phase space. Along our way, we provide a theoretical proof of the invalidity of Flandrin’s conjecture, a fact already proven via numerical arguments in our joint paper [4] with B. Delourme and T. Duyckaerts. We use also the J.G. Wood \& A.J. Bracken paper [48], for which we offer a mathematical perspective. We review thoroughly the case of subsets of the plane whose boundary is a conic curve and show that Mehler’s formula can be helpful in the analysis of these cases, including for the higher dimensional case investigated in the paper [33] by E. Lieb and Y. Ostrover. Using the Feichtinger algebra, we show that, generically in the Baire sense, the Wigner distribution of a pulse in L2(Rn) does not belong to L1(R2n), providing as a byproduct a large class of examples of subsets of the phase space R2n on which the integral of the Wigner distribution is infinite. We study as well the case of convex polygons of the plane, with a rather weak estimate depending on the number of vertices, but independent of the area of the polygon.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/TL2439SV/Lerner - INTEGRATING THE WIGNER DISTRIBUTION ON SUBSETS OF .pdf}
+}
+
+@article{mariPositiveWignerFunctions2012,
+  title = {Positive {{Wigner Functions Render Classical Simulation}} of {{Quantum Computation Efficient}}},
+  author = {Mari, A. and Eisert, J.},
+  date = {2012-12-04},
+  journaltitle = {Physical Review Letters},
+  shortjournal = {Phys. Rev. Lett.},
+  volume = {109},
+  number = {23},
+  pages = {230503},
+  issn = {0031-9007, 1079-7114},
+  doi = {10.1103/PhysRevLett.109.230503},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.109.230503},
+  urldate = {2023-01-31},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/AB4PY5H2/Mari and Eisert - 2012 - Positive Wigner Functions Render Classical Simulat.pdf}
+}
+
+@book{mcinerneyFirstStepsDifferential2013,
+  title = {First Steps in Differential Geometry: {{Riemannian}}, Contact, Symplectic},
+  shorttitle = {First Steps in Differential Geometry},
+  author = {McInerney, Andrew},
+  date = {2013},
+  series = {Undergraduate Texts in Mathematics},
+  publisher = {{Springer}},
+  location = {{New York}},
+  isbn = {978-1-4614-7731-0},
+  pagetotal = {410},
+  keywords = {Geometry; Differential},
+  annotation = {OCLC: ocn839397537}
+}
+
+@article{moyalQuantumMechanicsStatistical1949,
+  title = {Quantum Mechanics as a Statistical Theory},
+  author = {Moyal, J. E.},
+  date = {1949-01},
+  journaltitle = {Mathematical Proceedings of the Cambridge Philosophical Society},
+  shortjournal = {Math. Proc. Camb. Phil. Soc.},
+  volume = {45},
+  number = {1},
+  pages = {99--124},
+  issn = {0305-0041, 1469-8064},
+  doi = {10.1017/S0305004100000487},
+  url = {https://www.cambridge.org/core/product/identifier/S0305004100000487/type/journal_article},
+  urldate = {2023-02-10},
+  abstract = {An attempt is made to interpret quantum mechanics as a statistical theory, or more exactly as a form of non-deterministic statistical dynamics. The paper falls into three parts. In the first, the distribution functions of the complete set of dynamical variables specifying a mechanical system (phase-space distributions), which are fundamental in any form of statistical dynamics, are expressed in terms of the wave vectors of quantum theory. This is shown to be equivalent to specifying a theory of functions of non-commuting operators, and may hence be considered as an interpretation of               quantum kinematics               . In the second part, the laws governing the transformation with time of these phase-space distributions are derived from the equations of motion of               quantum dynamics               and found to be of the required form for a dynamical stochastic process. It is shown that these phase-space transformation equations can be used as an alternative to the Schrödinger equation in the solution of quantum mechanical problems, such as the evolution with time of wave packets, collision problems and the calculation of transition probabilities in perturbed systems; an approximation method is derived for this purpose. The third part,               quantum statistics               , deals with the phase-space distribution of members of large assemblies, with a view to applications of quantum mechanics to kinetic theories of matter. Finally, the limitations of the theory, its uniqueness and the possibilities of experimental verification are discussed.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/GCMBMLNA/Moyal - 1949 - Quantum mechanics as a statistical theory.pdf}
+}
+
+@article{munozDiscretePhasespaceStructures2017,
+  title = {Discrete Phase-Space Structures and {{Wigner}} Functions for {{N}} Qubits},
+  author = {Muñoz, C. and Klimov, A. B. and Sánchez-Soto, L.},
+  date = {2017-06},
+  journaltitle = {Quantum Information Processing},
+  shortjournal = {Quantum Inf Process},
+  volume = {16},
+  number = {6},
+  pages = {158},
+  issn = {1570-0755, 1573-1332},
+  doi = {10.1007/s11128-017-1607-x},
+  url = {http://link.springer.com/10.1007/s11128-017-1607-x},
+  urldate = {2023-01-31},
+  abstract = {We further elaborate on a phase-space picture for a system of N qubits and explore the structures compatible with the notion of unbiasedness. These consist of bundles of discrete curves satisfying certain additional properties and different entanglement properties. We discuss the construction of discrete covariant Wigner functions for these bundles and provide several illuminating examples.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/WA54D5TN/Muñoz et al. - 2017 - Discrete phase-space structures and Wigner functio.pdf}
+}
+
+@article{rundleOverviewPhaseSpace2021a,
+  title = {Overview of the {{Phase Space Formulation}} of {{Quantum Mechanics}} with {{Application}} to {{Quantum Technologies}}},
+  author = {Rundle, Russell P. and Everitt, Mark J.},
+  date = {2021-06},
+  journaltitle = {Advanced Quantum Technologies},
+  shortjournal = {Adv Quantum Tech},
+  volume = {4},
+  number = {6},
+  pages = {2100016},
+  issn = {2511-9044, 2511-9044},
+  doi = {10.1002/qute.202100016},
+  url = {https://onlinelibrary.wiley.com/doi/10.1002/qute.202100016},
+  urldate = {2023-02-10},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/EK6NLGEE/Rundle and Everitt - 2021 - Overview of the Phase Space Formulation of Quantum.pdf}
+}
+
+@book{schleichQuantumOpticsPhase2001,
+  title = {Quantum {{Optics}} in {{Phase Space}}},
+  author = {Schleich, Wolfgang P.},
+  date = {2001-02-09},
+  edition = {1},
+  publisher = {{Wiley}},
+  doi = {10.1002/3527602976},
+  url = {https://onlinelibrary.wiley.com/doi/book/10.1002/3527602976},
+  urldate = {2023-02-10},
+  isbn = {978-3-527-29435-0 978-3-527-60297-1},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/TSUWD5FE/Schleich - 2001 - Quantum Optics in Phase Space.pdf}
+}
+
+@book{schroeckQuantumMechanicsPhase1996,
+  title = {Quantum {{Mechanics}} on {{Phase Space}}},
+  author = {Schroeck, Franklin E.},
+  date = {1996},
+  publisher = {{Springer Netherlands}},
+  location = {{Dordrecht}},
+  doi = {10.1007/978-94-017-2830-0},
+  url = {http://link.springer.com/10.1007/978-94-017-2830-0},
+  urldate = {2023-02-10},
+  isbn = {978-90-481-4639-0 978-94-017-2830-0},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/HM89MXEA/Schroeck - 1996 - Quantum Mechanics on Phase Space.pdf}
+}
+
+@article{takabayasiFormulationQuantumMechanics1954,
+  title = {The Formulation of Quantum Mechanics in Terms of Ensemble in Phase Space},
+  author = {Takabayasi, Takehiko},
+  date = {1954},
+  journaltitle = {Progress of Theoretical Physics},
+  volume = {11},
+  file = {/Users/ernesto/Zotero/storage/2UMW8MIZ/takabayasi1954.pdf}
+}
+
+@article{takahashiDistributionFunctionsClassical1989,
+  title = {Distribution Functions in Classical and Quantum Mechanics},
+  author = {Takahashi, Kin'ya},
+  date = {1989},
+  journaltitle = {Progress of Theoretical Physics},
+  number = {98},
+  file = {/Users/ernesto/Zotero/storage/B9SGZAPH/takahashi1989.pdf}
+}
+
+@online{todorovQuantizationMystery2012,
+  title = {"{{Quantization}} Is a Mystery"},
+  author = {Todorov, Ivan},
+  date = {2012-06-14},
+  number = {arXiv:1206.3116},
+  eprint = {arXiv:1206.3116},
+  eprinttype = {arxiv},
+  url = {http://arxiv.org/abs/1206.3116},
+  urldate = {2023-02-10},
+  abstract = {Expository notes which combine a historical survey of the development of quantum physics with a review of selected mathematical topics in quantization theory (addressed to students that are not complete novices in quantum mechanics).},
+  langid = {english},
+  pubstate = {preprint},
+  keywords = {81S10; 01A60,Mathematical Physics,Mathematics - History and Overview,Physics - History and Philosophy of Physics},
+  file = {/Users/ernesto/Zotero/storage/UUGM8Q8F/Todorov - 2012 - Quantization is a mystery.pdf}
+}
+
+@article{wheelerPhaseSpaceFormulation2000,
+  title = {Phase {{Space Formulation}} of {{Quantum Mechanical Particle-in-a-Box Problem}}},
+  author = {Wheeler, Nicholas},
+  date = {2000},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/LW4MBIFR/Wheeler - PHASE SPACE FORMULATION OF THE QUANTUM MECHANICAL .pdf}
+}
+
+@article{wignerQuantumCorrectionThermodynamic1932,
+  title = {On the {{Quantum Correction For Thermodynamic Equilibrium}}},
+  author = {Wigner, E.},
+  date = {1932-06-01},
+  journaltitle = {Physical Review},
+  shortjournal = {Phys. Rev.},
+  volume = {40},
+  number = {5},
+  pages = {749--759},
+  issn = {0031-899X},
+  doi = {10.1103/PhysRev.40.749},
+  url = {https://link.aps.org/doi/10.1103/PhysRev.40.749},
+  urldate = {2023-02-10},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/DNHBPA8J/Wigner - 1932 - On the Quantum Correction For Thermodynamic Equili.pdf}
+}
+
+@book{wongWeylTransforms1998,
+  title = {Weyl Transforms},
+  author = {Wong, M. W.},
+  date = {1998},
+  series = {Universitext},
+  publisher = {{Springer}},
+  location = {{New York}},
+  isbn = {978-0-387-98414-8},
+  langid = {english},
+  pagetotal = {158},
+  keywords = {Fourier analysis,Pseudodifferential operators},
+  file = {/Users/ernesto/Zotero/storage/K3RAWLLW/Wong - 1998 - Weyl transforms.pdf}
+}
+
+@article{woottersWignerFunctionFormulationFiniteState1987,
+  title = {A {{Wigner-Function Formulation}} of {{Finite-State Quantum Mechanics}}},
+  author = {Wootters, K},
+  date = {1987-05},
+  journaltitle = {Annals of Physics},
+  volume = {176},
+  number = {1},
+  pages = {1--21},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/3ACA3L3F/Wootters - A Wigner-Function Formulation of Finite-State Quan.pdf}
+}
+
+@book{zachosQuantumMechanicsPhase2005,
+  title = {Quantum Mechanics in Phase Space: An Overview with Selected Papers},
+  shorttitle = {Quantum Mechanics in Phase Space},
+  editor = {Zachos, Cosmas and Fairlie, David and Curtright, Thomas},
+  date = {2005},
+  series = {World {{Scientific}} Series in 20th Century Physics},
+  number = {v. 34},
+  publisher = {{World Scientific}},
+  location = {{New Jersey ; London}},
+  isbn = {978-981-238-384-6},
+  langid = {english},
+  pagetotal = {551},
+  keywords = {Phase space (Statistical physics),Quantum theory},
+  annotation = {OCLC: ocm64310776},
+  file = {/Users/ernesto/Zotero/storage/3V8WIH6P/Zachos et al. - 2005 - Quantum mechanics in phase space an overview with.pdf}
+}
+
+@article{zweifelWignerTransformWignerpoisson1993,
+  title = {The {{Wigner}} Transform and the {{Wigner-poisson}} System},
+  author = {Zweifel, P. F.},
+  date = {1993-08},
+  journaltitle = {Transport Theory and Statistical Physics},
+  shortjournal = {Transport Theory and Statistical Physics},
+  volume = {22},
+  number = {4},
+  pages = {459--484},
+  issn = {0041-1450, 1532-2424},
+  doi = {10.1080/00411459308203824},
+  url = {http://www.tandfonline.com/doi/abs/10.1080/00411459308203824},
+  urldate = {2023-03-06},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/2S3CDR9I/Zweifel - 1993 - The Wigner transform and the Wigner-poisson system.pdf}
+}

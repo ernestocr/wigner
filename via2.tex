@@ -1,0 +1,170 @@
+\subsubsection{Vía 2}
+
+Para obtener una expresión para el valor esperado de un
+observable en un estado en términos de una integral sobre
+el espacio de fase, análogo al valor esperado de un
+observable dada una densidad de Liouville, primero debemos
+obtener una correspondencia entre los operadores del
+espacio de Hilbert asociado al sistema cuántico, y las
+funciones integrables en el espacio de fase, un proceso
+que se conoce como \textit{cuantización}.  Ingenuamente
+podríamos simplemente reemplazar formalmente a las
+variables $x$ y $p$ por los operadores $\hat{x}$ y
+$\hat{p}$,
+\[
+  A(x,p) \mapsto \hat{A}(\hat{x},\hat{p}).
+\]
+Ésto no funciona en general porque no hay una manera única
+de asignar operadores a funciones con ésta asignación. En
+1927, Herman Weyl introdujo una manera específica de mapear
+observables clásicos a observables cuánticos, ésta
+asignación se conoce como la \textit{cuantización de Weyl}
+y mapea al producto de las variables de posición momentum
+de manera simétrica:
+\[
+  xp \mapsto \frac{1}{2}\left( \hat{x}\hat{p} +
+  \hat{p}\hat{x} \right).
+\] 
+Con ésta elección, supongamos que tenemos un operador
+$\hat{A}$ correspondiente a una función que solamente
+depende de la variable de posición, $A(x)$, entonces
+informalmente, podríamos expresar a $\hat{A}$ por medio de
+una función delta de Dirac para operadores:
+\begin{equation}
+  \hat{A}(\hat{x})
+  = \int A(x) \delta(x-\hat{x}) \, dx.
+\end{equation}
+Utilizando la expresión de una delta de Dirac por medio de
+una integral,
+\[
+  \delta(x)
+  = \frac{1}{2\pi\hbar} \int e^{\frac{i}{\hbar} \xi x} \,
+  d\xi,
+\] 
+podemos expresar al operador como
+\[
+  \hat{A}(\hat{x})
+  = \frac{1}{2\pi\hbar} \iint A(x)e^{\frac{i}{\hbar} \xi
+  (x - \hat{x})} \, d\xi \, dx.
+\] 
+Nos gustaría hacer lo mismo pero ahora para un observable
+que depende de $x$ y de $p$. Por analogía podríamos
+escribir 
+\begin{equation}
+  \hat{A}(\hat{x},\hat{p})
+  = \frac{1}{(2\pi\hbar)^2} \iiiint A(x,p)
+  e^{\frac{i}{\hbar} [\xi (x - \hat{x}) + \eta (p -
+  \hat{p})]} \, d\xi \, d\eta \, dx \, dp.
+\end{equation}
+Tal expresión se conoce como la transformación de Weyl de
+un observable. Para un estado puro $\psi \in L^2(\R)$,
+podemos expresar la transformación de Weyl sin los
+operadores en la exponencial. Para hacer ésto, primero
+notemos que
+\[
+  \left( e^{-\frac{\hbar}{i} \xi \hat{x}} \psi \right)(x)
+  = e^{-\frac{\hbar}{i} \xi x}\psi(x),
+\] 
+y 
+\[
+  \left( e^{-\frac{\hbar}{i} \eta \hat{p}} \psi \right)(x)
+  = \psi(x-\eta).
+\] 
+Además haciendo uso de la identidad de
+Baker-Campbell-Hausdorff, podemos separar el operador
+exponencial como
+\[
+  e^{-\frac{i}{\hbar}(\xi \hat{x} + \eta \hat{p})}
+  = e^{-\frac{i}{\hbar} \xi \hat{x}} e^{-\frac{i}{\hbar}
+  \eta \hat{p}} e^{\frac{i}{2\hbar} \xi \eta}.
+\] 
+Con ésto, podemos expresar la transformación de Weyl de un
+observable sobre un estado puro como
+\begin{align}
+  \left(\hat{A}\psi\right)(z)
+  &= \frac{1}{(2\pi\hbar)2} 
+  \iiiint A(x,p) e^{\frac{i}{\hbar}[\xi(x-\hat{x}) +
+  \eta(p-\hat{p})]} \psi(z) \, d\xi \, d\eta \, dx \, dp
+  \\
+  &= \frac{1}{(2\pi\hbar)^2} \iiiint A(x,p)
+  e^{\frac{i}{\hbar}(\xi x + \eta
+  p)}e^{-\frac{i}{\hbar}(\xi \hat{x} + \eta \hat{p})}
+  \psi(z) \, d\xi \, d\eta \, dx \, dp \\
+  &= \frac{1}{(2\pi\hbar)^2} \iiiint A(x,p)
+  e^{\frac{i}{\hbar}(\xi x + \eta p + \frac{1}{2} \xi
+  \eta)} e^{-\frac{i}{\hbar} \xi z}\psi(z - \eta) \, d\xi
+  \, d\eta \, dx \, dp.
+\end{align}
+Integrando sobre $\xi$ obtenemos
+\begin{align*}
+  \left( \hat{A} \psi \right)(z)
+  &= \frac{1}{(2\pi\hbar)^2} \iiiint A(x,p)
+  e^{\frac{i}{\hbar}\xi(x + \frac{1}{2}\eta - z)}
+  e^{\frac{i}{\hbar} \eta p} \psi(z-\eta) \, d\xi \, d\eta
+  \, dx \, dp \\
+  &= \frac{1}{2\pi\hbar} \iiint A(x,p) \delta(x - z +
+  \tfrac{1}{2}\eta) e^{\frac{i}{\hbar} \eta p} \psi(z -
+  \eta) \, d\eta \, dx \, dp \\
+  &= \frac{1}{2\pi\hbar} \iint A(z - \tfrac{1}{2} \eta, p)
+  e^{\frac{i}{\hbar} \eta p} \psi(z- \eta) \, d\eta \, dp.
+\end{align*}
+Ahora hacemos el cambio de variable $x = z - \eta$ para
+obtener 
+\begin{equation}
+  \label{eqn:weyl_map}
+  \left( \hat{A}\psi \right)(z)
+  = \frac{1}{2\pi\hbar} \iint A\left( \frac{x+z}{2},
+  p\right) e^{\frac{i}{\hbar} p (z-x)} \psi(x) \, dx \,
+  dp.
+\end{equation}
+Ésta última expresión es la más común cuando se habla de
+la cuantización de Weyl de un observable $A(x,p)$. Ahora
+que tenemos una manera de mapear un observable sobre el
+espacio de fase a un operador de $L^2(\R)$, deseamos
+obtener el mapa inverso. Para ésto, supongamos que el
+operador $\hat{A}$ tiene una representación integral, es
+decir, para todo $\psi \in L^2(\R)$ tenemos
+\begin{equation}
+  \left( \hat{A}\psi \right)(z)
+  = \int K_{\hat{A}}(x,z) \psi(x) \, dx,
+\end{equation}
+donde $K_{\hat{A}}$ se conoce como el \textit{núcleo} del
+operador $\hat{A}$. Si además suponemos que el operador
+$\hat{A}$ es la transformada de Weyl de un observable $A$,
+por medio de una comparación con la expresión
+(\ref{eqn:weyl_map}) con la representación integral,
+observamos que el núcleo correspondiente a $\hat{A}$ está
+dado por
+\begin{equation}
+  K_{\hat{A}}(x,z)
+  = \frac{1}{2\pi\hbar} \int A\left( \frac{x+z}{2}, p
+  \right) e^{\frac{i}{\hbar} p (z-x)} \, dp.
+\end{equation}
+Haciendo el cambio de variable $u = \frac{x+z}{2}$ y $v =
+x - z$ obtenemos
+\begin{equation}
+  K_{\hat{A}}(u - \tfrac{v}{2}, u + \tfrac{v}{2})
+  = \frac{1}{2\pi\hbar} \int A\left( u, p \right)
+  e^{-\frac{i}{\hbar} p v} \, dp.
+\end{equation}
+Para recuperar al observable $A(u,p)$, aplicamos la
+transformación de Fourier para obtener
+\begin{equation}
+  A(x,p)
+  = \int K_{\hat{A}}(x-\tfrac{z}{2}, u + \tfrac{z}{2})
+  e^{\frac{i}{\hbar} p v} \, dp.
+\end{equation}
+
+. . . 
+
+Los operadores de densidad que describen el estado de un
+sistema cuántico pertenecen al espacio de operadores
+Hilbert-Schmidt. De acuerdo a ésto, la función de Wigner
+$\W_\rho$ de un estado puro $\rho$ con núcleo
+$\rho_K(x,y) = \psi(x)\overline{\psi}(y)$ está dado por
+\[
+  \W_\rho(x,p)
+  = \frac{1}{2\pi\hbar} \int \psi(x - \frac{1}{2}y)
+  \overline{\psi}(x + \frac{1}{2}y) e^{ipy / \hbar} \,
+  dy.
+\] 
