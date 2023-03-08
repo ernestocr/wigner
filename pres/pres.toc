@@ -1,4 +1,0 @@
-\babel@toc {spanish}{}\relax 
-\beamer@sectionintoc {1}{Primera vía}{3}{0}{1}
-\beamer@sectionintoc {2}{Segunda vía}{17}{0}{2}
-\beamer@sectionintoc {3}{Tercera vía}{24}{0}{3}
