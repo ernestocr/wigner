@@ -1,0 +1,187 @@
+En lo que sigue nos enfocamos a una partícula en una sola
+  dimensión, pero se puede extender a varias dimensiones sin
+  mucho problema. Sea $A$ un observable y $\rho$ un estado
+  de un sistema cuántico, entonces siguiendo la idea
+  anterior, nos gustaría poder hacer el siguiente cálculo
+  \begin{equation}
+    \Tr\left(\rho \hat{A}\right)
+    = \iint A(x,p)F(x,p) \, dx \, dp,
+  \end{equation}
+  donde $F$ es una densidad probabilística en el espacio de
+  fase relacionada al estado $\rho$. Evidentemente lo
+  primero que necesitamos es una correspondencia entre
+  operadores en el espacio de Hilbert y funciones
+  integrables en el espacio de fase. Pero inmediatamente nos
+  confrontamos con un problema de asignación, debido a la no
+  conmutatividad de los operadores de posición y de
+  momentum. En partícular consideremos el caso en que
+  nuestro operador es la exponencial $e^{i(\xi \hat{x} +
+  \eta \hat{p})}$ donde $\xi, \eta \in \R$.  Podríamos
+  reemplazar los operadores $\hat{x}$ y $\hat{p}$ de manera
+  formal para obtener
+  \begin{equation}
+    \Tr\left( \rho e^{i\left( \xi \hat{x} + \eta
+    \hat{p} \right)} \right)
+    = \iint e^{i\left( \xi x + \eta p \right)} F(x,p) \,
+    dx \, dp
+  \end{equation}
+  con una densidad particular $F(x,p)$. Ahora consideremos
+  el operador $e^{i\xi \hat{x}} e^{i\eta\hat{p}}$, siguiendo
+  el mismo razonamiento obtenemos
+  \begin{equation}
+    \Tr\left(\rho e^{i\xi \hat{x}} e^{i\eta
+    \hat{p}}\right)
+    = \iint e^{i\xi x} e^{\eta p} \tilde F(x,p) \, dx \,
+    dp
+    = \iint e^{i\left( \xi x + \eta p \right)} \tilde
+    F(x,p) \, dx \, dp.
+  \end{equation}
+  Notemos que la función en el espacio de fase que aparece
+  en el integrando es la misma para ambos operadores. Pero
+  utilizando la identidad Baker-Campbell-Hausdorf sabemos
+  que
+  \begin{equation}
+    e^{i\left( \xi \hat{x} + \eta \hat{p} \right)}
+    = e^{i\xi \hat{x}}e^{i\eta \hat{p}}e^{-\frac{1}{2}i\hbar
+    \xi \eta}
+    \neq e^{i\xi \hat{x}}e^{i\eta \hat{p}}.
+  \end{equation}
+  Así que en general las distribuciones $F$ y $\tilde F$
+  deben ser distintas si no obtendremos los mismos valores
+  esperados para distintos operadores en un mismo estado.
+  Distintas reglas asociando funciones de operadores no
+  conmutativos con sus correspondientes funciones escalares
+  nos darán distintas distribuciones
+  \cite{leeTheoryApplicationQuantum1995}. En el caso del
+  ordenamiento de Weyl, que introduciremos más adelante, se
+  puede probar que 
+  \[
+    e^{\xi x + \eta p} \leftrightarrow e^{\xi \hat{x} + \eta
+    \hat{p}},
+  \] 
+  por lo tanto eligiendo ésta asignación podemos
+  \textit{definir} la densidad $F$ mediante la ecuación
+  \begin{equation}
+    \Tr\left(
+      \rho e^{i(\xi \hat{x} + \eta \hat{p})}
+    \right)
+    = \iint e^{i(\xi x + \eta p)}F(x,p) \, dx \, dp.
+  \end{equation}
+  Para obtener una expresión de $F$, utilizamos la
+  transformación de Fourier y escribimos de manera formal
+  \begin{equation}
+    \label{eqn:density_from_trace}
+    F(x,p)
+    = \frac{1}{(2\pi)^2} \iint \Tr\left( \rho 
+      e^{i\left( \xi \hat{x} + \eta \hat{p} \right)} \right)
+      e^{-i\left( \xi x + \eta p\right)} \, d\xi \, d\eta.
+  \end{equation}
+
+  Enseguida buscamos expresar el integrando sin la traza y
+  sobre todo sin los operadores $\hat{x}$ y $\hat{p}$. Para
+  ésto hacemos uso de la notación de Dirac y expresamos la
+  traza mediante una ``expansión'' de los operadores
+  $\hat{A}$ y $\rho$ en términos de la posición y luego
+  aplicamos el operador exponencial sobre los vectores $\ket
+  x$. Primero
+  \begin{equation}
+    \Tr\left( \rho \hat{A} \right) 
+    = \iint \braket{x|\rho|x'} \braket{x'|\hat{A}|x} \, dx
+    \, dx'.
+  \end{equation}
+  Luego, el operador $e^{i\eta \hat{p}}$ actúa sobre $\ket
+  x$ como una traslación en el espacio de posición, es decir
+  \[
+    e^{i\eta \hat{p}} \ket x
+    = \ket{x - \eta \hbar},
+  \] 
+  y el operador $e^{i\xi \hat{x}}$ actúa sobre un $\ket x$ 
+  simplemente como una multiplicación por un factor de fase,
+  \[
+    e^{i\xi \hat{x}} \ket x
+    = e^{i\xi x} \ket x.
+  \] 
+  Finalmente recordando que $e^{i(\xi \hat{x} + \eta
+  \hat{p})} = e^{i \xi \hat{x}} e^{i \eta \hat{p}}
+  e^{-\frac{1}{2}i\hbar \xi \eta}$, obtenemos
+  \begin{align*}
+    \Tr\left( \rho e^{i(\xi \hat{x} + \eta \hat{p})} \right) 
+    &= \iint \braket{x|\rho|x'} \braket{x'| e^{i(\xi \hat{x}
+    + \eta \hat{p})}|x} \, dx \, dx' \\
+    &= \iint \braket{x|\rho|x'} \braket{x'|e^{i\eta
+    \hat{p}}|x} e^{i\xi x}e^{-\frac{1}{2} i \hbar \xi \eta}
+    \, dx \, dx' \\
+    &=  \iint \braket{x|\rho|x'} \braket{x'|x - \eta \hbar}
+    e^{i\xi x}e^{-\frac{1}{2} i \hbar \xi \eta} \, dx \, dx'
+    \\
+    &= \int \braket{x|\rho|x - \eta \hbar} e^{i\xi (x
+    -\frac{1}{2} \hbar \eta)} \, dx.
+  \end{align*}
+
+  Sustituyendo ésta expresión de la traza en el integrando
+  de (\ref{eqn:density_from_trace}), y haciendo el cambio de
+  variable $x'' = x' - \frac{1}{2}\eta\hbar$, obtenemos una
+  expresión que ya no incluye a los operadores $\hat{x}$ y
+  $\hat{p}$:
+  \begin{align*}
+    F(x,p)
+    &= \frac{1}{(2\pi)^2} \iiint \braket{x'|\rho|x' -
+    \eta\hbar} e^{i\xi(x' - \frac{1}{2}\hbar \eta)}
+    e^{-i(\xi x + \eta p)} \, d\xi \, d\eta \, dx'\\
+    &= \frac{1}{(2\pi)^2}\iiint \braket{x'|\rho|x'-\eta
+    \hbar} e^{i\xi(x' - \frac{1}{2}\hbar\eta - x)} e^{-i\eta
+    p} \, d\xi \, d\eta \, dx' \\
+    &= \frac{1}{(2\pi)^2}\iiint \braket{x'' + \tfrac{1}{2}
+    \eta \hbar|\rho|x'' - \tfrac{1}{2} \eta \hbar}
+    e^{i\xi(x'' - x)} e^{-i\eta p} \, d\xi \, d\eta \, dx''.
+  \end{align*}
+
+  Utilizando la representación integral de la función delta
+  de Dirac (respecto a $\xi$) y luego integrando sobre $x'$,
+  las cosas se simplifican aún más:
+  \begin{align}
+    F(x,p)
+    &= \frac{1}{2\pi} \iint \braket{
+    x'+\tfrac{1}{2}\eta\hbar | \rho|
+    x'-\tfrac{1}{2}\eta\hbar} \delta(x'-x) e^{-i\eta p} \,
+    d\eta \, dx' \\
+    &= \frac{1}{2 \pi} \int \braket{x +
+    \tfrac{1}{2}\eta\hbar | \rho | x - \tfrac{1}{2}
+    \eta\hbar}e^{-i \eta p} \, d\eta.
+  \end{align}
+  Haciendo un cambio de variable más, $y = -\eta \hbar$, por
+  fin llegamos a lo que definimos como la transformación de
+  Wigner de un estado arbitrario:
+  \begin{equation}
+    W(x,p)
+    := \frac{1}{2\pi\hbar} \int \braket{x -
+      \tfrac{1}{2}y|\rho|x+\tfrac{1}{2}y} e^{\frac{i}{\hbar}
+    y p} \, dy.
+  \end{equation}
+  La función $W$ es integrable sobre el espacio de fase
+  $\R^{2n}$ y contiene la misma información que el estado
+  $\rho$. En el caso en que el estado $\rho = \ket \psi \bra
+  \psi$ es puro, inmediatamente llegamos a la expresión de
+  Wigner (\ref{eqn:wigners_original}) utilizando la
+  representación de la función de onda. Formalmente se puede
+  extender ésta idea para transformar operadores que no son
+  operadores de densidad, aunque justificar ésto de manera
+  rigurosa no es tan trivial. En éste caso la transformación
+  de Wigner de un operador lineal $\hat{A}$ es
+  \begin{equation}
+    A(x,p)
+    = \frac{1}{2 \pi \hbar} \int
+    \braket{x-\tfrac{1}{2}y|\hat{A}|x+\tfrac{1}{2}y}
+    e^{\frac{i}{\hbar}p y} \, dy.
+  \end{equation}
+
+  Integrando el producto de las funciones de Wigner de un
+  estado $\rho$ y de un observable $\hat{A}$ sobre el
+  espacio de fase se puede demostrar fácilmente que
+  efectivamente hemos calculado el valor esperado del
+  observable, cumpliendo con nuestro objetivo inicial, es
+  decir,
+  \[
+    \Tr\left( \rho\hat{A} \right) 
+    = \iint A(x,p)W(x,p) \, dx \, dp.
+  \] 
