@@ -1,0 +1,2445 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=1.2in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\diag}{diag}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+%\newtheorem{corollary}{Corolario}
+\newtheorem{example}{Example}
+\newtheorem{conjecture}{Conjecture}
+
+\hfuzz=6pt
+
+\title{MUBs}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  \section{Optimal State-Determination by Mutually Unbiased
+  Measurements (1988)}
+
+  In quantum formalism, the property of orthogonality
+  appears naturally in the eigenstates of a non-degenerate
+  measurement, which form an orthogonal basis of the vector
+  space. There is a particular relation among different
+  orthogonal bases, a relation called mutual unbiasedness.
+  They play a special role in the problem of determining the
+  state of a quantum ensemble. Measurments associated with
+  mutually unbiased bases provide an optimal means of
+  determining an ensemble's state. 
+
+  The bases $\{v_i\}$ and $\{u_j\}$ of an $N$-dimensional
+  Hilbert space are mutualy unbiased if inner products
+  between all possible pairs of vectors with one vector from
+  each basis have the same magnitud:
+  \[
+    |\langle v_i, u_j \rangle|
+    = \frac{1}{\sqrt{N}}.
+  \] 
+  In terms of projection operators, let $P_i$ be the
+  projection onto the vector $v_i$ and $Q_j$ onto to $u_j$.
+  Then mutual unbiasedness requires that for all $P_i$ and
+  $Q_j$,
+  \[
+    \Tr(P_iQ_j) = \frac{1}{N}.
+  \] 
+  For $N = 2$ we have an important and basic example:
+  \[
+    \left\{
+      \begin{pmatrix} 1; 0 \end{pmatrix},
+      \begin{pmatrix} 0; 1 \end{pmatrix} 
+    \right\},
+    \left\{
+      \frac{1}{\sqrt{2}} \begin{pmatrix} 1; 1 \end{pmatrix},
+      \frac{1}{\sqrt{2}} \begin{pmatrix} 1; -1 \end{pmatrix} 
+    \right\},
+    \left\{
+      \frac{1}{\sqrt{2}} \begin{pmatrix} 1; i \end{pmatrix},
+      \frac{1}{\sqrt{2}} \begin{pmatrix} 1; -i \end{pmatrix} 
+    \right\},
+  \] 
+  which correspond to the eigenstates of the components of
+  spin in the $z, x$ and $y$ directions (in standard
+  representation).
+
+  We say that two non-degenerate measurements are mutually
+  unbiased if the bases comprising their eigenstates are
+  mutually unbiased. Schewinger noted that a measurement
+  over one basis leaves one completely uncertain as to the
+  outcome of a measurement over a basis unbiased with
+  respect to the first. A measurement of spin in the $x$ 
+  direction for a spin-$1 / 2$ particle leaves one
+  completely uncertain as to the component of spin in the
+  $y$ direction. Given this maximal incompatibility,
+  Schwinger called the operators corresponding to such bases
+  as \textit{complementary}.
+
+  \subsection{The problema of state determination}
+
+  The problem is to ascertain the density matrix of an
+  ensemble of identical $N$-state systems, which may be in a
+  pure or a mixed state. Such a density matrix is specified
+  by $N^2-1$ real parameters. Any given non-degenrate
+  measurement applied to a subensemble will yield precisely
+  $N-1$ real numbers, i.e., the probabilities of all but one
+  of the $N$ possible outcomes. Thus the minimum number of
+  different measurements one needs in order to determine the
+  state uniquely is $(N^2-1) / (N-1) = N + 1$. If one can
+  find $N+1$ bases that are all unbiased, then measurements
+  corresponding to these bases are guaranteed to be
+  sufficient for determingin the density matrix.
+
+  \subsection{A construction of complete sets of mutually
+  unbiased bases}
+
+  For this method, the construction is different for powers
+  of odd primes than for powers of two.
+
+  \subsubsection{Unbiased bases for powers of odd primes}
+
+  For $N = p$, an odd prime, one can find $N+1$ mutually
+  unbiased bases. These bases are the standard basis
+  \[
+    (v_k^0)_l = \delta_{kl},
+    \quad k,l = 0,1,\ldots,p-1,
+  \] 
+  and $N$ bases given by
+  \[
+    (v_k^0)_l = \frac{1}{\sqrt{N}} e^{(2\pi i /
+    p)(rl^2+kl)},
+    \quad r = 1,2,\ldots,N.
+  \] 
+  The key to generalizing this resulto (to powers of a prime
+  number) is to note that the phases of the vectors are all
+  $p$ th roots of unity, so that the integral indices in the
+  exponent have induced upon them an lagebra modulo $p$. The
+  primality of $p$ gives us the structure of a field,
+  something that can be obtained for powers of primes.
+
+  For $N = p^{n}$ with $p \neq 2$, we can find $N+1$ bases,
+  the first is the standard basis
+  \[
+    (v_k^0)_l = \delta_{kl},
+    \quad k,l \in \mathbb F_{p^n}.
+  \] 
+  The other $N$ bases are given by
+  \[
+    (v_k^r)_l
+    = \frac{1}{\sqrt{N}} e^{(2\pi i / p)\Tr(rl^2+kl)},
+    \quad r,k,l \in \mathbb F_{p^n}, \quad r \neq = 0.
+  \] 
+  The proof of the unbiasedness relies on the result from
+  field theory that states
+  \[
+    \left|
+    \sum_{j \in \mathbb F}^{} e^{(2\pi i / p)\Tr(mj^2+nj)}
+    \right|
+    = \sqrt{p^n},
+    \quad (m \neq 0, p \text{ an odd prime}).
+  \] 
+  
+  Wootters then goes on to give an expression the only
+  involves the underlying prime field basis by using the
+  expansion coefficients in some field basis.
+
+  By anaology he uses this construction to obtain a versión
+  for the case $N = 2^{n}$.
+
+  Wootters concludes that having shown that if $N$ is a
+  power a of a prime, then a complete set does exist. If $N$ 
+  is not a power of a prime, then we don't know whether such
+  a set of bases exists or not. He then mentions that it is
+  clear that if such bases exist at all (for example if
+  there are seven mutually unbiased bases for a six
+  dimensional complex vector space), then any procedure for
+  obtaining them must be very different from his procedure.
+
+  \section{Mutually unbiased bases, spherical designs, and
+  Frames}
+
+  Two quantum mechanical observables $O$ and $O'$ are called
+  complementary if and only if the precise knowledge of one
+  of them implies that all possible outcomes are equally
+  probable when measuring the other. Complementarity of $O$ 
+  and $O'$ implies that if a quantum system is prepared in
+  an eigenstate $b'$ of the observable $O'$, and $O$ is
+  subsequently measure, then the probability of finding the
+  system after the measurement in the state $b \in B$ is
+  given by $|\langle b|b' \rangle|^2 = 1 / d$. This leads us
+  to the definition of mutually unbiased bases: we call two
+  orthonormal bases $B$ and $C$ of $\C^{d}$ mutually
+  unbiased if
+  \[
+    |\langle b|c \rangle|^2 = \frac{1}{d},
+  \] 
+  holds for all $b \in B$ and $c \in C$. Ivanovic showed
+  that complete measurements of at least $d + 1$ observables
+  are needed to reconstruct the density matrix. The lower
+  bound is obtained when $d + 1$ non-degenerate pairwise
+  complementary observables are used.
+
+  There are several constructions known to obtain MUBs. For
+  prime power dimension the problem is completely solved.
+
+  \begin{itemize}
+    \item I (Alltop) Let $q$ be an odd prime power. For each
+      pair $(a,b) \in \mathbb F^2_q$ we define the vector
+      \[
+        \ket{v_{a,b}}
+        = q^{-1 / 2} \left( \omega_p^{\Tr((x+a)^3+b(x+a))}
+        \right)_{x \in \mathbb F_q} \in \C^{q},
+      \] 
+      where $\omega_p = \exp(2\pi i / p)$. Then the standard
+      basis together with the bases $B_a = \{\ket{v_{a,b}}
+      | b \in \mathbb F_q\}$, $a\in \mathbb F_q$ form a set
+      of $q + 1$ mutually unbiased bases of $\C^{q}$.
+    \item II (Wootters and Fields) Let $q$ be an odd prime
+      power. For each pair $(a,b) \in \mathbb F^2_q$ we
+      define a vector
+      \[
+        \ket{v_{a,b}} = q^{-1 / 2} \left(
+        \omega_p^{\Tr(ax^2+bx)} \right)_{x \in \mathbb F_q}
+        \in \C^{q},
+      \] 
+      where $\omega_p = \exp(2\pi i/p)$. Then the standard
+      basis together with the bases $B_a = \{\ket{v_{a,b}} |
+      b \in \mathbb F_q\}$, $a \in \mathbb F_q$, form a set
+      of $q + 1$ mutually unbiased bases of $\C^{q}$.
+  \end{itemize}
+  It can be shown that the bases from construction I and II
+  are equivalent. But both constructions can only be used in
+  case $q$ is a prime power of an \textit{odd} prime number.
+  In the case $q$ is a power of two it is also possible to
+  construct maximally sets of MUBs, however the finite
+  fields used in constructions I and II have to be replaced
+  by finite Galois rings.
+  \begin{itemize}
+    \item III (Galois rings) Let $GR(4,n)$ be a finite
+      Galois ring of size $4^{n}$ with Teichmüller set
+      $\mathcal T_n$. Define
+      \[
+        \ket{v_{a,b}}
+        = 2^{-n / 2} \left( \exp\left( \frac{2\pi i}{4}
+        \Tr(a+2b)x \right) \right)_{x \in \mathcal T_n}.
+      \] 
+      Then the standard basis together with the bases $B_a =
+      \{\ket{v_{a,b}} | b \in \mathcal T_n\}$, $a \in
+      \mathcal T_n$, form a set of $2^{n}+1$ mutually
+      unbiased bases of $\C^{2^{n}}$.
+  \end{itemize}
+
+  Another method to construct sets of MUBs is based on the
+  idea to partition a unitary error basis, which in
+  dimensión $n$, is vector space basis of $\C^{n \times n}$ 
+  which consists of unitary operations with the additional
+  property that they are orthogonal with respect to the
+  Hilbert-Schmidt producto $\braket{A|B} = \Tr(A^{*}B)$.
+
+  \begin{itemize}
+    \item IV (Bandyopadhyay) Suppose there exist subsets
+      $\mathcal C_1,\ldots,\mathcal C_m$ of unitary error
+      basis $\mathcal B$ such that $|\mathcal C_i| = d$,
+      $\mathcal C_i \cap \mathcal C_j = \{1_d\}$ for $i \neq
+      j$, and the elements of $\mathcal C_i$ pairwise
+      commute. Let $B_i$ be a matrix which diagonalizes
+      $\mathcal C_i$. Then $B_1,\ldots,B_m$ are MUBs.
+  \end{itemize}
+
+  \section{Constructions of mutually unbiased bases
+  (Klappenecker)}
+
+  The notion of mutually unbiased bases emerged in the
+  literature of quantum mechanics in 1960 from the works of
+  Schwinger. Two orthonormal bases $B$ and $B'$ of the
+  vector space $\C^{d}$ are called mutually unbiased if and
+  only if $|\braket{b|b'}|^2 = 1 / d$ holds for all $b \in
+  B$ and $b' \in B'$. Schwinger realized that no information
+  can be retrieved when a quantum system which is prepared
+  in a basis state from $B'$ is measured with respect to the
+  basis $B$.
+
+  Any collection of pairwise mutually unbiased bases of
+  $\C^{d}$ has cardinality $d+1$ or less. Let $N(d)$ denote
+  the maximum cardinality of any set containing pairwise
+  mutually unbiased bases of $\C^{d}$. It is known that
+  $N(d) = d + 1$ holds when $d$ is a prime power. Here a
+  simplified proof is derived using Weil-type exponential
+  sums, for odd prime power dimensions. For even prime power
+  dimensions, exponential sums over Galois \textit{rings}
+  are used. 
+
+  \subsection{Odd prime powers}
+
+  Let $\mathbb F_q$ be a finte field with $q$ elements which
+  has odd characteristic $p$. Each nonzero elemento $x \in
+  \mathbb F_q$ defines a non-trivial additive character
+  $\mathbb F_q \to \C^{\times}$ by
+  \[
+    y \mapsto \omega_p^{\Tr(xy)},
+  \] 
+  where $\omega_p = \exp(2\pi i / p)$ is a primitive $p$-th
+  root of unity.
+
+  \begin{lemma}
+    Let $\mathbb F_q$ be a finite field of odd
+    characteristic and $\chi$ a non-trivial additive
+    character of $\mathbb F_q$. Let $p(X) \in \mathbb
+    F_q[X]$ be a polynomial of degree 2. Then
+    \[
+      \left|
+      \sum_{x \in \mathbb F_q}^{} \chi(p(x))
+      \right|
+      = \sqrt{q}.
+    \] 
+  \end{lemma}
+
+  \begin{theorem}
+    Let $\mathbb F_q$ be a finite fiel of charactersitic $p
+    \geq 5$. Let $B_\alpha$ denote the set of vectors
+    \[
+      B_\alpha
+      = \{b_{\lambda,\alpha} | \lambda \in \mathbb F_q\},
+      \quad 
+      b_{\lambda,\alpha}
+      = \frac{1}{\sqrt{q}} \left(
+      \omega_p^{\Tr((k+\alpha)^3+\lambda(k+\alpha))}
+      \right)_{k \in \mathbb F_q}.
+    \] 
+    The standard basis and the sets $B_\alpha$, with $\alpha
+    \in \mathbb F_q$, form an extremal set of $q + 1$ 
+    mutually unbiased bases of the vector space $\C^{q}$.
+  \end{theorem}
+
+  A feature of the previous construction is that knowledge
+  of one basis $B_\alpha$ is sufficient because shifting the
+  indices by adding a field element yields the other bases.
+  Although the construction does not work in characteristic
+  2 and 3. Ivanovic gave explicit constructions of $p + 1$ 
+  mutually unbiased bases of $\C^{p}$ for $p$ prime. His
+  construction was later generalized in the influential
+  paper by Wootters and Fields, who gave the first proof of
+  the following theorem. The proof was rephrased by
+  CHaturvedi and an alternate proof was given by
+  Bandyopadhyay.
+
+  \begin{theorem}
+    Let $\mathbb F_q$ be a finite field with odd
+    characteristic $p$. Denote by $B_a = \{v_{a,b} | b \in
+    \mathbb F_q\}$ the set of vectors given by
+    \[
+      v_{a,b} 
+      = q^{-1/2} \left( \omega_p^{\Tr(ax^2+bx)} \right)_{x
+        \in \mathbb F_q}.
+    \] 
+    The standard basis and the sets $B_a$, with $a \in
+    \mathbb F_q$, form an extremal set of $q + 1$ mutually
+    unbiased bases of $\C^{q}$.
+  \end{theorem}
+
+  \subsection{Even prime powers}
+
+  For the case when $q$ is a power of two we cannot use Weil
+  sums because Lemma 1 does not apply in even
+  characteristics. Howerver, it turns out the exponential
+  sums over a finite Galois ring can serve as a substitute.
+  Let $\Z_4$ denote the residue class ring of integers
+  modulo 4. Denote by $\langle 2 \rangle$ the ideal
+  generated by 2 in $\Z_4[x]$. A monic polynomial $h(x) \in
+  \Z_4[x]$ is called basi primitive if and only if its image
+  in $\Z_4[x] / \langle 2 \rangle \cong \Z_2[x]$ under the
+  canonical map is a primitive polynomial in $\Z_2[x]$. Let
+  $h(x)$ be a monic basic primitive polynomial of degree
+  $n$. The ring $GR(4,n) = \Z_4[x] / \langle h(x) \rangle$ 
+  is called the Galois ring of degree $n$ over $\Z_4$.
+
+  The ring $GR(4,n)$ has $4^{n}$ elements. The element $\xi
+  = x + \langle h(x) \rangle$ is of order $2^{n}-1$. Any
+  element $r \in GR(4,n)$ can be uniquely written in the
+  form $r = a + 2b$, where $a,b \in \mathcal T_n =
+  \{0,1,\xi,\ldots,\xi^{2^{n}-2}\}$. This representation in
+  terms of the Teichmüller set $\mathcal T_n$ is convenient,
+  since it allows us to characterize the units of GR(4,n) as
+  the elements of $a + 2b$ with $a \neq 0$.
+
+  The automorphism $\sigma : GR(4,n) \to GR(4,n)$ defined by
+  $\sigma(a+2b) = a^2 + 2b^2$ is called the Frobenius
+  automorphism. This map leaves the elements of the prime
+  ring $\Z_4$ fixed. All automorphisms of $GR(4,n)$ are of
+  the form $\sigma^{k}$ for some integer $k \geq 0$. The
+  trace map $\Tr : GR(4,n) \to \Z_4$ is defined by $\Tr(x) =
+  \sum_{k=0}^{n-1} \sigma^{k}(x).$
+
+  \begin{theorem}
+    Let $GR(4,n)$ be a finite Galois ring with Teichmüller
+    set $\mathcal T_n$. For $a \in \mathcal T_n$, denote by
+    $M_a = \{v_{a,b} | b \in \mathcal T_n\}$ the set of
+    vectors given by
+    \[
+      v_{a,b}
+      = 2^{-n / 2} \left( \exp\left( \frac{2\pi i}{4}
+      \Tr(a+2b)x \right) \right)_{x \in \mathcal T_n}.
+    \] 
+    The standard basis and the set $M_a$, with $a \in
+    \mathcal T_n$, form an extremal set of $2^{n}+1$ mutally
+    unbiased bases of $\C^{2^{n}}$.
+  \end{theorem}
+
+  \section{On the monomiality of nice error bases
+  (Klappenecker}
+
+  Unitary error bases generalize the Pauli matrices to
+  higher dimensional systems. A unitary error basis is, by
+  definition, an orthonormal basis of the vector space of
+  complex $d \times d$ matrices with respect to the inner
+  product $\langle A,B \rangle = 1 / d \Tr(A^*B)$. Such
+  matrices form a natural generalization of the $2 \times 2$ 
+  Pauli matrices to higher dimensional systems.
+
+  \subsection{Construction of unitary error bases}
+
+  A unitary error basis is a set $\mathcal E$ of $d^2$ 
+  unitary $d \times d$ matrices such that $\Tr(E^*F) = 0$ 
+  for all distinct $E,F \in \mathcal E$. The set $\mathcal
+  P$ of Pauli matrices provides the most well-known example
+  \[
+    \mathcal P
+    = \left\{
+      \begin{pmatrix} 1 & 0\\ 0 & 1 \end{pmatrix} 
+      \begin{pmatrix} 0 & 1\\ 1 & 0 \end{pmatrix} 
+      \begin{pmatrix} 1 & 0\\ 0 & -1 \end{pmatrix} 
+      \begin{pmatrix} 0 & -i\\ i & 0 \end{pmatrix} 
+    \right\}.
+  \] 
+  Unitary error bases generalize this example to arbitrary
+  dimensions. The nonbinary case is more interesting, since
+  there exist different, nonequivalent, error bases. 
+
+  \subsubsection{Equivalence}
+
+  Let $\mathcal E$ and $\mathcal E'$ be two unitary error
+  bases in $d$ dimensions. We say that $\mathcal E$ and
+  $\mathcal E'$ are equivalent, if and only if there exist
+  unitary matrices $A, B \in \mathcal U(d)$ and constants
+  $c_E \in \mathcal U(1)$, $E \in \mathcal E$, such that
+  \[
+    \mathcal E'
+    = \{c_E AEB : E \in \mathcal E\}.
+  \] 
+  It is not hard to prove that any unitary error basis in
+  dimension 2 is equivalent to the Pauli basis.
+
+  \subsubsection{Nice error bases}
+
+  Let $G$ be a group of order $d^2$ with identity element 1.
+  A nice error basis in $d$ dimensions is given by a set
+  $\mathcal E = \{\rho(g) \in \mathcal U(n) : g \in G\}$ of
+  unitary matrices such that
+  \begin{itemize}
+    \item $\rho(1)$ is the identity matrix.
+    \item $\Tr(\rho(g)) = 0$ for all $g \in G \setminus
+      \{1\}$.
+    \item $\rho(g)\rho(h) = \omega(g,h)\rho(gh)$ for all
+      $g,h \in G$,
+  \end{itemize}
+  where $\omega(g,h)$ is a phase factor. A nice error basis
+  is a unitary error basis. As an example, let $d \geq 2$ be
+  an integer $\omega = \exp(2\pi i / d)$. Let $Z_d$ denote
+  the diagonal matrix
+  $\diag(1,\omega,\omega^2,\ldots,\omega^{d-1})$. Then
+  \[
+    \mathcal E_d
+    := \left\{
+      X^i_d Z^j_d : (i,j) \in \Z_d \times \Z_d
+    \right\}
+  \] 
+  is a nice error basis.
+
+  There are an abundant amount of unitary error basis which
+  are not equivalent to a nice error basis. Klappenacker
+  calls these \textit{wicked} basis.
+
+  \section{On mutually unbiased bases (Thomas Durt)}
+
+  Mutually unbiased bases for quantum degrees of freedom are
+  central to all theoretical investigations and practical
+  exploitations of complementary properties. One can find
+  maximal sets of $N+1$ mutually unbiased bases in Hilbert
+  spaces of prime-power dimension $N = p^{M}$, and there is
+  a continuum of mutually unbiased bases for a continuous
+  degree of freedom. But not a single example of maximal set
+  is known if the dimension is another composite number.a
+
+  Two orthonormal bases of a Hilbert space are said to be
+  mutually unbiased if the transition probabilities from
+  each state in one basis to all states of the other basis
+  are the same irrespective of which pair of states is
+  choesn. That is to say, if the physical system is prepared
+  in a state of the first basis, then all outcomes are
+  equally probable when we conduct a measurement that probes
+  for the states of the second basis. When the Hilbert space
+  dimension $N$ is a prime power, $N = p^{M}$, there exist
+  sets of $N+1$ mutually unbiased bases. We can reconstruct
+  the statistical operator that characterizes a quantum
+  state, i.e., we can perform full tomography or complete
+  quantum state determination.
+
+  Various methods have been used for the construction of
+  maximal sets of MUB, including the Galois-Fourier method,
+  methods based on the generalized Pauli matrices, discrete
+  Wigner functions, abelian subgroups, mutually orthogonal
+  Latin squares and finite-geometry methods.
+
+  As in all constructions of MUB in prime power dimension, a
+  crucial element is a finite commutative division ring -- a
+  Galois field of $N$ elements. Finite fields with $N$ 
+  elements exist if and only if $N$ is a power of a prime
+  and the mathematical properties of Galois fields are
+  exploited in all constructions of maximal sets of MUB. The
+  discrete analog of Wigner's continuous phase space
+  function, which -- jointly with its Fourier partner, the
+  analog of Weyl's characteristic function -- is treated
+  later. Durt comments on the covariance of the Wigner-type
+  operator basis and disucss the $N \to \infty$ limit of
+  continuous degrees of freedom. The relation to finite
+  affine planes provides insight to the underlying geometry.
+
+  \subsection{Elements of quantum kinematics}
+
+  As emphasized by Bohr in his 1927 Como lecture, quantum
+  systems have properties that are complementary: equally
+  real but mutually exclusive. If one such property is known
+  accurately (the outcome of a measurement can be predited
+  with certainty), then the complementary property is completely
+  unknown (all outcomes are equally liekly).  Familiar
+  examples are the position and momentum of a particle
+  moving along a line, and the $x$ and $z$ spin components
+  of a spin-$\frac{1}{2}$ object. A pair of observables, $A$ 
+  and $B$, complementary if their eigenvalues are not
+  degenerate and the sets of normalized kets $\ket{a_j}$ and
+  $\ket{b_k}$ that describe states with predictable
+  measurement outcomes for $A$ and $B$ respectively, are MU,
+  \[
+    |\braket{a_j|b_k}|^2 = \frac{1}{N}.
+  \] 
+  The particular eigenvalues are irrelevant, we just need to
+  know that they are not degenerate. It follows in
+  particular that, if $A$ and $B$ are complementary, then
+  $\alpha A$ and $\beta B$ with $\alpha \beta \neq 0$ are
+  complementary as well. And if a unitary transform turns
+  $A$ into $A'$ and $B$ into $B'$, then the pair $A',B'$ is
+  complementary if the pair $A,B$ is.
+
+  Whenever we need to be specific about the observables
+  associated with a basis, we will follow the guidance of
+  Weyl and Schwinger and choose unitary operators to
+  represent physical quantities. In this context, these will
+  be nondegenerate cyclic operators with period $N$,
+  \[
+    A^{N} = 1,
+    \quad
+    B^{N} = 1.
+  \] 
+  The eigenvalues of $A$ and $B$ are then the $N$ different
+  $Nth$ roots of unity
+  \[
+    A\ket{a_j} = \gamma_N^j \ket{a_j},
+    \quad
+    B\ket{b_k} = \gamma_N^k \ket{b_k},
+    \quad
+    \gamma_N = e^{2\pi i / N}.
+  \] 
+  That these cyclic operators are a pair of complementary
+  operators can be stated as
+  \[
+    \frac{1}{N} \Tr(A^{m}B^{n}) = \delta_{m,0}\delta_{n,0}.
+  \] 
+  
+  There always exists a pair of complementary observables
+  for each quantum degree of freedom. Select an orthonormal
+  reference basis $\ket 0, \ket 1,\ldots,\ket{N-1}$ 
+  referred to as the computational basis. Then define a
+  second orthonormal basis
+  $\ket{\hat{0}},\ket{\hat{1}},\ldots,\ket{\hat{N-1}}$ by
+  means of the discrete quantum Fourier transformation
+  \[
+    \ket{\hat{j}}
+    = \frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \ket k
+    \gamma_N^{-jk}.
+  \] 
+  In analogy with the Pauli operators $\sigma_x$ and
+  $\sigma_z$, we introduce the cyclic operators $X$ and $Z$ 
+  in accordance with
+  \[
+    X\ket{\hat{j}} = \gamma_N^{j} \ket{\hat{j}},
+    \quad X^{N} = 1,
+    \quad \text{ and } \quad
+    Z\ket{k} = \gamma_N^{k} \ket k,
+    \quad Z^{N} = 1.
+  \] 
+  By definition, we note the $X$ and $Z$ are unitary shift
+  operators that permute the kets or bras of the respective
+  other basis cyclically,
+  \[
+    X \ket k = \ket{k+1},
+    \quad k = 0,1,\ldots,N-2,
+    \quad X \ket{N-1} = \ket 0,
+  \] 
+  and
+  \[
+    \bra{\hat{j}} Z = \bra{\hat{j+1}}, 
+    \quad j = 0,1,\ldots,N-2,
+    \quad \bra{\hat{N-1}} Z = \bra{\hat{0}}.
+  \] 
+  The fundamental Weyl commutation rule $ZX = \gamma_N XZ$ 
+  holds. It is the analog of the familiar $N = 2$ identity
+  $\sigma_z \sigma_x = -\sigma_x \sigma_z$ and is more
+  generally, stated as
+  \[
+    X^{m}Z^{n} = \gamma_N^{-mn} Z^{n}X^{m}.
+  \] 
+  The pair $X,Z$ is algebraically complete, in the sense
+  that there are no operators that are not lienar
+  combinations of products of powers of $X$ and $Z$.
+
+  \subsubsection{The Heisenberg-Weyl group; the Clifford
+  group}
+
+  Supplemented with powers of $\gamma_N$, the $XZ$-ordered
+  products 
+  \[
+    Y_{l,m,n} = \gamma_N^{l} X^{m}Z^{n},
+    \quad l,m,n = 0,1,\ldots,N-1,
+  \] 
+  make up the Heisenberg-Weyl group of unitary operators,
+  also called the generalized Pauli group, with operator
+  multiplciation as the composition,
+  \[
+    Y_{l_1,m_1,n_1} Y_{l_2,m_2,n_2}
+    = Y_{l_1+l_2+n_1m_2,m_1+m_2,n_1+n_2},
+  \] 
+  where all subscripts are understood as integers modulo
+  $N$.
+
+  If $N$ is an odd prime, $N = 3,5,7,11,13,\ldots$ then all
+  unitary Heisenberg-Weyl oeprators $Y_{l,m,n}$ are cyclic
+  with period $N$, except for the identity $Y_{0,0,0}$.
+  Further we observe that the $N+1$ operators
+  \[
+    X,XZ,XZ^2,\ldots,XZ^{N-1},Z
+  \] 
+  are pairwise complementary. It follows that the $N+1$ 
+  bases of eigenkets, one for each of the operators in are
+  MU. In addition to the eigenbases of $X$ and $Z$ there are
+  $N-1$ more such bases.
+
+  For $N$ prime, explicitly, ket $\ket{i,k}$, the $k$ th
+  eigenket of the $i$th basis, $XZ^{i}\ket{i,k} =
+  \gamma_N^{k}\ket{i,k}$, is given by (for $N$ odd)
+  \[
+    \ket{i,k}
+    = \frac{1}{\sqrt{N}} \sum_{l=0}^{N-1} \gamma_N^{-kl}
+    \gamma_N^{il(l-1) / 2} \ket l,
+    \, i = 0,1,2,\ldots,N-1
+  \] 
+  in terms of the reference basis of eigenkets of $Z$. For
+  $i = 0$ we have the eigenstates of $X$, $\ket{\hat{k}} =
+  \ket{0,k}$. This last equation correctly states the
+  eigenkets of $XZ^{i}$ for all odd $N$, but these bases are
+  pairwise MU only if $N$ is prime. One can give a similar
+  expression for $\ket{i,k}$ when $N$ is even.
+
+  In summary, we can systematically construct $N+1$ bases
+  that are MU if $N$ is prime. As noted, the construction
+  based on cyclic operators does not work if $N$ is
+  composite. Yet if $N = p^{M}$ is a power of a prime, it is
+  possible to modify the construction such that it does work
+  in a closely analogous way, by replacing the modulo $N$ 
+  shifts by shifts of a Galois field arithmetic that treats
+  the $N$-dimensional degree of freedom systematically as
+  composed of $M$ $p$-dimensional constituents.
+
+  \subsection{Construction of mutually unbiased bases in
+  prime power dimensions}
+
+  \section{A new proof for the existence of mutually
+  unbiased bases (Bandyopadhyay)}
+
+  A $d$-level quantum system is described by a density
+  operator $\rho$ that requires $d^2-1$ real numbers for its
+  complete specification. A maximal orthogonal quantum test
+  performed on such a system has, without degeneracy, $d$ 
+  possible outcomes, providing $d-1$ independent
+  probabilities. It follows that in principle one requires
+  at least $d+1$ different orthogonal measurements for
+  complete state determination.
+
+  Since the quantum mechanical description of a physical
+  system is characterized in terms of probabilities of
+  outcomes of conceivable experiments consisten with quantum
+  formalism, in order to obtain full information about the
+  system under consideration we need to perform measreuments
+  on a large number of identically prepared copies of the
+  system. A minimal set of measreuments can be reasonably
+  close to an optimal set if they mutually differ as much as
+  possible, thereby ruling out possible overlaps in the
+  results.
+
+  It has been shown that measurments in a special class of
+  bases, i.e., MUBs not only form a miniaml set but also
+  provie the optimal way of determinig a quantum state.
+  Mutually unbiased measurements correspond to measurements
+  that are as different as they can be. Wootters and Fields
+  showed that measurements in MUB provide the minimal as
+  well as optimal way of complete specification of the
+  density marix. By explicit construction they showed the
+  existence of MUB for prime pwoer dimensions and proved
+  that for any dimension $d$ there can be at most $d+1$ MUB.
+
+  The author gives a constructive proof of the results
+  earlier obtained by Ivanovic, Wootters and Fields with a
+  distinct method. This method offers an interesting
+  connection between maximal commuting bases of orthogonal
+  unitary matrices and mutually unbaised bases. And another
+  advantage is the they provide an explicit construction of
+  the MUB observables as tensor products of the Pauli
+  amtrices for dimensions $d = 2^{m}$. When $d = 2$ the
+  mutually unbiased oeprators are the three Pauli matrices,
+  but this cannot be generalized in a straightforward way to
+  higher dimension.
+
+  Let $B_1 = \{\ket{\phi_1},\ldots,\ket{\phi_d}\}$ and $B_2
+  = \{\ket{\psi_1},\ldots,\ket{\psi_d}\}$ be two orthonormal
+  bases in the $d$ dimensional state space. They are said to
+  mutually unbiased bases if and only if
+  $|\braket{\phi_i|\psi_j}| = \frac{1}{\sqrt{d}}$ for every
+  $i,j = 1,\ldots,d$. A set of $\{B_1,\ldots,B_m\}$ of
+  orthonormal bases in $\C^{d}$ is called a set of mutually
+  unbaised bases if each pair of bases $B_i$ and $B_j$ are
+  mutually unbiased.
+
+  First the authors show the existence of $p+1$ MUBs int he
+  space $\C^{p}$ for $p$ prime, a result which is first
+  shown by Ivanovic in an explicit definition of the bases.
+  The authors here show that these bases are in fact bases
+  each consisting of eigenvectors of the unitary operators
+  \[
+    Z,X,XZ,\ldots,XZd^{-1},
+  \] 
+  where $X$ and $Z$ are generalizations of Pauli oeprators
+  to the quantum systems with more than two states.
+
+  They later show that there is a useful connetion between
+  mutually unbaised bases and special types of basesa for
+  the space of square matrices. These bases consist of
+  orthogonal unitary matrices which can be grouped in
+  maximal classes of commuting matrices. They then transfer
+  these ideas to the construction of MUBs over  $\C^{d}$ 
+  where $d$ is a prime power. The idea behind the
+  construction is as follows. When $d = p^{m}$, imagine the
+  system consists of $m$ subsystems each of dimension $p$.
+  Then the total number of measurements on the whole system,
+  viewed as performing measurment on every subsytem in their
+  respective $MUB$ is $(p+1)^{m}$. They then show that these
+  $(p+1)^{m}$ oeprators fall into $p^{m}+1$ maximal
+  noncomuuting classes where members of each class commute
+  among themeselves. The bases formed by eigenvectors of
+  each such mutually noncummuting class are mutually
+  unbiased.
+
+  \subsection{Construction of sets of MUB for prime
+  dimensions}
+
+  Ivanovic for the first time showed that for any prime
+  dimension $d$ there is a set of $d+1$ mutually unbiased
+  bases. In that paper the bases are given explicitly. Here
+  we show that there is a nice symmetrical structure behind
+  these bases, and their existence can be derived as a
+  consequence of propoerites of Pauli operators on $d$-state
+  systems.
+
+  \begin{theorem}
+    Let $B_1 = \{\ket{\phi_1},\ldots,\ket{\phi_d}\}$ be an
+    orthonormal basis in $\C^{d}$. Suppose that there is a
+    unitary operator $V$ such that $V\ket{\phi_j} = \beta_j
+    \ket{\phi_{j+1}}$, where $|\beta_j| = 1$ and
+    $\ket{\phi_{d+1}} = \ket{\phi_1}$; i.e., $V$ applies a
+    cyclic shift modulo a phase on the elements of the basis
+    $B_1$. Assume that the orthonormal basis $B_2 =
+    \{\ket{\psi_1},\ldots,\ket{\psi_d}\}$ consists of
+    eigenvectors of $V$. Then $B_1$ and $B_2$ are MUB.
+  \end{theorem}
+
+  For the moment, we suppose that $d$ is a prime number, and
+  all algebraic oeprations are modulo $d$. We consider
+  $\{\ket 0, \ket 1, \ldots, \ket{d-1}\}$ as the standard
+  basis of $\C^{d}$. We define the unitary operators $X_d$ 
+  and $Z_d$ over $\C^{d}$, as a natural generalization of
+  Pauli operators $\sigma_x$ and $\sigma_z$:
+  \begin{align*}
+    X_d \ket j &= \ket{j+1},\\
+    Z_d \ket j &= \omega^{j} \ket j,
+  \end{align*}
+  where $\omega$ is the $d$-th root of unity, $\omega =
+  e^{2\pi i / d}$. We are interested in the unitary
+  operators of the form $X_d Z_d^{k}$ whose action is given
+  by
+  \[
+    X_d Z_d^{k} \ket j
+    = \left( \omega \right)^{j} \ket{j+1}.
+  \] 
+  For $0 \leq k,l \leq d - 1$, the eigenvectors of $X_d
+  Z_d^{k}$ are cyclically shifted under the action of $X_d
+  Z_d^{l}$. Noting that the standard basis is the set of
+  eigenvetors of $Z_d$ we have the following first result.
+  \begin{theorem}
+    For any prime $d$, the set of the bases each consisting
+    of the eigenvectors of
+    \[
+      Z_d, X_d, X_d Z_d, X_d Z_d^2,\ldots,X_d Z_d^{d-1}
+    \] 
+    form a set of $d+1$ mutually unbiased bases.
+  \end{theorem}
+
+  \subsection{Bases for unitary operators and MUB}
+
+  Here Bandyopaihyay studies the close relation between MUB
+  and a special type of bases for $\mathcal M_d(\C)$.
+
+  \begin{lemma}
+    There are at most $d$ pairwise orthogonal commuting
+    unitary matrices in $\mathcal M_d(\C)$.
+  \end{lemma}
+
+  Let $\mathcal B = \{U_1,U_2,\ldots,U_{d^2}\}$ be a basis
+  of unitary matrices for $\mathcal M_d(\C)$. Without loss
+  of generality, we can assume that $U_1 = 1$. We say that
+  the basis $\mathcal{B}$ is a \textit{maximal commuting
+  basis} for $\mathcal{M}_d(\C)$ if $\mathcal{B}$ can be
+  partitioned as
+  \[
+    \mathcal{B}
+    = \{1\} \bigcup_{} \mathcal{C_1} \bigcup_{} \ldots
+    \bigcup_{} \mathcal{C}_{d+1},
+  \] 
+  where each class $\mathcal{C}_j$ contains exactly $d-1$ 
+  commuting matrices from $\mathcal{B}$. We note that $\{1\}
+  \bigcup_{} \mathcal{C}_j$ is a set of $d$ commuting
+  orthogonal unitary matrices.
+
+  \begin{theorem}
+    If there is a maximal commuting basis of orthogonal
+    unitary matrices in $\mathcal{M}_d(\C)$, then there is a
+    set of $d+1$ mutually unbiased bases.
+  \end{theorem}
+
+  \begin{theorem}
+    Let $B_1,\ldots,B_m$ be a set of MUB in $\C^{d}$. Then
+    there are $m$ classes
+    $\mathcal{C}_1,\ldots,\mathcal{C}_m$ each consisting of
+    $d$ commuting unitary matrices such that matrices in
+    $\mathcal{C}_1 \bigcup_{} \ldots \bigcup_{}
+    \mathcal{C}_m$ are pairwise orthogonal.
+  \end{theorem}
+
+  \subsection{Construction of a set of MUB for prime powers}
+
+  To construct a maximal set of MUB in $\C^{p^{m}}$ where
+  $p$ is a prime number, we consider the Hilbert space
+  $\mathcal{H}$ as a tensor product of $m$ copies of
+  $\C^{p}$,
+  \[
+    \mathcal{H} = \C^{p} \otimes \ldots \otimes \C^{p}.
+  \] 
+  Just like the case of $\C^{p}$, we build a set of MUB as
+  the sets of eigenvectors of special types of unitary
+  operators on the background space $\mathcal{H}$. On the
+  space $\C^{p}$ we considered the generalized Pauli
+  operators $X_p$ and $Z_p$. On the space $\mathcal{H}$, we
+  consider the tensor products of operators $X_p$ and $Z_p$.
+
+  Consider the finite field $\mathbb F_p =
+  \{0,1,\ldots,p-1\}$. Let $\omega = e^{2\pi i / d}$ be a
+  primitive $p$-th root of unity. Then
+  \[
+    Z_p X_p = \omega X_p Z_p.
+  \] 
+  Therefore, if $U_1 = X_p^{k_1} Z_p^{l_1}$ and $U_2 =
+  X_p^{k_2}Z_p^{l_2}$, then
+  \[
+    U_2 U_1 = \omega^{k_1l_2 - k_2l_1} U_1 U_2.
+  \] 
+  It is of our interest, only the unitary operators on
+  $\mathcal{H}$ of the form
+  \[
+    U = M_1 \otimes \ldots \otimes M_m
+  \] 
+  where $M_j = X_p^{k_j} Z_p^{l_j}$ for $0 \leq k_j,l_j \leq
+  p - 1$. To describe an oeprator of this form, it is
+  enought to specify the integers $k_j$ and $l_j$. So we can
+  represent such an operator by the following vector of
+  length $2m$ over the field $\mathbb F_p$:
+  \[
+    (k_1,\ldots,k_m,l_1,\ldots,l_m),
+  \] 
+  or
+  \[
+    X_p(k_1,\ldots,k_m)Z_p(l_1,\ldots,l_m).
+  \] 
+  If $\alpha = (k_1,\ldots,k_m)$ and $\beta =
+  (l_1,\ldots,l_m)$, then $\alpha, \beta \in \mathbb
+  F_p^{m}$ and the operators are
+  \[
+    X_p(\alpha) Z_p(\beta).
+  \] 
+
+  The Pauli group $\mathbb P(p,m)$ is the group of all
+  unitary operators on $\mathcal{H} = \C^{p} \otimes \cdots
+  \C^{p}$ of the form
+  \[
+    \omega^{j} X_p(\alpha) Z_p(\beta),
+  \] 
+  for some integer $j \geq 0$ and vectors $\alpha, \beta \in
+  \mathbb F_p^{m}$ where $\omega = \exp(2\pi i / p)$. For
+  now we are only concerned with the subset $\mathbb
+  P_0(p,m)$ of the operators with $j = 0$. If the operators
+  $U$ and $U'$ in $\mathbb P_0(p,m)$ are represented by the
+  vectors
+  \[
+    (k_1,\ldots,k_m,l_1,\ldots,l_m)
+  \] 
+  and
+  \[
+    (k_1',\ldots,k_m',l_1',\ldots,l_m'),
+  \] 
+  then $U$ and $U'$ are commuting if and only if
+  \[
+    \sum_{j=1}^{m} k_j l_j' - \sum_{j=1}^{m} k_j'l_j = 0
+    \mod p.
+  \] 
+  The standard basis of the Hilbert space $\C^{p} \otimes
+  \cdots \otimes \C^{p}$ consists of the vectors $\ket{j_1
+  \cdots j_m}$ where $(j_1,\ldots,j_m) \in \mathbb
+  F_p^{m}$. Then
+  \[
+    X_p(\alpha)Z_p(\beta) \ket{j_1\cdots j_m}
+    = \omega^{j_1\beta_1+\ldots+j_m\beta_m}
+    \ket{(j_1+\alpha_1)\cdots(j_m+\alpha_m)}.
+  \] 
+  Equivalently
+  \[
+    X_p(\alpha)Z_p(\beta)\ket a
+    = \omega^{\alpha \cdot \beta} \ket{a+\alpha},
+  \] 
+  \[
+    X_p(\alpha)Z_p(\beta)
+    = \sum_{a \in \mathbb F_p^{m}}^{} \omega^{a \cdot \beta}
+    \ket{a+\alpha} \bra{a}
+  \] 
+  where the operations are modulo $p$.
+
+  \begin{theorem}
+    Let $U = X_p(\alpha)Z_p(\beta)$ and $U' =
+    X_p(\alpha')Z_p(\beta')$ be operators in $\mathbb
+    P_0(p,m)$. If $U \neq U'$, i.e., $(\alpha,\beta) \neq
+    (\alpha',\beta')$, then the operators $U$ and $U'$ are
+    orthogonal.
+  \end{theorem}
+
+  \subsection{The general construction}
+
+  The maximal commuting orthogonal basis for
+  $\mathcal{M}_{p^{m}}(\C)$ with partition of the form is
+  such that each class $\{1\} \bigcup_{} \mathcal{C}_j$ is a
+  linear space of oeprators in the Pauli group $\mathbb
+  P(p,m)$. Let
+  \[
+    X_p(\alpha_1)Z_p(\beta_1), \ldots,
+    X_p(\alpha_{p^{m}})Z_p(\beta_{p^{m}})
+  \] 
+  be the operators in the class $\{1\} \bigcup_{}
+  \mathcal{C}_j$. We say that this class is linear if the
+  set of the vectors
+  \[
+    \mathcal{E}_{j}
+    =
+    \{(\alpha_1,\beta_1),\ldots,(\alpha_{p^{m}},\beta_{p^{m}})\}
+  \] 
+  form an $m$-dimensional subspace of $\mathbb{F_p^{2m}}$.
+  In this case, to specify a linear class, it is enough to
+  present a basis for the subspace $\mathcal{E}_j$. SUch a
+  basis can be represented by an $m \times (2m)$ matrix, so
+  instaed of listing all operators in the class
+  $\mathcal{C}_1,\ldots,\mathcal{C}_{p^{m}+1}$, we can list
+  the $p^{m}+1$ matrices representing the bases of these
+  classes.
+
+  Specifically, the bases of linear classes of oeprators in
+  this construction are represented by the matrices
+  \[
+    (0_m, 1_m), (1_m,A_1), \ldots, (1_m,A_{p^{m}}),
+  \] 
+  where $0_m$ is the all-zero matrix of order $m$ and each
+  $A_j$ is an $m \times m$ matrix over $\mathbb{F}_p$. The
+  following lemma gives a simple necessary and sufficient
+  condition for operators in each class to be commuting.
+
+  \begin{lemma}
+    Let $S$ be a set of $m$ operators in $\mathbb{P}_0(p,m)$ 
+    and $S$ be represented by the matrix $(1_m,A)$ where $A$ 
+    is an $m \times m$ matrix over $\mathbb{F}_p$. Then the
+    operators in $S$ are pairwise commuting if and only if
+    $A$ is a symmetric matrix.
+  \end{lemma}
+
+  \begin{theorem}
+    Let $\{A_1,\ldots,A_l\}$ be a set of symmetric $m \times
+    m$ matrices over $\mathbb{F}_p$ such that $\det(A_j-A_k)
+    \neq 0$ for every $1 \leq j < k \leq l$. Then there is a
+    set of $l+1$ mutually unbiased bases on $\C^{p^{m}}$.
+  \end{theorem}
+
+  To construct $p^{m}+1$ mutually unbiased bases in
+  $\C^{p^{m}}$, we only need to find $m$ symmetric
+  nonsingular matrices $B_1,\ldots,B_m \in
+  \mathcal{M}_m(\C)$ such that the matrix $\sum_{j=1}^{m}
+  b_j B_j$ is also nonsingular, for every nonzero vector
+  $(b_1,\ldots,b_m) \in \mathbb{F}_p^{m}$. 
+
+  Wootters and Fields have found the following general
+  construction for the matrices $B_1,\ldots,B_m$. Let
+  $\gamma_1,\ldots,\gamma_m$ be a basis of
+  $\mathbb{F}_{p^{m}}$ as a vector space over
+  $\mathbb{F}_p$. Then any element $\gamma_i \gamma_j \in
+  \mathbb{F}_{p^{m}}$ can be written uniquely as
+  \[
+    \gamma_i \gamma_j
+    = \sum_{l=1}^{m} b_{ij}^{l} \gamma_l.
+  \] 
+  Then $B_l = \left( b_{ij}^{l} \right)$.
+
+  \section{Mutually unbiased bases, generalized spin
+  matrices and sperability}
+
+  The goal of this article is to provide an algorithm for
+  deriving explicit solutions to the MUB problem for $d =
+  p^{n}$. It is important to emphasize that the methodology
+  gives a specific solution of the MUB problem for $d =
+  p^{n}$. Once such a solution is in hand, there are many
+  ways to construct other mutually unbaised bases.
+
+  Let $d$ denote the dimension of the finite dimensional
+  complex Hilbert space $H$, and the unitary matrices acting
+  on $H$ are indexed by subscripts $(j,k)$. Fix an
+  orthonormal basis $\{\ket j, j = 0,\ldots,d-1\}$.
+
+  \begin{definition}
+    Let $0 \leq j,k < d$. Then define the matrix
+    \[
+      S_{j,k}
+      = \sum_{m=0}^{d-1} \omega^{mj} \ket m \bra{m+k},
+    \] 
+    where $\omega = \exp(2\pi i / d)$.
+  \end{definition}
+  The matrices $S_{j,k}$ have null trace except for
+  $S_{0,0}$ which is the identity matrix. This set of
+  matrices is closed under mutliplication, up to scalar
+  multiples of powers of $\omega$.
+
+  \begin{lemma}
+    The matrices satisfy $S_{j,k} S_{a,b} = \omega^{ka}
+    S_{j+1,k+b}$. Thus, $S_{j,k}$ and $S_{a,b}$ commut if
+    and only if $ka = jb$ up to an additive multiple of $d$.
+  \end{lemma}
+
+  These matrices are unitary and are also orthogonal to one
+  another with respect to the Frobenius inner product on the
+  space of $d \times d$ complex matrices, $\Tr(A^{*}B)$.
+  Also $(S_{j,k})^{*} = \omega^{jk} S_{-j,-k}$.
+
+  The set $\{S_{j,k} : 0 \leq j,k \leq d - 1\}$ is a set of
+  $d^2$ unitary matrices that forms an orthogonal basis for
+  the space of $d \times d$ matrices and is closed under
+  multiplication, up to multiples of powers of $\omega$.
+  Thus they can be regarded as analogues of the Pauli spin
+  matrices. These matrices satisfy the initial requirements
+  of Bandyopiahyay's theorem, which is based on the fact
+  that commuting unitary matrices can be simultaneosly
+  diagonalized.
+
+  \subsection{Spin matrices and the MUB problem for $d$ 
+  prime}
+
+  Let $d = p$ where $p$ is a prime number. Recall that
+  $S_{j,k}$ and $S_{a,b}$ commut if and only if $ka = jb
+  \mod p$. Consider the vector space over the finite field
+  $\Z_p$, $V_2(\Z_p) = \{(j,k) : j,k \in \Z_p\}$, and define
+  a symplectic product
+  \[
+    \sigma(u, u')
+    = kj' - jk' \mod p.
+  \] 
+  Thus $S_u$ and $S_{u'}$ commute if and only if the
+  symplectic product of their vector indices equals zero.
+  Once we have the classes of commuting matrices, we can
+  make a direct computation or invoke Bandyopiahyay's
+  theorem to argue the existence of a complete set of
+  mutually unbiased bases. We can construct these bases
+  explicitly in terms of the spin matrices.
+
+  \begin{proposition}
+    Let $a \in \Z_p$ and define
+    \begin{align*}
+      C_a &= \{b(1,0) + ba(0,1) = b(1,a) : b \in \Z_p\},\\
+      C_\infty &= \{b(0,1) : b \in \Z_p\}
+    .\end{align*}
+    There are $p$ vectors in each of these $p+1$ classes and
+    $C_r \cap C_s = \{(0,0)\}$ for all $r \neq s$ in $I =
+    \{0,1,\ldots,p-1,\infty\}$. If $u,v$ are in $C_r$ then
+    $\sigma(u,v) = 0$.
+  \end{proposition}
+
+  The $C_t$ can be thought of as lines in a two-dimensional
+  space. In addition the vectors in $C_t$ can be written as
+  a multiple of a single vector $u_t = (j_t,k_t)$ and $C_t$ 
+  is an additive subgroup of $V_2(\Z_p)$. The matrices
+  associated with $C_t$ are $\{S_{nu_t} : 0 \leq n < p\}$,
+  they commut but do not form a multiplicative subgroup of
+  the unitary matrices, but we consider $S_{u_t}$ to be the
+  generator of $\{S_{nu_t} : 0 \leq n < p\}$.
+
+  Bandyopihyay's theorem guarantees that the orthonormal
+  eigenvectors for each class solve the MUB problem, and we
+  can use the indicial notation to express the associated
+  orthogonal projections explicitly in terms of the unitary
+  matrices. For general computations let us define the
+  following.
+
+  \begin{definition}
+    Let $0 \leq j,k < d$ and $u = (j,k)$. If $d$ is even and
+    both $j$ and $k$ are odd, set $\alpha_u = -\exp(\pi i /
+    2) = -\omega^{1 / 2}$. Otherwise set $\alpha_u = 1$.
+  \end{definition}
+
+  \begin{definition}
+    For each $u = (j,k) \neq (0,0)$ and $0 \leq r < d$,
+    define
+    \[
+      P_u(r)
+      = \frac{1}{d} \sum_{m=0}^{d-1} \left(\alpha_u \omega^{r}
+      S_u\right)^{m},
+    \] 
+    where $(\alpha_u \omega^{r} S_u)^{0} = S_{0,0}$.
+  \end{definition}
+
+  \begin{proposition}
+    For $d$ a prime, $\{P_u(r) : 0  \leq r < d\}$ is a
+    complete set of mutually orthogonal projections.
+  \end{proposition}
+
+  Also, the $P_u(r)$ have trace one and
+  \[
+    (\alpha_u \omega^{r} S_u)^{t}
+    = \sum_{m=0}^{d-1} \omega^{-mt} P_u(m+r).
+  \] 
+  And so we have obtained a set of $d$ orthogonal,
+  one-dimensional projections. The indices of members of a
+  commuting class are multiples of a vector $u_t$. Thus if
+  $u = bu_t$, then $P_u(r)$ should be $P_{u_t}(s)$ for some
+  $s$.
+
+  \begin{proposition}
+    If $p > 2$ is prime and $u = bu_t = b(j_t,k_t)$ with $2
+    \leq b < p$, then $P_u(r) = P_{u_t}(s)$ where $s =
+    b^{-1}\left( r - j_t k_t (b 2) \right)$ and
+    $b^{-1}$ is the multiplicative inverse of $b$ modulo
+    $p$.
+  \end{proposition}
+
+  It is not hard to prove that
+  \[
+    \Tr\left( P_u(r) P_{u'}(s) \right) 
+    = \frac{1}{d}.
+  \] 
+
+  \begin{theorem}
+    If $p$ is prime, there is a complete set of $p+1$ 
+    mutually unbiased bases $B_a$, $0 \leq a < p$, and
+    $B_\infty$ that are the normalized eigenvectors of the
+    corresponding sets of commuting spin matrices
+    $\{S_{b,ba} : b \in \Z_p\} \leftrightarrow C_a$ and
+    $\{S_{0,b} : b \in \Z_p\} \leftrightarrow C_\infty$.
+    These bases can be computed from the projections.
+  \end{theorem}
+
+  \subsection{The MUB problem for $d = p^2$}
+
+  Before showing the procedure for the case $d = p^{m}$, we
+  illustrate the case $d = p^2$. The basic strategy is to
+  use the indices of the spin matrices to encode
+  commutativity and techniques of vector spaces over finite
+  fields to define the appropriate classes. The actual MUB
+  bases can then be recovered from the classes of commuting
+  spin matrices.
+
+  We now consider the tensor products of the form $S_u
+  \otimes S_v$ where commutativity is again encoded by the
+  indices so that $S_{u_1} \otimes S_{v_1}$ commutes with
+  $S_{u_2} \otimes S_{v_2}$ if and only if
+  \[
+    \sigma(u_1,u_2) + \sigma(v_1,v_2) = 0 \mod p.
+  \]
+  No we consider vectors in a four dimensional vector space
+  over $\Z_p$, $V_4(\Z_p) = \{w = (j,k,a,b) = (u,v)\}$, and
+  we define the symplectic product as
+  \[
+    \sigma(w_1, w_2)
+    = \sigma(u_1,u_2) + \sigma(v_1,v_2).
+  \] 
+  The solution to the problem of finding the commuting
+  classes of spin matrices now reduces to finding the
+  classes of vectors $w$ that satisfy $\sigma(w_1,w_2) = 0$.
+  For $p$ an odd prime, the procedure to define classes of
+  four-vectors with symplectic products equal to zero
+  requires a particular non-zero integer $D$ in $\Z_p$. $D$ 
+  is defined by the requirement that $D \neq k^2 \mod p$ for
+  all $k \in \Z_p$.
+
+  \begin{theorem}
+    Let $p$ be an odd prime. Then commuting classes of spin
+    matrices are indexed by the following subsets of
+    $V_4(\Z_p)$:
+    \[
+      C_{a_0,a_1}
+      = \{(2b_0,a_0b_0+a_1b_1D, 2b_1D, a_0b_1+a_1b_0) :
+      b_0,b_1 \in \Z_p\},
+    \] 
+    \[
+      C_\infty = \{(0,b_0,0,b_1) : b_0,b_1 \in \Z_p\}
+    \] 
+    where $a_0,a_1 \in \Z_p$ and $(j_1,k_1,j_2,k_2)$ 
+    corresponds to $S_{j_1,k_1} \otimes S_{j_2,k_2}$.
+    $C_{a_0,a_1}$ is a subspace of $V_4(\Z_p)$ with basis
+    \[
+      G_{a_0,a_1} = \{(2,a_0,0,a_1),(0,a_1D,2D,a_0)\}
+    \] 
+    and $C_\infty$ has the basis $G_\infty =
+    \{(0,1,0,0),(0,0,0,1)\}$. There $p^2+1$ such classes,
+    and it is claimed that each class has $p^2$ members,
+    that $\sigma(w_1,w_2) = 0$ for vectors in the same
+    class, and that the only vector common to any pair of
+    classes is $(0,0,0,0)$. 
+  \end{theorem}
+
+  \section{Mutually unbiased bases and orthogonal
+  decompositions of Lie algebras (Wocjan)}
+
+  The authors establish a connection between the problem of
+  constructing maximal collections of mutually unbiased
+  bases and an open problem in the theory of Lie algebras.
+  They show that a collection of $\mu$ MUBs in $\C^{n}$ 
+  gives rise to a collection of $\mu$ Cartan subalgebras of
+  the special linea Lie algebra $sl_n(\C)$ that are pairwise
+  orthogonal with respect to the Killing form. In
+  particular, a complete collection of MUBs in $\C^{n}$ 
+  gives rise to a so-called orthogonal decomposition of
+  $sl_n(\C)$.
+
+  It is a longstanding conjecture that ODs of $sl_n(\C)$ can
+  only exist if $n$ is a prime power. This corroborates the
+  general belief that a complete collection of MUBs can only
+  exist in prime power dimensions.
+
+  \subsection{Introduction} 
+
+  Two orthonormal bases $\mathcal{B}$ and $\mathcal{B}'$ of
+  the Hilbert space $\C^{n}$ are called mutually unbiased if
+  and only if
+  \[
+    |\braket{\phi|\psi}| = 1 / \sqrt{n}
+  \] 
+  for all $\ket \phi \in \mathcal{B}$ and all $\ket \psi \in
+  \mathcal{B}'$. By putting the vectors of the bases
+  $\mathcal{B}$ and $\mathcal{B}'$ as columns of matrices
+  $M_{\mathcal{B}}$ and $M_{\mathcal{B}'}$, the above
+  condition says that $_{\mathcal{B}}^{*}M_{\mathcal{B}'}$ 
+  should also be a generalized Hadamard (scaled by $1 /
+  \sqrt{n}$). The problem of determining the maximal nmber
+  of bases that are mutually unbiased is an open problem. It
+  is known that $n+1$ is an upper bound on the number of
+  mutually unbiased bases in dimension $n$.
+
+  For prime power dimensions, several constructions attain
+  this bound. One construction uses so-called nice error
+  bases (Bandyophyay). The belief that the maximal amount of
+  MUBs can only be obtained for prime power dimensions is
+  reflected in a conjecture on the orthogonal decompositions
+  of complex simple Lie algebras into Cartan subalgebras.
+  In this way the authors obtain an alternative viewpoint
+  and new properties for known constructions of MUBs in
+  prime power dimensions, obtained by partitioning nice
+  unitary error bases.
+
+  \subsection{MUBs constructions and nice error bases}
+
+  The problem of constructing mutually unbiased bases
+  corresponds to partitioning unitary matrices that are
+  orthogonal with respect to the trace inner product into
+  certain commuting classes. The mutually unbaises bases
+  correspond to the common eigenvectors of commuting
+  classes.
+
+  A \textit{unitary error basis} $\mathcal{E}$ is a basis of
+  the vector space of complex $n \times n$ matrices that is
+  orthogonal with respect to the trace inner product. That
+  is to say, a set of unitary matrices $\mathcal{E} = \{U_1
+  = 1, U_2, \ldots, U_{n^2}\}$ is a unitary error basis if
+  and only if
+  \[
+    \Tr(U_k^{*} U_l) = n \delta_{k,l}, 
+    \quad k,l \in \{1,\ldots,n^2\}.
+  \] 
+  Two constructions of unitary error bases are known. The
+  first are nice error bases, a group-theoretic construction
+  due to Knill. The second type of unitary error bases are
+  shift-and-multiply bases, a combinatorial construction due
+  to Werner.
+
+  \begin{definition}
+    Let $G$ be a gruop of order $n^2$ with identity element
+    $e$. A set $\mathcal{N} = \{U_g \in U_n(\C) : g \in G\}$ 
+    is a nice error basis if
+    \begin{itemize}
+      \item $U_e$ is the identity matrix.
+      \item $\Tr(U_g) = 0$ for all $g \in G \setminus
+        \{e\}$, and
+      \item $U_g U_h = \omega(g,h)U_{gh}$ for all $g,h \in
+        G$ where $\omega(g,h)$ are complex numbers of
+        modulus one.
+    \end{itemize}
+  \end{definition}
+  The group $G$ is called the index group of the nice error
+  basis $\mathcal{N}$ because its elements enumerate the
+  elements of $\mathcal{N}$. 
+
+  \begin{lemma}
+    Let $\mathcal{C} = \mathcal{C}_1 \cup \ldots \cup
+    \mathcal{C}_\mu$ with $\mathcal{C}_k \cap \mathcal{C}_l
+    = \{1\}$ for $k \neq l$ be a set of $\mu(n-1) + 1$ 
+    unitary matrices that are mutually orthogonal with
+    respect to the trace inner product. Furthermore, let
+    each class $\mathcal{C}_k$ of the partition of
+    $\mathcal{C}$ contain $n$ commuting matrices $U_{k,t}, 0
+    \leq t \leq n-1$, where $U_{k,0} = 1$. For fixed $k$,
+    let $\mathcal{B}_k$ contain the common eigenvectors
+    $\ket{\psi_i^{k}}$ of the matrices $U_{k,j}$. Then the
+    bases $\mathcal{B}_k$ form a set of $\mu$ mutuall
+    unbiased bases.
+  \end{lemma}
+
+  The commuting classes in the above construction are
+  maximal. This is beacuase there can be at most $n$
+  mutually commuting unitary matrices acting on $\C^{n}$ 
+  that are orthogonal with respect to the trace inner
+  product. Let $\mathcal{C}$ be a set of mutually commuting
+  matrices. Since the matrices in $\mathcal{C}$ are mutually
+  commuting, they can be diagonalized simultaneously. The
+  trace orthogonality of a unitary error basis implies that
+  the diagonals of the elements of $\mathcal{C}$, when
+  written in their common eigenbasis, must be pairwise
+  orthogonal as vectors in $\C^{n}$ with respect to the
+  standard inner product. Since there can be at most $n$ 
+  orthogonal vectors, the above commuting classes are
+  maximal.
+
+  Unitary error bases consisting of tensor products of
+  generalized Pauli matrices (a particular class of nice
+  error bases) can be partitioned according to the mentioned
+  Lemma so that we obtain a collection of $n+1$ MUBs for
+  dimensions $n$ that are prime powers.
+
+  Let $n = p^{e}$ be a prime power. Define the generalized
+  Pauli operators acting on $\C^{p}$ as
+  \[
+    X = \sum_{k=0}^{p-1} \ket k \bra{k+1},
+    \quad
+    Z = \sum_{k=0}^{p-1} \omega^{k} \ket k \bra k,
+  \] 
+  where $\omega$ is the $p$th root of unity. For $(x,y) :=
+  (x_1,\ldots,x_e,z_1,\ldots,z_e) \in \Z_p^e \times \Z_p^e$ 
+  define the tensor product $U^{(x,y)}$ of generalized Pauli
+  matrices to be 
+  \[
+    U^{(x,y)}
+    := X^{x_1} Z^{z_1} \otimes \cdots \otimes X^{x_e}
+    Z^{z_e},
+  \] 
+  where $\Z_p = \{0,\ldots,p-1\}$ is the cyclic group of
+  order $p$ and $\Z_p^e$ is the direct product of $e$ copies
+  of $\Z_p$. Then it is readily verified that the set
+  $\mathcal{N} := \{U^{(x,z) : (x,z) \in \Z_p^e \times
+  \Z_p^e}\}$ is a unitary error basis for $\C^{n}$. Moreoer,
+  it is a nice error basis with index group $G := \Z_p^e
+  \times \Z_p^e$.
+
+  \begin{theorem}
+    Let $n = p^{e}$ be a prime power dimension. Then the
+    nice error basis mentioned earlier consisting of tensor
+    products of generalized Pauli matrices can be
+    partitioned according to the Lemma into $n+1$ commuting
+    classes showing that there are $n+1$ mutually unbiased
+    bases.
+  \end{theorem}
+
+  Wocjan then goes on to show that the unitary error basis
+  as given, consists of monomial matrices and hence the
+  complete MUB construction yields monomial MUBs, as will
+  any construction based on nice error bases.
+
+  For prime power dimensions $n = p^{e}$, there is only one
+  other construction that attains the upper bound of $n+1$ 
+  MUBs, this construction is based on exponential sums in
+  finite fields and Galois rings that attains the upper
+  bound of $n+1$ MUBs. There are 3 cases in this
+  construction. At least 2 of these cases are monomial and
+  strongly indicates this for the 3rd case as well. This is
+  done by showing that the corresponding MUBs can be
+  obtained equivalently (after a basis change) by
+  partitioning the nice error bases. 
+
+  \begin{conjecture}
+    The complete collection of MUBs obtained by Klappenecker
+    and Rötteler's construction of mutually unbiased bases
+    is also monomial and obtained by partitioning nice error
+    bases. This would imply that all known complete
+    collections of MUBs have these two properties.
+  \end{conjecture}
+
+  \subsection{Lie algebras and orthogonal decompositions}
+
+  Let $\mathcal{L}$ be a Lie algebra. A Cartan subalgebra of
+  $\mathcal{L}$ is a maximal subalgebra $\mathcal{H}$ that
+  is self-normalizing, i.e., if $[g,h] \in \mathcal{H}$ for
+  all $h \in \mathcal{H}$, then $g \in \mathcal{H}$ as well.
+  If $\mathcal{L}$ is simple, then all Cartan subalgebras of
+  $\mathcal{L}$ are abelian.
+
+  As a vector space, every complex simple Lie algebra
+  $\mathcal{L}$ can be decomposed into a direct sum of
+  Cartan subalgebras $\mathcal{H}_i$ 
+  \[
+    \mathcal{L}
+    = \mathcal{H}_0 \oplus \mathcal{H}_1 \oplus \cdots
+    \oplus
+    \mathcal{H}_h,
+  \] 
+  where $h$ is the Coxeter number. The Killing form
+  \[
+    K(A,B)
+    = \Tr(\ad A \cdot \ad B)
+  \] 
+  is non degenerate on $\mathcal{L}$, here $\ad A$ denotes a
+  linear operator on $\mathcal{L}$ mapping $C \in
+  \mathcal{L}$ to $[A,C]$. The same holds for the
+  restriction of the Killing form to any Cartan subalgebra
+  $\mathcal{H}$. If we require all components of the
+  decomposition to be pairwise orthogonal with respect to
+  the Killing form $K$,
+  \[
+    K(\mathcal{H}_i,\mathcal{H}_j) = 0,
+    \quad i \neq j,
+  \] 
+  then we obtain a so called \textit{orthogonal
+  decomposition} of $\mathcal{L}$. In the case of the
+  special linear Lie algebra $sl_n(\C)$, there is in
+  addition a natural link between orthogonal decompositions
+  of Lie algebras and orthogonal paris of maximal abelian
+  subalgebras in von Neumann algebras.
+
+  \subsection{Establishing the connection between ODs and
+  MUBs}
+
+  MUBs give rise to orthogonal Cartan subalgebras and
+  viceversa when these Cartan subalgebras are closed under
+  the adjoint operation.
+
+  \begin{theorem}
+    If there are $\mu$ pairwise unbiased bases
+    $\mathcal{B}_1,\mathcal{B}_2,\ldots,\mathcal{B}_\mu$ of
+    $\C^{n}$ then there are $\mu$ Cartan subalgebras
+    $\mathcal{H}_1,\mathcal{H}_2,\ldots,\mathcal{H}_\mu$ of
+    $sl_n(\C)$ that are pairwise orthogonal with respect to
+    the Killing form. In particular, a complete collection
+    of MUBs in $\C^{n}$ gives rise to an orthogonal
+    decomposition of $sl_n(\C)$.
+  \end{theorem}
+
+  \begin{theorem}
+    Collections of $\mu$ Cartan subalgebras
+    $\mathcal{H}_1,\mathcal{H}_2,\ldots,\mathcal{H}_\mu$ of
+    $sl_n(\C)$ that are pairwise orthogonal with respect to
+    the Killing form and are closed under the adjoint
+    operation, i.e., the involutory map $^*$, correspond to
+    collections of  $\mu$ mutually unbiased bases
+    $\mathcal{B}_1,\mathcal{B}_2,\ldots,\mathcal{B}_\mu$.
+  \end{theorem}
+
+  \begin{conjecture}
+    The Lie algebra $\mathcal{L} = sl_n(\C)$ has an OD only
+    if $n$ is a prime power.
+  \end{conjecture}
+
+  Using the last theorems, this conjecture implies that a
+  complete collection of $n+1$ MUBs exists only in prime
+  power dimensions $n$.
+
+  \section{Multicomplementary operators via finite Fourier
+  transform}
+
+  \subsection{Introduction}
+
+  The concept of complementarity is a direct nontrivial
+  consequence of the superposition principle and
+  distinguishes purely quantm systems from those that may be
+  accurately treated classically. The idea of
+  complementarity can be loosely formulated by stating that,
+  in order to understand a quantum phenomenon completely we
+  need a combination of mutually exclusive properties: the
+  precise knowledge of one of them implies that all possible
+  outcomes in the other are equally probable.
+
+  In finite-dimensional systems, complementarity is
+  tantamount to unbiasedness: each eigenstate of any
+  measurement is an equal maginutde superposition of the
+  eigenstates of any of the complementary measurements. This
+  leads naturally to the concepto of MUBs.
+
+  For a $d$-dimensional system it has been found that the
+  maximum number of MUBs cannot be greater than $d+1$ and
+  this limit is reached if $d$ is prime or power of prime.
+  In this paper Klimov et al give an explicit construction
+  with a different method that resorts to elementary notions
+  of finite field theory.
+
+  \subsection{Complementary operators in prime dimension}
+
+  We consider a system living in a Hilbert space
+  $\mathcal{H}_d$, whose dimension $d$ is a prime number.
+  Fix a computational basis $\ket n$, $n = 0,\ldots,d-1$ and
+  introduce the operators
+  \begin{align*}
+    X\ket n &= \ket{n+1}\\
+    Z\ket n &= \omega^{n}\ket n
+  ,\end{align*} 
+  where $\omega = \exp(2\pi i / d)$, and the addition of
+  índices is understood to be modulo $p$. The operators $X$ 
+  and $Z$ are generalizations of the Pauli matrices. They
+  generate a group under multiplication known as the
+  generalized Pauli group and abey the commutation relations
+  \[
+    ZX = \omega XZ.
+  \] 
+  According to the ideas of Bandyophiay, we can find $d+1$ 
+  disjoint classes (each one with $d-1$ commuting operators)
+  such that the corresponding eigenstates form sets of MUBs.
+  The explicit construction starts with the following sets
+  of oeprators:
+  \begin{align*}
+    \{Z^{k}\}, &k=1,\ldots,d-1\\
+    \{(XZ^{m})^{k}\} &k=1,\ldots,d-1, \, m = 0,\ldots,d-1.
+  \end{align*}
+  One can easily check that 
+  \[
+    \Tr\left( Z^{k}Z^{k'*} \right) = d\delta_{kk'},
+    \quad
+    \Tr\left( X^{k}X^{k'*} \right) = d\delta_{kk'},
+  \] 
+  \[
+    \Tr\left( (XZ^{m})^{k} (XZ^{m'})^{k'*} \right) 
+    = d\delta_{kk'}\delta_{mm'}.
+  \] 
+  These pairwise orthogonality relations indicate that, for
+  every value of $m$, we generate a maximal set of $d-1$ 
+  commuting operators and that all these classes are
+  disjoint. In addition, the common eigenstates of each
+  class $m$ form different sets of unbiased bases. 
+
+  Starting from $Z$, it is possible to obtain any element of
+  the form $(XZ^{m})^{k}$ by using a combination of only two
+  operators $F$ (finite Fourier transform) and $V$ (diagonal
+  transformation):
+  \[
+    F = \frac{1}{\sqrt{d}} \sum_{n,n'=0}^{d-1} \omega^{nn'}
+    \ket n \bra{n'},
+  \]
+  and for $d$ odd:
+  \[
+    V = \sum_{n=0}^{d-1} \omega^{-(n^2-n)(d+1) / 2} \ket n
+    \bra n.
+  \] 
+  It is easy to verify that $X = F^{*}ZF$. The position and
+  momentum eigenstates are Fourier transform one of the
+  other. The case $d=2$ requires modifications.
+
+  \subsection{Complementary operators in composite
+  dimensions}
+
+  The construction of the previous section fails if the
+  dimension of the system is a power of a prime. The root of
+  this failure can be traced to the fact that $\Z_n$ is
+  generally not a field. The construction of
+  multicomplementary operators cannot procced by simply
+  taking powers of some basic elements.
+
+  The field $\mathbb{F}_d$ can be represented as the field
+  of equivalence classes of polynomials whose coefficients
+  belong to $\Z_p$. The product in the multiplicative group
+  $\mathbb{F}_d^*$ is deifned as the product of the
+  corresponding polynomials modulo a primitive polynomial of
+  degree $n$ irreducible in $\Z_p$. In fact,
+  $\mathbb{F}_d^*$ is a cyclic group of order $d-1$: it is
+  generated by powers of a primitive element $\alpha$. This
+  establishes a natural order for the field elements, and
+  using this order we can label the elements of a basis in
+  $\mathcal{H}_d$ as
+  \[
+    \ket 0, \ket \alpha,
+    \ket{\alpha^2},\ldots,\ket{\alpha^{d-1}}.
+  \] 
+  The method consists in using elements of $\mathbb{F}_d$,
+  instead of natural numbers, to label the classes of
+  complementary opeartors.
+
+  For the additive group in the field $\mathbb{F}_d$ we can
+  introduce additive characters as a map that fulfills
+  \[
+    \chi(\theta_1)\chi(\theta_2) = \chi(\theta_1+\theta_2),
+    \quad \theta_1,\theta_2 \in \mathbb{F}_d.
+  \] 
+  All of these additive characters have the form
+  \[
+    \chi(\theta)
+    = \exp\left( 2\pi i / p \Tr(\theta) \right). 
+  \] 
+  For future reference,
+  \[
+    \sum_{\theta \in \mathbb{F}_d}^{} \chi(\theta) = 0,
+  \] 
+  which leads us to the relation
+  \[
+    \sum_{k=0}^{d-2} \chi(\alpha^\alpha \theta) =
+    d\delta_{\theta,0} - 1.
+  \] 
+  Klimov continues defining the diagonal operators with
+  respect to the bases label by the field elements as
+  follows:
+  \[
+    Z_q
+    = \ket 0 \bra 0 + \sum_{k=1}^{d-1} \chi(\alpha^{q+k})
+    \ket{\alpha^k}\bra{\alpha^k},
+    \quad q = 0,\ldots,d-1.
+  \] 
+  This definitino implies
+  \[
+    Z_q \ket{\alpha^k} = 
+    \chi(\alpha^{q+k}) \ket{\alpha^k},
+  \] 
+  and the combination property
+  \[
+    Z_q Z_{q'}
+    = Z_{q+q'}
+    = \ket 0 \bra 0
+    + \sum_{k=1}^{d-1} \chi\left( \alpha^{q+k} +
+      \alpha^{q'+k} \right) \ket{\alpha^k} \bra{\alpha^k}.
+  \] 
+  These are quite natural generalizations of the properties
+  of matrices in the class $\{Z^{k}\}$, since the
+  $\ket{\alpha^k}$ are eigenstates of $Z_q$. In similar
+  fashion the operators $X_q$ are defined as
+  \[
+    X_q
+    = \sum_{k=1}^{d-1} \ket{\alpha^k + \alpha^q}
+    \bra{\alpha^k} + \ket{\alpha^q} \bra 0,
+    \quad q = 0,\ldots,d-2,
+  \] 
+  so that they act as operators shifting $\ket{\alpha^k}$ to
+  $\ket{\alpha^k + \alpha^q}$ and satisfy the combination
+  property
+  \[
+    X_qX_{q'}
+    = X_{q+q'}
+    = \ket{\alpha^q + \alpha^{q'}} \bra 0
+    + \sum_{k=1}^{d-1} \ket{\alpha^k + \alpha^q +
+      \alpha^{q'}} \bra{\alpha^k}.
+  \] 
+  The finite Fourier transform $F$, when expressed in terms
+  of the baseis $\ket{\alpha^k}$, takes the form
+  \[
+    F
+    = \frac{1}{\sqrt{d}} 
+    \left[
+      \ket 0 \bra 0 + \sum_{k,k'=1}^{d-1} \chi\left(
+      \alpha^{k'+k} \right) \ket{\alpha^{k'}} \bra{\alpha^k}
+      + \sum_{k=1}^{d-1} (\ket 0 \bra{\alpha^k} +
+      \ket{\alpha^k}\bra 0)
+    \right].
+  \] 
+  This definition satisfies the natural property
+  \[
+    F^{*}F = FF^{*} = I.
+  \] 
+  The operator $F$ is set up to transform the operators
+  $Z_q$ into $X_q$:
+  \[
+    X_q = F^{*} Z_q F.
+  \] 
+  The Weyl form of the canoncial commutation relations is
+  now
+  \[
+    Z_qX_{q'} = \chi\left( \alpha^{q+q'} \right) X_{q'}Z_q.
+  \] 
+  The operators $Z_q$ and $X_q$ have been designed to be
+  $d$-``periodic'', in the sense that
+  \[
+    Z_d = Z_0,
+    \quad
+    X_d = X_0.
+  \] 
+  In fully analogy, we can generate operators from $X_q$ and
+  $Z_q$ ; they will be of the form $X_qZ_r$. Linear
+  independence and orthoganility are guaranteed. The sets
+  \begin{align*}
+    \{Z_q\} &q = 0,\ldots,d-2,
+    \{X_qZ_{q+r}\} &q,r = 0,\ldots,d-2,
+  \end{align*}
+  are disjoint and that every element of a set with a fixed
+  value $r$ commutes with every other element in the same
+  set, i.e., they define multicomplementary operators.
+
+  \subsection{Complementary operators for two qubits}
+
+  Consider two qubits described in a four-dimensional
+  Hilbert space $\mathcal{H}_4$. Start with the field
+  $\mathbb{F}_4$ obtained from the irreducible polyonomial
+  over $\Z_2$, $\theta^2+\theta+1 = 0$, and the primitive
+  element $\alpha$ is defined as a root of such polynomial.
+  The four elements of $\mathbb{F}_4$ can be written as
+  \[
+    \{0,1,\alpha,\alpha+1 = \alpha^2\}.
+  \] 
+  A direct application of the additive characters gives us
+  \[
+    \chi(0) = 1,
+    \,
+    \chi(\alpha) = -1,
+    \,
+    \chi(\alpha^2) = -1,
+    \,
+    \chi(\alpha^3) = 1.
+  \] 
+  Lets consider the computational basis for the
+  vectors $\ket 0, \ket \alpha, \ket{\alpha^2},
+  \ket{\alpha^3}$, the matrices $Z_q$ and $X_q$ are readily
+  computed. The rest of sets are routinely obtained.
+
+  \subsection{Multicomplementary operators as tensor
+  products}
+
+  One can establish an isomorphism between the form of
+  complementary operators mentioned before and its
+  representation in terms of direct product of generalized
+  Pauli operators. This isomorphism can be put forward by
+  showing a one-to-one correspondence between the basis
+  $\{\ket 0, \ket{\alpha},
+  \ket{\alpha^2},\ldots,\ket{\alpha^{d-1}}\}$ and the
+  coefficients of the expansion of the powers of the
+  primitive element on, for instance, the polynomial basis,
+  formed by $(1,\alpha,\alpha^2,\ldots,\alpha^{n-1})$. The
+  representation of the operators as a tensor product is
+  possible do to the fact that $\mathbb{F}_d$ is isomorphic
+  to $\Z_p \times \cdots \times \Z_p$ with $n$ products.
+
+  \section{Discrete phase-space structure of $n$-qubit
+  mutually unbiased bases}
+
+  Klimov et al work out the phase-space structure for a
+  system of $n$ qubits. The axes of the phase space are
+  labelled by the finite field $GF(2^{n})$ and they
+  investigate the gemoetrical structures compatible with the
+  notion of unbiasedness.
+
+  Quantum mechanics describes physical systems through the
+  density operator $\rho$. To overcome conceptual
+  difficulties of the mathematical formulation of the
+  quantum system, various phase-space methods have been
+  developed. Generally these are presented in terms of
+  continuous variables, typically position and momentum.
+  However, there are many quantum systems that can be
+  appropriately described in a finite-dimensional Hilbert
+  space. The ideas presenting the discrete phase space
+  picture as a $d \times d$ lattice and the reprsentation of
+  the quantum system by means of the Wigner function, has
+  progressed recently.  In particular when the dimension is
+  a power of a prime, one can label the points in the $d
+  \times d$ grid with elements of the finite Galois field
+  $GF(d)$. The use of the finite field is a necessity
+  because it is the only way to preserve the geometrical
+  properties necessary to define the Wigner function.
+
+  In these finite descirptions, the WIgner function, being
+  the Weyl representative of the density operator, naturally
+  emerges as a function that takes values only at the points
+  defining the discrete mesh of the phase space. Although
+  the axis observables cannot be complementary in the usual
+  sense (their commutator cannot be proportional to the
+  identity operator), they will have a closely related
+  property: every eigenstate of either one of the them is a
+  state of maximum uncertainty with respect to the other.
+
+  It has been shown that the maximum number of MUBs can be
+  at most $d+1$. If the dimension $d$ is a prime or power of
+  prime, then the maximal number of MUBs can be obtained.
+  Different explicit constructions of MUBs in prime power
+  dimensions have been suggested in a number of recent
+  papers. a
+
+  The construction of MUBs is closely related to the
+  possibility of finding $d+1$ disjoint classes, each one
+  haveing $d-1$ commuting oeprators, so the corresponding
+  eigenstates form sets of MUBs. Nevertheless these MUB
+  operators can be organized in serveral different
+  nontrivial tables, leading to different factorization
+  propeorties of the MUB.
+
+  \subsection{Mutually unbiased bases and discrete phase
+  space}
+
+  We start by considering a system living in a Hilbert space
+  $\mathcal{H}_d$ whose dimension $d$ is a prime number $p$.
+  Two nondegenerate tests are mutually unbiased if the bases
+  formed by their eigenstates are MUBs. Therefore the
+  measurements of the components of spin 1/2 along $x,y$ and
+  $z$ directions are all unbiased.
+
+  Klimov et al fix a computational basis $\ket n$, for $n =
+  0,\ldots,d-1$ in the Hilbert spae and introduce the basic
+  oeprators
+  \[
+    X\ket n = \ket{n+1},
+    \quad
+    Z\ket n = \omega^{n}\ket n,
+  \]  
+  where $\omega = \exp(2\pi i / d)$ is the $d$-th root of
+  unity and addition and multiplication is understood modulo
+  $d$. The operators $X$ and $Z$ are generalizations of the
+  Pauli matrices and were studied long ago by Weyl. They
+  generate a group under multiplication known as the
+  generalized Pauli group and obey the commutation rule
+  \[
+    ZX = \omega XZ.
+  \] 
+  One can construct MUBs by finding $d+1$ disjoint classes,
+  such that the corersponding eigenstates form sets of MUBs.
+  Start out with the set of operators
+  \[
+    \{X^{k}\}, \quad \{Z^{k}X^{m k}\},
+  \] 
+  with $k = 1,\ldots,d-1$ and $m = 0,\ldots,d-1$. One can
+  easily check that
+  \[
+    \Tr\left( X^{k}X^{k'*} \right) = d\delta_{k,k'},
+    \quad 
+    \Tr\left( Z^{k}Z^{k'*} \right) = d\delta_{k,k'},
+  \] 
+  \[
+    \Tr\left( (Z^{k}X^{m k})(Z^{k'}X^{m;k})^{*} \right) 
+    = d\delta_{k,k'}\delta_{m,m'}.
+  \] 
+  The pairwise orthogonality relations indicate that, for
+  every value of $m$, we generate a maximal set of $d-1$ 
+  commuting oeprators and that all these classes are
+  disjoint. In addition, the common eigenstates of each
+  class $m$ form different sets of MUBs.
+
+  \subsection{Mutually unbiased bases for $n$ qubits}
+
+  When the space dimension $d = p^{n}$ is a power of a prime
+  it is natural to view the system as composed of $n$ 
+  constituents each of dimension $p$. The main idea consists
+  in labeling the states with elements of the finite field
+  $GF(2^{n})$, instead of the integers. We denote by $\ket
+  \alpha$ with $\alpha \in GF(2^{n})$, an orthonormal basis
+  in the Hilbert space of the system. Operationally the
+  elements of the basis can be labeled by posers of a
+  primitive element,
+  \[
+    \{\ket 0, \ket \sigma, \ldots,
+    \ket{\sigma^{2^{n}-1}=1}\}.
+  \] 
+  These vectors are eigenvectors of the operators $Z_\beta$ 
+  belonging to the generalized Pauli group, whose generators
+  are now defined as
+  \[
+    Z_\beta = \sum_{\alpha \in GF(2^{n})}^{} \chi(\alpha
+    \beta) \ket \alpha \bra \alpha,
+    \quad
+    X_\beta = \sum_{\alpha \in GF(2^{n})}^{} \ket{\alpha +
+      \beta} \bra \alpha,
+  \] 
+  so that
+  \[
+    Z_\alpha X_\beta = \chi(\alpha\beta) X_\beta Z_\alpha,
+  \] 
+  where $\chi$ is an additive character. The operators
+  $X_\beta$ and $Z_\alpha$ can be factorized into tensor
+  products of powers of single particle Pauli operators
+  $\sigma_z$ and $\sigma_x$, whose expression in the
+  standard basis of the two 
+  \[
+    \sigma_z = \ket 1 \bra 1 - \ket 0 \bra 0,
+    \quad
+    \sigma_x = \ket 0 \bra 1 + \ket 1 \bra 0.
+  \] 
+  This factorization can be carried out by mapping each
+  element of $GF(2^{n})$ onto an ordered set of natural
+  numbers. A convenient choice for this is the selfdual
+  basis, since the finite Fourier transform factorizes then
+  into a product of single-particle Fourier operators, which
+  leads to
+  \[
+    Z_\alpha = \sigma_z^{a_1} \otimes \cdots \otimes
+    \sigma_z^{a_n},
+    \quad
+    X_\beta = \sigma_x^{b_1} \otimes \cdots \otimes
+    \sigma_x^{b_n},
+  \] 
+  where $(a_1,\ldots,a_n)$ and $(b_1,\ldots,b_n)$ are the
+  corresponding coefficients.
+
+  The simplest geoemetrical structures in the discrete phase
+  space are straight lines, i.e., collections of points
+  $(\alpha,\beta) \in GF(2^{n}) \times GF(2^{n})$ satisfying
+  the relation
+  \[
+    \xi \alpha \eta \beta = \nu,
+  \] 
+  where $\xi, \eta$ and $\nu$ are fixed elements of
+  $GF(2^{n})$. If the lines are not parallel they cross each
+  other. A ray is a line passing through the origin, so its
+  equation is
+  \[
+    \alpha = 0,
+    \quad 
+    \text{ or }
+    \quad 
+    \beta = \lambda \alpha.
+  \] 
+  Given in parametric form,
+  \[
+    \alpha(\kappa) = \mu \kappa,
+    \quad
+    \beta(\kappa) = \nu \kappa,
+  \] 
+  where $\kappa$ is the parameter running through the field.
+  The rays are the simplest structures which are additive in
+  the sense that
+  \[
+    \alpha(\kappa + \kappa') = \alpha(\kappa) +
+    \alpha(\kappa'),
+    \quad
+    \beta(\kappa + \kappa') = \beta(\kappa) +
+    \beta(\kappa').
+  \] 
+  This means that by summing the coordinates of the origin
+  and of any point in a ray we obtain another point on the
+  same ray. In particular, this opens the possibility of
+  introducing operators that generate translations along
+  these rays.
+
+  These rays have a very remarkable property: the monomials
+  $Z_\alpha X_\beta$ (labelled by phase-space points)
+  belonging to the same ray commute
+  \[
+    Z_{\alpha_1} X_{\beta_1=\lambda \alpha_1} Z_{\alpha_2}
+    X_{\beta_2 = \lambda\alpha_2}
+    = Z_{\alpha_2}X_{\beta_2=\lambda\alpha_2} Z_{\alpha_1}
+    X_{\beta_1=\lambda\alpha_1},
+  \] 
+  and thus, have a common system of eigenvectors
+  $\{\ket{\psi_{v,\lambda}}\}$ with $\lambda, v \in
+  GF(2^{n})$:
+  \[
+    Z_\alpha X_{\lambda\alpha} \ket{\psi_{v,\lambda}} =
+    \exp(i\xi_{v,\lambda}) \ket{\psi_{v,\lambda}},
+  \] 
+  where $\lambda$ is fixed and $\exp(i\xi_{v,\lambda})$ is
+  the corresponding eigenvalue, so $\ket{\psi_{v,0}} = \ket
+  v$ are eigenstates of $Z_\alpha$ (displacement oeprators
+  labeled by the ray $\beta = 0$, which we take as the
+  horizontal axis). Indeed we have that
+  \[
+    |\braket{\psi_{v,\lambda}|\psi_{v',\lambda'}}|^2
+    = \delta_{\lambda,\lambda'} \delta_{v,v'} + \frac{1}{d}
+    (1-\delta_{\lambda,\lambda'}),
+  \] 
+  and, in consequence, they are MUBs. Since each ray defines
+  a set of $2^{n}-1$ commuting operators, if we introduce
+  $2^{n}+1$ sets of commuting operators (which from now on
+  will be called displacement operators) as
+  \[
+    \{X_\beta\},
+    \quad
+    \{Z_\alpha X_{\beta=\lambda\alpha}\},
+  \] 
+  then we have a whole bundle of $2^{n}+1$ rays (which is
+  obtained by varying the slope $\lambda$) that allows us to
+  construct a complete set of MUB operators arrange in a
+  $(2^{n}-1)\times(2^{n}+1)$ table.
+
+  \section{Derivation of an explicit expression for mutually
+  unbiased bases in even adn odd prime power dimensions
+  (Durt)}
+
+  It is well-known that, when the dimension of the Hilbert
+  space is a prime power, there exists a set of $N+1$ 
+  mutually unbiased bases. This set is maximal because it is
+  not possible to find more than $N+1$ mutually unbiased
+  bases in a $N$ dimensional Hilbert space. A curucial
+  element of the construction is the existence of a finite
+  commutative division ring (or field) of $N$ elements. As
+  it is well known, finite fields with $N$ elements exist if
+  and only if the dimension $N$ is a poewr of a prime and a
+  derivation of a set of mutually unbaised bases is already
+  known in such cases. In this paper, Durt, obtains in a
+  synthetic formulation, the expressions for the mutually
+  unbiased bases that were derived in the past. In odd prime
+  power dimensions, we recover by a slightly different
+  approach the epxressions already obtained in the past by
+  Ivanonvic and odd prime power dimension $p^{m}$ by
+  Wootters and Fields. They also provide a synthetic
+  expression that is also valid in even prime powers
+  dimensions. They do this by forming the discrete
+  Heisenberg-Weyl group (sometimes called the generalized
+  Pauli group), a finite group of unitary transformations.
+
+  \subsection{Preliminary concepts}
+
+  Assume that our system is represented by a Hilbert space
+  of prime power dimension $N = p^{m}$. The corresponding
+  finite field has $N$ elements. These elements shall be
+  labeled by the integers $0 \leq i \leq N - 1$, or
+  equivalently by a $m$-tuple of integer numbers
+  $(i_0,i_1,\ldots,i_{m-1})$ where $i_j$ runs from $0$ to
+  $p-1$, obtained from the $p$-ary expansion of $i$, $i =
+  \sum_{k=0}^{m-1} i_n p^{n}$. Durt denotes the field
+  operations by $\odot$ and $\oplus$. It is always possible
+  to label the elements of the field in such a way that the
+  addition is equivalent with the addition modulo $p$ 
+  componentwise. He then makes the terrible decision to
+  denote the  $p$-th root of unity as $\gamma_G = \gamma_G =
+  e^{2\pi i / p}$. He starts with the identities,
+  \[
+    \sum_{j=0}^{N-1} \gamma_G^{(j \odot i}
+    = N \delta_{i,0},
+  \] 
+  \[
+    \gamma_G^i \cdot \gamma_G^j
+    = \gamma_G^{(i \oplus j)},
+  \] 
+  virtue of the fact that the addition is the addition
+  modulo $p$, componentwise.
+
+  \subsection{Construction of the dual basis}
+
+  . Way too complicated to make much sense.
+
+  \section{Equiangular lines, mutually unbiased bases and
+  spin models (Godsil and Roy)}
+
+  \subsection{Introduction}
+
+  Godsil and Roy start by mentioning that recent advances in
+  quantum computing has led to renewed interest in certain
+  special sets of lines in complex space. A set of $m$ 
+  lines in $\C^{d}$ spanned by unit vectors $z_1,\ldots,z_m$ 
+  is equiangular if there is a constant $a$ such that
+  \[
+    |\langle z_i, z_j \rangle| = a.
+  \] 
+  Very similar no? A pair of bases $x_1,\ldots,x_d$ and
+  $y_1,\ldots,y_d$ in $\C^{d}$ is mutually unbiased if they
+  are both orthonormal and there is a constant $a$ such that
+  \[
+    |\langle x_i, y_j \rangle| = a,
+  \] 
+  for all $i$ and $j$ when $i \neq j$. We can view a set of
+  $n$ pairwise mutually unbiased bases in $\C^{d}$ as a set
+  of lines in $n$ groups of size $d$ such that distinct
+  lines in the same group are orthogonal, and if $x$ and $y$ 
+  are unit vectors spanning lines in different groups, then
+  \[
+    |\langle x,y \rangle| = a.
+  \] 
+  They mention that it is known that a set of equiangular
+  lines in $\C^{d}$ has size at most $d^2$, and that a set
+  of mutually unbiased bases contains at most $d+1$ bases.
+  They offer some combinatorial constructions of these types
+  of lines. Starting witha  certain type of difference set
+  in an abelian group, we construct lines from the
+  characters of the group restricted to the difference set.
+  In the case of mutually unbiased bases, starting with a
+  suitable finite commutative semifield we find relative
+  difference sets for a group of automorphisms, which give
+  rise to a class of mutually unbiased bases. The procedure
+  results in maximal sets of bases in $\C^{d}$ for any prime
+  power $d$.
+
+  An important part of the work, is that they consider
+  equivalence of mutually unbiased bases. Most (but not all)
+  of the known maximal sets are equivalent. Their
+  construction produces several inequivalent sets, that
+  equivalent to those of Calderbank, Cameron, Kantor and
+  Seidel; in fact all known maximal sets are encapsulated in
+  their work. Also, relating to the work of Wocjan, all
+  known constructions are monomial.
+
+  \subsection{Semifields}
+
+  Semiregular relative difference sets are not easy to find,
+  and the intention is to construct them from commutative
+  semifields. A semifield is a field where multiplication
+  need not be associative. Every finite field is a
+  semifield. 
+
+  Using a semifield $E$, they construct an incidence
+  structure as follows. The point set of the incidence
+  structure is just $E \times E$ ; we denote the points by
+  ordered pairs $(x,y)$. The line set is a second copy of $E
+  \times E$, where we denote a line by $[a,b]$. The element
+  $a$ of the line $[a,b]$ is called its \textit{slope}. The
+  point $(x,y)$ lies on the line $[a,b]$ if and only if
+  \[
+    y = a \circ x + b.
+  \] 
+  For each $c$ in $E$ we adjoin the line consisting of the
+  points
+  \[
+    (c,y), \quad y \in E,
+  \] 
+  then the resulting incidence structure is the affine plane
+  $AG(2,E)$.
+
+  Next they construct some groups of automorphisms. If $a,b
+  \in E$, define the map $T_{a,b}$ by
+  \[
+    T_{a,b}(x,y)
+    := (x+a,y+b).
+  \] 
+  Then, if $(x,y)$ lies on $[u,v]$, then $T_{a,b}(x,y)$ lies
+  on $[u,v+b-u \circ a]$. Therefore $T_{a,b}$ is an
+  automorphism and the set
+  \[
+    T := \{T_{a,b} : a,b \in E\}
+  \] 
+  is an abelian group that acts transitively on points, and
+  with each parallel class of lines forming an orbit of
+  lines. (A parallel class is the set of lines with a given
+  slope.)
+
+  Next they define a map $S_{u,v}$ on lines by
+  \[
+    S_{u,v}([r,s]) := [r+u,s+v].
+  \] 
+  It is not hard to show that
+  \[
+    S_{u,v}(x,y) = (x,y+u\circ x+v).
+  \]
+  Therefore $S_{u,v}$ is an automorphism and
+  \[
+    S := \{S_{u,v} : u,v \in E\},
+  \] 
+  is an abelian group that acts transitively on the lines
+  and has the point sets of the lines of infinite slope as
+  its point orbits.
+
+  Now define $H_{u,b}$ by
+  \[
+    H_{u,b} := T_{u,b} S_{u,0}.
+  \] 
+  Then
+  \[
+    H_{u,b} H_{v,d} = H_{u+v,b+d+u\circ v}.
+  \] 
+  Given this it is not hard to show that
+  \[
+    H := \{H_{u,b} : u,v \in E\}
+  \] 
+  is a group and that if $E$ is commutative, then $H$ is
+  commutative. We also find that $H$ acts transitively on
+  points and lines. This result is originally due to Hughes
+  in 1956.
+
+  \begin{theorem}
+    Let $E$ be a finite commutative semifield of order $q$.
+    Then the group $H$ is abelina with order $q^2$, and the
+    subset
+    \[
+      H_0 = \{H_{u,0} : u \in E\}
+    \] 
+    is a relative difference set in $H$ with parameters
+    $(q,q,q,1)$.
+  \end{theorem}
+
+  \begin{proposition}
+    Let $E$ be a finite commutative semifield of order $q$.
+    Then the characters of $H$ restricted to $H_0$, together
+    with the standard basis, are a set of $q+1$ mutually
+    unbiased bases in $\C^{q}$.
+  \end{proposition}
+
+  And now they construct mutually unbiased bases explicitly
+  using the chracters of $H$.
+
+  \begin{lemma}
+    When $q = p^{n}$ is odd, let $\omega$ be a primitive
+    $p$-th root of unity, and let $\langle a,x \rangle$ 
+    denote the scalar product from $E \times E$ to $GF(p)$.
+    Then
+    \[
+      \phi_{ab}(H_{x,y}) = \omega^{\langle 2a,x \rangle +
+      \langle b,2y-x\circ x \rangle}
+    \] 
+    is a character of $H$.
+  \end{lemma}
+
+  When $q = 2^{n}$ is even, we need more structure. Let
+  $\{e_1,\ldots,e_n\}$ be a basis for $E$ over $GF(2)$, let
+  $\{\hat{e}_1, \ldots, \hat{e}_n\}$ be a basis for $R$, a
+  free module over $\Z_4$. For each $x = \sum x_i e_i$ in
+  $E$, $x_i \in \Z_2$, embed $x$ in $R$ as
+  \[
+    x \mapsto \hat{x} = \sum_{i=1}^{n} x_i \hat{e}_i.
+  \] 
+  Since $x_i \in \{0,1\}$, any element of $R$ can be written
+  uniquely in the form $\hat{x} + 2 \hat{y}$, with $x,y \in
+  E$. This map is not an additive homoorphism, but it does
+  preserve addition mod 2: for any $x$ and $y$ in $E$,
+  \[
+    2(\hat{x}+\hat{y}) = 2\overline{x+y}.
+  \] 
+  Define multiplication on $R$ as follows: let
+  \[
+    \hat{e}_i \hat{e}_j = \overline{e_i \circ e_j}
+  \] 
+  for basis elements $\hat{e}_i$ and $\hat{e}_j$, and extend
+  linearly to all of $R$. Then multiplication distributes
+  over addition, and the embedding preserves multiplication
+  mod 2:
+  \[
+    2\hat{x}\hat{y} = 2\overline{x \circ y}.
+  \]
+  More and more .. .
+
+  \subsection{Equivalence}
+
+  Equivalence of mutually unbiased bases was introduced by
+  Calderbank, Cameron, Kantor and Seidel. The idea is to
+  identify a vector in $\C^{n}$ with a point in projective
+  space $PG(n-1,\C)$, so that two vectors in $\C^{n}$ are
+  considered the same if they span the same $1$-dimensional
+  subspace. Two sets of mutually unbiased bases
+  $\{B_0,\ldots,B_d\}$ and $\{B_0',\ldots,B_d'\}$ are
+  equivalent if there is a unitary operator $U$ mapping the
+  first set of bases to the second set (in no particular
+  order):
+  \[
+    \{U(B_0),\ldots,U(B_d)\} = \{B_0',\ldots,B_d'\}.
+  \] 
+  Note the $U$ preserves angles between lines: for any two
+  subspaces $\langle x \rangle$ and $\langle y \rangle$,
+  \[
+    |\langle Ux, Uy \rangle| = |\langle x,y \rangle|.
+  \] 
+  Calderbank find several inequivalent mutually-unbiased
+  bases (which they refer to as orthogonal frames) using
+  symplectic spreads and $\Z_4$-Kerdoc codes. In particular,
+  given a symplectic spread $\Sigma$, they show how to
+  construct a maximal set of mutually unbiased bases
+  $\mathcal F(\Sigma)$. They then show that two sets of
+  bases $\mathcal{F}(\Sigma_1)$ and $\mathcal{F}(\Sigma_2)$ 
+  are equivalent if and only if there is symplectic
+  transformation sending $\Sigma_1$ to $\Sigma_2$. Using
+  Kantor's result on inequivalent symplectic spreads,
+  Calderbank et al, conclude that a large number of
+  inquivalent sets of mutually unbiased bases exist for
+  $\C^{n}$ where $n$ is an odd power of 2.
+
+  Since there is a natural correspondence between semifields
+  and symplectic semifield spreads, ourt mutually unbiased
+  bases are included in those of Calderbank. In fact, all
+  known maximal sets fit into that framework.
+
+  And now, they show that the constructions of Alltop,
+  Wootters and Fields, Klappenecker and Rötteler, and
+  Banyopadhyay et al are all equivalent and are a special
+  case of the constructions of Calderbank et al. In the
+  process, we show that all known constructions of maximal
+  sets of mutually unbiased bases are monomial.
+
+  They express the mutually unbiased bases in terms of
+  matrices, where the columns of each $q \times q$ matrix
+  form the bases for $\C^{q}$. So, two sets of matrices are
+  equivalent if there is unitary map taking one set to the
+  other, up to permutations of columns and multipliying any
+  column by an element of $\C$ of modulus 1.
+
+  First for the odd case. The earliest construction was due
+  to Alltop, although he epxressed his result in different
+  terms. Let $\mathbb{F}$ denote the finite field of order
+  $q$ and characteristic $p$. As before, $\Tr$ is the
+  $GF(p)$ valued trace on $\mathbb{F}$ and $\omega$ is a
+  primitive $p$-th root of unity. Definte the matrices
+  $A_\alpha$ by
+  \[
+    A_\alpha := \frac{1}{\sqrt{q}} \left( 
+      \omega^{\Tr(x+\alpha)^3+y(x+\alpha)}
+    \right)_{x,y},
+    \quad x,y \in \mathbb{F}.
+  \] 
+  If $p > 3$, then $\{A_\alpha : \alpha \in \mathbb{F}\}
+  \cup \{I\}$ is a set of $q+1$ mutually unbiased bases for
+  $\C^{q}$.
+
+  The next construction was originally due to Ivanovic (in
+  the case of prime dimension) and Wootters and Fields (who
+  generalized Ivanovic's work to all prime powers). Define
+  $W_\alpha$ by
+  \[
+    W_\alpha
+    := \frac{1}{\sqrt{q}} \left( 
+      \omega^{\Tr(\alpha x^2 + xy)}
+    \right)_{x,y},
+    \quad x,y \in \mathbb{F}.
+  \] 
+  Klappenecker and Rötteler gave a simplified proof that the
+  matrices $W_\alpha$ together with the identity matrix form
+  a set of mutually unbaised bases.
+
+  \begin{lemma}
+    For $p > 3$, $\{A_\alpha : \alpha \in \mathbb{F}\} \cup
+    \{I\}$ is equivalent to $\{W_\alpha : \alpha \in
+    \mathbb{F}\} \cup \{I\}$.
+  \end{lemma}
+
+  Thirdly, Bandyopadhyay et al gave another construction of
+  the same bases. Let $\{e_u\}$ denote the standard basis
+  $\C^{q}$, indexed by the elements of $\mathbb{F}$. For $a$
+  in $\mathbb{F}$, define the following $q \times q$ 
+  matrices:
+  \begin{align*}
+    X(a) &: e_u \mapsto e_{u+a},\\
+    Z(a) &: e_u \mapsto \omega^{\Tr(au)} e_u
+  .\end{align*}
+  Clearly, the standard basis is a complet set of
+  eigenvectors for $Z(a)$. It is also easy to verify that
+  the vectors
+  \[
+    f_u = \sum_{v \in \mathbb{F}}^{} \omega^{\Tr(uv)} e_v,
+    \quad u \in \mathbb{F}
+  \] 
+  form a complete set of eigenvectors for $X(a)$.
+
+  Define a map from $\mathbb{F}^2$ to the $d \times d$ 
+  matrices as follows
+  \[
+    D_{(a,b)} 
+    := X(a) Z(b).
+  \] 
+  Up to a phase, these amtrices are sometimes called the
+  generalized Pauli matrices. Each $D_{(a,b)}$ is unitary
+  and monomial, and $\{D_{(a,b)}\}$, modulo scalar multiples
+  of $I$, is isomorphic to $\mathbb{F}^2$ as a group.
+  Bandyopadhyay et al partition these matrices into
+  commuting sets and show that common eigenvectors must form
+  mutally unbiased bases. Those eigenvectros are the bases
+  of Wootters and Fields.
+
+  \begin{lemma}
+    Let $a,c,d$ and $b = 2ac$ be in $\mathbb{F}$. Then
+    \[
+      \phi_{c,d}
+      = \sum_{x \in \mathbb{F}}^{} \omega^{\Tr(cx^2+2dx)}e_x
+    \] 
+    is an eigenvector for $D_{a,b}$.
+  \end{lemma}
+
+  Now for the case where $q$ is even. The first construction
+  was due to Wootters and Fields, but Klappenecker and
+  Rötteler gave a simpler description. With $q = 2^{n}$ as
+  before let $T$ denote the Teichmüller set of the Galois
+  ring $R = GR(4^{n})$ and let $\Tr : R \to \Z_4$ denote the
+  trace. Define
+  \[
+    W_\alpha = \left( i^{\Tr(\alpha+2y)x} \right)_{x,y},
+    \quad x,y \in T.
+  \] 
+  Note that $\Tr(x^2) = \Tr(x)$ in $T$, so after some
+  permutation of $\alpha$ these matrices have the form
+  \[
+    W_\alpha = \left( i^{\Tr(\alpha x^2 +2yx)}
+    \right)_{x,y},
+    \quad x,y \in T,
+  \] 
+  which are equivalent to those after the last lemma.
+
+  Again Bandyopadhyay constructed the same bases using Pauli
+  matrices. The connection between the bases defined using
+  $R = GR(4^{n})$ and the Pauli matrices, defined over
+  $\mathbb{F} = GF(2^{n})$, is the natural mod 2 mapping. In
+  addition to being a ring homoorphism from $R$ to
+  $\mathbb{F}$ it is bijection from $T$ to $\mathbb{F}$.
+
+  It is known that $T$ is multiplicatively closed, and any
+  element of $R$ can be written $x+2y$ for $x,y \in T$. Note
+  that $(x+2y)^2 = x^2$ is in $T$. Also $(x+y)^2 =
+  x^2+y^2+2xy$, so for any $x$ and $y$ in $T$, $x+y+2
+  \sqrt{xy}$ is the unique element of $T$ congruent to $x+y
+  \mod 2$.
+
+  Using the bijection between $T$ and $\mathbb{F}$, the
+  Pauli matrices are, with $a,u \in T$,
+  \begin{align*}
+    X(a) &: e_u \mapsto e_{u+a+2 \sqrt{ua}} \\
+    Z(a) &: e_u \mapsto (-1)^{\Tr(au)} e_u = i^{\Tr(2au)}
+    e_u
+  .\end{align*} 
+
+  As in the case of $q$ odd, the eigenvectors of $D_{a,b}$ 
+  are the bases described by Klappenecker and Rötteler.
+
+  \begin{lemma}
+    Let $a,c,d$ and $b = ac$ be in $T$. Then
+    \[
+      \phi_{c,d} = 
+      \sum_{x \in T}^{} i^{\Tr(cx^2+2dx)} e_x
+    \] 
+    is an eigenvector for $D_{a,b}$.
+  \end{lemma}
+
+\end{document}

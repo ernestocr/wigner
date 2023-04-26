@@ -1,0 +1,762 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=1.4in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+
+\vfuzz=30pt
+\hfuzz=30pt
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+
+\title{Finite and profinite quantum systems (Vourdas)}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+  
+  \section{Quantum systems with variables in $\Z(d)$ }
+
+  In this section Vourdas only talks about odd integer
+  dimesion.
+
+  \subsection{Fourier transforms in $\Sigma[\Z(d)]$}
+
+  Let us consider the quantum system $\Sigma[\Z(d)]$ with
+  variables in $\Z(d)$. It is describe by a $d$-dimensional
+  Hilbert space $H[\Z(d)]$, that contains complex functions
+  $f(m)$ where $m \in \Z(d)$.
+
+  In $H[\Z(d)]$ consider an orthonormal basis of
+  \textit{position states}, which we denote as $\ket{X; m}$ 
+  where $m \in \Z(d)$. 
+
+  \begin{definition}
+    The Fourier transform, is given by
+    \[
+      F = 
+      \frac{1}{\sqrt{d}}
+      \sum_{m,n}^{} \omega(mn) \ket{X;m} \bra{X;n},
+      \quad
+      \omega(\alpha) = \exp\left( 2\pi i \alpha / d \right).
+    \] 
+  \end{definition}
+
+  Using the Fourier transform we define the basis of
+  \textit{momentum states} as
+  \[
+    \ket{P; m}
+    = F\ket{X; m}
+    = \frac{1}{\sqrt{d}} \sum_{n}^{} \omega(mn) \ket{X; n}.
+  \]
+
+  The position and momentum operators $x$ and $p$ are given
+  by
+  \[
+    x = \sum_{n=0}^{d-1} n \ket{X; n} \bra{X; n};
+    \quad
+    p = \sum_{n=0}^{d-1} n \ket{P; n} \bra{P; n}.
+  \] 
+  The $x$ and $p$ are defined modulo $d \bf{1}$, because $n$ 
+  are integers modulo $d$. We can obtain the momentum
+  operator from the position operator and vice versa using
+  the Fourier transform:
+  \[
+    p = FxF^{*},
+    \quad FpF^{*} = -x.
+  \] 
+
+  Vourdas, for convience, defines the functions
+  \[
+    \Delta_0(x)
+    = \frac{1}{d} \sum_{n=0}^{d-1} \omega(nx)
+  \] 
+  and generally
+  \[
+    \Delta_m(x)
+    = \partial_x^{m} \Delta_0(x)
+    = \frac{1}{d} \sum_{n=0}^{d-1} \left( i \frac{2\pi n}{d}
+    \right)^{m} \omega(nx);
+    \quad
+    \Delta_m(x+d) = \Delta_m(x).
+  \] 
+  Extra care is needed in numerical calculations, due to the
+  circular nature of the variables. 
+
+  The commutator $[x,p]$ is an important quantity in the
+  case of continuous Heisenberg-Weyl groups, related to
+  infinitesimal displacements in phase space. In the finite
+  case, the Heisenberg-Weyl group is discrete and the
+  quantity is of less importance.
+
+  \subsection{The Heisenberg-Weyl group $HW[\Z(d)]$}
+
+  \begin{definition}
+    The Heisenberg-Weyl group has elements
+    $g(\alpha,\beta,\gamma)$, where $\alpha, \beta, \gamma$ 
+    are elements of some ring, and the multiplication rule:
+    \[
+      g(\alpha_1,\beta_1,\gamma_1)
+      g(\alpha_2,\beta_2,\gamma_2)
+      = g(\alpha_1+\alpha_2,\beta_1+\beta_2,
+      \gamma_1+\gamma_2+2^{-1}
+      (\alpha_1\beta_2-\alpha_2\beta_1)).
+    \] 
+  \end{definition}
+
+  \begin{definition}
+    The displacement operators $X, Z$ are the unitary
+    operators
+    \[
+      X = \exp\left( -i \frac{2\pi}{d} p \right);
+      \quad
+      Z = \exp\left( i \frac{2\pi}{d} x \right).
+    \] 
+  \end{definition}
+
+  They act on the position and momentum states as follows:
+  \begin{align*}
+    &Z^{\alpha} \ket{P; m} = \ket{P; m + \alpha};
+    \quad
+    Z^{\alpha} \ket{X; m} = \omega(\alpha m) \ket{X; m}\\
+    &X^{\beta} \ket{P; m} = \omega(-m\beta) \ket{P; m};
+    \quad
+    X^{\beta} \ket{X; m} = \ket{X; m+\beta}
+  \end{align*}
+  where $\alpha, \beta \in \Z(d)$.
+
+  They also obey the important relations
+  \[
+    X^{d} = Z^{d} = 1;
+    \quad
+    X^{\beta}Z^{\alpha} =
+    Z^{\alpha}X^{\beta}\omega(-\alpha\beta);
+    \quad
+    \Tr(X) = \Tr(Z) = 0.
+  \] 
+  And
+  \[
+    FXF^{*} = Z;
+    \quad
+    FZF^{*} = X^{*}
+  \] 
+
+  The position-momentum phase space is the toroidal lattice
+  $\Z(d) \times \Z(d)$, and the relations $X^{d} = Z^{d} =
+  \bf 1$ indicate the toroidal nature of the phase space.
+
+  General displacement operators are the unitary operators
+  \[
+    D(\alpha,\beta)
+    = Z^{\alpha} X^{\beta} \omega(-2^{-1}\alpha\beta);
+    \quad
+    \alpha,\beta \in \Z(d).
+  \] 
+
+  The operators $D(\alpha,\beta)\omega(\gamma)$ form a
+  representation of the $HW[\Z(d)]$ Heisenberg-Weyl group.
+  The displacement operators act on the position and
+  momentum states as follows:
+  \begin{align*}
+    D(\alpha,\beta) \ket{X; m}
+    = \omega(2^{-1}\alpha\beta + \alpha m) \ket{X;
+    m+\beta};\\
+    D(\alpha,\beta) \ket{P; m}
+    = \omega(-2^{-1}\alpha\beta - \beta m) \ket{P; m+\alpha}
+  .\end{align*}
+
+  \subsection{Partiy operators}
+
+  Parity operators have been studied extensively in the
+  context of the harmonic oscilator. In the preset context
+  they are defined as follows.
+
+  \begin{definition}
+    The partiy operator around the origin in phase space, is
+    given by
+    \[
+      P(0,0) = F^2;
+      \quad
+      P(0,0)^2 = 1;
+      \quad
+      P(0,0)^{*} = P(0,0).
+    \] 
+    The parity operator around the point $(\alpha,\beta)$ in
+    phase space (a.k.a. the displaced parity operator) is
+    given by
+    \[
+      P(\alpha,\beta)
+      = D(\alpha,\beta) P(0,0) D(\alpha,\beta)^{*};
+      \quad
+      P(\alpha,\beta)^2 = 1.
+    \] 
+  \end{definition}
+
+  The parity operators act on the position and momentum
+  states in the following way
+  \begin{align*}
+    P(\alpha,\beta) \ket{X; m}
+    &=
+    \omega(2\alpha\beta - 2\alpha m) \ket{X; 2\beta - m}\\
+    P(\alpha,\beta) \ket{P; m}
+    &= 
+    \omega(-2\alpha\beta-2\beta m) \ket{P; 2\alpha - m}.
+  \end{align*}
+
+  An important set of properties of both the displacement
+  operators and the partiy oeprators, are the
+  \textit{marginal properties}. Vourdas uses these to later
+  prove marginal properties of the Wigner function.
+
+  \begin{proposition}
+    Let $\Pi_X(\alpha)$ and $\Pi_P(\alpha)$, be projectors
+    to position and momentum states:
+    \[
+      \Pi_X(\alpha) = \ket{X; \alpha} \bra{X; \alpha};
+      \quad
+      \Pi_P(\alpha) = \ket{P; \alpha} \bra{P; \alpha}.
+    \] 
+  \end{proposition}
+
+  \begin{itemize}
+    \item The displacement operators obey the following
+      \textit{marginal relations} along the horizontal and
+      vertical lines in the phse space $\Z(d) \times \Z(d)$:
+      \[
+        \frac{1}{d} \sum_{\beta=0}^{d-1} D(\alpha,\beta)
+        = \Pi_P(2^{-1}\alpha)P(0,0).
+      \] 
+      \[
+        \frac{1}{d} \sum_{\alpha,\beta}^{} D(\alpha,\beta) =
+        P(0,0).
+      \] 
+    \item THe partiy operators obey the following
+      \textit{marginal relations} along the horizontal and
+      vertical lines in the phase space $\Z(d) \times
+      \Z(d)$:
+      \begin{align*}
+        \frac{1}{d} \sum_{\beta=0}^{d-1} P(\alpha,\beta)
+        &= \Pi_P(\alpha) \\
+        \frac{1}{d} \sum_{\alpha=0}^{d-1} P(\alpha,\beta)
+        &= \Pi_X(\beta) \\
+        \frac{1}{d} \sum_{\alpha,\beta}^{} P(\alpha,\beta)
+        &= 1.
+      \end{align*}
+  \end{itemize}
+
+  As an analog to the continuous case, the displacement and
+  parity operators are related through Fourier transforms.
+
+  \subsection{Wigner and Weyl functions}
+
+  The Wigner and Weyl functions play a central role in phase
+  space methods in quantum mechanics. In particular the
+  subject of tomography constructs the Wigner function.
+
+  \begin{definition}
+    Let $\theta$ be an arbitrary operator. The corresponding
+    Wigner function $W(\alpha,\beta; \theta)$ is defined as:
+    \[
+      W(\alpha,\beta; \theta) = \Tr\left( \theta
+      P(\alpha,\beta) \right).
+    \] 
+  \end{definition}
+  If $\theta$ is a density matrix, the Wigner function can
+  be interpreted as a pseudo-probability distribution of the
+  particle in the position-momentum phase space. The
+  following proposition is based on the marginal properties
+  of the parity operators.
+
+  \begin{proposition}
+    For an arbitrary operator $\theta$, let
+    \[
+      \theta_X(m,n) = \bra{X; m}\theta\ket{X; n};
+      \quad
+      \theta_P(m,n) = \bra{P; m}\theta\ket{P; n}.
+    \] 
+    The Wigner function obeys the following marginal
+    properties:
+    \begin{align*}
+      \frac{1}{d} \sum_{\beta=0}^{d-1} W(\alpha,\beta;
+      \theta)
+      &= \theta_P(\alpha,\alpha) \\
+      \frac{1}{d} \sum_{\alpha=0}^{d-1} W(\alpha,\beta;
+      \theta)
+      &= \theta_X(\beta,\beta) \\
+      \frac{1}{d} \sum_{\alpha,\beta}^{} W(\alpha,\beta;
+      \theta) 
+      &= \Tr \theta.
+    \end{align*}
+  \end{proposition}
+
+  \section{Finite geometries and mutually unbiased bases}
+
+  Vourdas then discusses the space $\Z(d) \times \Z(d)$ as a
+  finite geometry and its link to the subject of mutually
+  unbiased bases. There are deep mathematical problems
+  realted to these bases, and they also have important
+  applications in quantum communications and quantum
+  cryptography.
+
+  As is usual, he makes a distinction:
+  \begin{itemize}
+    \item When $d = p$ is a prime number, $\Z(p)$ is a
+      field. $\Z(p) \times \Z(p)$ is what he calls a
+      near-linear finite geometry, based on the axiom that
+      two lines have at most one point in common. The number
+      of mutually unbiased bases is $p+1$ and there is a
+      duality between the finite geometry and the mutually
+      unbiased bases. These results can be extended to the
+      case that $d = p^{e}$, using the Galois field
+      $GF(p^{e})$.
+    \item When $d$ is not a prime number, then $\Z(d)$ is a
+      ring. Then $\Z(d) \times \Z(d)$ is a non-near-linear
+      finite geometry, and two lines might have more than
+      one point in common. The number of mutually unbiased
+      baess is not known, but it is probably smaller than
+      $d+1$. Here there is no duality between the finite
+      geometry and the mutually unbiased bases.
+  \end{itemize}
+
+  He starts with non-near-linear finite geometries, which is
+  the case where $d$ is not a prime or prime power. He
+  denotes a line throught the point $(\alpha,\beta)$ as the
+  set of points
+  \[
+    L(\rho,\sigma | \alpha,\beta)
+    = \{(\tau \rho + \alpha, \tau \sigma + \beta) : \tau \in
+    \Z(d)\},
+    \quad
+    \rho,\sigma,\alpha,\beta \in \Z(d).
+  \] 
+
+  He also mentions that the lines through the origin
+  $(0,0)$, denoted as $L(\rho,\sigma)$ are a cyclic module
+  generated by $(\rho,\sigma)$, but that he will use the
+  intuitive term line. The geometry becomes slightly more
+  complicated, for example, the number of points in
+  $L(\rho,\sigma)$ is $d / GCD(\rho,\sigma,d)$, if $\lambda$ 
+  is an ivnertible element in $\Z(d)$ then
+  $L(\rho\lambda,\sigma\lambda) = L(\rho,\sigma)$, and the
+  intersection of two lines is a line, which he calls a
+  subline, with the number of common points being a divisor
+  of $d$.
+
+  In the case $d = p$ where $p$ is a prime number, the
+  $\Z(p)$ is a field. In this case the only divisor of $p$ 
+  is 1, and two lines through the origin have one point in
+  common.
+
+  \subsection{Mutually unbiased bases}
+
+  In Vourdas notation, a set of orthonormal bases in
+  $H[\Z(d)]$ are called mutually unbiased, if the vectors in
+  any two of these bases obey the relation
+  \[
+    |\braket{X; m|Y; n}|^2 = \frac{1}{d}, 
+    \quad m,n \in \Z(d),
+  \] 
+  for all $m,n$. He mentions the basic result that the
+  number of mutually unbiased bases in $H[\Z(d)]$ is less
+  then or equal to $d+1$. In systems with prime, or power of
+  prime dimension, the inequality becomes equality. 
+
+  \subsection{Mutually unbiased bases in $H[\Z(p)]$}
+
+  Now he considers systems with prime dimension $p$, and
+  constructs a set of $p+1$ MUBs. His construction is based
+  on symplectic transformations. This method is then
+  generalized to systems with power of prime dimension
+  $p^{e}$ with variables in the Galois field.
+
+  In $H[\Z(p)]$ where $p$ is an odd prime, consider the $p$ 
+  orthonormal bases
+  \[
+    \ket{\mathcal{X}(v); m} = S(0,-1|1,v)\ket{X; m};
+    \quad
+    v,m \in \Z(p),
+  \] 
+  where $S(0,-1|1,v)$ are symplectic matrices. In the case
+  $v = 0$, then we obtain momentum states:
+  \[
+    \ket{\mathcal{X}(0); m}
+    = S(0,-1|1,0) \ket{X; m}
+    = F^{*}\ket{X; m}
+    = \ket{P; -m}.
+  \] 
+  As notation he also uses $\ket{\mathcal{X}(-1); m} =
+  \ket{X; m}$. And so he obtains $p+1$ orthonormal bases
+  \[
+    \ket{\mathcal{X}(v); m};
+    \quad 
+    v \in \{-1\} \cup \Z(p).
+  \] 
+  \begin{proposition}
+    For  $v \neq v'$, 
+    \[
+      |\braket{\mathcal{X}(v'); n|\mathcal{X}(v); m}|^2
+      = \frac{1}{p};
+      \quad
+      v,v' \in \{-1\} \cup \Z(p).
+    \] 
+  \end{proposition}
+
+  \begin{proposition}
+    There is a duality between the $\psi(p) = p+1$ lines
+    through the origin in the near-linear finite geometry
+    $\Z(p) \times \Z(p)$, and the $\psi(p) = p+1$ mutually
+    unbiased bases in the Hilbert space $H[\Z(p)]$, where
+    \[
+      \mathcal{L}(v) \leftrightarrow
+      \{\ket{\mathcal{X}(v); m}\};
+      \quad
+      v = -1,\ldots,p-1.
+    \] 
+    Where $p$ points in the line $\mathcal{L}(v)$ correspond
+    to the $p$ vectors in the basis $\{\ket{\mathcal{X}(v);
+    m}\}$.
+  \end{proposition}
+  The duality between mutually unbiased bases and finite
+  geometries, does not hold for non-prime dimensions. This
+  motivates the revision of the concept of mutually unbiased
+  bases into another concept (weak mutually unbiased bases).
+
+  Vourdas notes (among other topics), that acting with a
+  unitary transformation on a set of mutually unbiased
+  bases, we get another set of mutually unbiased bases. But
+  there are unitarily inequivalent mutually unbiased bases
+  which have been discussed.
+
+  \subsection{Galois theory}
+
+  Vourdas makes the statement that some theorems in Galois
+  theory are valid only for a prime $p \neq 2$, and so it is
+  the case which he considers in the chapter.
+
+  First consider the ring of pylonomials $[\Z(p)](\epsilon)$ 
+  with coefficients in the field $\Z(p)$. Let
+  $\mathcal{p}(\epsilon)$ be an irreducible polynomial of
+  degree $e$. The ring $[\Z(p)](\epsilon) /
+  \mathcal{p}(\epsilon)$ has as elements plynomials in
+  $[\Z(p)](\epsilon)$ which are defined modulo
+  $\mathcal{p}(\epsilon)$. The $[\Z(p)](\epsilon) /
+  \mathcal{p}(\epsilon)$ is a representation of the Galois
+  field $GF(p^{e})$. Different irreducible polynomials of
+  the same degree $e$, lead to isomorphic finite fields.
+  
+  Addition and multiplication of two Galois numbers is the
+  standard addition and multiplication of polynomials, and
+  the result is defined modulo the polynomial
+  $\mathcal{p}(\epsilon)$. The Galois number $\alpha$ can be
+  viewed as a vector
+  $(\alpha_0,\alpha_1,\ldots,\alpha_{e-1})$ in $[\Z(p)]^{e}$ 
+  in the basis $\{1,\epsilon,\ldots,\epsilon^{e-1}\}$. In
+  this way, the addition of two Galois numbers is the
+  standard addition of vectors in $[\Z(p)]^{e}$.
+
+  \begin{proposition}
+    \begin{itemize}
+      \item The elements of $GF(p^{e})$ obey the relation
+        \[
+          \alpha^{p^{e}} = \alpha.
+        \] 
+      \item The Frobenius transformation
+        \[
+          \sigma(\alpha) = \alpha^{p}
+        \] 
+        defines an automorphism in $GF(p^{e})$ and leads to
+        Galois conjugates
+        \[
+          \alpha \to \alpha^{p} \to \ldots \to
+          \alpha^{p^{e-1}} \to \alpha.
+        \] 
+        Elements in the subfield $\Z(p)$ of $GF(p^{e})$ are
+        self-conjugates, becase for $\alpha \in \Z(p)$ we
+        get $\alpha^{p} = \alpha$.
+    \end{itemize}
+  \end{proposition}
+
+  The trace of $\alpha \in GF(p^{e})$ is the sum of all its
+  conjugates, and it is an element of $\Z(p)$:
+  \begin{align*}
+    &\Tr(\alpha) = \Tr_{e / 1}(\alpha) = \alpha + \alpha^{p}
+    + \alpha^{p^2} + \ldots + \alpha^{p^{e-1}} \\
+    &\Tr(\alpha) \in \Z(p); \quad \alpha \in GF(p^{e}).
+  \end{align*}
+  This is the trace with respect to the extension from
+  $\Z(p)$ to $GF(p^{e})$. All conjugates have the same
+  trace. The trace is linear, $\Tr(\alpha+\beta) =
+  \Tr(\alpha)+\Tr(\beta)$. If $\alpha \in \Z(p)$ and $\beta
+  \in GF(p^{e})$, then $\Tr(\alpha\beta) = \alpha
+  \Tr(\beta)$.
+
+  Vourdas finally gives me a way to calculate the dual field
+  basis. He does this by defining two symmetric and
+  ivnertible $e \times e$ matrices, $g$ and $G$, with
+  elements in $\Z(p)$:
+  \[
+    g_{ij} := \Tr\left( \epsilon^{i+j} \right);
+    \quad
+    G = g^{-1},
+    \quad
+    i,j = 0,\ldots,e-1.
+  \] 
+  The elements depend on the choice of the irreducible
+  polynomial $\mathcal{p}(\epsilon)$. He can then define
+  $\{E_0,E_1,\ldots,E_{e-1}\}$ as the dual basis to
+  $\{1,\epsilon,\epsilon^2,\ldots,\epsilon^{e-1}\}$, defined
+  as
+  \[
+    E_i = \sum_{j}^{} G_{ij} \epsilon^{j}.
+  \] 
+  Defined in this way we have $\Tr(\epsilon^{i} E_j)
+  \delta(i,j)$. We can then use the two basis to express any
+  element $\alpha \in GF(p^{e})$.
+
+  Additive characters in $GF(p^{e})$ are defined as
+  \[
+    \chi(\alpha) = \omega\left( \Tr(\alpha) \right);
+    \quad
+    \alpha \in GF(p^{e}),
+  \] 
+  where $\omega(r) = \exp\left( i 2\pi r / p \right)$. All
+  conjugates have the same character. The Pontryagin dual
+  group to $GF(p^{e})$, i.e., the group of its characters,
+  is isomorphic to $GF(p^{e})$.
+
+  \section{Quantum systems with variables in $GF(p^{e})$}
+
+  Vourdas considers a quantum system with variables in
+  $GF(p^{e})$, where $p$ is a prime number ($p \neq 2$),
+  which he calls a Galois quantum system and denotes it as
+  $\Sigma[GF(p^{e})]$. For comparison, he also considers an
+  $e$-partite system where each component is a quantum
+  system with variables in $\Z(p)$, a system which he
+  denotes as $\Sigma \{[\Z(p)]^{e}\}$.
+
+  \subsection{Fourier transforms in $\Sigma[GF(p^{e})]$}
+
+  He starts by using the notation
+  \begin{align*}
+    \omega(r) &= \exp\left( i \frac{2\pi r}{p} \right);
+    \quad r \in \Z(p)\\
+    \Omega(s) &= \exp\left( i \frac{2\pi s}{e} \right);
+    \quad s \in \Z(e).
+  \end{align*}
+  The Hilbert space for the system $\Sigma[GF(p^{e})]$ is
+  the $p^{e}$-dimensional space $H[GF(p^{e})]$, of complex
+  wavefunctions $f(m)$, where $m \in GF(p^{e})$. A basis
+  for this Hilbert space consists of the position states
+  $\ket{X; m}$ where $m \in GF(p^{e})$.
+
+  The Fourier transform is then given in terms of the
+  characters:
+  \[
+    F = \frac{1}{\sqrt{p^{e}}} \sum_{m,n \in
+    GF(p^{e})}^{} \chi(mn) \ket{X; m} \bra{X; n},
+  \] 
+  and so the momentum states are
+  \[
+    \ket{P; m}
+    = F\ket{X; m}
+    = \frac{1}{\sqrt{p^{e}}} \sum_{n \in GF(p^{e})}^{}
+    \chi(mn) \ket{X; n}.
+  \] 
+  If $m = \sum_{}^{} m_i \epsilon^{i}$, the bijective map
+  \[
+    m \leftrightarrow (m_0,\ldots,m_{e-1}),
+  \] 
+  implies that there is a bijective map
+  \[
+    H[GF(p^{e})]
+    \leftrightarrow
+    H[\Z(p)] \otimes \cdots \otimes H[\Z(p)]
+  \] 
+  where
+  \[
+    \ket{X; m_0 + m_1\epsilon + \ldots + m_{e-1}
+    \epsilon^{e-1}} 
+    \mapsto
+    \ket{X; m_0} \otimes \cdots \otimes \ket{X; m_{e-1}}.
+  \] 
+  This of course depends on the chosen basis for
+  $GF(p^{e})$.
+
+  In this way an alternative way to express the Fourier
+  transform is by
+  \[
+    F = \frac{1}{\sqrt{p^{e}}}
+    \sum_{}^{} \omega\left( \sum_{}^{} g_{ij} m_i n_j \right) 
+    \ket{X; m_0} \bra{X; n_0} \otimes \cdots \otimes
+    \ket{X; m_{e-1}} \bra{X; n_{e-1}}.
+  \] 
+  And then the momentums tates can be written in terms of
+  the dual components as a tensor product.
+
+  \subsection{The Heisenberg-Weyl group $HW[GF(p^{e})]$}
+
+  Vourdas starts by defining the displacement operators
+  again, he does this explicitly this time, no need for
+  exponentials of the position or momentum operators.
+  \begin{align*}
+    Z(\alpha)
+    &= \sum_{n \in GF(p^{e})}^{} \chi(\alpha n) \ket{X; n}
+    \bra{X; n};
+    \quad
+    \alpha, \beta \in GF(p^{e}) \\
+    X(\beta)
+    &= F Z(\alpha) F^{*}
+    = \sum_{n \in GF(p^{e})}^{} \chi(-\beta n) \ket{P; n}
+    \bra{P; n}.
+  \end{align*}
+
+  They can also be expressed as tensor products:
+  \begin{align*}
+    Z(\alpha)
+    &= \sum_{}^{} \omega_p\left( \sum_{}^{} g_{ij} \alpha_i
+    n_j\right) \ket{X; n_0} \bra{X; n_0} \otimes \cdots
+    \otimes \ket{X; n_{e-1}} \bra{X; n_{e-1}} \\
+    X(\beta)
+    &= \sum_{}^{} \omega_p\left( \sum_{}^{} g_{ij} \beta_i
+    n_j \right) \ket{P; n_0} \bra{P; n_0} \otimes \cdots
+    \otimes \ket{P; n_{e-1}} \bra{P; n_{e-1}},
+  \end{align*}
+  in the basis $\{\epsilon^{i}\}$ for $GF(p^{e})$. And as
+  before, general displacement operators are given by
+  \[
+    D(\alpha,\beta)
+    = Z(\alpha) X(\beta) \chi(-2^{-1}\alpha\beta).
+  \] 
+  The operators $Z(\alpha)$, $X(\beta)$ act on position and
+  momentum states as follows:
+  \begin{align*}
+    &Z(\alpha) \ket{P; m} = \ket{P; m+\alpha}; 
+    \quad
+    Z(\alpha) \ket{X; m} = \chi(\alpha m) \ket{X; m} \\
+    &X(\beta) \ket{P; m} = \chi(-m \beta) \ket{P; m};
+    \quad
+    X(\beta) \ket{X; m} = \ket{X; m+\beta}.
+  \end{align*}
+  They follow the commutation rule:
+  \[
+    X(\beta) Z(\alpha) = Z(\alpha) X(\beta) \chi(-\alpha
+    \beta).
+  \] 
+  Importantly, the $Z(\alpha)$, $X(\beta)$ are $p^{e} \times
+  p^{e}$ complex matrices, and they have the $\omega_p(i)$ 
+  as eigenvalues (with various multiplicities). In general
+  we have
+  \begin{align*}
+    D(\alpha,\beta) \ket{X; m}
+    &= \chi(2^{-1} \alpha \beta + \alpha m) \ket{X; m+\beta}
+    \\
+    D(\alpha,\beta) \ket{P; m}
+    &= \chi(-2^{-1} \alpha\beta - \beta m) \ket{P;
+    m+\alpha}.
+  \end{align*}
+
+  In the context of the isomorphism, the displacement
+  operators acting on $H[GF(p^{e})]$ are expressed in terms
+  of the displacement operators $\mathcal{D}$ acting on the
+  various $H[\Z(p)]$ as
+  \[
+    D(\alpha,\beta)
+    = D(\hat \alpha_0, \beta_0) \otimes \cdots \times D(\hat
+    \alpha_{e-1},\beta_{e-1}).
+  \] 
+
+  \subsection{Parity operators and Wigner functions}
+
+  The material that was presented in the case of finite
+  field quantum systems is also valid for Galois quantum
+  systems by replacing the characters $\omega(\alpha)$ where
+  $\alpha \in \Z(d)$, with $\chi(\alpha)$ where $\alpha \in
+  GF(p^{e})$. The definition of the partiy operators is the
+  same just with the character replacements.
+
+  \begin{proposition}
+    The partiy operators acting on $H[GF(p^{e})]$ are
+    expressed in terms of the displacement operators
+    $\mathcal{P}$ acting on the various $H[\Z(p)]$ as:
+    \[
+      P(\alpha,\beta)
+      = P(\hat \alpha_0,\beta_0) \otimes \cdots \otimes
+      P(\hat \alpha_{e-1}, \beta_{e-1}).
+    \] 
+  \end{proposition}
+
+  \subsection{Mutually unbiased baess in $H[GF(p^{e})]$ and
+  duality to $GF(p^{e}) \times GF(p^{e})$}
+
+  Vourdas now extends the discussion on mutually unbiased
+  bases to systems with variables in Galois fields. There
+  are $p^{e} + 1$ mutually unbiased bases in $H[GF(p^{e})]$,
+  which he constructs explicitly in this section.
+
+  In $H[GF(p^{e})]$ consider the $p^{e}$ orthonormal bases
+  \[
+    \ket{\mathcal{X}(v); m}
+    = S(0,-1|1,v) \ket{X; m};
+    \quad
+    v,m \in GF(p^{e}),
+  \] 
+  where $S(0,-1|1,v)$ are symplectic matrices. In the case
+  $v = 0$, this is the basis of momentum states:
+  \[
+    \ket{\mathcal{X}(0); m}
+    = S(0,-1|1,0) \ket{X; m}
+    = F^{*}\ket{X; m}
+    = \ket{P; m}.
+  \] 
+  Denote the position states by the convention
+  \[
+    \ket{\mathcal{X}(-1); m}
+    = \ket{X; m}.
+  \] 
+  \begin{proposition}
+    For $v \neq v'$,
+    \[
+      |\braket{\mathcal{X}(v'); n|\mathcal{X}(v); m}|^2
+      \frac{1}{p^{e}};
+      \quad
+      v, v' \in \{-1\} \cup GF(p^{e}).
+    \] 
+    Therefore these are a set of $p^{e}+1$ mutually unbiased
+    bases.
+  \end{proposition}
+
+  \subsection{The finite geometry $GF(p^{e}) \times
+  GF(p^{e})$}
+
+  The $GF(p^{e}) \times GF(p^{e})$ has the $p^{e}+1$ lines
+  through the origin given by
+  \[
+    L(0,1) = \mathcal{L}(-1);
+    \quad
+    g(0,-1|1,v) \circ L(0,1) = \mathcal{L}(-1);
+    \quad
+    v \in GF(p^{e}).
+  \] 
+
+  \begin{proposition}
+    There is a duality between the $p^{e}+1$ mutually
+    unbiased bases in $H[GF(p^{e})]$, and the $p^{e}+1$ 
+    lines through the origin in the finite geometry
+    $GF(p^{e}) \times GF(p^{e})$, where
+    \[
+      \mathcal{B}(v) \leftrightarrow \mathcal{L}(v).
+    \] 
+  \end{proposition}
+\end{document}
