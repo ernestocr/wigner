@@ -13,3 +13,6 @@
 *.out
 *.snm
 *.toc
+
+.DS_Store
+.ipynb_checkpoints
