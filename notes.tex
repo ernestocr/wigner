@@ -1,0 +1,704 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.2in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corrollary}
+\newtheorem{example}{Example}
+
+\title{Some notes}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+  
+  \section{Investigations on discrete Wigner functions of
+  multi-qubit systems}
+
+  \subsection{K. Srinivasan}
+
+  Uses Gibbons and Wootters method for constructing discrete
+  Wigner functions. This means they assign mutually unbiased
+  bases to straight line striations of the phase space. They
+  acknowledge that by doing this, there is no unique Wigner
+  function associated to any density matrix. 
+
+  A Hilbert space of dimension $N$ is associated with a
+  discrete phase space of $N \times N$ cardinality. The
+  horizontal and vertical axes of the discrete phase space
+  are asociated with two non-commuting observables. The
+  points are ordered pairs of elements of a Galois field of
+  size $N$. Given the equation for a line $aq + bp = c$, if
+  we fix the values of $a$ and $b$ and vary $c$ over the
+  field, then a set of $N$ parallel lines called a striation
+  is generated. Each striation contains exactly one ray, and
+  for fixed values of $x$ and $y$, varying  $s$ from the
+  Galois field, then the set of $N$ points $(sa,sb)$ gives a
+  ray.
+
+  For prime power dimensions there are $N+1$ striations in
+  the discrete phase space and $N+1$ MUBs. In order to give
+  lines and striations a physical meaning, Wootters
+  associates the lines of the phase space with pure states:
+  if $\lambda_j^i$ is the $i$-th line of the $j$-th
+  striation, then $Q(\lambda_j^i) =
+  \ket{\lambda_j^i}\bra{\lambda_j^i}$ is the rank one
+  projector associated with the line.
+
+  This guy mentions that, just like the continuous case, one
+  can define a set of $N^2$ translations $\mathcal
+  T_{(q,p)}$ in discrete phase space, which shifts each
+  point in a line by the amount $(q,p)$. For every
+  striation, there exists $N-1$ translation operators which
+  leave the lines in the striation invariant and those
+  translation operators are formed by the points of the ray
+  of the corresponding striation. So in order to achieve
+  translational covariance, Wootters idea is to associate to
+  each phase space translation a corresponding translation
+  (displacement) operator, such that $T_\alpha T_\beta =
+  \eta T_{\alpha+\beta}$ and such that we can decompose the
+  translation operator as a tensor product of
+  \textit{basic} translation operators that act upon the
+  individual subystems of the composite Hilbert space:
+  \[
+    T_{(q,p)}
+    = T_{(q_1,p_1)} \otimes T_{(q_2,p_2)} \otimes \cdots
+    \otimes T_{(q_n,p_n)}.
+  \] 
+
+  For a prime dimension system, the generalized Pauli
+  matrices $X$ and $Z$ can be associated to the unit
+  horizontal and vertical translations $\mathcal T_{(1,0)}$ 
+  and $\mathcal T_{(0,1)}$. Such operators obey the
+  commutation relation $ZX = \eta XZ$. And so the unitary
+  operators are then defined up to a phase factor as
+  \[
+    T_{(q,p)}
+    = X^{q_1} Z^{p_1} \otimes \cdots \otimes X^{q_n}
+    Z^{p_n}.
+  \] 
+
+  The condition of translational covariance is ensured by
+  satisfying the equation
+  \[
+    Q(\mathcal T_\alpha \lambda)
+    = T_\alpha Q(\lambda) T_\alpha^{*}.
+  \] 
+  Which in turn requires the translation operators
+  corresponding to a striation (that is those which leave
+  the parallel lines of the striation invariant), commute.
+
+  Then in order to construct the Wigner function, we start
+  with its fundamental property, that is the sum (integral)
+  along a particular line $\lambda$ is equal to the
+  expectation value of the rank one projector $Q(\lambda)$.
+  The sum of the Wigner function $W$ along this line is
+  equal to the probability $p(\lambda) = \Tr(Q(\lambda)
+  \rho) = \sum_{\alpha \in \lambda}^{} W_\alpha$, so we can
+  reconstruct the Wigner function by the $N+1$ projective
+  measurements. Note that for any given point $\alpha$ in
+  the discrete phase space, there are $N+1$ lines which pass
+  through it. Then, the sum of Wigner elements $S(\alpha)$ 
+  along the $N+1$ lines wich contains the point is given by
+  \[
+    S(\alpha)
+    = \sum_{\lambda \ni \alpha}^{} \sum_{\beta \in
+    \lambda}^{} W_\beta
+    = NW_\alpha + \sum_{\gamma}^{} W_\gamma.
+  \] 
+  Then
+  \[
+    W_\alpha = \frac{1}{N} \left( \sum_{\lambda \ni
+    \alpha}^{} \sum_{\beta \in \lambda}^{} W_\beta -
+  \sum_{\gamma}^{} W_\gamma \right), 
+  \] 
+  where $\sum_{\beta \in \lambda}^{} W_\beta$ is the
+  probability to measure the systems along the projector
+  $Q(\lambda)$. And so
+  \[
+    W_\alpha
+    = \frac{1}{N} \Tr(A_\alpha \rho),
+  \] 
+  where the $A_\alpha$ are the so called phase-point
+  operators, given by
+  \[
+    A_\alpha = \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I.
+  \] 
+
+  The author then goes about providing the phase-point
+  operator properties along with Wigner function properties
+  (note the Phd thesis does not even prove them). Then he
+  talks about a labeling scheme for lines and striations in
+  the particular case of multiqubit Wigner functions.
+  Identifying the origin with the element $(0,0)$, there
+  exists exactly one line in each striation passing through
+  the origin called a ray. The rays are formed by the points
+  $(sx,sy)$ for fixed $(x,y)$. In this case the rays of the
+  horizontal and vertical striations are given by the points
+  $(1,0)$ and $(0,1)$. The other rays are generated by
+  $(1,\omega), (1,\omega^2), \ldots,(1,\omega^{N-2})$. And
+  so he associates a \textit{striation number} $j$ with a
+  fixed point and the ray $\lambda_j^0$. Given the ray of
+  the vertical striation $\lambda_1^0$, the other lines of
+  the striation are obtained using the set of $N-1$ 
+  horizontal translation operators, $\mathcal T_{(s,0)}$,
+  such that $\lambda_1^i = \mathcal T_{(i,0)}\lambda_1^0$.
+  The author \textit{chooses} the translations $\mathcal
+  T_{(0,s)}$ for obtaining the other lines by acting on the
+  ray of the rest of the striations.
+
+  The author continues by given a concrete example: a single
+  qubit system. As we know, the horizontal and the vertical
+  axes are associated with the Pauli matrices $\sigma_x$ and
+  $\sigma_z$, which are non-commuting. There are $6$ lines
+  in the phase space, which can be grouped into 3 sets of
+  parallel lines. The corresponding translation operators
+  are associated to the points $(0,s)$, $(s,0)$ and $(s,s)$.
+  The translation operators are traceless and mutually
+  orthogonal, and their eigenvectors forms the MUBs. The
+  asociation of the rank one operators and the lines is not
+  unique, in fact there are $2^{2+1} = 8$ possible ways to
+  do the assignment. After a choice of quantum net, we can
+  build the phase-point operators and then calculate the
+  Wigner function.
+
+  For the case of the two qubit system, for each striation,
+  there exists a set of $N-1 = 3$ translations which leave
+  the lines of the striation invariant. The translations
+  associated to the five striations are $\mathcal T_{(0,s)},
+  \mathcal T_{(s,0)}, \mathcal T_{(s,s)}, \mathcal
+  T_{(s,s\omega}$ and $\mathcal T_{(s,s\omega^2)}$. There
+  are 15 unitary translation operators along with the
+  identity. The oeprators can be equally partitioned into
+  $5$ sets and each set contains $3$ operators. The common
+  eigenstates of the $3$ traceless, mutually orthogonal,
+  commuting operators are associated with the lines of the
+  striation. In this case there are $4^{4+1} = 1024$ quantum
+  nets.
+
+  After this, the author talks about quantum nets and
+  equivalence classes as studied by Gibbons and Wootters.
+  Then he starts talking about the advantages and
+  limitations of the Gibbons construction. The main
+  disadvantage is that the Wigner function as constructed by
+  Wootters is not unique, as there are $N^{N+1}$ versions of
+  it. As such, the non-classicality of the reconstructed
+  state is not obvious. Interestingly he shows the results
+  of an experiment of the tomographic reconstruction of the
+  experimental data.
+
+  \section{Geometrical Representations of Finite Dimensional
+  Quantum Systems}
+
+  \subsection{Daniël Marjenburgh}
+
+  The authors plan to introduce a discrete Wigner function
+  is the same as before: to preserve as many of the
+  continuous version's properties as possible. He starts
+  from first principles and the phase point operators, using
+  the traditional definition of the Wigner function as the
+  trace of product of the density matrix and the displaced
+  parity operators. The properties that are imposed are that
+  of translation covariance and the tomographic property.
+
+  The author decides to use the $N \times N$ grid of points
+  as the natural phase space, noting that there is no
+  redundency in the case of quantum tomagraphy (unlike the
+  DWF that use a $2N \times 2N$ phase space).
+
+  This guy gives a very intuitive explaination for the
+  natural analog of the continuous, the conjugate bases and
+  the property of mutual unbiasedness, along with the
+  Fourier transform.
+
+  Interesting conclusions on the even and odd cases, noting
+  that for $N$ odd, there is a unique expression for the
+  phase point operators such the WF satisfies the
+  tomographic property and translation covariance.
+
+  \section{The interplay between quantum contextuality and
+    Wigner negativity}
+  
+  \subsection{Pierre-Emmanuel Emeriau}
+
+  The author's thesis focuses on two nonclassical
+  behaviours: quantum contextuality and Wigner negativity.
+  The is a notion superseding nolocality that can be
+  exhibited by quantum systems. In discrete settings,
+  contextuality has been shown to be necessary and
+  sufficient for advantages in some cases. This seems to be
+  a continous Wigner function focused thesis. 
+
+  \section{Hudson's theorem for finite-dimensional quantum
+  systems}
+
+  \subsection{D. Gross}
+
+  Gross shows that for a system of odd dimension, only the
+  stabilizer states posses a non-negative Wigner function.
+  The give an axiomatic characterization which completely
+  fixes the definition of the Wigner function.
+
+  Gross notes that partly triggered by the advent of quantum
+  information theory, considerable work has been undertaken
+  to explore Wigner functions for finite-dimensional quantum
+  systems. Finally someone that agrees with me, Gross notes
+  that there seem to be to clear distinct approaches that
+  can be identified in the leterature. The first tries to
+  cast the definition of the Wigner function into a form
+  that can be interpreted for both continuous variable and
+  discrete systems, these are the works of Vourdas (2004),
+  Paz (2002), Klimov and Gross. The second approach,
+  introduced by Gibbons, Hoffman and Wootters, is based on
+  the properties of the continuous Wigner function.
+
+  Gross actually proposes a definition for odd dimensions
+  that highly resembles the continuous version and
+  supposedly is most sensible judged in both approaches. He
+  defines it as:
+  \[
+    W_\psi(p,q)
+    = d^{-1} \sum_{\xi \in \Z_d}^{} e^{-\frac{2\pi}{d} i \xi p}
+    \bar{\psi}(q-2^{-1}\xi) \psi(q+2^{-1}\xi).
+  \] 
+  Such definition is actually the disrete symplectic Fourier
+  transform of the discrete characteristic function (like
+  Vourdas' approach) and he shows that it is the unique
+  choice that mimics certain desirable properties.
+
+  He proceeds by talking about stabilizer states, which are
+  joint eigenvectors of certain sets of elements of the
+  qubit Pauli group. There is of course, stabilizer states
+  for higher-dimensional quantum systems. Although they
+  display complex features such as multi-particle
+  entanglement, such states allow for an efficient classical
+  description. The implications of the Gottesman-Knill
+  theorem are quite important. He then proposes the
+  following theorem:
+
+  \begin{theorem}
+    Let $d$ be odd and $\psi \in L^2(\Z_d^n)$ be a state
+    vector. The Wigner function of $\psi$ is non-negative if
+    and only if $\psi$ is a stabilizer state. Furthermore,
+    since $\psi(q) \neq 0$ for all $q$, a vector $\psi$ is a
+    stabilizer state if and only if it is of the form
+    \[
+      \psi(q) \propto e^{\frac{2\pi}{d}i (q\theta q + x q)},
+    \] 
+    where $q,x \in \Z_d^{n}$ and $\theta$ is a symmetric
+    matrix with entries in $\Z_d$.
+  \end{theorem}
+
+  Gross' theorem shows that if the \textit{right}
+  definitions are employed, the continuous and discrete case
+  behave very similarly. Also one can further the idea that
+  stabilizer states are like Gaussian states.
+
+  In order to vinculate Galvao's research on the
+  non-negativity of the DWF, Gross comments on Wootters
+  approach. The axioms such definition should meet are:
+  \begin{itemize}
+    \item $W$ is a linear mapping sending operators to
+      functions on a $d \times d$ lattice, called the phase
+      space.
+    \item The Wigner function is covariant under the action
+      of the Weyl operators.
+    \item There exists a function $Q(\lambda)$ that assigns
+      a pure quantum state to every line $\lambda$ in phase
+      space. If $\psi$ is a state vector, then the sum of
+      its Wigner function along $\lambda$ must be equal to
+      the overlap $|\braket{Q(\lambda)|\psi}|^2$.
+  \end{itemize}
+
+  Gross notes that for a $d$-dimensional Hilbert space,
+  there exist $d^{d+1}$ distinct generalized Wigner
+  functions, and that such approach is only described for $d
+  = p^{n}$ where $p$ is a prime number, beacuase the of the
+  necessary finite geometry given by finite fields.
+
+  Next up is the notion of the stabilizer states. Consider a
+  composite system, build of $n$ $d$-level particles.
+  Considering the system as a single $d^{n}$-dimensional
+  space or as a composite system gives distints notions of
+  stabilizer states. Galvao's work concerns quantum states
+  in prime power dimensions that are non-negative with
+  respect to all possible definitions of generalized Wigner
+  functions. Such states are shown to be mixtures of
+  single-particle stabilizer states. If the Wigner function
+  of a quantm computer is positive at all times, then it
+  operates only with stabilizer states. For the case of
+  non-qubit pure states, Gross' theorem implies Galvao's
+  results, and favorably, there is only one definition to
+  study. Although Gross' theorem does not address qubits or
+  mixed states.
+
+  The next section gives a review of the Weyl
+  representation. Start with an odd $d$-dimensional quantum
+  system. Choose the computational basis labeled by the
+  elements of the ring $\Z_d$. The main objects in the phase
+  space formulation are the Weyl operators (generalized
+  Pauli operators). Define (the character) $\chi(q) =
+  e^{\frac{2\pi}{d}iq}$ and define the shift and boost
+  operatros:
+  \[
+    \hat x(q) \ket x = \ket{x+q}
+    \quad
+    \hat z(p) \ket x = \chi(px) \ket x.
+  \] 
+  The Weyl operators are then defined as (just like Vourdas)
+  \[
+    w(p,q) = \chi(-2^{-1}pq) \hat z(p) \hat x(q),
+  \] 
+  for $p,q,t \in Q = \Z_d$. Gross notes the choice of phase
+  factors ensures that the symplectic inner product appears
+  in the composition law, thus making the connection between
+  the Weyl operators and symplectic geometry manifest. Other
+  definitions (like no phase factor) carry the same
+  dependence in a less obvious manner. The set of Weyl
+  operators is closed under multiplication, up to phase
+  factors. Writing  $w(v) = w(v_p,v_q)$ for elements $v =
+  (v_p,v_q) \in \Z_d^2$, then $V := \Z_d \times \Z_d$ with
+  the symplectic inner product is called the phase space.
+
+  Such construction can be generalized to multi particle
+  systems. Consider $\Z_d^{n}$ where the product is given by
+  the inner product. The Weyl operators are now given by the
+  tensor products
+  \[
+    w(p,q)
+    = w(p_1,\ldots,p_n,q_1,\ldots,q_n)
+    = w(p_1,q_1) \otimes \cdots \otimes w(p_n,q_n).
+  \] 
+
+  Finally he gives some remarks that were left unmentioned.
+  A state vector $\ket \psi$ can be identified with a
+  complex function on $\Z_d$ using the inner product
+  $\psi(q) = \braket{q|\psi}$.
+
+  Next Gross introduces the Clifford group, as the set of
+  unitary operators such that
+  \[
+    Uw(v)U^{*} = c(v)w(S(v))
+  \] 
+  for some maps $c: V \to \C$ and $S : V \to V$. For prime
+  values of $d$, $\Z_d$ has a finite field structure, and
+  $\Z_d^{n}$ is a finite vector space. He goes into some
+  detail about the Clifford group and affine
+  transformations, the metaplectic group.
+
+  Next he sets up the Fourier transforms on the space
+  $\Z_d^n$ for a complex function $f: Q \to \C$. He defines
+  it as
+  \[
+    \mathcal Ff(p)
+    = (d^{n})^{-1 / 2} \sum_{q \in \Z_d^{n}}^{}
+    \hat\chi(pq)f(q).
+  \] 
+  Then he defines a more robust version using the characters
+  $\zeta$.
+
+  Finally he proceeds to define and give properties of the
+  Wigner function. The Weyl operators $\{w(p,q)\}$ form an
+  orthonormal basis in the space of operators on $\mathcal
+  H$ with respect to the trace scalar product. Just like in
+  the continuous case, the \textit{characteristic function}
+  of the operator $\rho$ is given by its expansion
+  coefficients with respect to the Weyl basis:
+  \[
+    \Xi_\rho(\xi,x)
+    = d^{-n} \Tr(w(\xi,x)^{*}\rho).
+  \] 
+  And now he completes the analogy with the continuous case,
+  as he has defined the symplectic Fourier transform and the
+  characteristic function. And so for $d$ odd, $Q =
+  \Z_d^{n}$, let $V, \mathcal H$ be as usual and let $\rho$ 
+  be a quantum state. Then the Wigner function $W_\rho$ is
+  the symplectic Fourier transformation of the
+  characteristic function $\Xi_\rho$. An explicit
+  calculation gives the usual definition:
+  \[
+    W_\rho(a)
+    = d^{-n} \Tr(A(a)\rho),
+  \] 
+  where the $A(a)$ supposedly coincides with Wootters phase
+  space point operators. He then states the usual properties
+  of the Wigner function: the phase point operators have
+  unit trace and form an orthonormal basis in the space of
+  Hermitian operators on $\mathcal H$. And so the Wigner
+  function of a Hermitian operator is real and we have the
+  overlap and normalization properties. Constructed in this
+  way, the Wigner function for a pure state is given by the
+  equation at the beginning, which looks like Wigner
+  original. The marginal properties hold as well with
+  respect to the conjugate variables. He also notes that the
+  phase point operators factor as a tensor product
+  \[
+    A(p_1,\ldots,p_n,q_1,\ldots,q_n)
+    = \bigotimes_i^n A^{(i)}(p_i,q_i)
+  \] 
+  and hence so does the Wigner function. The origin point
+  operator is the parity operator and he even gives the
+  Moyal product.
+
+  Important for his theorem is the proof the Wigner function
+  defined in his manner is Clifford covariant. Also, Gross
+  mentions that his version coincides with Vourdas and some
+  other ones, plus Klimovs version for a specific example.
+  Also, his construction satisfies the axioms put forth by
+  Wootters and Gibbons, noting that Wootters mentions that
+  some of the generalized Wigner functions are special in
+  some sense of symmetry. In his language, the symmetry is
+  showed by the Clifford covariance. Importantly he notes
+  that if we require a definition of a Wigner function to be
+  Clifford covariant, then this condition practically picks
+  out his construction, giving a sense a uniqueness.
+
+  Gross goes back to work with the stabilizer states, first
+  noting that using the composition law of the Heisenberg
+  group, two Weyl operators $w(v_1),w(v_2)$ commute if and
+  only iff $[v_1,v_2] = 0$. And then considering the image
+  of an entire subspace $M$ under the Weyl representation
+  $w$. The set
+  \[
+    w(M) = \{w(m) | m \in M\}
+  \] 
+  consists of mutually commuting operators if and only if
+  the symplectic form vanishes on $M$:
+  \[
+    [m_1,m_2] = 0,
+    \quad m_i \in M.
+  \] 
+  Such spaces are called \textit{isotropic}. If $M$ is
+  isotropic, then the operators $w(M)$ can be simultaneously
+  diagonalized. If $M$ is maximally isotropic subspace of
+  $V$ and $v \in V$, then up to a global phase, there is a
+  unique state vector $\ket{M,v}$ that fulfills the
+  eigenvalue equations
+  \[
+    \chi([v,m])w(m)\ket{M,v} = \ket{M,v}
+  \] 
+  for all $m \in M$. Such states are called stabilizer
+  states.
+
+  I think the important thing to note here is that for every
+  odd prime dimension, the Wootters discrete Wigner function
+  is uniquely determined by Clifford covariance. And that no
+  Clifford covariant operator basis or discrete Wigner
+  function exists in any even prime power dimension.
+
+  \section{Gross' thesis}
+
+  Gross' approach is the same as Vourdas. First he discusses
+  the notions of the Heisenberg group, the characteristic
+  function and Wigner function. Then he contributes to an
+  open problem in the theory of stabilizer codes. His way of
+  doing it is to center around the connection to the
+  continuous way.
+
+  He starts by defining characters. If $G$ is a finite
+  abelian group, a character $\chi$ of $G$ is a homomorphism
+  from $G$ into the circle group $S^{1}$, that is the set of
+  complex numbers of modulus one. The set of all characters
+  becomes a group of its own, called $G$ 's dual group $\hat
+  G$. Finite abelian groups are isomorphic to their
+  respective dual groups but there is no canonic way of
+  identifying  $G$ with $\hat G$.
+
+  As a fundamental example he defines the characters on
+  finite fields. For prime dimension we have
+  \[
+    a \mapsto \chi_a(\cdot) := \omega^{a}.
+  \] 
+  For a finite extension of a prime field $\mathbb F_p$ we
+  have
+  \[
+    b \mapsto \chi_b(\cdot) := \chi_{\mathbb F_p}(\Tr(b
+    \cdot)).
+  \] 
+
+  Next he introduces the notion of a finite symplectic
+  geometry, which reduces to the theory of finite vector
+  spaces with a symplectic form. A finite vector space $V$ 
+  is called symplectic if it posseses a non-degenerate
+  bilinear form $[\cdot,\cdot]$ which is anti-symmetric
+  \[
+    [v,w] = -[w,v].
+  \] 
+  Should $V$ be defined over a field of characteristic two,
+  then we additionally demand the form fulfills
+  \[
+    [v,v] = 0.
+  \] 
+  Given a subspace $M$ of $V$, the symplectic complement
+  $M^{\perp}$ is the set of all $v \in V$ such that $[v,m] =
+  0$ for all $m \in M$. $M$ is \textit{isotropic} if the
+  form vanishes on $M$. Of note is that fact that if $M$ is
+  isotropic then $M \subset M^{\perp}$. The maximum
+  dimension of an isotropic space is $\dim V / 2$. A space
+  that reaches this limit is maximal isotropic. Gross then
+  subsequently refers to symplectic vector spaces as phase
+  spaces.
+
+  Next he defines the Fourier transform and the symplectic
+  Fourier transform for abelian groups. In particular, he
+  writes the Fourier transform of an $f \in L^{1}(\mathbb
+  F)$ as a function on $\mathbb F$ itself by choosing a
+  faithful character $\chi$ of $\mathbb F$:
+  \[
+    \hat f(a)
+    = \hat f(\chi_a)
+    = \frac{1}{\sqrt{d}} \sum_{b \in \mathbb F}^{}
+    \braket{\chi|ab}^{*}f(b).
+  \] 
+  By choosing a character $\chi$ of $\mathbb F$, then for a
+  symplectic vector space $V$ over the finite field, the
+  character induces an isomorphism from $V$ to $\hat V$ by
+  \[
+    \chi_a(\cdot) = \chi([a,\cdot]).
+  \] 
+  He then defines the symplectic Fourier transform. 
+
+  In the next section, Gross starts by saying that if a
+  quantum system posses a symmetry, then there should exist
+  a unitary, irreducible, possibly projective representation
+  of the symmetry group. He starts with a field $\mathbb F$ 
+  that is not of characteristic two and defines the
+  Heisenberg group $H(\mathbb F)$ by its composition law
+  using the standard symplectic form on the vector space
+  $\mathbb F^2$. The Heisenberg group enters the quantum
+  scene through the Weyl representation which maps the group
+  to operators on the Hilbert space $\C^{d}$ where $d$ is
+  the order of the finite field. The representation is
+  constructed by fixing a character $\chi$ of $\mathbb F$ 
+  and choosing a basis in $\mathcal H$. Next he defines what
+  he calls the shift and clock operators
+  \begin{align*}
+    x(q) &: \ket{\phi_k} \mapsto \ket{\phi_{k+q}} \\
+    z(p) &: \ket{\phi_k} \mapsto \chi(pk) \ket{\phi_k}.
+  \end{align*} 
+  And so the Weyl representation is given by
+  \[
+    w(p,q,t) := \chi(t - 2^{-1}pq) z(p)x(q).
+  \] 
+  The image of the $w$ is the set of Weyl operators. Two
+  Weyl operatos commute if the symplectic inner product
+  vanishes. 
+
+  The definition of the Heisenberg group extends to finite
+  vector spaces $\mathbb F^{n}$ in a natural way,
+  \[
+    \mathcal J_{\mathbb F^{2n}} = \bigotimes_{i=1}^{n}
+    \mathcal J_{\mathbb F^2}.
+  \] 
+  Using this we can define the group $H^{n}(\mathbb F)$. The
+  Weyl representation of $H^{n}(\mathbb F)$ is then defined
+  as
+  \[
+    (p,q,t)
+    \mapsto
+    \chi(t)w(p_1,q_1) \otimes \cdots \otimes w(p_n,q_n)
+  \] 
+  where $p_i$ and $q_i$ are the components of $p$ and $q$ 
+  with respect to the natural basis in $\mathbb F^{n}$.
+
+  Now, for the qubit case, the fields that should be used
+  are of characteristic two, and so we cannot define the
+  Heisenberg group which requires the use of the symbol
+  $2^{-1}$. However, Gross shows us that there is still a
+  projective representation of $\mathbb F_2$ defined in an
+  analogous way:
+  \[
+    w(p,q) := i^{-pq}z(p)x(q),
+  \] 
+  for $p,q \in \mathbb F_2$. The group generated by
+  $\{w(p,q)\}_{p,q}$ is called the Pauli group, or the
+  Heisenberg group for qubits even though it does not
+  satisfy the composition law definition. He also mentions
+  that the Heisenberg group for qubits is an extension of
+  $\Z_4$ by $\mathbb F_2^{2n}$ while the non-binary
+  Heisenberg group extends $\mathbb F_d$ by $\mathbb
+  F_d^{2n}$.
+
+  He proceeds as in the other article, to define the
+  characteristic function of an operator, given by the
+  coefficients of the expansion in terms of the Weyl
+  operators.
+
+  Next he defines the Wigner function of a hermitian
+  operator $A$ to be the symplectic Fourier transform of its
+  characteristic function:
+  \[
+    W := \hat{\mathcal F} \circ \Xi.
+  \] 
+  Considering the Hilbert space $\mathcal H = \C^{nd}$, $d =
+  p^{r}$, $V = \mathbb F_d^{2n}$, the Wigner function for
+  all $a \in V$ is given by
+  \[
+    \frac{1}{d^{n}}
+    \Tr\left( 
+      \frac{1}{d^{n}} \sum_{b \in V}^{}
+      \chi([a,b])^{*}w(b)^{*} A
+    \right) .
+  \] 
+  This leads us the definition of the phase space point
+  operators
+  \[
+    A(a)
+    = \frac{1}{d^{n}} \sum_{b \in V}^{}
+    \chi([a,b])^{*}w(b)^{*}.
+  \] 
+  These phase space point operators are hermitian, they have
+  unit trace and are an orthonormal basis with respect to
+  the Hilbert-Schmidt inner product. These properties
+  immediately gives us an interpretation of the Wigner
+  function. Furthermore, the Wigner function constructed in
+  this manner has symplectic covariance. In the case of the
+  qubit, the Wigner function looses its covariance under
+  Clifford operations.
+
+  Next he handles the case of extension fields. He considers
+  the one-dimensional Heisenberg group on an extension field
+  $\mathbb F_{p^{r}}$. Defining the character as
+  $\chi(\cdot) = \omega^{\Tr a}$, he defines the reduced
+  Heisenberg group with its own composition law. The Weyl
+  representation of $H(\mathbb F_{p^{r}})$ is defined on
+  \[
+    \mathcal H = \C^{p^{r}}.
+  \] 
+  Introducing a tensor structure on $\mathcal H$, he defines
+  the shift and clock oeprators, where these composed of
+  operators that act only on specific subsystems:
+  \[
+    w(p,q,t) 
+    = \bigotimes_i w^{(i)}(p_i,q^{i}),
+  \] 
+  and hence the Weyl representation factors with respect to
+  the tensor structure.
+
+  As an intereseting note, he mentions a natural question.
+  Given an $p^{r}$ dimensional Hilbert space, is it better
+  to associate it with a two dimensional phase space over
+  $\mathbb F_{p^{r}}$ or a with a $2r$-dimensional one over
+  $\mathbb F_p$? The latter choice seems to be more natural
+  since all relevent structures (subspaces, isotropic
+  spaces, symplectic mappings) can be mapped from $\mathbb
+  F_{p^{r}}^{2}$ to $\mathbb F_p^{2r}$ but not the other way
+  around. However, certain constructions in quantum state
+  tomography and in the theory of mutually unbiased bases
+  rely on the geometry of a two dimensional vector space
+  which is of course more present in $\mathbb F_{p^{r}}^2$.
+\end{document}

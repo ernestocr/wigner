@@ -1,0 +1,1078 @@
+La idea de la cuantización de Weyl, es la siguiente:
+  consideramos un observable clásico $A : \R^{2n} \to \R$,
+  comunmente llamado \textit{símbolo} en el análisis
+  armónico y en la óptica cuántica, y lo expresamos mediante
+  la transformación de Fourier inversa:
+  \begin{equation}
+    A(x,p)
+    = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} \Fr A(\xi,
+    \eta) e^{\frac{i}{\hbar} \left( \xi x + \eta p\right) }
+    \, d\xi \, d\eta,
+  \end{equation}
+  donde $\Fr A$ es la transformada de Fourier de $A$.
+  Enseguida reemplazamos de manera formal a las variables
+  $x$ y $p$ por los operadores $\hat{X}$ y $\hat{P}$, (ésto
+  corresponde con el orden simétrico de Weyl) para obtener
+  al operador $\hat{A}$ correspondiente:
+  \begin{equation}
+    \label{eqn:weyl_quant_1}
+    \hat{A}(\hat{X},\hat{P})
+    = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} \Fr
+    A(\xi,\eta) e^{\frac{i}{\hbar} \left( \xi \hat{X} + \eta
+    \hat{P}\right) } \, d\xi \, d\eta.
+  \end{equation}
+  Para darle un sentido riguroso a la integral es necesario
+  pedir ciertas condiciones de regularidad a la función $A$.
+  En la literatura matemática generalmente se comienza por
+  definir la transformación de Weyl sobre el espacio de las
+  funciones rápidamente decrecientes $\Sz(\R^{2n}) \subset
+  L^2(\R^{2n})$ y luego se extiende a las funciones
+  cuadraticamente integrables y por dualidad a las
+  distribuciones templadas $\Sz'(\R^{2n})$. Omitiremos las
+  pruebas de extensión, pero para darle sentido riguroso
+  comenzamos por definir al operador exponencial que aparece
+  en el integrando de (\ref{eqn:weyl_quant_1}).
+  \begin{definition}
+    El operador $\hat{M}(\xi, \eta) : L^2(\R^{n}) \to
+    L^2(\R^{n})$ definido como
+    \begin{equation*}
+      \hat{M}(\xi,\eta)
+      = e^{\frac{i}{\hbar} \left( \xi \hat{X} + \eta \hat{P}
+      \right) }
+      = e^{-\frac{i}{2\hbar} \xi \eta} e^{\frac{i}{\hbar}
+      \eta \hat{P}} e^{\frac{i}{\hbar} \xi \hat{X}}
+      = e^{\frac{i}{2\hbar} \xi \eta} e^{\frac{i}{\hbar}
+      \xi \hat{X}} e^{\frac{i}{\hbar} \eta \hat{P}},
+    \end{equation*} 
+    se conoce como el operador característico de Moyal
+    (entre otros nombres). Actúa sobre alguna función $\psi
+    \in L^2(\R^{n})$ de la siguiente manera:
+    \begin{equation}
+      \hat{M}(\xi,\eta)\psi(x)
+      = e^{\frac{i}{2\hbar} \xi\eta} e^{\frac{i}{\hbar} \xi
+      x} \psi(x + \eta).
+    \end{equation}
+  \end{definition}
+  Utilizando la definición del operador $\hat{M}(\xi,\eta)$,
+  se puede dar una definición rigurosa de la transformación
+  de Weyl sobre el espacio de Schwartz:
+  \begin{definition}
+    Sea $A \in \Sz(\R^{2n})$. El operador de Weyl, $\hat{A}
+    = \Op_W(A)$ del símbolo $A$ se define para $\psi \in
+    \Sz(\R^{n})$ como
+    \begin{equation}
+      \label{eqn:weyl_quant_2}
+      \hat{A}\psi(x)
+      = \frac{1}{(2\pi\hbar)^{n}}
+      \int_{\R^{2n}} \Fr A(\xi,\eta) \hat{M}(\xi,\eta)
+      \psi(x) \, d\xi \, d\eta.
+    \end{equation}
+  \end{definition}
+  Es más común expresar a la transformación de Weyl en términos
+  del símbolo $A$ directamente, sin recurrir a la
+  transformada de Fourier. Utilizando la definición de $\Fr$,
+  de manera formal tenemos:
+  \begin{align*}
+    \Op_W(A)
+    &= \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} \Fr
+    A(\xi,\eta)\hat{M}(\xi,\eta) \, d\xi \, d\eta \\
+    &= \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} \left(
+    \int_{\R^{2n}} A(x,p)e^{-i(\xi x + \eta p)} \, dx \, dp
+    \right) \hat{M}(\xi,\eta) d\xi \, d\eta \\
+    &= \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} A(x,p) \left(
+    \int_{\R^{2n}} e^{-i(\xi x + \eta p)} \hat{M}(\xi,\eta)
+    \, d\xi \, d\eta \right) \, dx \, dp \\
+    &= \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} A(x,p)
+    \Delta(x,p) \, dx \, dp.
+  \end{align*} 
+  El la literatura matemática, el operador $\Delta(x,p)$ se
+  conoce como el operador de Grossmann-Royer y generalmente
+  se denota $\hat{R}(\xi,\eta)$. En la literatura física
+  comunmente se llama el operador puntual de cuantización,
+  en donde formalmente se puede ver como la transformada de
+  Fourier del operador de Weyl $\hat{M}(\xi,\eta)$,
+  \begin{equation}
+    \label{eqn:phase_point_operator}
+    \Delta(x,p)
+    = \int_{\R^{2n}} e^{-i(\xi x + \eta p)}
+    \hat{M}(\xi,\eta) \, d\xi \, d\eta.
+  \end{equation}
+  Extendiendo las definiciones anteriores a las
+  distribuciones templadas, resulta que el operador puntual
+  es la cuantización de Weyl de la medida de Dirac $\delta_x
+  \otimes \delta_p \in \Sz'(\R^{2n})$ concentrada en el
+  punto $(x,p)$. La acción del operador puntual sobre un
+  elemento de $\Sz(\R^{2n})$ está dado de la siguiente
+  manera.
+
+
+  \begin{definition}
+    El operador de Heisenberg-Weyl $\hat{T}(\xi,\eta)$ se
+    define como
+    \[
+      \hat{T}(\xi,\eta)\psi(x)
+      = e^{\frac{i}{\hbar} (\eta x - \frac{1}{2} \eta
+      \xi)}\psi(x - \xi).
+    \] 
+    Equivalentemente
+    \[
+      \hat{T}(\xi,\eta)\psi(x)
+      = e^{\frac{i}{\hbar} \sigma((\xi,\eta),
+      (\hat{x},\hat{p}))}\psi(x),
+    \] 
+    donde $\sigma((x,p),(x',p')) = p \cdot x' - p' \cdot x$.
+    El operador de Heisenberg-Weyl satisface las relaciones
+    \[
+      \hat{T}(z_0)\hat{T}(z_1)
+      = e^{\frac{i}{\hbar} \sigma(z_0,z_1)}
+      \hat{T}(z_1)\hat{T}(z_0),
+    \] 
+    y
+    \[
+      \hat{T}(z_0+z_1)
+      = e^{-\frac{i}{2\hbar} \sigma(z_0,z_1)}
+      \hat{T}(z_0)\hat{T}(z_1).
+    \] 
+  \end{definition}
+  \begin{definition}
+    El operador de Grossmann-Royer $\hat{R}(\xi,\eta)$ es el
+    operador
+    \[
+      \hat{R}(\xi,\eta) : \Sz(\R^{n}) \to \Sz(\R^{n})
+    \] 
+    definido por las formulas 
+    \[
+      \hat{R}(0,0)\psi(x)
+      = \psi(-x),
+    \]
+    y
+    \[
+      \hat{R}(\xi,\eta)
+      = \hat{T}(\xi,\eta) \hat{R}(0,0)
+      \hat{T}(\xi,\eta)^{-1},
+    \] 
+    donde $T$ es el operador de Heisenberg-Weyl. El operador
+    de Grossmann-Royer es unitario y es una involución en el
+    espacio de Schwartz. Su acción sobre cualquier función
+    $\psi : \R^{n} \to \C$ está dado por
+    \[
+      \hat{R}(\xi,\eta)\psi(x)
+      = e^{\frac{2i}{\hbar} \eta (x - \xi)}\psi(2\xi - x).
+    \] 
+  \end{definition}
+  El operador de Heisenberg-Weyl y de Grossmann-Royer están
+  relacionados por medio de la transformada de Fourier
+  simpléctica, i.e.,
+  \[
+    \hat{R}(\xi,\eta)\psi(x)
+    = \frac{1}{2^{n}} F_\sigma(\hat{T}(\cdot)\psi(x)](-z_0).
+  \] 
+  \begin{definition}
+    El operador puntual de cuantización $\Delta(x,p)$
+    (operador de Grossmann-Royer) es un operador acotado de
+    la forma
+    \begin{equation}
+      \label{eqn:point_operator}
+      \Delta(x,p)
+      = 2e^{-2i x p} V(2x)U(-2x) P
+      %= \hat{R}(\xi,\eta)\psi(x)
+      %= e^{\frac{2i}{\hbar} \eta \cdot (x - \xi)} \psi(2\xi
+      %- x).
+    \end{equation} 
+    donde $V = e^{ix \hat{x}}$ y $U = e^{ix \hat{p}}$ son
+    subgrupos del grupo de Weyl y $P$ es el operador de
+    paridad definido como $(P\psi)(x) = \psi(-x)$.  Su
+    acción sobre un elemento $\psi \in \Sz(\R^{2n})$ está
+    dado por
+    \begin{equation}
+      \label{eqn:grossmann_royer_op}
+      \left(\Delta(x,p)\psi\right)(y)
+      = 2e^{2i p (y-x)}\psi(2x - y)
+    \end{equation}
+  \end{definition}
+  El operador puntual de cuantización es unitario sobre
+  $L^2(\R^{n})$, pero no es de clase traza. Utilizando al
+  operador de Grossmann-Royer podemos definir el operador de
+  Weyl en términos del símbolo $A$ directamente.
+  
+  \begin{definition}
+    Sea $A \in \Sz(\R^{2n})$. El operador de Weyl $\hat{A} =
+    \Op_W(A)$ está dado para todo $\psi \in \Sz(\R^{n})$ 
+    como
+    \begin{equation}
+      \left( \hat{A}\psi \right)(x)
+      = \frac{1}{(\pi\hbar)^{n}} \int_{\R^{2n}}
+      A(\xi,\eta)\hat{R}(\xi,\eta)\psi(x) \, d\xi \, d\eta,
+    \end{equation}
+    donde $\hat{R}(\xi,\eta)$ se conoce como el operador de
+    Grossmann-Royer.
+  \end{definition}
+
+  Expresando en términos del observable $A$ nos permite
+  representar al operador de Weyl de forma integral.
+  Utilizando la definición de $\hat{R}(\xi,\eta)$ tenemos
+  \[
+    \hat{A}\psi(x)
+    = (\pi\hbar)^{-n} \int_{\R^{2n}} A(\xi,\eta)
+    e^{\frac{2i}{\hbar} \eta \cdot (x - \xi)} \psi(2\xi - x)
+    \, d\xi \, d\eta,
+  \] 
+  y luego aciendo el cambio de variable $y = 2\xi - x$,
+  obtenemos
+  \begin{equation}
+    \label{eqn:weyl_quant_k}
+    \hat{A}\psi(x)
+    = (2\pi\hbar)^{-n} \int_{\R^{2n}} e^{\frac{i}{\hbar} p
+    \cdot (x - y)} A\left( \frac{x+y}{2}, p \right) \psi(y)
+    \, dy \, dp.
+  \end{equation}
+  No todos los operadores se pueden expresar de forma
+  integral, los que sí, se llaman operadores integrales y
+  son de la forma
+  \[
+    \hat{A}\psi(x) = \int_{\R^{n}} K(x,y) \psi(y) \, dy
+  \] 
+  donde $K$ se conoce como el \textit{núcleo
+  (distribucional)} de $\hat{A}$. Observando el integrando
+  de la ecuación (\ref{eqn:weyl_quant_k}), podemos ver que
+  para un operador de Weyl, el núcleo está dado por
+  \begin{equation}
+    K(x,y)
+    = (2\pi\hbar)^{-n} \int_{\R^{n}} e^{\frac{i}{\hbar} p
+    \cdot (x - y)}A\left( \frac{x+y}{2}, p \right) \, dp.
+  \end{equation}
+  Podemos invertir ésta relación por medio de la fórmula de
+  inversión de Fourier y otro cambio de variable, para
+  obtener una expresión para el símbolo $A$ en términos del
+  núcleo $K$ del operador,
+  \begin{equation}
+    A(x,p)
+    = \int_{\R^{n}} e^{-\frac{i}{\hbar} p \cdot y} K\left( x
+    + \frac{1}{2}y, x - \frac{1}{2}y\right) \, dy.
+  \end{equation}
+  Ésto nos permite transformar un operador que admite una
+  representación integral a un símbolo que es integrable en
+  el espacio de fase. Al símbolo obtenido a partir de
+  operador de Weyl se conoce como símbolo de Weyl. Lo
+  anterior nos dice que existe una correspondencia entre el
+  símbolo de Weyl y los núcleos distribucionales de los
+  operadores de Weyl. Más aún, existe una biyección entre
+  los símbolos cuadracticamente integrables sobre el esapcio
+  de fase y una clase de operadores acotados de
+  $L^2(\R^{n})$ conocidos como los operadores
+  Hilbert-Schmidt.
+
+  Gosson demuestra que la definición que hemos dado de la
+  transformación de Weyl se puede extender a las
+  distribuciones templadas del espacio de fase,
+  específicamente, 
+  \[
+    \Op_W : \Sz'(\R^{2n}) \to \mathcal
+    L(\Sz(\R^{n}),\Sz'(\R^{n})),
+  \]
+  donde $\mathcal L(\Sz(\R^{n}),\Sz'(\R^{n}))$ es el espacio
+  de los operadores continuos del espacio de Schwartz a su
+  dual. Además, utilizando el triplete de Gel'fand
+  \[
+    \Sz(\R^{2n})
+    \subset L^2(\R^{2n})
+    \subset \Sz'(\R^{2n}),
+  \]
+  Gosson demuestra en partícular que la transformación de
+  Weyl de una función cuadraticamente integrable corresponde
+  a un operador Hilbert-Schmidt. Ésto es particularmente
+  útil para nosotros porque los estados cuánticos
+  representados por operadores de densidad son de
+  Hilbert-Schmidt.
+
+  En resumen tenemos una manera de cuantizar observables
+  clásicos, que brinda operadores cuánticos que satisfacen
+  varias propiedades útiles, por ejemplo nos brinda los
+  operadores correctos correspondientes a las funciones
+  coordenadas
+  $x_j$ y $p_j$:
+  \begin{equation}
+    \Op_W(x_j)\psi = x_j\psi,
+    \quad
+    \Op_W(p_j)\psi = -i\hbar \partial_{x_j}\psi.
+  \end{equation}
+  Con la transformación de Weyl definida, pasamos a definir
+  la transformación de Wigner para el caso continuo y luego
+  mostramos la relación entre las dos transformaciones.
+  Dicha relación nos permite extender la transformación de
+  Wigner a las distribuciones templadas de manera rigurosa.
+
+  La cuestión de la \textit{decuantización} no es trivial.
+  Una fuente de los posibles problemas es que para muchos
+  operadores de Weyl de observables clásicos es dificil
+  identificar si son de clase traza. Ésto es importante
+  porque generalemente se denota la decuantización de
+  operadores de Weyl mediante
+  \[
+    A(x,p)
+    = \Tr\left( \Delta(x,p) \Op_W(A) \right). 
+  \] 
+  Pero dicha expresión es problemática por no tiene sentido
+  para todo observable $A$. De hecho la traza solo existe de
+  manera obvia cuando $\Op_W(A)$ es de clase traza.
+
+  
+
+  
+
+  \subsection{La transformación de Wigner}
+
+  Lo que sigue está principalmente basado en los libros de
+  Gosson \cite{gossonWignerTransform2017} y de Folland
+  \cite{follandHarmonicAnalysisPhase1989}, quienes
+  introducen la función de Wigner de manera general, como
+  una transformación integral entre ciertos espacios de
+  funciones. Iniciamos definiendo una versión más general de
+  la transformación de Wigner, la cual se conoce como la
+  \textit{transformación de Wigner cruzada}. 
+
+  \begin{definition}
+    La transformación de Wigner cruzada es una
+    transformación integral
+    \[
+      W : L^2(\R^{n}) \times L^2(\R^{n}) \to L^2(\R^{2n}),
+    \]
+    definida como
+    \begin{equation}
+      \label{eqn:cross_wigner_transform}
+      W(\psi,\phi)(x,p)
+      = (2\pi\hbar)^{-n} \int_{\R^{n}} e^{-\frac{i}{\hbar} p
+      \cdot y} \psi(x + \tfrac{1}{2}y) \overline{\phi(x -
+      \tfrac{1}{2}y)} \, dy,
+    \end{equation}
+    para $\psi, \phi \in L^2(\R^{n})$ y $x,p \in \R^{n}$.  
+  \end{definition}
+  En partícular, denotaremos la transformación de Wigner de
+  un elemento $\psi$ de $L^2(\R^{n})$ como $W\psi =
+  W(\psi,\psi)$. Gosson demuestra que la transformación de
+  Wigner cruzada puede ser extendida a un mapeo sesquilineal
+  sobre las distribuciones templadas, $W : \Sz'(\R^{n})
+  \times \Sz'(\R^{n}) \to \Sz'(\R^{2n})$. Por ejemplo, la
+  transformación de Wigner de la delta de Dirac es
+  \[
+    W\delta = (2\pi\hbar)^{-n} (\delta \otimes 1).
+  \] 
+  Utilizando los operadores puntuales (operador de
+  Grossmann-Royer) nos permite dar una definición
+  particularmente sencilla de la transformación de Wigner:
+  \begin{definition}
+    Sean $\psi,\phi \in \Sz(\R^{n})$. La función
+    $(\psi,\phi) \mapsto W(\psi,\phi)$ definida como
+    \begin{equation}
+      W(\psi,\phi)(x,p)
+      = \frac{1}{(\pi\hbar)^{n}} \langle \hat{R}(x,p)\psi,
+      \overline{\phi} \rangle_{gosson}
+      = \frac{1}{(\pi\hbar)^{n}} \langle \phi,
+      \hat{R}(x,p)\psi \rangle.
+    \end{equation}
+  \end{definition}
+  La transformación de Wigner cruzada satisface varias
+  propiedades interesantes, enunciamos algunas de ellas.
+  \begin{itemize}
+    \item Es real valuada.
+    \item Es acotada y continua para $\psi,\phi \in
+      L^2(\R^{n})$.
+    \item Tiene ciertas propiedades de traslación.
+    \item \ldots
+  \end{itemize}
+  \begin{proposition}
+    Si $\psi, \phi \in L^2(\R^{n})$, entonces $W(\psi,\phi)
+    = \overline{W}(\phi,\psi)$. En particular
+    \[
+      W\psi
+      = W(\psi,\psi)
+      = \overline{W}(\psi,\psi)
+      = \overline{W\psi},
+    \] 
+    por lo tanto $W\psi$ es real-valuada. 
+  \end{proposition}
+
+  Tiene varias propiedades de traslación interesantes. 
+  \begin{proposition}
+    Para todo $\psi \in L^2(\R^{n})$ y $z_0 = (x_0,p_0) \in
+    \R^{2n}$ tenemos
+    \[
+      W(\hat{T}(z_0)\psi, \hat{T}(z_0)\phi)(z)
+      = T(z_0)W(\psi,\phi)(z),
+    \] 
+    donde $T(z_0)$ es una traslación, $z \mapsto z + z_0$, y
+    sobre funciones definidas en $\R^{2n}$ actúa como
+    $T(z_0)f(z) = f(z-z_0)$.
+  \end{proposition}
+  
+  \begin{proposition}
+    Sean $\psi \in L^2(\R^{n})$ y supongamos que $W\psi \in
+    L^{1}(\R^{2n})$. Entonces $W\psi \in L^{1}(\R^{2n})$ y
+    \begin{equation}
+      \int_{\R^{2n}} (W\psi)(x,p) \, dx \, dp 
+      = \|\psi\|^2_{L^2(\R^{n})}.
+    \end{equation}
+  \end{proposition}
+
+  \begin{proposition}
+    Supongamos que $\psi, \phi \in L^2(\R^{n})$. La función
+    $z \mapsto W(\psi,\phi)(z)$ es acotada y continua en
+    $\R^{2n}$.
+  \end{proposition}
+
+  \begin{proposition}
+    Sean $\psi,\phi \in \Sz'(\R^{n})$. La función $z
+    \mapsto W(\psi,\phi)(z)$ es continua en $\R^{2n}$.
+  \end{proposition}
+
+  \begin{proposition}
+    La transformación de Wigner cruzada satisface la
+    identidad de Moyal, en particular
+    \begin{equation}
+      \|W\psi\|_{L^2(\R^{2n})}
+      = (2\pi\hbar)^{-n / 2} \|\psi\|_{L^2(\R^{n})}.
+    \end{equation}
+  \end{proposition}
+
+  \begin{proposition}
+    Supongamos que $\psi, \phi \in L^{1}(\R^{n}) \cap
+    L^2(\R^{n})$. Entonces
+    \begin{equation}
+      \int_{\R^{n}} W(\psi,\phi)(x,p) \, dp
+      = \psi(x)\overline{\phi}(x),
+    \end{equation}
+    \begin{equation}
+      \int_{\R^{n}} W(\psi,\phi)(x,p) \, dx
+      = \Fr\psi(p) \overline{\Fr\phi}(p).
+    \end{equation}
+    En particular tenemos
+    \begin{equation}
+      \int_{\R^{n}} W\psi(x,p) \, dp
+      = |\psi(x)|^2,
+      \quad
+      \int_{\R^{n}} W\psi(x,p) \, dx
+      = |\Fr\psi(p)|^2.
+    \end{equation}
+  \end{proposition}
+
+  Gosson menciona que las dos fórmulas anteriores solo son
+  casos particulares de una transformación de Radon
+  (generalizada) de la distribución de Wigner $W\psi$,
+  correspondiente a una integración sobre planos
+  Lagrangianos particulares $\ell_P = 0 \times \R^{n}$ y
+  $\ell_X = \R^{n} \times 0$, respectivamente. En general
+  uno puede definir dicha transformación por medio de
+  \[
+    R_{\ell}(u)
+    = \int_{\ell} W\psi(z) d\mu_{\ell}(z)
+  \] 
+  donde $d\mu_{\ell}(z)$ es la medida euclideana sobre el
+  plano Lagrangiano $\ell$. Un tratado riguroso se puede
+  encontrar bajo el área de la geometría integral.
+
+  De las proposiciones anteriores ya podemos ver la utilidad
+  que nos puede brindar la transformación de Wigner, ya que
+  por medio de integrales sobre algún eje podemos recuperar
+  las supuestas densidades de la posición y momentum de las
+  funciones de onda. Aún con éste primer acercamiento, no
+  hemos hablado sobre la transformación de Wigner de estados
+  cuánticos ya sean puros o mixtos, ni de operadores en
+  general. Para ésto nos conviene definir la transformación
+  de Weyl, la cual nos permitirá asociar observables
+  clásicos en el espacio de fase con operadores lineales de
+  un espacio de Hilbert.
+
+  Consideremos el operador de Weyl de un observable adecuado
+  sobre el espacio de fase. Entonces podemos utilizar a la
+  transformación cruzada de Wigner para calcular el producto
+  interior $\langle \psi, \hat{A}\phi \rangle$, para
+  funciones de Schwartz.
+  \begin{proposition}
+    \label{prop:wigner-weyl}
+    Sea $A \in \Sz(\R^{2n})$. Tenemos que
+    \begin{equation}
+      \langle \psi, \hat{A}\phi \rangle
+      = \int_{\R^{2n}} A(x,p)W(\psi,\phi)(z) \, dx \, dp.
+    \end{equation}
+    para todo $\psi, \phi \in \Sz(\R^{n})$, donde $\hat{A} =
+    \Op_W(A)$.
+  \end{proposition}
+  De hecho, Gosson menciona que muchas veces se define la
+  transformación de Wigner $W$ mediante el producto interno
+  anterior. Utilizando ésto, finalmente podemos expresar el
+  valor esperado de un operador de Weyl en un estado $\psi$
+  mediante una integral en el espacio de fase.
+  \begin{proposition}
+    El valor esperado de un operador de Weyl $\hat{A} =
+    \Op_W(A)$ en un estado $\psi$ está dado por
+    \begin{equation}
+      \langle \hat{A} \rangle_\psi
+      = \frac{1}{\langle \psi, \psi \rangle} 
+      \int_{\R^{2n}} A(z) W\psi(z) \, dz.
+    \end{equation}
+  \end{proposition}  
+
+  Con las propiedades que se probaron en la sección de la
+  transformación de Wigner respecto a la integración en los
+  ejes del espacio de fase, y con el resultado anterior que
+  nos permite calcular el valor esperado de un operador de
+  Weyl con la transformación de Wigner, podemos formular
+  parte de la mecánica cuántica en el espacio de fase.
+
+  \subsection{Análisis armónico cuántico}
+
+  Recordemos que el operador de densidad describe el
+  conjunto estadístico de estados cuánticos puros. En
+  general un estado cuántico es un operador que nos brinda
+  una distribución de las posibles mediciones de algún
+  observable en un experimento. El estado cuántico puro
+  coincide con la noción de información completa del
+  sistema. Como hemos mencionado antes, generalmente se
+  identifica a los estados puros con los elementos del
+  espacio de Hilbert $\H$ en cuestión, matemáticamente los
+  estados puros se identifican con proyección ortogonales
+  $\Pi_\psi$ sobre el rayo $\C \psi = \{\lambda \psi :
+  \lambda \in \C\}$. Generalmente se denota la proyección
+  utilizando la notación Dirac y en ocasiones la
+  adoptaremos:
+  \[
+    \ket{\psi}\bra{\psi} := \Pi_\psi. 
+  \] 
+  En la práctica no conocemos la información completa del
+  sistema y en éste caso decimos que el sistema está en un
+  \textit{estados mixtos}. Podemos definir un estado mixto
+  como un conjunto de pares $\{(\lambda_j,\psi_j)\}_{j \in
+  \N}$ donde $\psi_j \in L^2(\R^{n})$ es un estado puro y
+  $0 \leq \lambda_j \leq 1$ es un probabilidad clásica, es
+  decir, $\sum_j \lambda_j = 1$. Con ésto identificamos al
+  estado mixto con la suma de proyectores
+  \[
+    \hat{\rho} = \sum_{j}^{} \lambda_j \Pi_j.
+  \] 
+  Al operador $\rho$ se le conoce como el operador de
+  densidad. Es de clase de traza con $\Tr(\rho) = 1$. La
+  \textit{distribución de Wigner} del operador de densidad
+  es la función
+  \[
+    \rho = \sum_{j}^{} \lambda_j W\psi_j.
+  \] 
+
+  \begin{definition}
+    Un estado cuántico es el conjunto de pares $(\lambda_j,
+    \psi_j) \in [0,1] \times L^2(\R^{n})$, indexado por un
+    conjunto discreto $F$ donde $\|\psi_j\|_{L^2(\R^{n})} =
+    1$ para todo $j \in F$ y $\sum_{j \in F} \lambda_j = 1$.
+    El operador lineal $\hat{\rho}$ sobre $L^2(\R^{n})$
+    definido por
+    \begin{equation}
+      \hat{\rho} \psi
+      = \sum_{j \in F}^{} \lambda_j \Pi_{\psi_j} \psi
+      = \sum_{j \in F}^{} \lambda_j \langle \psi, \psi_j
+      \rangle \psi_j,
+    \end{equation}
+    es el operador de densidad asociado al estado. La
+    distribución de Wigner del estado es
+    \begin{equation}
+      \rho = \sum_{j \in F}^{} \lambda_j W\psi_j.
+    \end{equation}
+  \end{definition}
+  El operador de densidad es auto-adjunto, semi-definido
+  positivo, es de clase de traza con $\Tr(\hat{\rho}) = 1$.
+  La serie $\rho = \sum_{j}^{} \lambda_j W\psi_j$, converge
+  en $L^2(\R^{2n})$ y 
+  \[
+    \rho \in L^2(\R^{2n}) \cap L^{\infty}(\R^{2n}).
+  \] 
+  El espectro de un operador de densidad $\hat{\rho}$ sobre
+  $L^2(\R^{n})$ es discreto y consiste de números no
+  negativos tales que $\lambda_1 \geq \lambda_2 \geq \ldots
+  \geq 0$, y $\lim_{j \to \infty} \lambda_j = 0$ (en el
+  caso en que $F$ es infinito). Junto con los eigenvectores
+  $\psi_j$ podemos expresar al operador como
+  \[
+    \rho \psi
+    = \sum_{j}^{} \lambda_j \langle \psi, \psi_j \rangle
+    \psi_j,
+  \] 
+  y su distribución de Wigner es
+  \[
+    \rho 
+    = \sum_{j}^{} \lambda_j W\psi_j,
+  \] 
+  donde los $\psi_j$ son ortogonales. En particular notamos
+  que distintos estados mixtos nos pueden brindar el mismo
+  operador, Gosson menciona que el significado físico de
+  ésta ambigüedad no está bien comprendida. Podemos decir
+  que la información estadística del estado mixto está
+  codificado en el operador de densidad de tal manera que
+  podemos hacer predicciones sobre el estado que no dependen
+  de la manera en que está expresado. 
+
+  Existe una relación directa entre la distribución de
+  Wigner de un operador de densidad por medio de la
+  transformación de Weyl. El operador de densidad
+  $\hat{\rho}$ puede ser expresado en términos de su
+  distribución de Wigner:
+  \begin{equation}
+    \hat{\rho} 
+    = (2\pi\hbar)^{n} \Op_W(\rho).
+  \end{equation}
+
+  Se puede demostrar que todo operador de clase traza es el
+  producto de dos operadores Hilbert-Schmidt. Ahora
+  consideremos en particular el caso en que los operadores
+  se define por medio de su símbolo $\hat{A} = \Op_W(A)$.
+
+  \begin{proposition}
+    Sean $\hat{A} = \Op_W(a)$ y $\hat{B} = \Op_W(b)$
+    operadores de Hilbert-Schmidt. Entonces
+    \begin{equation}
+      \Tr\left( \hat{A}\hat{B} \right) 
+      = \Tr\left( \hat{B}\hat{A} \right) 
+      = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} a(z)b(z) \,
+      dz.
+    \end{equation}
+  \end{proposition}
+
+  \begin{proposition}
+    Sea $\hat{A} = \Op_W(a)$ un operador de clase de traza.
+    Si adicionalmente $a \in L^{1}(\R^{n})$, entonces
+    \begin{equation}
+      \Tr\left( \hat{A} \right) 
+      = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} a(z) \, dz.
+    \end{equation}
+  \end{proposition}
+
+  Si $\psi \in L^2(\R^{n})$ es una función con norma
+  unitaria, la información de $\psi$ es equivalente a la
+  información de su transformación de Wigner [GOSSON]. Se
+  puede probar que la proyección ortogonal $\hat{\Pi}_\psi$ 
+  sobre el rayo $\{\lambda \psi : \lambda \C\}$ es el
+  operador de Weyl con símbolo
+  \[
+    \pi_\psi = (2\pi\hbar)^{n}W\psi.
+  \] 
+  Con ésto podemos identificar un estado cuántico $\psi$ con
+  su función de Wigner.
+
+  \begin{definition}
+    Consideremos el estado mixto $\{(\psi_j,\alpha_j)\}$,
+    con $\|\psi_j\| = 1$, $\alpha_j \geq 0$ y $\sum_{j}^{}
+    \alpha_j = 1$. El operador de densidad $\rho$ de
+    éste estado es el operador de Weyl
+    \begin{equation}
+      \rho
+      = (2\pi\hbar)^{n} \sum_{j}^{} \alpha_j \Op_W(W\psi_j).
+    \end{equation}
+    La transformación de Wigner de éste estado es la función
+    \begin{equation}
+      \rho = \sum_{j}^{} \alpha_j W\psi_j.
+    \end{equation}
+  \end{definition}
+
+  Consideremos un operador de densidad $\hat{\rho}$,
+  utilizando la fórmula () verificaremos que obtenemos, una
+  expresión que coincide con la definición que hemos dado de
+  la distribución de Wigner. Dado que la traza es
+  independiente de la base ortonormal, utilizaremos la base
+  de eigenvectores del operador de densidad:
+  \begin{align*}
+    \rho(x,p) &= \Tr\left( \hat{\rho} \Delta(x,p) \right) \\
+              &= \sum_{j}^{} \langle \psi_j, 
+              \Delta(x,p) \hat{\rho} \psi_j \rangle \\
+              &= \sum_{j}^{} \langle \psi_j, \Delta(x,p)
+              \sum_{k}^{} \lambda_k \Pi_{\psi_k} \psi_j
+              \rangle \\
+              &= \sum_{j}^{} \langle \psi_j, \Delta(x,p)
+              \lambda_j \psi_j \rangle \\
+              &= \sum_{j}^{} \lambda_j W\psi_j.
+  \end{align*}
+
+  \subsection{Gosson again}
+
+  \begin{definition}
+    Un operador de densidad sobre un espacio de Hilbert
+    separable es un operador acotado $\hat{\rho} : \H \to
+    \H$ tal que
+    \begin{itemize}
+      \item $\hat{\rho}$ es auto-adjunto y semi-definido
+        positivo: $\hat{\rho} = \hat{\rho}^{*}, \hat{\rho}
+        \geq 0$.
+      \item $\hat{\rho}$ es de clase de traza y
+        $\Tr(\hat{\rho}) = 1$.
+    \end{itemize}
+  \end{definition}
+
+  El ejemplo más sencillo es el de un estado puro, $\psi \in
+  \H$ tal que $\|\psi\| = 1$. Consideremos ahora el operador
+  de proyección
+  \[
+    \hat{\rho}_\psi : \H \to \{\alpha \psi : \alpha \in
+    \C\}.
+  \] 
+  Para todo $\phi \in \H$ tenemos
+  \[
+    \hat{\rho}_\psi \phi
+    = \alpha \psi,
+    \quad \alpha = \langle \psi, \phi \rangle.
+  \] 
+  El operador $\hat{\rho}_\psi$ es un operador de densidad
+  puro asociado a $\psi$. Si $\H = L^2(\R^{n})$, entonces
+  \[
+    \hat{\rho}_\psi \phi(x)
+    = \int_{\R^{n}} \overline{\psi}(y)\phi(y) \psi(x) \, dy,
+  \] 
+  por lo tanto el núcleo asociado a $\hat{\rho}_\psi$ es el
+  producto tensorial
+  \[
+    K_{\hat{\rho}_\psi} = \psi \otimes \overline{\psi}.
+  \] 
+  Resulta que el operador de densidad puro $\hat{\rho}_\psi$ 
+  es simplemente el operador de Weyl cuyo símbolo (salvo un
+  factor) es simplemente la transformación de Wigner de
+  $\psi$.
+
+  \begin{proposition}
+    Sea $\hat{\rho}_\psi$ un operador de densidad asociado a
+    un estado puro $\psi$ por medio de la proyección.
+    Entonces
+    \begin{itemize}
+      \item el símbolo de Weyl $\rho_\psi$ de
+        $\hat{\rho}_\psi$ y la transformación de Wigner
+        $W\psi$ de $\psi$ están relacionados por la fórmula
+        \begin{equation}
+          \rho_\psi(z)
+          = (2\pi\hbar)^{n} W\psi(z).
+        \end{equation}
+      \item Si $\|\psi\|_{L^2(\R^{n})} = 1$ entonces el
+        valor esperado $\langle \hat{A} \rangle_\psi$ de un
+        operador de Weyl $\hat{A}$ está dado por
+        \[
+          \langle \hat{A} \rangle_\psi
+          = (\frac{1}{2\pi\hbar})^{n} \Tr(\hat{\rho}_\psi
+          \hat{A}).
+        \] 
+    \end{itemize}
+  \end{proposition}
+
+  En el caso en que no tenemos toda la información del
+  estado del sistema, podemos formar una mezcla de estados
+  $\psi_1,\psi_2,\ldots$ donde cada $\psi_j$ tiene una
+  probabilidad $\alpha_j$ de ser el estado ``verdadero''.
+  Entonces el operador de densidad del estado mixto es el
+  operador auto-adjunto
+  \[
+    \hat{\rho}
+    = \sum_{j}^{} \alpha_j \hat{\rho}_{\psi_j}j
+  \] 
+  donde $\sum_{j}^{} \alpha_j = 1$ y $\alpha_j \geq 0$.
+
+  \begin{proposition}
+    Sea $\hat{\rho} : L^2(\R^{n}) \to L^2(\R^{n})$ un
+    operador de densidad. Entonces existe una familia
+    $\{\psi_j\}_{j \in F}$ en $L^2(\R^{n})$ y una sucesión
+    $\{\lambda_j\}_{j \in F}$ de números con $\lambda_j \geq
+    0$ y $\sum_{j}^{} \lambda_j = 1$ tales que el símbolo de
+    Weyl $\rho$ de $\hat{\rho}$ está dado por
+    \[
+      \rho 
+      = \sum_{j}^{} \lambda_j W\psi_j.
+    \] 
+  \end{proposition}
+  \begin{proof}
+    Existen subespacio ortogonales entre si $\H_1,
+    \H_2,\ldots$ de $L^2(\R^{n})$ tales que
+    \[
+      \hat{\rho}
+      = \sum_{j}^{} \alpha_j \hat{\rho}_{\H_j},
+      \quad 
+      \sum_{j}^{} m_j \alpha_j = 1,
+    \] 
+    donde $\hat{\rho}_j$ es la proyección ortogonal de $\H$ 
+    a $\H_j$ y $m_j = \dim \H_j$. Elige una base ortonormal
+    $\psi_1,\ldots,\psi_{m_1}$ de $\H_1$, una base
+    ortonormal $\psi_{m_1+1},\ldots,\psi_{m_1+m_2+1}$ de
+    $\H_2$, etc. El símbolo de Weyl de $\hat{\rho}$ es
+    \[
+      \rho
+      = \alpha_1 \sum_{j=1}^{m_1} W\psi_j
+      + \alpha_2 \sum_{j=m_1}^{m_1+m_2+1} W\psi_j + \ldots.
+    \] 
+  \end{proof}
+
+  \subsection{Integrando la función de Wigner sobre rectas}
+
+  Una caracterización de la distribución de Wigner de un
+  estado cuántico es que integrando sobre ciertos conjuntos
+  del espacio de fase nos brinda las probabilidades de
+  observar ciertos valores de ciertos observables. Ésto es
+  una generalización de las densidades de posición y de
+  momentum y se ha demostrado que la función de Wigner es la
+  única que tiene ésta propiedad y por lo tanto es una que
+  es deseable preservar.
+
+  No es suficiente con obtener las marginales de la posición
+  y de momentum correctas para poder determinar la
+  distribución conjunta, pues hay más de una. En el espacio
+  de fase, podemos integrar sobre franjas formadas por
+  rectas paralelas y se puede demostrar que si tenemos un
+  conjunto completo de éstas ``marginales'', podemos
+  recuperar la distribución conjunta sobre todo el espacio.
+  [Braasch] le llama a éste conjunto de marginales un
+  conjunto tomograficamente completo.
+
+  Como se ha mencionado anteriormente, integrando sobre $x$
+  ó $p$ brinda las densidades de momentum ó de posición
+  respectivamente. Un resultado más general nos dice que
+  podemos integrar la función de Wigner sobre una franja
+  definida por dos rectas paralelas $ax + bp = c_1$ y $ax +
+  bp = c_2$ en el espacio de fase y obtener la probabilidad
+  de observar un valor entre $c_1$ y $c_2$ del el operador
+  de Weyl
+  \[
+    \Op_W(ax+bp) = a \hat{x} + b \hat{p}.
+  \] 
+  En lugar de usar la teoría espectral para operadores
+  auto-adjuntos, utilizaremos la maquinaria de Dirac.
+  [2201.05911] nos dice que $a \hat{x} + b \hat{p}$ es
+  esencialmente auto-adjunto y su espectro es $\R$. Entonces
+  por Dirac tenemos que $\ket r$ es una eigenvector
+  generalizado de $a \hat{x} + b \hat{p}$ para cada $r \in
+  \sigma\left( a \hat{x} + b \hat{p} \right) = \R$. 
+
+  Ahora consideremos el mapeo unitario sobre las funciones
+  de Schwartz
+  \[
+    U\psi(x) = e^{icx^2 / 2} \psi(x).
+  \] 
+  Notemos que $UPU^{-1} = Z = -c \hat{x} + \hat{p}$ para
+  funciones de prueba. Tiene sentido pensar que $U$ 
+  transforma los eigenvectores generalizados de $P$ a los de
+  $Z$. Para cada $r \in \R$ la distribución
+  \[
+    e^{irx + icx^2 / 2}
+  \] 
+  es un eigenvector generalizado de $Z$. Los eigenvectores
+  normalizados
+  \[
+    \frac{1}{\sqrt{2\pi}} e^{irx + icx^2 / 2}
+  \] 
+  forman un sistema ``$\delta$-completo''. Entonces la
+  densidad de probabilidad de las amplitudes para $Z$ está
+  dado por
+  \[
+    \braket{r|\psi}
+    = \frac{1}{\sqrt{2\pi}} \langle e^{irx + i cx^2 / 2},
+    \psi \rangle
+    = \frac{1}{\sqrt{2\pi}} \int_{\R} e^{-irx-icx^2 /
+    2}\psi(x) \, dx.
+  \] 
+  Y la densidad de probabilidad es
+  \[
+    D_Z(r)
+    = \frac{1}{2\pi} \left|
+    \braket{e^{irx+icx^2 / 2}|\psi}
+    \right|^2.
+  \] 
+  Utilizando la teoría de medida [?] prueba que para todo
+  estado $\ket \psi$, el push-forward $(x)_* \mathcal P_W =
+  \mathcal P_{\hat{x}}$ donde $\mathcal P_W$ es la
+  distribución dada por la densidad de Wigner del estado
+  $\psi$ y $\mathcal P_{\hat{x}}$ es la distribución dada la
+  densidad del operador de posición. En otras palabras, es
+  simplemente el cálculo de las marginales.
+
+  \begin{proposition}
+    Para todo estado $\psi \in L^2(\R)$, la distribución de
+    Wigner $\mathcal P_W$ es la única distribución sobre
+    $\R^{2}$ tal que para todo número real $a$ y $b$, la
+    ``distribución marginal'' $(ax+bp)_{*} \mathcal P_W$ es
+    correcta en el sentido de que coincide con la
+    distribución de probabilidad $\mathcal P_{a \hat{x} + b
+    \hat{p}}$.
+  \end{proposition}
+
+\subsection{Gosson again}
+
+  \begin{definition}
+    Un operador de densidad sobre un espacio de Hilbert
+    separable es un operador acotado $\hat{\rho} : \H \to
+    \H$ tal que
+    \begin{itemize}
+      \item $\hat{\rho}$ es auto-adjunto y semi-definido
+        positivo: $\hat{\rho} = \hat{\rho}^{*}, \hat{\rho}
+        \geq 0$.
+      \item $\hat{\rho}$ es de clase de traza y
+        $\Tr(\hat{\rho}) = 1$.
+    \end{itemize}
+  \end{definition}
+
+  El ejemplo más sencillo es el de un estado puro, $\psi \in
+  \H$ tal que $\|\psi\| = 1$. Consideremos ahora el operador
+  de proyección
+  \[
+    \hat{\rho}_\psi : \H \to \{\alpha \psi : \alpha \in
+    \C\}.
+  \] 
+  Para todo $\phi \in \H$ tenemos
+  \[
+    \hat{\rho}_\psi \phi
+    = \alpha \psi,
+    \quad \alpha = \langle \psi, \phi \rangle.
+  \] 
+  El operador $\hat{\rho}_\psi$ es un operador de densidad
+  puro asociado a $\psi$. Si $\H = L^2(\R^{n})$, entonces
+  \[
+    \hat{\rho}_\psi \phi(x)
+    = \int_{\R^{n}} \overline{\psi}(y)\phi(y) \psi(x) \, dy,
+  \] 
+  por lo tanto el núcleo asociado a $\hat{\rho}_\psi$ es el
+  producto tensorial
+  \[
+    K_{\hat{\rho}_\psi} = \psi \otimes \overline{\psi}.
+  \] 
+  Resulta que el operador de densidad puro $\hat{\rho}_\psi$ 
+  es simplemente el operador de Weyl cuyo símbolo (salvo un
+  factor) es simplemente la transformación de Wigner de
+  $\psi$.
+
+  \begin{proposition}
+    Sea $\hat{\rho}_\psi$ un operador de densidad asociado a
+    un estado puro $\psi$ por medio de la proyección.
+    Entonces
+    \begin{itemize}
+      \item el símbolo de Weyl $\rho_\psi$ de
+        $\hat{\rho}_\psi$ y la transformación de Wigner
+        $W\psi$ de $\psi$ están relacionados por la fórmula
+        \begin{equation}
+          \rho_\psi(z)
+          = (2\pi\hbar)^{n} W\psi(z).
+        \end{equation}
+      \item Si $\|\psi\|_{L^2(\R^{n})} = 1$ entonces el
+        valor esperado $\langle \hat{A} \rangle_\psi$ de un
+        operador de Weyl $\hat{A}$ está dado por
+        \[
+          \langle \hat{A} \rangle_\psi
+          = (\frac{1}{2\pi\hbar})^{n} \Tr(\hat{\rho}_\psi
+          \hat{A}).
+        \] 
+    \end{itemize}
+  \end{proposition}
+
+  En el caso en que no tenemos toda la información del
+  estado del sistema, podemos formar una mezcla de estados
+  $\psi_1,\psi_2,\ldots$ donde cada $\psi_j$ tiene una
+  probabilidad $\alpha_j$ de ser el estado ``verdadero''.
+  Entonces el operador de densidad del estado mixto es el
+  operador auto-adjunto
+  \[
+    \hat{\rho}
+    = \sum_{j}^{} \alpha_j \hat{\rho}_{\psi_j}j
+  \] 
+  donde $\sum_{j}^{} \alpha_j = 1$ y $\alpha_j \geq 0$.
+
+  \begin{proposition}
+    Sea $\hat{\rho} : L^2(\R^{n}) \to L^2(\R^{n})$ un
+    operador de densidad. Entonces existe una familia
+    $\{\psi_j\}_{j \in F}$ en $L^2(\R^{n})$ y una sucesión
+    $\{\lambda_j\}_{j \in F}$ de números con $\lambda_j \geq
+    0$ y $\sum_{j}^{} \lambda_j = 1$ tales que el símbolo de
+    Weyl $\rho$ de $\hat{\rho}$ está dado por
+    \[
+      \rho 
+      = \sum_{j}^{} \lambda_j W\psi_j.
+    \] 
+  \end{proposition}
+  \begin{proof}
+    Existen subespacio ortogonales entre si $\H_1,
+    \H_2,\ldots$ de $L^2(\R^{n})$ tales que
+    \[
+      \hat{\rho}
+      = \sum_{j}^{} \alpha_j \hat{\rho}_{\H_j},
+      \quad 
+      \sum_{j}^{} m_j \alpha_j = 1,
+    \] 
+    donde $\hat{\rho}_j$ es la proyección ortogonal de $\H$ 
+    a $\H_j$ y $m_j = \dim \H_j$. Elige una base ortonormal
+    $\psi_1,\ldots,\psi_{m_1}$ de $\H_1$, una base
+    ortonormal $\psi_{m_1+1},\ldots,\psi_{m_1+m_2+1}$ de
+    $\H_2$, etc. El símbolo de Weyl de $\hat{\rho}$ es
+    \[
+      \rho
+      = \alpha_1 \sum_{j=1}^{m_1} W\psi_j
+      + \alpha_2 \sum_{j=m_1}^{m_1+m_2+1} W\psi_j + \ldots.
+    \] 
+  \end{proof}
+
+Consideremos un operador de densidad $\hat{\rho}$,
+  utilizando la fórmula () verificaremos que obtenemos, una
+  expresión que coincide con la definición que hemos dado de
+  la distribución de Wigner. Dado que la traza es
+  independiente de la base ortonormal, utilizaremos la base
+  de eigenvectores del operador de densidad:
+  \begin{align*}
+    \rho(x,p) &= \Tr\left( \hat{\rho} \Delta(x,p) \right) \\
+              &= \sum_{j}^{} \langle \psi_j, 
+              \Delta(x,p) \hat{\rho} \psi_j \rangle \\
+              &= \sum_{j}^{} \langle \psi_j, \Delta(x,p)
+              \sum_{k}^{} \lambda_k \Pi_{\psi_k} \psi_j
+              \rangle \\
+              &= \sum_{j}^{} \langle \psi_j, \Delta(x,p)
+              \lambda_j \psi_j \rangle \\
+              &= \sum_{j}^{} \lambda_j W\psi_j.
+  \end{align*}
+
+  Brasch
+
+Ahora consideremos el mapeo unitario sobre las funciones
+  de Schwartz
+  \[
+    U\psi(x) = e^{icx^2 / 2} \psi(x).
+  \] 
+  Notemos que $UPU^{-1} = Z = -c \hat{x} + \hat{p}$ para
+  funciones de prueba. Tiene sentido pensar que $U$ 
+  transforma los eigenvectores generalizados de $P$ a los de
+  $Z$. Para cada $r \in \R$ la distribución
+  \[
+    e^{irx + icx^2 / 2}
+  \] 
+  es un eigenvector generalizado de $Z$. Los eigenvectores
+  normalizados
+  \[
+    \frac{1}{\sqrt{2\pi}} e^{irx + icx^2 / 2}
+  \] 
+  forman un sistema ``$\delta$-completo''. Entonces la
+  densidad de probabilidad de las amplitudes para $Z$ está
+  dado por
+  \[
+    \braket{r|\psi}
+    = \frac{1}{\sqrt{2\pi}} \langle e^{irx + i cx^2 / 2},
+    \psi \rangle
+    = \frac{1}{\sqrt{2\pi}} \int_{\R} e^{-irx-icx^2 /
+    2}\psi(x) \, dx.
+  \] 
+  Y la densidad de probabilidad es
+  \[
+    D_Z(r)
+    = \frac{1}{2\pi} \left|
+    \braket{e^{irx+icx^2 / 2}|\psi}
+    \right|^2.
+  \] 
+  Utilizando la teoría de medida [?] prueba que para todo
+  estado $\ket \psi$, el push-forward $(x)_* \mathcal P_W =
+  \mathcal P_{\hat{x}}$ donde $\mathcal P_W$ es la
+  distribución dada por la densidad de Wigner del estado
+  $\psi$ y $\mathcal P_{\hat{x}}$ es la distribución dada la
+  densidad del operador de posición. En otras palabras, es
+  simplemente el cálculo de las marginales.
+
+  \begin{proposition}
+    Para todo estado $\psi \in L^2(\R)$, la distribución de
+    Wigner $\mathcal P_W$ es la única distribución sobre
+    $\R^{2}$ tal que para todo número real $a$ y $b$, la
+    ``distribución marginal'' $(ax+bp)_{*} \mathcal P_W$ es
+    correcta en el sentido de que coincide con la
+    distribución de probabilidad $\mathcal P_{a \hat{x} + b
+    \hat{p}}$.
+  \end{proposition}
+
