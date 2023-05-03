@@ -282,3 +282,88 @@
   Folland muestra que $W$ mapea $\Sz(\R^{n}) \times
   \Sz(\R^{n})$ a $\Sz(\R^{2n})$ y se puede extender al caso
   de las distribuciones templadas.
+
+\section{Anillos y campos}
+
+  Si intentamos definir el espacio de fase discreto sobre un
+  anillo como $\Z_4$ tendremos problemas a la hora de
+  definir las rectas. Por ejemplo si consideramos la recta
+  \[
+    x + 2p = 0,
+  \]
+  que tiene como solución al conjunto de puntos
+  \[
+    \{(0,0), (2,1), (0,2), (2,3)\}.
+  \] 
+  Ahora, la recta 
+  \[
+    x = 0,
+  \] 
+  tiene como solución al conjunto
+  \[
+    \{(0,0), (0,1), (0,2), (0,3)\}.
+  \] 
+  Notemos que los dos conjuntos tiene una intersección con
+  más de un elemento, algo que contradice nuestra noción
+  geoemétrica de una linea en el espacio.
+
+  Sea $\F_N$ un campo de $N$ elementos donde $N = r^{k}$ es
+  una potencia de un número primo $r$. El primo $p$ se
+  conoce como la característica de $\F_N$ y se define como
+  el número entero más pequeño tal que
+  \[
+    1 + 1 + \ldots + 1 = 0.
+  \] 
+  $\F_r$ es simplemente $\Z_r$ pero $\F_N$ no es $\Z_N$.
+  Para construir a $\F_N$ requerimos de un polinomio $f(x)$ 
+  de grado $k$ que es irreducible en $\F_r$. Si $\alpha$ es
+  una raíz de $f(x)$, el campo que obtenemos al adjuntar
+  $\alpha$ a $\F_r$ es
+  \[
+    \F_N
+    = \F_r(\alpha) \cong \F_r[x] / \langle f(x) \rangle.
+  \] 
+  \begin{example}
+    Consideremos el anillo $\Z_4$ y el polinomio $f(x) = x^2
+    + x + 1$. El campo de Galois es
+    \[
+      \F_2[x] / (x^2 + x + 1)
+      \cong \F_2(\alpha)
+      = \{0, 1, \alpha, \alpha + 1\},
+    \] 
+    donde $\alpha^2 + \alpha + 1 = 0$. En el campo $\F_2 =
+    {0,1}$ no hay soluciones al polinomio $f(x)$ y definimos
+    su solución como $\alpha$. Todo elemento de
+    $\F_2(\alpha)$ tiene la forma $a_1 \alpha + a_0$, donde
+    $a_j \in \F_2$, por lo tanto $\{1, \alpha\}$ es una base
+    de espacio vectorial de $\F_4$ sobre $\F_2$.
+  \end{example}
+
+  El mapeo $\sigma : \alpha \to \alpha^r$ donde $\alpha \in
+  \F_N$ es un automorfismo lineal de $\F_N$ llamado el
+  \textit{automorfismo de Frobenius} que nos da los
+  conjugados de Galois. Elementos del campo primo son
+  invariantes bajo $\sigma$. Definimos la operación de traza
+  de un elemento $\alpha \in \F_N$ (distinta a la traza de
+  un operador lineal) como:
+  \[
+    \tr(\alpha) 
+    = \alpha + \alpha^{r} + \alpha^{r^2} + \ldots +
+    \alpha^{r^{k-1}}
+    = \sum_{m=0}^{k-1} \sigma^{m}(\alpha).
+  \] 
+  La operación $\tr$ mapea a todo elemento del campo finito
+  a un elemento del campo primo $\tr : \F_N \to \F_r$. Para
+  cualquier base $E = \{e_0,e_1,\ldots,e_{N-1}\}$, existe
+  una única base de campo $\tilde E = \{\tilde
+  e_0,\ldots,\tilde e_{N-1}\}$ tal que $\tr(\tilde e_j e_k)
+  = \delta_{jk}$. La base $\tilde E$ se llama la base dual a
+  $E$. Podemos utilizar la base dual para encontrar la
+  expansión única en coeficientes respecto a la base $E$ 
+  para cualquier elemento $x$ del campo. Para obtener el
+  componente $x_s$ del elemento $x$, hacemos
+  \[
+    \tr(x \tilde e_s)
+    = \sum_{r}^{k} x_r \tr(e_r \tilde e_s)
+    = x_s.
+  \]

@@ -17,6 +17,7 @@
 \usepackage{braket}
 
 \usepackage{graphicx}
+\usepackage{subfig}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -47,6 +48,7 @@
 \DeclareMathOperator{\Op}{Op}
 \DeclareMathOperator{\W}{W}
 \DeclareMathOperator{\Fr}{\mathcal{F}\!}
+\DeclareMathOperator{\GF}{GF}
 
 \newtheorem{definition}{Definición}
 \newtheorem{theorem}{Teorema}
@@ -372,31 +374,6 @@
   ignorar los detalles de los dominios. Ahora pasamos al
   postulado de la medición.
 
-  %\begin{axiom}
-  %  La probabilidad que una medición de una observable $A$ 
-  %  sobre un sistema en el estado $\rho$ de un
-  %  resultado en el conjunto de Borel $E \subset \R$ está
-  %  dado por
-  %  \[
-  %    \mu_{\rho}^{A}(E)
-  %    = \Tr\left( P_A(E) \circ \rho \right)
-  %  \] 
-  %  donde el mapa $P_A : \mathcal B(\R) \to \mathcal L(\H)$,
-  %  es la medida proyección valuada con el mapa $A$ dado por
-  %  el teorema espectral.
-  %\end{axiom}
-
-  %El teorema espectral nos dice que para cualquier operador
-  %auto-adjunto $A$, existe una medida
-  %proyección-valuada $P_{A}$ tal que $A$ puede
-  %ser representado por la integral
-  %\[
-  %  A
-  %  = \int_{\R} \lambda dP_{A}(\lambda).
-  %\] 
-  %Para operadores de espacios de dimensión finita ésto se
-  %reduce a la diagonalización de la matrices Hermíticas.
-
   \begin{axiom}
     Si un sistema cuántico está en un estado descrito por un
     vector unitario $\psi \in \H$, entonces el valor
@@ -428,8 +405,6 @@
   auto-adjuntos \textit{sí} es el conjunto de eigenvalores
   del operador.
 
-  ---
-
   En la práctica generalmente no conocemos la
   información completa del sistema y en éste caso decimos
   que el sistema está en un \textit{estado mixto}. Podemos
@@ -438,7 +413,6 @@
   L^2(\R^{n})$ es un estado puro y $0 \leq \lambda_j \leq 1$
   es un probabilidad clásica, es decir, $\sum_j \lambda_j =
   1$.
-
   \begin{definition}
     Un estado cuántico es el conjunto de pares $(\lambda_j,
     \psi_j) \in [0,1] \times L^2(\R^{n})$, indexado por un
@@ -609,9 +583,40 @@
     \item Base computacional
   \end{itemize}
 
-   
-
   \subsection{Tomografía cuántica y MUBs}
+
+  En la mecánica cuántica, el estado de un sistema cuántico
+  no puede ser observado ni puede ser determinado de manera
+  experimental. Ya una sola medición no es suficiente para
+  obtener la información necesaria para reconstruir el
+  estado cuántico, y dado que la medición afecta el estado
+  se vuelve imposible obtener el resto de la información con
+  mediciones subsiguientes [ROYER1989]. Pero si se tiene un conjunto de sistemas
+  \textit{identicamente} preparados, la noción de la
+  determinación del estado mediante mediciones cobra
+  sentido, ya que se puede, en principio identificar el
+  estado en que se \textit{prepara} el sistema cuántico.  El uso de las bases mutuamente insesgadas ha
+  sido impulsado principalmente por la busqueda de métodos
+  óptimos de reconstrucción de estados, algo que se conoce
+  como tomografía cuántica. De la sección anterior sabemos
+  que un estado cuántico en un espacio de Hilbert de
+  dimensión $d$ es descrito por un operador de densidad.
+  Eligiendo un base y expresando al operador como una matriz
+  sabemos que el operador consiste de $d^2-1$ números reales
+  ya que $\Tr(\rho) = 1$ y el operador es auto-adjunto. La
+  tomografía cuántica estima éstos números al hacer
+  mediciones sobre un conjunto de estados preparados de
+  manera identica. Proyectando sobre los $d$ elementos de un
+  conjunto de $d+1$ bases ortonormales del espacio
+  obtendríamos $d^2+d$ probabilidades de los cuales solo
+  $d-1$ de cada conjunto serían linealmente indepediente.
+  Así obtendríamos $(d-1)(d+1) = d^2-1$ probabilidades
+  linealmente independientes de los cuales podríamos
+  reconstruir el estado. Pero por razones obvias, no se
+  puede reproducir el experimento una cantidad infinita de
+  veces, por lo tanto los números tendrán un error
+  estadístico. El uso de bases mutuamente insesgadas
+  minimizan dicho error [KLIMOV C7].
 
   \subsection{Teoría de la información cuántica}
 
@@ -1421,47 +1426,30 @@
     \label{fig:harmonic_osc_wigner_3_7}
   \end{figure}
 
-  \subsection{Integrando la función de Wigner sobre rectas}
+  \subsection{Propiedad básica de tomografía cuántica}
 
-  Una caracterización de la distribución de Wigner de un
-  estado cuántico es que integrando sobre ciertos conjuntos
-  del espacio de fase nos brinda las probabilidades de
-  observar ciertos valores de ciertos observables. Ésto es
-  una generalización de las densidades de posición y de
-  momentum y se ha demostrado que la función de Wigner es la
-  única que tiene ésta propiedad y por lo tanto es una que
-  es deseable preservar.
-
-  No es suficiente con obtener las marginales de la posición
-  y de momentum correctas para poder determinar la
-  distribución conjunta, pues hay más de una. En el espacio
-  de fase, podemos integrar sobre franjas formadas por
-  rectas paralelas y se puede demostrar que si tenemos un
-  conjunto completo de éstas ``marginales'', podemos
-  recuperar la distribución conjunta sobre todo el espacio.
-  [Braasch] le llama a éste conjunto de marginales un
-  conjunto tomograficamente completo.
-
-  Como se ha mencionado anteriormente, integrando sobre $x$
-  ó $p$ brinda las densidades de momentum ó de posición
-  respectivamente. Un resultado más general nos dice que
-  podemos integrar la función de Wigner sobre una franja
-  definida por dos rectas paralelas $ax + bp = c_1$ y $ax +
-  bp = c_2$ en el espacio de fase y obtener la probabilidad
-  de observar un valor entre $c_1$ y $c_2$ del el operador
-  de Weyl
-  \[
-    \Op_W(ax+bp) = a \hat{x} + b \hat{p}.
-  \] 
-  En lugar de usar la teoría espectral para operadores
-  auto-adjuntos, utilizaremos la maquinaria de Dirac.
-  [2201.05911] nos dice que $a \hat{x} + b \hat{p}$ es
-  esencialmente auto-adjunto y su espectro es $\R$. Entonces
-  por Dirac tenemos que $\ket r$ es una eigenvector
-  generalizado de $a \hat{x} + b \hat{p}$ para cada $r \in
-  \sigma\left( a \hat{x} + b \hat{p} \right) = \R$. 
-
-  UNICIDAD
+  Wootters [CITE1987] expone una propiedad fundamental de la
+  función de Wigner, la que el llama la propiedad
+  proyectiva. Si $W_\rho$ es la función de Wigner de un
+  estado $\rho$, entonces podemos considerar la integral de
+  $W_\rho$ sobre una franja infinita delimitada por dos
+  rectas paralelas $ax+bp=c_1$ y $ax+bp=c_2$. Resulta que la
+  integral es igual a la probabilidad de que se observebe un
+  valor entre $c_1$ y $c_2$ del observable
+  $a \hat X + b \hat P$.  Integrando sobre una sola recta
+  brinda la densidad marginal del operador correspondiente.
+  Ésto es una generalización de las  densidades de posición
+  y de momentum y se ha demostrado que sí se exige ésta
+  propiedad a una cuasi-distibución del espacio de fase, la
+  función de Wigner se vuelve única [CITE]. Si tenemos un
+  conjunto completo de éstas ``marginales generalizadas'',
+  podemos recuperar la distribución conjunta sobre todo el
+  espacio. Braasch et al. [Braasch] le llama a éste conjunto
+  de marginales un conjunto tomograficamente completo. La
+  función de Wigner discreta que definen Wootters y Gibbons
+  será basada principalmente en ésta propiedad, en donde en
+  lugar de integrar sobre franjas infinitas se suma sobre
+  rectas en el espacio de fase discreto.
 
   \chapter{Funciones de Wigner en el Espacio Fase Discreto}
 
@@ -1496,20 +1484,23 @@
   y luego los puntuales, para luego definir la función
   utilizando la expresión (). La ventaja de éste camino es
   que la definición discreta asemeja lo más posible al caso
-  continuo y sus interpretaciones.  Ésta versión se puede
+  continuo y sus a interpretaciones.  Ésta versión se puede
   encontrar en los trabajos de Klimov, Sanches y Soto
   [CITE], Paz [CITE], Vourdas [CITE], Gross [CITE], etc. El
-  segundo camino predominante es el que intenta definir la
+  segundo camino dominante es el que intenta definir la
   función discreta a partir de la preservación de las
-  propiedades más importantes del caso continuo. Ésta
+  propiedades más importantes del caso continuo, en
+  particular la propiedad tomográfica. Ésta
   versión se debe a Gibbons y Wootters [CITE] y la idea es
   identificar una \textit{estructura cuántica} al espacio de
   fase discreto, la cual permite que la función de Wigner
   exprese las mismas propiedades que la versión discreta.
-  Las ventajas de éste segundo intento, es que expone una
-  relación directa con la construcción de bases mutuamente
-  insesgadas y además nos ofrece una metodología que se
-  puede replicar para una construcción alternativa.
+  Los operadores de desplazamiento y los puntuales vuelven a
+  aparecer, pero se introduce un tipo de arbitrariedad y de
+  flexbilidad, perdiendo la unicidad pero permitiendo una
+  construcción alternativa. Además ésta segunda metodología
+  expone una relación directa con la construcción de bases
+  mutuamente insesgadas.
 
   Se sabe que el número máximo de bases mutuamente
   insesgados para un sistema cuántico de dimensión $d$ es
@@ -1518,487 +1509,918 @@
   cantidad máxima [CITE]. Parece que aun es un problema
   abierto identificar la cantidad máxima para dimensiones
   que no son potencias de números primos. La construcción de
-  Wootters y Gibbons requieren de la construcción explícita
+  Wootters y Gibbons requiere de la construcción explícita
   de las $d+1$ MUBs para la definición de los operadores
   puntuales y como consecuencia la definición de la función
   de Wigner. Ésto es una consecuencia natural de
   exigir que la función discreta satisfaga las mismas
   propiedades tomográficas que satisface la versión
   continua. Por éstas razones nuestro trabajo se basa en la
-  metodología de Wootters, aunque hemos decidido incluir un
-  resumen de la primera versión en la siguiente sección.
+  metodología de Wootters.
+  %\section{Construcción análoga}
 
-  \section{Construcción análoga}
+  %Tal como en el caso continuo, existe un mapeo del espacio
+  %de Hilbert al espacio de fase que se puede interpretar
+  %como una cuasi-distribución conjunta sobre dos variables
+  %`conjugadas'. Schwinger desarrolló una base ortonormal de
+  %$N^2$ operadores unitarios que forman una representación
+  %del grupo de Heisenberg-Weyl modulo su centro. Dado la
+  %base ortonormal de operadores, se puede describir al
+  %estado de un sistema utilizando los coeficientes de la
+  %expansión del operador de densidad en términos de la base.
+  %El trabajo consiste en elegir a la ``mejor'' base que
+  %resulte en las propiedades de la función de Wigner que
+  %deseamos preservar.  La idea de Wooters es construir una
+  %versión discreta de los operadores puntuales que preservan
+  %las propiedades. 
 
-  Tal como en el caso continuo, existe un mapeo del espacio
-  de Hilbert al espacio de fase que se puede interpretar
-  como una cuasi-distribución conjunta sobre dos variables
-  `conjugadas'. Schwinger desarrolló una base ortonormal de
-  $N^2$ operadores unitarios que forman una representación
-  del grupo de Heisenberg-Weyl modulo su centro. Dado la
-  base ortonormal de operadores, se puede describir al
-  estado de un sistema utilizando los coeficientes de la
-  expansión del operador de densidad en términos de la base.
-  El trabajo consiste en elegir a la ``mejor'' base que
-  resulte en las propiedades de la función de Wigner que
-  deseamos preservar.  La idea de Wooters es construir una
-  versión discreta de los operadores puntuales que preservan
-  las propiedades. 
+  %Empezando con la transformada de Fourier discreta y
+  %restringiendonos a dimensiones primas impares, podremos
+  %trabajar en analogía al caso continuo. El grupo de
+  %desplazamientos de Heisenberg-Weyl nos darán los
+  %operadores de paridad desplazados, los cuales se usarán
+  %para asignar puntos del espacio de fase a operadores.
 
-  Empezando con la transformada de Fourier discreta y
-  restringiendonos a dimensiones primas impares, podremos
-  trabajar en analogía al caso continuo. El grupo de
-  desplazamientos de Heisenberg-Weyl nos darán los
-  operadores de paridad desplazados, los cuales se usarán
-  para asignar puntos del espacio de fase a operadores.
+  %Un sistema cuántico con una espacio de Hilbert de
+  %dimensión $N$ será representado por un arreglo de $N
+  %\times N$ puntos. Los puntos $\alpha$ estarán dados por
+  %los pares $(a_1,a_2)$ de elementos de un campo finito
+  %$\Z_n$.
 
-  Un sistema cuántico con una espacio de Hilbert de
-  dimensión $N$ será representado por un arreglo de $N
-  \times N$ puntos. Los puntos $\alpha$ estarán dados por
-  los pares $(a_1,a_2)$ de elementos de un campo finito
-  $\Z_n$.
-
-  Existe una base ortonormal de $N$ elementos para nuestro
-  espacio de Hilbert, correspondientes a los eigenestados de
-  algún observable. Denominemos a éste observable como la
-  ``posición'' y diagramaticamente denotará el eje
-  horizontal. Sus eigenvalores denotarán la coordenada del
-  eje horizontal. Lo que sigue es identificar las lineas
-  perpendiculares al eje horizontal del espacio de fase con
-  los eigenestados que corresponden a los eigenvalores. El
-  eje vertical será la variable Fourier-conjugada de la
-  posición llamada el ``momentum''.
+  %Existe una base ortonormal de $N$ elementos para nuestro
+  %espacio de Hilbert, correspondientes a los eigenestados de
+  %algún observable. Denominemos a éste observable como la
+  %``posición'' y diagramaticamente denotará el eje
+  %horizontal. Sus eigenvalores denotarán la coordenada del
+  %eje horizontal. Lo que sigue es identificar las lineas
+  %perpendiculares al eje horizontal del espacio de fase con
+  %los eigenestados que corresponden a los eigenvalores. El
+  %eje vertical será la variable Fourier-conjugada de la
+  %posición llamada el ``momentum''.
 
   \section{Construcción de Gibbons y Wootters}
 
-  .
+  En su artículo del 2004 [CITE], Gibbons y Wootters
+  comienzan notando que la función de Wigner en sistemas
+  continuos puede ser obtenida al exigir una estructura
+  cuántica al espacio de fase. Ésta estructura corresponde a
+  la asignación de estados cuánticos a rectas en el espacio
+  de fase, de tal manera que las integrales sobre éstas
+  rectas o franjas de rectas nos dan la probabilidad de
+  observar el sistema en el estado correspondiente, tal como
+  se mencionó en la sección anterior. Con ésta asignación,
+  es posible recuperar los operadores puntuales y así
+  construir la función de Wigner para un estado arbitrario
+  $\rho$. Wootters y Gibbons intentan definir una versión
+  discreta siguiendo éstos pasos, cuidando que la
+  construcción preserve otras propiedades de la versión
+  continua.  Resulta que su método introduce cierto tipo de
+  arbitrariedad por lo que acaban definiendo una clase de
+  funciones discretas.
 
-  \section{Braasch}
+  Evidentemente hay una relación directa entre la geometría
+  del espacio de fase y la estructura cuántica por asignar.
+  Por lo tanto requerimos trabajar con un espacio de fase
+  que tenga la suficiente estructura geométrica como para
+  definir rectas en el espacio con las propiedades usuales
+  que conocemos del plano Euclideano.  Por ejemplo debemos
+  poder definir rectas paralelas y se debe cumplir que dos
+  rectas no paralelas solo se intersecten en un solo punto.
+  Si $d$ es la dimensión del espacio de Hilbert en cuestión,
+  es natural intentar definir el espacio de fase como la
+  malla $\Z_d \times \Z_d$. Pero si $d$ no es un número
+  primo, $\Z_d$ solo es un anillo y resulta que el espacio
+  $\Z_d \times \Z_d$ no tiene la estructura geométrica
+  necesaria, por ejemplo no es dificil encontrar ejemplos de
+  rectas no paralelas que se intersectan en más de un solo
+  punto. En el caso en que $d = p$ es un número primo, la
+  estructura algebráica $\Z_p$ es un campo y aquí sí se
+  puede definir un espacio de fase $\Z_p \times \Z_p$ con
+  las propiedades deseadas.  Además de los campos $\Z_p$,
+  también podemos obtener campos de orden $p^{n}$ donde $p$
+  es primo, por medio de la extension de Galois $\GF(p,n)$.
+  La restricción a espacios de Hilbert dimensión $p^{n}$ sí
+  es limitante, pero Wootters y Gibbons hacen la observación
+  que su método es válido para el importante caso de un
+  sistema de $n$ qubits. Por lo tanto su metodología es
+  directamente aplicable a los modelos de la computación e
+  información cuántica.
 
-  Para tener una versión análoga a la función de Wigner para
-  el caso discreto, es necesario identificar que propiedades
-  de la transformación en el caso continuo deseamos
-  preservar.  Principalmente deseamos preservar (P1) el
-  cálculo de los valores esperados de observables por medio
-  de la integración sobre el espacio de fase, (P2) el de las
-  marginales y (P3) el cálculo de probabilidades a lo largo
-  de rectas en el espacio de fase.
+  El método consiste en darle una estructura cuántica al
+  espacio de fase $\GF(p,n) \times \GF(p,n)$ asignando un
+  estado cuántico a cada linea del espacio de fase discreto.
+  Ésta asignación debe satisfacer varias propiedades y
+  Wootters y Gibbons llaman aquellas asignaciones adecuadas,
+  \textit{`redes cuánticas'}. Cada red cuántica define una
+  versión de la función de Wigner, pero es posible hacer una
+  clasificación en clases de equivalencia para reducir un
+  poco la arbitrariedad. La asignación particular de estados
+  cuánticos a las rectas de conjuntos de rectas paralelas
+  resultan ser bases ortonormales del espacio de Hilbert y
+  además son mutuamente insesgadas respecto a otros
+  conjuntos de rectas paralelas.
 
-  En la sección () se mostró que la distribución de Wigner
-  satisface la siguientes propiedades:
-  \begin{itemize}
-    \item Realidad. Para todo $\hat{\rho}$, la distribución
-      de Wigner $W(x,p)$ es real.
-    \item Proyección. Para todo $\hat{\rho}$, al integrar a
-      la distribuciónd e Wigner $W(x,p)$ sobre la linea $l =
-      ax + bp$ en el espacio de fase nos brinda la
-      probabilidad de medir $l$ del observable $a \hat{x} +
-      b \hat{p}$.
-    \item Hilbet-Schmidt producto interno. Para todo
-      $\hat{\rho}_1$  y $\hat{\rho}_2$ se cumple que
-      \[
-        \Tr\left(\hat{\rho}_1 \hat{\rho}_2\right)
-        = \int_{\R^{2n}} W_1(x,p) W_2(x,p) \, dx \, dp.
-      \] 
-    \item Traslación
-  \end{itemize}
-
-  Según [?], se puede expresar éstas propiedades en términos
-  de los operadores puntuales. Los operadores puntuales
-  $\Delta(x,p)$ deben ser auto-adjuntos, deben satisfacer
-  las propiedades de ortogonalidad y al integrarlos sobre
-  lineas en el espacio de fase nos deben de dar proyectores.
-
-  \begin{itemize}
-    \item $\hat{\Delta}(x,p)$ es auto-adjunto.
-    \item ``Ortogonalidad''. 
-      \[
-        \Tr\left( \hat{\Delta}(x,p) \hat{\Delta}(x',p')
-        \right)
-        = \delta(x-x')\delta(p-p').
-      \] 
-    \item Supongamos que $\Pi_l$ es una proyección al
-      eigenestado generalizado $a \hat{x} + b \hat{p}$ con
-      eigenvalor, entonces
-      \[
-        \int_{\R^2} \delta(ax + bp - l) \hat{\Delta}(x,p) \,
-        dx \, dp
-        = \Pi_l.
-      \] 
-  \end{itemize}
-
+  Para comenzar, recordemos las propiedades de la función de
+  Wigner $W_\rho$ del caso continuo que se desean
+  perservar en el caso discreto:
+  \begin{proposition}
+    Sea $\rho$ un operador de densidad y $W_\rho$ su función
+    de Wigner.
+    \begin{enumerate}
+      \item $W_\rho$ es covariante bajo traslaciones.
+      \item Los operadores puntuales forman una base
+        ortonormal respecto al producto interno de
+        Hilbert-Schmidt para el espacio de operadores sobre
+        $\H$.
+      \item $W_\rho$ es real y la suma de sus componentes
+        debe ser igual a $1$.
+      \item La integral de $W_\rho$ sobre una
+        recta $ax+bp = c$ nos brinda la probabilidad de
+        medir el valor $c$ del operador $a \hat X + b \hat P$.
+    \end{enumerate}
+  \end{proposition}
   
+  Recordemos que éstas propiedades pueden ser demostradas a
+  partir de las propiedades análogas de los operadores
+  puntuales. En particular para la propiedad (4), si $ax+bp
+  = c$ es un recta en el espacio de fase, entonces
+  integrando (formalmente) a los operadores puntuales sobre
+  ésta recta nos da una proyección ortogonal
+  $\Pi_{\ket{abc}}$ donde $\ket{abc}$ es un eigenestado del
+  operador $a\hat X + b\hat P$ correspondiente al eigenvalor
+  $c$ [CITE]. Ésta es parte fundamental para la definición
+  de la función discreta, mientras que la propiedad de ser
+  covariante bajo traslaciones es la que define a los
+  operadores de desplazamiento discretos en la metodología
+  de Wootters y Gibbons. 
+    
+  \subsection{La geometría del espacio de fase discreto}
 
-  Las propiedades marginales de la función de Wigner
-  continua será fundamental en la construcción de la versión
-  discreta. Una propiedad marginal consiste en un conjunto
-  de resultados de sumas sobre lineas paralelas. Para el
-  caso discreto, una linea se define como un conjunto de
-  puntos $\alpha = (a_1,a_2)$ tales que $ma_1 + na_2 = p$ 
-  donde $m, n, p \in \Z_N$. Las lineas son paralelas si
-  tienen los mismos valores $m,n$ y solo difieren en $p$.
-  Cada linea pertenece a un conjunto de $N$ lineas paralelas
-  que se llamarán ``foliación'' o ``estriación''. La
-  corerspondencia entre lineas y eigenestados existe debido
-  a que ambos pertenecen a conjuntos de $(N+1)$ conjuntos de
-  $N$ objetos.
-
-  Ahora debemos introducir los operadores de desplazamiento.
-  Fijando un conjunto de lineas al origen, un conjunto de
-  lineas no paralelas pueden ser descritas por
-  desplazamientos del origen. Denotamos $\hat{D}_\alpha =
-  \hat{D}(a_1,a_2)$ para un desplazamiento vertical $a_1$ y
-  un desplazamiento horizontal $a_2$. Podemos generar una
-  linea al elegir un desplazamiento e iterarlo. Para cada
-  linea en el conjunto maximal de lineas que pasan por un
-  punto, podemos generar una foliación. Por lo tanto existen
-  $N(N+1)$ lineas en el espacio de fase con $N+1$ 
-  foliaciones distintas.
-
-  A la hora de vincular los observables con las lineas, la
-  única restricción importante de los observables
-  correspondientes a los ejes es que deben ser mutuamente
-  insesgados. Ésto significa que dos conjuntos de
-  eigenestados $\{\psi_m\}$ y $\{\phi_n\}$ correspondientes
-  a dos observables distintos, el valor $|\langle \psi_m,
-  \phi_n \rangle|^2$ debe ser independiente de $m$ y de $n$.
-  En el caso discreto ésto significa que
+  El espacio de fase discreto será un espacio vectorial de
+  dos dimensiones sobre un campo finito, donde los puntos
+  serán etiquetados con los elementos $(x,p) \in
+  \mathbb F_{d} \times \mathbb F_{d} = \mathbb F_d^{2}$. Por
+  convención, consideramos el punto $(0,0)$ como el origen
+  de nuestra malla de $d \times d$ elementos, ubicado en la
+  parte inferior izquierda. La construcción de Wootters y
+  Gibbons permite identificar el horizontal con los
+  eigenvectores de una clase de operadores y el eje vertical
+  con otra clase de operadores, ésto a su vez nos permite
+  darle cierta interpretación física, aunque ésto no es
+  necesario. Por ejemplo si consideramos un sistema cuántico
+  de dos partículas con spin-$\frac{1}{2}$, entonces el
+  espacio de Hilbert correspondiente es $\H = \C^{2} \otimes
+  \C^{2}$, y el espacio de fase discreto sería una malla de
+  $4 \times 4$ elementos. Los elementos de la malla serán
+  indexados por los elementos de un campo finito de cuatro
+  elementos:
   \[
-    |\langle \psi_m, \phi_n \rangle|^2 = \frac{1}{N}.
-  \] 
-
-  \section{Anillos y campos}
-
-  Si intentamos definir el espacio de fase discreto sobre un
-  anillo como $\Z_4$ tendremos problemas a la hora de
-  definir las rectas. Por ejemplo si consideramos la recta
-  \[
-    x + 2p = 0,
+    \mathbb F_4
+    = \GF(2,2)
+    = \{0,1,\omega,\omega+1\}.
   \]
-  que tiene como solución al conjunto de puntos
-  \[
-    \{(0,0), (2,1), (0,2), (2,3)\}.
-  \] 
-  Ahora, la recta 
-  \[
-    x = 0,
-  \] 
-  tiene como solución al conjunto
-  \[
-    \{(0,0), (0,1), (0,2), (0,3)\}.
-  \] 
-  Notemos que los dos conjuntos tiene una intersección con
-  más de un elemento, algo que contradice nuestra noción
-  geoemétrica de una linea en el espacio.
+  En caso de un sistema que no es compuesto, por ejemplo una
+  partícula de tres niveles, $\H = \C^3$, el espacio de fase
+  discreto es una malla de $3 \times 3$ en donde los
+  elementos de la mallan son indexados simplemente con los
+  enteros $\Z_3 = \{0,1,2\}$. La figura
+  (\ref{fig:GF22-GF31}) muestra el espacio de fase de éstos
+  dos ejemplos, y se muestra la linea recta parametrizada
+  por $\lambda = \{(s,s) : s \in \mathbb F_d\}$.
+  \begin{figure}
+    \centering
+    \subfloat[\centering $\mathbb F_4 = \GF(2,2)$]{{
+        \includegraphics[width=0.4\linewidth]{imgs/GF22.png}
+    }}
+    \quad
+    \subfloat[\centering $\mathbb F_3 = \Z_3$]{{
+        \includegraphics[width=0.38\linewidth]{imgs/GF31.png}
+    }}
+    \caption{Dos espacios de fase discretos para sistemas de
+    distinta dimensión, señalando el rayo diagonal.}
+    \label{fig:GF22-GF31}
+  \end{figure}
+  Como se mencionó antes, una \textit{recta} en el espacio
+  de fase es el conjunto de puntos que satisfacen la
+  ecuación $ax + bp = c$ donde $a,b$ y $c$ son elementos del
+  campo finito. Dos rectas paralelas son iguales si solo
+  difieren en el valor de $c$.  No es dificil probar que
+  dada una recta $\lambda$ y un punto $\alpha$ que no
+  pertenece a la recta existe una única recta paralela a
+  $\lambda$ que contiene a $\alpha$.  Similarmente, dos
+  rectas que no son paralelas solo se intersectan en un solo
+  punto. Existen $N(N+1)$ rectas en el espacio de fase y el
+  conjunto de éstas rectas se particiona en $N+1$ conjuntos
+  de $N$ rectas paralelas. A cada conjunto de $N$ rectas
+  paralelas, se le conoce como un estría. 
 
-  Sea $\F_N$ un campo de $N$ elementos donde $N = r^{k}$ es
-  una potencia de un número primo $r$. El primo $p$ se
-  conoce como la característica de $\F_N$ y se define como
-  el número entero más pequeño tal que
+  Para ejemplifcar la estrías completas de un espacio de
+  fase discreto, consideremos un campo finito de ocho
+  elementos. En éste caso el espacio de fase es el espacio
+  vectorial $\mathbb F_8^2$ donde $\mathbb F_8$ es una
+  extensión de Galois del campo primo $\Z_2$ de grado $n =
+  3$, i.e., $\mathbb F_8 = GF(2,3)$.  De acuerdo al apéndice
+  (), para construir a $\mathbb F_8$ solo debemos elegir un
+  polinomio irreducible $f(x)$ con coeficientes en $\Z_2$ de
+  grado $n = 3$ y adjuntarle una raíz $\alpha$ del polinomio
+  al campo primo. Así
   \[
-    1 + 1 + \ldots + 1 = 0.
+    \mathbb F_8
+    = \mathbb Z_2(\omega)
+    \cong \mathbb Z_2[x] / \langle f(x) \rangle.
   \] 
-  $\F_r$ es simplemente $\Z_r$ pero $\F_N$ no es $\Z_N$.
-  Para construir a $\F_N$ requerimos de un polinomio $f(x)$ 
-  de grado $k$ que es irreducible en $\F_r$. Si $\alpha$ es
-  una raíz de $f(x)$, el campo que obtenemos al adjuntar
-  $\alpha$ a $\F_r$ es
+  Sea $f(x) = x^3+x^2+1$ tal polinomio irreducible y
+  $\omega$ una raíz primitiva. Entonces el campo de Galois
+  $\mathbb F_8$ está dado por el conjunto 
   \[
-    \F_N
-    = \F_r(\alpha) \cong \F_r[x] / \langle f(x) \rangle.
+    \{0,1,\omega,\omega^2,\omega^2+1,\omega^2+\omega+1,
+    \omega+1,\omega^2+\omega\},
   \] 
+  con sus correspondientes operaciones de suma y
+  mutliplicación. Las rectas verticales estarán dadas por
+  los conjuntos $\{(q,s) : s \in \mathbb F_8\}$ donde
+  fijamos el elemento $q$ para cada recta vertical. El resto
+  de las rectas pueden ser parametrizadas como $\{(q,mq+c) :
+  m, c \in \mathbb F_8\}$. La figura (\ref{fig:GF-2-3})
+  muestra todas las estrías de éste espacio de fase.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/GF23.png}
+    \caption{Las nueves estrías del espacio de fase $\mathbb
+    F_8^2 = \GF(2,3) \times \GF(2,3)$.}
+    \label{fig:GF-2-3}
+  \end{figure}
+
+  Otro aspecto importante inicial en la metodología de
+  Wootters y Gibbons es la noción de las traslaciones en el
+  espacio de fase. En el caso discreto no existen
+  traslaciones infinitesimales, pero podemos definir una
+  traslación como la suma de un vector a los puntos del
+  espacio de fase. Si $\alpha \in \mathbb F_d^2$, entonces
+  la traslación $\mathcal T_\alpha$ se define simplemente
+  como
+  \begin{equation}
+    \mathcal T_\alpha \beta = \alpha + \beta,
+    \quad
+    \text{para todo } \beta \in \mathbb F_d^2.
+  \end{equation} 
+
+  \subsection{Asignación de la estructura cuántica}
+
+  Para vincular el sistema cuántico con nuestro espacio de
+  fase discreto, la clave del método Wootters y Gibbons es
+  asignar un estado cuántico a cada una de las $d(d+1)$
+  lineas rectas del espacio de fase. De aquí en adelante
+  consideramos un sistema cuántico con espacio de Hilbert de
+  dimensión $d = p^{n}$ donde $p$ es un número primo. Éste
+  método es aplicable de manera natural a sistemas
+  compuestos de $n$ subsistemas de dimensión $p$:
+  \begin{equation}
+    \H^{\otimes n}
+    = \H \otimes \cdots \otimes \H,
+    \quad
+    \text{donde } \dim\H = p.
+  \end{equation}
+  Un mapeo $Q$ que asigna
+  una proyección ortogonal correspondiente a un estado puro
+  $Q(\lambda)$ a cada recta $\lambda$ que satisface ciertas
+  propiedades deseables se llamará red
+  cuántica. La primera propiedad que debe satisfacer la red
+  cuántica es la propiedad de ser covariante bajo
+  traslaciones, para ésto, debemos definir una versión
+  discreta de los operadores de Heisenberg-Weyl $ D(x,p)$
+  para cada $(x,p) \in \mathbb F_d^2$. De ésta
+  manera a cada traslación en el espacio de fase discreto le
+  corresponderá un operador unitario en el espacio de
+  Hilbert. Éstos operadores deben tener una regla de
+  composición que preserve de algún modo la composición de
+  traslaciones en el espacio de fase. Para lograr ésto,
+  primero hay que considerar dos operadores básicos,
+  correspondientes a traslaciones horizontales y verticales
+  de una unidad, las cuales actúan sobre los subsistemas
+  cuánticos individuales.
+
+  A la traslación horizontal del espacio de fase $\mathcal
+  T_{(1,0)}$ y la traslación vertical $\mathcal T_{(0,1)}$
+  les asociamos los operadores unitarios $X$ y $Z$ definidos
+  de la siguiente manera:
+  \begin{definition}
+    Sea $\{\ket k : k \in \Z_p\}$ una base ortonormal del
+    espacio de Hilbert $\mathcal H$ correspondiente a un
+    subsistema, cuyos vectores se etiquetan con los elementos
+    del campo primo. Definimos los siguientes operadores:
+    \begin{align}
+      X \ket k
+      &= \ket{k + 1}, \\
+      Z \ket k
+      &= \omega^{k} \ket k,
+    \end{align}
+    donde $\omega = e^{2\pi i / p}$ y donde la suma dentro
+    de los kets se hace módulo $p$, i.e., la suma es la del
+    campo finito $\Z_p$.
+  \end{definition}
+  El uso de los números del campo primo como etiquetas
+  implica una estructura cíclica a las potencias del
+  operador $X$ y comunmente se le dice el operador
+  \textit{shift} porque en el caso continuo representan
+  cambios en la posición. Similarmente el operador $Z$ se le
+  conoce como el operador \textit{boost} porque en el caso
+  continuo representa un empuje en términos del momentum.
+  Éstos operadores son generadores del grupo de Pauli y
+  satisfacen las siguientes propiedades importantes:
+  \begin{equation}
+    X^{p} = Z^{p} = 1,
+    \quad
+    X^{a} Z^{b} = \omega^{-ab} Z^{b} X^{a},
+    \quad
+    \Tr(X) = \Tr(Z) = 0.
+  \end{equation}
+  Podemos expresar a éstos operadores en la base
+  computacional de la siguiente manera:
+  \begin{equation}
+    X = \sum_{k \in \Z_p}^{} \ket{k+1}\bra{k}, \\
+    \quad
+    Z = \sum_{k \in \Z_p}^{} \omega^{k} \ket k \bra k.
+  \end{equation}
   \begin{example}
-    Consideremos el anillo $\Z_4$ y el polinomio $f(x) = x^2
-    + x + 1$. El campo de Galois es
+    Para $\H = \C^{2}$ tenemos que $p = 2$ y así las
+    matrices $X$ y $Z$ son las matrices de Pauli $\sigma_x$
+    y $\sigma_z$:
     \[
-      \F_2[x] / (x^2 + x + 1)
-      \cong \F_2(\alpha)
-      = \{0, 1, \alpha, \alpha + 1\},
+      X = \sigma_x
+      \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},
+      \quad
+      Z = \sigma_z
+      \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}. 
     \] 
-    donde $\alpha^2 + \alpha + 1 = 0$. En el campo $\F_2 =
-    {0,1}$ no hay soluciones al polinomio $f(x)$ y definimos
-    su solución como $\alpha$. Todo elemento de
-    $\F_2(\alpha)$ tiene la forma $a_1 \alpha + a_0$, donde
-    $a_j \in \F_2$, por lo tanto $\{1, \alpha\}$ es una base
-    de espacio vectorial de $\F_4$ sobre $\F_2$.
   \end{example}
 
-  El mapeo $\sigma : \alpha \to \alpha^r$ donde $\alpha \in
-  \F_N$ es un automorfismo lineal de $\F_N$ llamado el
-  \textit{automorfismo de Frobenius} que nos da los
-  conjugados de Galois. Elementos del campo primo son
-  invariantes bajo $\sigma$. Definimos la operación de traza
-  de un elemento $\alpha \in \F_N$ (distinta a la traza de
-  un operador lineal) como:
+  Con las definiciones de los operadores generalizados de
+  Pauli, pasamos a la cuestión de como definir operadores de
+  desplazamiento correspondientes a traslaciones $\mathcal
+  T_{(a,b)}$ arbitrarias del espacio de fase. El camino que
+  elegin Gibbons y Wootters es construir los operadores a
+  partir de productos tensoriales de los elementos del grupo
+  de Pauli. De ésta manera se puede lograr actuar sobre los
+  subsistemas de manera individual. La asociación del punto
+  $(a,b) \in \mathbb F_d^2$ con el operador correspondiente
+  del espacio $\H^{\otimes n}$ depende de la expansión de
+  $a$ y de $b$ en bases de la extensión de Galois.
+  Recordemos que la extensión de Galois $\GF(p,n)$ se puede
+  ver como un espacio vectorial de dimensión $n$ sobre el
+  campo primo $\Z_p$. Entonces eligiendo una base
+  $\{b_1,\ldots,b_n\} \subset \GF(p,n)$ del campo podemos
+  expresar a todo elemento $a \in \GF(p,n)$ como la
+  combinación lineal:
   \[
-    \tr(\alpha) 
-    = \alpha + \alpha^{r} + \alpha^{r^2} + \ldots +
-    \alpha^{r^{k-1}}
-    = \sum_{m=0}^{k-1} \sigma^{m}(\alpha).
+    a = \sum_{i=1}^{n} c_i b_i,
+    \quad
+    \text{donde } c_i \in \Z_p.
   \] 
-  La operación $\tr$ mapea a todo elemento del campo finito
-  a un elemento del campo primo $\tr : \F_N \to \F_r$. Para
-  cualquier base $E = \{e_0,e_1,\ldots,e_{N-1}\}$, existe
-  una única base de campo $\tilde E = \{\tilde
-  e_0,\ldots,\tilde e_{N-1}\}$ tal que $\tr(\tilde e_j e_k)
-  = \delta_{jk}$. La base $\tilde E$ se llama la base dual a
-  $E$. Podemos utilizar la base dual para encontrar la
-  expansión única en coeficientes respecto a la base $E$ 
-  para cualquier elemento $x$ del campo. Para obtener el
-  componente $x_s$ del elemento $x$, hacemos
+  De igual manera, debemos elegir una base dual a la base
+  del campo finito. Recordemos del apéndice () que una base
+  dual es tal que
   \[
-    \tr(x \tilde e_s)
-    = \sum_{r}^{k} x_r \tr(e_r \tilde e_s)
-    = x_s.
+    \tr(b_i \tilde b_j) = \delta_{ij},
   \] 
-  Y no mas por no mas
-  \[
-    \chi(\alpha)
-    = \omega\left( \tr(\alpha) \right),
-    \quad \alpha \in \F_N,
-  \] 
-  \[
-    \omega(k)
-    = \exp\left( \frac{2\pi i k}{p} \right),
-    \quad [\chi(\alpha)]^{p} = 1, 
-    \quad k \in \F_p.
-  \] 
-
-  En el caso discreto no tenemos observables que son Fourier
-  conjugados de manera natural, como la posición y el
-  momentum en el caso continuo. Pero podemos crear una
-  estructura análoga. Considerando una base ortonormal del
-  espacio de Hilbert, doptamos la notación $\ket{\hat{x},
-  m}$ con $m \in \Z_N$ para denotar $m$-ésimo eigenestado
-  del operador de posición. Con ésto podemos definir al
-  operador de Fourier como
+  y que en muchas ocasiones podemos encontrar una base
+  \textit{auto-dual}, algo que es conveniente a la hora de
+  hacer los cálculos. Dada la base y la base dual, Wootters
+  y Gibbons definen a los operadores de desplazamiento
+  correspondientes a traslaciones arbitrarias $\mathcal
+  T_{(a,b)}$, como productos tensoriales de monomios de los
+  operadores unitarios $X$ y $Z$, donde las potencias están
+  dadas por los coeficientes de la expansión de $a$ en la
+  base y de $b$ en la base dual:
   \begin{definition}
-    El operador de Fourier está dado por
+    Sean $a_1,\ldots,a_n$ los coeficientes de $a$ en la base
+    del campo y $b_1,\ldots,b_n$ los coeficientes de $b$ en
+    la base dual. Entonces definimos al operador de
+    desplazamiento como
     \begin{equation}
-     \hat{\Fr}
-     = \frac{1}{\sqrt{N}} 
-     \sum_{m,n}^{} \omega(mn) \ket{\hat{x}; m} \bra{\hat{x};
-     n},
-     \quad \omega(k)
-     = \exp \left( \frac{2\pi i k}{N} \right).
+      D(a,b)
+      = X^{a_1} Z^{b_1} \otimes \cdots \otimes X^{a_n}
+      Z^{b_n}.
     \end{equation}
   \end{definition}
-  Ahora podemos definir los eigenestados del ``momentum'',
-  los cuales son los duales de Fourier a la base
-  correspondiente a la posición. Con nuestra notación
-  tenemos:
+  Ésta definición parece ser un poco ad-hoc pero es
+  inmediato ver que es una correspondencia muy natural con
+  las traslaciones básicas del espacio de fase discreto,
+  en el sentido de que si una traslación por el vector
+  $(a,b)$ solo tiene los $i$-ésimos componentes de $a$ y $b$
+  no nulos, entonces el operador de desplazamiento solo
+  actúa sobre el $i$-ésimo subsistema.
+
+  El operador $Z$ es diagonal y sus eigenvectores son la
+  base estándar de $\C^{p}$, por lo tanto los eigenvectores
+  correspondientes a los operadores de desplazamiento de la
+  estría vertical, 
+  \[
+    D(0,b) = Z^{b_1} \otimes \cdots \otimes Z^{b_n},
+  \] 
+  son los productos tensoriales de la base estándar:
+  \[
+    \ket{k_1} \otimes \cdots \otimes \ket{k_n},
+    \quad k_1,\ldots,k_n \in \Z_p.
+  \] 
+  Vourdas [CITE] muestra que se puede etiquetar la base
+  computacional con elementos de la extensión de Galois
+  $\GF(p,n)$ y utilizando una base del campo se pueden
+  mapear los elementos de manera natural:
+  \[
+    \ket \alpha
+    \mapsto \ket{\alpha_1} \otimes \cdots \otimes
+    \ket{\alpha_n}
+  \] 
+  donde los $\alpha_1,\ldots,\alpha_n$ son los coeficientes
+  de la expansión de $\alpha$. Pero hay un detalle
+  importante que surge de la estructura tensorial, Klimov et
+  al [CITE] muestran que los estados etiquetados con los
+  elementos de la extensión de Galois puede ser mapeados a
+  estados fisicos\footnote{Se refieren a los elementos de la
+  base computacional y de los vectores abstractos.} con
+  \textit{distintas} propiedades de factorización
+  dependiendo de la base elegida. Por ésto la elección de la
+  base del campo dependerá de la aplicación física.
+  \begin{example}
+    .
+  \end{example}
+  Por otro lado, los operadores de desplazamiento respecto a
+  las traslaciones horizontales son
+  \[
+    D(a,0) = X^{a_1} \otimes \cdots \otimes X^{a_n},
+  \] 
+  y sus eigenvectores están dados por productos tensoriales
+  de vectores $\ket{\tilde k}$ donde
+  \[
+    \ket{\tilde k}
+    = \frac{1}{\sqrt{p}} \sum_{k=1}^{p}
+    \omega^{\tilde k k} \ket k.
+  \] 
+  Notemos que ésta última expresión parece una
+  transformación de Fourier de la base computacional. De
+  hecho Vourdas y otros autores definen una transformación
+  de Fourier finita a partir de los caracteres $\chi$ del
+  campo finito y construyen una segunda base del espacio de
+  Hilbert mediante su aplicación. De ésta manera obtienen
+  dos bases `Fourier conjugables' y las asocian con la
+  noción de posición (base computacional) y momentum (base
+  obtenida por la transformación de Fourier) en el espacio
+  de fase discreto. A pesar de ésto Klimov et al. hacen la
+  observación que debido a la arbitrariedad de las bases, la
+  analogía con la posición y momentum en el espacio de fase
+  discreto es un poco forzada [CITEchap7].
+
+  Regresando a la construcción de la función de Wigner,
+  utilizando los operadores de desplazamiento podemos
+  enunciar el requisito de ser covariante bajo traslaciones
+  que le pediremos a la función de Wigner. Dado que la
+  función de Wigner dependerá de la red cuántica $Q$,
+  conviene que el mapeo $Q$ sea covariante bajo traslaciones
+  en el siguiente sentido: si trasladamos una linea por
+  $\mathcal T_{(a,b)}$ entonces el estado cuántico también
+  debe ser trasladado pero por los operadores de
+  desplazamiento correspondientes, i.e.,
   \begin{equation}
-    \ket{\hat{p}; m}
-    =\hat{\Fr} \ket{\hat{x}; m}
-    = \frac{1}{\sqrt{N}} \sum_{n}^{} \omega(mn)
-    \ket{\hat{x};n}.
+    \label{eqn:trans_cov_net}
+    Q(\mathcal T_{(a,b)} \lambda)
+    = D(a,b) Q(\lambda) D(a,b)^{*}.
   \end{equation}
-  En términos de la base de la posición, podemos expresar a
-  los eigenestados de posición y de momentum como:
+  Ésto resulta ser un requisito muy fuerte, ya que implica
+  que los operadores correspondientes a las traslaciones que
+  dejan invariantes a las rectas de una estría deben
+  conmutar. Para ver ésto, supongamos que $\lambda$ es un
+  rayo parametrizado por $(sx,sy)$ donde $s \in \mathbb
+  F_d$. Entonces ésta recta y todas las rectas paralelas a
+  ella son invariantes bajo las traslaciones $\mathcal
+  T_{(tx,ty)}$ donde $t \in \mathbb F_d$:
+  \begin{align*}
+    \mathcal T_{(tx,ty)} \lambda
+    &= \{(tx,ty) + (sx,sy) : (sx,sy) \in \lambda \} \\
+    &= \{((t+s)x, (t+s)y) : t+s \in \mathbb F_d \}\\
+    &= \lambda.
+  \end{align*} 
+  La ecuación (\ref{eqn:trans_cov_net}) nos dice entonces
+  que
+  \[
+    D(tx,ty) Q(\lambda) D(tx,ty)^{*}
+    = Q(\mathcal T_{(tx,ty)}\lambda)
+    = Q(\lambda),
+  \] 
+  lo cual solo sucede si los operadores de desplazamiento
+  conmutan con $Q(\lambda)$ para cada $t \in \mathbb F_d$.
+  Ésto a su vez solo sucede si los operadores de
+  desplazamiento $D(tx,ty)$ para $(x,y)$ fijo conmutan entre
+  si. En otras palabras, para que la red cuántica sea
+  covariante bajo traslaciones, los operadores de
+  desplazamiento correspondientes a las traslaciones que
+  dejan una estría invariante deben conmutar (PROOF).
+  Gibbons y Wootters prueban que su definición de $D(a,b)$
+  satisface éste requisito si y solo si la base en que se
+  expande el vector $b$ es un \textit{múltiplo} de la base
+  dual. Ésto introduce otro punto de arbitrariedad que a
+  nosotros nos gustaría evitar, por lo tanto en general
+  simplemente tomamos la base dual como la segunda base,
+  eligiendo la auto-dual cuando ésta exista.
+
+  Los operadores de desplazamiento así construidos son de
+  traza nula y son mutuamente ortogonales respecto al
+  producto interno de Hilbert-Schmidt:
+  \[
+    \Tr\left( \hat D(sx,sy) \hat D(tx,ty)^{*} \right) 
+    = 0,
+    \quad s \neq t.
+  \] 
+  Por lo tanto definen una única base de eigenvectores
+  simultáneos (salvo fases globales). Aquí surge la
+  propiedad más atractiva de la construcción de Wootters y
+  Gibbons que depende de un resultado de Bandyophyay et al
+  [CITE]:
+  \begin{theorem}[Bandyophyay et al. Thereom 3.2]
+    Si existe una base conmutativa maximal de matrices
+    unitarias ortogonales, entonces existen un conjunto de
+    $d+1$ bases mutuamente insesgadas.
+  \end{theorem}
+  En éste caso una \textit{base conmutativa maximal} de
+  matrices unitarias ortogonales se refiere a una partición
+  de matrices unitarias ortogonales en $N+1$ conjuntos donde
+  las $N-1$ matrices de cada clase conmutan entre si.
+  Notemos que la agrupación de los operadores invariantes de
+  cada estría satisface ésta condición, por lo que Wootters
+  y Gibbons concluyen que los conjuntos de eigenvectores
+  simultáneaos forman un conjunto de bases mutuamente
+  insesgadas. Regresando un poco al tema de Klimov et al.,
+  notemos que el uso de distintas base del campo finito
+  implica que podemos obtener bases mutuamente insesgadas
+  con distintas propiedades de factorización.
+
+  Hasta ahorita solo se ha asignado una base ortonormal a
+  cada estría. Para construir el mapeo $Q$ debemos
+  identificar a cada linea de cada estría con un elemento de
+  la base. Resulta que podemos asignar un elemento de la
+  base al rayo $\lambda$ de la estría de manera
+  \textit{arbitraria}.  El resto de la asignación se
+  determina por los mismos operadores de desplazamiento:
+  \[
+    Q(\mathcal T_{(x,y)} \lambda)
+    = D(x,y) Q(\lambda) D(x,y)^{*},
+  \] 
+  ya que se pueden obtener el resto de las rectas de la
+  estría mediante traslaciones en el espacio de fase.  Las
+  elecciones arbitrarias hasta el momento dan distintas
+  definiciones de las redes cuánticas y como consecuencia
+  distintas funciones de Wigner, cuya definición obtenemos
+  enseguida.
+
+  \subsection{Definición de una función de Wigner}
+
+  Sea $\rho$ un operador de densidad y $W_\rho$ su función
+  de Wigner por definir. Para preservar la propiedad
+  tomográfica básica de la función de Wigner en el caso
+  discreto, requerimos que la suma de $W_\rho$ sobre la
+  recta $\lambda$, sea la probabilidad de que el sistema
+  cuántico se mida en el estado $Q(\lambda)$. Ésto significa
+  que 
   \begin{equation}
-    \ket{\hat{x};n}
-    = \begin{bmatrix}
-      0 \\
-      \vdots \\
-      1 \\
-      \vdots \\
-      0
-    \end{bmatrix},
-    \ket{\hat{p};m}
-    = \begin{bmatrix}
-      1 \\
-      \omega(n) \\
-      \vdots \\
-      \omega\left( n(N-1) \right) 
-    \end{bmatrix}.
+    \label{eqn:tomog_prop_discrete}
+    \sum_{\alpha \in \lambda}^{} W_\rho(\alpha)
+    = \Tr\left( \rho Q(\lambda) \right).
   \end{equation}
-
-  Es fácil probar que la aplicación repetida del operador de
-  Fourier nos brinda
-  \[
-    \ket{\hat{x};m}
-    \rightarrow{\hat{\Fr}}
-    \ket{\hat{p};m}
-    \rightarrow{\hat{\Fr}}
-    \ket{\hat{x};-m}
-    \rightarrow{\hat{\Fr}}
-    \ket{\hat{p};-m}
-    \rightarrow{\hat{\Fr}}
-    \ket{\hat{x};m},
-  \] 
-  lo que prueba que $\hat{\Fr}^{4} = \id_{\H}$. Con ésto
-  definimos a los operadores de posición y de momentum como
+  Dado que nuestro espacio de fase es una geometría finita,
+  a traves del punto $\alpha$ pasan exactamente $d+1$
+  rectas que cubren a todo el espacio de fase discreto.
+  Entonces si $W_\rho$ satisface la propiedad de
+  normalización, i.e., $\sum_\beta W_\rho(\beta) = 1$, se
+  cumple que
   \begin{equation}
-    \hat{q}
-    = \sum_{n=0}^{N-1} n \ket{\hat{x};n} \bra{\hat{x};n},
-    \quad
-    \hat{p}
-    = \sum_{n=0}^{N-1} n \ket{\hat{p};n} \bra{\hat{p};n}.
+    \sum_{\lambda \ni \alpha}^{}
+    \left( \sum_{\beta \in \lambda}^{} W_\rho(\beta) \right) 
+    = d W_\rho(\alpha) + 1.
   \end{equation}
-
-  Los operadores $\hat{X}$ y $\hat{Z}$ de Pauli tienen la
-  siguiente acción sobre los eigenestados de la posición y
-  del momentum:
-
+  Despejando obtenemos un expresión para $W_\rho(\alpha)$:
   \[
-    \hat{Z}^{m}\ket{\hat{p};l}
-    = \ket{\hat{p};l+m},
-    \quad
-    \hat{Z}^{m}\ket{\hat{x};l}
-    = \omega(lm) \ket{\hat{x};l},
+    W_\rho(\alpha)
+    = \frac{1}{d}
+    \left[
+      \sum_{\lambda \ni \alpha}^{}
+      \left(
+        \sum_{\beta \in \lambda}^{} W_\rho(\beta)
+      \right) - 1,
+    \right]
   \] 
-  \[
-    \hat{X}^{n}\ket{\hat{p};l}
-    = \omega(-l n)\ket{\hat{p};l},
-    \quad
-    \hat{X}^{n}\ket{\hat{x};l}
-    = \ket{\hat{x};l+n},
-  \] 
-  donde $l,m,n \in \Z_N$. Con ésto podemos defnir a los
-  operadores de desplazamiento análogos a los del caso
-  continuo:
+  y utilizando (\ref{eqn:tomog_prop_discrete}) tenemos
   \begin{equation}
-    \hat{D}_{\alpha}
-    := \hat{D}(a_1,a_2)
-    = \omega(-2^{-1} a_1 a_2) \hat{Z}^{a_1} \hat{X}^{a_2}.
+    W_\rho(\alpha)
+    = \frac{1}{N} \left( \sum_{\lambda \ni \alpha}^{}
+    \Tr\left( \rho Q(\lambda) \right) - 1 \right).
   \end{equation}
-
-  Una característica interesante es que son de traza nula
-  excepto en el caso trivial:
-  \[
-    \Tr\left( \hat{D}(a_1,a_2) \right) 
-    = \omega^{\frac{1}{2}a_1a_2} \sum_{j=0}^{N-1}
-    \omega^{ja_2} \braket{j|j+a_1}
-    = N \delta_{a_1,0} \delta_{a_2,0}.
-  \] 
-  Resulta que los operadores forman una base ortonormal
-  (completa) de $N^2$ elementos respecto a la producto
-  interno de Hilbert-Schmidt:
-  \[
-    \Tr\left( \hat{D}_\alpha^{*} \hat{D}_\beta \right) 
-    = N \delta_{\alpha,\beta}.
-  \] 
-  Con una base a la mano, podemos descomponer a cualquier
-  operador sobre $\H$ de manera única como
-  \[
-    \hat{A}
-    = \sum_{a_1=0}^{N-1} \sum_{a_2=0}^{N-1} A_{a_1,a_2}
-    \hat{D}_{a_1,a_2},
-  \] 
-  con los coeficientes
-  \[
-    A_{a_1,a_2}
-    = \frac{1}{N} \Tr\left( \hat{D}_{a_1,a_2}^{*} \hat{A}
-    \right)
-    = \frac{1}{N} \Tr\left( \hat{D}_{-a_1,-a_2} \hat{A}
-    \right).
-  \] 
-
-  Para construir un espacio de fase discreto satisfactorio
-  equipado con una estructura simpléctica, requerimos
-  nuestra base de $N^2$ operadores puntuales sea
-  transformada por el grupo de automorfismos de los
-  operadores de desplazamiento.
-
-  \subsection{Operadores puntuales}
-
-  Ahora buscamos construir la forma discreta de los
-  operadores de paridad desplazados los cuales de nuevo se
-  llamaran ocasionalmente los operadores puntuales. El
-  operador de paridad (en el origen) se define como el
-  cuadrado de la transformada de Fourier discreta
-  \[
-    \hat{\Pi}
-    = \hat{\Pi}(0,0)
-    = \hat{\Fr}^2.
-  \] 
-  En completa analogía con la versión continua, para el
-  punto $\alpha$, definimos al operador puntual como
+  Utilizando las propiedades de la traza podemos expresar
+  la función de Wigner en términos del valor esperado de un
+  operador $A(\alpha)$ en estado $\rho$:
   \begin{equation}
-    \hat{\Delta}(\alpha)
-    = \hat{D}_\alpha \hat{\Pi} \hat{D}_{\alpha}^{-1}.
+    \label{eqn:discrete_wigner}
+    W_\rho(\alpha)
+    = \frac{1}{N} \Tr\left( \rho A(\alpha) \right),
+  \end{equation} 
+  donde 
+  \begin{equation}
+    \label{eqn:discrete_point_op}
+    A(\alpha)
+    = \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I.
+  \end{equation} 
+  Los operadores $A(\alpha)$ son los ánologos a los
+  operadores puntuales $\hat \Delta(\alpha)$ en el caso
+  continuo, por lo que también lleverán el mismo nombre.
+
+  Por construcción la función de Wigner discreta
+  satisface la propiedad tomográfica básica y la propiedad
+  de normalización. Probando ciertas propiedades de los
+  operadores puntuales $A(\alpha)$ análogos a las
+  propiedades los operadores $\hat \Delta(\alpha)$, podremos
+  probar las otras propiedades deseables de la función de
+  Wigner.
+  \begin{proposition}
+    Los operadores puntuales $A(\alpha)$ donde $\alpha =
+    (a,b) \in \mathbb F_d^2$ satisfacen las siguientes
+    propiedades:
+    \begin{itemize}
+      \item $A(\alpha)$ es auto-adjunto.
+      \item Son de traza unitaria.
+      \item Son ortogonales bajo el producto interno de
+        Hilbert-Schmidt.
+    \end{itemize}
+  \end{proposition}
+  \begin{proof}
+    .
+  \end{proof}
+
+  En particular notemos que los operadores $A(\alpha)$ 
+  forman una base del espacio de operadores lineales del
+  espacio de Hilbert. Así que podemos expresar a cualquier
+  operador de densidad en términos de los operadres
+  puntuales
+  \[
+    \rho = \sum_{\alpha}^{} a_\alpha A(\alpha).
+  \] 
+  Utilizando la propiedad (3) de los operadores puntuales
+  podemos probar que los coeficientes en la expansión son
+  precisamente los valores de la función de Wigner en el
+  punto $\alpha$:
+  \[
+    \rho = \sum_{\alpha}^{} W(\alpha) A(\alpha).
+  \] 
+  Con ésto tenemos una representación completa de cualquier
+  estado cuántico en el espacio de fase discreto, y a partir
+  de una función de Wigner podemos recuperar el estado
+  correspondiente mediante la expansión en los operadores
+  puntuales. Concluímos ésta sección enlistando las
+  propiedades que hereda la función de Wigner de los
+  operadores puntuales:
+  \begin{proposition}
+    Sea $\rho$ un estado cuántico y $W_\rho$ su función de
+    Wigner discreta. Entonces
+    \begin{enumerate}
+      \item La función de Wigner es real.
+      \item La suma de $W_\rho$ sobre cualquier recta
+        $\lambda$ es igual al valor esperado de $Q(\lambda)$ 
+        en el estado $\rho$.
+      \item La suma de $W_\rho$ sobre todo el espacio de fase
+        es igual a 1.
+      \item La función de Wigner es covariante bajo
+        traslaciones.
+    \end{enumerate}
+  \end{proposition}
+  \begin{proof}
+    .
+  \end{proof}
+
+  \section{Construcción explícita de las MUBs}
+
+  Gibbons y Wootters utilizaron los resultados de
+  Bandyophyay et al para demostrar que los operadores de
+  desplazamiento que corresponden a las traslaciones
+  invariantes de una estría son simultáneamente
+  diagonalizable. Siguiendo la metodología de Wootters y
+  Gibbons sería necesario obtener al menos un eigenvector
+  mutuo para cada una de las $d+1$ estrías, algo sería
+  computacionalmente latoso conforme la dimensión va
+  creciendo. Por suerte existen múltiples construcciones
+  explícitas de bases mutuamente insesgadas que son
+  unitariamente equivalentes a las de Wootters y Gibbons,
+  que podemos utilizar para construir los operadores
+  puntuales.
+
+  Kanat [CITE] menciona que las bases mutuamente insesgadas
+  fueron estudiadas por primera vez por Schwinger en 1960,
+  pero no fueron definidas y ejemplificadas hasta 1987 por
+  parte de Wootters y Fields. Recordemos que un conjunto de
+  MUBs en un espacio de Hilbert $\C^{d}$ se define como un
+  conjunto de bases ortonormales $\{B_0,B_1,\ldots,B_r\}$ 
+  del espacio tales que
+  \[
+    |\braket{x|y}|^2 = \frac{1}{d},
+  \] 
+  para cualesquiera dos vectores $x$ y $y$ de bases
+  distintas. También comenta que la existencia de un
+  conjunto de MUBs completo es equivalente a encontrar una
+  descomposición ortogonal del algebra de Lie complejo
+  $sl_n(\C)$. Además se ha descubierto que las MUBs están
+  intimamente relacionadas con otros problemas en diversas
+  áreas de las matemáticas, como el algebra combinatoria y
+  la matemática discreta.
+
+  Godsil y Roy [CITE] probaron que las construcciones de
+  MUBs más conocidas, debido a Ivánovic [CITE], Wootters y
+  Fields [CITE], Klappenecker [CITE] y Bandyophyay [CITE]
+  son todos unitariamente equivalentes. En particular
+  demuestran que las bases dadas por Wootters y Fields son
+  precisamente las que se obtienen de la diagonalización de
+  los conjuntos de operadores de desplazamientos que
+  conmutan entre sí. Para reproducir las pruebas primero
+  definamos a los operadores de desplazamiento de nuevo pero
+  ésta vez sin la factorización tensorial. Así el sistema
+  cuántico tendrá un espacio de Hilbert de dimensión $d =
+  p^{n}$ con $p$ primo. Existen diferencias entre las
+  construcciones para $p$ par e impar debido a algunas
+  sutilizas de la extensiones de Galois de característica
+  dos, por lo tanto igual que Godsil y Roy, separamos los
+  dos casos.
+
+  \subsection{Característica impar}
+
+  Consideremos un espacio de Hilbert de dimensión $d =
+  p^{n}$ donde $p$ es un primo impar, y sea $\{\ket{u}\}$ la
+  base estándar para el espacio $\C^{d}$ indexado por los
+  elementos de la extensión de Galois $\mathbb F_{d} =
+  \GF(p,n)$. Dado un $a \in \mathbb F_d$, definamos los
+  operadores
+  \begin{align}
+    X(a) &: \ket u \mapsto \ket{u+a} \\
+    Z(a) &: \ket u \mapsto \omega^{\tr(au)} \ket{u}.
+  \end{align}
+  Notemos que son los operadores de desplazamiento básicos
+  que definimos anteriormente en la metodología de Wootters
+  y Gibbons, pero ésta vez las operaciones dentro de los
+  kets y en las potencias de la raíz primitiva son las del
+  campo finito y no solo operaciones módulo $p$. Recordamos
+  que la base estándar es un conjunto completo de
+  eigenvectores de $Z(a)$. Además la base `Fourier
+  conjugada'
+  \[
+    \ket{\tilde u}
+    = \sum_{v \in \mathbb F_d}^{} \omega^{\tr(uv)} \ket{v},
+    \quad u \in \mathbb F_d,
+  \] 
+  es un conjunto completo de eigenvectores del operador
+  $X(a)$. De nuevo definamos a los operadores de
+  desplazamiento generales como
+  \[
+    D(a,b) = X(a)Z(b).
+  \] 
+  Cada operador de desplazamiento es unitario y monomial.
+  Bandyopadhyay et al particionan dichas matrices en
+  conjuntos mutuamente conmutativos y demuestra que los
+  eigenvectores simultáneaos de cada conjunto forman bases
+  mutuamente insesgadas. La siguiente proposición nos dice
+  como construir a esos eigenvectores.
+  \begin{proposition}
+    Sea $D(a,b)$ un operador de desplazamiento donde $a,b
+    \in \mathbb F_d$. Si $c$ y $n$ son elementos del campo
+    tales que $c = \frac{b}{2a}$, entonces el vector
+    \begin{equation}
+      \ket{a,b; n}
+      = \sum_{x \in \mathbb F_d}^{} \omega^{\tr(cx^2+2nx)}
+      \ket{u},
+    \end{equation}
+    es un eigenvector de $D(a,b)$.
+  \end{proposition}
+  \begin{proof}
+    .
+  \end{proof}
+
+  \subsection{Característica par}
+
+  El caso donde el campo primo es de característica par es
+  un poco más complicado. ¿Por qué? En éste caso es
+  necesario hacer operaciones en un \textit{anillo} de
+  Galois. Sea $\Z_4$ el anillo de los enteros módulo 4.
+  Decimos que un polinomio $h(x) \in \Z_4[x]$ es un
+  \textit{primitivo básico} si y solo si su imágen en
+  \[
+    \Z_4[x] / \langle 2 \rangle
+    \cong
+    \Z_2[x]
+  \] 
+  bajo el mapeo canónico es un polinomio primitivo en
+  $\Z_2[x]$. Sea $h(x)$ un polinomio primitivo básico mónico
+  de grado $n$, entonces el anillo
+  \begin{equation}
+    GR(4,n)
+    = \Z_4[x] / \langle h(x) \rangle    
   \end{equation}
-  Notemos que los operadores puntuales siguen siendo un
-  involución $\hat{\Delta}(\alpha)^2 = \hat{\Pi}^2 =
-  \id_{\H}$, y son unitarios. Los eigenvalores de los
-  operadores puntuales son $\pm 1$ así que también son
-  auto-adjuntos (?). De manera importante, tenemos las
-  propiedades marginales de los operadores puntuales que
-  resultan de la suma sobre lineas en el espacio de fase
-  discreto. De nuevo las marginales más sencillas son las
-  correspondientes al eje horizontal y el vertial (posición
-  y momentum) para el operador de desplazamiento y de
-  paridad. Consideremos
+  se cono como el anillo de Galois de grado $n$ sobre
+  $\Z_4$.
+  Sea $\xi$ el elemento primitivo de orden $2^{n}-1$ del
+  anillo y consideremos el conjunto Teichmüller
   \[
-    \ket{\hat{x}; j}\bra{\hat{x}; j},
-    \quad
-    \ket{\hat{p}; j}\bra{\hat{p}; j}.
+    T_n
+    = \{0,1,\xi,\ldots,\xi^{2n-2}\},
   \] 
-  Para los operadores de desplazamiento tenemos
+  del anillo. Klappenecker [CITE] nos menciona que todo
+  elemento $r \in GR(4,n)$ puede ser expresado de manera
+  única en la forma $r = a + 2b$ donde $a,b \in T_n$. Con
+  ésta caracterización de los elementos del anillo en
+  términos de los elementos del Teichmüller podemos definir
+  el automorfismo de Frobenius (ver apéndice ()) $\sigma :
+  GR(4,n) \to \Z_4$ definido como
   \[
-    \frac{1}{N} \sum_{a_2 = 0}^{N-1} \hat{D}(a_1,a_2)
-    = \ket{\hat{p}; 2^{-1}a_1} \bra{\hat{p}; 2^{-1}a_1}
-    \hat{\Delta(0,0)},
+    \sigma(a+2b)
+    = a^2+2b^2.
   \] 
+  Con ésto definamos a la traza del anillo de Galois $\tr :
+  GR(4,n) \to \Z_4$ utilizando el mapa de Frobenius:
   \[
-    \frac{1}{N} \sum_{a_1=0}^{N-1} \hat{D}(a_1,a_2)
-    = \ket{\hat{x}; a_2} \bra{\hat{x}; a_2}
-    \hat{\Delta(0,0)},
+    \tr(r)
+    = \sum_{k=0}^{n-1} \sigma^{k}(r).
   \] 
-  \[
-    \frac{1}{N} \sum_{a_1,a_2}^{} \hat{D}(a_1,a_2)
-    = \hat{\Delta}(0,0).
-  \]
-  Para probar las primeras dos ecuaciones podemos tomar el
-  funcional $\bra{\hat{x}; m}$ junto con el operdaro y el
-  elemento $\ket{\hat{x}; n}$.
+  Con éstos acordes Klappenecker construye las siguientes
+  bases mutuamente insesgadas.
+  \begin{proposition}
+    Sea $GR(4,n)$ el anillo de Galois de $4^{n}$ elementos y
+    $T_n$ su Teichmüller. Entonces el conjunto de vectores
+    definidos como
+    \begin{equation}
+      \ket{a; b}
+      = 2^{-n / 2} \left(
+        \eta^{\tr\left( ax + 2bx \right)}
+      \right)_{x \in T_n},
+    \end{equation}
+    donde $\eta = e^{2\pi i / 4}$, son bases mutuamente
+    insesgadas del espacio $\C^{2^{n}}$.
+  \end{proposition}
 
-  Para los operadores puntuales tenemos
-  \[
-    \frac{1}{N} \sum_{a_2 = 0}^{N-1} \hat{\Delta}(a_1,a_2)
-    = \ket{\hat{p}; a_1}\bra{\hat{p}; a_1},
-  \] 
-  \[
-    \frac{1}{N} \sum_{a_1 = 0}^{N-1} \hat{\Delta}(a_1,a_2)
-    = \ket{\hat{x}; a_2}\bra{\hat{x}; a_2},
-  \] 
-  \[
-    \frac{1}{N} \sum_{a_1,a_2}^{} \hat{\Delta}(a_1,a_2) =
-    \id_{\H}.
-  \] 
+  Godsil y Roy definen las matrices de Pauli para $a, u \in
+  T$ como
+  \begin{align}
+    X(a) &: \ket u \mapsto \ket{u+a+2 \sqrt{ua}} \\
+    Z(a) &: \ket u \mapsto (-1)^{\tr(au)} \ket{u}
+    = i^{\tr(2au)}\ket u.
+  \end{align}
+  \begin{proposition}
+    Si $c,d \in T$, los vectores
+    \begin{equation}
+      \ket{c,d}
+      = \sum_{x \in T}^{} i^{\tr(cx^2+2dx)} \ket x,
+    \end{equation}
+    son eigenvectores de los operadores de desplazamiento
+    $D(a,b)$, donde $a,b \in T$.
+  \end{proposition}
 
-  Los operadores puntuales y los de desplazamiento están
-  vinculados de la misma manera que en el caso continuo, es
-  decir, están conectados por transformadas de Fourier.
-  \[
-    \frac{1}{N}
-    \sum_{a_1,a_2}^{} \hat{D}(a_1,a_2)\omega(a_2b_1-a_1b_2)
-    = \hat{\Delta}(b_1,b_2)
-    \iff
-    \frac{1}{N} \sum_{\alpha}^{} \hat{D}_{\alpha}
-    \omega^{\sigma(\beta,\alpha)} 
-    = \hat{\Delta}_\beta.
-  \] 
-  La transformada de Fourier inversa nos brinda 
-  \[
-    \frac{1}{N} \sum_{\beta}^{} \hat{\Delta}_\beta
-    \omega^{\sigma(\alpha,\beta)}
-    = \hat{D}_\alpha.
-  \] 
+  \begin{example}
+    3**1 mubs
+  \end{example}
 
-  El resto de las marginales se pueden obtener mediante
-  transformaciones simplécticas a las marginales
-  correspondientes a los ejes. Ésto corresponde con la
-  versión discreta de la transformada de Radon. Dichas
-  marginales nos proveen de la conección entre las
-  mediciones de los observables y la reconstrucción de una
-  distribución en el espacio de fase.
+  \begin{example}
+    2**3 mubs
+  \end{example}
 
-  \section{Wootters}
+  \section{Construcción no-estándar}
 
-  .
+  Recall Klimovs ideas about defining curves on the phase
+  space.
 
-  \chapter{Construcción no-estándar}
+  Kanat de hecho menciona que todas las
+  construcciones conocidas de MUBs se habían obtenido a
+  partir de algo que se llaman \textit{spreads simplécticos}
+  y por \textit{funciones planares} [CITE]. 
+
+  La idea es utilizar spreads simplécticos distintos a los
+  de Wootters para obtener bases de MUBs no unitariamente
+  equivalentes. Utilizando la construcción de Wootters
+  podemos definir una función de Wigner que preserve la
+  propiedad tomográfica básica. 
+
+  \subsection{Spreads simplécticos}
+
+  En la geometría proyectiva, determinar como, si es
+  posible, cubrir un espacio proyectivo por subespacios
+  mutuamente disjuntos de la misma dimensión, es un problema
+  con numerosas aplicaciones [CITE]. Tal partición se conoce
+  como \textit{spread}.
+
+  \begin{definition}
+    Spread
+  \end{definition}
+
+  \begin{definition}
+    Plano afín
+  \end{definition}
+
+  \subsection{Definición no estándar de una función de
+  Wigner discreta}
+
+  \section{Ejemplos y comparación}
 
   \newpage
   \appendix

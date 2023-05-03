@@ -3,17 +3,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 import galois
 
-d = 2
-n = 3
-GF = galois.GF(d**n, irreducible_poly='x^3 + x^2 + 1')
-GF.repr('power')
+d = 3
+n = 1
+# GF = galois.GF(d**n, irreducible_poly='x^3 + x^2 + 1')
+GF = galois.GF(d**n)
+GF.repr('int')
 
 # defaults to integer ordering, lets change to power order
 # is this important?
-omega = GF.primitive_element
-F = omega**np.arange(0, GF.order - 1)
-F = np.insert(F, 0, 0)
-# F = GF.elements
+# omega = GF.primitive_element
+# F = omega**np.arange(0, GF.order - 1)
+# F = np.insert(F, 0, 0)
+F = GF.elements
 # %%
 def heat(m, ax, labels=True):
     m = np.rot90(m, axes=(1,0)).T
@@ -40,7 +41,7 @@ def embedLine(line):
     return np.rot90(grid)
 
 fig, ax = plt.subplots()
-heat(embedLine(GF([(k,F[2]*k) for k in F])), ax)
+heat(embedLine(GF([(k,k) for k in F])), ax)
 # %%
 fig, axes = plt.subplots(d**n + 1, d**n, sharey=True)
 for (j,c) in enumerate(F):

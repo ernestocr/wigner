@@ -1076,3 +1076,274 @@ Ahora consideremos el mapeo unitario sobre las funciones
     \hat{p}}$.
   \end{proposition}
 
+
+\section{Braasch}
+
+
+  Ahora debemos introducir los operadores de desplazamiento.
+  Fijando un conjunto de lineas al origen, un conjunto de
+  lineas no paralelas pueden ser descritas por
+  desplazamientos del origen. Denotamos $\hat{D}_\alpha =
+  \hat{D}(a_1,a_2)$ para un desplazamiento vertical $a_1$ y
+  un desplazamiento horizontal $a_2$. Podemos generar una
+  linea al elegir un desplazamiento e iterarlo. Para cada
+  linea en el conjunto maximal de lineas que pasan por un
+  punto, podemos generar una foliación. Por lo tanto existen
+  $N(N+1)$ lineas en el espacio de fase con $N+1$ 
+  foliaciones distintas.
+
+  A la hora de vincular los observables con las lineas, la
+  única restricción importante de los observables
+  correspondientes a los ejes es que deben ser mutuamente
+  insesgados. Ésto significa que dos conjuntos de
+  eigenestados $\{\psi_m\}$ y $\{\phi_n\}$ correspondientes
+  a dos observables distintos, el valor $|\langle \psi_m,
+  \phi_n \rangle|^2$ debe ser independiente de $m$ y de $n$.
+  En el caso discreto ésto significa que
+  \[
+    |\langle \psi_m, \phi_n \rangle|^2 = \frac{1}{N}.
+  \] 
+
+ 
+  Y no mas por no mas
+  \[
+    \chi(\alpha)
+    = \omega\left( \tr(\alpha) \right),
+    \quad \alpha \in \F_N,
+  \] 
+  \[
+    \omega(k)
+    = \exp\left( \frac{2\pi i k}{p} \right),
+    \quad [\chi(\alpha)]^{p} = 1, 
+    \quad k \in \F_p.
+  \] 
+
+  En el caso discreto no tenemos observables que son Fourier
+  conjugados de manera natural, como la posición y el
+  momentum en el caso continuo. Pero podemos crear una
+  estructura análoga. Considerando una base ortonormal del
+  espacio de Hilbert, doptamos la notación $\ket{\hat{x},
+  m}$ con $m \in \Z_N$ para denotar $m$-ésimo eigenestado
+  del operador de posición. Con ésto podemos definir al
+  operador de Fourier como
+  \begin{definition}
+    El operador de Fourier está dado por
+    \begin{equation}
+     \hat{\Fr}
+     = \frac{1}{\sqrt{N}} 
+     \sum_{m,n}^{} \omega(mn) \ket{\hat{x}; m} \bra{\hat{x};
+     n},
+     \quad \omega(k)
+     = \exp \left( \frac{2\pi i k}{N} \right).
+    \end{equation}
+  \end{definition}
+  Ahora podemos definir los eigenestados del ``momentum'',
+  los cuales son los duales de Fourier a la base
+  correspondiente a la posición. Con nuestra notación
+  tenemos:
+  \begin{equation}
+    \ket{\hat{p}; m}
+    =\hat{\Fr} \ket{\hat{x}; m}
+    = \frac{1}{\sqrt{N}} \sum_{n}^{} \omega(mn)
+    \ket{\hat{x};n}.
+  \end{equation}
+  En términos de la base de la posición, podemos expresar a
+  los eigenestados de posición y de momentum como:
+  \begin{equation}
+    \ket{\hat{x};n}
+    = \begin{bmatrix}
+      0 \\
+      \vdots \\
+      1 \\
+      \vdots \\
+      0
+    \end{bmatrix},
+    \ket{\hat{p};m}
+    = \begin{bmatrix}
+      1 \\
+      \omega(n) \\
+      \vdots \\
+      \omega\left( n(N-1) \right) 
+    \end{bmatrix}.
+  \end{equation}
+
+  Es fácil probar que la aplicación repetida del operador de
+  Fourier nos brinda
+  \[
+    \ket{\hat{x};m}
+    \rightarrow{\hat{\Fr}}
+    \ket{\hat{p};m}
+    \rightarrow{\hat{\Fr}}
+    \ket{\hat{x};-m}
+    \rightarrow{\hat{\Fr}}
+    \ket{\hat{p};-m}
+    \rightarrow{\hat{\Fr}}
+    \ket{\hat{x};m},
+  \] 
+  lo que prueba que $\hat{\Fr}^{4} = \id_{\H}$. Con ésto
+  definimos a los operadores de posición y de momentum como
+  \begin{equation}
+    \hat{q}
+    = \sum_{n=0}^{N-1} n \ket{\hat{x};n} \bra{\hat{x};n},
+    \quad
+    \hat{p}
+    = \sum_{n=0}^{N-1} n \ket{\hat{p};n} \bra{\hat{p};n}.
+  \end{equation}
+
+  Los operadores $\hat{X}$ y $\hat{Z}$ de Pauli tienen la
+  siguiente acción sobre los eigenestados de la posición y
+  del momentum:
+
+  \[
+    \hat{Z}^{m}\ket{\hat{p};l}
+    = \ket{\hat{p};l+m},
+    \quad
+    \hat{Z}^{m}\ket{\hat{x};l}
+    = \omega(lm) \ket{\hat{x};l},
+  \] 
+  \[
+    \hat{X}^{n}\ket{\hat{p};l}
+    = \omega(-l n)\ket{\hat{p};l},
+    \quad
+    \hat{X}^{n}\ket{\hat{x};l}
+    = \ket{\hat{x};l+n},
+  \] 
+  donde $l,m,n \in \Z_N$. Con ésto podemos defnir a los
+  operadores de desplazamiento análogos a los del caso
+  continuo:
+  \begin{equation}
+    \hat{D}_{\alpha}
+    := \hat{D}(a_1,a_2)
+    = \omega(-2^{-1} a_1 a_2) \hat{Z}^{a_1} \hat{X}^{a_2}.
+  \end{equation}
+
+  Una característica interesante es que son de traza nula
+  excepto en el caso trivial:
+  \[
+    \Tr\left( \hat{D}(a_1,a_2) \right) 
+    = \omega^{\frac{1}{2}a_1a_2} \sum_{j=0}^{N-1}
+    \omega^{ja_2} \braket{j|j+a_1}
+    = N \delta_{a_1,0} \delta_{a_2,0}.
+  \] 
+  Resulta que los operadores forman una base ortonormal
+  (completa) de $N^2$ elementos respecto a la producto
+  interno de Hilbert-Schmidt:
+  \[
+    \Tr\left( \hat{D}_\alpha^{*} \hat{D}_\beta \right) 
+    = N \delta_{\alpha,\beta}.
+  \] 
+  Con una base a la mano, podemos descomponer a cualquier
+  operador sobre $\H$ de manera única como
+  \[
+    \hat{A}
+    = \sum_{a_1=0}^{N-1} \sum_{a_2=0}^{N-1} A_{a_1,a_2}
+    \hat{D}_{a_1,a_2},
+  \] 
+  con los coeficientes
+  \[
+    A_{a_1,a_2}
+    = \frac{1}{N} \Tr\left( \hat{D}_{a_1,a_2}^{*} \hat{A}
+    \right)
+    = \frac{1}{N} \Tr\left( \hat{D}_{-a_1,-a_2} \hat{A}
+    \right).
+  \] 
+
+  Para construir un espacio de fase discreto satisfactorio
+  equipado con una estructura simpléctica, requerimos
+  nuestra base de $N^2$ operadores puntuales sea
+  transformada por el grupo de automorfismos de los
+  operadores de desplazamiento.
+
+  \subsection{Operadores puntuales}
+
+  Ahora buscamos construir la forma discreta de los
+  operadores de paridad desplazados los cuales de nuevo se
+  llamaran ocasionalmente los operadores puntuales. El
+  operador de paridad (en el origen) se define como el
+  cuadrado de la transformada de Fourier discreta
+  \[
+    \hat{\Pi}
+    = \hat{\Pi}(0,0)
+    = \hat{\Fr}^2.
+  \] 
+  En completa analogía con la versión continua, para el
+  punto $\alpha$, definimos al operador puntual como
+  \begin{equation}
+    \hat{\Delta}(\alpha)
+    = \hat{D}_\alpha \hat{\Pi} \hat{D}_{\alpha}^{-1}.
+  \end{equation}
+  Notemos que los operadores puntuales siguen siendo un
+  involución $\hat{\Delta}(\alpha)^2 = \hat{\Pi}^2 =
+  \id_{\H}$, y son unitarios. Los eigenvalores de los
+  operadores puntuales son $\pm 1$ así que también son
+  auto-adjuntos (?). De manera importante, tenemos las
+  propiedades marginales de los operadores puntuales que
+  resultan de la suma sobre lineas en el espacio de fase
+  discreto. De nuevo las marginales más sencillas son las
+  correspondientes al eje horizontal y el vertial (posición
+  y momentum) para el operador de desplazamiento y de
+  paridad. Consideremos
+  \[
+    \ket{\hat{x}; j}\bra{\hat{x}; j},
+    \quad
+    \ket{\hat{p}; j}\bra{\hat{p}; j}.
+  \] 
+  Para los operadores de desplazamiento tenemos
+  \[
+    \frac{1}{N} \sum_{a_2 = 0}^{N-1} \hat{D}(a_1,a_2)
+    = \ket{\hat{p}; 2^{-1}a_1} \bra{\hat{p}; 2^{-1}a_1}
+    \hat{\Delta(0,0)},
+  \] 
+  \[
+    \frac{1}{N} \sum_{a_1=0}^{N-1} \hat{D}(a_1,a_2)
+    = \ket{\hat{x}; a_2} \bra{\hat{x}; a_2}
+    \hat{\Delta(0,0)},
+  \] 
+  \[
+    \frac{1}{N} \sum_{a_1,a_2}^{} \hat{D}(a_1,a_2)
+    = \hat{\Delta}(0,0).
+  \]
+  Para probar las primeras dos ecuaciones podemos tomar el
+  funcional $\bra{\hat{x}; m}$ junto con el operdaro y el
+  elemento $\ket{\hat{x}; n}$.
+
+  Para los operadores puntuales tenemos
+  \[
+    \frac{1}{N} \sum_{a_2 = 0}^{N-1} \hat{\Delta}(a_1,a_2)
+    = \ket{\hat{p}; a_1}\bra{\hat{p}; a_1},
+  \] 
+  \[
+    \frac{1}{N} \sum_{a_1 = 0}^{N-1} \hat{\Delta}(a_1,a_2)
+    = \ket{\hat{x}; a_2}\bra{\hat{x}; a_2},
+  \] 
+  \[
+    \frac{1}{N} \sum_{a_1,a_2}^{} \hat{\Delta}(a_1,a_2) =
+    \id_{\H}.
+  \] 
+
+  Los operadores puntuales y los de desplazamiento están
+  vinculados de la misma manera que en el caso continuo, es
+  decir, están conectados por transformadas de Fourier.
+  \[
+    \frac{1}{N}
+    \sum_{a_1,a_2}^{} \hat{D}(a_1,a_2)\omega(a_2b_1-a_1b_2)
+    = \hat{\Delta}(b_1,b_2)
+    \iff
+    \frac{1}{N} \sum_{\alpha}^{} \hat{D}_{\alpha}
+    \omega^{\sigma(\beta,\alpha)} 
+    = \hat{\Delta}_\beta.
+  \] 
+  La transformada de Fourier inversa nos brinda 
+  \[
+    \frac{1}{N} \sum_{\beta}^{} \hat{\Delta}_\beta
+    \omega^{\sigma(\alpha,\beta)}
+    = \hat{D}_\alpha.
+  \] 
+  El resto de las marginales se pueden obtener mediante
+  transformaciones simplécticas a las marginales
+  correspondientes a los ejes. Ésto corresponde con la
+  versión discreta de la transformada de Radon. Dichas
+  marginales nos proveen de la conección entre las
+  mediciones de los observables y la reconstrucción de una
+  distribución en el espacio de fase.
+
