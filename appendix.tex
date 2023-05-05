@@ -367,3 +367,135 @@
     = \sum_{r}^{k} x_r \tr(e_r \tilde e_s)
     = x_s.
   \]
+
+  \section{Klappenecker, Godsil, Roy}
+
+  \subsection{Característica impar}
+
+  Consideremos un espacio de Hilbert de dimensión $d =
+  p^{n}$ donde $p$ es un primo impar, y sea $\{\ket{u}\}$ la
+  base estándar para el espacio $\C^{d}$ indexado por los
+  elementos de la extensión de Galois $\mathbb F_{d} =
+  \GF(p,n)$. Dado un $a \in \mathbb F_d$, definamos los
+  operadores
+  \begin{align}
+    X(a) &: \ket u \mapsto \ket{u+a} \\
+    Z(a) &: \ket u \mapsto \omega^{\tr(au)} \ket{u}.
+  \end{align}
+  Notemos que son los operadores de desplazamiento básicos
+  que definimos anteriormente en la metodología de Wootters
+  y Gibbons, pero ésta vez las operaciones dentro de los
+  kets y en las potencias de la raíz primitiva son las del
+  campo finito y no solo operaciones módulo $p$. Recordamos
+  que la base estándar es un conjunto completo de
+  eigenvectores de $Z(a)$. Además la base `Fourier
+  conjugada'
+  \[
+    \ket{\tilde u}
+    = \sum_{v \in \mathbb F_d}^{} \omega^{\tr(uv)} \ket{v},
+    \quad u \in \mathbb F_d,
+  \] 
+  es un conjunto completo de eigenvectores del operador
+  $X(a)$. De nuevo definamos a los operadores de
+  desplazamiento generales como
+  \[
+    D(a,b) = X(a)Z(b).
+  \] 
+  Cada operador de desplazamiento es unitario y monomial.
+  Bandyopadhyay et al particionan dichas matrices en
+  conjuntos mutuamente conmutativos y demuestra que los
+  eigenvectores simultáneaos de cada conjunto forman bases
+  mutuamente insesgadas. La siguiente proposición nos dice
+  como construir a esos eigenvectores.
+  \begin{proposition}
+    Sea $D(a,b)$ un operador de desplazamiento donde $a,b
+    \in \mathbb F_d$. Si $c$ y $n$ son elementos del campo
+    tales que $c = \frac{b}{2a}$, entonces el vector
+    \begin{equation}
+      \ket{a,b; n}
+      = \sum_{x \in \mathbb F_d}^{} \omega^{\tr(cx^2+2nx)}
+      \ket{u},
+    \end{equation}
+    es un eigenvector de $D(a,b)$.
+  \end{proposition}
+  \begin{proof}
+    .
+  \end{proof}
+
+  \subsection{Característica par}
+
+  El caso donde el campo primo es de característica par es
+  un poco más complicado. ¿Por qué? En éste caso es
+  necesario hacer operaciones en un \textit{anillo} de
+  Galois. Sea $\Z_4$ el anillo de los enteros módulo 4.
+  Decimos que un polinomio $h(x) \in \Z_4[x]$ es un
+  \textit{primitivo básico} si y solo si su imágen en
+  \[
+    \Z_4[x] / \langle 2 \rangle
+    \cong
+    \Z_2[x]
+  \] 
+  bajo el mapeo canónico es un polinomio primitivo en
+  $\Z_2[x]$. Sea $h(x)$ un polinomio primitivo básico mónico
+  de grado $n$, entonces el anillo
+  \begin{equation}
+    GR(4,n)
+    = \Z_4[x] / \langle h(x) \rangle    
+  \end{equation}
+  se cono como el anillo de Galois de grado $n$ sobre
+  $\Z_4$.
+  Sea $\xi$ el elemento primitivo de orden $2^{n}-1$ del
+  anillo y consideremos el conjunto Teichmüller
+  \[
+    T_n
+    = \{0,1,\xi,\ldots,\xi^{2n-2}\},
+  \] 
+  del anillo. Klappenecker [CITE] nos menciona que todo
+  elemento $r \in GR(4,n)$ puede ser expresado de manera
+  única en la forma $r = a + 2b$ donde $a,b \in T_n$. Con
+  ésta caracterización de los elementos del anillo en
+  términos de los elementos del Teichmüller podemos definir
+  el automorfismo de Frobenius (ver apéndice ()) $\sigma :
+  GR(4,n) \to \Z_4$ definido como
+  \[
+    \sigma(a+2b)
+    = a^2+2b^2.
+  \] 
+  Con ésto definamos a la traza del anillo de Galois $\tr :
+  GR(4,n) \to \Z_4$ utilizando el mapa de Frobenius:
+  \[
+    \tr(r)
+    = \sum_{k=0}^{n-1} \sigma^{k}(r).
+  \] 
+  Con éstos acordes Klappenecker construye las siguientes
+  bases mutuamente insesgadas.
+  \begin{proposition}
+    Sea $GR(4,n)$ el anillo de Galois de $4^{n}$ elementos y
+    $T_n$ su Teichmüller. Entonces el conjunto de vectores
+    definidos como
+    \begin{equation}
+      \ket{a; b}
+      = 2^{-n / 2} \left(
+        \eta^{\tr\left( ax + 2bx \right)}
+      \right)_{x \in T_n},
+    \end{equation}
+    donde $\eta = e^{2\pi i / 4}$, son bases mutuamente
+    insesgadas del espacio $\C^{2^{n}}$.
+  \end{proposition}
+
+  Godsil y Roy definen las matrices de Pauli para $a, u \in
+  T$ como
+  \begin{align}
+    X(a) &: \ket u \mapsto \ket{u+a+2 \sqrt{ua}} \\
+    Z(a) &: \ket u \mapsto (-1)^{\tr(au)} \ket{u}
+    = i^{\tr(2au)}\ket u.
+  \end{align}
+  \begin{proposition}
+    Si $c,d \in T$, los vectores
+    \begin{equation}
+      \ket{c,d}
+      = \sum_{x \in T}^{} i^{\tr(cx^2+2dx)} \ket x,
+    \end{equation}
+    son eigenvectores de los operadores de desplazamiento
+    $D(a,b)$, donde $a,b \in T$.
+  \end{proposition}

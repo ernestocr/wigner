@@ -19,14 +19,14 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks,
-    citecolor=red,
-    filecolor=black,
-    linkcolor=blue,
-    urlcolor=black
-}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks,
+%    citecolor=red,
+%    filecolor=black,
+%    linkcolor=blue,
+%    urlcolor=black
+%}
 
 \usepackage[marginal]{showlabels}
 
@@ -163,9 +163,9 @@
   natural y otra construcción que se basa en las propiedades
   que satisface la versión continua. En éste trabajo
   adoptamos la segunda construcción, la cual se debe a
-  Gibbons y Wootters. La razón principal para ésta elección
-  es que nos brinda una metodología que se puede aplicar
-  para una construcción alternativa de la función Wigner.
+  Wootters. La razón principal para ésta elección es que nos
+  brinda una metodología que se puede aplicar para una
+  construcción alternativa de la función Wigner.
 
   Para poder estudiar la función de Wigner discreta es
   necesario presentar la función en el caso continuo. Para
@@ -1446,7 +1446,7 @@
   podemos recuperar la distribución conjunta sobre todo el
   espacio. Braasch et al. [Braasch] le llama a éste conjunto
   de marginales un conjunto tomograficamente completo. La
-  función de Wigner discreta que definen Wootters y Gibbons
+  función de Wigner discreta que definen Wootters
   será basada principalmente en ésta propiedad, en donde en
   lugar de integrar sobre franjas infinitas se suma sobre
   rectas en el espacio de fase discreto.
@@ -1490,12 +1490,12 @@
   segundo camino dominante es el que intenta definir la
   función discreta a partir de la preservación de las
   propiedades más importantes del caso continuo, en
-  particular la propiedad tomográfica. Ésta
-  versión se debe a Gibbons y Wootters [CITE] y la idea es
-  identificar una \textit{estructura cuántica} al espacio de
-  fase discreto, la cual permite que la función de Wigner
-  exprese las mismas propiedades que la versión discreta.
-  Los operadores de desplazamiento y los puntuales vuelven a
+  particular la propiedad tomográfica. Ésta versión se debe
+  a Wootters [CITE] y la idea es identificar una
+  \textit{estructura cuántica} al espacio de fase discreto,
+  la cual permite que la función de Wigner exprese las
+  mismas propiedades que la versión discreta.  Los
+  operadores de desplazamiento y los puntuales vuelven a
   aparecer, pero se introduce un tipo de arbitrariedad y de
   flexbilidad, perdiendo la unicidad pero permitiendo una
   construcción alternativa. Además ésta segunda metodología
@@ -1509,7 +1509,7 @@
   cantidad máxima [CITE]. Parece que aun es un problema
   abierto identificar la cantidad máxima para dimensiones
   que no son potencias de números primos. La construcción de
-  Wootters y Gibbons requiere de la construcción explícita
+  Wootters requiere de la construcción explícita
   de las $d+1$ MUBs para la definición de los operadores
   puntuales y como consecuencia la definición de la función
   de Wigner. Ésto es una consecuencia natural de
@@ -1558,25 +1558,24 @@
   %eje vertical será la variable Fourier-conjugada de la
   %posición llamada el ``momentum''.
 
-  \section{Construcción de Gibbons y Wootters}
+  \section{Construcción de Wootters}
 
-  En su artículo del 2004 [CITE], Gibbons y Wootters
-  comienzan notando que la función de Wigner en sistemas
-  continuos puede ser obtenida al exigir una estructura
-  cuántica al espacio de fase. Ésta estructura corresponde a
-  la asignación de estados cuánticos a rectas en el espacio
-  de fase, de tal manera que las integrales sobre éstas
-  rectas o franjas de rectas nos dan la probabilidad de
-  observar el sistema en el estado correspondiente, tal como
-  se mencionó en la sección anterior. Con ésta asignación,
-  es posible recuperar los operadores puntuales y así
-  construir la función de Wigner para un estado arbitrario
-  $\rho$. Wootters y Gibbons intentan definir una versión
-  discreta siguiendo éstos pasos, cuidando que la
-  construcción preserve otras propiedades de la versión
-  continua.  Resulta que su método introduce cierto tipo de
-  arbitrariedad por lo que acaban definiendo una clase de
-  funciones discretas.
+  En su artículo del 2004 [CITE], Wootters comienzan notando
+  que la función de Wigner en sistemas continuos puede ser
+  obtenida al exigir una estructura cuántica al espacio de
+  fase. Ésta estructura corresponde a la asignación de
+  estados cuánticos a rectas en el espacio de fase, de tal
+  manera que las integrales sobre éstas rectas o franjas de
+  rectas nos dan la probabilidad de observar el sistema en
+  el estado correspondiente, tal como se mencionó en la
+  sección anterior. Con ésta asignación, es posible
+  recuperar los operadores puntuales y así construir la
+  función de Wigner para un estado arbitrario $\rho$.
+  Wootters intentan definir una versión discreta siguiendo
+  éstos pasos, cuidando que la construcción preserve otras
+  propiedades de la versión continua.  Resulta que su método
+  introduce cierto tipo de arbitrariedad por lo que acaban
+  definiendo una clase de funciones discretas.
 
   Evidentemente hay una relación directa entre la geometría
   del espacio de fase y la estructura cuántica por asignar.
@@ -1600,17 +1599,17 @@
   también podemos obtener campos de orden $p^{n}$ donde $p$
   es primo, por medio de la extension de Galois $\GF(p,n)$.
   La restricción a espacios de Hilbert dimensión $p^{n}$ sí
-  es limitante, pero Wootters y Gibbons hacen la observación
-  que su método es válido para el importante caso de un
-  sistema de $n$ qubits. Por lo tanto su metodología es
-  directamente aplicable a los modelos de la computación e
-  información cuántica.
+  es limitante, pero Wootters hacen la observación que su
+  método es válido para el importante caso de un sistema de
+  $n$ qubits. Por lo tanto su metodología es directamente
+  aplicable a los modelos de la computación e información
+  cuántica.
 
   El método consiste en darle una estructura cuántica al
   espacio de fase $\GF(p,n) \times \GF(p,n)$ asignando un
   estado cuántico a cada linea del espacio de fase discreto.
   Ésta asignación debe satisfacer varias propiedades y
-  Wootters y Gibbons llaman aquellas asignaciones adecuadas,
+  Wootters llaman aquellas asignaciones adecuadas,
   \textit{`redes cuánticas'}. Cada red cuántica define una
   versión de la función de Wigner, pero es posible hacer una
   clasificación en clases de equivalencia para reducir un
@@ -1652,7 +1651,7 @@
   de la función discreta, mientras que la propiedad de ser
   covariante bajo traslaciones es la que define a los
   operadores de desplazamiento discretos en la metodología
-  de Wootters y Gibbons. 
+  de Wootters. 
     
   \subsection{La geometría del espacio de fase discreto}
 
@@ -1753,7 +1752,7 @@
   \end{figure}
 
   Otro aspecto importante inicial en la metodología de
-  Wootters y Gibbons es la noción de las traslaciones en el
+  Wootters es la noción de las traslaciones en el
   espacio de fase. En el caso discreto no existen
   traslaciones infinitesimales, pero podemos definir una
   traslación como la suma de un vector a los puntos del
@@ -1860,7 +1859,7 @@
   Pauli, pasamos a la cuestión de como definir operadores de
   desplazamiento correspondientes a traslaciones $\mathcal
   T_{(a,b)}$ arbitrarias del espacio de fase. El camino que
-  elegin Gibbons y Wootters es construir los operadores a
+  elegin Wootters es construir los operadores a
   partir de productos tensoriales de los elementos del grupo
   de Pauli. De ésta manera se puede lograr actuar sobre los
   subsistemas de manera individual. La asociación del punto
@@ -2195,8 +2194,228 @@
     .
   \end{proof}
 
-  \section{Construcción explícita de las MUBs}
+  \section{Ejemplos}
 
+  \chapter{Construcción no-estándar}
+
+  La elección de asignar elementos de bases mutuamente
+  insesgadas a rectas en el espacio de fase es lo
+  que distingue la construcción de Wootters de otros métodos
+  de construcción de funciones de Wigner. Como hemos visto
+  la idea reside en particionar el espacio de fase discreto
+  en \textit{rectas} paralelas, pero resulta que ésta no es la
+  única manera de particionar una malla de $d \times d$ 
+  en conjuntos de puntos tales que cualesquiera dos puntos
+  distintos residen en uno solo de esos conjuntos. Éstos
+  objetos han sido estudiados en otras áreas de las
+  matemáticas, por ejemplo en la combinatoria y donde
+  llevan el nombre de planos afínes. 
+
+  \begin{definition}[Plano afín]
+    Un plano afín de orden $d$ es un objeto combinatorio que
+    consiste de un conjunto de $d^2$ puntos, junto con
+    $d(d+1)$ conjuntos de puntos llamados \textit{lineas},
+    tales que cualesquiera dos puntos distintos pasa por una
+    única linea. En éste caso las lineas se pueden agrupar
+    en $d+1$ clases de lineas `paralelas' de tamaño $d$,
+    particionando a todo el conjunto de puntos. 
+  \end{definition}
+
+  En su artículo [CITE], Kantor muestra que hay una relación
+  íntima entre planos afínes y bases mutuamente insesgadas.
+  Ésto lo hace recordando algunos resultados más viejos que
+  conectaban planos afínes con otras estructuras algebráicas
+  llamadas \textit{spreads simplécticos} y con familias de
+  subespacios unidimiensionales mutuamente ortogonales.
+  El método de construcción de MUBs de Kantor es lo
+  suficientemente general para incluir a las construcciones
+  conocidas (incluyendo la de Wootters) y además permite
+  construir MUBs que \textit{no} son unitariamente
+  equivalente a las construcciones estándares. La idea de
+  éste capítulo es utilizar spreads simplécticos (y por ende
+  planos afínes) distintos a los de Wootters para obtener
+  bases de MUBs no unitariamente equivalentes. Utilizando la
+  construcción de Wootters podemos definir una función de
+  Wigner que preserve la propiedad tomográfica básica. 
+
+  Así como lo hacen Kantor y Kanat [CITE], por sutilizas de
+  los campos finitos de característica par, separamos la
+  construcción de MUBs en dos: para espacios de Hilbert de
+  dimensión $d = p^{n}$ donde $p$ es par, y en otro cuando
+  $p$ es impar.
+
+  \subsection{Característica par}
+
+  Consideremos el espacio de Hilbert $\C^{d}$ con $d =
+  2^{n}$. Kantor considera el espacio vectorial $V =
+  \Z_2^{n}$ con el producto interno usual $x \cdot y$.
+  Denotemos a la base estándar de $\C^{d}$ por $\ket{e_v}$ 
+  donde $v \in V$. Kantor define a los generadores del grupo
+  de Pauli sobre $\C^{d}$ de la siguiente manera:
+  \begin{align}
+    X(b) &: \ket{e_v} \mapsto \ket{e_{v+b}} \\
+    Z(b) &: \ket{e_v} \mapsto (-1)^{b \cdot v} \ket{e_v},
+  \end{align}
+  para todo $b \in V$. Utilizando la relación de conmutación
+  () del capítulo anterior, Kantor observa que
+  \begin{equation}
+    (X(a)Z(b))^{-1}(X(a')Z(b'))^{-1} (X(a)Z(b))(X(a')Z(b'))
+    = a \cdot b' - a' \cdot b
+  \end{equation}
+  determina una forma bilineal alternante $(\,,\,)$ sobre el
+  espacio $V \oplus V$. Recordemos que una forma bilineal
+  sobre un espacio vectorial es una forma alternante si para
+  todo $v \in V$, se cumple $(v,v) = 0$.
+  \begin{definition}[Kantor]
+    Un spread simpléctico de un espacio simpléctico $V
+    \oplus V$ es una familia $\Sigma$ de $d+1$ $n$-espacios
+    totalmente isotrópicos de $V \oplus V$ tales que su
+    intersección uno-a-uno es el espacio trivial $0$. 
+  \end{definition}
+  Un $n$-espacio totalmente isotrópico es un subespacio de
+  dimensión $n$ en donde la forma bilineal se anula. En un
+  spread simpléctico, todo vector de $V \oplus V$ está en
+  uno y solo un miembro de $\Sigma$, asi que $\Sigma$
+  particiona a los vectores no nulos. Kantor nos dice que
+  ésto determina un plano afín de orden $d$, cuyos puntos
+  son los vectores en $V \oplus V$ y cuyas lineas son
+  traslaciones de los miembros de $\Sigma$ por los elementos
+  de $V \oplus V$. Por medio spreads simplécticos, Kantor
+  relaciona a un plano afín con bases mutuamente insesgadas.
+
+  \begin{theorem}[Kantor (CITE), Teorema 2.3]
+    Todo spread simpléctico $\Sigma$ de $V \oplus V$ 
+    determina una base completa de $d+1$ MUBs en $\C^{d}$ 
+    tales que cada miembro es invariante bajo el grupo de
+    Pauli.
+
+    Además, sea $\Sigma'$ es otro spread simpléctico de $V
+    \oplus V$, entonces $\Sigma$ y $\Sigma'$ son
+    equivalentes bajo una transformación lineal de $V \oplus
+    V$ que preserva la forma bilineal alternante si y solo
+    si las MUBs respecto a  $\Sigma$ y $\Sigma'$ son
+    equivalentes bajo una transformación unitaria de
+    $\C^{d}$.
+  \end{theorem}
+
+  Resulta que la partición en lineas rectas de Wootters del
+  espacio de fase discreto es precisamente un plano afín!
+  Por lo tanto el teorema anterior nos dice que si logramos
+  encontrar un spread simpléctico no equivalente, (i.e.,
+  encontrar un plano afín no isomorfo al de Wootters),
+  obtendremos bases mutuamente insesgadas que \textit{no}
+  son unitariamente equivalentes. Podremos aplicar el método
+  de construcción de Wootters con éstas bases no
+  equivalentes para obtener operadores puntuales distintos a
+  los de Wootters y por lo tanto una definición
+  alternativa de la función de Wigner discreta, que además,
+  por construcción, preserva la propiedad tomográfica
+  básica. Veamos.
+
+  Consideremos el espacio vectorial de una dimensión $V =
+  \GF(2^{n})$ sobre el campo finito $\GF(2^{n})$. Sabemos
+  que $V$ también es un espacio vectorial de dimensión $n$ 
+  sobre el campo finito $\Z_2$. Definamos la forma bilineal
+  alternante
+  \[
+    \left( (a,b), (c,d) \right) 
+    = \tr(ad-bc)
+  \] 
+  sobre el espacio $V \oplus V = \GF(2^{n})^2$ de dimensión
+  $2n$ sobre $\GF(2)$. Entonces el conjunto $\Sigma$ de
+  espacios uni-dimensionales sobre $\GF(2^{n})$ de $V \oplus
+  V$ es un spread simpléctico de $V \oplus V$ ya que $ad-bc$
+  desaparece en cada uno de ellos. Kantor obsserva que
+  $\Sigma$ consiste de los subconjuntos
+  \[
+    x = 0
+    \quad \text{ y } \quad
+    y = mx,
+  \]
+  de $V \oplus V = \GF(2^{n})^2$ para $m \in \GF(2^{n})$,
+  los cuales reconocemos que son los rayos de las estrías de
+  Wootters. Las bases mutuamente insesgadas que se obtienen
+  a partir de $\Sigma$ son precisamente las que son
+  unitariamente equivalentes a las de Wootters,
+  Klappenecker, etc. [CITE]. 
+
+  Kantor menciona que la construcción de spreads
+  simplécticos no es fácil pero nos brinda un ejemplo que
+  utilizaremos más adelante. Sea $V = \GF(2^{n})$ y
+  equipemos a $V \oplus V = \GF(2^{n})^2$ con la misma forma
+  bilineal alternante. Entonces asumiendo que $n > 3$ e
+  impar, los subconjuntos 
+  \[
+    x = 0
+    \quad \text{ y } \quad
+    y = m^2x + m\tr(x) + \tr(mx)
+  \]
+  de $V \oplus V$ con $m \in V$ es un spread simpléctico de
+  $V \oplus V$ que \textbf{no} es equivalente al ejemplo
+  anterior. La construcción explícita de las bases es un
+  poco latoso debido a que necesitamos \textit{salirnos} del
+  campo finito y pasar al anillo de Galois correspondiente.
+
+  Kantor observa que todo spread simpléctico $\Sigma$ en $V
+  \oplus V$ consiste de $0 \oplus V$ y $\{(v, Mv) : v \in
+  V\}$ para todo $M \in \mathcal K$ donde $\mathcal K$ es el
+  conjunto de $|V| = d = 2^{n}$ matrices simétricas de
+  tamaño $n \times n$ tales que la diferencia de
+  cualesquiera es no singular. Entonces los conjuntos 
+  \begin{align}
+    \mathcal F_\infty &=
+    \{\ket{e_v} : v \in V\}, \\
+    \mathcal F_M^{\mathcal K} &=
+    \left\{
+      \sum_{v \in V}^{} i^{\tr(2 \hat a \cdot \hat v + \hat
+      v \cdot \hat M \hat v)} \ket{e_v} : a \in V
+    \right\},
+  \end{align}
+  forman $d + 1$ MUBs. Pero hay un detalle, los `hats'
+  simbolizan que las operaciones se hacen en el
+  \textit{anillo} $\Z_4$, i.e., $\hat a, \hat v \in \Z_4$.
+  El caso $M : x \mapsto mx$ nos brinda las bases de
+  Wootters.
+
+  \subsection{Característica impar}
+
+  Ahora consideremos el espacio $\H = \C^{p^{n}}$ donde $p$ 
+  es un primo impar. Sea $V = \Z_p^{n}$ con su producto
+  interno usual $x \cdot y$. Ahora consideremos la base
+  estándar de $\C^{d}$,  $\ket{e_v}$ con $v \in V$. Sea
+  $\omega \in \C$ la $p$-ésima raíz primitiva de la unidad.
+  Para $b \in V$ de nuevo definimos a los operadores de
+  desplazamiento:
+  \begin{align}
+    X(b) &: \ket{e_v} \mapsto \ket{e_{v+b}} \\
+    Z(b) &: \ket{e_v} \mapsto \omega^{b \cdot v}
+    \ket{e_v}.
+  \end{align}
+  El conmutador definido anteriormente de nuevo define una
+  forma bilineal alternante sobre $V \oplus V$. En éste caso
+  Kantor decide identificar a $\Sigma$ con el conjunto $K$ 
+  de $p^{n}$ matrices simétricas $n \times n$ tal que las
+  diferencias uno a uno son no-singulares. Así $\Sigma$ 
+  consiste de $0 \oplus V$ y todos los conjuntos $\{(v,Mv) :
+  v \in V\}$ para $M \in K$. Explícitamente, 
+  \[
+    \ket{M; a}
+    \sum_{v \in V}^{} \omega^{a \cdot v + v \cdot Mv / 2}
+    \ket{e_v}, 
+    \quad a \in V,
+  \] 
+  donde $M \in K$, junto con la base estándar es un conjunto
+  completo de MUBs para $\C^{p^{n}}$. De nuevo el espacio de
+  fase discreto de Wootters es un caso específico de ésta
+  construcción, es el caso en que $M : x \mapsto mx$. 
+
+
+  Kanat de hecho menciona que todas las
+  construcciones conocidas de MUBs se habían obtenido a
+  partir de algo que se llaman \textit{spreads simplécticos}
+  y por \textit{funciones planares} [CITE]. 
+
+  
   Gibbons y Wootters utilizaron los resultados de
   Bandyophyay et al para demostrar que los operadores de
   desplazamiento que corresponden a las traslaciones
@@ -2207,9 +2426,11 @@
   computacionalmente latoso conforme la dimensión va
   creciendo. Por suerte existen múltiples construcciones
   explícitas de bases mutuamente insesgadas que son
-  unitariamente equivalentes a las de Wootters y Gibbons,
+  unitariamente equivalentes a las de Wootters,
   que podemos utilizar para construir los operadores
   puntuales.
+
+  \section{Construcción explícita de las MUBs}
 
   Kanat [CITE] menciona que las bases mutuamente insesgadas
   fueron estudiadas por primera vez por Schwinger en 1960,
@@ -2247,136 +2468,6 @@
   dos, por lo tanto igual que Godsil y Roy, separamos los
   dos casos.
 
-  \subsection{Característica impar}
-
-  Consideremos un espacio de Hilbert de dimensión $d =
-  p^{n}$ donde $p$ es un primo impar, y sea $\{\ket{u}\}$ la
-  base estándar para el espacio $\C^{d}$ indexado por los
-  elementos de la extensión de Galois $\mathbb F_{d} =
-  \GF(p,n)$. Dado un $a \in \mathbb F_d$, definamos los
-  operadores
-  \begin{align}
-    X(a) &: \ket u \mapsto \ket{u+a} \\
-    Z(a) &: \ket u \mapsto \omega^{\tr(au)} \ket{u}.
-  \end{align}
-  Notemos que son los operadores de desplazamiento básicos
-  que definimos anteriormente en la metodología de Wootters
-  y Gibbons, pero ésta vez las operaciones dentro de los
-  kets y en las potencias de la raíz primitiva son las del
-  campo finito y no solo operaciones módulo $p$. Recordamos
-  que la base estándar es un conjunto completo de
-  eigenvectores de $Z(a)$. Además la base `Fourier
-  conjugada'
-  \[
-    \ket{\tilde u}
-    = \sum_{v \in \mathbb F_d}^{} \omega^{\tr(uv)} \ket{v},
-    \quad u \in \mathbb F_d,
-  \] 
-  es un conjunto completo de eigenvectores del operador
-  $X(a)$. De nuevo definamos a los operadores de
-  desplazamiento generales como
-  \[
-    D(a,b) = X(a)Z(b).
-  \] 
-  Cada operador de desplazamiento es unitario y monomial.
-  Bandyopadhyay et al particionan dichas matrices en
-  conjuntos mutuamente conmutativos y demuestra que los
-  eigenvectores simultáneaos de cada conjunto forman bases
-  mutuamente insesgadas. La siguiente proposición nos dice
-  como construir a esos eigenvectores.
-  \begin{proposition}
-    Sea $D(a,b)$ un operador de desplazamiento donde $a,b
-    \in \mathbb F_d$. Si $c$ y $n$ son elementos del campo
-    tales que $c = \frac{b}{2a}$, entonces el vector
-    \begin{equation}
-      \ket{a,b; n}
-      = \sum_{x \in \mathbb F_d}^{} \omega^{\tr(cx^2+2nx)}
-      \ket{u},
-    \end{equation}
-    es un eigenvector de $D(a,b)$.
-  \end{proposition}
-  \begin{proof}
-    .
-  \end{proof}
-
-  \subsection{Característica par}
-
-  El caso donde el campo primo es de característica par es
-  un poco más complicado. ¿Por qué? En éste caso es
-  necesario hacer operaciones en un \textit{anillo} de
-  Galois. Sea $\Z_4$ el anillo de los enteros módulo 4.
-  Decimos que un polinomio $h(x) \in \Z_4[x]$ es un
-  \textit{primitivo básico} si y solo si su imágen en
-  \[
-    \Z_4[x] / \langle 2 \rangle
-    \cong
-    \Z_2[x]
-  \] 
-  bajo el mapeo canónico es un polinomio primitivo en
-  $\Z_2[x]$. Sea $h(x)$ un polinomio primitivo básico mónico
-  de grado $n$, entonces el anillo
-  \begin{equation}
-    GR(4,n)
-    = \Z_4[x] / \langle h(x) \rangle    
-  \end{equation}
-  se cono como el anillo de Galois de grado $n$ sobre
-  $\Z_4$.
-  Sea $\xi$ el elemento primitivo de orden $2^{n}-1$ del
-  anillo y consideremos el conjunto Teichmüller
-  \[
-    T_n
-    = \{0,1,\xi,\ldots,\xi^{2n-2}\},
-  \] 
-  del anillo. Klappenecker [CITE] nos menciona que todo
-  elemento $r \in GR(4,n)$ puede ser expresado de manera
-  única en la forma $r = a + 2b$ donde $a,b \in T_n$. Con
-  ésta caracterización de los elementos del anillo en
-  términos de los elementos del Teichmüller podemos definir
-  el automorfismo de Frobenius (ver apéndice ()) $\sigma :
-  GR(4,n) \to \Z_4$ definido como
-  \[
-    \sigma(a+2b)
-    = a^2+2b^2.
-  \] 
-  Con ésto definamos a la traza del anillo de Galois $\tr :
-  GR(4,n) \to \Z_4$ utilizando el mapa de Frobenius:
-  \[
-    \tr(r)
-    = \sum_{k=0}^{n-1} \sigma^{k}(r).
-  \] 
-  Con éstos acordes Klappenecker construye las siguientes
-  bases mutuamente insesgadas.
-  \begin{proposition}
-    Sea $GR(4,n)$ el anillo de Galois de $4^{n}$ elementos y
-    $T_n$ su Teichmüller. Entonces el conjunto de vectores
-    definidos como
-    \begin{equation}
-      \ket{a; b}
-      = 2^{-n / 2} \left(
-        \eta^{\tr\left( ax + 2bx \right)}
-      \right)_{x \in T_n},
-    \end{equation}
-    donde $\eta = e^{2\pi i / 4}$, son bases mutuamente
-    insesgadas del espacio $\C^{2^{n}}$.
-  \end{proposition}
-
-  Godsil y Roy definen las matrices de Pauli para $a, u \in
-  T$ como
-  \begin{align}
-    X(a) &: \ket u \mapsto \ket{u+a+2 \sqrt{ua}} \\
-    Z(a) &: \ket u \mapsto (-1)^{\tr(au)} \ket{u}
-    = i^{\tr(2au)}\ket u.
-  \end{align}
-  \begin{proposition}
-    Si $c,d \in T$, los vectores
-    \begin{equation}
-      \ket{c,d}
-      = \sum_{x \in T}^{} i^{\tr(cx^2+2dx)} \ket x,
-    \end{equation}
-    son eigenvectores de los operadores de desplazamiento
-    $D(a,b)$, donde $a,b \in T$.
-  \end{proposition}
-
   \begin{example}
     3**1 mubs
   \end{example}
@@ -2384,41 +2475,143 @@
   \begin{example}
     2**3 mubs
   \end{example}
+  
+  ---
 
-  \section{Construcción no-estándar}
+  Todas las construcciones de conjuntos completos de MUBs se
+  obtuvieron con spreads simpléticos o con funciones
+  planares [KANAT]. Sea  $\mathbb F_d$ un campo finito de
+  orden $d$. Sea $V$ el espacio vectorial sobre $\mathbb
+  F_d$ con su producto escalar usual $u \cdot v$.
+  Consideremos el espacio $W = V \oplus V$ como el espacio
+  vectorial sobre el campo primo $\Z_p$ y definamos
+  la forma bilineal alternante en $W$ como:
+  \begin{equation}
+    \langle (u,v), (u',v') \rangle
+    = \tr\left( u \cdot v' - v \cdot u' \right),
+  \end{equation}
+  donde de nuevo $\tr : \mathbb F_q \to \Z_p$. Sea $n = |V|$ 
+  y sean $\{\ket{e_w}\}$ la base estándar de $\C^{n}$ 
+  indexada por los elementos de $V$. Sea $\omega \in \C$ la
+  $p$-ésima raíz primitiva de la unidad. Para todo $u \in V$ 
+  definamos a las martices de Pauli generalizadas de la
+  siguiente manera:
+  \begin{align}
+    X(u) &: \ket{e_w} \mapsto \ket{e_{w+u}} \\
+    Z(v) &: \ket{e_w} \mapsto \omega^{\tr(v \cdot w)}
+    \ket{e_w}.
+  \end{align}
+  Las matrices $D(u,v) = X(u)Z(v)$ forman una base del
+  espacio de matrices complejas de tamaño $n \times n$. Más
+  aún, las matrices $D(u,v)$ (con $(u,v) \neq (0,0)$),
+  generan al algebra de Lie compleja $sl_n(\C)$. Recordando
+  la relación de conmutación de las matrices de Pauli,
+  podemos probar que el conmutador de dos operadores
+  $D(u,v)$ y $D(u',v')$ es
+  \begin{equation}
+    [D(u,v), D(u',v')]
+    = \omega^{\tr(v \cdot u')}
+    \left( 1 - \omega^{\langle (u,v), (u',v') \rangle}
+    \right) D(u+u',v+v').
+  \end{equation}
+  Por lo tanto dos operadores de desplazamiento conmutan si
+  y solo si $\langle (u,v), (u',v') \rangle = 0$.
 
-  Recall Klimovs ideas about defining curves on the phase
-  space.
+  Ahora consideremos a $V$ el espacio vectorial de dimensión
+  $r$ sobre $\mathbb Z_p$. Kanat define a un spread
+  simpléctico del espacio simpléctico $2r$-dimensional $W =
+  V \oplus V$ sobre $\Z_p$ como una familia de $n+1$ 
+  subespacios de dimensión $r$ totalemente isotrópicos de
+  $W$ tales que que cada punto de $W$ no 0 reside en un
+  único subespacio. Sea
+  \[
+    \Sigma = W_0 \oplus W_1 \oplus \cdots \oplus W_n,
+  \] 
+  entonces existe una descomposición ortogonal  del algebra
+  de Lie $sl_n(\C)$ dado por:
+  \begin{equation}
+    L = H_0 \oplus H_1 \oplus \cdots \oplus H_n,
+    \quad
+    H_i = \langle D(u,v) | (u,v) \in W_i \rangle.
+  \end{equation}
 
-  Kanat de hecho menciona que todas las
-  construcciones conocidas de MUBs se habían obtenido a
-  partir de algo que se llaman \textit{spreads simplécticos}
-  y por \textit{funciones planares} [CITE]. 
+  \subsection{Kanat: Spreads simplécticos en característica
+  impar}
 
-  La idea es utilizar spreads simplécticos distintos a los
-  de Wootters para obtener bases de MUBs no unitariamente
-  equivalentes. Utilizando la construcción de Wootters
-  podemos definir una función de Wigner que preserve la
-  propiedad tomográfica básica. 
-
-  \subsection{Spreads simplécticos}
-
-  En la geometría proyectiva, determinar como, si es
-  posible, cubrir un espacio proyectivo por subespacios
-  mutuamente disjuntos de la misma dimensión, es un problema
-  con numerosas aplicaciones [CITE]. Tal partición se conoce
-  como \textit{spread}.
-
+  Ahora Kanat nos demuestra como construir un conjunto
+  completo de MUBs a partir del spread symplectico
+  utilizando semi-campos. Sea $\mathbb F_q$ un campo finito
+  de orden $q = p^{r}$ con $p$ un primo impar.
   \begin{definition}
-    Spread
+    Un subespacio totalmente isotrópico es un subespacio
+    vectorial de un espacio con producto interno sobre el
+    cual la forma bilineal se anula.
   \end{definition}
+  Kanat muestra que si $\Sigma$ es un spread simpléctico de
+  $W = V \oplus V$ y dado un $h : V \to V$ tal que
+  \[
+    \{(u,h(v)) : u \in V\}
+  \] 
+  es un subespacio totalmente isotrópico maximal, entonces
+  \[
+    \tr(u \cdot h(w))
+    = \tr(h(u) \cdot w)
+  \] 
+  para todo $u,w \in V$. Con ésto Kanat demuestra la
+  siguiente proposición.
+  \begin{proposition}
+    Sea $\Sigma$ un spread simpléctico de $W = V \oplus V$,
+    y sea $h : V \to V$ un mapeo lineal tal que $\{(u,h(u))
+    : u \in V\}$ es un subespacio totalmente isotrópico
+    maximal. Entonces para todo $v \in V$, el vector
+    \[
+      \ket{b_{h,v}}
+      = \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} w
+      \cdot h(w) + v \cdot w \right) } \ket{e_w},
+    \] 
+    es un eigenvector del operador $D(u,h(u))$ para todo $u
+    \in V$.
+  \end{proposition}
+  Ésta proposición nos permite constuir un conjunto completo
+  de MUBs que corresponden a una descomposición ortogonal
+  del algebra de Lie $sl_n(\C)$ que a su vez se obtuvo de un
+  spread sympléctico. ¿Cómo construir spreads simplécticos?
+  Kanat propone utilizar semicampos. Un presemicampo finito es
+  un anillo sin divisores de cero, y que satisface la
+  distributividad. Un presemicampo finito con una identidad
+  multiplicativa es un semicampo. Siempre podemos obtener un
+  presemicampo a partir de un campo finito al introducir un
+  operación nueva $*$. Todo presemicampo determina un spread
+  $\Sigma$ que consiste de subespacios $(0,\mathbb F_d)$ y
+  $\{(x, x * y) : x \in \mathbb F_d\}$ para $y \in \mathbb
+  F_d$. Un presemicampo es simpléctico si su spread
+  simpléctico correspondiente es simpléctico respecto a
+  algúna forma bilineal alternante.
 
-  \begin{definition}
-    Plano afín
-  \end{definition}
+  \begin{theorem}[Kanat (CITE) Teorema 3.3]
+    Sea $(\mathbb F_d, +, \circ)$ un presemicampo
+    simpléctico finito de característica impar. La base
+    estándar indexado por los elementos del campo finito y
+    las bases $B_m = \{\ket{b_{m,v}} : v \in \mathbb F_d\}$ 
+    con $m \in \mathbb F_q$ dados por
+    \[
+      \ket{b_{m,v}}
+      = \frac{1}{\sqrt{d}} \sum_{w \in \mathbb F_d}^{}
+      \omega^{\tr\left( \frac{1}{2} w \cdot (w \circ m) + v
+      \cdot w\right) } \ket{e_w},
+    \] 
+    forman un conjunto completo de MUBs.
+  \end{theorem}
+  Kanat comenta que las construcciones estándares de MUBs
+  (las que Godsil y Roy probaron que son unitariamente
+  equivalentes a las de Wootters), son casos específico de
+  éste último teorema para el caso en donde los
+  correspondientes semicampos conmutativos y simplécticos
+  son el mismo: $x * y = x \circ y = xy$ y la función planar
+  es $f(x) = x^2$.
 
-  \subsection{Definición no estándar de una función de
-  Wigner discreta}
+  \section{Definición no estándar de una función de Wigner
+  discreta}
 
   \section{Ejemplos y comparación}
 
