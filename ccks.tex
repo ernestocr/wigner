@@ -1,0 +1,121 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\diag}{diag}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+
+\title{$\Z_4$-Kerdock codes, orthogonal spreads and extremal
+euclidean line-sets}
+\author{Calderbank, Cameron, Kantor and Seidel - Notes}
+\begin{document}
+  \maketitle
+
+  The authors were working on Perperata and Zerdock codes,
+  which are non-linear binary codes that contain more
+  codewords then any linear codes known. Starting from the
+  work on the construction of Kerdock codes as binary images
+  under certains maps, the present authors find a way to
+  explain this map in terms of finite groups and geometries.
+  They fix the connections between the geometry of binary
+  orthogonal and symplectic vector spaces, and extremal
+  complex line-sets. C and S used quadratic forms on
+  $\Z_2^{m+1}$ in order to construct a family of
+  $\frac{1}{2}N^2$ lines through the origin of $\R^{N}$ 
+  where $N = 2^{m+1}$ such that any two are either
+  perpendicular or at an angle $\theta$, where $\cos \theta
+  = 1 / \sqrt{N}$. Such lines-sets were unions of
+  $\frac{1}{2}N$ frames (which they define as $N$ pairwise
+  orthogonal $1$-spaces).
+
+  Kantor investigated connections between orthogonal spreads
+  and Kerdock sets. When the vector space $\Z_2^{2m+2}$ is
+  equipped with the quadratic form
+  \[
+    x_1x_{m+2} + x_2x_{m+3} + \ldots + x_{m+1}x_{2m+2},
+  \] 
+  there are $(2^{m+1}-1)(2^{m}+1)$ singular points, i.e.,
+  $1$-spaces on which the form vanishes. He defines an
+  \textit{orthogonal spread} as a partition of this set of
+  points into $2^{m}+1$ totally singular $(m+1)$-spaces.
+  They cite a paper where orthogonal spraeds are used to
+  construct Kerdock codes and vice versa.
+
+  The bridge between the binary world of orthogonal spreads
+  and the real world of frames and line-sets is the
+  exraspecial 2-groups. Each such gruop $E$ has order
+  $2^{1+2k}$ for some $k$ and arises as a group of
+  isometries of the Euclidean space $\R^{2^{k}}$. Also, $E /
+  Z(E)$ naturally inherits a quadratic form, producing the
+  desired binary geometry.
+
+  Then, they make some changes to the group in order to
+  connect \textit{symplectic spreads},  $\Z_4$-Kerdock codes
+  and extremal complex line-sets. Symplectic spreads in a
+  binary vector space determine $\Z_4$-Kerdock codes, while
+  orthogonal spreads determine binary Kerdock codes. And
+  finally they consider the analogue of the binary case
+  using extrespecial $p$-groups for odd primes $p$, in order
+  to relate symplectic spreads and extremal line-sets in
+  $\C^{p^{m}}$. It is here where they analyze the
+  differences between $p$ odd and $p = 2$.
+
+  \section{Extraspacial 2-groups}
+
+  Let $k$ be a fixed integer and $N = 2^{k}$. A $p$-group is
+  a group in which every element has order equal to a power
+  of $p$. A finite group is a $p$-group if and only if its
+  order is power of $p$. For a prime $p$, a $p$-group $P$ is
+  said to be \textit{extraspecial} if the centre $Z(P)$ has
+  order $p$ and if $P / Z(P)$ is elementary abelian (and
+  hence a vector space over $\Z_p$). Now consider the
+  following description of an extraspecial $2$-group $E =
+  E_k$ of order $2^{2k+1}$ as an irreducible group of
+  orthogonal $N \times N$ matrices with real entries. Since
+  $E$ has $2^{2k}$ distinct linear characters and $2^{1+2k}
+  = 2^{2k} \cdot 1^2 + (2^{k})^2$, this will be a unique
+  faithful irreducible representation of $E$. They also
+  construct a group $L$ of real orthogonal transformations
+  containing $E$ as a normal subgroup. Elements of $L$ act
+  on $E$ by conjugation, fixing the centre $Z(E)$ of order
+  $2$. Hence there is a well-defined action on the
+  elementary abelian group $\overline{E} = E / Z(E)$ of
+  order $2^{2k}$. This action on $\overline{E}$ preserves an
+  explicit non-singular quadratic form $Q$.
+
+  Let $V$ denote the vector space $\Z_2^{k}$ and $x \cdot
+  y$ the usual dot product. Equip $\R^{N}$ with its usual
+  inner product and let $O(\R^{N})$ denote the group of
+  orthogonal linear transformations. Label the standard
+  basis of $\R^{N}$ as $e_v$, where $v \in V$. Let $b \in
+  V$, then define the permutation matrix $X(b)$ and the
+  diagonal matrix $Y(b)$ as follows:
+  \begin{equation}
+    X(b) : e_v \mapsto e_{v+b},
+    \quad
+    Y(b) : \diag[(-1)^{b \cdot v}]
+  \end{equation}
+  The groups $X(V) := \{X(b) : b \in V\}$ and $Y(V) :=
+  \{Y(b) : b \in V\}$ are contained in $O(\R^{N})$ and are
+  isomorphic to the additive group $V$. Let $E := \langle
+  X(V) ,Y(V) \rangle$, this is an irreducible subgorup of
+  $O(\R^{N})$.
+  
+\end{document}

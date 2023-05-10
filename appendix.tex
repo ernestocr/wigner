@@ -499,3 +499,178 @@
     son eigenvectores de los operadores de desplazamiento
     $D(a,b)$, donde $a,b \in T$.
   \end{proposition}
+
+  \section{Campos y anillos de Galois}
+
+  \subsection{Extensiones de campo}
+
+  Como hemos visto, la estructura algebráica del campo
+  finito es necesaria para poder construir una función de
+  Wigner discreta con todas las propiedades deseables. La
+  artimética $d$-modular no es suficiente ya que no se
+  preservan ciertas propiedades importantes de una geometría
+  finita. Los campos $\Z_p$ donde $p$ es un número primo son
+  los más sencillos de manejar porque las operaciones se
+  hacen módulo $p$, pero ésto se vuelve inpráctico porque no
+  todo sistema cuántico puede ser modelado por un espacio de
+  Hilbert de dimensión prima. El concepto de una
+  \textit{extensión de campos} nos permite augmentar el
+  campo $\Z_p$ a un campo finito de orden $p^{n}$. A la
+  extensión de campo se le dice \textit{extensión de Galois}
+  y son de característica $p$.
+
+  Consideremos al anillo de polinomios $\Z_p[x]$ con
+  coeficientes en el campo primo $\Z_p$. Sea $p(x)$ un
+  polynomio mónico irreducible de grado $n$:
+  \begin{equation}
+    p(x)
+    = c_0 + c_1 x + \cdots + c_{n-1} x^{n-1} + x^{n},
+    \quad c_n \in \Z_p.
+  \end{equation}
+  El cociente $\Z_p[x] / p(x)$ es un representación del
+  campo de Galois $\GF(p^{n})$. Distintos polinomios
+  irreducibles del mismo grado nos brinda campos finitos
+  isomorfos. Las operaciones de la extensión de campo son
+  las operaciones de suma y multiplicación usuales, módulo
+  el polinomio $p(x)$. Es importante notar que un elemento
+  $\alpha \in \GF(p^{n})$ se puede ver como un vector
+  $(\alpha_0, \alpha_1, \ldots, \alpha_{n-1})$ en
+  $(\Z_p)^{n}$, utilizando la base
+  $\{1,\omega,\ldots,\omega^{n-1}\}$ donde $\omega$ es una
+  raíz del polinomio irreducible. De ésta manera la adición
+  en la extensión se reduce a la adición usual del espacio
+  vectorial $(\Z_p)^{n}$. Enseguida definimos algunos
+  conceptos necesarios para trabajar con el espacio de fase
+  discreto y para desarrollar la metodología de Wootters
+  para la construcción de la función de Wigner.
+
+  \begin{definition}
+    Sea $\GF(p^{n})$ un campo de Galois, definimos la
+    transformación de Frobenius como
+    \begin{equation}
+      \sigma(\alpha) = \alpha^{p};
+      \quad
+      \sigma^{n} = 1.
+    \end{equation}
+    Dicha transformación define un automorfismo en
+    $\GF(p^{n})$ y produce los \textit{conjugados de
+    Galois}.
+  \end{definition}
+
+  \begin{definition}
+    La traza de un elemento $\alpha \in \GF(p^{n})$ es la
+    suma de todos sus conjugados, y es un elemento del campo
+    primo $\Z_p$:
+    \begin{equation}
+      \tr(\alpha)
+      = \tr_{n / 1}(\alpha)
+      = \alpha + \alpha^{p} + \alpha^{p^2} + \cdots +
+      \alpha^{p^{n-1}}.
+    \end{equation}
+  \end{definition}
+  La traza así definida es la traza \textit{respecto} a la
+  extensión de $\Z_p$ a $\GF(p^{n})$. La traza es lineal
+  respecto a la suma en los elementos de la extensión, y si
+  $\alpha \in \Z_p$ entonces $\tr(\alpha\beta) =
+  \alpha\tr(\beta)$ para todo $\beta \in \GF(p^{n})$.
+
+  \subsection{Bases de una extensión de Galois}
+
+  . . .
+
+  Para construir la base dual y para el cálculo de la traza de
+  los elementos de la extensión, resulta ventajoso definir
+  la siguiente matriz con elementos en el campo primo.
+
+  \begin{proposition}
+    Sean $g,G$ las siguientes matrices simétricas e
+    invertibles $n \times n$ con elementos en $\Z_p$:
+    \begin{equation}
+      g_{ij}
+      = \tr(\omega^{i+j});
+      \quad
+      G = g^{-1},
+      \quad
+      i,j = 0,\ldots,n-1.
+    \end{equation}
+    El conjunto de elementos $\{E_0,E_1,\ldots,E_{n-1}\}$ 
+    definido como
+    \begin{equation}
+      E_i = \sum_{j}^{} G_{ij} \omega^{j},
+    \end{equation}
+    es una base dual a
+    $\{1,\omega,\omega^2,\ldots,\omega^{n-1}\}$.
+  \end{proposition}
+
+  Con lo anterior, podemos calcular los
+  componentes de cualquier elemento $\alpha$ de la extensión
+  de campos, en términos de la base o de su dual:
+  \begin{align}
+    \alpha_i
+    &= \tr(\alpha E E_i);
+    \quad
+    \overline{\alpha}_i
+    = \tr(\alpha \omega^{i}) \\
+    \alpha_i 
+    &= \sum_{j}^{} G_{ij} \overline{\alpha}_j;
+    \quad
+    \overline{\alpha}_i
+    = \sum_{j}^{} g_{ij} \alpha_j.
+  \end{align} 
+
+  \subsection{Sistemas compuestos y factorización tensorial}
+
+  Sabemos que una extensión de Galois $\GF(p^{n})$ se puede
+  ver como un espacio vectorial sobre el campo primo $\Z_p$
+  respecto a la adición del campo. Pero también tiene más
+  estructra, como la multiplicación y las transformaciones
+  de Frobenius. Por ésto, Vourdas [CITE] nota que
+  representar un sistema cuántico con una extensión de
+  Galois de grado $n$ no es lo mismo que representarlo con
+  una suma directa del campo primo. 
+
+  Sea $\ket{\alpha}$ un base ortonormal de un espacio de
+  Hilbert $\H$ de dimensión $p^{n}$, indexada por los
+  elementos de una extensión de Galois. Además sea $\H_p$ un
+  espacio de dimensión $p$ y $\ket{k}$ un base ortonormal de
+  $\H_p$ indexado por los elementos del campo primo $\Z_p$.
+  Utilizando la base natural de la extensión de campo,
+  podemos expresar a cualquier elemento $\alpha \in
+  \GF(p^{n})$ como $\alpha = \sum_{i}^{} \alpha_i \omega^{i}
+  $, ésto nos da un mapeo biyectivo:
+  \begin{equation}
+    \label{eqn:extension_field_map}
+    \alpha \mapsto (\alpha_0,\ldots,\alpha_{n-1}),
+  \end{equation} 
+  lo cual induce una correspondencia entre los elementos de
+  la base de $\H$ y $\H_p$:
+  \begin{equation}
+    \ket{\alpha}
+    = \ket{\alpha_0 + \alpha_1 \omega + \ldots +
+      \alpha_{n-1}\omega^{n-1}}
+    \mapsto \ket{\alpha_0} \otimes \ket{\alpha_1} \otimes
+    \cdots \otimes \ket{\alpha_{n-1}},
+  \end{equation}
+  la cual a su vez nos da una correspondencia entre los
+  espacios de Hilbert $\H$ y $\H_p \otimes \cdots \otimes
+  \H_p$. Notemos que la correspondencia depende de la
+  elección de base del campo, por lo que la construcción de
+  otros objetos por medio del producto tensorial también
+  serán afectados. Por ejemplo los operadores de
+  desplazamiento que actuán sobre el espacio de Hilbert de
+  dimensión $p^{n}$ pueden ser expresados en términos de
+  productos tensoriales de operadores de desplazamiento en
+  los subsistemas. El mapeo(\ref{eqn:extension_field_map})
+  nos permite hacer ésto como:
+  \begin{equation}
+    D(\alpha,\beta)
+    = D(\alpha_0, \beta_0) \otimes \cdots \otimes
+    D(\alpha_{n-1}, \beta_{n-1}),
+  \end{equation}
+  donde $\alpha_i$ son los componentes de $\alpha$ en la
+  base elegida, y $\beta_i$ son los componentes respecto a
+  la base dual, y los operadores $D(\alpha_i,\beta_i)$ son
+  los operadores de desplazamiento actuando sobre los
+  subsistemas $\H_p$.
+
+  Klimov. . .
