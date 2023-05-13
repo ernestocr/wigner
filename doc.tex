@@ -53,6 +53,7 @@
 \DeclareMathOperator{\W}{W}
 \DeclareMathOperator{\Fr}{\mathcal{F}\!}
 \DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\GR}{GR}
 \DeclareMathOperator{\Sl}{\mathfrak{sl}}
 
 \newtheorem{definition}{Definición}
@@ -2297,7 +2298,7 @@
   tales que cualesquiera dos puntos distintos residen en uno
   solo de esos conjuntos. Éstos objetos han sido estudiados
   en otras áreas de las matemáticas, por ejemplo en la
-  combinatoria y donde llevan el nombre de \textit{planos
+  geometría finita donde llevan el nombre de \textit{planos
   afínes} [CITE]. 
 
   \begin{definition}[Plano afín]
@@ -2330,7 +2331,7 @@
 
   Para construir las MUBs de manera explícita, utilizaremos
   los resultados de Kanat [CITE], quien nos muestra que de
-  \textit{semi-campos simplécticos} es posible obtener
+  \textit{semicampos simplécticos} es posible obtener
   spreads simplécticos los cuales a su vez nos producen MUBs
   por medio de los resultados de Kantor, éste procedimiento
   se organiza como en la figura (\ref{diag:kanat}).  En
@@ -2358,7 +2359,7 @@
     \label{diag:kanat}
   \end{figure}
 
-  La relación entre los spreads simplécticos y los MUBs está
+  La relación entre los spreads simplécticos y las MUBs está
   dado por la descomposición ortogonal de $\Sl_d(\C)$. Los
   spreads simplécticos fueron estudiados en el contexto de
   geometrías finitas y teoría de códigos, mucho antes de
@@ -2428,22 +2429,25 @@
   descomposición ortogonal de $\Sl_d(\C)$, tal que satisface
   las condiciones del teorema \ref{thm:boykin}? 
 
-  Vamos a reexpresar los argumentos de Wootters, siguiendo a
-  Kanat y a Kantor. Comencemos de manera general, sea $V$ un
-  espacio vectorial sobre un campo finito $\mathbb F_d$
-  donde $d = p^{n}$, con su producto escalar usual $u \cdot
-  v$. Consideremos el espacio $W = V \oplus V$ como un
-  espacio vectorial sobre el campo primo $\Z_p$ y definamos
-  la forma bilineal alternante $\langle \cdot, \cdot \rangle
-  : W \to \mathbb F_p$ como:
+  No vamos a dar un prueba completa ya que se puede
+  encontrar en los trabajos de Boykin, pero sí vamos a
+  reexpresar los argumentos de Wootters, siguiendo a Kanat y
+  a Kantor. Comencemos de manera general, sea $V$ un espacio
+  vectorial sobre un campo finito $\mathbb F_d$ donde $d =
+  p^{n}$, con su producto escalar usual $u \cdot v$.
+  Consideremos el espacio $W = V \oplus V$ como un espacio
+  vectorial sobre el campo primo $\Z_p$ y definamos la forma
+  bilineal alternante $\langle \cdot, \cdot \rangle : W \to
+  \mathbb F_p$ como:
   \begin{equation}
+    \label{eqn:bilinear_form}
     \langle (u,v), (u',v') \rangle
     = \tr\left( u \cdot v' - v \cdot u' \right),
   \end{equation}
   donde de nuevo $\tr : \mathbb F_d \to \Z_p$ es la traza de
-  la extensión al campo primo. Ahora supongamos que la
-  la cardinalidad de $V$ es igual a $d$ y sea $\{\ket{e_w}\}$ la
-  base estándar de $\C^{d}$ indexada por los elementos de
+  la extensión al campo primo. Ahora supongamos que la la
+  cardinalidad de $V$ es igual a $d$ y sea $\{\ket{e_w}\}$
+  la base estándar de $\C^{d}$ indexada por los elementos de
   $V$, es decir $w \in V$. Sea $\omega \in \C$ la $p$-ésima
   raíz primitiva de la unidad. Para todo $u \in V$ definamos
   a las matrices de Pauli generalizadas de la siguiente
@@ -2458,14 +2462,14 @@
   Éstos son los generadores del grupo de Pauli que ya
   conocemos. Las matrices $D(u,v) = X(u)Z(v)$ forman una
   base del espacio de matrices complejas de tamaño $d \times
-  d$ y son de traza nula son las operadores de
-  despalzamiento que también conocemos.  Además de ésto, las
-  matrices $D(u,v)$ con $u$ y $v$ distintos del vector cero,
-  generan al algebra de Lie $\Sl_n(\C)$. Ahora veamos
-  ciertas propiedades que nos permitirán identificar la
-  condición para que dos operadores de desplazamiento
-  conmuten. Por definición tenemos que para cualquier
-  elemento de la base de $\C^{d}$ se satisface:
+  d$ de traza nula y son las operadores de despalzamiento
+  que también ya conocemos.  Además de ésto, las matrices
+  $D(u,v)$ con $u$ y $v$ distintos del vector cero, generan
+  al algebra de Lie $\Sl_n(\C)$. Ahora veamos ciertas
+  propiedades que nos permitirán identificar la condición
+  para que dos operadores de desplazamiento conmuten. Por
+  definición tenemos que para cualquier elemento de la base
+  de $\C^{d}$ se satisface:
   \begin{align}
     X(u)Z(v) \ket{e_w}
     &= X(u) \omega^{\tr(v \cdot w)} \ket{e_w} \\
@@ -2526,10 +2530,12 @@
   anula, i.e., $\langle (u,v), (u',v') \rangle = 0$.
 
   Ahora lo que hace Kanat, siguiendo a Kantor, es considerar
-  a $V$ como un espacio vectorial de dimensión $n$ sobre
-  $\mathbb Z_p$ y utilizando la forma bilineal alternante
-  define lo que es un spread simpléctico sobre el espacio
-  $2n$-dimensional $V \oplus V$.
+  a $V$ como un espacio vectorial de dimensión $n$ sobre el
+  campo primo $\mathbb Z_p$, efectivamente identificando a
+  $V$ con la extensión de Galois $\GF(p^{n})$. Luego,
+  utilizando la forma bilineal alternante define un spread
+  simpléctico sobre el espacio $2n$-dimensional $V \oplus
+  V$ de la siguiente manera.
 
   \begin{definition}[Spread simpléctico]
     Un spread simpléctico $\Sigma$ de un espacio simpléctico
@@ -2610,7 +2616,7 @@
   básica. Para ver ésto, describimos el método que utiliza
   Kanat para obtener las expresiones explicítas de las
   MUBs, y como mencionamos anteriormente, dadas algunas
-  sutilizas de los campos de característica par, dividmos
+  sutilizas de los campos de característica par, dividimos
   la descripción en dos casos.
   
   \section{Característica impar}
@@ -2618,314 +2624,709 @@
   De la sección anterior sabemos que un spread simpléctico
   nos produce un plano afín y una descomposición ortogonal
   de $\Sl_d(\C)$, la cual a su vez nos brinda un conjunto
-  completo de MUBs. Kanat nos muestra como obtener a las
-  bases directamente del spread symplectico utilizando
-  semi-campos\footnote{Existen spreads simplécticos que no
-  provienen de un semicampo simpléctico, pero para nuestra
-  construcción alternativa basta utilizar aquellos que sí
-  provienen de semicampos.}.
+  completo de MUBs. Ahora la cuestión es ¿cómo obtener
+  spreads simplécticos? Kantor comenta que encontrar spreads
+  simplécticos no es trivial, pero podemos construir algunos
+  por medio de presemicampos y semicampos.\footnote{Existen
+  spreads simplécticos que no provienen de un semicampo
+  simpléctico, pero para nuestra construcción alternativa
+  basta utilizar aquellos que sí provienen de
+  semicampos.}. Luego, Kanat nos muestra como obtener a las
+  bases directamente de la operación del semicampo
 
-  \begin{definition}
+  \begin{definition}[Presemicampo y semicampo]
+    \label{def:presemifield}
     Un presemicampo es un anillo sin divisores del cero, y
     con solo la propiedad distributiva (derecha e
-    izquierda).
+    izquierda). Un semicampo es un presemicampo con una
+    indentidad multiplicativa.
   \end{definition}
 
-  \begin{definition}
-    Un semicampo es un presemicampo con una indentidad
-    multiplicativa.
-  \end{definition}
-
-  %\begin{proposition}
-  %  Sea $\Sigma$ un spread simpléctico de $W = V \oplus V$,
-  %  y sea $h : V \to V$ un mapeo lineal tal que $\{(u,h(u))
-  %  : u \in V\}$ es un subespacio totalmente isotrópico
-  %  maximal. Entonces para todo $v \in V$, el vector
-  %  \[
-  %    \ket{b_{h,v}}
-  %    = \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} w
-  %    \cdot h(w) + v \cdot w \right) } \ket{e_w},
-  %  \] 
-  %  es un eigenvector del operador $D(u,h(u))$ para todo $u
-  %  \in V$.
-  %\end{proposition}
-  %Ésta proposición nos permite constuir un conjunto completo
-  %de MUBs que corresponden a una descomposición ortogonal
-  %del algebra de Lie $\Sl_n(\C)$ que a su vez se obtuvo de un
-  %spread sympléctico. 
-
-  A partir de un campo finito podemos obtener un
+  A partir de un campo finito $F$ podemos obtener un
   presemicampo finito al introducir una operación nueva
-  $\circ$. Todo presemicampo determina un spread $\Sigma$
-  que consiste de los subespacios
+  $\circ : F \times F \to F$. La operación de suma es la del
+  campo finito, por lo tanto la definición
+  (\ref{def:presemifield}) nos dice que el semicampo finito
+  es el conjunto $F$ tal que
+  \begin{enumerate}
+    \item $F$ es un grupo abelinao bajo la suma, con
+      identidad $0$.
+    \item Si $x \circ = 0$, entonces $x = 0$ ó $y = 0$.
+    \item Satisface las propiedades distributivas
+      \[
+        x \circ (y + z) = x \circ y + x \circ z,
+        \quad
+        (x + y) \circ z = x \circ z + y \circ z.
+      \] 
+  \end{enumerate}
+  Notemos que todo campo finito es un semicampo y un
+  presemicampo. Kantor nos muestra que todo presemicampo
+  determina un spread $\Sigma$ del espacio $V \oplus V$ por
+  medio de la multiplicación. Éste spread consiste de los
+  subespacios
   \begin{equation}
     \label{eqn:presemi_spread}
-    \{(0,v) : v \in \mathbb F_d\},
+    \{(0,v) : v \in \mathbb F\},
     \quad 
-    \{(u, u \circ m) : u \in \mathbb F_d\}
+    \{(u, u \circ m) : u \in \mathbb F\}
     \quad
-    \text{para todo } m \in \mathbb F_d.
+    \text{para todo } m \in \mathbb F.
   \end{equation}
-  Decimos que un presemicampo es simpléctico si el spread
-  simpléctico que genera es simpléctico respecto a algúna
-  forma bilineal alternante.
+  Decimos que un presemicampo es \textit{simpléctico} si el
+  spread simpléctico que genera es simpléctico respecto a
+  algúna forma bilineal alternante. En éste trabajo siempre
+  utilizaremos la forma alternante (\ref{eqn:bilinear_form})
+  y de aquí en adelante solo consideraremos a $V$ como el
+  espacio unidimensional sobre la extensión de Galois, i.e.,
+  $V = \GF(p^{n})$ donde en éste sección, $p$ es un número
+  primo impar. Así el producto escalar mencionado al inicio
+  es simplemente el producto en la extensión de Galois.
+  Siguiendo a Kanat, demostramos el siguiente lema que nos
+  permitirá construir MUBs a partir de la operación del
+  presemicampo. Recordemos que $\{\ket{e_w} : w \in V\}$ es
+  la base estándar de $\C^{p^{n}}$ etiquetada por los
+  elementos del campo finito.
 
-  \begin{theorem}
+  \begin{lemma}
+    \label{lemma:h_mubs}
     Sea $\Sigma$ un spread simpléctico de $W = V \oplus V$ y
     sea $h : V \to V$ un mapeo lineal tal que
-    \[
+    \begin{equation}
       \{(u,h(u)) : u \in V\} \in \Sigma.
-    \]
-    Entonces para todo $v \in V$ el vector dado por
-    \[
+    \end{equation}
+    Entonces para todo $v \in V$, el vector dado por
+    \begin{equation}
       \ket{b_{h,v}}
-      = \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} w
-      \cdot h(w) + v \cdot w \right) } \ket{e_w}
-    \] 
+      = \sum_{w \in V}^{}
+      \omega^{\tr\left(
+          \frac{1}{2} w
+        h(w) + v w
+      \right) } \ket{e_w}
+    \end{equation} 
     es un eigenvector del operador de desplazamiento
     $D(u,h(u))$ para todo $u \in V$.
-  \end{theorem}
+  \end{lemma}
   \begin{proof}
     Calculando directamente obtenemos:
     \begin{align}
       D(u,h(u)) \ket{b_{h,v}}
-      &= \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} w
-      \cdot h(w) + v \cdot w \right) } X(u)Z(h(u)) \ket{e_w}
-      \\
-      &= \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} w
-      \cdot h(w) + v \cdot w \right) } \omega^{\tr(h(u)
-      \cdot w)} \ket{e_{w+u}} \\
-      &= \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} w
-      \cdot h(w) + v \cdot w + h(u) \cdot w \right) }
+      &= \sum_{w \in V}^{}
+      \omega^{\tr\left(
+          \frac{1}{2} w h(w) + v w
+      \right) }
+      X(u)Z(h(u)) \ket{e_w} \\
+      &= \sum_{w \in V}^{}
+      \omega^{\tr\left(
+          \frac{1}{2} w h(w) + v w
+      \right) }
+      \omega^{\tr(h(u) w)}
       \ket{e_{w+u}} \\
-      &= \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2}
-      (w-u) \cdot h(w-u) + v \cdot (w-u) + h(u) \cdot (w-u)
-      \right) } \ket{e_w} \\
-      &= \sum_{w \in V}^{} \omega^{\tr\left(
-      \frac{1}{2}(w-u) \cdot h(w) + \frac{1}{2}(w-u) \cdot
-      h(u) + v \cdot w - v \cdot u + h(u) \cdot w - h(u) \cdot u
-      \right) } \ket{e_w} \label{eqn:trace_eig}.
+      &= \sum_{w \in V}^{}
+      \omega^{\tr\left(
+          \frac{1}{2} w h(w) + v w + h(u) w
+      \right) }
+      \ket{e_{w+u}} \\
+      &= \sum_{w \in V}^{}
+      \omega^{\tr\left(
+          \frac{1}{2} (w-u) h(w-u) + v (w-u) + h(u) (w-u)
+      \right) }
+      \ket{e_w} \\
+      &= \sum_{w \in V}^{}
+      \omega^{\tr\left(
+        \frac{1}{2}(w-u) h(w) + \frac{1}{2}(w-u) h(u)
+        + v w - v u + h(u) w - h(u) u
+      \right) }
+      \ket{e_w}.
+      \label{eqn:trace_eig}
     \end{align}
     La traza en la ecuación (\ref{eqn:trace_eig}) se puede
     expresar como
     \begin{equation}
-      \tr\left( \frac{1}{2} w \cdot h(w) + v \cdot w
-      \right) + \frac{1}{2}\tr\left( h(u) \cdot w - u \cdot
-      h(w) \right) - \tr\left( \frac{1}{2} u \cdot h(u) + v
-      \cdot u\right),
+      \tr\left(
+        \frac{1}{2} w h(w) + v w
+      \right)
+      + \frac{1}{2}\tr\left(
+        h(u) w - u h(w)
+      \right)
+      - \tr\left(
+        \frac{1}{2} u h(u) + v u
+      \right),
     \end{equation}
     pero por hipótesis $(u,h(u))$ pertenece a algún $W_i \in
     \Sigma$, por lo tanto
     \begin{align}
-      \tr\left( u \cdot h(w) - h(u) \cdot w \right)
+      \tr\left( u h(w) - h(u) w \right)
       = \langle (u,h(u)), (w,h(w)) \rangle
       = 0,
     \end{align}
-    Así que el exponente de $\omega$ en
-    (\ref{eqn:trace_eig}) está dado por: 
+    ya que todo $W_i$ es totalmente isotrópico respecto a la
+    forma bilineal alternante. Así que el exponente de
+    $\omega$ en (\ref{eqn:trace_eig}) está dado por: 
     \begin{equation}
-      \tr\left( \frac{1}{2} w \cdot h(w) + v \cdot w \right)
-      - \tr\left( \frac{1}{2} u \cdot h(u) + v \cdot u
-      \right).
+      \tr\left( \frac{1}{2} w h(w) + v w \right)
+      - \tr\left( \frac{1}{2} u h(u) + v u \right).
     \end{equation}
     Con ésto retomamos el cálculo inicial y verificamos que
     $\ket{b_{h,v}}$ efectivamente es un eigenvector de
     $D(u,h(u))$:
     \begin{align}
       D(u,h(u)) \ket{b_{h,v}}
-      &= \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} w
-      \cdot h(w) + v \cdot w \right) - \tr\left( \frac{1}{2}
-      u \cdot h(u) + v \cdot u\right) } \ket{e_w} \\
-      &= \omega^{-\tr\left( \frac{1}{2} u \cdot h(u) + v
-      \cdot u \right) } \sum_{w \in V}^{} \omega^{\tr\left(
-      \frac{1}{2} w \cdot h(w) + v \cdot w\right) }
-      \ket{e_w} \\
-      &= \omega^{-\tr\left( \frac{1}{2} u \cdot h(u) + v
-      \cdot u \right) } \ket{b_{h,v}}
+      &= \sum_{w \in V}^{}
+      \omega^{\tr\left(
+          \frac{1}{2} w h(w) + v w
+      \right)
+      - \tr\left(
+        \frac{1}{2} u h(u) + v u
+      \right) } \ket{e_w} \\
+      &= \omega^{-\tr\left(
+          \frac{1}{2} u h(u) + v u
+      \right) }
+      \sum_{w \in V}^{}
+      \omega^{\tr\left(
+        \frac{1}{2} w h(w) + v w
+      \right) } \ket{e_w} \\
+      &= \omega^{-\tr\left(
+        \frac{1}{2} u h(u) + v u
+      \right) } \ket{b_{h,v}}.
     \end{align}
   \end{proof}
 
+  El teorema anterior nos permite diagonalizar de manera
+  simultánea a los operadores de desplazamiento que conmutan
+  entre si para un spread simpléctico dado. Entonces dado un
+  presemicampo simpléctico podemos generar el conjunto
+  completo de MUBs simplemente utilizando la operación del
+  presemicampo ya Kantor nos asegura que la operación genera
+  un spread simpléctico.
+
   \begin{theorem}[Kanat (CITE) Teorema 3.3]
     \label{thm:kanat_presemi_mubs}
-    Sea $(\mathbb F_d, +, \circ)$ un presemicampo
-    simpléctico finito de característica impar. La base
-    estándar indexada por los elementos del campo finito y
-    las bases $B_m = \{\ket{b_{m,v}} : v \in \mathbb F_d\}$ 
-    con $m \in \mathbb F_d$ dados por
+    Sea $F = \GF(p^{n})$. Si $(F, +, \circ)$ es un
+    presemicampo simpléctico finito de característica impar,
+    entonces los conjuntos
+    \begin{equation}
+      B_\infty = \{\ket{e_w} : w \in F\},
+      \quad
+      B_m = \{\ket{b_{m,v}} : v \in F\}
+    \end{equation}
+    donde 
     \begin{equation}
       \label{eqn:kanat_presemi_mubs}
       \ket{b_{m,v}}
-      = \frac{1}{\sqrt{d}} \sum_{w \in \mathbb F_d}^{}
-      \omega^{\tr\left( \frac{1}{2} w \cdot (w \circ m) + v
-      \cdot w\right) } \ket{e_w},
+      = \frac{1}{\sqrt{d}} \sum_{w \in F}^{}
+      \omega^{\tr\left(
+          \frac{1}{2} w (w \circ m) + v w
+      \right) } \ket{e_w},
     \end{equation} 
-    forman un conjunto completo de MUBs.
+    para todo $m \in F$ forman un conjunto completo de MUBs.
   \end{theorem}
   \begin{proof}
-    Primero demostraremos que dado un spread simpléctico
-    obtenido a partir de un presemicampo, la ecuación
-    (\ref{eqn:kanat_presemi_mubs}) determina un conjunto
-    completo de MUBs.  
+    Si el spread que genera la operación del presemicampo es
+    un spread simpléctico, entonces el lema
+    \ref{lemma:h_mubs} nos permite construir el conjunto
+    completo de MUBs donde el mapeo $h : V \to V$ está dado
+    por la operación $\circ$ del presemicampo. La linealidad
+    de $h$ se sigue de la distributividad de $\circ$.
   \end{proof}
 
   Para poder utilizar utilizar el teorema
-  (\ref{thm:kanat_presemi_mubs}), debemos formar un
-  presemicampo simpléctico. El ejemplo más sencillo es el
-  que está dado simplemente por la operación del campo:
+  \ref{thm:kanat_presemi_mubs}, debemos formar un
+  presemicampo simpléctico. Dado que todo presemicampo forma
+  un spread $\Sigma$, solo hemos trasladado la dificultad a
+  la busqueda de presemicampos cuyo spread es simpléctico,
+  i.e., un spread de $d+1$ subespacios totalmente
+  isotrópicos. Por suerte, en [CITE] Kantor genera múltiples
+  spreads simplécticos a partir de presemicampos y en lo que
+  sigue del trabajo hemos elegido algunos de ellos para
+  poder construir MUBs no equivalentes. El ejemplo más
+  sencillo es el que está dado simplemente por la
+  multiplicación del campo finito.
   \begin{definition}[Spread Desarguesiano]
     \label{def:desarguesian_semifield}
-    Sea $\mathbb F_d$ un campo finito. En particular
-    $\mathbb F_d$ es un presemicampo con la operación
+    Sea $\GF(p^{n})$ un campo finito. En particular
+    $\GF(p^{n})$ es un presemicampo con la operación
     \begin{equation}
       w \circ m = w m.
     \end{equation}
-    El spread simpléctico generado por éste presemicampo es
-    el spread Desarguesiano.
+    El spread simpléctico generado por éste presemicampo
+    se conoce como el spread Desarguesiano y consiste
+    simplemente de los subespacios unidimensionales de $V
+    \oplus V$ sobre $\GF(p^{n})$.
   \end{definition}
-  Kanat comenta que las construcciones estándares de MUBs
-  (las que Godsil y Roy probaron que son unitariamente
-  equivalentes a las de Wootters), son casos específico de 
-  MUBs generados por un spread Desarguesiano. Por lo tanto
-  utilizando (\ref{def:desarguesian_semifield}) y el teorema
+  Las MUBs que Godsil y Roy probaron que son unitariamente
+  equivalentes a las mubs `estándares', incluyendo a la de
+  Wooters, son casos específico de MUBs generados por un
+  spread Desarguesiano. Por lo tanto utilizando la
+  definición \ref{def:desarguesian_semifield} y el teorema
   \ref{thm:kanat_presemi_mubs} podemos construir las bases
   mutuamente insesgadas de Wootters. En éste caso el spread
-  simpléctico $\Sigma$ está dado por
+  simpléctico $\Sigma$ está dado por los subespacios
   \begin{equation}
     0 \oplus V
     \quad \text{ y } \quad
     \{(u,mu) : u \in V\},
-    \quad m \in V.
+    \quad m \in V,
   \end{equation}
-  cuyo plano afín está determinado por los rayos:
+  y el plano afín correspondiente está determinado por las
+  rectas:
   \begin{equation}
     x = 0
     \quad
     y = mx,
     \quad
-    x \in \GF(p^{n}).
+    x \in \GF(p^{n}),
   \end{equation}
-  Por lo tanto para todo $v \in V$, el vector
-  \[
+  las cuales reconocemos como los rayos de Wootters. Se
+  sigue que para todo $v \in V$, el vector
+  \begin{equation}
     \ket{b_{m,v}}
-    = \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} m
-        \cdot w^2
-    + v \cdot m\right) } \ket{e_w},
-  \] 
-  es un eigenvector simultáneo de los
-  operadores de desplazamiento $D(u,mu)$, en éste caso el
-  número $m$ identifica la pendiente del rayo y por lo tanto
-  identifica una de las estrías.
+    = \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} m w^2
+    + v m\right) } \ket{e_w},
+  \end{equation} 
+  es un eigenvector simultáneo de los operadores de
+  desplazamiento $D(u,mu)$ con $u \in \GF(p^{n})$. En éste
+  caso el número $m \in \GF(p^{n})$ identifica la pendiente
+  del rayo y por lo tanto identifica a una de las estrías de
+  Wootters.
 
+  En vista del teorema de no-equivalencia de Kantor, dado un
+  spread simpléctico no equivalente al Desarguesiano,
+  podremos obtener un conjunto de MUBs no equivalentes a las
+  de Wootters. Para característica impar el siguiente
+  presemicampo genera un spread simpléctico no equivalente
+  al Desarguesiano [CITE].
+  \begin{definition}[Campo torcido de Albert]
+    Sea $n$ impar y sea $s \in \N$ un primo relativo de $n$
+    tal que $1 \leq s \leq \frac{n}{2}$ y consideremos el
+    campo finito $\GF(p^{n})$. La operación
+    \begin{equation}
+      w \circ m
+      = mw^{p^{n-s}} + m^{p^{s}} w^{p^{s}},
+      \quad m \in \GF(p^{n}),
+    \end{equation}
+    brinda a $\GF(p^{n})$ una estructura de presemicampo,
+    conocido como el campo torcido de Albert.
+  \end{definition}
+  Kantor muestra que éste presemicampo genera un spread
+  simpléctico de $V \oplus V$ y utilizando el teorema
+  \ref{thm:kanat_presemi_mubs} obtenemos el sguiente
+  conjunto completo de MUBs:
+  \begin{align}
+    \ket{b_{m,v}}
+    &= \sum_{w \in V}^{}
+    \omega^{\tr\left(
+      \frac{1}{2} w (w \circ m) + a w
+    \right) } \\
+    &= \sum_{w \in V}^{}
+    \omega^{\tr\left(
+      \frac{1}{2}
+      \left(
+        mw^{p^{n-s}+1} + m^{p^{s}}w^{p^{s}+1}
+      \right) + v w
+    \right) } \ket{e_w}.
+  \end{align}
+    
   \section{Característica par}
 
-  Consideremos el espacio de Hilbert $\C^{d}$ con $d =
-  2^{n}$. Kantor considera el espacio vectorial $V =
-  \Z_2^{n}$ con el producto interno usual $x \cdot y$.
-  Denotemos a la base estándar de $\C^{d}$ por $\ket{e_v}$ 
-  donde $v \in V$. Kantor define a los generadores del grupo
-  de Pauli sobre $\C^{d}$ de la siguiente manera:
-  \begin{align}
-    X(b) &: \ket{e_v} \mapsto \ket{e_{v+b}} \\
-    Z(b) &: \ket{e_v} \mapsto (-1)^{b \cdot v} \ket{e_v},
-  \end{align}
-  para todo $b \in V$. Utilizando la relación de conmutación
-  () del capítulo anterior, Kantor observa que
-  \begin{equation}
-    (X(a)Z(b))^{-1}(X(a')Z(b'))^{-1} (X(a)Z(b))(X(a')Z(b'))
-    = a \cdot b' - a' \cdot b
-  \end{equation}
-  determina una forma bilineal alternante $(\,,\,)$ sobre el
-  espacio $V \oplus V$. Recordemos que una forma bilineal
-  sobre un espacio vectorial es una forma alternante si para
-  todo $v \in V$, se cumple $(v,v) = 0$.
-  
-  ---
+  Para obtener expresiones explícitas de un conjunto
+  completo de bases mutuamente insesgadas para el espacio de
+  Hilbert $\C^{d}$ con $d = 2^{n}$, es necesario hacer
+  modificaciones al procedimiento anterior. La metodología
+  permanece igual, dado un presemicampo simpléctico
+  obtenemos un spread simpléctico y podemos construir las
+  MUBs de manera explícita con la operación del
+  presemicampo, solo que la expresión de los eigenvectores
+  de los operadores de desplazamiento involucra operaciones
+  que no solo suceden en el campo finito si no en un
+  \textit{anillo de Galois}. La razón para ésto no es
+  trivial pero se puede encontrar un explicación en el
+  artículo sobre códigos de Kerdock y spreads simplécticos
+  escrito por Kantor [CITE].
 
-  Consideremos el espacio vectorial de una dimensión $V =
-  \GF(2^{n})$ sobre el campo finito $\GF(2^{n})$. Sabemos
-  que $V$ también es un espacio vectorial de dimensión $n$ 
-  sobre el campo finito $\Z_2$. Definamos la forma bilineal
-  alternante
+  Sea $F = \GF(2^{n})$ el campo de Galois y $\omega \in \C$
+  una cuarta raíz primitiva de la unidad. Sea $R =
+  \GR(4^{n})$ el anillo de Galois de característica cuatro
+  (ver apéndice (REF) para un resumen de extensiones de
+  anillos). Existe un elemento $\xi$ de orden $2^{n}-1$ el
+  cual es una raiz de un único polinomio primitivo mónico
+  $h(x)$ de grado $n$ sobre $\Z_4$ que además divide a
+  $x^{2^{n}-1} - 1$ en $\Z_4[x]$, por lo que es una
+  $2^{n}-1$-ésima raíz primitiva de la unidad en el anillo
+  de Galois. El conjunto \textit{Teichmüller} $T \subset R$,
+  está dado por potencias de éste elemento,
+  \begin{equation}
+    T = \{0,1,\xi,\xi^2,\ldots,\xi^{2^{n}-2}\},
+  \end{equation}
+  y sin el $0$ es subgrupo multiplicativo de tamaño $2^{n}$
+  que es isomorfo a $F$. En ocasiones el generador del
+  anillo coincide con la raíz $\xi$, pero ésto no es el caso
+  general. Todo elemento $x \in R$ puede ser expresado como
+  la combinación lineal de elementos $a,b$ del Teichmüller
+  en la forma $x = a + 2b$.  Utilizando ésta expresión
+  multiplicativa ó $2$-ádica de $x$, la traza del anillo de
+  Galois $\tr : R \to \Z_4$ se define como
+  \begin{equation}
+    \tr(x)
+    = \left(a + a^2 + \cdots + a^{2^{n-1}}\right) + 2\left(
+    b + b^2 + \cdots + b^{2^{n-1}}\right).
+  \end{equation}
+  La traza es lineal respecto a la suma para todos los
+  elementos de $R$. Por otro lado, el cociente $R / 2R$ es
+  isomorfo al anillo de Galois $\GF(2^{n})$, así que para
+  todo elemento $u \in \GF(2^{n})$ existe un único elemento
+  $\hat u \in T$, el cual Kanat nombra como el \textit{lift}
+  de $u$ al Teichmüller. 
+
+  Con lo anterior podemos enunciar el teorema equivalente a
+  \ref{thm:kanat_presemi_mubs} para el caso de campos de
+  característica par.
+
+  \begin{theorem}
+    \label{thm:kanat_even}
+    Sea $V = \GF(2^{n})$ con la operación $\circ$ un
+    presemicampo simpléctico. Entonces la base éstandar
+    $B_\infty = \{\ket{e_w} : w \in V\}$ junto con los
+    conjuntos $B_m = \{\ket{b_{m,v}} : v \in V\}$ cuyos
+    elementos están dados por
+    \begin{equation}
+      \ket{b_{m,v}}
+      = \frac{1}{\sqrt{d}} \sum_{w \in V}^{}
+      \omega^{\tr\left(
+        \hat w ( \hat w \circ \hat m ) + 2 \hat w \hat v
+      \right) } \ket{e_w},
+    \end{equation}
+    forman un conjunto maximal de $2^{n} + 1$ bases
+    mutuamente insesgadas.
+  \end{theorem}
+  \begin{proof}
+    La demostración es muy similar a la del teorema
+    \ref{thm:kanat_presemi_mubs}, solo con algunos detalles
+    causados por el lift al Teichmüller. En particular,
+    Kanat extiende la operación del presemicampo al conjunto
+    $T \times T$ de la siguiente manera. Si $x, y \in F$,
+    entonces la operación del presemicampo se puede expresar
+    como
+    \[
+      x \circ y
+      = \sum_{i,j}^{} a_{ij} x^{2^{i}} y^{2^{j}}.
+    \] 
+    Luego se extiende el producto $\circ$ a $T \times T$
+    como
+    \[
+      \hat x \circ \hat y
+      = \sum_{i,j}^{} \widehat{a_{ij}} \hat{x}^{2^{i}}
+      \hat{y}^{2^{j}}. 
+    \] 
+    Con ésto se puede demostrar que dado un presemicampo
+    simpléctico, los vectores del teorema
+    \ref{thm:kanat_even} son precisamente los eigenvectores
+    de los operadores de desplazamiento $D(u,u\circ m)$ para
+    todo $u \in V$.  Se pueden consultar los detalles en
+    [CITE].
+    %Demostraremos que para todo $m,v \in \GF(2^{n})$ el
+    %vector $\ket{d_{m,v}}$ es un eigenvector de los
+    %opeardores $D(u,u\circ m)$ para todo $u \in V$.
+    %\begin{align}
+    %  D(u,u\circ m) \ket{d_{m,v}}
+    %  &= \sum_{w \in \GF(2^{n})}^{}
+    %  \omega^{\tr\left(
+    %      \hat w \cdot (\hat w \circ \hat m)
+    %      + 2 \hat w \hat v
+    %      + 2 \hat w \cdot \widehat{u \circ m}
+    %  \right)}
+    %  \ket{e_{w+u}} \\
+    %  &= \sum_{w \in \GF(2^{n})}^{}
+    %  \omega^{\tr\left(
+    %    (\widehat{w+u}) \cdot ((\widehat{w+u}) \circ \hat m) + 2
+    %    (\widehat{w+u}) \hat v + 2 (\widehat{w + u}) \cdot
+    %    \widehat{u \circ m}
+    %  \right)}
+    %  \ket{e_w}
+    %\end{align}
+    %Ahora, si $w,u,v \in \GF(2^{n})$ son tales que $w = u +
+    %v$, entonces
+    %\[
+    %  \hat w = \hat u + \hat v + 2 \sqrt{\hat u \hat v}.
+    %\]
+    %Por lo tanto $\widehat{w+u} = \hat w + \hat u + 2
+    %\sqrt{\hat w \hat u}$. Por el momento solo consideremos
+    %la expresión dentro de la traza en la ecuación ().
+    %Haciendo la sustitución correspondiente y expandiendo
+    %términos obtenemos
+    %\begin{align}
+    %  &(\hat w + \hat u + 2 \sqrt{\hat w \hat u}) \cdot
+    %    ((\hat w + \hat u + 2 \sqrt{\hat w \hat u}) \circ
+    %    \hat m) + 2(\hat w + \hat u) \hat v + 2(\hat w +
+    %    \hat u) \cdot (\hat u \circ \hat m)) \\
+    %  &= \hat w \cdot (\hat w \circ \hat m) + \hat w \cdot
+    %  (\hat u \circ \hat m) + \hat w \cdot (2\sqrt{\hat w
+    %  \hat u} \circ \hat m) + 
+    %\end{align}
+  \end{proof}
+  
+  De nuevo podemos construir un spread Desarguesiano
+  mediante la operación del campo finito. Recordemos que
+  ésto significa que
   \[
-    \left( (a,b), (c,d) \right) 
-    = \tr(ad-bc)
+    x \circ y = xy.
   \] 
-  sobre el espacio $V \oplus V = \GF(2^{n})^2$ de dimensión
-  $2n$ sobre $\GF(2)$. Entonces el conjunto $\Sigma$ de
-  espacios uni-dimensionales sobre $\GF(2^{n})$ de $V \oplus
-  V$ es un spread simpléctico de $V \oplus V$ ya que $ad-bc$
-  desaparece en cada uno de ellos. Kantor obsserva que
-  $\Sigma$ consiste de los subconjuntos
+  Entonces el conjunto $\Sigma$ de espacios
+  uni-dimensionales sobre $\GF(2^{n})$ de $W = V \oplus V$
+  es un spread simpléctico de $W$. De nuevo ésto nos brinda
+  el plano afín
   \[
     x = 0
     \quad \text{ y } \quad
     y = mx,
   \]
-  de $V \oplus V = \GF(2^{n})^2$ para $m \in \GF(2^{n})$,
-  los cuales reconocemos que son los rayos de las estrías de
-  Wootters. Las bases mutuamente insesgadas que se obtienen
-  a partir de $\Sigma$ son precisamente las que son
-  unitariamente equivalentes a las de Wootters,
-  Klappenecker, etc. [CITE]. 
-
-  Kantor menciona que la construcción de spreads
-  simplécticos no es fácil pero nos brinda un ejemplo que
-  utilizaremos más adelante. Sea $V = \GF(2^{n})$ y
-  equipemos a $V \oplus V = \GF(2^{n})^2$ con la misma forma
-  bilineal alternante. Entonces asumiendo que $n > 3$ e
-  impar, los subconjuntos 
+  para todo $m \in F$, los cuales reconocemos que son los
+  rayos de las estrías de Wootters. Para formar un conjunto
+  MUBs no equivalentes al de Wootters, utilizamos otro
+  spread simpléctico que nos brinda Kantor, el cual no es
+  equivalente al Desarguesiano.
+  \begin{definition}
+    \label{def:kantor_even_alt}
+    Sea $V = \GF(2^{n})$ y equipemos a $W = V \oplus V$ con
+    la misma forma bilineal alternante. Supongamos que $n >
+    3$ e impar y definamos la siguiente operación la cual
+    nos brinda un presemicampo:
+    \begin{equation}
+      x \circ m
+      = m^2x + m\tr(x) + \tr(mx).
+    \end{equation}
+  \end{definition}
+  Éste presemicampo es simpléctico y el plano afín está dado
+  por los rayos: 
   \begin{equation}
     \label{eqn:qubit_alt_spread}
     x = 0
     \quad \text{ y } \quad
-    y = m^2x + m\tr(x) + \tr(mx)
+    y = m^2x + m\tr(x) + \tr(mx).
   \end{equation}
-  de $V \oplus V$ con $m \in V$ es un spread simpléctico de
-  $V \oplus V$ que \textbf{no} es equivalente al ejemplo
-  anterior. La construcción explícita de las bases es un
-  poco latoso debido a que necesitamos \textit{salirnos} del
-  campo finito y pasar al anillo de Galois correspondiente.
+  Kantor prueba que éste es un spread simpléctico de $V
+  \oplus V$ que \textbf{no} es equivalente al Desarguesiano
+  [CITE]. Con el teorema \ref{thm:kanat_even} podemos
+  obtener una expresión explícita de las MUBs.
 
-  Kantor observa que todo spread simpléctico $\Sigma$ en $V
-  \oplus V$ consiste de $0 \oplus V$ y $\{(v, Mv) : v \in
-  V\}$ para todo $M \in \mathcal K$ donde $\mathcal K$ es el
-  conjunto de $|V| = d = 2^{n}$ matrices simétricas de
-  tamaño $n \times n$ tales que la diferencia de
-  cualesquiera es no singular. Entonces los conjuntos 
-  \begin{align}
-    \label{eqn:kantor_mubs}
-    \mathcal F_\infty &=
-    \{\ket{e_v} : v \in V\}, \\
-    \mathcal F_M^{\mathcal K} &=
-    \left\{
-      \sum_{v \in V}^{} i^{\tr(2 \hat a \cdot \hat v + \hat
-      v \cdot \hat M \hat v)} \ket{e_v} : a \in V
-    \right\},
-  \end{align}
-  forman $d + 1$ MUBs. Pero hay un detalle, los `hats'
-  simbolizan que las operaciones se hacen en el
-  \textit{anillo} $\Z_4$, i.e., $\hat a, \hat v \in \Z_4$.
-  La necesidad de hacer ésto se describe en el artículo
-  [CCKS]. Con las definiciones de las bases mutuamente
-  insesgadas $\mathcal F$ en (\ref{eqn:kantor_mubs}) podemos
-  obtener de manera explicíta a las bases de Wootters ($y =
-  mx$) y un conjunto de bases no equivalentes
-  correspondientes al plano afín dado por las ecuaciones en
-  (\ref{eqn:qubit_alt_spread}). 
+  En la siguiente sección damos algunos ejemplos de
+  construcciones explícitas de MUBs, luego definiremos la
+  función de Wigner utilizando los núcleos definidos en el
+  capítulo anterior pero con las bases no equivalentes.
+  Finalmente compararemos las funciones de Wigner para los
+  ejemplos dados.
 
-  \subsection{Ejemplos}
+  \section{Ejemplos}
+
+  El primer ejemplo de ésta sección consiste en calcular las
+  bases mutuamente insesgadas para el sistema cuántico de un
+  par de qubits. Utilizaremos el teorema
+  \ref{thm:kanat_even} para la construcción notando que las
+  bases obtenidas son equivalentes a las de Wootters [CITE].
+  Despues, daremos dos ejemplos para los cuales calcularemos
+  dos conjuntos completos de MUBs: un conjunto estándar
+  (spread Desarguesiano) y un conjunto no estándar. En la
+  siguiente sección utilizaremos ambos conjuntos para
+  comparar las funciones de Wigner.
 
   \begin{example}
-    2**2
+    Consideremos el sistema cuántico de dos qubits. El
+    espacio de Hilbert es $\H = \C^2 \otimes \C^2 \cong
+    \C^{4}$. 
   \end{example}
+  El espacio de fase discreto será una malla de
+  $4 \times 4$ pares cuyos componentes son elementos del
+  campo finito $\GF(2^2)$. El anillo de Galois
+  correspondiente será $\GR(4^{2})$, para construirlo
+  consideramos el polinomio $f(x) = x^2+x+1 \in \Z_4[x]$
+  para formar el cociente
+  \[
+    \GR(4^2) \cong \Z_4[x] / \langle x^2+x+1 \rangle.
+  \] 
+  En éste caso la raíz del polinomio $f(x)$ es una
+  $2^{2}-1$-ésima raíz de la unidad del anillo de Galois.
+  Por definición el conjunto Teichmüller está dado por $T =
+  \{0,1,\xi,\xi^2\}$, y la traza se cálcula como
+  \[
+    \tr(x) = (a + a^2) + 2(b + b^2),
+  \] 
+  donde $a + 2b$ es la representación $2$-ádica de $x$.
+  Vamos a utilizar el spread Desarguesiano para éste primer
+  ejemplo por lo tanto la operación del presemicampo es
+  simplemente el producto en el campo finito, $x \circ y =
+  xy$. El teorema \ref{thm:kanat_even} nos brinda los
+  siguientes vectores:
+  \[
+    \ket{b_{m,v}}
+    = \frac{1}{\sqrt{d}}
+    \sum_{w \in V}^{}
+    \omega^{\tr\left(
+      \hat w^2 \hat m + 2 \hat w \hat v
+    \right) } \ket{e_w},
+  \] 
+  para todo $m,v \in V$. Éstas bases son exactamente las que
+  obtiene Wootters al diagonalizar los operadores de
+  desplazamiento que dejan invariantes a cada estría. En el
+  ejemplo (REF) del capítulo anterior se utilizaron para la
+  construcción de la función de Wigner de dos qubits. Las
+  incluímos aquí como referencia (las bases están
+  etiquetadas por los elementos del Teichmüller):
+  \begin{align}
+    B_\infty &= \left\{
+    \begin{pmatrix} 1\\0\\0\\0 \end{pmatrix},
+    \begin{pmatrix} 0\\1\\0\\0 \end{pmatrix},
+    \begin{pmatrix} 0\\0\\1\\0 \end{pmatrix},
+    \begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}
+    \right\}, \\
+    B_0 &= \left\{
+    \frac{1}{2} \begin{pmatrix} 1\\1\\1\\1 \end{pmatrix}, 
+    \frac{1}{2} \begin{pmatrix} 1\\1\\-1\\-1 \end{pmatrix}, 
+    \frac{1}{2} \begin{pmatrix} 1\\-1\\-1\\1 \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\-1\\1\\-1 \end{pmatrix} 
+    \right\}, \\
+    B_1 &= \left\{
+    \frac{1}{2} \begin{pmatrix} 1\\-1\\-i\\-i \end{pmatrix}, 
+    \frac{1}{2} \begin{pmatrix} 1\\-1\\i\\i \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\1\\i\\-i \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\1\\-i\\i \end{pmatrix},
+    \right\}, \\
+    B_\xi &= \left\{
+    \frac{1}{2} \begin{pmatrix} 1\\-i\\-1\\-i \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\-i\\1\\i \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\i\\1\\-i \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\i\\-1\\i \end{pmatrix}
+    \right\}, \\
+    B_{\xi^2} &= \left\{
+    \frac{1}{2} \begin{pmatrix} 1\\-i\\-i\\-1 \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\-i\\i\\1 \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\i\\i\\-1 \end{pmatrix},
+    \frac{1}{2} \begin{pmatrix} 1\\i\\-i\\1 \end{pmatrix}
+    \right\}.
+  \end{align}
   
   \begin{example}
-    2**5 mubs
+    Consideremos un sistema cuántico de cinco qubits. La
+    elección de ésta cantidad de qubits se debe a que la
+    construcción del spread simpléctico
+    \ref{def:kantor_even_alt} es válido solo para una
+    extensión de grado $n > 3$. El espacio de Hilbert
+    correspondiente es $\H = \left(\C^{2}\right)^{\otimes 5}
+    \cong \C^{32}$.
   \end{example}
+  El espacio de fase discreto será una malla de $32 \times
+  32$ pares cuyos componentes son elementos del campo finito
+  $\GF(2^5)$. El anillo de Galois será $\GR(4^{5})$, un
+  anillo con $4^{5}$ elementos. El polinomio que
+  utilizaremos es el polinomio de Conway\footnote{La mayoría
+  de los CAS utilizan a los polinomios de Conway para las
+  extensiones de campos y de anillos por default [CITE].}
+  dado por $f(x) = x^5 + x^2 + 1$. Así
+  \[
+    \GR(4^{5}) \cong \Z_4[x] / \langle x^5 + x^2 + 1
+    \rangle.
+  \] 
+  Utilizando el polinomio de Conway, el generador del anillo
+  $\alpha$ no nos brinda un subgrupo multiplicativo. En su
+  lugar debemos usar la $(2^{5}-1)$-ésima raíz primitiva de
+  la unidad
+  \[
+    \xi = \alpha^2 + 2 \alpha + 1.
+  \] 
+  Con ésto el Teichmüller es el siguiente conjunto de
+  $2^{5}-1$ elementos:
+  \[
+    T = \{0,1,\xi,\xi^2,\ldots,\xi^{30}\}.
+  \] 
+  La traza en éste caso se puede calcular como
+  \[
+    \tr(x)
+    = \left( a + a^2 + \cdots + a^{16} \right) 
+    + 2 \left( b + b^2 + \cdots + b^{16} \right),
+  \] 
+  donde $a,b \in T$ y $a + 2b$ es la representación
+  $2$-ádica de $x$. 
+  
+  Para este sistema cuántico, sí podemos formar dos MUBs no
+  equivalentes. Primero utilizamos el spread Desarguesiano,
+  donde la operación del presemicampo está dado por $x \circ
+  y = xy$.  Recordemos qué este spread coincide con las
+  estrías de Wootters, la figura () nos muestra el espacio
+  discreto etiquetado por los elementos de la extensión de
+  Galois, nos muestra el plano afín correspondiente al
+  spread Desarguesiano $\Sigma$.
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{example-image-a}
+    \caption{$V = \GF(2^{5})$, spread Desarguesiano.}
+    \label{fig:2-5-desargues-plane}
+  \end{figure}
+  Utilizamos el teorem \ref{thm:kanat_even} para
+  generar las MUBs correspondientes. No las enlistamos aquí
+  porque cada base de las $33$ bases, es un conjunto de $32$ 
+  vectores de $32$ elementos.\footnote{En el apéndice (REF)
+  se puede encontrar un link del código usado para generar
+  las MUBs y las MUBs generadas en éstos ejemplos en un
+  archivo \texttt{csv}.}
+
+  Ahora consideramos el spread generado en el ejemplo
+  \ref{def:kantor_even_alt}. Recordemos que la operación del
+  presemicampo es
+  \begin{equation}
+    \label{eqn:kantor_presemi}
+    x \circ m
+    = m^2 x + m \tr(x) + \tr(mx).
+  \end{equation} 
+  El spread simpléctico se puede observar en la figura ().
+  Notemos que los rayos formados son distintos a los del
+  spread Desarguesiano.
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{example-image-a}
+    \caption{$V = \GF(2^{5})$, spread de Kantor.}
+    \label{fig:2-5-kantor-plane}
+  \end{figure}
+  Para generar las MUBs a partir del teorema
+  \ref{thm:kanat_even} es necesario hacer el lift de la
+  operación del presemicampo al Teichmüller. Utilizando la
+  definición de la traza $\tr : \GF(2^{5}) \to \Z_2$,
+  podemos expresar la operación del presemicampo en monomios
+  de $x$ y $m$ de la siguiente manera:
+  \begin{equation}
+    x \circ m
+    = m^2 x + m \left( x + x^2 + \ldots + x^{16} \right) +
+    \left( mx + (mx)^2 + \ldots + (mx)^{16} \right).
+  \end{equation}
+  Se sigue que el lift al Teichmüller de la operación del
+  presemicampo será: 
+  \begin{equation}
+    \hat x \circ \hat m
+    = \hat m^2 \hat x + \hat m \left( \hat x + \hat x^2 +
+    \ldots + \hat x^{16} \right) +
+    \left( \hat m \hat x + (\hat m \hat x)^2 + \ldots +
+    (\hat m \hat x)^{16} \right).
+  \end{equation}
+  Con ésto ya tenemos todo listo para calcular de manera
+  directa al conjunto completo de MUBs utilizando el teorema
+  \ref{thm:kanat_even}. Dicho teorema nos dice que los
+  eigenvectores de los operadores $D(u,u \circ m)$ son:
+  \begin{equation}
+    \ket{b_{m,v}}
+    = \frac{1}{\sqrt{d}} 
+    \sum_{w \in F}^{} \omega^{\tr\left( \hat w (\hat w \circ
+    m) + 2 \hat w \hat v\right) } \ket{e_w}.
+  \end{equation}
+  De nuevo no desplegamos los 33 conjuntos de 32 vectores de
+  dimensión 32 aquí por razones obvias. Por el teorema
+  \ref{thm:kantor_ineq} de Kantor  sabemos que éstas MUBs no
+  son unitariamente equivalentes a las de Wootters.
 
   \begin{example}
-    3**3 mubs
+    Consideremos un sistema cuántico compuesto de tres
+    qutrits. El espacio de Hilbert será $\H = \C^{3} \otimes
+    \C^{3} \otimes \C^{3} \cong \C^{27}$.   
   \end{example}
+  El espacio de fase discreto correspondiente será una malla
+  de $27 \times 27$ pares de elementos de la extensión de
+  Galois $V = \GF(3^{3})$.
 
   \section{Definición no estándar de una función de Wigner
   discreta}
@@ -2949,7 +3350,17 @@
     \end{equation}
   \end{definition}
 
-  \section{Ejemplos y comparación}
+  Elegimos la convención de tomar el primer elemento de las
+  bases generadas de manera algorítmica por los teoremas ()
+  y () respectivamente como el estado correspondiente al
+  rayo. Los estados posteriores de cada estría quedan
+  determinados por los operadores de traslación
+  correspondientes.
+
+  Retomamos los ejemplos () y () para los cuales hemos
+  construidos dos conjuntos de MUBs no equivalentes. El
+  primero conjunto coincide con las construcciones de
+  Wootters.
 
   \newpage
   \appendix
