@@ -3284,6 +3284,7 @@
     \caption{$V = \GF(2^{5})$, spread de Kantor.}
     \label{fig:2-5-kantor-plane}
   \end{figure}
+  
   Para generar las MUBs a partir del teorema
   \ref{thm:kanat_even} es necesario hacer el lift de la
   operación del presemicampo al Teichmüller. Utilizando la
@@ -3297,22 +3298,26 @@
   \end{equation}
   Se sigue que el lift al Teichmüller de la operación del
   presemicampo será: 
-  \begin{equation}
+  \begin{align}
     \hat x \circ \hat m
-    = \hat m^2 \hat x + \hat m \left( \hat x + \hat x^2 +
+    &= \hat m^2 \hat x + \hat m \left( \hat x + \hat x^2 +
     \ldots + \hat x^{16} \right) +
     \left( \hat m \hat x + (\hat m \hat x)^2 + \ldots +
-    (\hat m \hat x)^{16} \right).
-  \end{equation}
-  Con ésto ya tenemos todo listo para calcular de manera
-  directa al conjunto completo de MUBs utilizando el teorema
-  \ref{thm:kanat_even}. Dicho teorema nos dice que los
-  eigenvectores de los operadores $D(u,u \circ m)$ son:
+    (\hat m \hat x)^{16} \right) \\
+    &= \hat m^2 \hat x + \hat m \tr(\hat x) + \tr(\hat m
+    \hat x).
+  \end{align}
+  Notemos que la traza de los elementos del Teichmüller es
+  reduce a la traza usual. Con ésto ya tenemos todo listo
+  para calcular de manera directa al conjunto completo de
+  MUBs utilizando el teorema \ref{thm:kanat_even}. Dicho
+  teorema nos dice que los eigenvectores de los operadores
+  $D(u,u \circ m)$, con $u \in F$, son:
   \begin{equation}
     \ket{b_{m,v}}
     = \frac{1}{\sqrt{d}} 
     \sum_{w \in F}^{} \omega^{\tr\left( \hat w (\hat w \circ
-    m) + 2 \hat w \hat v\right) } \ket{e_w}.
+    \hat m) + 2 \hat w \hat v\right) } \ket{e_w}.
   \end{equation}
   De nuevo no desplegamos los 33 conjuntos de 32 vectores de
   dimensión 32 aquí por razones obvias. Por el teorema

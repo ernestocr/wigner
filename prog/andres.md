@@ -23,10 +23,7 @@ end function;
 for i1 := 1 to 32 by 1 do
     for i2 := 1 to 32 by 1 do
         for i3 := 1 to 32 by 1 do  
-            y1 := x[i3] * (
-                (x[i1]^2) * x[i3] + x[i1] * Tra(
-                    x[i3], x[1] + Tra(x[i1] * x[i3], x[1]) + 2*x[i2]
-                );
+            y1:=x[i3]*((x[i1]^2)*x[i3]+x[i1]*Tra(x[i3],x[1])+Tra(x[i1]*x[i3],x[1])+2*x[i2]);
             F := Append(F, y1);
         end for;
     end for;
