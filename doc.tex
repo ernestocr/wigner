@@ -2896,6 +2896,7 @@
   presemicampo genera un spread simpléctico no equivalente
   al Desarguesiano [CITE].
   \begin{definition}[Campo torcido de Albert]
+    \label{def:alberts_spread}
     Sea $n$ impar y sea $s \in \N$ un primo relativo de $n$
     tal que $1 \leq s \leq \frac{n}{2}$ y consideremos el
     campo finito $\GF(p^{n})$. La operación
@@ -3331,10 +3332,71 @@
   \end{example}
   El espacio de fase discreto correspondiente será una malla
   de $27 \times 27$ pares de elementos de la extensión de
-  Galois $V = \GF(3^{3})$.
+  Galois $V = \GF(3^{3})$. Para la extensión consideramos de
+  nuevo un polinomio de Conway, $f(x) = x^3 + 2x + 1$, de
+  tal modo que
+  \[
+    \GF(3^{3}) \cong \Z_3[x] / \langle x^3+2x+1 \rangle.
+  \] 
+  Primero calcularemos las MUBs correspondientes al spread
+  Desarguesiano. La figura
+  (\ref{fig:3-3-desarguesian-plane}) muestra los rayos del
+  plano afín correspondiente y recordemos que éste spread
+  está dado simplemente por la operación de presemicampo $x
+  \circ y = xy$.
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{example-image-a}
+    \caption{$V = \GF(3^{3})$, spread Desarguesiano.}
+    \label{fig:3-3-desarguesian-plane}
+  \end{figure}
+  Sea $\omega \in \C$ una $3$-ésima raíz primitiva de la
+  unidad. Dado que $\GF(3^3)$ es característica impar, el
+  teorema \ref{thm:kanat_presemi_mubs} nos brinda los
+  siguientes eigenvectores
+  \begin{equation}
+    \ket{b_{m,v}}
+    = \sum_{w \in F}^{}
+    \omega^{\tr\left(
+        \frac{1}{2} w(wm) + vw
+    \right) } \ket{e_w}
+    \quad m \in F,
+  \end{equation}
+  de los operadores $D(u,u \circ m)$ para todo $u \in F$. El
+  conjunto completo de MUBs es un conjunto de $28$ bases
+  mutuamente insesgadas de $27$ vectores de dimensión $27$.
+  De nuevo, no mostraremos las bases aquí.
+
+  La razón para elegir éste ejemplo en particular es para
+  poder construir un conjunto de MUBs que no son
+  unitariamente equivalentes a las de Wootters, utilizando
+  el presemicampo en \ref{def:alberts_spread}. El spread
+  simpléctico del campo torcido de Albert requiere definir
+  un número $s \in \N$ tal que $1 \leq s \leq \frac{n}{2}$.
+  En éste caso $n = 3$, por lo tanto $s = 1$ es el único
+  valor posible. Con ésto, la operación del presemicampo se
+  define como
+  \[
+    w \circ m
+    = m w^{9} + m^{3}w^{3},
+    \quad m \in \GF(3^{3}).
+  \] 
+  El spread simpléctico está dado por los conjuntos $0
+  \oplus V$ y $\{(w,w\circ m) : w \in F\}$ para todo $m \in
+  F$, y el plano afín correspondiente queda determinado por
+  los rayos
+  \[
+    x = 0,
+    \quad
+    y = mx^{9} + m^3 x^3.
+  \] 
 
   \section{Definición no estándar de una función de Wigner
   discreta}
+
+  Vamos a recapitular la sección anterior. Dado una un campo
+  finito podemos formar un presemicampo mediante una nueva
+  operación $\circ$. . . .
 
   Con la construcción explícita de las bases mutuamente
   insesgadas, podemos definir una red cuántica de la misma
