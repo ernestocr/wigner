@@ -32,6 +32,8 @@
 \usepackage{tikz}
 \usetikzlibrary{cd}
 
+%\usepackage{layouts}
+
 \usepackage[marginal]{showlabels}
 
 \DeclareMathOperator{\R}{\mathbb{R}}
@@ -1904,10 +1906,10 @@
     matrices $X$ y $Z$ son las matrices de Pauli $\sigma_x$
     y $\sigma_z$:
     \[
-      X = \sigma_x
+      X = \sigma_x =
       \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},
       \quad
-      Z = \sigma_z
+      Z = \sigma_z =
       \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}. 
     \] 
   \end{example}
@@ -2000,7 +2002,7 @@
   dependiendo de la base elegida. Por ésto la elección de la
   base del campo dependerá de la aplicación física.
   \begin{example}
-    .
+    PENDIENTE. Ejemplo de estado con distintas factorizaiones.
   \end{example}
   Por otro lado, los operadores de desplazamiento respecto a
   las traslaciones horizontales son
@@ -2071,12 +2073,12 @@
   si. En otras palabras, para que la red cuántica sea
   covariante bajo traslaciones, los operadores de
   desplazamiento correspondientes a las traslaciones que
-  dejan una estría invariante deben conmutar (PROOF).
-  Gibbons y Wootters prueban que su definición de $D(a,b)$
-  satisface éste requisito si y solo si la base en que se
-  expande el vector $b$ es un \textit{múltiplo} de la base
-  dual. Ésto introduce otro punto de arbitrariedad que a
-  nosotros nos gustaría evitar, por lo tanto en general
+  dejan las rectas de una estría invariante deben conmutar
+  (PROOF).  Gibbons y Wootters prueban que su definición de
+  $D(a,b)$ satisface éste requisito si y solo si la base en
+  que se expande el vector $b$ es un \textit{múltiplo} de la
+  base dual. Ésto introduce otro punto de arbitrariedad que
+  a nosotros nos gustaría evitar, por lo tanto en general
   simplemente tomamos la base dual como la segunda base,
   eligiendo la auto-dual cuando ésta exista.
 
@@ -2123,11 +2125,75 @@
     = D(x,y) Q(\lambda) D(x,y)^{*},
   \] 
   ya que se pueden obtener el resto de las rectas de la
-  estría mediante traslaciones en el espacio de fase.  Las
-  elecciones arbitrarias hasta el momento dan distintas
-  definiciones de las redes cuánticas y como consecuencia
-  distintas funciones de Wigner, cuya definición obtenemos
-  enseguida.
+  estría mediante traslaciones en el espacio de fase. Ésto
+  refleja el hecho de que las traslaciones en el espacio
+  de fase discreto no cambian la pendiente de las rectas,
+  por lo tanto al trasladar un recta solo obtendremos otra
+  recta \textit{paralela} a ella, es decir a otro elemento
+  de la estría. Que la red cuántica sea covariante bajo
+  traslaciones significa que los eigenestados asignados a
+  una estría quedan invariantes bajo los operadores de
+  desplazamiento. 
+  \begin{example}
+    Consideremos un qutrit. El espacio de Hilbert es
+    $\C^{3}$ y el espacio de fase discreto es simplemente
+    $\Z_3 \oplus \Z_3$. Como hemos visto anteriormente, el
+    rayo vertical $\lambda = \{(0,u) : u \in \Z_3\}$ es
+    invariante bajo las traslaciones $\mathcal T(0,u)$ para
+    todo $u \in \Z_3$. El operador correspondiente es la
+    matriz generalizada de Pauli dada por
+    \[
+      D(0,u) = Z^{u},
+    \] 
+    cuyos eigenvectores simplemente consiste de la base
+    estándar
+    \[
+      \ket 0 = \begin{pmatrix} 1\\0\\0 \end{pmatrix},
+      \quad
+      \ket 1 = \begin{pmatrix} 0\\1\\0 \end{pmatrix},
+      \quad \text{y} \quad
+      \ket 2 = \begin{pmatrix} 0\\0\\1 \end{pmatrix}.
+    \] 
+    Para definir la red cuántica, primero asignamos el
+    eigenestado $\ket 0 \bra 0$ al rayo vertical. Si
+    trasladamos a $\lambda$ por \textit{cualquier} vector
+    $(x,y)$ en el espacio de fase discreto, solo obtendremos
+    una recta paralela a $\lambda$:
+    \begin{align}
+      \mathcal T(x,y) \lambda
+      &= \mathcal T(x,y) \{(0,u) : u \in \Z_3\} \\
+      &= \{(x,u+y) : u \in \Z_3\} \\
+      &= \{(x,s) : s \in \Z_3\} \\
+      &= \lambda'.
+    \end{align}
+    Para que $Q$ sea covariante bajo traslaciones es
+    necesario que al desplazar el eigenestado $\ket 0$ por
+    el operdaor $D(x,y)$, obtengamos otro elemento de la
+    base estándar (salvo una fase). Por definición de los
+    operadores de desplazamiento, ésto siempre sucede (más
+    adelante veremos que el grupo de Pauli deja a las
+    familias de eigenvectores invariantes salvo
+    permutaciones). En éste ejemplo vemos que
+    \begin{align}
+      D(x,y) \ket 0
+      &= X^{x} Z^{y} \ket 0 \\
+      &= \omega^{-xy} Z^{y} X^{x} \ket 0 \\
+      &= \omega^{-xy} Z^{y} \ket x \\
+      &= \omega^{-xy} \omega^{y} \ket x \\
+      &= \omega^{z} \ket x.
+    \end{align}
+    Volvemos a obtener un elemento de la base estándar salvo
+    una fase. Dado ésto, la red cuántica $Q$ debe asignar a
+    la recta paralela $\mathcal T(x,y) \lambda = \lambda'$,
+    el eigenestado $\ket x$ para poder preservar ésta
+    propiedad. Es por eso que la elección solo es arbitraria
+    para la primera asignación.
+  \end{example}
+  Las elecciones arbitrarias hasta el momento
+  dan distintas definiciones de las redes cuánticas y como
+  consecuencia distintas funciones de Wigner, cuya
+  definición ya queda totalmente determinada despues de la
+  definición de la red cuántica. Veamos.
 
   \subsection{Definición de una función de Wigner}
 
@@ -2198,17 +2264,17 @@
   Wigner.
   \begin{proposition}
     Los operadores puntuales $A(\alpha)$ donde $\alpha =
-    (a,b) \in \mathbb F_d^2$ satisfacen las siguientes
+    (a,b) \in F \oplus F$ satisfacen las siguientes
     propiedades:
-    \begin{itemize}
+    \begin{enumerate}
       \item $A(\alpha)$ es auto-adjunto.
       \item Son de traza unitaria.
       \item Son ortogonales bajo el producto interno de
         Hilbert-Schmidt.
-    \end{itemize}
+    \end{enumerate}
   \end{proposition}
   \begin{proof}
-    .
+    PENDIENTE
   \end{proof}
 
   En particular notemos que los operadores $A(\alpha)$ 
@@ -2248,20 +2314,504 @@
     \end{enumerate}
   \end{proposition}
   \begin{proof}
-    .
+    PENDIENTE
   \end{proof}
 
   \section{Ejemplos}
 
+  Daremos dos ejemplos ilustrativos para mostrar el
+  procedimiento de Wootters. Visualizamos el espacio de fase
+  discreto así como los rayos de cada estría, luego formamos
+  la red cuántico eligiendo un estado para cada rayo.
+  Finalmente construímos los operadores puntuales para
+  formar la función de Wigner en ambos casos.
 
+  \begin{example}
+    Consideremos de nuevo el sistema cuántico que modela un
+    qutrit. Recordemos que $\H = \C^{3}$ y el espacio de
+    fase discreto es $\Z_3 \oplus \Z_3$. En éste caso como
+    $3$ es primo, no es necesario hablar de extensiones de
+    Galois ni de expansiones en alguna base. Los operadores
+    de desplazamiento simplemente son productos y potencias
+    de las matrices de Pauli generalizadas para $\dim \H =
+    3$. Las matrices $X$ y $Z$ están dadas por
+    \begin{equation}
+      X = \begin{pmatrix} 
+        0 & 0 & 1 \\
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+      \end{pmatrix},
+      \quad
+      Z = \begin{pmatrix} 
+        1 & 0 & 0 \\
+        0 & \omega & 0 \\
+        0 & 0 & \omega^2 \\
+      \end{pmatrix} 
+    \end{equation}
+    donde $\omega$ es un tercera raíz primitiva de la
+    unidad, i.e., $\omega = e^{2\pi i / 3}$. El espacio de
+    fase está ilustrado en la figura
+    (\ref{fig:qutrit-phase-space}) la cual también muestra
+    sus $3 + 1$ rayos. 
+    \begin{figure}[ht]
+      \centering
+      \scalebox{0.6}{
+        \input{imgs/affine-desargues-3-1.pgf}
+      }
+      \caption{Espacio de fase discreto para $\C^3$. Notemos
+      que los rayos no se intersectan en otro punto distinto
+      al origen $(0,0)$.}
+      \label{fig:qutrit-phase-space}
+    \end{figure}
 
+    Hasta ahorita solo hemos dicho que las bases de vectores
+    que se usarán para definir la red cuántico son los
+    eigenvectores de familias de operadores de
+    desplazamientos. En el siguiente capítulo veremos una
+    manera de constuirlos de manera explícita, por ahorita
+    solo mostramos la familia de bases mutuamente
+    insesgadas.
+    \begin{align}
+      \mathcal T(0,u)
+      &\leftrightarrow \left\{
+      \begin{pmatrix} 1\\0\\0 \end{pmatrix},
+      \begin{pmatrix} 0\\1\\0 \end{pmatrix},
+      \begin{pmatrix} 0\\0\\1 \end{pmatrix} 
+      \right\} \\
+      \mathcal T(u,0)
+      &\leftrightarrow \left\{
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix} 1\\1\\1 \end{pmatrix},
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix} 1\\ \omega\\ \omega^2 \end{pmatrix},
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix} 1\\ \omega^2\\ \omega \end{pmatrix} 
+      \right\} \\
+      \mathcal T(u,u)
+      &\leftrightarrow \left\{
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix} 1\\ \omega^2 \\ \omega^2
+        \end{pmatrix},
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix} 1\\1\\ \omega \end{pmatrix},
+        \frac{1}{\sqrt{r_3}}
+        \begin{pmatrix} 1\\ \omega\\ 1 \end{pmatrix}
+      \right\} \\
+      \mathcal T(u,2u)
+      &\leftrightarrow \left\{
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix} 1\\ \omega \\ \omega \end{pmatrix},
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix} 1\\ \omega^2 \\1 \end{pmatrix},
+        \frac{1}{\sqrt{3}}
+        \begin{pmatrix} 1\\ 1\\ \omega^2 \end{pmatrix}
+      \right\}.
+    \end{align}
+    Cada base está etiquetada por las traslaciones del
+    espacio de fase que dejan invariantes a las rectas de
+    alguna estría. Por ejemplo la base estándar corresponde
+    a las traslaciones verticales y la tercera base
+    corresponde al rayo vertical. Se puede verificar de
+    manera directa que los elementos de cada conjunto son
+    eigenvectores de los operadores de desplazamiento
+    correspondientes, por ejemplo para el operador de
+    traslación $D(1,0)$ y el primero eigenvector de la base
+    correspondiente tenemos:
+    \begin{align}
+      D(1,0) \left[ \frac{1}{\sqrt{3}} \begin{pmatrix}
+        1\\1\\1 \end{pmatrix} \right] 
+      &= \frac{1}{\sqrt{3}} X \begin{pmatrix} 1\\1\\1
+      \end{pmatrix} \\
+      &= \frac{1}{\sqrt{3}} X \left(
+        \ket 0 + \ket 1 + \ket 2
+      \right) \\
+      &= \frac{1}{\sqrt{3}} \left( \ket 1 + \ket 2 + \ket 0
+      \right) \\
+      &= \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\1
+      \end{pmatrix}.
+    \end{align}
+    Para construir la red cuántica elegimos asignar el
+    primer vector de cada conjunto a cada rayo. Las
+    asignaciones restantes de cada estría quedan
+    determinadas por las traslaciones y operadores de
+    desplazamiento. Por ejemplo, al rayo horizontal
+    $\lambda_0 = \{(u,0) : u \in \Z_3\}$ le asignamos el
+    vector $\frac{1}{\sqrt{3}} \left( \ket 0 + \ket 1 + \ket
+    2 \right)$. Podemos obtener a la recta horizontal
+    $\lambda_1 = \{(u,1) : u \in \Z_3\}$ trasladando al
+    rayo $\lambda_0$ por $\mathcal T(0,1)$. Por lo tanto el
+    eigenestado $Q(\lambda_1)$ que se le asigna a la recta
+    $\lambda_1$ es
+    \begin{align}
+      D(0,1) \left[ \frac{1}{\sqrt{3}} \left( \ket 0 + \ket
+      1 + \ket 2\right) \right]
+      &= \frac{1}{\sqrt{3}} Z \left( \ket 0 + \ket 1 + \ket
+      2\right) \\
+      &= \frac{1}{\sqrt{3}} \left( \ket 0 + \omega
+      \ket 1 + \omega^2 \ket 2\right) \\
+      &= \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ \omega \\
+      \omega^2 \end{pmatrix}.
+    \end{align}
+    Notemos que éste nuevo vector es el segundo elemento del
+    conjunto de eigenvectores de los operadores $D(0,u)$.
+    Ésta coincidencia en el orden se debe a la manera en que
+    se programó las bases mutuamente insesgadas, pero en
+    general el orden no es una restricción. De la misma
+    manera podemos hacer el resto de las asignaciones y así
+    definir totalmente a la red cuántica $Q$.
 
+    Dada $Q$, podemos utilizar la ecuación
+    (\ref{eqn:discrete_point_op}) para construir a los
+    operadores puntuales. Recordemos que su definición es
+    \[
+      A(x,y) = \sum_{\lambda \ni (x,y)}^{} Q(\lambda) - I,
+    \] 
+    i.e., consiste en la suma de todos las proyecciones a
+    los eigenestados asignados a las rectas $\lambda$ que
+    pasan por el punto $(x,y)$. Para ilustrar el cálculo,
+    vamos a construir el operador puntual correspondient al
+    origen. Como ya sabemos, las $3+1$ rectas que pasan por
+    el origen son precisamente los rayos. Entonces, como
+    hemos elegido asignar a los rayos del espacio de fase
+    discreto, el operador de projección del primer elemento
+    de cada conjunto de vectores, un cálculo directo nos
+    brinda
+    \begin{equation}
+      A(0,0)
+      = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 0 & 1 \\
+        0 & 1 & 0
+      \end{pmatrix}. 
+    \end{equation}
+    Notemos que las propiedes 1 y 2 de () se satisfacen para
+    éste operador puntual, ya que $A(0,0)$ es auto-adjunta y
+    su traza es igual a $1$. En total existen $3^2 = 9$ 
+    operadores puntuales para éste espacio de fase. Dado un
+    operador de densidad $\rho$, su función de Wigner queda
+    determinada como $W(x,y) = \frac{1}{3} \Tr(\rho
+    A(x,y))$. Hemos gráficado la función de Wigner discreta
+    para tres estados cuánticos:
+    \begin{align}
+      \ket{\psi_1}
+      &= \ket 0 \\ 
+      \ket{\psi_2}
+      &= \frac{1}{\sqrt{3}}
+      \left(
+        \ket 0 + \omega \ket 1 + \omega \ket 2
+      \right) \\
+      \ket{\psi_3}
+      &= \frac{1}{\sqrt{2}} (\ket 0 + \ket 1).
+    \end{align}
+    Los dos primeros estados cuánticos corresponden al
+    primero vector de la primera base y al primer vector de
+    la última base. El tercero es un vector arbitrario. La
+    gráfica representa el espacio de fase discreto y el
+    tamaño de la barra en el punto $(x,y)$ indica el valor
+    de $W(x,y)$.
 
+    \begin{figure}[ht]
+      \centering
+      \scalebox{0.7}{
+        \input{imgs/wigner-desargues-3-1-s1.pgf}
+      }
+      \caption{Función de Wigner para el estado
+        $\ket{\psi_1}$ en el ejemplo de un qutrit.}
+      \label{fig:wigner-desargues-3-1-s1}
+    \end{figure}
 
+    \begin{figure}[ht]
+      \centering
+      \scalebox{0.7}{
+        \input{imgs/wigner-desargues-3-1-s2.pgf}
+      }
+      \caption{Función de Wigner para el estado
+        $\ket{\psi_2}$ en el ejemplo de un qutrit.}
+      \label{fig:wigner-desargues-3-1-s2}
+    \end{figure}
+    
+    \begin{figure}[ht]
+      \centering
+      \scalebox{0.7}{
+        \input{imgs/wigner-desargues-3-1-s3.pgf}
+      }
+      \caption{Función de Wigner para el estado
+        $\ket{\psi_3}$ en el ejemplo de un qutrit.}
+      \label{fig:wigner-desargues-3-1-s3}
+    \end{figure}
 
+    En las tres figuras podemos observar que la suma de la
+    función de Wigner es igual a uno. Las primeras dos
+    figuras muestran una función de Wigner de estados que
+    son elementos del conjunto de mediciones. Sumando sobre
+    la primera recta en la función de Wigner (figura
+    \ref{fig:wigner-desargues-3-1-s1}) del estado
+    $\ket{\psi_1}$ obtenemos $1$. Ésto tiene sentido porque
+    la probabilidad de que el sistema se encuentre en el
+    estado $\ket 0$ es $1$ ya que $\ket{\psi_1} = \ket 0$.
+    Lo mismo sucede con la figura
+    (\ref{fig:wigner-desargues-3-1-s2}) respectivamente. En
+    la figura (\ref{fig:wigner-desargues-3-1-s3}) nos
+    encontramos con una combinación lineal de dos elementos
+    del conjunto de MUBs. En éste caso la probabilidad de
+    encontrar el qutrit en el estado $\ket 0$ es igual
+    $\frac{1}{2}$ y ésto corresponde con la suma de
+    $W_{\psi_3}$ sobre la primera linea vertical, a la cual
+    se le asignó el estado $\ket 0$. En cambio sumando la
+    función de Wigner sobre la tercera recta vertical
+    obtenemos $0$. Ésto es porque la probabilidad de
+    encontrar al sistema en el estado $\ket 2$ es nula!
+    Notemos que la tercera función de Wigner presenta
+    valores negativos.
+  \end{example}
 
+  \begin{example}
+    Ahora consideramos un ejemplo más interesante.
+    Analizaremos el caso de dos qubits. El espacio de
+    Hilbert correspondiente es $\H = \C^2 \otimes \C^2 \cong
+    \C^{4}$ y el espacio de fase discreto será una malla de
+    $4 \times 4$ puntos etiquetados por los elementos de la
+    extensión de Galois
+    \[
+      \GF(2^2)
+      = \{0,1,\alpha,\alpha+1\}.
+    \] 
+    La figura (\ref{fig:wootters-affine-2-qubits}) muestra
+    el espacio de fase discreto etiquetado por los elementos
+    del campo de Galois. El orden utilizado para las
+    etiquetas coincide con el orden por default de
+    \texttt{SageMath}, ésto no tiene consecuencias pues lo
+    que importa es la asignación de estados a las lineas.
+    \begin{figure}[ht]
+      \centering
+      \scalebox{0.7}{
+        \input{imgs/affine-desargues-2-2-Wootters.pgf}
+      }
+      \caption{Rayos en el espacio de fase discreto
+      $\GF(2^2) \times \GF(2^2)$.}
+      \label{fig:wootters-affine-2-qubits}
+    \end{figure}
+    Siguiendo a Wootters, podemos construir a los
+    generadores del grupo de Pauli, i.e., a las matrices
+    generalizadas de Pauli, a partir de las matrices
+    $\sigma_x$ y $\sigma_z$. Pero antes que ésto, notemos
+    algunas sutilizas a la hora de trabajar con los
+    elementos de la extensión de Galois. Si etiquetamos a la
+    base estándar de $\C^{4}$ con los elementos de
+    $\GF(2^2)$ en el orden en que aparecen en los ejes de la
+    figura (\ref{fig:wootters-affine-2-qubits}), tenemos que
+    \[
+      \ket 0
+      = \begin{pmatrix} 1\\0\\0\\0 \end{pmatrix},
+      \quad
+      \ket{\alpha}
+      = \begin{pmatrix} 0\\1\\0\\0 \end{pmatrix},
+      \quad
+      \ket{\alpha + 1}
+      = \begin{pmatrix} 0\\0\\1\\0 \end{pmatrix},
+      \quad
+      \ket{1}
+      = \begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}. 
+    \] 
+    Distintas bases del campo nos brinda distintas maneras
+    de factorizar a la base estándar en productos
+    tensoriales de la base estándar de $\C^2$. Para que haya
+    un correspondencia adecuada entre la base etiquetada por
+    elementos del campo de Galois y los productos
+    tensoriales, debemos elegir una base adecuada.  En éste
+    caso la base está dada por $\{\alpha + 1, \alpha\}$. En
+    ésta base el elemento $\alpha + 1$ visto como un
+    elemento del espacio vectorial sobre el campo $\Z_2$
+    tiene componentes $(1,0)$, así que 
+    \[
+      \ket{\alpha + 1}
+      = \ket{1} \otimes \ket{0}
+      = \begin{pmatrix} 0\\1 \end{pmatrix} 
+      \otimes
+      \begin{pmatrix} 1\\0 \end{pmatrix} 
+      = \begin{pmatrix} 0\\0\\1\\0 \end{pmatrix},
+    \] 
+    lo cual coincide con la etiquetación predeterminada.
+    Ésto es importante para poder asignar estados físicos a
+    las etiquetas del espacio de fase discreto en el caso de
+    sistemas compuestos.
 
-  
+    Utilizando las construcciones del capítulo siguiente,
+    podemos verificar que el siguiente conjunto es un
+    conjunto maximal de bases mutuamente insesgadas del
+    espacio $\C^{4}$:
+    \begin{align}
+      \mathcal T(0,1) &\leftrightarrow \left\{
+      \begin{pmatrix} 1\\0\\0\\0 \end{pmatrix},
+      \begin{pmatrix} 0\\1\\0\\0 \end{pmatrix},
+      \begin{pmatrix} 0\\0\\1\\0 \end{pmatrix},
+      \begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}
+      \right\}, \\
+      \mathcal T(1,0) &\leftrightarrow \left\{
+      \frac{1}{2} \begin{pmatrix} 1\\1\\1\\1 \end{pmatrix}, 
+      \frac{1}{2} \begin{pmatrix} 1\\1\\-1\\-1 \end{pmatrix}, 
+      \frac{1}{2} \begin{pmatrix} 1\\-1\\-1\\1 \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\-1\\1\\-1 \end{pmatrix} 
+      \right\}, \\
+      \mathcal T(1,\alpha) &\leftrightarrow \left\{
+      \frac{1}{2} \begin{pmatrix} 1\\-1\\-i\\-i \end{pmatrix}, 
+      \frac{1}{2} \begin{pmatrix} 1\\-1\\i\\i \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\1\\i\\-i \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\1\\-i\\i \end{pmatrix}
+      \right\}, \\
+      \mathcal T(1,\alpha+1) &\leftrightarrow \left\{
+      \frac{1}{2} \begin{pmatrix} 1\\-i\\-1\\-i \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\-i\\1\\i \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\i\\1\\-i \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\i\\-1\\i \end{pmatrix}
+      \right\}, \\
+        \mathcal T(1,1) &\leftrightarrow \left\{
+      \frac{1}{2} \begin{pmatrix} 1\\-i\\-i\\-1 \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\-i\\i\\1 \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\i\\i\\-1 \end{pmatrix},
+      \frac{1}{2} \begin{pmatrix} 1\\i\\-i\\1 \end{pmatrix}
+      \right\}.
+    \end{align}
+    Dadas las bases, utilizamos la misma convención que en
+    el ejemplo anterior, asignamos el primer vector de cada
+    base al rayo con la pendiente correspondiente. Así por
+    ejemplo la primera base corresponde a los eigenvectores
+    de los operadores de traslación $D(0,u)$. Con las bases
+    asignadas podemos formar los operadores puntuales y
+    enseguida la función de Wigner para cualquier estado
+    cuántico válido. A manera ilustrativa de nuevo
+    calculamos el operador puntual que corresponde al
+    origen:
+    \[
+      A(0,0)
+      = \sum_{\lambda \ni (0,0)}^{} Q(\lambda) - I
+      = \begin{pmatrix} 
+        1 & \frac{i}{2} & \frac{i}{2} & \frac{i}{2} \\[6pt]
+        -\frac{i}{2} & 0 & \frac{1}{2} & \frac{1}{2} \\[6pt]
+        -\frac{i}{2} & \frac{1}{2} & 0 & \frac{1}{2} \\[6pt]
+        -\frac{1}{2} & \frac{1}{2} & \frac{1}{2} & 0
+      \end{pmatrix}. 
+    \] 
+    Vamos graficar la función de Wigner de tres estados
+    cuánticos. Si denotamos la base estándar de $\C^2$,
+    $\ket 0$ por $\ket \uparrow$ y $\ket 1$ por $\ket
+    \downarrow$ entonces podemos etiquetar al eje horizontal
+    del espacio de fase como
+    \begin{table}[ht]
+      \centering
+      \begin{tabular}{c|c|c|c}
+        0 & $\alpha$ & $\alpha + 1$ & 1 \\[6pt]
+        $\ket{00}$ & $\ket{01}$ & $\ket{10}$ & $\ket{11}$
+        \\[6pt]
+        $\ket{\uparrow \uparrow}$ &
+        $\ket{\uparrow\downarrow}$ &
+        $\ket{\downarrow\uparrow}$ &
+        $\ket{\downarrow\downarrow}$
+      \end{tabular}
+      \caption{Espacio de fase discreto etiquetado por los
+      estados de dos qubits.}
+    \end{table}
+    De una manera análoga, podemos etiquetar a los elementos
+    del eje vertical con otra base ortonormal de $\C^{4}$,
+    los que corresponden al conjunto de eigenvectores
+    simultáneos de los operadores de desplazamiento
+    horizontales. Denotemos a los eigenvectores del
+    segundo conjunto de las MUBs por los estados
+    $\ket{\rightarrow\rightarrow},
+    \ket{\rightarrow\leftarrow},
+    \ket{\leftarrow\rightarrow}$ y
+    $\ket{\leftarrow\leftarrow}$. Con ésto podemos etiquetar
+    al espacio de fase discreto de la siguiente de la manera
+    en que aparece en la figura \ref{tab:state_phase_space}.
+    
+    \begin{table}[!ht]
+      \centering
+      \begin{tabular}{c c c c c}
+        $\ket{\leftarrow\leftarrow}$ & $\circ$ & $\circ$ &
+        $\circ$ & $\circ$ \\[7pt]
+        $\ket{\leftarrow\rightarrow}$ & $\circ$ & $\circ$ &
+        $\circ$ & $\circ$ \\[7pt]
+        $\ket{\rightarrow\leftarrow}$ & $\circ$ & $\circ$ &
+        $\circ$ & $\circ$ \\[7pt]
+        $\ket{\rightarrow\rightarrow}$ & $\circ$ & $\circ$ &
+        $\circ$ & $\circ$ \\[7pt]
+        & $\ket{\uparrow\uparrow}$ &
+        $\ket{\uparrow\downarrow}$
+        & $\ket{\downarrow\uparrow}$ &
+        $\ket{\downarrow\downarrow}$
+      \end{tabular}
+      \caption{Etiquetación del espacio de fase discreto
+      para $\GF(2^2)$ por eigenestados.}
+      \label{tab:state_phase_space}
+    \end{table}
+
+    Con tal etiquetación, graficamos la función de Wigner de
+    los siguientes estados cuánticos:
+    \[
+      \ket{\uparrow\uparrow},
+      \quad
+      \text{y}
+      \quad
+      \frac{1}{\sqrt{2}} \left( \ket{\uparrow\downarrow} +
+      \ket{\downarrow\uparrow} \right). 
+    \]
+    
+    \begin{figure}[ht]
+      \centering
+      \scalebox{0.7}{
+        \input{imgs/wigner-desargues-2-2-s1.pgf}
+      }
+      \caption{Función de Wigner del estado
+        $\ket{\uparrow\uparrow}$.}
+      \label{fig:wigner-desargues-2-2-s1}
+    \end{figure}
+
+    \begin{figure}[!ht]
+      \centering
+      \scalebox{0.7}{
+        \input{imgs/wigner-desargues-2-2-s2.pgf}
+      }
+      \caption{Función de Wigner del estado
+      $\frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow} +
+      \ket{\downarrow\uparrow}\right)$.}
+      \label{fig:wigner-desargues-2-2-s2}
+    \end{figure}
+
+    Podemos notar que en la figura
+    (\ref{fig:wigner-desargues-2-2-s1}), sumando la función
+    de Wigner sobre la primera recta vertical en el espacio
+    de fase obtenemos la probabilidad de que el sistema se
+    encuentre en el estado $\ket{\uparrow\uparrow}$. Dado
+    que el estado es precisamente $\ket{\uparrow\uparrow}$,
+    la suma es igual a $1$. En cambio, en la figura
+    (\ref{fig:wigner-desargues-2-2-s2}), el estado está en
+    una superposición equitativa de los estados
+    $\ket{\uparrow\downarrow}$ y
+    $\ket{\downarrow\uparrow}$, por lo tanto la probabilidad
+    de medir $\ket{\uparrow\downarrow}$ es igual a
+    $\frac{1}{2}$. La probabilidad de medir
+    $\ket{\uparrow\uparrow}$ ó $\ket{\downarrow\downarrow}$ 
+    es nula, algo se ve directamente de la función de
+    Wigner.
+  \end{example}
+
+  En éste capítulo hemos descrito el procedimiento y
+  razonamiento de la construcción de la versión de Wootters
+  de la función de Wigner. En el siguiente capítulo
+  realizamos una definición alternativa de la función de
+  Wigner. La metodología permanece igual, pero se utilizan
+  conjuntos de bases mutuamente insesgadas que no son
+  unitariamente equivalentes a las que se obtienen mediante
+  el método de Wootters. La construcción de éstas bases
+  difiere en como se \textit{cubre} el espacio de fase
+  discreto con \textit{lineas}. Es más general que la
+  versión de Wootters en el sentido de que se recupera dicha
+  versión cuando las lineas son las rectas en el espacio de
+  fase, pero, podemos obtener otras maneras de cubrirlo que
+  aun preservan las propiedades geométricas. La idea es
+  utilizar éstas estructura geométricas y las MUBs
+  alternativas que producen para formar una función de
+  Wigner discreta distinta a la de Wootters.
 
   \chapter{Construcción no-estándar}
 
@@ -3154,8 +3704,32 @@
   Vamos a utilizar el spread Desarguesiano para éste primer
   ejemplo por lo tanto la operación del presemicampo es
   simplemente el producto en el campo finito, $x \circ y =
-  xy$. El teorema \ref{thm:kanat_even} nos brinda los
-  siguientes vectores:
+  xy$. El spread simpléctico consiste de los subespacios de
+  $V \oplus V$ dados por $0 \oplus V$, $\{(u, mu) : u \in
+  \GF(2^2)\}$ para todo $m \in \GF(2^2)$.  Los rayos del
+  plano afín son las rectas
+  \[
+    x = 0,
+    \quad
+    y = mx, \quad m \in \GF(2^2),
+  \] 
+  y se muestran en la figura (\ref{fig:2-2-desargues-plane}).
+  \begin{figure}[ht]
+    \centering
+    \scalebox{0.8}{
+      \input{imgs/affine-desargues-2-2-Wootters.pgf}
+    }
+    \caption{Rayos del plano afín correspondiente al espacio
+    de fase discreto de dos qubits. Vemos que coincide con
+    el los rayos de Wootters en el ejemplo
+    (\ref{fig:wootters-affine-2-qubits}) del capítulo
+    anterior).}
+    \label{fig:2-2-desargues-plane}
+  \end{figure}
+
+  Luego, utilizando el teorema \ref{thm:kanat_even} para la
+  construcción de eigenvectores en característica par,
+  obtenemos los siguientes vectores:
   \[
     \ket{b_{m,v}}
     = \frac{1}{\sqrt{d}}
@@ -3212,6 +3786,7 @@
     extensión de grado $n > 3$. El espacio de Hilbert
     correspondiente es $\H = \left(\C^{2}\right)^{\otimes 5}
     \cong \C^{32}$.
+    \label{ex:qs-2-5}
   \end{example}
   El espacio de fase discreto será una malla de $32 \times
   32$ pares cuyos componentes son elementos del campo finito
@@ -3256,8 +3831,12 @@
   spread Desarguesiano $\Sigma$.
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{example-image-a}
-    \caption{$V = \GF(2^{5})$, spread Desarguesiano.}
+    \input{imgs/affine-desargues-2-5.pgf}
+    %\includegraphics[width=\textwidth]{example-image-a}
+    \caption{$V = \GF(2^{5})$, spread Desarguesiano. En éste
+    caso los ejes están etiquetados por el orden
+    predeterminado de los elementos del campo de Galois en
+    \texttt{SageMath}.}
     \label{fig:2-5-desargues-plane}
   \end{figure}
   Utilizamos el teorem \ref{thm:kanat_even} para
@@ -3276,13 +3855,21 @@
     x \circ m
     = m^2 x + m \tr(x) + \tr(mx).
   \end{equation} 
-  El spread simpléctico se puede observar en la figura ().
-  Notemos que los rayos formados son distintos a los del
-  spread Desarguesiano.
+  El spread simpléctico se puede observar en la figura
+  (\ref{fig:2-5-kantor-plane}).  Notemos que el rayo
+  resaltado en la figura (\ref{fig:2-5-desargues-plane}) del
+  spread Desarguesiano correspondiente a un $m \in
+  \GF(2^{5})$ distinto a 0 y 1, tiene una forma distinta en
+  el spread Kantor.
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{example-image-a}
-    \caption{$V = \GF(2^{5})$, spread de Kantor.}
+    \input{imgs/affine-kantor-2-5.pgf}
+    %\includegraphics[width=\textwidth]{example-image-a}
+    \caption{$V = \GF(2^{5})$, spread de Kantor. Notemos que
+    el rayo horizontal, el vertical y el diagonal son los
+    mismos en ambos spreads. Pero a parte de esos tres, el
+    resto de los rayos tiene una forma distinta al
+    Desarguesiano.}
     \label{fig:2-5-kantor-plane}
   \end{figure}
   
@@ -3329,6 +3916,7 @@
     Consideremos un sistema cuántico compuesto de tres
     qutrits. El espacio de Hilbert será $\H = \C^{3} \otimes
     \C^{3} \otimes \C^{3} \cong \C^{27}$.   
+    \label{ex:qs-3-3}
   \end{example}
   El espacio de fase discreto correspondiente será una malla
   de $27 \times 27$ pares de elementos de la extensión de
@@ -3346,7 +3934,8 @@
   \circ y = xy$.
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{example-image-a}
+    \input{imgs/affine-desargues-3-3.pgf}
+    %\includegraphics[width=\textwidth]{example-image-a}
     \caption{$V = \GF(3^{3})$, spread Desarguesiano.}
     \label{fig:3-3-desarguesian-plane}
   \end{figure}
@@ -3388,24 +3977,89 @@
   \[
     x = 0,
     \quad
-    y = mx^{9} + m^3 x^3.
+    y = mx^{9} + m^3 x^3,
   \] 
+  y ésto se muestra en la figura
+  (\ref{fig:3-3-albert-plane}), donde de nuevo se puede
+  observar que el rayo horizontal y vertical son los mismos,
+  pero ahora el rayo correspondiente a $m = 1$, el `rayo
+  diagonal', es distinto.
+  \begin{figure}[ht]
+    \centering
+    \input{imgs/affine-albert-3-3.pgf}
+    %\includegraphics[width=\textwidth]{example-image-a}
+    \caption{$V = \GF(3^{3})$, spread del presemicampo
+    torcido de Albert.}
+    \label{fig:3-3-albert-plane}
+  \end{figure}
 
+  \newpage
   \section{Definición no estándar de una función de Wigner
   discreta}
 
   Vamos a recapitular la sección anterior. Dado una un campo
-  finito podemos formar un presemicampo mediante una nueva
-  operación $\circ$. . . .
+  finito $F$ siempre podemos formar un presemicampo mediante
+  una nueva operación $\circ$. Todo presemicampo genera un
+  spread $\Sigma$ del espacio $V \oplus V$ donde $V = F$, que
+  consiste de los subespacios
+  \[
+    0 \oplus V,
+    \quad
+    \{(w, w \circ m) : w \in V\}, 
+    \quad m \in F.
+  \] 
+  En ocasiones, el spread formado por la operación del
+  semicampo será totalmente istrópico respecto a una forma
+  bilineal alternante. En particular nos interesa los
+  presemicampos que generan spreads que son simplécticos
+  respecto a la forma definida en (\ref{eqn:bilinear_form}).
+  Los elementos de un subespacio del spread simpléctico por
+  definición anulan a la forma bilineal alternante, ésto a
+  su vez es una condición necesaria para que dos operadores
+  de desplazamiento conmuten, si son los operadores
+  correspondientes a puntos de las lineas del plano afín.
+  Dado que los operadores de desplazamiento son
+  diagonalizables, dos operadores conmutativos nos brindan
+  una base de eigenvectores del espacio de Hilbert
+  simultánea. Además como el spread simpléctico es maximal,
+  obtenemos una partición de los operadores de
+  desplazamiento en subconjuntos de operadores conmutativos,
+  y obtenemos un conjunto maximal de bases mutuamente
+  insesgadas gracias a las construcciones de la sección
+  anterior. Utilizando nuestra notación, ésto significa que
+  los vectores $\ket{b_{m,v}}$ para todo $v \in F$
+  corresponden al rayo $\{(u, u \circ m) : u \in F\}$ (y sus
+  lineas paralelas), y son eigenvectores de los operadores
+  $D(u, u \circ m)$ para todo $u \in F$. Cada familia de
+  eigenvectores correspondiente a los elementos del spread
+  simpléctico es invariante bajo el grupo de Pauli [KANTOR],
+  ésto significa que al operar un eigenestado por un
+  operador de desplazamiento, obtendremos algún otro
+  eigenestado correspondiente a la estría (o al mismo
+  eigenestado si el operador corresponde a las traslaciones
+  que dejan invariante a las lineas de la estría). Por lo
+  tanto, despues de asignar un eigenestado al rayo, el resto
+  de las asignaciones de eigenestados quedan determinados
+  por desplazamientos.
 
-  Con la construcción explícita de las bases mutuamente
-  insesgadas, podemos definir una red cuántica de la misma
-  manera en que se hizo en el capítulo anterior. 
+  Ésto es precisamente lo que Wootters formó en su
+  construcción de la función de Wigner discreta. Sus rectas
+  corresponden a las lineas del plano afín, cada punto de la
+  linea deja invariante a la linea bajo traslaciones en el
+  espacio de fase discreto, por lo tanto el estado cuántico
+  asignado a la recta debe corresponder a un eigenvector de
+  los operadores de desplazamiento con puntos en en esa
+  linea. Así utilizando la misma metodología de
+  Wootters vamos a construir los operadores puntuales de la
+  misma manera, donde las rectas de Wootters son
+  reemplazadas por las lineas del spread simpléctico en
+  cuestión. El caso del spread Desarguesiano coincide con
+  las rectas de Wootters.
 
   \begin{definition}
     Sea $\rho$ un operador de densidad. La función de Wigner
     no estándar, denotada como $W_\rho^{\mathcal K}$ en
-    referencia al uso de las MUBs de Kantor, se define como
+    referencia a Kantor, se define como
     \begin{equation}
       W_\rho^{\mathcal K}
       = \Tr\left( \rho A(\alpha) \right),
@@ -3413,21 +4067,142 @@
     donde los operadores puntuales son
     \begin{equation}
       A(\alpha)
-      = \sum_{\alpha \ni \lambda}^{} Q(\lambda) - I.
+      = \sum_{\alpha \ni \lambda}^{} Q(\lambda) - I,
     \end{equation}
+    donde las $\lambda$ son las lineas del spread que
+    contienen al punto $\alpha$.
   \end{definition}
 
   Elegimos la convención de tomar el primer elemento de las
-  bases generadas de manera algorítmica por los teoremas ()
-  y () respectivamente como el estado correspondiente al
-  rayo. Los estados posteriores de cada estría quedan
-  determinados por los operadores de traslación
-  correspondientes.
+  bases generadas de manera algorítmica por los teoremas
+  \ref{thm:kanat_presemi_mubs} y \ref{thm:kanat_even}
+  respectivamente como el estado correspondiente al rayo.
+  Los estados posteriores de cada estría quedan determinados
+  por los operadores de desplazamiento correspondientes.
 
-  Retomamos los ejemplos () y () para los cuales hemos
-  construidos dos conjuntos de MUBs no equivalentes. El
-  primero conjunto coincide con las construcciones de
-  Wootters.
+  \subsection{Ejemplos comparativos} 
+
+  Retomamos los ejemplos (\ref{ex:qs-2-5}) y
+  (\ref{ex:qs-3-3}) para los cuales hemos construidos dos
+  conjuntos de MUBs no equivalentes. El primer conjunto de
+  MUBs coincide con las construcciones de Wootters en ambos
+  casos.
+
+  \begin{example}
+    El primer ejemplo consiste de un sistema cuántico de
+    cinco qubits. Primero calculamos la función de Wigner
+    estándar de un estado cuántico que corresponde a un
+    elemento de un conjunto de las MUBs calculadas a partir
+    del spread Desarguesiano. Luego del mismo estado
+    calculamos la función de Wigner no-estándar. El segundo
+    estado corresponderá a un eigenestado de las MUBs
+    alternativas, de nuevo construímos la función de Wigner
+    estándar y no estándar. Finalmente construímos un estado
+    que es combinación lineal de estados del primer conjunto
+    de MUBs y comparamos las funciones de Wigner.
+  \end{example}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/wigner-standard-2-5-s1.png}
+    \caption{Función de Wigner estándar para un estado del
+    conjunto de MUBs estándar}
+    \label{fig:wigner-standard-2-5-s1}
+  \end{figure}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/wigner-standard-2-5-s2.png}
+    \caption{Función de Wigner estándar para una combinación
+    lineal de estados del conjunto de MUBs estándar.}
+    \label{fig:wigner-standard-2-5-s2}
+  \end{figure}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/wigner-standard-2-5-s3.png}
+    \caption{Función de Wigner estándar para un estado del
+    conjunto de MUBs no-estándar (spread de Kantor).}
+    \label{fig:wigner-standard-2-5-s3}
+  \end{figure}
+
+  Observemos en la figura (\ref{fig:wigner-standard-2-5-s1})
+  que sumando la función de Wigner de un eigenestado de las
+  MUBs estándar sobre la recta resaltada, obtenemos el valor
+  de $1$. Ésto corresponde con que el sistema se encuentra
+  en dicho eigenestado, es decir, no hay incertidumbre. Algo
+  similar sucede al graficar la función de Wigner de un
+  estado que es cominbación lineal equitativa de dos
+  elementos de la base estándar. En la figura
+  (\ref{fig:wigner-standard-2-5-s2}) vemos dos rectas con
+  valores de Wigner más altos que el promedio, éstas rectas
+  coinciden precisamente con los elementos de la base
+  estándar que se utilizaron para forma el estado en
+  cuestión. Sumando sobre cualquiera de las franjas se
+  obtiene el valor de $\frac{1}{2}$, ésto tiene sentido pues
+  la probabilidad de que el sistema cuántico se encuentre en
+  un de los dos es equitativo por definición de dicho
+  estado.  Aunque es dificil notar en la figura, sumando
+  sobre cualquier otra recta vertical nos da $0$, ya que la
+  probabilidad de que el sistema se encuentre en otro estado
+  de la base estándar es nulo.
+
+  Ahora, si graficamos un elemento de alguna base del
+  conjunto de MUBs no estándar, como se muestra en la figura
+  (\ref{fig:wigner-standard-2-5-s2}), la función de Wigner
+  estándar produce una figura sin mucho orden.
+  Intuitivamente ésto es de esperarse pues las mediciones se
+  hacen con bases que no son unitariamente equivalentes a
+  las que se usaron para definir la función de Wigner. La
+  siguientes gráficas muestran funciones de Wigner
+  no-estándar. La primera que se muestra en la figura
+  (\ref{fig:wigner-kantor-2-5-s3}) corresponde un
+  eigenestado de las MUBs de Kantor. La función de Wigner
+  no-estándar mantiene las mismas propiedades que la versión
+  estándar en éste caso, en particular la suma de la función
+  de Wigner sobre la recta a la cual se le asignó dicho
+  estado da igual a $1$. 
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/wigner-kantor-2-5-s3.png}
+    \caption{Función de Wigner no-estándar de un eigenestado
+    de las MUBs de Kantor.}
+    \label{fig:wigner-kantor-2-5-s3}
+  \end{figure}
+
+  Por otro lado, la figura () nos muestra la función de
+  Wigner no-estándar del estado
+  $\ket{\psi_3}$, el que es una combinación equitativa de la
+  base estándar. Notemos que se parece mucho a la figura de
+  la construcción estándar, pero no son iguales. La suma
+  sobre los eigenestados nos produce las probabilidades
+  correctas, pero la función de Wigner no es identica a la
+  estándar.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/wigner-kantor-2-5-s2.png}
+    \caption{Función de Wigner no estándar del estado $\ket{\psi_3}$.}
+    \label{fig:wigner-kantor-2-5-s2}
+  \end{figure}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/wigner-kantor-2-5-s2-heat.png}
+    \caption{Función de Wigner no estándar del estado
+    $\ket{\psi_3}$ representado por un \textit{mapa de
+    calor}.}
+    \label{fig:wigner-kantor-2-5-s2-heat}
+  \end{figure}
+
+  \begin{example}
+    Consideremos el ejemplo de tres qutrits de la sección
+    anterior. Para éste sistema cuántico construímos dos
+    conjuntos maximales de MUBs no unitariamente
+    equivalentes por lo tanto podemos comparar sus funciones
+    de Wigner.
+  \end{example}
+  
 
   \newpage
   \appendix

@@ -3,11 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import galois
 
-d = 3
-n = 1
-# GF = galois.GF(d**n, irreducible_poly='x^3 + x^2 + 1')
+d = 2
+n = 2
 GF = galois.GF(d**n)
-GF.repr('int')
+# GF.repr('int')
 
 # defaults to integer ordering, lets change to power order
 # is this important?
