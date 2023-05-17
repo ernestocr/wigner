@@ -1512,19 +1512,20 @@
 
   \chapter{Funciones de Wigner en el Espacio Fase Discreto}
 
-  Resumiendo el capítulo anterior, podemos representar a un
-  estado cuántico por medio de la transformación de Wigner.
-  A pesar de no ser una densidad probabilística verdadera
-  sobre el espacio de fase, comparte varias propiedades, en
-  particular nos permite calcular los valores esperados de
-  observables cuánticos y nos permite recuperar las
-  densidades probabilísticas de la posición y del momentum
-  integrando la función de Wigner sobre el eje de momentum o
-  de posición respectivamente. Ésta última característica
-  solamente es un caso partícular de una propiedad más
-  general de la función de Wigner, la cual es muy útil para
-  la tomografía cuántica y que de hecho la vuelva única
-  entre las cuasi-distribuciones alternativas.
+  Resumiendo el capítulo anterior, sabemos que podemos
+  representar a un estado cuántico por medio de la
+  transformación de Wigner.  A pesar de no ser una densidad
+  probabilística verdadera sobre el espacio de fase,
+  comparte varias propiedades, en particular nos permite
+  calcular los valores esperados de observables cuánticos y
+  nos permite recuperar las densidades probabilísticas de la
+  posición y del momentum integrando la función de Wigner
+  sobre el eje de momentum o de posición respectivamente.
+  Ésta última característica solamente es un caso partícular
+  de una propiedad más general de la función de Wigner, la
+  cual es muy útil para la tomografía cuántica y que de
+  hecho la vuelva única entre las cuasi-distribuciones
+  alternativas.
 
   Durante las últimas decadas han existido múltiples
   intentos de generalizar la función de Wigner a sistemas
@@ -1533,7 +1534,7 @@
   fase discreto. Para un sistema de dimensión $d$, la
   mayoría de construcciones emplean una malla de tamaño $d
   \times d$ e intentan definir una función de Wigner
-  evaluada en cada par $\alpha$ de la malla. Como menciona
+  evaluada en cada punto $\alpha$ de la malla. Como menciona
   Gross [THESIS], parece que existen dos caminos claros en
   la construcción de la versión discreta: un camino intenta
   definir la función de Wigner discreta de una manera
@@ -1541,7 +1542,8 @@
   espacio de fase discreto con las variables de posición y
   de momentum, construyendo los operadores de desplazamiento
   y luego los puntuales, para luego definir la función
-  utilizando la expresión (). La ventaja de éste camino es
+  por medio del valor esperado del operador puntual en el
+  estado cuántico. La ventaja de éste camino es
   que la definición discreta asemeja lo más posible al caso
   continuo y sus a interpretaciones.  Ésta versión se puede
   encontrar en los trabajos de Klimov, Sanches y Soto
@@ -1656,17 +1658,17 @@
   puede definir un espacio de fase $\Z_p \times \Z_p$ con
   las propiedades deseadas.  Además de los campos $\Z_p$,
   también podemos obtener campos de orden $p^{n}$ donde $p$
-  es primo, por medio de la extension de Galois $\GF(p,n)$.
-  La restricción a espacios de Hilbert dimensión $p^{n}$ sí
-  es limitante, pero Wootters hacen la observación que su
-  método es válido para el importante caso de un sistema de
-  $n$ qubits. Por lo tanto su metodología es directamente
-  aplicable a los modelos de la computación e información
-  cuántica.
+  es primo, por medio de la extension de Galois
+  $\GF\left(p^{n}\right)$.  La restricción a espacios de
+  Hilbert dimensión $p^{n}$ sí es limitante, pero Wootters
+  hace la observación que su método es válido para el
+  importante caso de un sistema de $n$ qubits. Por lo tanto
+  su metodología es directamente aplicable a los modelos de
+  la computación e información cuántica.
 
   El método consiste en darle una estructura cuántica al
-  espacio de fase $\GF(p,n) \times \GF(p,n)$ asignando un
-  estado cuántico a cada linea del espacio de fase discreto.
+  espacio de fase discreto $\F \oplus \F$
+  asignando un estado cuántico a cada linea del espacio.
   Ésta asignación debe satisfacer varias propiedades y
   Wootters llaman aquellas asignaciones adecuadas,
   \textit{`redes cuánticas'}. Cada red cuántica define una
@@ -1679,8 +1681,8 @@
   conjuntos de rectas paralelas.
 
   Para comenzar, recordemos las propiedades de la función de
-  Wigner $W_\rho$ del caso continuo que se desean
-  perservar en el caso discreto:
+  Wigner del caso continuo que se desean perservar en el
+  caso discreto:
   \begin{proposition}
     Sea $\rho$ un operador de densidad y $W_\rho$ su función
     de Wigner.
@@ -1690,8 +1692,8 @@
         ortonormal respecto al producto interno de
         Hilbert-Schmidt para el espacio de operadores sobre
         $\H$.
-      \item $W_\rho$ es real y la suma de sus componentes
-        debe ser igual a $1$.
+      \item $W_\rho$ es real y la integral sobre todo el
+        espacio de fase es igual a $1$.
       \item La integral de $W_\rho$ sobre una
         recta $ax+bp = c$ nos brinda la probabilidad de
         medir el valor $c$ del operador $a \hat X + b \hat P$.
@@ -1708,57 +1710,64 @@
   operador $a\hat X + b\hat P$ correspondiente al eigenvalor
   $c$ [CITE]. Ésta es parte fundamental para la definición
   de la función discreta, mientras que la propiedad de ser
-  covariante bajo traslaciones es la que define a los
-  operadores de desplazamiento discretos en la metodología
-  de Wootters. 
+  covariante bajo traslaciones surge a partir de las
+  propiedades de los operadores de desplazamiento. 
     
   \subsection{La geometría del espacio de fase discreto}
 
   El espacio de fase discreto será un espacio vectorial de
-  dos dimensiones sobre un campo finito, donde los puntos
-  serán etiquetados con los elementos $(x,p) \in
-  \mathbb F_{d} \times \mathbb F_{d} = \mathbb F_d^{2}$. Por
-  convención, consideramos el punto $(0,0)$ como el origen
-  de nuestra malla de $d \times d$ elementos, ubicado en la
-  parte inferior izquierda. La construcción de Wootters y
-  Gibbons permite identificar el horizontal con los
-  eigenvectores de una clase de operadores y el eje vertical
-  con otra clase de operadores, ésto a su vez nos permite
-  darle cierta interpretación física, aunque ésto no es
-  necesario. Por ejemplo si consideramos un sistema cuántico
-  de dos partículas con spin-$\frac{1}{2}$, entonces el
-  espacio de Hilbert correspondiente es $\H = \C^{2} \otimes
-  \C^{2}$, y el espacio de fase discreto sería una malla de
-  $4 \times 4$ elementos. Los elementos de la malla serán
-  indexados por los elementos de un campo finito de cuatro
-  elementos:
+  dos dimensiones sobre un campo finito $\F$, donde los
+  puntos serán etiquetados con los elementos $(x,p) \in \F
+  \oplus \F$. Por convención, consideramos el punto $(0,0)$
+  como el origen de nuestra malla de $d \times d$ elementos,
+  ubicado en la parte inferior izquierda. La construcción de
+  Wootters y Gibbons permite identificar el eje horizontal
+  con los eigenvectores de una clase de operadores y el eje
+  vertical con otra clase de operadores, ésto a su vez nos
+  permite darle cierta interpretación física, aunque la
+  asignación no es naturalmente única. Por ejemplo si
+  consideramos un sistema cuántico de dos partículas con
+  spin-$\frac{1}{2}$, entonces el espacio de Hilbert
+  correspondiente es $\H = \C^{2} \otimes \C^{2}$, y el
+  espacio de fase discreto sería una malla de $4 \times 4$
+  elementos. Salvo isomorfismos, el campo finito de cuatro
+  elementos es único y lo identificamos con la extensión de
+  Galois $\GF\left(2^2\right)$. Los elementos de la malla
+  serán indexados por los elementos de éste campo:
   \[
-    \mathbb F_4
-    = \GF(2,2)
-    = \{0,1,\omega,\omega+1\}.
+    \F
+    = \GF\left(2^2\right)
+    = \{0,1,\alpha,\alpha+1\}.
   \]
   En caso de un sistema que no es compuesto, por ejemplo una
   partícula de tres niveles, $\H = \C^3$, el espacio de fase
   discreto es una malla de $3 \times 3$ en donde los
-  elementos de la mallan son indexados simplemente con los
-  enteros $\Z_3 = \{0,1,2\}$. La figura
+  elementos de la malla son indexados simplemente con los
+  enteros módulo 3, $\F = \Z_3 = \{0,1,2\}$. La figura
   (\ref{fig:GF22-GF31}) muestra el espacio de fase de éstos
   dos ejemplos, y se muestra la linea recta parametrizada
-  por $\lambda = \{(s,s) : s \in \mathbb F_d\}$.
+  como 
+  \[
+    \lambda = \{(s,s) : s \in \F\},
+  \]
+  la cual corresponde con la noción de un rayo en el plano
+  Euclideano.
   \begin{figure}
     \centering
-    \subfloat[\centering $\mathbb F_4 = \GF(2,2)$]{{
-        \includegraphics[width=0.4\linewidth]{imgs/GF22.png}
+    \subfloat[\centering $\F \times \F$ donde $\F =
+    \GF(2,2)$.]{{
+        \includegraphics[width=0.415\linewidth]{imgs/GF22.png}
     }}
     \quad
-    \subfloat[\centering $\mathbb F_3 = \Z_3$]{{
+    \subfloat[\centering $\F \times \F$ donde $\F =
+    \Z_3$.]{{
         \includegraphics[width=0.38\linewidth]{imgs/GF31.png}
     }}
     \caption{Dos espacios de fase discretos para sistemas de
     distinta dimensión, señalando el rayo diagonal.}
     \label{fig:GF22-GF31}
   \end{figure}
-  Como se mencionó antes, una \textit{recta} en el espacio
+  De manera general, una \textit{recta} en el espacio
   de fase es el conjunto de puntos que satisfacen la
   ecuación $ax + bp = c$ donde $a,b$ y $c$ son elementos del
   campo finito. Dos rectas paralelas son iguales si solo
@@ -1767,61 +1776,62 @@
   pertenece a la recta existe una única recta paralela a
   $\lambda$ que contiene a $\alpha$.  Similarmente, dos
   rectas que no son paralelas solo se intersectan en un solo
-  punto. Existen $N(N+1)$ rectas en el espacio de fase y el
-  conjunto de éstas rectas se particiona en $N+1$ conjuntos
-  de $N$ rectas paralelas. A cada conjunto de $N$ rectas
-  paralelas, se le conoce como un estría. 
+  punto. Existen $d(d+1)$ rectas en el espacio de fase y el
+  conjunto de éstas rectas se particiona en $d+1$ conjuntos
+  de $d$ rectas paralelas. A cada conjunto de $d$ rectas
+  paralelas, se le conoce como un \textit{estría}. 
 
-  Para ejemplifcar la estrías completas de un espacio de
-  fase discreto, consideremos un campo finito de ocho
-  elementos. En éste caso el espacio de fase es el espacio
-  vectorial $\mathbb F_8^2$ donde $\mathbb F_8$ es una
-  extensión de Galois del campo primo $\Z_2$ de grado $n =
-  3$, i.e., $\mathbb F_8 = GF(2,3)$.  De acuerdo al apéndice
-  (), para construir a $\mathbb F_8$ solo debemos elegir un
+  Para ejemplifcar un conjunto completo de estrías de un
+  espacio de fase discreto, consideremos un campo finito de
+  ocho elementos. En éste caso el espacio de fase es el
+  espacio vectorial $\F \oplus \F$ donde $\F =
+  \GF\left(2^3\right)$ es una extensión de Galois del campo
+  primo $\Z_2$ de grado $n = 3$. De acuerdo al apéndice
+  (REF), para construir a $\F$ solo debemos elegir un
   polinomio irreducible $f(x)$ con coeficientes en $\Z_2$ de
   grado $n = 3$ y adjuntarle una raíz $\alpha$ del polinomio
   al campo primo. Así
   \[
-    \mathbb F_8
+    \F
     = \mathbb Z_2(\omega)
     \cong \mathbb Z_2[x] / \langle f(x) \rangle.
   \] 
   Sea $f(x) = x^3+x^2+1$ tal polinomio irreducible y
-  $\omega$ una raíz primitiva. Entonces el campo de Galois
-  $\mathbb F_8$ está dado por el conjunto 
+  $\alpha$ una raíz primitiva. Entonces el campo de Galois
+  $\F$ está dado por el conjunto 
   \[
-    \{0,1,\omega,\omega^2,\omega^2+1,\omega^2+\omega+1,
-    \omega+1,\omega^2+\omega\},
+    \F = \{
+      0, 1, \alpha, \alpha^2, \alpha+1, \alpha^2+\alpha,
+      \alpha^2 + \alpha + 1, \alpha^2 + 1
+    \},
   \] 
   con sus correspondientes operaciones de suma y
   mutliplicación. Las rectas verticales estarán dadas por
-  los conjuntos $\{(q,s) : s \in \mathbb F_8\}$ donde
-  fijamos el elemento $q$ para cada recta vertical. El resto
-  de las rectas pueden ser parametrizadas como $\{(q,mq+c) :
-  m, c \in \mathbb F_8\}$. La figura (\ref{fig:GF-2-3})
-  muestra todas las estrías de éste espacio de fase.
+  los conjuntos $\{(x,y) : y \in F\}$ donde fijamos el
+  elemento $x$ para cada recta vertical. El resto de las
+  rectas pueden ser parametrizadas como $\{(x,mx+c) : m, c
+  \in F\}$. La figura (\ref{fig:GF-2-3}) muestra todas las
+  estrías de éste espacio de fase.
 
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\textwidth]{imgs/GF23.png}
-    \caption{Las nueves estrías del espacio de fase $\mathbb
-    F_8^2 = \GF(2,3) \times \GF(2,3)$.}
+    \caption{Las nueve estrías del espacio de fase sobre el
+      campo $\F = \GF\left(2^3\right)$.}
     \label{fig:GF-2-3}
   \end{figure}
 
   Otro aspecto importante inicial en la metodología de
-  Wootters es la noción de las traslaciones en el
-  espacio de fase. En el caso discreto no existen
-  traslaciones infinitesimales, pero podemos definir una
-  traslación como la suma de un vector a los puntos del
-  espacio de fase. Si $\alpha \in \mathbb F_d^2$, entonces
-  la traslación $\mathcal T_\alpha$ se define simplemente
-  como
+  Wootters es la noción de las traslaciones en el espacio de
+  fase. En el caso discreto no existen traslaciones
+  infinitesimales, pero podemos definir una traslación como
+  la suma de un vector a los puntos del espacio de fase. Si
+  $\alpha \in \F^2$, entonces la traslación $\mathcal
+  T(\alpha)$ se define simplemente como
   \begin{equation}
-    \mathcal T_\alpha \beta = \alpha + \beta,
+    \mathcal T(\alpha) \beta = \alpha + \beta,
     \quad
-    \text{para todo } \beta \in \mathbb F_d^2.
+    \text{para todo } \beta \in \mathbb F^2.
   \end{equation} 
 
   \subsection{Asignación de la estructura cuántica}
@@ -1848,7 +1858,7 @@
   cuántica es la propiedad de ser covariante bajo
   traslaciones, para ésto, debemos definir una versión
   discreta de los operadores de Heisenberg-Weyl $ D(x,p)$
-  para cada $(x,p) \in \mathbb F_d^2$. De ésta
+  para cada $(x,p) \in \mathbb F^2$. De ésta
   manera a cada traslación en el espacio de fase discreto le
   corresponderá un operador unitario en el espacio de
   Hilbert. Éstos operadores deben tener una regla de
@@ -1860,14 +1870,15 @@
   cuánticos individuales.
 
   A la traslación horizontal del espacio de fase $\mathcal
-  T_{(1,0)}$ y la traslación vertical $\mathcal T_{(0,1)}$
-  les asociamos los operadores unitarios $X$ y $Z$ definidos
-  de la siguiente manera:
+  T(1,0)$ y la traslación vertical $\mathcal T(0,1)$ les
+  asociamos los operadores unitarios $X$ y $Z$ definidos de
+  la siguiente manera:
   \begin{definition}
     Sea $\{\ket k : k \in \Z_p\}$ una base ortonormal del
     espacio de Hilbert $\mathcal H$ correspondiente a un
-    subsistema, cuyos vectores se etiquetan con los elementos
-    del campo primo. Definimos los siguientes operadores:
+    subsistema (generalmente usaremos la base estándar).
+    Etiquetamos a los vectores con los elementos del campo
+    primo. Entonces definimos los operadores $X$ y $Z$ como
     \begin{align}
       X \ket k
       &= \ket{k + 1}, \\
@@ -1917,19 +1928,25 @@
   Con las definiciones de los operadores generalizados de
   Pauli, pasamos a la cuestión de como definir operadores de
   desplazamiento correspondientes a traslaciones $\mathcal
-  T_{(a,b)}$ arbitrarias del espacio de fase. El camino que
-  elegin Wootters es construir los operadores a
-  partir de productos tensoriales de los elementos del grupo
-  de Pauli. De ésta manera se puede lograr actuar sobre los
-  subsistemas de manera individual. La asociación del punto
-  $(a,b) \in \mathbb F_d^2$ con el operador correspondiente
-  del espacio $\H^{\otimes n}$ depende de la expansión de
-  $a$ y de $b$ en bases de la extensión de Galois.
-  Recordemos que la extensión de Galois $\GF(p,n)$ se puede
-  ver como un espacio vectorial de dimensión $n$ sobre el
-  campo primo $\Z_p$. Entonces eligiendo una base
-  $\{b_1,\ldots,b_n\} \subset \GF(p,n)$ del campo podemos
-  expresar a todo elemento $a \in \GF(p,n)$ como la
+  T(a,b)$ arbitrarias del espacio de fase. Lo más apropiado
+  es definir los operadores de Pauli generalizados a partir
+  de su acción, pero etiquetando a los elementos de la base
+  del sistema compuesto por los elementos de la extensión de
+  Galois. Para estudiar la construcción de Wootters y
+  Gibbons, por el momento elegimos construir los operadores a
+  partir de productos tensoriales de los operadores $X$ y
+  $Z$ previamente definidos. De ésta manera se puede lograr
+  actuar sobre los subsistemas de manera explícita y la
+  noción de potencias de los operadores $X$ y $Z$ está bien
+  definida. La asociación del punto $(a,b) \in \F^2$ con el
+  operador correspondiente del espacio $\H^{\otimes n}$
+  depende de la expansión de $a$ y de $b$ en bases de la
+  extensión de Galois.  Recordemos que la extensión de
+  Galois $\GF\left(p^{n}\right)$ se puede ver como un
+  espacio vectorial de dimensión $n$ sobre el campo primo
+  $\Z_p$. Eligiendo una base de la extensión
+  $\{b_1,\ldots,b_n\} \subset \GF\left(p^{n}\right)$ del
+  campo podemos expresar a todo elemento $a \in \F$ como la
   combinación lineal:
   \[
     a = \sum_{i=1}^{n} c_i b_i,
@@ -1937,8 +1954,8 @@
     \text{donde } c_i \in \Z_p.
   \] 
   De igual manera, debemos elegir una base dual a la base
-  del campo finito. Recordemos del apéndice () que una base
-  dual es tal que
+  del campo finito. Recordemos del apéndice (REF) que una
+  base dual es tal que
   \[
     \tr(b_i \tilde b_j) = \delta_{ij},
   \] 
@@ -1947,7 +1964,7 @@
   hacer los cálculos. Dada la base y la base dual, Wootters
   y Gibbons definen a los operadores de desplazamiento
   correspondientes a traslaciones arbitrarias $\mathcal
-  T_{(a,b)}$, como productos tensoriales de monomios de los
+  T(a,b)$, como productos tensoriales de monomios de los
   operadores unitarios $X$ y $Z$, donde las potencias están
   dadas por los coeficientes de la expansión de $a$ en la
   base y de $b$ en la base dual:
@@ -1984,8 +2001,8 @@
   \] 
   Vourdas [CITE] muestra que se puede etiquetar la base
   computacional con elementos de la extensión de Galois
-  $\GF(p,n)$ y utilizando una base del campo se pueden
-  mapear los elementos de manera natural:
+  $\GF\left(p^{n}\right)$ y utilizando una base del campo se
+  pueden mapear los elementos de manera natural:
   \[
     \ket \alpha
     \mapsto \ket{\alpha_1} \otimes \cdots \otimes
@@ -2037,44 +2054,44 @@
   función de Wigner dependerá de la red cuántica $Q$,
   conviene que el mapeo $Q$ sea covariante bajo traslaciones
   en el siguiente sentido: si trasladamos una linea por
-  $\mathcal T_{(a,b)}$ entonces el estado cuántico también
-  debe ser trasladado pero por los operadores de
-  desplazamiento correspondientes, i.e.,
+  $\mathcal T(a,b)$ entonces el estado cuántico también debe
+  ser trasladado pero por los operadores de desplazamiento
+  correspondientes, i.e.,
   \begin{equation}
     \label{eqn:trans_cov_net}
-    Q(\mathcal T_{(a,b)} \lambda)
+    Q(\mathcal T(a,b) \lambda)
     = D(a,b) Q(\lambda) D(a,b)^{*}.
   \end{equation}
   Ésto resulta ser un requisito muy fuerte, ya que implica
   que los operadores correspondientes a las traslaciones que
   dejan invariantes a las rectas de una estría deben
   conmutar. Para ver ésto, supongamos que $\lambda$ es un
-  rayo parametrizado por $(sx,sy)$ donde $s \in \mathbb
-  F_d$. Entonces ésta recta y todas las rectas paralelas a
-  ella son invariantes bajo las traslaciones $\mathcal
-  T_{(tx,ty)}$ donde $t \in \mathbb F_d$:
+  rayo parametrizado por $(sx,sy)$ donde $s \in \F$.
+  Entonces ésta recta y todas las rectas paralelas a ella
+  son invariantes bajo las traslaciones $\mathcal T(tx,ty)$
+  donde $t \in \F$:
   \begin{align*}
-    \mathcal T_{(tx,ty)} \lambda
+    \mathcal T(tx,ty) \lambda
     &= \{(tx,ty) + (sx,sy) : (sx,sy) \in \lambda \} \\
-    &= \{((t+s)x, (t+s)y) : t+s \in \mathbb F_d \}\\
+    &= \{((t+s)x, (t+s)y) : t+s \in \F \}\\
     &= \lambda.
   \end{align*} 
   La ecuación (\ref{eqn:trans_cov_net}) nos dice entonces
   que
   \[
     D(tx,ty) Q(\lambda) D(tx,ty)^{*}
-    = Q(\mathcal T_{(tx,ty)}\lambda)
+    = Q(\mathcal T(tx,ty)\lambda)
     = Q(\lambda),
   \] 
   lo cual solo sucede si los operadores de desplazamiento
-  conmutan con $Q(\lambda)$ para cada $t \in \mathbb F_d$.
+  conmutan con $Q(\lambda)$ para cada $t \in \F$.
   Ésto a su vez solo sucede si los operadores de
   desplazamiento $D(tx,ty)$ para $(x,y)$ fijo conmutan entre
   si. En otras palabras, para que la red cuántica sea
   covariante bajo traslaciones, los operadores de
   desplazamiento correspondientes a las traslaciones que
   dejan las rectas de una estría invariante deben conmutar
-  (PROOF).  Gibbons y Wootters prueban que su definición de
+  (PROOF). Gibbons y Wootters prueban que su definición de
   $D(a,b)$ satisface éste requisito si y solo si la base en
   que se expande el vector $b$ es un \textit{múltiplo} de la
   base dual. Ésto introduce otro punto de arbitrariedad que
@@ -2086,7 +2103,7 @@
   traza nula y son mutuamente ortogonales respecto al
   producto interno de Hilbert-Schmidt:
   \[
-    \Tr\left( \hat D(sx,sy) \hat D(tx,ty)^{*} \right) 
+    \Tr\left( D(sx,sy) D(tx,ty)^{*} \right) 
     = 0,
     \quad s \neq t.
   \] 
@@ -2102,8 +2119,8 @@
   \end{theorem}
   En éste caso una \textit{base conmutativa maximal} de
   matrices unitarias ortogonales se refiere a una partición
-  de matrices unitarias ortogonales en $N+1$ conjuntos donde
-  las $N-1$ matrices de cada clase conmutan entre si.
+  de matrices unitarias ortogonales en $d+1$ conjuntos donde
+  las $d-1$ matrices de cada clase conmutan entre si.
   Notemos que la agrupación de los operadores invariantes de
   cada estría satisface ésta condición, por lo que Wootters
   y Gibbons concluyen que los conjuntos de eigenvectores
@@ -2121,7 +2138,7 @@
   \textit{arbitraria}.  El resto de la asignación se
   determina por los mismos operadores de desplazamiento:
   \[
-    Q(\mathcal T_{(x,y)} \lambda)
+    Q(\mathcal T(x,y) \lambda)
     = D(x,y) Q(\lambda) D(x,y)^{*},
   \] 
   ya que se pueden obtener el resto de las rectas de la
@@ -2368,7 +2385,7 @@
     que se usarán para definir la red cuántico son los
     eigenvectores de familias de operadores de
     desplazamientos. En el siguiente capítulo veremos una
-    manera de constuirlos de manera explícita, por ahorita
+    manera de constuirlos de explícitamente, por ahorita
     solo mostramos la familia de bases mutuamente
     insesgadas.
     \begin{align}
@@ -2573,7 +2590,8 @@
     $4 \times 4$ puntos etiquetados por los elementos de la
     extensión de Galois
     \[
-      \GF(2^2)
+      \F
+      = \GF\left( 2^2 \right) 
       = \{0,1,\alpha,\alpha+1\}.
     \] 
     La figura (\ref{fig:wootters-affine-2-qubits}) muestra
@@ -2584,11 +2602,12 @@
     que importa es la asignación de estados a las lineas.
     \begin{figure}[ht]
       \centering
-      \scalebox{0.7}{
-        \input{imgs/affine-desargues-2-2-Wootters.pgf}
-      }
-      \caption{Rayos en el espacio de fase discreto
-      $\GF(2^2) \times \GF(2^2)$.}
+      %\scalebox{0.7}{
+      %  \input{imgs/affine-desargues-2-2-Wootters.pgf}
+      %}
+      \includegraphics[width=0.5\textwidth]{imgs/affine-desargues-2-2.png}
+      \caption{Rayos en el espacio de fase discreto sobre el
+        campo $\GF\left( 2^2 \right)$.}
       \label{fig:wootters-affine-2-qubits}
     \end{figure}
     Siguiendo a Wootters, podemos construir a los
@@ -2604,13 +2623,13 @@
       \ket 0
       = \begin{pmatrix} 1\\0\\0\\0 \end{pmatrix},
       \quad
-      \ket{\alpha}
+      \ket{1}
       = \begin{pmatrix} 0\\1\\0\\0 \end{pmatrix},
       \quad
-      \ket{\alpha + 1}
+      \ket{\alpha}
       = \begin{pmatrix} 0\\0\\1\\0 \end{pmatrix},
       \quad
-      \ket{1}
+      \ket{\alpha+1}
       = \begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}. 
     \] 
     Distintas bases del campo nos brinda distintas maneras
@@ -2619,17 +2638,18 @@
     un correspondencia adecuada entre la base etiquetada por
     elementos del campo de Galois y los productos
     tensoriales, debemos elegir una base adecuada.  En éste
-    caso la base está dada por $\{\alpha + 1, \alpha\}$. En
+    caso la base $\{\alpha, 1\}$ nos brinda una factorización
+    adecuada. En
     ésta base el elemento $\alpha + 1$ visto como un
     elemento del espacio vectorial sobre el campo $\Z_2$
-    tiene componentes $(1,0)$, así que 
+    tiene componentes $(1,1)$, así que 
     \[
       \ket{\alpha + 1}
-      = \ket{1} \otimes \ket{0}
+      = \ket{1} \otimes \ket{1}
       = \begin{pmatrix} 0\\1 \end{pmatrix} 
       \otimes
-      \begin{pmatrix} 1\\0 \end{pmatrix} 
-      = \begin{pmatrix} 0\\0\\1\\0 \end{pmatrix},
+      \begin{pmatrix} 0\\1 \end{pmatrix} 
+      = \begin{pmatrix} 0\\0\\0\\1 \end{pmatrix},
     \] 
     lo cual coincide con la etiquetación predeterminada.
     Ésto es importante para poder asignar estados físicos a
@@ -2639,7 +2659,7 @@
     Utilizando las construcciones del capítulo siguiente,
     podemos verificar que el siguiente conjunto es un
     conjunto maximal de bases mutuamente insesgadas del
-    espacio $\C^{4}$:
+    espacio de Hilbert $\H = \C^{4}$:
     \begin{align}
       \mathcal T(0,1) &\leftrightarrow \left\{
       \begin{pmatrix} 1\\0\\0\\0 \end{pmatrix},
@@ -3659,12 +3679,91 @@
   [CITE]. Con el teorema \ref{thm:kanat_even} podemos
   obtener una expresión explícita de las MUBs.
 
-  En la siguiente sección damos algunos ejemplos de
-  construcciones explícitas de MUBs, luego definiremos la
-  función de Wigner utilizando los núcleos definidos en el
-  capítulo anterior pero con las bases no equivalentes.
-  Finalmente compararemos las funciones de Wigner para los
-  ejemplos dados.
+  \section{Definición no estándar de una función de Wigner
+  discreta}
+
+  Vamos a recapitular la sección anterior. Dado una un campo
+  finito $F$ siempre podemos formar un presemicampo mediante
+  una nueva operación $\circ$. Todo presemicampo genera un
+  spread $\Sigma$ del espacio $V \oplus V$ donde $V = F$, que
+  consiste de los subespacios
+  \[
+    0 \oplus V,
+    \quad
+    \{(w, w \circ m) : w \in V\}, 
+    \quad m \in F.
+  \] 
+  En ocasiones, el spread formado por la operación del
+  semicampo será totalmente istrópico respecto a una forma
+  bilineal alternante. En particular nos interesa los
+  presemicampos que generan spreads que son simplécticos
+  respecto a la forma definida en (\ref{eqn:bilinear_form}).
+  Los elementos de un subespacio del spread simpléctico por
+  definición anulan a la forma bilineal alternante, ésto a
+  su vez es una condición necesaria para que dos operadores
+  de desplazamiento conmuten, si son los operadores
+  correspondientes a puntos de las lineas del plano afín.
+  Dado que los operadores de desplazamiento son
+  diagonalizables, dos operadores conmutativos nos brindan
+  una base de eigenvectores del espacio de Hilbert
+  simultánea. Además como el spread simpléctico es maximal,
+  obtenemos una partición de los operadores de
+  desplazamiento en subconjuntos de operadores conmutativos,
+  y obtenemos un conjunto maximal de bases mutuamente
+  insesgadas gracias a las construcciones de la sección
+  anterior. Utilizando nuestra notación, ésto significa que
+  los vectores $\ket{b_{m,v}}$ para todo $v \in F$
+  corresponden al rayo $\{(u, u \circ m) : u \in F\}$ (y sus
+  lineas paralelas), y son eigenvectores de los operadores
+  $D(u, u \circ m)$ para todo $u \in F$. Cada familia de
+  eigenvectores correspondiente a los elementos del spread
+  simpléctico es invariante bajo el grupo de Pauli [KANTOR],
+  ésto significa que al operar un eigenestado por un
+  operador de desplazamiento, obtendremos algún otro
+  eigenestado correspondiente a la estría (o al mismo
+  eigenestado si el operador corresponde a las traslaciones
+  que dejan invariante a las lineas de la estría). Por lo
+  tanto, despues de asignar un eigenestado al rayo, el resto
+  de las asignaciones de eigenestados quedan determinados
+  por desplazamientos.
+
+  Ésto es precisamente lo que Wootters formó en su
+  construcción de la función de Wigner discreta. Sus rectas
+  corresponden a las lineas del plano afín, cada punto de la
+  linea deja invariante a la linea bajo traslaciones en el
+  espacio de fase discreto, por lo tanto el estado cuántico
+  asignado a la recta debe corresponder a un eigenvector de
+  los operadores de desplazamiento con puntos en en esa
+  linea. Así utilizando la misma metodología de
+  Wootters vamos a construir los operadores puntuales de la
+  misma manera, donde las rectas de Wootters son
+  reemplazadas por las lineas del spread simpléctico en
+  cuestión. El caso del spread Desarguesiano coincide con
+  las rectas de Wootters.
+
+  \begin{definition}
+    Sea $\rho$ un operador de densidad. La función de Wigner
+    no estándar, denotada como $W_\rho^{\mathcal K}$ en
+    referencia a Kantor, se define como
+    \begin{equation}
+      W_\rho^{\mathcal K}
+      = \Tr\left( \rho A(\alpha) \right),
+    \end{equation}
+    donde los operadores puntuales son
+    \begin{equation}
+      A(\alpha)
+      = \sum_{\alpha \ni \lambda}^{} Q(\lambda) - I,
+    \end{equation}
+    donde las $\lambda$ son las lineas del spread que
+    contienen al punto $\alpha$.
+  \end{definition}
+
+  Elegimos la convención de tomar el primer elemento de las
+  bases generadas de manera algorítmica por los teoremas
+  \ref{thm:kanat_presemi_mubs} y \ref{thm:kanat_even}
+  respectivamente como el estado correspondiente al rayo.
+  Los estados posteriores de cada estría quedan determinados
+  por los operadores de desplazamiento correspondientes.
 
   \section{Ejemplos}
 
@@ -3993,93 +4092,6 @@
     \label{fig:3-3-albert-plane}
   \end{figure}
 
-  \newpage
-  \section{Definición no estándar de una función de Wigner
-  discreta}
-
-  Vamos a recapitular la sección anterior. Dado una un campo
-  finito $F$ siempre podemos formar un presemicampo mediante
-  una nueva operación $\circ$. Todo presemicampo genera un
-  spread $\Sigma$ del espacio $V \oplus V$ donde $V = F$, que
-  consiste de los subespacios
-  \[
-    0 \oplus V,
-    \quad
-    \{(w, w \circ m) : w \in V\}, 
-    \quad m \in F.
-  \] 
-  En ocasiones, el spread formado por la operación del
-  semicampo será totalmente istrópico respecto a una forma
-  bilineal alternante. En particular nos interesa los
-  presemicampos que generan spreads que son simplécticos
-  respecto a la forma definida en (\ref{eqn:bilinear_form}).
-  Los elementos de un subespacio del spread simpléctico por
-  definición anulan a la forma bilineal alternante, ésto a
-  su vez es una condición necesaria para que dos operadores
-  de desplazamiento conmuten, si son los operadores
-  correspondientes a puntos de las lineas del plano afín.
-  Dado que los operadores de desplazamiento son
-  diagonalizables, dos operadores conmutativos nos brindan
-  una base de eigenvectores del espacio de Hilbert
-  simultánea. Además como el spread simpléctico es maximal,
-  obtenemos una partición de los operadores de
-  desplazamiento en subconjuntos de operadores conmutativos,
-  y obtenemos un conjunto maximal de bases mutuamente
-  insesgadas gracias a las construcciones de la sección
-  anterior. Utilizando nuestra notación, ésto significa que
-  los vectores $\ket{b_{m,v}}$ para todo $v \in F$
-  corresponden al rayo $\{(u, u \circ m) : u \in F\}$ (y sus
-  lineas paralelas), y son eigenvectores de los operadores
-  $D(u, u \circ m)$ para todo $u \in F$. Cada familia de
-  eigenvectores correspondiente a los elementos del spread
-  simpléctico es invariante bajo el grupo de Pauli [KANTOR],
-  ésto significa que al operar un eigenestado por un
-  operador de desplazamiento, obtendremos algún otro
-  eigenestado correspondiente a la estría (o al mismo
-  eigenestado si el operador corresponde a las traslaciones
-  que dejan invariante a las lineas de la estría). Por lo
-  tanto, despues de asignar un eigenestado al rayo, el resto
-  de las asignaciones de eigenestados quedan determinados
-  por desplazamientos.
-
-  Ésto es precisamente lo que Wootters formó en su
-  construcción de la función de Wigner discreta. Sus rectas
-  corresponden a las lineas del plano afín, cada punto de la
-  linea deja invariante a la linea bajo traslaciones en el
-  espacio de fase discreto, por lo tanto el estado cuántico
-  asignado a la recta debe corresponder a un eigenvector de
-  los operadores de desplazamiento con puntos en en esa
-  linea. Así utilizando la misma metodología de
-  Wootters vamos a construir los operadores puntuales de la
-  misma manera, donde las rectas de Wootters son
-  reemplazadas por las lineas del spread simpléctico en
-  cuestión. El caso del spread Desarguesiano coincide con
-  las rectas de Wootters.
-
-  \begin{definition}
-    Sea $\rho$ un operador de densidad. La función de Wigner
-    no estándar, denotada como $W_\rho^{\mathcal K}$ en
-    referencia a Kantor, se define como
-    \begin{equation}
-      W_\rho^{\mathcal K}
-      = \Tr\left( \rho A(\alpha) \right),
-    \end{equation}
-    donde los operadores puntuales son
-    \begin{equation}
-      A(\alpha)
-      = \sum_{\alpha \ni \lambda}^{} Q(\lambda) - I,
-    \end{equation}
-    donde las $\lambda$ son las lineas del spread que
-    contienen al punto $\alpha$.
-  \end{definition}
-
-  Elegimos la convención de tomar el primer elemento de las
-  bases generadas de manera algorítmica por los teoremas
-  \ref{thm:kanat_presemi_mubs} y \ref{thm:kanat_even}
-  respectivamente como el estado correspondiente al rayo.
-  Los estados posteriores de cada estría quedan determinados
-  por los operadores de desplazamiento correspondientes.
-
   \subsection{Ejemplos comparativos} 
 
   Retomamos los ejemplos (\ref{ex:qs-2-5}) y
@@ -4188,7 +4200,7 @@
   \end{figure}
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{imgs/wigner-kantor-2-5-s2-heat.png}
+    \includegraphics[width=0.6\textwidth]{imgs/wigner-kantor-2-5-s2-heat.png}
     \caption{Función de Wigner no estándar del estado
     $\ket{\psi_3}$ representado por un \textit{mapa de
     calor}.}
@@ -4202,11 +4214,16 @@
     equivalentes por lo tanto podemos comparar sus funciones
     de Wigner.
   \end{example}
+
+  \clearpage
+  \section{Discusión}
+
+  .
   
 
   \newpage
   \appendix
-  \include{appendix}
+  %\include{appendix}
 
   \newpage
   \printbibliography
