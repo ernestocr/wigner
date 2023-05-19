@@ -72,8 +72,6 @@
 \begin{document}
   \begin{titlepage}
     \begin{center}
-      \huge [TRABAJO INCOMPLETO]
-
       \vspace{1.0in}
 
       \huge
@@ -1764,7 +1762,7 @@
         \includegraphics[width=0.38\linewidth]{imgs/GF31.png}
     }}
     \caption{Dos espacios de fase discretos para sistemas de
-    distinta dimensión, señalando el rayo diagonal.}
+    distinta dimensión, señalando el rayo diagonal $y = x$.}
     \label{fig:GF22-GF31}
   \end{figure}
   De manera general, una \textit{recta} en el espacio
@@ -1807,10 +1805,10 @@
   \] 
   con sus correspondientes operaciones de suma y
   mutliplicación. Las rectas verticales estarán dadas por
-  los conjuntos $\{(x,y) : y \in F\}$ donde fijamos el
+  los conjuntos $\{(x,y) : y \in \F\}$ donde fijamos el
   elemento $x$ para cada recta vertical. El resto de las
   rectas pueden ser parametrizadas como $\{(x,mx+c) : m, c
-  \in F\}$. La figura (\ref{fig:GF-2-3}) muestra todas las
+  \in \F\}$. La figura (\ref{fig:GF-2-3}) muestra todas las
   estrías de éste espacio de fase.
 
   \begin{figure}[ht]
@@ -1826,13 +1824,26 @@
   fase. En el caso discreto no existen traslaciones
   infinitesimales, pero podemos definir una traslación como
   la suma de un vector a los puntos del espacio de fase. Si
-  $\alpha \in \F^2$, entonces la traslación $\mathcal
-  T(\alpha)$ se define simplemente como
+  $(a,b) \in \F \oplus F$, entonces la traslación $\mathcal
+  T(a,b)$ se define simplemente como
   \begin{equation}
-    \mathcal T(\alpha) \beta = \alpha + \beta,
+    \mathcal [T(a,b)](c,d) = (a+c, b+d),
     \quad
-    \text{para todo } \beta \in \mathbb F^2.
+    \text{para todo } (c,d) \in \mathbb F \oplus \F.
   \end{equation} 
+  Se sigue inmediatamente que la composición de traslaciones
+  en el espacio de fase discreto sigue la siguiente regla de
+  composoción para todo $(a,b), (c,d) \in \F \oplus \F$:
+  \begin{equation}
+    \label{eqn:translation_composition}
+    \mathcal T(a,b) \mathcal T(c,d)
+    = \mathcal T(a+c,b+d).
+  \end{equation}
+  La metodología de Wootters inicia haciendo una
+  correspondencia entre las traslaciones en el espacio de
+  fase con operadores en el espacio de Hilbert, de manera
+  análoga al caso continuo. Esto nos permite asignar una
+  estructura cuántica al espacio de fase discreto.
 
   \subsection{Asignación de la estructura cuántica}
 
@@ -1863,16 +1874,18 @@
   corresponderá un operador unitario en el espacio de
   Hilbert. Éstos operadores deben tener una regla de
   composición que preserve de algún modo la composición de
-  traslaciones en el espacio de fase. Para lograr ésto,
-  primero hay que considerar dos operadores básicos,
-  correspondientes a traslaciones horizontales y verticales
-  de una unidad, las cuales actúan sobre los subsistemas
-  cuánticos individuales.
+  traslaciones en el espacio de fase. 
 
-  A la traslación horizontal del espacio de fase $\mathcal
-  T(1,0)$ y la traslación vertical $\mathcal T(0,1)$ les
-  asociamos los operadores unitarios $X$ y $Z$ definidos de
-  la siguiente manera:
+  Wootters decide construir a los operadores a partir de las
+  propiedades mencionadas. Siguiendo su manera, primero nos
+  enfocamos en sistemas de dimensión prima, en donde el
+  espacio de fase discreto es simplemente el campo finito
+  $\F = \Z_p$. Comenzamos por definir a dos operadores
+  básicos, correspondientes a traslaciones horizontales y
+  verticales de una unidad. A la traslación horizontal del
+  espacio de fase $\mathcal T(1,0)$ y la traslación vertical
+  $\mathcal T(0,1)$ les asociamos los operadores unitarios
+  $X$ y $Z$ definidos de la siguiente manera:
   \begin{definition}
     Sea $\{\ket k : k \in \Z_p\}$ una base ortonormal del
     espacio de Hilbert $\mathcal H$ correspondiente a un
@@ -1891,31 +1904,37 @@
   \end{definition}
   El uso de los números del campo primo como etiquetas
   implica una estructura cíclica a las potencias del
-  operador $X$ y comunmente se le dice el operador
+  operador $X$ y comunmente se le llama el operador
   \textit{shift} porque en el caso continuo representan
   cambios en la posición. Similarmente el operador $Z$ se le
   conoce como el operador \textit{boost} porque en el caso
   continuo representa un empuje en términos del momentum.
-  Éstos operadores son generadores del grupo de Pauli y
-  satisfacen las siguientes propiedades importantes:
-  \begin{equation}
-    X^{p} = Z^{p} = 1,
-    \quad
-    X^{a} Z^{b} = \omega^{-ab} Z^{b} X^{a},
-    \quad
-    \Tr(X) = \Tr(Z) = 0.
-  \end{equation}
   Podemos expresar a éstos operadores en la base
-  computacional de la siguiente manera:
+  estándar de la siguiente manera:
   \begin{equation}
     X = \sum_{k \in \Z_p}^{} \ket{k+1}\bra{k}, \\
     \quad
     Z = \sum_{k \in \Z_p}^{} \omega^{k} \ket k \bra k.
   \end{equation}
+  Es fácil probar las siguientes propiedades de los
+  operadores $X$ y $Z$:
+  \begin{proposition}
+    \label{prop:prime_XZ_props}
+    Sea $\ket k$ un elemento de la base estándar y $a,b \in
+    \F$, entonces
+    \begin{enumerate}
+      \item $X^{a} \ket{k} = \ket{k+a}$ y $Z^{b} \ket{k} =
+        \omega^{b k} \ket{k}$.
+      \item $X^{p} = Z^{p} = 1$, $X^{a} Z^{b} = \omega^{-ab}
+        Z^{b} X^{a}$, y $\Tr(X) = \Tr(Z) = 0$.
+    \end{enumerate}
+  \end{proposition}
+   
   \begin{example}
-    Para $\H = \C^{2}$ tenemos que $p = 2$ y así las
-    matrices $X$ y $Z$ son las matrices de Pauli $\sigma_x$
-    y $\sigma_z$:
+    En el caso de dimensión $p = 2$, los monomios de $X$ y
+    $Z$ son elementos del \textit{grupo de Pauli}. En
+    particular las matrices $X$ y $Z$ son simplemente las
+    matrices de Pauli $\sigma_x$ y $\sigma_z$:
     \[
       X = \sigma_x =
       \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},
@@ -1924,29 +1943,98 @@
       \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}. 
     \] 
   \end{example}
+  La matriz $Z$ es diagonal en la base estándar por lo tanto
+  sus eigenvectores son simplemente los elementos $\ket k$.
+  La matriz $X$ es diagonal respecto a la siguiente base:
+  \[
+    \ket{\tilde j}
+    = \frac{1}{\sqrt{p}} \sum_{k \in \Z_p}^{}
+    \omega^{j k} \ket k,
+  \] 
+  donde la tilde se usa para distingir ésta base de la base
+  estándar. Notemos que ésta última expresión parece una
+  transformación de Fourier de la base computacional. De
+  hecho Vourdas y otros autores definen una transformación
+  de Fourier finita a partir de los caracteres $\chi$ del
+  campo finito y construyen una segunda base del espacio de
+  Hilbert mediante su aplicación. De ésta manera obtienen
+  dos bases `Fourier conjugables' y las asocian con la
+  noción de posición (base computacional) y momentum (base
+  obtenida por la transformación de Fourier) en el espacio
+  de fase discreto. A pesar de ésto Klimov et al. hacen la
+  observación que debido a la arbitrariedad de las bases, la
+  analogía con la posición y momentum en el espacio de fase
+  discreto es un poco forzada [CITEchap7]. Otra propiedad
+  interesante de éstas dos bases surge del siguiente cálculo:
+  \begin{equation}
+    \braket{m|\tilde j}
+    = \frac{1}{\sqrt{p}}
+    \sum_{k \in \Z_p}^{} \omega^{jk} \braket{m|k}
+    = \frac{1}{\sqrt{p}} \omega^{jm},
+  \end{equation}
+  por lo tanto $\left|\braket{m|\tilde j}\right|^2 =
+  \frac{1}{p}$. En otras palabras, las bases $\ket k$ y
+  $\ket{\tilde j}$ son mutuamente insesgadas. Más adelante
+  construiremos más bases a partir de subconjuntos de los
+  operadores de desplazamiento y para sistemas con dimensión
+  $p^{n}$, todas éstas bases serán mutuamente insesgadas.
 
-  Con las definiciones de los operadores generalizados de
-  Pauli, pasamos a la cuestión de como definir operadores de
-  desplazamiento correspondientes a traslaciones $\mathcal
-  T(a,b)$ arbitrarias del espacio de fase. Lo más apropiado
-  es definir los operadores de Pauli generalizados a partir
-  de su acción, pero etiquetando a los elementos de la base
-  del sistema compuesto por los elementos de la extensión de
-  Galois. Para estudiar la construcción de Wootters y
-  Gibbons, por el momento elegimos construir los operadores a
-  partir de productos tensoriales de los operadores $X$ y
-  $Z$ previamente definidos. De ésta manera se puede lograr
-  actuar sobre los subsistemas de manera explícita y la
-  noción de potencias de los operadores $X$ y $Z$ está bien
-  definida. La asociación del punto $(a,b) \in \F^2$ con el
-  operador correspondiente del espacio $\H^{\otimes n}$
-  depende de la expansión de $a$ y de $b$ en bases de la
-  extensión de Galois.  Recordemos que la extensión de
-  Galois $\GF\left(p^{n}\right)$ se puede ver como un
-  espacio vectorial de dimensión $n$ sobre el campo primo
-  $\Z_p$. Eligiendo una base de la extensión
-  $\{b_1,\ldots,b_n\} \subset \GF\left(p^{n}\right)$ del
-  campo podemos expresar a todo elemento $a \in \F$ como la
+  Los operadores de desplazamiento están en correspondencia
+  con las traslaciones del espacio de fase discreto. Sean
+  $a,b \in \F$, utilizando la proposición
+  (\ref{prop:prime_XZ_props}) naturlamente definimos a los
+  operadores de desplazamiento correspondientes a una
+  traslación $\mathcal T(a,b)$ como 
+  \begin{equation}
+    D(a,b)
+    = X^{a} Z^{b},
+  \end{equation}
+  cuya acción sobre los elementos de la base estándar es
+  \[
+    D(a,b) \ket{k}
+    = X^{a} Z^{b} \ket k
+    = X^{a} \omega^{bk} \ket k
+    = \omega^{bk} \ket{k+a}.
+  \] 
+  Recordemos que para todo $(a,b), (c,d) \in \F \oplus \F$,
+  las traslaciones satisfacen la regla de composición en
+  (\ref{eqn:translation_composition}), similarmente, los
+  operadores de desplazamiento satisfacen la siguiente
+  propiedad de composición:
+  \begin{align}
+    D(a,b) D(c,d)
+    &= \left( X^{a}Z^{b} \right) \left( X^{c}Z^{d} \right)
+    \\
+    &= \omega^{c b} X^{a} X^{c} Z^{b} Z^{d} \\
+    &= \omega^{c b} X^{a+c} Z^{b+d} \\
+    &= \omega^{c b} D(a+c, b+d).
+  \end{align}
+  Por lo tanto, salvo una fase global, la composición de los
+  operadores $D(a,b)$ es análoga a la de las traslaciones en
+  el espacio de fase.
+
+  Hasta ahorita solo hemos trabajado con sistemas de
+  dimensión prima. En el siguiente capítulo se definirán los
+  operadores $X$ y $Z$ para sistemas de dimensión $p^{n}$,
+  en donde la base ortonormal elegida es etiquetada con
+  elementos de la extensión de Galois. Mediante el uso de
+  bases del campo finito, se pueden factorizar los
+  operadores de desplazamiento y de sus eigenvectores.
+  Wootters y Gibbons deciden trabajar de una manera inversa,
+  ellos definen los operadores de desplazamiento para
+  sistemas de dimensión $p^{n}$ \textit{directamente} del
+  producto tensorial de monomios de $X$ y $Z$ para los
+  subsistemas de dimensión $p$. Ésto involucra la elección
+  de una base en el campo finito, lo cual introduce cierta
+  arbitrariedad. La asociación del punto $(a,b) \in \F
+  \oplus \F$ con el operador correspondiente del espacio
+  $\H^{\otimes n}$ depende de la expansión de $a$ y de $b$
+  en bases de la extensión de Galois.  Recordemos que la
+  extensión de Galois $\GF\left(p^{n}\right)$ se puede ver
+  como un espacio vectorial de dimensión $n$ sobre el campo
+  primo $\Z_p$.  Eligiendo una base de la extensión
+  $\{b_1,\ldots,b_n\} \subset \GF\left(p^{n}\right)$,
+  podemos expresar a todo elemento $a \in \F$ como la
   combinación lineal:
   \[
     a = \sum_{i=1}^{n} c_i b_i,
@@ -1979,84 +2067,153 @@
       Z^{b_n}.
     \end{equation}
   \end{definition}
-  Ésta definición parece ser un poco ad-hoc pero es
-  inmediato ver que es una correspondencia muy natural con
-  las traslaciones básicas del espacio de fase discreto,
-  en el sentido de que si una traslación por el vector
-  $(a,b)$ solo tiene los $i$-ésimos componentes de $a$ y $b$
-  no nulos, entonces el operador de desplazamiento solo
-  actúa sobre el $i$-ésimo subsistema.
+  A pesar de la aribtrariedad que ésto introduce, podemos
+  ver que hay una correspondencia natural con las
+  traslaciones \textit{básicas} del espacio de fase
+  discreto, en el sentido de que si una traslación por el
+  vector $(a,b)$ solo tiene los $i$-ésimos componentes de
+  $a$ y $b$ no nulos, entonces el operador de desplazamiento
+  solo actúa sobre el $i$-ésimo subsistema. Los operadores
+  satisfacen varias propiedades interesantes, por ejemplo,
+  forman una base del espacio de operadores lineales de
+  $\H$.
+  \begin{definition}
+    Para un espacio de Hilbert de dimensión finita, un
+    operador de Hilbert-Schmidt es un operador tal que
+    $\Tr(A A^{*})$ es finito. El producto interno de
+    Hilbert-Schmidt se define como 
+    \[
+      \langle A, B \rangle_{HS}
+      = \Tr\left( A B^{*} \right),
+    \] 
+    para operadores Hilbert-Schmidt.
+  \end{definition}
+  Dado que los operadores de desplazamiento son unitarios,
+  son de Hilbert-Schmidt, pues la traza de la identidad es
+  $d$. 
+  \begin{proposition}
+    Los operadores de desplazamiento son mutuamente
+    ortogonales respecto al producto de Hilbert-Schmidt en
+    el siguiente sentido:
+    \begin{align}
+      \Tr\left( D(a,b) D(c,d)^{*} \right) 
+      &= d \delta^a_c \delta^b_d.
+    \end{align}
+  \end{proposition}
+  \begin{proof}
+    Para ver ésto primero consideremos el caso de dimensión
+    prima: 
+    \begin{equation}
+      \Tr\left( D(a,b) \right) 
+      = \sum_{k \in \Z_p}^{} \braket{k|D(a,b)|k} 
+      = \sum_{k \in \Z_p}^{} \braket{k|\omega^{bk}|k+a} 
+      = \sum_{k \in \Z_p}^{} \omega^{bk} \braket{k|k+a}.
+    \end{equation}
+    Si $a \neq 0$ entonces $\braket{k|k+a} = 0$ para todo $k
+    \in \Z_p$. Si $a = 0$ entonces 
+    \[
+      \Tr\left( D(a,b) \right) 
+      = \sum_{k \in \Z_p}^{} \omega^{bk},
+    \] 
+    por lo tanto al menos que $a = b = 0$, la traza se
+    anula.  Así que
+    \begin{equation}
+      \label{eqn:trace_of_D}
+      \Tr\left( D(a,b) \right) 
+      = d \delta^a_0 \delta^b_0.
+    \end{equation} 
+    Por otro lado no es dificil probar que $D(a,b)^{*} =
+    \omega^{ab} D(-a,-b)$, así que 
+    \begin{align}
+      \Tr\left( D(a,b)D(c,d)^{*} \right) 
+      &= \Tr\left( \omega^{cd} D(a,b) D(-c,-d) \right) \\
+      &= \Tr\left( \omega^{cd} \omega^{-c b} D(a-c, b-d)
+      \right) \\
+      &= \omega^{cd-c b} \Tr(D(a-c,b-d)).
+    \end{align} 
+    De la ecuación (\ref{eqn:trace_of_D}) tenemos que que la
+    traza se anula si $(a,b) \neq (c,d)$, en caso contrario
+    $\omega^{cd-c b} = 1$ y obtenemos el resultado buscado.
+    El caso general se sigue de las propiedades de la traza
+    respecto el producto tensorial.
+  \end{proof}
 
-  El operador $Z$ es diagonal y sus eigenvectores son la
-  base estándar de $\C^{p}$, por lo tanto los eigenvectores
-  correspondientes a los operadores de desplazamiento de la
-  estría vertical, 
+  Anteriormente mencionamos que el operador $Z$ es diagonal
+  y sus eigenvectores son la base estándar de $\C^{p}$.
+  Notemos que en el caso de dimensión $p^{n}$, los
+  operadores, 
   \[
     D(0,b) = Z^{b_1} \otimes \cdots \otimes Z^{b_n},
   \] 
-  son los productos tensoriales de la base estándar:
+  también son diagonales por lo que sus eigenvectores serán
+  la base estándar de $\C^{p^{n}}$, la cual a su vez se
+  puede factorizar en productos tensoriales de la base
+  estándar de $\C^{p}$:
   \[
     \ket{k_1} \otimes \cdots \otimes \ket{k_n},
     \quad k_1,\ldots,k_n \in \Z_p.
   \] 
-  Vourdas [CITE] muestra que se puede etiquetar la base
-  computacional con elementos de la extensión de Galois
-  $\GF\left(p^{n}\right)$ y utilizando una base del campo se
-  pueden mapear los elementos de manera natural:
-  \[
-    \ket \alpha
-    \mapsto \ket{\alpha_1} \otimes \cdots \otimes
-    \ket{\alpha_n}
-  \] 
-  donde los $\alpha_1,\ldots,\alpha_n$ son los coeficientes
-  de la expansión de $\alpha$. Pero hay un detalle
-  importante que surge de la estructura tensorial, Klimov et
-  al [CITE] muestran que los estados etiquetados con los
-  elementos de la extensión de Galois puede ser mapeados a
-  estados fisicos\footnote{Se refieren a los elementos de la
-  base computacional y de los vectores abstractos.} con
-  \textit{distintas} propiedades de factorización
-  dependiendo de la base elegida. Por ésto la elección de la
-  base del campo dependerá de la aplicación física.
-  \begin{example}
-    PENDIENTE. Ejemplo de estado con distintas factorizaiones.
-  \end{example}
-  Por otro lado, los operadores de desplazamiento respecto a
-  las traslaciones horizontales son
+  Por otro lado, se puede probar que los operadores de
+  desplazamiento respecto a las traslaciones horizontales
+  son
   \[
     D(a,0) = X^{a_1} \otimes \cdots \otimes X^{a_n},
   \] 
   y sus eigenvectores están dados por productos tensoriales
-  de vectores $\ket{\tilde k}$ donde
+  de vectores $\ket{\tilde j}$.
+
+  El concepto de factorización tensorial es muy importante
+  en áreas como la óptica cuántica y en la computación
+  cuántica. A pesar de ésto, la factorización de los
+  operadores desplazamiento y de sus eigenvectores no es una
+  parte fundamental en la construcción de la función de
+  Wigner. En realidad podemos definir una base ortonormal y
+  etiquetarla con elementos de la extensión de Galois
+  $\GF\left(p^{n}\right)$ y luego definir los operadores de
+  desplazamiento mediante su acción sobre ésta base. Ésto lo
+  hacemos en el siguiente capítulo para evitar de cierto
+  modo la arbitrariedad que conlleva la introducción de
+  bases del campo finito. Si es necesario factorizar,
+  podemos utilizar una base del campo para mapear elementos
+  entre $\C^{p^{n}}$ y $\left(\C^{p}\right)^{\otimes n}$ de
+  la siguiente manera
   \[
-    \ket{\tilde k}
-    = \frac{1}{\sqrt{p}} \sum_{k=1}^{p}
-    \omega^{\tilde k k} \ket k.
+    \ket \alpha
+    \mapsto \ket{\alpha_1} \otimes \cdots \otimes
+    \ket{\alpha_n},
   \] 
-  Notemos que ésta última expresión parece una
-  transformación de Fourier de la base computacional. De
-  hecho Vourdas y otros autores definen una transformación
-  de Fourier finita a partir de los caracteres $\chi$ del
-  campo finito y construyen una segunda base del espacio de
-  Hilbert mediante su aplicación. De ésta manera obtienen
-  dos bases `Fourier conjugables' y las asocian con la
-  noción de posición (base computacional) y momentum (base
-  obtenida por la transformación de Fourier) en el espacio
-  de fase discreto. A pesar de ésto Klimov et al. hacen la
-  observación que debido a la arbitrariedad de las bases, la
-  analogía con la posición y momentum en el espacio de fase
-  discreto es un poco forzada [CITEchap7].
+  donde los $\alpha_1,\ldots,\alpha_n$ son los coeficientes
+  de la expansión de $\alpha$ respecto a la base elegida.
+  Debido a la libertad que tenemos en la elección de la base
+  del campo, la factorización no es única. Klimov et al
+  [CITE] muestran que los estados etiquetados con los
+  elementos de la extensión de Galois pueden ser mapeados a
+  estados fisicos con propiedades de factorización
+  distintas, y ésto a su vez tiene consecuencias físicas.
+  \begin{example}
+    PENDIENTE. Ejemplo de estado con distintas factorizaiones.
+  \end{example}
+
+  \subsection{Definición de la red cuántica}
 
   Regresando a la construcción de la función de Wigner,
-  utilizando los operadores de desplazamiento podemos
-  enunciar el requisito de ser covariante bajo traslaciones
-  que le pediremos a la función de Wigner. Dado que la
-  función de Wigner dependerá de la red cuántica $Q$,
-  conviene que el mapeo $Q$ sea covariante bajo traslaciones
-  en el siguiente sentido: si trasladamos una linea por
-  $\mathcal T(a,b)$ entonces el estado cuántico también debe
-  ser trasladado pero por los operadores de desplazamiento
-  correspondientes, i.e.,
+  vamos a utilizar a los operadores de desplazamiento para
+  definir el requisito de ser covariante bajo traslaciones
+  que le exigimos a la función de Wigner. Recordemos que la
+  función de Wigner dependerá de la red cuántica $Q$, la
+  cual es una asignación entre las lineas del espacio de
+  fase discreto y estados cuánticos de $\H$: 
+  \begin{equation}
+    Q : \mathcal P(\F \oplus \F) \to \mathcal L(\H).
+  \end{equation} 
+  Por lo tanto conviene definir una propiedad análoga para
+  la asignación $Q$. Naturalmente ésto lo logramos al exigir
+  la preservación la estructura cuántica asignada al espacio
+  de fase cuando las lineas son trasladadas, i.e., si
+  trasladamos una linea $\lambda$ por $\mathcal T(a,b)$
+  entonces el estado cuántico también debe ser `trasladado'
+  pero por los operadores de desplazamiento
+  correspondientes. Formalmente ésto implica que
   \begin{equation}
     \label{eqn:trans_cov_net}
     Q(\mathcal T(a,b) \lambda)
@@ -2076,67 +2233,74 @@
     &= \{((t+s)x, (t+s)y) : t+s \in \F \}\\
     &= \lambda.
   \end{align*} 
-  La ecuación (\ref{eqn:trans_cov_net}) nos dice entonces
-  que
+  Por lo tanto la condición
+  (\ref{eqn:trans_cov_net}) implica que
   \[
     D(tx,ty) Q(\lambda) D(tx,ty)^{*}
     = Q(\mathcal T(tx,ty)\lambda)
     = Q(\lambda),
   \] 
-  lo cual solo sucede si los operadores de desplazamiento
-  conmutan con $Q(\lambda)$ para cada $t \in \F$.
-  Ésto a su vez solo sucede si los operadores de
-  desplazamiento $D(tx,ty)$ para $(x,y)$ fijo conmutan entre
-  si. En otras palabras, para que la red cuántica sea
-  covariante bajo traslaciones, los operadores de
-  desplazamiento correspondientes a las traslaciones que
-  dejan las rectas de una estría invariante deben conmutar
-  (PROOF). Gibbons y Wootters prueban que su definición de
-  $D(a,b)$ satisface éste requisito si y solo si la base en
-  que se expande el vector $b$ es un \textit{múltiplo} de la
-  base dual. Ésto introduce otro punto de arbitrariedad que
-  a nosotros nos gustaría evitar, por lo tanto en general
-  simplemente tomamos la base dual como la segunda base,
-  eligiendo la auto-dual cuando ésta exista.
-
-  Los operadores de desplazamiento así construidos son de
-  traza nula y son mutuamente ortogonales respecto al
-  producto interno de Hilbert-Schmidt:
+  pero como los operadores $D(a,b)$ son unitarios, ésto a su
+  vez significa que
   \[
-    \Tr\left( D(sx,sy) D(tx,ty)^{*} \right) 
-    = 0,
-    \quad s \neq t.
+    D(tx,ty) Q(\lambda) = Q(\lambda) D(tx,ty),
   \] 
-  Por lo tanto definen una única base de eigenvectores
-  simultáneos (salvo fases globales). Aquí surge la
-  propiedad más atractiva de la construcción de Wootters y
-  Gibbons que depende de un resultado de Bandyophyay et al
-  [CITE]:
-  \begin{theorem}[Bandyophyay et al. Thereom 3.2]
-    Si existe una base conmutativa maximal de matrices
-    unitarias ortogonales, entonces existen un conjunto de
+  i.e., todos los operadores $D(tx,ty)$ con $t \in \F$
+  conmutan con $Q(\lambda)$. Pero ésto solo sucede si los
+  operadores de desplazamiento $D(tx,ty)$ para $(x,y)$ fijo
+  conmutan entre si. En otras palabras, para que la red
+  cuántica sea covariante bajo traslaciones, los operadores
+  de desplazamiento correspondientes a las traslaciones que
+  dejan las rectas de una estría invariante deben conmutar.
+  Gibbons y Wootters prueban que su definición de $D(a,b)$
+  satisface éste requisito si y solo si la base en que se
+  expande el vector $b$ es un \textit{múltiplo} de la base
+  dual. Visto desde otro punto de vista, si identificamos el
+  estado cuántico con un vector del espacio de Hilbert, la
+  condición (\ref{eqn:trans_cov_net}) implica que
+  $Q(\lambda)$ es un eigenvector de todos los operadores
+  $D(tx,ty)$. Los operadores que son diagonalizables y
+  conmutan entre sí comparten un conjunto completo de
+  eigenvectores. Entonces, dado que los operadores de
+  desplazamiento son diagonalizables, los operadores que
+  corresponden a traslaciones que dejan invariante a una
+  estría en el espacio de fase discreto, son diagonalizables
+  de manera simultánea. Wootters menciona que ésta base es
+  única, por lo que tiene sentido asignar a cada estría su
+  correspondiente base de eigenvectores.
+
+  Recordando que los operadores son ortogonales respecto al
+  producto interior de Hilbert Schmidt, el hecho de agrupar
+  a los operadores de desplazamiento en subconjuntos
+  conmutativos nos brinda una de las características más
+  atractivas de la construcción de Wootters de la función de
+  Wigner, que depende del siguiente resultado de Bandyophyay
+  et al [CITE]:
+  \begin{theorem}[Bandyophyay et al, teorema 3.2]
+    Si existe una partición de $n^2-1$ matrices unitarias
+    mutuamente ortogonales en $d+1$ conjuntos de $d-1$
+    matrices conmutativas, entonces existen un conjunto de
     $d+1$ bases mutuamente insesgadas.
   \end{theorem}
-  En éste caso una \textit{base conmutativa maximal} de
-  matrices unitarias ortogonales se refiere a una partición
-  de matrices unitarias ortogonales en $d+1$ conjuntos donde
-  las $d-1$ matrices de cada clase conmutan entre si.
   Notemos que la agrupación de los operadores invariantes de
-  cada estría satisface ésta condición, por lo que Wootters
-  y Gibbons concluyen que los conjuntos de eigenvectores
-  simultáneaos forman un conjunto de bases mutuamente
-  insesgadas. Regresando un poco al tema de Klimov et al.,
-  notemos que el uso de distintas base del campo finito
-  implica que podemos obtener bases mutuamente insesgadas
-  con distintas propiedades de factorización.
+  cada estría satisface ésta condición, ya que a cada estría
+  le corresponde $d-1$ operadores de desplazamiento (no
+  triviales) y tenemos $d+1$ estrías del espacio de fase
+  discreto en total. Por lo tanto Wootters y Gibbons
+  concluyen que los conjuntos de eigenvectores simultáneaos
+  forman un conjunto de bases mutuamente insesgadas. No
+  detallamos más sobre ésto por el momento porque se
+  estudiará más fondo en el siguiente capítulo.
 
   Hasta ahorita solo se ha asignado una base ortonormal a
-  cada estría. Para construir el mapeo $Q$ debemos
-  identificar a cada linea de cada estría con un elemento de
-  la base. Resulta que podemos asignar un elemento de la
-  base al rayo $\lambda$ de la estría de manera
-  \textit{arbitraria}.  El resto de la asignación se
-  determina por los mismos operadores de desplazamiento:
+  cada estría. Para definir por completo al mapeo $Q$
+  debemos identificar a cada linea de cada estría con una
+  proyección ortogonal de un elemento de la base. Resulta
+  que podemos asignar un elemento de la base al rayo
+  $\lambda$ de la estría de manera \textit{arbitraria}. El
+  resto de la asignación se determina por los mismos
+  operadores de desplazamiento debido a la propiedad de ser
+  covariante bajo traslaciones:
   \[
     Q(\mathcal T(x,y) \lambda)
     = D(x,y) Q(\lambda) D(x,y)^{*},
@@ -2194,15 +2358,14 @@
     \begin{align}
       D(x,y) \ket 0
       &= X^{x} Z^{y} \ket 0 \\
-      &= \omega^{-xy} Z^{y} X^{x} \ket 0 \\
-      &= \omega^{-xy} Z^{y} \ket x \\
-      &= \omega^{-xy} \omega^{y} \ket x \\
-      &= \omega^{z} \ket x.
+      &= X^{x} \omega^{x \cdot 0} \ket 0 \\
+      &= X^{x} \ket 0 \\
+      &= \ket x.
     \end{align}
-    Volvemos a obtener un elemento de la base estándar salvo
-    una fase. Dado ésto, la red cuántica $Q$ debe asignar a
-    la recta paralela $\mathcal T(x,y) \lambda = \lambda'$,
-    el eigenestado $\ket x$ para poder preservar ésta
+    Volvemos a obtener un elemento de la base estándar. Dado
+    ésto, la red cuántica $Q$ debe asignar a la recta
+    paralela $\mathcal T(x,y) \lambda = \lambda'$, el
+    eigenestado $\ket x$ para poder preservar ésta
     propiedad. Es por eso que la elección solo es arbitraria
     para la primera asignación.
   \end{example}
@@ -2219,19 +2382,22 @@
   tomográfica básica de la función de Wigner en el caso
   discreto, requerimos que la suma de $W_\rho$ sobre la
   recta $\lambda$, sea la probabilidad de que el sistema
-  cuántico se mida en el estado $Q(\lambda)$. Ésto significa
-  que 
+  cuántico se observe en el estado $Q(\lambda)$. Ésto
+  significa que 
   \begin{equation}
     \label{eqn:tomog_prop_discrete}
     \sum_{\alpha \in \lambda}^{} W_\rho(\alpha)
-    = \Tr\left( \rho Q(\lambda) \right).
+    = \Tr\left( \rho Q(\lambda) \right),
   \end{equation}
-  Dado que nuestro espacio de fase es una geometría finita,
-  a traves del punto $\alpha$ pasan exactamente $d+1$
-  rectas que cubren a todo el espacio de fase discreto.
-  Entonces si $W_\rho$ satisface la propiedad de
-  normalización, i.e., $\sum_\beta W_\rho(\beta) = 1$, se
-  cumple que
+  para toda recta del espacio de fase discreto. Además,
+  requerimos que la suma de $W_\rho$ sobre todo el espacio
+  de fase sea igual a uno para poder considerarlo como una
+  cuasi-distribución. Dado que nuestro espacio de fase es
+  una geometría finita, a traves del punto $\alpha$ pasan
+  exactamente $d+1$ rectas que cubren a todo el espacio de
+  fase discreto.  Entonces si $W_\rho$ satisface la
+  propiedad de normalización, i.e., $\sum_\beta
+  W_\rho(\beta) = 1$, se cumple que
   \begin{equation}
     \sum_{\lambda \ni \alpha}^{}
     \left( \sum_{\beta \in \lambda}^{} W_\rho(\beta) \right) 
@@ -2251,16 +2417,16 @@
   y utilizando (\ref{eqn:tomog_prop_discrete}) tenemos
   \begin{equation}
     W_\rho(\alpha)
-    = \frac{1}{N} \left( \sum_{\lambda \ni \alpha}^{}
+    = \frac{1}{d} \left( \sum_{\lambda \ni \alpha}^{}
     \Tr\left( \rho Q(\lambda) \right) - 1 \right).
   \end{equation}
   Utilizando las propiedades de la traza podemos expresar
   la función de Wigner en términos del valor esperado de un
-  operador $A(\alpha)$ en estado $\rho$:
+  operador $A(\alpha)$ en el estado $\rho$:
   \begin{equation}
     \label{eqn:discrete_wigner}
     W_\rho(\alpha)
-    = \frac{1}{N} \Tr\left( \rho A(\alpha) \right),
+    = \frac{1}{d} \Tr\left( \rho A(\alpha) \right),
   \end{equation} 
   donde 
   \begin{equation}
@@ -2280,8 +2446,9 @@
   probar las otras propiedades deseables de la función de
   Wigner.
   \begin{proposition}
+    \label{prop:point_props}
     Los operadores puntuales $A(\alpha)$ donde $\alpha =
-    (a,b) \in F \oplus F$ satisfacen las siguientes
+    (a,b) \in \F \oplus \F$ satisfacen las siguientes
     propiedades:
     \begin{enumerate}
       \item $A(\alpha)$ es auto-adjunto.
@@ -2291,31 +2458,181 @@
     \end{enumerate}
   \end{proposition}
   \begin{proof}
-    PENDIENTE
+    ${}$
+    \begin{enumerate}
+      \item Recordemos que $Q(\lambda)$ es un operador
+        auto-adjunto ya que representa un estado cuántico.
+        Así que por definición inmediatamente tenemos que
+        \begin{equation}
+          A(\alpha)^{*}
+          = \left( \sum_{\lambda \ni \alpha}^{} Q(\lambda)
+          - I\right)
+          = \sum_{\lambda \ni \alpha}^{} Q(\lambda)^{*} - I
+          = \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I
+          = A(\alpha).
+        \end{equation}
+      \item Similarmente, los operadores $Q(\lambda)$ son de
+        traza unitaria, porque de nuevo, representan un
+        estado cuántico. Asi que de la linealidad de la
+        traza obtenemos
+        \begin{equation}
+          \Tr(A(\alpha))
+          = \Tr\left( \sum_{\lambda \ni \alpha}^{}
+          Q(\lambda) - I \right) 
+          = \sum_{\lambda \ni \alpha}^{} \Tr(Q(\lambda)) - d
+          = (d+1) - d
+          = 1.
+        \end{equation}
+      \item Para la última propiedad dependeremos del hecho
+        de que los operadores $Q(\lambda)$ proyectan hacia
+        elementos que son mutuamente insesgados. Sean
+        $\alpha, \beta \in \F \oplus \F$, por definición
+        tenemos
+        \begin{align}
+          \Tr\left( A(\alpha)A(\beta) \right) 
+          &= \Tr\left[
+            \left(
+              \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I
+            \right) 
+            \left( 
+              \sum_{\nu \ni \beta}^{} Q(\nu) - I
+            \right) 
+          \right] \\
+          &= \Tr\left[
+            \sum_{\lambda \ni \alpha}^{}
+            \sum_{\nu \ni \beta}^{}
+            Q(\lambda)Q(\nu) - \sum_{\lambda \ni \alpha}^{}
+            Q(\lambda) - \sum_{\nu \ni \beta}^{} Q(\nu) + I
+          \right] \\
+          &= \sum_{\lambda \ni \alpha}^{} 
+          \sum_{\nu \ni \beta}^{}
+          \Tr\left[Q(\lambda)Q(\nu)\right]
+          - 2(d+1) + d. \label{eqn:trace_point_ops}
+        \end{align}
+        Sea $\ket \lambda$ el eigenvector asignado a la
+        linea $\lambda$ por medio de $Q$.  Si $\lambda =
+        \nu$ entonces $\braket{\lambda|\lambda} = 1$. Si
+        $\lambda \neq \nu$ pero $\lambda$ es paralela a
+        $\nu$, entonces $\braket{\lambda|\nu} = 0$, pues las
+        bases asignadas a cada estría son ortonormales.
+        Ahora, si $\lambda$ y  $\nu$ pertenecen a estrías
+        distintas, entonces los eigenvectores son mutuamente
+        insesgados:
+        \begin{equation}
+          |\braket{\lambda|\nu}|^2
+          = \frac{1}{d},
+        \end{equation}
+        por lo tanto
+        \begin{align}
+          \Tr\left( Q(\lambda)Q(\nu) \right) 
+          &= \Tr\left( \ket{\lambda}\bra{\lambda}
+            \ket{\nu}\bra{\nu} \right) \\
+          &= \braket{\lambda|\nu} \Tr\left(
+            \ket\lambda \bra\nu
+          \right) \\
+          &= \braket{\lambda|\nu} \left(
+            \sum_{k}^{} \bra k \ket
+          \lambda \bra \nu \ket k \right) \\
+          &= \braket{\lambda|\nu} \left(
+            \sum_{k}^{} \bra\nu \ket k
+          \bra k \ket \lambda \right) \\
+          &= \braket{\lambda|\nu} \braket{\nu|\lambda} \\
+          &= \left|\braket{\lambda|\nu}\right|^2 \\
+          &= \frac{1}{d}.
+        \end{align}
+
+        La doble suma de la ecuación
+        (\ref{eqn:trace_point_ops}) tiene $(d+1)^2 = d^2 +
+        2d + 1 = (d+1) + d(d+1)$ términos. Si $\alpha =
+        \beta$, entonces $d+1$ de esos términos corresponden
+        a las mismas lineas por lo que las trazas tienen
+        valor de $1$. El resto de los $d(d+1)$ términos
+        corresponden a las trazas de lineas de distintas
+        estrías por lo tanto toman el valor $1 / d$. Así que
+        en el caso en que $\alpha = \beta$ se sigue que
+        \begin{align}
+          \Tr\left( A(\alpha)A(\beta) \right) 
+          &= \sum_{\lambda \ni \alpha}^{} 
+          \sum_{\nu \ni \beta}^{}
+          \Tr\left[Q(\lambda)Q(\nu)\right]
+          - 2(d+1) + d \\
+          &= (d+1) + \frac{1}{d}[d(d+1)] - 2(d+1) + d \\
+          &= d.
+        \end{align}
+        Ahora, si $\alpha \neq \beta$ entonces sabemos que
+        solamente una linea pasa por los dos puntos, por lo
+        que la traza tomará el valor de $1$ en un solo
+        término. Las $d$ restantes lineas que pasan por el
+        punto $\alpha$ serán paralelas a las $d$ restante
+        lineas que pasan por $\beta$, por lo que se anula la
+        traza cuando $\lambda$ y $\nu$ son paralelas. Los 
+        restantes $d(d+1)$ términos cruzados serán igual a
+        $1 / d$ por ser mutuamente insesgados. Asi que para
+        $\alpha \neq \beta$ tenemos
+        \begin{align}
+          \Tr\left( A(\alpha)A(\beta) \right) 
+          &=  \sum_{\lambda \ni \alpha}^{} 
+          \sum_{\nu \ni \beta}^{}
+          \Tr\left[Q(\lambda)Q(\nu)\right]
+          - 2(d+1) + d \\
+          &= 1 + \frac{1}{d} [d(d+1)] - 2(d+1) + d \\
+          &= d + 2 - 2d - 2 + d \\
+          &= 0.
+        \end{align}
+        Por lo tanto los operadores puntuales son
+        ortogonales respecto al producto interno de
+        Hilbert-Schmidt.
+    \end{enumerate}
   \end{proof}
 
-  En particular notemos que los operadores $A(\alpha)$ 
-  forman una base del espacio de operadores lineales del
-  espacio de Hilbert. Así que podemos expresar a cualquier
-  operador de densidad en términos de los operadres
-  puntuales
-  \[
-    \rho = \sum_{\alpha}^{} a_\alpha A(\alpha).
-  \] 
-  Utilizando la propiedad (3) de los operadores puntuales
-  podemos probar que los coeficientes en la expansión son
-  precisamente los valores de la función de Wigner en el
-  punto $\alpha$:
-  \[
+  La propiedad tres de la proposición
+  (\ref{prop:point_props}) nos dice que los operadores
+  $A(\alpha)$ forman una base del espacio de operadores
+  lineales del espacio de Hilbert. En particular podemos
+  expresar a cualquier operador de densidad en términos de
+  los operadres puntuales:
+  \begin{equation}
+    \rho = \sum_{\alpha \in \F \oplus \F}^{}
+    a_\alpha A(\alpha).
+  \end{equation} 
+  Utilizando la ortogonalidad de $A(\alpha)$ podemos probar
+  que los coeficientes en la expansión son precisamente los
+  valores de la función de Wigner en el punto $\alpha$,
+  i.e., $a_\alpha = W(\alpha)$. Sea $\beta \in \F \oplus
+  \F$, entonces
+  \begin{align}
+    \Tr(\rho A(\beta))
+    &= \Tr\left[
+      \left(\sum_{\alpha}^{} a_\alpha A(\alpha)\right)
+      A(\beta)
+    \right] \\
+    &= \sum_{\alpha}^{} \Tr\left(
+      a_\alpha A(\alpha) A(\beta)
+    \right) \\
+    &= \sum_{\alpha}^{} a_\alpha \Tr(A(\alpha)A(\beta)) \\
+    &= d a_\beta,
+  \end{align}
+  pero por definición de la función de Wigner
+  $\Tr(\rho(A\beta)) = d W(\beta)$, por lo tanto $dW(\beta)
+  = d a_\beta$, es decir,
+  \begin{equation}
+    a_\beta = W(\beta),
+    \quad
+    \text{para todo } \beta \in \F \oplus \F.
+  \end{equation}
+  Así que dada una función de Wigner $W_\rho$, podemos
+  recuperar el estado $\rho$ de la siguiente manera:
+  \begin{equation}
     \rho = \sum_{\alpha}^{} W(\alpha) A(\alpha).
-  \] 
+  \end{equation} 
   Con ésto tenemos una representación completa de cualquier
-  estado cuántico en el espacio de fase discreto, y a partir
-  de una función de Wigner podemos recuperar el estado
-  correspondiente mediante la expansión en los operadores
-  puntuales. Concluímos ésta sección enlistando las
-  propiedades que hereda la función de Wigner de los
-  operadores puntuales:
+  estado cuántico en el espacio de fase discreto ya que
+  siempre podemos \textit{invertir} la función de Wigner y
+  recuperar el estado correspondiente mediante la expansión
+  en los operadores puntuales. A partir de las propiedades
+  de los operadores puntutales, podemos finalmente demostrar
+  las propiedades de la función de Wigner que se deseaban al
+  inicio del capítulo.
   \begin{proposition}
     Sea $\rho$ un estado cuántico y $W_\rho$ su función de
     Wigner discreta. Entonces
@@ -2327,21 +2644,130 @@
       \item La suma de $W_\rho$ sobre todo el espacio de fase
         es igual a 1.
       \item La función de Wigner es covariante bajo
-        traslaciones.
+        traslaciones: sea $\rho$ un operador de densidad y
+        $W_\rho$ su función de Wigner y consideremos el
+        estado $\rho'$ y su función de Wigner $\W_{\rho'}$,
+        donde
+        \[
+          \rho '
+          = D(\beta) \rho D(\beta)^{*}.
+        \] 
+        Entonces $W_{\rho'}(\alpha) =
+        W_{\rho}(\alpha-\beta)$.
     \end{enumerate}
   \end{proposition}
   \begin{proof}
-    PENDIENTE
+    ${}$ 
+    \begin{enumerate}
+      \item El estado cuántico $\rho$ y los operadores
+        puntuales son auto-adjuntos, entonces de las
+        propiedades de la traza tenemos
+        \begin{align}
+          d W_\rho(\alpha)
+          &= \Tr(\rho A(\alpha)) \\
+          &= \Tr\left(\rho^{*} A(\alpha)^{*}\right) \\
+          &= \Tr\left( (A(\alpha)\rho)^{*} \right) \\
+          &= \overline{\Tr\left( A(\alpha)\rho \right)} \\
+          &= \overline{d W_\rho(\alpha)}.
+        \end{align}
+        Por lo tanto $W_\rho(\alpha) =
+        \overline{W_\rho(\alpha)}$ para todo $\alpha$, así
+        que $W_\rho$ es real.
+      \item La función de Wigner satisface ésta propiedad
+        por construcción.
+      \item Consideremos una estría $S$ de rectas paralelas.
+        Dado que $Q$ asgina una base ortonormal del espacio
+        de Hilbert a la estría, de los postulados de
+        medición de la mecánica cuántica sabemos que
+        \[
+          \sum_{\lambda \in S}^{}
+          \Tr\left( \rho Q(\lambda) \right)
+          = 1.
+        \] 
+        Se sigue de la propiedad anterior, que al sumar la
+        función de Wigner sobre cada recta obtenemos
+        \begin{equation}
+          \sum_{\alpha}^{} W_\rho(\alpha)
+          = \sum_{\lambda \in S}^{} \left( 
+            \sum_{\alpha \in \lambda}^{} W_\rho(\alpha)
+          \right) 
+          = \sum_{\lambda \in S}^{} \Tr(\rho Q(\lambda))
+          = 1.
+        \end{equation}
+      \item La prueba de que la función de Wigner es
+        covariante bajo traslaciones es directa y se obtiene
+        a partir de la definición de la red cuántica $Q$.
+        Sea $\beta \in \F \oplus F$ y $\rho$ un estado
+        cuántico. Primero, de la definición de los
+        operadores puntuales tenemos:
+        \begin{align}
+          D(\beta)^{*} A(\alpha) D(\beta)
+          &= D(\beta)^{*} \left( \sum_{\lambda \ni
+          \alpha}^{} Q(\lambda) - I \right) D(\beta) \\
+          &= \sum_{\lambda \ni \alpha}^{} D(\beta)^{*}
+          Q(\lambda) D(\beta) - I \\
+          &= \sum_{\lambda \ni \alpha}^{} 
+          D(-\beta) Q(\lambda) D(-\beta)^{*} - I.
+          \label{eqn:translated_net}
+        \end{align}
+        Pero $Q$ es covariante bajo traslaciones,
+        \begin{equation}
+          D(-\beta) Q(\lambda) D(-\beta)^{*}
+          = Q\left(\mathcal T(-\beta) \lambda\right),
+        \end{equation}
+        así que todas las lineas que pasan por el punto
+        $\alpha$ son trasladas de manera paralela para
+        cruzar al punto $\alpha - \beta$, así la ecuación
+        (\ref{eqn:translated_net}) se puede escribir de
+        manera equivalente como:
+        \begin{equation}
+          D(\beta)^{*} A(\alpha) D(\beta) 
+          = \sum_{\lambda \ni \alpha - \beta}^{} Q(\lambda)
+          - I 
+          = A(\alpha - \beta).
+        \end{equation}
+        El resultado buscado se sigue de lo anterior y de la
+        definición de $W_\rho'$:
+        \begin{align}
+          W_{\rho'}(\alpha)
+          &= \frac{1}{d} \Tr\left( \rho' A(\alpha) \right) \\
+          &= \frac{1}{d} \Tr\left(D(\beta) \rho D(\beta)^{*}
+          A(\alpha)\right) \\
+          &= \frac{1}{d} \Tr\left( D(\beta) \rho
+          D(\beta)^{*} A(\alpha) D(\beta) D(\beta)^{*}
+          \right) \\
+          &= \frac{1}{d} \Tr\left( \rho D(\beta)^{*}
+          A(\alpha) D(\beta) \right) \\
+          &= \frac{1}{d} \Tr\left( \rho A(\alpha-\beta)
+          \right) \\
+          &= W_\rho(\alpha-\beta).
+        \end{align}
+    \end{enumerate}
   \end{proof}
 
-  \section{Ejemplos}
+  Hemos construído una función de Wigner discreta siguiendo
+  el método de Wootters y Gibbons, la cual satisface las
+  propiedades análogas al caso continuo y además comparte
+  varios aspectos de su construcción con la formulación
+  continua, en particular el uso de operadores puntuales.
+  Por otro lado, la construcción involucra elecciones
+  durante dos pasos de la construcción: en la definición de
+  los operadores de desplazamiento y sobre todo en la
+  definición de la red cuántica. Wootters y Gibbons analizan
+  transformaciones en el espacio de fase discreto para hacer
+  una clasificación de funciones de Wigner en clases de
+  equivalencia. En éste trabajo no estudiaremos éste aspecto
+  de la función de Wigner discreta pero sin duda la falta de
+  unicidad es un detalle importante a considerar.
 
-  Daremos dos ejemplos ilustrativos para mostrar el
-  procedimiento de Wootters. Visualizamos el espacio de fase
-  discreto así como los rayos de cada estría, luego formamos
-  la red cuántico eligiendo un estado para cada rayo.
-  Finalmente construímos los operadores puntuales para
-  formar la función de Wigner en ambos casos.
+  \section{Ejemplos ilustrativos}
+
+  Daremos dos ejemplos para mostrar el procedimiento de
+  Wootters. Visualizamos el espacio de fase discreto así
+  como los rayos de cada estría, luego formamos la red
+  cuántica eligiendo un estado para cada rayo.  Finalmente
+  construímos los operadores puntuales para formar la
+  función de Wigner en ambos casos.
 
   \begin{example}
     Consideremos de nuevo el sistema cuántico que modela un
@@ -2385,9 +2811,10 @@
     que se usarán para definir la red cuántico son los
     eigenvectores de familias de operadores de
     desplazamientos. En el siguiente capítulo veremos una
-    manera de constuirlos de explícitamente, por ahorita
-    solo mostramos la familia de bases mutuamente
-    insesgadas.
+    manera de constuirlos explícitamente, por ahorita solo
+    mostramos la familia de bases mutuamente insesgadas,
+    etiquetadas por las traslaciones correspondientes en el
+    espacio de fase:
     \begin{align}
       \mathcal T(0,u)
       &\leftrightarrow \left\{
@@ -2424,16 +2851,15 @@
         \begin{pmatrix} 1\\ 1\\ \omega^2 \end{pmatrix}
       \right\}.
     \end{align}
-    Cada base está etiquetada por las traslaciones del
-    espacio de fase que dejan invariantes a las rectas de
-    alguna estría. Por ejemplo la base estándar corresponde
-    a las traslaciones verticales y la tercera base
-    corresponde al rayo vertical. Se puede verificar de
-    manera directa que los elementos de cada conjunto son
-    eigenvectores de los operadores de desplazamiento
-    correspondientes, por ejemplo para el operador de
-    traslación $D(1,0)$ y el primero eigenvector de la base
-    correspondiente tenemos:
+    Las traslaciones de cada base son las que dejan
+    invariantes a las rectas de alguna estría. Por ejemplo
+    la base estándar corresponde a las traslaciones
+    verticales y la tercera base corresponde al rayo
+    vertical. Se puede verificar de manera directa que los
+    elementos de cada conjunto son eigenvectores de los
+    operadores de desplazamiento correspondientes, por
+    ejemplo para el operador de traslación $D(1,0)$ y el
+    primer eigenvector de la base correspondiente tenemos:
     \begin{align}
       D(1,0) \left[ \frac{1}{\sqrt{3}} \begin{pmatrix}
         1\\1\\1 \end{pmatrix} \right] 
@@ -2485,14 +2911,27 @@
     \] 
     i.e., consiste en la suma de todos las proyecciones a
     los eigenestados asignados a las rectas $\lambda$ que
-    pasan por el punto $(x,y)$. Para ilustrar el cálculo,
-    vamos a construir el operador puntual correspondient al
-    origen. Como ya sabemos, las $3+1$ rectas que pasan por
-    el origen son precisamente los rayos. Entonces, como
-    hemos elegido asignar a los rayos del espacio de fase
-    discreto, el operador de projección del primer elemento
-    de cada conjunto de vectores, un cálculo directo nos
-    brinda
+    pasan por el punto $(x,y)$. La figura
+    (\ref{fig:point-lines-3-1}) nos muestra dos planos con
+    distintos puntos seleccionados y las rectas que pasan
+    por esos puntos. A cada una de esas rectas se le asigna
+    un estado cuántico cuyos proyectores se suman para
+    obtener el operador puntual. 
+    \begin{figure}[ht]
+      \centering
+      \includegraphics[width=0.9\textwidth]{imgs/As-3-1.png}
+      \caption{Las rectas que pasan por los puntos $(1,1)$ y
+      $(2,1)$ respectivamente.}
+      \label{fig:point-lines-3-1}
+    \end{figure}
+
+    Para ilustrar el cálculo, vamos a construir el operador
+    puntual correspondiente al origen. Como ya sabemos, las
+    $3+1$ rectas que pasan por el origen son precisamente
+    los rayos. Entonces, como hemos elegido asignar a los
+    rayos del espacio de fase discreto, el operador de
+    proyección del primer elemento de cada conjunto de
+    vectores, un cálculo directo nos brinda
     \begin{equation}
       A(0,0)
       = \begin{pmatrix}
@@ -2501,9 +2940,10 @@
         0 & 1 & 0
       \end{pmatrix}. 
     \end{equation}
-    Notemos que las propiedes 1 y 2 de () se satisfacen para
-    éste operador puntual, ya que $A(0,0)$ es auto-adjunta y
-    su traza es igual a $1$. En total existen $3^2 = 9$ 
+    Notemos que las propiedes 1 y 2 de
+    (\ref{prop:point_props}) se satisfacen para éste
+    operador puntual, ya que $A(0,0)$ es auto-adjunta y su
+    traza es igual a $1$. En total existen $3^2 = 9$
     operadores puntuales para éste espacio de fase. Dado un
     operador de densidad $\rho$, su función de Wigner queda
     determinada como $W(x,y) = \frac{1}{3} \Tr(\rho
@@ -2579,7 +3019,25 @@
     obtenemos $0$. Ésto es porque la probabilidad de
     encontrar al sistema en el estado $\ket 2$ es nula!
     Notemos que la tercera función de Wigner presenta
-    valores negativos.
+    valores negativos. Por último, de los preliminares
+    sabemos que la probabilidad de
+    observar el sistema en el estado $\ket \psi =
+    \frac{1}{\sqrt{3}}\left( \ket 0 + \ket 1 + \ket 2
+    \right)$ (eigenestado que corresponde al rayo
+    horizontal) es igual a
+    \[
+      \left|\braket{\psi|\psi_3}\right|^2
+      = \left|
+      \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{2}} +
+      \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{2}} +
+      \frac{1}{\sqrt{3}} \cdot 0
+      \right|
+      = \left|\frac{2}{\sqrt{6}}\right|^2
+      = \frac{2}{3}.
+    \] 
+    Ésta probabilidad coincide con la suma de la función de
+    Wigner sobre el rayo horizontal, algo que se puede
+    observar directamente de la gráfica.
   \end{example}
 
   \begin{example}
@@ -2673,19 +3131,19 @@
       \frac{1}{2} \begin{pmatrix} 1\\-1\\-1\\1 \end{pmatrix},
       \frac{1}{2} \begin{pmatrix} 1\\-1\\1\\-1 \end{pmatrix} 
       \right\}, \\
-      \mathcal T(1,\alpha) &\leftrightarrow \left\{
+      \mathcal T(1,1) &\leftrightarrow \left\{
       \frac{1}{2} \begin{pmatrix} 1\\-1\\-i\\-i \end{pmatrix}, 
       \frac{1}{2} \begin{pmatrix} 1\\-1\\i\\i \end{pmatrix},
       \frac{1}{2} \begin{pmatrix} 1\\1\\i\\-i \end{pmatrix},
       \frac{1}{2} \begin{pmatrix} 1\\1\\-i\\i \end{pmatrix}
       \right\}, \\
-      \mathcal T(1,\alpha+1) &\leftrightarrow \left\{
+      \mathcal T(1,\alpha) &\leftrightarrow \left\{
       \frac{1}{2} \begin{pmatrix} 1\\-i\\-1\\-i \end{pmatrix},
       \frac{1}{2} \begin{pmatrix} 1\\-i\\1\\i \end{pmatrix},
       \frac{1}{2} \begin{pmatrix} 1\\i\\1\\-i \end{pmatrix},
       \frac{1}{2} \begin{pmatrix} 1\\i\\-1\\i \end{pmatrix}
-      \right\}, \\
-        \mathcal T(1,1) &\leftrightarrow \left\{
+      \right\} \\
+      \mathcal T(1,\alpha+1) &\leftrightarrow \left\{
       \frac{1}{2} \begin{pmatrix} 1\\-i\\-i\\-1 \end{pmatrix},
       \frac{1}{2} \begin{pmatrix} 1\\-i\\i\\1 \end{pmatrix},
       \frac{1}{2} \begin{pmatrix} 1\\i\\i\\-1 \end{pmatrix},
@@ -2768,19 +3226,22 @@
     Con tal etiquetación, graficamos la función de Wigner de
     los siguientes estados cuánticos:
     \[
-      \ket{\uparrow\uparrow},
+      \ket{\psi_1}
+      = \ket{\uparrow\uparrow},
       \quad
       \text{y}
       \quad
-      \frac{1}{\sqrt{2}} \left( \ket{\uparrow\downarrow} +
+      \ket{\psi_2}
+      = \frac{1}{\sqrt{2}} \left( \ket{\uparrow\downarrow} -
       \ket{\downarrow\uparrow} \right). 
     \]
     
     \begin{figure}[ht]
       \centering
-      \scalebox{0.7}{
-        \input{imgs/wigner-desargues-2-2-s1.pgf}
-      }
+      %\scalebox{0.7}{
+      %  \input{imgs/wigner-desargues-2-2-s1.pgf}
+      %}
+      \includegraphics[width=0.6\textwidth]{imgs/wigner-desargues-2-2-s1.png}
       \caption{Función de Wigner del estado
         $\ket{\uparrow\uparrow}$.}
       \label{fig:wigner-desargues-2-2-s1}
@@ -2788,11 +3249,12 @@
 
     \begin{figure}[!ht]
       \centering
-      \scalebox{0.7}{
-        \input{imgs/wigner-desargues-2-2-s2.pgf}
-      }
+      %\scalebox{0.7}{
+      %  \input{imgs/wigner-desargues-2-2-s2.pgf}
+      %}
+      \includegraphics[width=0.6\textwidth]{imgs/wigner-desargues-2-2-s2.png}
       \caption{Función de Wigner del estado
-      $\frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow} +
+      $\frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow} -
       \ket{\downarrow\uparrow}\right)$.}
       \label{fig:wigner-desargues-2-2-s2}
     \end{figure}
@@ -2806,18 +3268,41 @@
     la suma es igual a $1$. En cambio, en la figura
     (\ref{fig:wigner-desargues-2-2-s2}), el estado está en
     una superposición equitativa de los estados
-    $\ket{\uparrow\downarrow}$ y
-    $\ket{\downarrow\uparrow}$, por lo tanto la probabilidad
-    de medir $\ket{\uparrow\downarrow}$ es igual a
-    $\frac{1}{2}$. La probabilidad de medir
-    $\ket{\uparrow\uparrow}$ ó $\ket{\downarrow\downarrow}$ 
-    es nula, algo se ve directamente de la función de
-    Wigner.
+    $\ket{\uparrow\downarrow}$ y $\ket{\downarrow\uparrow}$,
+    por lo tanto la probabilidad de observar
+    $\ket{\uparrow\downarrow}$ ó $\ket{\downarrow\uparrow}$
+    es igual a $\frac{1}{2}$. En cambio, la probabilidad de
+    observar el estado $\ket{\uparrow\uparrow}$ ó el estado
+    $\ket{\downarrow\downarrow}$ es nula, algo se puede
+    observar al sumar la primera y recta vertical
+    (respectivamente). Por otro lado, la probabilidad de
+    observar el eigenestado asignado a la primera recta
+    horizontal
+    \[
+      \ket \psi
+      = \frac{1}{2} \begin{pmatrix} 1\\1\\1\\1 \end{pmatrix},
+    \] 
+    en el sistema cuántico es
+    \[
+      |\braket{\psi|\psi_2}|^2
+      = \left|\frac{1}{\sqrt{2}}
+      \left(\braket{\psi| \uparrow\downarrow} - 
+      \braket{\psi| \downarrow\uparrow}\right)
+      \right|^2
+      = \left|
+      \frac{1}{2 \sqrt{2}} - \frac{1}{2 \sqrt{2}}
+      \right|^2
+      = 0.
+    \] 
+    Ésto concuerda con la suma de la función de Wigner sobre
+    la primera recta horizontal, en donde los puntos se
+    anula gracias a la negatividad.
   \end{example}
 
   En éste capítulo hemos descrito el procedimiento y
   razonamiento de la construcción de la versión de Wootters
-  de la función de Wigner. En el siguiente capítulo
+  de la función de Wigner, a la que hemos llamado la
+  \textit{construcción estándar}. En el siguiente capítulo
   realizamos una definición alternativa de la función de
   Wigner. La metodología permanece igual, pero se utilizan
   conjuntos de bases mutuamente insesgadas que no son
@@ -2830,7 +3315,7 @@
   fase, pero, podemos obtener otras maneras de cubrirlo que
   aun preservan las propiedades geométricas. La idea es
   utilizar éstas estructura geométricas y las MUBs
-  alternativas que producen para formar una función de
+  alternativas que producen, para formar una función de
   Wigner discreta distinta a la de Wootters.
 
   \chapter{Construcción no-estándar}
@@ -2841,13 +3326,14 @@
   una de las $d+1$ estrías (recordemos que solo uno es
   necesario porque la propiedad de covarianza bajo
   traslaciones determina el resto). La obtención de los
-  eigenvectores sería computacionalmente latoso conforme la
-  dimensión va creciendo. Por suerte existen múltiples
-  construcciones explícitas de bases mutuamente insesgadas,
-  y Godsil y Roy [CITE] probaron que las construcciones de
-  MUBs más conocidas, debido a Ivánovic [CITE], Wootters y
-  Fields [CITE], Klappenecker [CITE] y Bandyophyay [CITE]
-  son todos unitariamente equivalentes en el sentido (REF).
+  eigenvectores sería analíticamente y computacionalmente
+  latoso conforme la dimensión va creciendo. Por suerte
+  existen múltiples construcciones explícitas de bases
+  mutuamente insesgadas, y Godsil y Roy [CITE] probaron que
+  las construcciones de MUBs más conocidas, debido a
+  Ivánovic [CITE], Wootters y Fields [CITE], Klappenecker
+  [CITE] y Bandyophyay [CITE] son todos unitariamente
+  equivalentes en el sentido (REF).
 
   Gibbons y Wootters utilizaron los resultados de
   Bandyophyay et al para demostrar que los operadores de
@@ -2868,8 +3354,8 @@
   tales que cualesquiera dos puntos distintos residen en uno
   solo de esos conjuntos. Éstos objetos han sido estudiados
   en otras áreas de las matemáticas, por ejemplo en la
-  geometría finita donde llevan el nombre de \textit{planos
-  afínes} [CITE]. 
+  geometría finita donde llevan el nombre de \textit{plano
+  afíne} [CITE]. 
 
   \begin{definition}[Plano afín]
     Un plano afín de orden $d$ es un objeto combinatorio que

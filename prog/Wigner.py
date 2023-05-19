@@ -49,7 +49,7 @@ class Wigner():
     
     # Wigner function
     def A(self, x, y):
-        d = self.field.order()
+        d = len(self.field)
         bs = [x] + [y - self.op(m, x) for m in self.field]
         bi = [self.toInt(b) for b in bs]
         
@@ -62,7 +62,7 @@ class Wigner():
         return op - np.eye(d)
     
     def Wigner(self, rho, x, y):
-        d = self.field.order()
+        d = len(self.field)
         return (rho @ self.A(x, y)).trace() / d
 
     def WignerMatrix(self, rho):

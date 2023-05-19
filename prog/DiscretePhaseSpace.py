@@ -1,22 +1,17 @@
 # %%
 import numpy as np
 import matplotlib.pyplot as plt
-import galois
+from sage.all import *
 
-d = 2
-n = 2
-GF = galois.GF(d**n)
-# GF.repr('int')
+p = 2
+n = 3
+d = p**n
+F = GF(d, 'x')
+x = F.gen()
 
-# defaults to integer ordering, lets change to power order
-# is this important?
-# omega = GF.primitive_element
-# F = omega**np.arange(0, GF.order - 1)
-# F = np.insert(F, 0, 0)
-F = GF.elements
+F = [F(0)] + [x**i for i in range(d-1)]
 # %%
 def heat(m, ax, labels=True):
-    m = np.rot90(m, axes=(1,0)).T
     ax.matshow(
         m,
         cmap='viridis',
@@ -24,30 +19,35 @@ def heat(m, ax, labels=True):
     )
     if labels:
         ax.xaxis.set_ticks_position('bottom')
-        ax.set_xticks(range(d**n))
-        ax.set_yticks(range(d**n))
+        ax.set_xticks(range(d))
+        ax.set_yticks(range(d))
         ax.set_xticklabels(F)
         ax.set_yticklabels(F)
     else:
         ax.axis('off')
     return ax
 # %%
+def toInt(x):
+    return F.index(x)
+
 def embedLine(line):
-    N = d**n
-    grid = np.zeros((N,N))
-    for p in np.array(line):
-        grid[p[0], p[1]] = 1.0
-    return np.rot90(grid)
+    grid = np.zeros((d, d))
+    for p in line:
+        i, j = toInt(p[0]), toInt(p[1])
+        grid[i, j] = 1.0
+    return grid.T
 
 fig, ax = plt.subplots()
-heat(embedLine(GF([(k,k) for k in F])), ax)
+heat(embedLine([(k,x*x*k) for k in F]), ax)
 # %%
-fig, axes = plt.subplots(d**n + 1, d**n, sharey=True)
+fig, axes = plt.subplots(d + 1, d,
+                         sharey=True,
+                         figsize=(10,10))
 for (j,c) in enumerate(F):
-    vertical_line = GF([(c,k) for k in F])
+    vertical_line = [(c,k) for k in F]
     heat(embedLine(vertical_line), axes[0][j], labels=False)
 
     for (i,m) in enumerate(F):
-        line = GF([(k, m * k + c) for k in F])
+        line = [(k, m * k + c) for k in F]
         heat(embedLine(line), axes[i+1][j], labels=False)
 # %%
