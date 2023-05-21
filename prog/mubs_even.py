@@ -18,7 +18,7 @@ def ringTrace(a, b):
     return s 
 
 # Teichmüller
-T = [0] + [w**k for k in range((2**n - 2) + 1)]
+T = [GR(0)] + [w**k for k in range((2**n - 2) + 1)]
 
 def brute2adic(x):
     for a in T:

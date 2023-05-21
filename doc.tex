@@ -3178,7 +3178,7 @@
     \begin{table}[ht]
       \centering
       \begin{tabular}{c|c|c|c}
-        0 & $\alpha$ & $\alpha + 1$ & 1 \\[6pt]
+        0 & 1 & $\alpha$ & $\alpha + 1$ \\[6pt]
         $\ket{00}$ & $\ket{01}$ & $\ket{10}$ & $\ket{11}$
         \\[6pt]
         $\ket{\uparrow \uparrow}$ &
@@ -3297,6 +3297,36 @@
     Ésto concuerda con la suma de la función de Wigner sobre
     la primera recta horizontal, en donde los puntos se
     anula gracias a la negatividad.
+
+    Por último, grafiquemos un estado `maximalmente
+    entrelazado', conocidos como estados GHZ. En la base
+    estándar de $\C^2 \otimes \C^2$, se expresa como
+    \[
+      \ket{GHZ}
+      = \frac{1}{\sqrt{2}} \left( \ket{00} + \ket{11}
+      \right). 
+    \] 
+    De acuerdo a la elección de la base del campo, éstos
+    estados corresponden a los estados de $\C^{4}$: $\ket{0}$
+    y $\ket{\alpha+1}$ respectivamente, los cuales la red
+    $Q$ asigna a la primera y última recta vertical del
+    espacio de fase discreto:
+    \[
+      \ket{GHZ}
+      = \frac{1}{\sqrt{2}}
+      \left( \ket{0} + \ket{\alpha+1} \right). 
+    \] 
+    La gráfica de la función $W_{\ket{GHZ}}$ se muestra en
+    la figura (\ref{fig:wigner-desargues-2-2-ghz}). La
+    interpretación es muy similar al estado anterior
+    $\ket{\psi_2}$.
+    \begin{figure}[ht]
+      \centering
+      \includegraphics[width=0.6\textwidth]{
+      imgs/wigner-desargues-2-2-ghz.png}
+      \caption{Función de Wigner del estado $\ket{GHZ}$.}
+      \label{fig:wigner-desargues-2-2-ghz}
+    \end{figure}
   \end{example}
 
   En éste capítulo hemos descrito el procedimiento y
@@ -3355,7 +3385,7 @@
   solo de esos conjuntos. Éstos objetos han sido estudiados
   en otras áreas de las matemáticas, por ejemplo en la
   geometría finita donde llevan el nombre de \textit{plano
-  afíne} [CITE]. 
+  afín} [CITE]. 
 
   \begin{definition}[Plano afín]
     Un plano afín de orden $d$ es un objeto combinatorio que
@@ -3387,7 +3417,7 @@
 
   Para construir las MUBs de manera explícita, utilizaremos
   los resultados de Kanat [CITE], quien nos muestra que de
-  \textit{semicampos simplécticos} es posible obtener
+  \textit{presemicampos simplécticos} es posible obtener
   spreads simplécticos los cuales a su vez nos producen MUBs
   por medio de los resultados de Kantor, éste procedimiento
   se organiza como en la figura (\ref{diag:kanat}).  En
@@ -3398,7 +3428,7 @@
   \textit{descomposición ortogonal} del álgebra de Lie
   $\Sl_d(\C)$. Para nuestro caso, será suficiente considerar
   solamente los spreads simplécticos generados por
-  semicampos simplécticos.
+  presemicampos.
 
   \begin{figure}[h]
     \centering
@@ -3414,56 +3444,38 @@
     \caption{Metodología de Kanat [CITE].}
     \label{diag:kanat}
   \end{figure}
-
-  La relación entre los spreads simplécticos y las MUBs está
-  dado por la descomposición ortogonal de $\Sl_d(\C)$. Los
-  spreads simplécticos fueron estudiados en el contexto de
-  geometrías finitas y teoría de códigos, mucho antes de
+  Los spreads simplécticos fueron estudiados en el contexto
+  de geometrías finitas y teoría de códigos, mucho antes de
   vincularlos con las álgebras de Lie. Recordemos que un
   álgebra de Lie es un espacio vectorial con una operación
   adicional llamada \textit{bracket de Lie}, el cual es un
   mapa bilineal alternante que satisface la identidad de
-  Jacobi. El álgebra de Lie que nos interesa es el álgebra
+  Jacobi. El álgebra de Lie en éste contexto es el álgebra
   de las matrices $d \times d$ sobre $\C$ de traza nula,
   denotado $\mathfrak{L} = \Sl_d(\C)$, donde el producto de
-  Lie está dado por el conmutador de matrices.
-
-  \begin{definition}[Subálgebra de Cartán]
-    Una subálgebra $\mathfrak{H}$ de un álgebra de Lie
-    $\mathfrak{L}$, es una subálgebra de Cartán si es
-    nilpotente y es igual a su normalizador, el cual se
-    define como el conjunto $\mathfrak{S}$ de elementos de
-    $\mathfrak{L}$ tales que $[\mathfrak{S}, \mathfrak{H}]
-    \subset \mathfrak{H}$.
-  \end{definition}
-
-  \begin{definition}[Descomposición Ortogonal]
-    Una descomposición de un álgebra de Lie simple
-    $\mathfrak{L}$ en una suma directa de subalgebras de
-    Cartan
-    \begin{equation}
-      \mathfrak{L}
-      = \mathfrak{H}_0 \oplus \mathfrak{H}_1 \oplus \cdots
-      \oplus \mathfrak{H}_n,
-    \end{equation}
-    es una descomposición ortogonal si las subálgebras
-    $\mathfrak{H}_i$ son ortogonales entre si respecto a la
-    forma de Killing $K(A,B)$ en $\mathfrak{L}$.
-  \end{definition}
-
-  Las subálgebras de Cartán de $\Sl_d(\C)$ consisten de
-  matrices sin traza las cuales son diagonales.  La forma de
-  Killing en éste caso se puede calcular como
+  Lie está dado por el conmutador de matrices. Una
+  subálgebra $\mathfrak{H}$ de un álgebra de Lie
+  $\mathfrak{L}$, es una subálgebra de Cartán si es
+  nilpotente y es igual a su normalizador, el cual se define
+  como el conjunto $\mathfrak{S}$ de elementos de
+  $\mathfrak{L}$ tales que $[\mathfrak{S}, \mathfrak{H}]
+  \subset \mathfrak{H}$.  Una descomposición de un álgebra
+  de Lie simple $\mathfrak{L}$ en una suma directa de
+  subalgebras de Cartan
   \begin{equation}
-    K(A,B)
-    = 2n \Tr(AB),
-    \quad A,B \in \Sl_d(\C).
+    \mathfrak{L}
+    = \mathfrak{H}_0 \oplus \mathfrak{H}_1 \oplus \cdots
+    \oplus \mathfrak{H}_n,
   \end{equation}
-  La relación entre MUBs y la descomposición ortogonal de
-  $\Sl_d(\C)$ es la que nos permitirá encontrar expresiones
-  explícitas de MUBs a partir de spreads simpléticos. Kanat
-  cita al siguiente teorema de Boykin et al [CITE]:
-
+  es una descomposición ortogonal si las subálgebras
+  $\mathfrak{H}_i$ son ortogonales entre si respecto a la
+  forma de Killing en $\mathfrak{L}$.
+  Las subálgebras de Cartán de $\Sl_d(\C)$ consisten de
+  matrices sin traza las cuales son diagonales. La relación
+  entre MUBs y la descomposición ortogonal de $\Sl_d(\C)$ es
+  lo que utiliza Kanat para encontrar expresiones explícitas de
+  MUBs a partir de spreads simpléticos. Kanat cita al
+  siguiente teorema de Boykin et al [CITE]:
   \begin{theorem}[Boykin et al (CITE)]
     \label{thm:boykin}
     Los conjuntos maximales de MUBs en $\C^{d}$ están en
@@ -3477,122 +3489,187 @@
   están en correspondencia con la subálgebra de Cartan
   $\mathfrak{H}_i$ la cual consiste de las matrices sin
   traza que son diagonales respecto a la base $B_i$. De aquí
-  podemos ver la relación con el trabajo de Bandyophyay y
-  como consecuencia, con la construcción estándar de
+  podemos ver la relación con el trabajo de Bandyophyay et
+  al y como consecuencia, con la construcción estándar de
   Wootters, ya que la idea básicamente se reduce a encontrar
   una partición de ciertos operadores tales que conmuten
   entre sí. La siguiente cuestión es ¿cómo construir una
   descomposición ortogonal de $\Sl_d(\C)$, tal que satisface
-  las condiciones del teorema \ref{thm:boykin}? 
+  las condiciones del teorema \ref{thm:boykin}? No vamos a
+  dar un prueba completa ya que se puede encontrar en los
+  trabajos de Boykin, pero sí vamos a reexpresar los
+  argumentos de Wootters, siguiendo a Kanat y a Kantor.
+  
+  Comenzamos por definir a los operadores de desplazamiento
+  que actúan sobre el espacio de Hilbert $\H = \C^{d}$ donde
+  $d = p^{n}$ para un primo $p$.  Consideremos a un campo
+  finito $\mathbb F$ de cardinalidad $d$ como un espacio
+  vectorial $V$ unidimensional.  La cardinalidad de $V$ es
+  igual a $d$ y etiquetemos a la base estándar de $\C^{d}$
+  por los elementos de $V$, es decir, $\{\ket{e_w} : w \in
+  V\}$.  Enseguida definamos a los operadores shift y boost
+  indexados por los elementos de $V$.
+  \begin{definition}
+    Sea $\omega \in \C$ la $p$-ésima raíz primitiva de la
+    unidad y sean $u,v \in V$. Definimos a los operadores de
+    Pauli generalizados como:
+    \begin{align}
+      X(u) &: \ket{e_w} \mapsto \ket{e_{w+u}} \\
+      Z(v) &: \ket{e_w} \mapsto \omega^{\tr(v w)}
+      \ket{e_w}.
+    \end{align}
+    Además, un operador de desplazamiento arbitrario se
+    define como:
+    \begin{equation}
+      D(u,v) = X(u)Z(v).
+    \end{equation}
+  \end{definition}
+  Las matrices $D(u,v)$ forman una base del espacio de
+  matrices complejas de tamaño $d \times d$ de traza nula y
+  son los operadores de despalzamiento que también ya
+  conocemos.  Además de ésto, las matrices $D(u,v)$ con $u$
+  y $v$ distintos del vector cero, generan al algebra de Lie
+  $\Sl_n(\C)$. Notemos que ésta definición no está dada por
+  potencias de los operadores $X$ y $Z$ ya que ésto solo
+  tiene sentido cuando los elementos son los enteros módulo
+  $p$. Pero, en caso de que $V = \Z_p$, la definición
+  anterior se reduce a nuestra definición del capítulo
+  anterior ya que la traza (considerando a $\Z_p$ como una
+  extensión de Galois de grado 1) deja invariante a los
+  elementos del subcampo. Antes de probar algunas
+  propiedades de los operadores de desplazamiento, vamos a
+  ligar ésta nueva definición con la de Wootters del capítulo
+  anterior.
+  \begin{proposition}
+    Denotemos a los operadores de desplazamiento que actúan
+    sobre un espacio de Hilbert de dimensión prima $p$,
+    $\H_p$, por $D_p(a,b)$. Sea $D(u,v) = X(u) Z(v)$ para
+    $u, v \in V$, y sea $\varepsilon$ una base del campo. Si
+    $\tilde \varepsilon$ es una base dual de $\varepsilon$,
+    entonces
+    \begin{equation}
+      D(u,v)
+      = D_p(u_1,\tilde v_1)
+      \otimes \cdots \otimes
+      D_p(u_n, \tilde v_n),
+    \end{equation}
+    donde $u_1,\ldots,u_n$ son los componentes de $u$ en la
+    base $\varepsilon$ y $\tilde v_1,\ldots,\tilde v_n$ son
+    los componentes de $v$ en la base dual, y donde la
+    igualdad es en sentido del isomorfismo entre los
+    productos tensoriales de $\H_p$ y el espacio $\H$.
+  \end{proposition}
+  \begin{proof}
+    PENDIENTE.
+  \end{proof}
 
-  No vamos a dar un prueba completa ya que se puede
-  encontrar en los trabajos de Boykin, pero sí vamos a
-  reexpresar los argumentos de Wootters, siguiendo a Kanat y
-  a Kantor. Comencemos de manera general, sea $V$ un espacio
-  vectorial sobre un campo finito $\mathbb F_d$ donde $d =
-  p^{n}$, con su producto escalar usual $u \cdot v$.
-  Consideremos el espacio $W = V \oplus V$ como un espacio
-  vectorial sobre el campo primo $\Z_p$ y definamos la forma
-  bilineal alternante $\langle \cdot, \cdot \rangle : W \to
-  \mathbb F_p$ como:
-  \begin{equation}
-    \label{eqn:bilinear_form}
-    \langle (u,v), (u',v') \rangle
-    = \tr\left( u \cdot v' - v \cdot u' \right),
-  \end{equation}
-  donde de nuevo $\tr : \mathbb F_d \to \Z_p$ es la traza de
-  la extensión al campo primo. Ahora supongamos que la la
-  cardinalidad de $V$ es igual a $d$ y sea $\{\ket{e_w}\}$
-  la base estándar de $\C^{d}$ indexada por los elementos de
-  $V$, es decir $w \in V$. Sea $\omega \in \C$ la $p$-ésima
-  raíz primitiva de la unidad. Para todo $u \in V$ definamos
-  a las matrices de Pauli generalizadas de la siguiente
-  manera:
-  \begin{align}
-    X(u) &: \ket{e_w} \mapsto \ket{e_{w+u}} \\
-    Z(v) &: \ket{e_w} \mapsto \omega^{\tr(v \cdot w)}
-    \ket{e_w},
-    \quad
-    u, v \in V.
-  \end{align}
-  Éstos son los generadores del grupo de Pauli que ya
-  conocemos. Las matrices $D(u,v) = X(u)Z(v)$ forman una
-  base del espacio de matrices complejas de tamaño $d \times
-  d$ de traza nula y son las operadores de despalzamiento
-  que también ya conocemos.  Además de ésto, las matrices
-  $D(u,v)$ con $u$ y $v$ distintos del vector cero, generan
-  al algebra de Lie $\Sl_n(\C)$. Ahora veamos ciertas
-  propiedades que nos permitirán identificar la condición
-  para que dos operadores de desplazamiento conmuten. Por
-  definición tenemos que para cualquier elemento de la base
-  de $\C^{d}$ se satisface:
+  Ahora vamos a probar varias propiedades de los operadores
+  de desplazamiento, las cuales nos permitirán identificar
+  la condición que deben satisfacer para poder conmutar.
+  Para ésto, nos será util primero definir una forma
+  bilineal alternante sobre el espacio vectorial $W = V
+  \oplus V$ de dimensión $2n$ sobre el subcampo primo de la
+  extensión de Galois. 
+  \begin{definition}
+    Sea $W = V \oplus V$. Definimos la forma bilineal
+    alternante 
+    \[
+      \langle \cdot, \cdot \rangle : W \to \Z_p
+    \]
+    para todo $(u,v) \in W$ de la siguiente manera:
+    \begin{equation}
+      \label{eqn:bilinear_form}
+      \langle (u,v), (u',v') \rangle
+      = \tr\left( u v' - v u' \right),
+    \end{equation}
+    donde de nuevo $\tr : \F \to \Z_p$ es la traza de la
+    extensión $\GF(p^{n})$ al campo primo. 
+  \end{definition}
+  Notemos que la forma bilineal es una forma simpléctica.
+  Continuemos expresando la acción que tienen los operadores
+  de desplazamiento sobre los elementos de la base estándar.
+  Por definición tenemos que:
   \begin{align}
     X(u)Z(v) \ket{e_w}
-    &= X(u) \omega^{\tr(v \cdot w)} \ket{e_w} \\
+    &= X(u) \omega^{\tr(v w)} \ket{e_w} \\
     &= \omega^{\tr(v \cdot w)} \ket{e_{w+u}}.
   \end{align}
   Por lo tanto
   \begin{align}
     Z(v)X(u) \ket{e_w}
     &= Z(v) \ket{e_{w+u}} \\
-    &= \omega^{\tr(v \cdot (w+u))} \ket{e_{w+u}} \\
-    &= \omega^{\tr(v \cdot w) + \tr(v \cdot u)}
+    &= \omega^{\tr(v (w+u))} \ket{e_{w+u}} \\
+    &= \omega^{\tr(v w) + \tr(v u)}
     \ket{e_{w+u}} \\
-    &= \omega^{\tr(v \cdot u)} \left( \omega^{\tr(v \cdot
+    &= \omega^{\tr(v u)} \left( \omega^{\tr(v
     w)} \ket{e_{w+u}} \right) \\
-    &= \omega^{\tr(v \cdot u)} X(u)Z(v) \ket{e_{w}}.
+    &= \omega^{\tr(v u)} X(u)Z(v) \ket{e_{w}}.
   \end{align}
-  Así que $Z(v)X(u) = \omega^{\tr(v \cdot u)} X(u)Z(v)$. Por
-  otro lado observemos que los operadores de desplazamiento
-  satisfacen la propiedad de traslación:
+  Así que los productos de $X$ y $Z$ satisfacen la relación
+  de conmutatividad: $Z(v)X(u) = \omega^{\tr(v \cdot u)}
+  X(u)Z(v)$ para todo $u,v \in V$. Utilizando ésto, podemos
+  observar que los operadores de desplazamiento satisfacen
+  la propiedad de traslación análoga a la de los operadores
+  de desplazamiento $D_p(a,b)$:
   \begin{align}
     D(u,v) D(u',v')
-    &= X(u)Z(v) X(u')Z(v') \ket{e_w} \\
-    &= X(u) \left( \omega^{\tr(v \cdot u')} X(u') Z(v)
+    &= X(u)Z(v) X(u')Z(v') \\
+    &= X(u) \left( \omega^{\tr(v u')} X(u') Z(v)
     \right) Z(v') \\
-    &= \omega^{\tr(v \cdot u')} X(u+u') Z(v + v') \\
-    &= \omega^{\tr(v \cdot u')} D(u+u',v+v')
+    &= \omega^{\tr(v u')} X(u+u') Z(v + v') \\
+    &= \omega^{\tr(v u')} D(u+u',v+v')
     \label{eqn:disp_product_relation}.
   \end{align}
-  Entonces
+  La propiedad de traslación implica la siguiente relación
+  de conmutatividad:
   \begin{align}
     D(u',v')D(u,v)
-    &= \omega^{\tr(v' \cdot u)} D(u'+u,v'+v) \\
-    &= \omega^{\tr(u \cdot v')} D(u+u',v+v') \\
-    &= \omega^{\tr(u \cdot v')} \omega^{-\tr(v \cdot u')}
+    &= \omega^{\tr(v' u)} D(u'+u,v'+v) \\
+    &= \omega^{\tr(u v')} D(u+u',v+v') \\
+    &= \omega^{\tr(u v')} \omega^{-\tr(v u')}
     D(u,v)D(u',v') \\
-    &= \omega^{\tr(u \cdot v' - v \cdot u')} D(u,v)D(u',v')
+    &= \omega^{\tr(u v' - v u')} D(u,v)D(u',v')
     \\
     &= \omega^{\langle (u,v), (u',v') \rangle}
     D(u,v)D(u',v') \label{eqn:disp_comm_relation}.
   \end{align}
   Usando las propiedades (\ref{eqn:disp_product_relation}) y
   (\ref{eqn:disp_comm_relation}), podemos calcular el
-  conmutador de dos operadores de desplazamiento: 
-  \begin{align}
-    [D(u,v),D(u',v')]
-    &= D(u,v)D(u',v') - D(u',v')D(u,v) \\
-    &= D(u,v)D(u',v') - \omega^{\langle (u,v),(u',v')
-    \rangle} D(u,v) D(u',v') \\
-    &= \left( 1 - \omega^{\langle (u,v),(u',v') \rangle}
-    \right) D(u,v)D(u',v') \\
-    &= \omega^{\tr(v \cdot u')} \left( 1 - \omega^{\langle
-    (u,v),(u',v') \rangle} \right) D(u+u',v+v').
-    \label{eqn:disp_comm}
-  \end{align}
-  De la expresión (\ref{eqn:disp_comm}) observamos que dos
-  operadores de desplazamiento $D(u,v)$ y $D(u',v')$
-  conmutan si y solo si la forma bilineal alternante se
-  anula, i.e., $\langle (u,v), (u',v') \rangle = 0$.
-
-  Ahora lo que hace Kanat, siguiendo a Kantor, es considerar
-  a $V$ como un espacio vectorial de dimensión $n$ sobre el
-  campo primo $\mathbb Z_p$, efectivamente identificando a
-  $V$ con la extensión de Galois $\GF(p^{n})$. Luego,
-  utilizando la forma bilineal alternante define un spread
-  simpléctico sobre el espacio $2n$-dimensional $V \oplus
-  V$ de la siguiente manera.
-
+  conmutador de dos operadores de desplazamiento e
+  identificar la condición para que el conmutador se anule.
+  \begin{proposition}
+    Dos operadores de desplazamiento $D(u,v)$ y $D(u',v')$
+    conmutan si y solo si la forma simpléctica se anula para
+    $(u,v)$ y $(u',v')$, i.e.,
+    \begin{equation}
+      \label{eqn:disp_comm_condition}
+      \langle (u,v), (u',v') \rangle = 0.
+    \end{equation}
+  \end{proposition}
+  \begin{proof}
+    Un cálculo directo nos muestra que
+    \begin{align}
+      [D(u,v),D(u',v')]
+      &= D(u,v)D(u',v') - D(u',v')D(u,v) \\
+      &= D(u,v)D(u',v') - \omega^{\langle (u,v),(u',v')
+      \rangle} D(u,v) D(u',v') \\
+      &= \left( 1 - \omega^{\langle (u,v),(u',v') \rangle}
+      \right) D(u,v)D(u',v') \\
+      &= \omega^{\tr(v \cdot u')} \left( 1 - \omega^{\langle
+      (u,v),(u',v') \rangle} \right) D(u+u',v+v').
+      \label{eqn:disp_comm}
+    \end{align}
+  \end{proof}
+    
+  Notemos que podemos identificar el espacio de fase
+  discreto con el espacio $W$. La idea de Wootters fue
+  identificar subespacios unidimensionales del espacio de
+  fase tales que los operadores desplazamiento
+  correspondientes conmutaran.  Con la condición
+  (\ref{eqn:disp_comm_condition}) podemos identificar más
+  agrupaciones, y éstas agrupaciones coinciden con los
+  spreads simpléticos, los cuales definimos de la siguiente
+  manera:
   \begin{definition}[Spread simpléctico]
     Un spread simpléctico $\Sigma$ de un espacio simpléctico
     $W = V \oplus V$ es una familia $\Sigma$ de $d+1$
@@ -3612,8 +3689,8 @@
   afín a partir de un spread simpléctico y resulta que la
   partición en lineas rectas de Wootters del espacio de fase
   discreto es precisamente un plano afín, conocido como el
-  spread de DeArguesian (ésto lo veremos en los ejemplos más
-  adelante).
+  spread de Desarguesiano (ésto lo veremos en los ejemplos
+  más adelante).
 
   Con la construcción anterior de los operadores de
   desplazamiento, y utilizando los resultados de Kantor
@@ -3680,70 +3757,24 @@
   De la sección anterior sabemos que un spread simpléctico
   nos produce un plano afín y una descomposición ortogonal
   de $\Sl_d(\C)$, la cual a su vez nos brinda un conjunto
-  completo de MUBs. Ahora la cuestión es ¿cómo obtener
-  spreads simplécticos? Kantor comenta que encontrar spreads
-  simplécticos no es trivial, pero podemos construir algunos
-  por medio de presemicampos y semicampos.\footnote{Existen
-  spreads simplécticos que no provienen de un semicampo
-  simpléctico, pero para nuestra construcción alternativa
-  basta utilizar aquellos que sí provienen de
-  semicampos.}. Luego, Kanat nos muestra como obtener a las
-  bases directamente de la operación del semicampo
+  completo de MUBs por medio de la diagonalización
+  simultánea de los operadores de desplazamiento
+  conmutativos. Existen múltiples construcciones explícitas
+  de los eigenvectores de los subconjuntos de $D(\alpha)$,
+  iniciando con la construcciones de Ivanovic y Wootters. La
+  mayoría son equivalentes y son un caso particular de los
+  métodos de Kantor y Kanat. Para nuestro trabajo,
+  utilizaremos las construcciones de Kanat y empezamos por
+  demostrar el siguiente teorema que nos permitirá expresar
+  las MUBs a partir de un spread simpléctico. Usaremos la
+  forma simpléctica (\ref{eqn:bilinear_form}) y consideramos
+  a $V$ como el espacio unidimensional sobre la extensión de
+  Galois, i.e., $V = \F = \GF(p^{n})$ donde en ésta sección,
+  $p$ es un número primo impar.  Recordemos que $\{\ket{e_w}
+  : w \in V\}$ es la base estándar de $\C^{p^{n}}$
+  etiquetada por los elementos de la extensión de Galois.
 
-  \begin{definition}[Presemicampo y semicampo]
-    \label{def:presemifield}
-    Un presemicampo es un anillo sin divisores del cero, y
-    con solo la propiedad distributiva (derecha e
-    izquierda). Un semicampo es un presemicampo con una
-    indentidad multiplicativa.
-  \end{definition}
-
-  A partir de un campo finito $F$ podemos obtener un
-  presemicampo finito al introducir una operación nueva
-  $\circ : F \times F \to F$. La operación de suma es la del
-  campo finito, por lo tanto la definición
-  (\ref{def:presemifield}) nos dice que el semicampo finito
-  es el conjunto $F$ tal que
-  \begin{enumerate}
-    \item $F$ es un grupo abelinao bajo la suma, con
-      identidad $0$.
-    \item Si $x \circ = 0$, entonces $x = 0$ ó $y = 0$.
-    \item Satisface las propiedades distributivas
-      \[
-        x \circ (y + z) = x \circ y + x \circ z,
-        \quad
-        (x + y) \circ z = x \circ z + y \circ z.
-      \] 
-  \end{enumerate}
-  Notemos que todo campo finito es un semicampo y un
-  presemicampo. Kantor nos muestra que todo presemicampo
-  determina un spread $\Sigma$ del espacio $V \oplus V$ por
-  medio de la multiplicación. Éste spread consiste de los
-  subespacios
-  \begin{equation}
-    \label{eqn:presemi_spread}
-    \{(0,v) : v \in \mathbb F\},
-    \quad 
-    \{(u, u \circ m) : u \in \mathbb F\}
-    \quad
-    \text{para todo } m \in \mathbb F.
-  \end{equation}
-  Decimos que un presemicampo es \textit{simpléctico} si el
-  spread simpléctico que genera es simpléctico respecto a
-  algúna forma bilineal alternante. En éste trabajo siempre
-  utilizaremos la forma alternante (\ref{eqn:bilinear_form})
-  y de aquí en adelante solo consideraremos a $V$ como el
-  espacio unidimensional sobre la extensión de Galois, i.e.,
-  $V = \GF(p^{n})$ donde en éste sección, $p$ es un número
-  primo impar. Así el producto escalar mencionado al inicio
-  es simplemente el producto en la extensión de Galois.
-  Siguiendo a Kanat, demostramos el siguiente lema que nos
-  permitirá construir MUBs a partir de la operación del
-  presemicampo. Recordemos que $\{\ket{e_w} : w \in V\}$ es
-  la base estándar de $\C^{p^{n}}$ etiquetada por los
-  elementos del campo finito.
-
-  \begin{lemma}
+  \begin{theorem}
     \label{lemma:h_mubs}
     Sea $\Sigma$ un spread simpléctico de $W = V \oplus V$ y
     sea $h : V \to V$ un mapeo lineal tal que
@@ -3761,7 +3792,7 @@
     \end{equation} 
     es un eigenvector del operador de desplazamiento
     $D(u,h(u))$ para todo $u \in V$.
-  \end{lemma}
+  \end{theorem}
   \begin{proof}
     Calculando directamente obtenemos:
     \begin{align}
@@ -3846,14 +3877,110 @@
       \right) } \ket{b_{h,v}}.
     \end{align}
   \end{proof}
-
+  \begin{corollary}
+    Los vectores $\ket{b_{\cdot,v}}$ correspondientes a un
+    subespacio del spread $\Sigma$ son mutuamente insesgados
+    respecto a los eigenvectores de otro subespacio.
+  \end{corollary}
+  \begin{proof}
+    Un cálculo directo nos brinda lo siguiente. Sean $h$ y
+    $h'$ mapeos lineales tales que
+    \[
+      W_h
+      = \{(u,h(u)) : u \in V\},
+      \quad \text{y} \quad
+      W_{h'}
+      = \{(u,g(u)) : u \in V\}
+    \] 
+    son elementos distintos del spread simpléctico $\Sigma$.
+    Entonces
+    \begin{align}
+      \braket{b_{h,v}|b_{h',v'}}
+      &= \sum_{w \in V}^{} 
+      \omega^{-\tr\left( \frac{1}{2} w h(w) + vw \right) }
+      \omega^{\tr\left( \frac{1}{2} w h'(w) + v'w \right) } \\
+      &= \sum_{w \in V}^{}
+      \omega^{\tr\left( \frac{1}{2} w (h'(w) - h(w)) + w(v'
+      - v) \right) }.
+    \end{align}
+    Primero supongamos que $h = h'$. Si $v = v'$ entonces
+    $\braket{b_{h,v}|b_{h',v'}} = d$. Si $h = h'$ pero $v
+    \neq v'$, entonces
+    \begin{equation}
+      \braket{b_{h,v}|b_{h',v'}}
+      = \sum_{w \in V}^{} \omega^{\tr\left( w(v'-v) \right) }
+      = \sum_{z \in V}^{} \omega^{\tr(z)}
+      = 0,
+    \end{equation}
+    donde la última suma se anula porque $\sum_{j = 0}^{p-1}
+    \omega^{j} = 0$ (ver apéndice (REF)). Ésto prueba que
+    los vectores de la misma base son ortonormales. Ahora
+    supongamos que $h \neq h'$, entonces PENDIENTE.
+  \end{proof}
   El teorema anterior nos permite diagonalizar de manera
   simultánea a los operadores de desplazamiento que conmutan
-  entre si para un spread simpléctico dado. Entonces dado un
+  entre si para un spread simpléctico dado.  La cuestión
+  natural ahora es, ¿cómo obtener spreads simplécticos?, y
+  sobre todo, ¿cómo obtener spreads que no son equivalentes?
+  Kantor comenta que encontrar spreads simplécticos no es
+  trivial, pero podemos construir algunos por medio de
+  presemicampos y semicampos.\footnote{Existen spreads
+    simplécticos que no provienen de un semicampo
+    simpléctico, pero para nuestra construcción alternativa
+  basta utilizar aquellos que sí provienen de semicampos.}.
+  [HIST] Introducimos brevemente algunas nociones que
+  vinculan los presemicampos y los spreads simplécticos,
+  pero no seremos muy rigurosos ya que para éste trabajo nos
+  basta con tomar los ejemplos dados por Kantor [CITE] para
+  construir nuestros spreads no equivalentes.
+  \begin{definition}[Presemicampo y semicampo]
+    \label{def:presemifield}
+    Un presemicampo es un anillo sin divisores del cero, y
+    con solo la propiedad distributiva (derecha e
+    izquierda). Un semicampo es un presemicampo con una
+    identidad multiplicativa.
+  \end{definition}
+  A partir de un campo finito $\F$ podemos obtener un
+  presemicampo finito al introducir una operación nueva
+  $\circ : \F \times \F \to \F$. La operación de suma es la
+  del campo finito, por lo tanto la definición
+  (\ref{def:presemifield}) nos dice que el semicampo finito
+  es el conjunto $\F$ tal que
+  \begin{enumerate}
+    \item $\F$ es un grupo abeliano bajo la suma, con
+      identidad $0$.
+    \item Si $x \circ y = 0$, entonces $x = 0$ ó $y = 0$.
+    \item Satisface las propiedades distributivas
+      \[
+        x \circ (y + z) = x \circ y + x \circ z,
+        \quad
+        (x + y) \circ z = x \circ z + y \circ z.
+      \] 
+  \end{enumerate}
+  Notemos que todo campo finito es un semicampo y un
+  presemicampo. Kantor comenta que todo presemicampo
+  determina un spread $\Sigma$ del espacio $V \oplus V$ por
+  medio de la multiplicación.\footnote{La decisión de
+    utilizar presemicampos y semicampos para formar los
+    spreads simplécticos es simplemente porque nos da una
+    manera general de establecer los resultados que se
+    usarán en la
+  construcción de las MUBs.} Éste spread consiste de los
+  subespacios
+  \begin{equation}
+    \label{eqn:presemi_spread}
+    \{(0,v) : v \in \mathbb F\},
+    \quad 
+    \{(u, u \circ m) : u \in \mathbb F\}
+    \quad
+    \text{para todo } m \in \mathbb F.
+  \end{equation}
+  Decimos que un presemicampo es \textit{simpléctico} si el
+  spread que genera es simpléctico respecto a
+  algúna forma bilineal alternante. Entonces dado un
   presemicampo simpléctico podemos generar el conjunto
   completo de MUBs simplemente utilizando la operación del
-  presemicampo ya Kantor nos asegura que la operación genera
-  un spread simpléctico.
+  presemicampo.
 
   \begin{theorem}[Kanat (CITE) Teorema 3.3]
     \label{thm:kanat_presemi_mubs}
@@ -3878,11 +4005,12 @@
   \end{theorem}
   \begin{proof}
     Si el spread que genera la operación del presemicampo es
-    un spread simpléctico, entonces el lema
+    un spread simpléctico, entonces el teorema
     \ref{lemma:h_mubs} nos permite construir el conjunto
     completo de MUBs donde el mapeo $h : V \to V$ está dado
     por la operación $\circ$ del presemicampo. La linealidad
-    de $h$ se sigue de la distributividad de $\circ$.
+    de $h$ se sigue de la distributividad de la operación
+    del presemicampo.
   \end{proof}
 
   Para poder utilizar utilizar el teorema
@@ -4000,7 +4128,7 @@
   artículo sobre códigos de Kerdock y spreads simplécticos
   escrito por Kantor [CITE].
 
-  Sea $F = \GF(2^{n})$ el campo de Galois y $\omega \in \C$
+  Sea $\F = \GF(2^{n})$ el campo de Galois y $\omega \in \C$
   una cuarta raíz primitiva de la unidad. Sea $R =
   \GR(4^{n})$ el anillo de Galois de característica cuatro
   (ver apéndice (REF) para un resumen de extensiones de
@@ -4015,13 +4143,13 @@
     T = \{0,1,\xi,\xi^2,\ldots,\xi^{2^{n}-2}\},
   \end{equation}
   y sin el $0$ es subgrupo multiplicativo de tamaño $2^{n}$
-  que es isomorfo a $F$. En ocasiones el generador del
+  que es isomorfo a $\F$. En ocasiones el generador del
   anillo coincide con la raíz $\xi$, pero ésto no es el caso
   general. Todo elemento $x \in R$ puede ser expresado como
   la combinación lineal de elementos $a,b$ del Teichmüller
   en la forma $x = a + 2b$.  Utilizando ésta expresión
   multiplicativa ó $2$-ádica de $x$, la traza del anillo de
-  Galois $\tr : R \to \Z_4$ se define como
+  Galois, $\tr : R \to \Z_4$ se define como
   \begin{equation}
     \tr(x)
     = \left(a + a^2 + \cdots + a^{2^{n-1}}\right) + 2\left(
@@ -4036,8 +4164,7 @@
 
   Con lo anterior podemos enunciar el teorema equivalente a
   \ref{thm:kanat_presemi_mubs} para el caso de campos de
-  característica par.
-
+  característica par:
   \begin{theorem}
     \label{thm:kanat_even}
     Sea $V = \GF(2^{n})$ con la operación $\circ$ un
@@ -4143,33 +4270,26 @@
   equivalente al Desarguesiano.
   \begin{definition}
     \label{def:kantor_even_alt}
-    Sea $V = \GF(2^{n})$ y equipemos a $W = V \oplus V$ con
-    la misma forma bilineal alternante. Supongamos que $n >
-    3$ e impar y definamos la siguiente operación la cual
-    nos brinda un presemicampo:
+    Sea $\F = \GF(2^{n})$. Supongamos que $n >
+    3$ e impar. Entonces el campo finito con la operación
     \begin{equation}
       x \circ m
-      = m^2x + m\tr(x) + \tr(mx).
+      = m^2x + m\tr(x) + \tr(mx),
     \end{equation}
+    es un presemicampo simpléctico.
   \end{definition}
-  Éste presemicampo es simpléctico y el plano afín está dado
-  por los rayos: 
-  \begin{equation}
-    \label{eqn:qubit_alt_spread}
-    x = 0
-    \quad \text{ y } \quad
-    y = m^2x + m\tr(x) + \tr(mx).
-  \end{equation}
-  Kantor prueba que éste es un spread simpléctico de $V
-  \oplus V$ que \textbf{no} es equivalente al Desarguesiano
-  [CITE]. Con el teorema \ref{thm:kanat_even} podemos
-  obtener una expresión explícita de las MUBs.
+  Kantor prueba que el spread simpléctico de $V \oplus V$
+  generado por éste presemicampo no es equivalente al
+  Desarguesiano [CITE]. Con el teorema \ref{thm:kanat_even}
+  podemos obtener una expresión explícita de las MUBs
+  haciendo las operaciones pertinentes en el anillo de
+  Galois.
 
   \section{Definición no estándar de una función de Wigner
   discreta}
 
   Vamos a recapitular la sección anterior. Dado una un campo
-  finito $F$ siempre podemos formar un presemicampo mediante
+  finito $\F$ siempre podemos formar un presemicampo mediante
   una nueva operación $\circ$. Todo presemicampo genera un
   spread $\Sigma$ del espacio $V \oplus V$ donde $V = F$, que
   consiste de los subespacios
@@ -4198,20 +4318,20 @@
   y obtenemos un conjunto maximal de bases mutuamente
   insesgadas gracias a las construcciones de la sección
   anterior. Utilizando nuestra notación, ésto significa que
-  los vectores $\ket{b_{m,v}}$ para todo $v \in F$
-  corresponden al rayo $\{(u, u \circ m) : u \in F\}$ (y sus
-  lineas paralelas), y son eigenvectores de los operadores
-  $D(u, u \circ m)$ para todo $u \in F$. Cada familia de
-  eigenvectores correspondiente a los elementos del spread
-  simpléctico es invariante bajo el grupo de Pauli [KANTOR],
-  ésto significa que al operar un eigenestado por un
-  operador de desplazamiento, obtendremos algún otro
-  eigenestado correspondiente a la estría (o al mismo
-  eigenestado si el operador corresponde a las traslaciones
-  que dejan invariante a las lineas de la estría). Por lo
-  tanto, despues de asignar un eigenestado al rayo, el resto
-  de las asignaciones de eigenestados quedan determinados
-  por desplazamientos.
+  los vectores $\ket{b_{m,v}}$ para todo $v \in \F$
+  corresponden al rayo $\{(u, u \circ m) : u \in \F\}$ y a
+  sus lineas paralelas, y son eigenvectores de los
+  operadores $D(u, u \circ m)$ para todo $u \in \F$. Cada
+  familia de eigenvectores correspondiente a los elementos
+  del spread simpléctico es invariante bajo el grupo de
+  Pauli [KANTOR], ésto significa que al operar un
+  eigenestado por un operador de desplazamiento, obtendremos
+  algún otro eigenestado correspondiente a la estría (o al
+  mismo eigenestado si el operador corresponde a las
+  traslaciones que dejan invariante a las lineas de la
+  estría). Por lo tanto, despues de asignar un eigenestado
+  al rayo, el resto de las asignaciones de eigenestados
+  quedan determinados por desplazamientos.
 
   Ésto es precisamente lo que Wootters formó en su
   construcción de la función de Wigner discreta. Sus rectas
@@ -4584,122 +4704,194 @@
   (\ref{ex:qs-3-3}) para los cuales hemos construidos dos
   conjuntos de MUBs no equivalentes. El primer conjunto de
   MUBs coincide con las construcciones de Wootters en ambos
-  casos.
+  casos. Designemos por $\mathcal B_m$ al conjunto de MUBs
+  estándar y por $\mathcal B_m^{\mathcal K}$ al conjunto de
+  MUBs no estándar, donde $m \in \F$ y $\mathcal B_\infty,
+  \mathcal B_\infty^{\mathcal K}$ denotan la base estándar.
 
   \begin{example}
     El primer ejemplo consiste de un sistema cuántico de
-    cinco qubits. Primero calculamos la función de Wigner
-    estándar de un estado cuántico que corresponde a un
-    elemento de un conjunto de las MUBs calculadas a partir
-    del spread Desarguesiano. Luego del mismo estado
-    calculamos la función de Wigner no-estándar. El segundo
-    estado corresponderá a un eigenestado de las MUBs
-    alternativas, de nuevo construímos la función de Wigner
-    estándar y no estándar. Finalmente construímos un estado
-    que es combinación lineal de estados del primer conjunto
-    de MUBs y comparamos las funciones de Wigner.
+    cinco qubits. Vamos a calcular la función de Wigner
+    estándar y no estándar para tres estados. El primero
+    estado estado cuántico corresponde a un elemento de un
+    conjunto de las MUBs calculadas a partir del spread
+    Desarguesiano, $\ket{\psi_1} \in \mathcal B_m$. El
+    segundo estado corresponderá a un eigenestado de las
+    MUBs alternativas, $\ket{\psi_2} \in \mathcal
+    B_m^{\mathcal K}$. Finalmente construímos un estado que
+    es combinación lineal de tres elementos de la base
+    estándar:
+    \[
+      \ket{\psi_3}
+      = \frac{1}{\sqrt{3}} \left(
+        \ket{\alpha^{4} + \alpha^3 + \alpha}
+        + 
+        \ket{\alpha+1}
+      \right).
+    \] 
   \end{example}
 
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{imgs/wigner-standard-2-5-s1.png}
-    \caption{Función de Wigner estándar para un estado del
-    conjunto de MUBs estándar}
+    \includegraphics[width=0.6\textwidth]{
+    imgs/wigner-standard-2-5-s1.png}
+    \caption{Función de Wigner estándar $W$ para el estado
+    $\ket{\psi_1}$, el cual pertenece a las MUBs estándar.}
     \label{fig:wigner-standard-2-5-s1}
   \end{figure}
-
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{imgs/wigner-standard-2-5-s2.png}
-    \caption{Función de Wigner estándar para una combinación
-    lineal de estados del conjunto de MUBs estándar.}
+    \includegraphics[width=0.6\textwidth]{
+    imgs/wigner-kantor-2-5-s1.png}
+    \caption{Función de Wigner no-estándar $W^{\mathcal K}$
+    para el estado $\ket{\psi_1}$, el cual pertenece a las
+    MUBs estándar.}
+    \label{fig:wigner-kantor-2-5-s1}
+  \end{figure}
+  Observemos en la figura (\ref{fig:wigner-standard-2-5-s1})
+  que sumando la función de Wigner estándar $W$ sobre la
+  recta correspondiente al estado $\ket{\psi_1}$ obtenemos
+  el valor de $1$, indicando que no hay incertidumbre. Por
+  otro lado, la figura (\ref{fig:wigner-kantor-2-5-s1}) nos
+  muestra la función de Wigner no estándar $W^{\mathcal K}$
+  del mismo estado $\ket{\psi_1}$. El aparante desorden en
+  la gráfica es de esperarse, pues nos indica que el estado
+  $\ket{\psi_1}$ \textit{no} es un eigenestado de las
+  MUBs de Kantor, un indicador de la inequivalencia entre
+  las construcciones. Ahora, las bases correspondientes a
+  las rectas horizontales y verticales son las mismas en
+  ambas construcciones, así que la suma de ambas funciones
+  $W$ y $W^{\mathcal K}$ sobre éstas rectas nos deben dar la
+  misma probabilidad, algo que se verifica con cálculo
+  directo.
+
+  Similarmente, calculamos las funciones $W$ y $W^{\mathcal
+  K}$ pero ahora para el estado $\ket{\psi_2}$ el cual
+  pertenece a las MUBs no estándar $\mathcal B^{\mathcal
+  K}$, y que no pertenece a la estándar $\mathcal B$.
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{
+    imgs/wigner-standard-2-5-s2.png}
+    \caption{Función de Wigner estándar $W$ para el estado
+    $\ket{\psi_2}$, el cual pertenece a las MUBs no estándar.}
     \label{fig:wigner-standard-2-5-s2}
   \end{figure}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{
+    imgs/wigner-kantor-2-5-s2.png}
+    \caption{Función de Wigner no estándar para
+      $\ket{\psi_2}$.}
+    \label{fig:wigner-kantor-2-5-s2}
+  \end{figure}
+  Como es de esperarse, la figura
+  (\ref{fig:wigner-standard-2-5-s2}) nos indica que la
+  función de Wigner estándar produce una figura sin mucho.
+  Ésto es de esperarse pues las mediciones se hacen con
+  bases que no son unitariamente equivalentes a las que se
+  usaron para definir la función de Wigner. El mismo estado
+  produce una función de Wigner no estándar con mucho más
+  orden, en donde se ve claramente que el estado pertenece a
+  una de las MUBs. A pesar de las diferencias, en ambos
+  casos se preserva la propiedad tomográfica y en estados
+  que se comparten en ambas MUBs, las probabilidad obtenidas
+  al sumar las funciones de Wigner son iguales.
+
+  Ahora consideremos el estado cuántico $\ket{\psi_3}$. Éste
+  estado cuántico es una superposición equitativa de estados
+  de la base estándar. La base estándar pertenece a ambos
+  conjuntos de MUBs, por lo que no esperaríamos ver mucha
+  diferencia. La figura (\ref{fig:wigner-standard-2-5-s3})
+  muestra la gráfica de la función de Wigner estándar del
+  estado $\ket{\psi_3}$, notemos las dos barras verticales
+  que sobre salen. Sumando sobre ellas obtenemos la
+  probabilidad de encontrar el sistema en los estados
+  $\ket{\alpha^{4}+\alpha^3 + \alpha}$ y $\ket{\alpha+1}$
+  respectivamente, en ambos casos la probabilidad es
+  $\frac{1}{2}$. Sumando sobre cualquier otra recta vertical
+  nos da 0 ya que por definición de $\ket{\psi_3}$ no hay
+  probabilidad de que el sistema se encuentre en esos
+  eigenestados. Notamos un pico en la primera linea vertical
+  que sobresale más que los demas. No podemos concluír mucho
+  sobre el significado de ese pico, más de allá del hecho de
+  que la probabilidad de transición de $\ket{\psi_3}$ al
+  estado correspondente a la recta horizontal que cruza por
+  ese punto si coincide con la suma. Como lo esperabamos, la
+  gráfica de la función de Wigner no estándar $W^{\mathcal
+  K}$ es muy similar, vuelven aparecer dos rectas verticales
+  positivas correspondientes a los estados de la
+  superposición, como se puede observar en la figura
+  (\ref{fig:wigner-kantor-2-5-s3}). Curiosamente, la versión
+  no estándar no muestra el pico centralizado que aparece en
+  la versión estándar, las barras verticales parecen tener
+  alturas distribuidas de una manera más uniforme. El
+  cálculo de probabilidades permanece igual. La figura
+  (\ref{fig:wigner-2-5-s3-heat}) muestra las gráficas en
+  forma de un \textit{mapa de calor} en donde la similutud
+  de ambas funciones se aprecia un poco mejor.
 
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{imgs/wigner-standard-2-5-s3.png}
-    \caption{Función de Wigner estándar para un estado del
-    conjunto de MUBs no-estándar (spread de Kantor).}
+    \includegraphics[width=0.6\textwidth]{
+    imgs/wigner-standard-2-5-s3.png}
+    \caption{ Función de Wigner estándar $W$ del estado en
+    superposición.}
     \label{fig:wigner-standard-2-5-s3}
   \end{figure}
-
-  Observemos en la figura (\ref{fig:wigner-standard-2-5-s1})
-  que sumando la función de Wigner de un eigenestado de las
-  MUBs estándar sobre la recta resaltada, obtenemos el valor
-  de $1$. Ésto corresponde con que el sistema se encuentra
-  en dicho eigenestado, es decir, no hay incertidumbre. Algo
-  similar sucede al graficar la función de Wigner de un
-  estado que es cominbación lineal equitativa de dos
-  elementos de la base estándar. En la figura
-  (\ref{fig:wigner-standard-2-5-s2}) vemos dos rectas con
-  valores de Wigner más altos que el promedio, éstas rectas
-  coinciden precisamente con los elementos de la base
-  estándar que se utilizaron para forma el estado en
-  cuestión. Sumando sobre cualquiera de las franjas se
-  obtiene el valor de $\frac{1}{2}$, ésto tiene sentido pues
-  la probabilidad de que el sistema cuántico se encuentre en
-  un de los dos es equitativo por definición de dicho
-  estado.  Aunque es dificil notar en la figura, sumando
-  sobre cualquier otra recta vertical nos da $0$, ya que la
-  probabilidad de que el sistema se encuentre en otro estado
-  de la base estándar es nulo.
-
-  Ahora, si graficamos un elemento de alguna base del
-  conjunto de MUBs no estándar, como se muestra en la figura
-  (\ref{fig:wigner-standard-2-5-s2}), la función de Wigner
-  estándar produce una figura sin mucho orden.
-  Intuitivamente ésto es de esperarse pues las mediciones se
-  hacen con bases que no son unitariamente equivalentes a
-  las que se usaron para definir la función de Wigner. La
-  siguientes gráficas muestran funciones de Wigner
-  no-estándar. La primera que se muestra en la figura
-  (\ref{fig:wigner-kantor-2-5-s3}) corresponde un
-  eigenestado de las MUBs de Kantor. La función de Wigner
-  no-estándar mantiene las mismas propiedades que la versión
-  estándar en éste caso, en particular la suma de la función
-  de Wigner sobre la recta a la cual se le asignó dicho
-  estado da igual a $1$. 
-
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{imgs/wigner-kantor-2-5-s3.png}
-    \caption{Función de Wigner no-estándar de un eigenestado
-    de las MUBs de Kantor.}
+    \includegraphics[width=0.6\textwidth]{
+    imgs/wigner-kantor-2-5-s3.png}
+    \caption{ Función de Wigner no estándar $W^{\mathcal K}$
+    del estado en superposición.}
     \label{fig:wigner-kantor-2-5-s3}
   \end{figure}
 
-  Por otro lado, la figura () nos muestra la función de
-  Wigner no-estándar del estado
-  $\ket{\psi_3}$, el que es una combinación equitativa de la
-  base estándar. Notemos que se parece mucho a la figura de
-  la construcción estándar, pero no son iguales. La suma
-  sobre los eigenestados nos produce las probabilidades
-  correctas, pero la función de Wigner no es identica a la
-  estándar.
-
-  \begin{figure}[ht]
+  \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{imgs/wigner-kantor-2-5-s2.png}
-    \caption{Función de Wigner no estándar del estado $\ket{\psi_3}$.}
-    \label{fig:wigner-kantor-2-5-s2}
-  \end{figure}
-  \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.6\textwidth]{imgs/wigner-kantor-2-5-s2-heat.png}
-    \caption{Función de Wigner no estándar del estado
-    $\ket{\psi_3}$ representado por un \textit{mapa de
-    calor}.}
-    \label{fig:wigner-kantor-2-5-s2-heat}
+    \subfloat[$W$]{{
+        \includegraphics[width=0.415\linewidth]{
+        imgs/wigner-standard-2-5-s3-heat.png}
+    }}
+    \quad
+    \subfloat[$W^{\mathcal K}$]{{
+        \includegraphics[width=0.415\linewidth]{
+        imgs/wigner-kantor-2-5-s3-heat.png}
+    }}
+    \caption{Comparación de ambas funciones de Wigner para
+    el estado $\ket{\psi_3}$.}
+    \label{fig:wigner-2-5-s3-heat}
   \end{figure}
 
+  \clearpage
   \begin{example}
-    Consideremos el ejemplo de tres qutrits de la sección
-    anterior. Para éste sistema cuántico construímos dos
+    Consideremos el sistema cuántico modelado por tres
+    qutrits. En la sección anterior, construímos dos
     conjuntos maximales de MUBs no unitariamente
-    equivalentes por lo tanto podemos comparar sus funciones
-    de Wigner.
+    equivalentes, así que podremos definir dos funciones de
+    Wigner para los estados de interes, tal como se hizo en
+    el ejemplo anterior. Ésta vez solo graficaremos el
+    estado GHZ de tres qubits, el cual se expresa en la base
+    estándar de $\C^3 \otimes \C^3 \otimes \C^3$ como:
+    \begin{equation}
+      \ket{GHZ} = \frac{1}{\sqrt{3}}
+      \left( \ket{000} + \ket{111} + \ket{222} \right).
+    \end{equation}
+    Con la base $\{1,\alpha,\alpha^2\}$, el estado
+    $\ket{GHZ} $ se expresa como la superposición de
+    vectores de la base estándar de $\C^{27}$:
+    \begin{equation}
+      \ket{GHZ} = \frac{1}{\sqrt{3}}
+      \left(
+        \ket{0} + \ket{1 + \alpha + \alpha^2} 
+        + \ket{2 + 2\alpha + 2\alpha^2}
+      \right). 
+    \end{equation}
   \end{example}
+  Las figuras () y () muestra la función de Wigner estándar
+  $W$ y no estándar $W^{\mathcal K}$ del estado
+  $\ket{GHZ}$, respectivamente. PENDIENTE.
 
   \clearpage
   \section{Discusión}

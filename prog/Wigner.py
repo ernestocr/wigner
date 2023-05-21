@@ -18,7 +18,8 @@ class Wigner():
     
     def npProj(self, v):
         d = len(v)
-        return np.kron(v.reshape((d,1)), v.conj())
+        v = v.reshape((d,1))
+        return np.kron(v, v.conj().T)
 
     # Presemifield operation
     def Desargues(self, m, u):
@@ -32,7 +33,7 @@ class Wigner():
     
     # Geometry
     def Spread(self):
-        lines = [[(self.field(0), u) for u in self.field]]
+        lines = [[(self.field[0], u) for u in self.field]]
         for m in self.field:
             lines.append([(u, self.op(m, u)) for u in self.field])
         return lines
@@ -53,13 +54,13 @@ class Wigner():
         bs = [x] + [y - self.op(m, x) for m in self.field]
         bi = [self.toInt(b) for b in bs]
         
-        op = np.zeros((d,d), dtype='complex64')
+        a = np.zeros((d,d), dtype='complex64')
         for k in range(d + 1):
             B = self.mubs[d*k:d*(k+1), :]
             p = self.npProj(B[:, bi[k]])
-            op += p
+            a += p
             
-        return op - np.eye(d)
+        return a - np.eye(d)
     
     def Wigner(self, rho, x, y):
         d = len(self.field)
