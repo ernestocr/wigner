@@ -9,7 +9,7 @@
 \decimalpoint
 
 \usepackage{csquotes}
-\usepackage[sorting=none]{biblatex}
+\usepackage[sorting=none,style=chicago-authordate]{biblatex}
 \addbibresource{refs.biblatex}
 
 \usepackage{amsmath, amssymb}
@@ -117,40 +117,33 @@
   importante a ésta regla involucra el conjunto de
   operadores de Clifford que actúan sobre estados
   estabilizadores. Éstos estados juegan un papel importante
-  en la corrección de errores cuánticos
-  \cite{gottesmanHeisenbergRepresentationQuantum1998} y son
-  cerrados bajo la acción de las compuertas de Clifford. La
-  simulación eficiente de dichos sistemas con una
-  computadora clásica se demostró con el algoritmo tableau
-  de Aaronson y Gottesman \cite{
-    aaronsonImprovedSimulationStabilizer2004,
-  gottesmanHeisenbergRepresentationQuantum1998} para qubits
-  ($d=2$). La busqueda de un explicación de por qué un
-  algoritmo tan eficiente es posible para la simulación de
-  circuitos de Clifford ha sido un objeto de mucho estudio
-  \cite{gottesmanFaultTolerantQuantumComputation1999,
-    howardContextualitySuppliesMagic2014,
-  mariPositiveWignerFunctions2012}. El progreso reciente ha
-  sido resultado del trabajo de Wooters
-  \cite{woottersWignerFunctionFormulationFiniteState1987},
-  Eisert \cite{mariPositiveWignerFunctions2012}, Gross
-  \cite{grossHudsonTheoremFinitedimensional2006} y Emerson
-  \cite{howardContextualitySuppliesMagic2014}, quienes han
-  formulado una nueva perspectiva basada en los espacios de
-  fase discretos de estados y operadores en espacios de
-  Hilbert finitos, utilizando funciones discretas de Wigner.
-  La función de Wigner en el caso continuo surge de vincular
-  la mecánica cuántica con la mecánica clásica estadística,
-  mediante el espacio de fase. Las funciones de Wigner nos
-  dan una representación alternativa de estados de sistemas
+  en la corrección de errores cuánticos \cite{gottesman1998}
+  y son cerrados bajo la acción de las compuertas de
+  Clifford. La simulación eficiente de dichos sistemas con
+  una computadora clásica se demostró con el algoritmo
+  tableau de Aaronson y Gottesman \cite{ aaronson2004,
+  gottesman1998} para qubits ($d=2$). La busqueda de un
+  explicación de por qué un algoritmo tan eficiente es
+  posible para la simulación de circuitos de Clifford ha
+  sido un objeto de mucho estudio \cite{gottesman1999,
+  howard2014, mari2012}. El progreso reciente ha sido
+  resultado del trabajo de Wooters \cite{wootters1987},
+  Eisert \cite{mari2012}, Gross \cite{gross2006} y Emerson
+  \cite{howard2014}, quienes han formulado una nueva
+  perspectiva basada en los espacios de fase discretos de
+  estados y operadores en espacios de Hilbert finitos,
+  utilizando funciones discretas de Wigner.  La función de
+  Wigner en el caso continuo surge de vincular la mecánica
+  cuántica con la mecánica clásica estadística, mediante el
+  espacio de fase. Las funciones de Wigner nos dan una
+  representación alternativa de estados de sistemas
   cuánticos y la generalización a sistemas discretos a
   tomado distintas formas a traves de los años, cada una con
   ventajas y desventajas. Para una clase particular de
   funciones de Wigner discretas, se ha demostrado que los
   estados estabilizadores son análogos discretos a los
-  estados Gaussianos en sistemas continuos
-  \cite{grossHudsonTheoremFinitedimensional2006}, en el
-  sentido de que tienen funciones de Wigner definidas
+  estados Gaussianos en sistemas continuos \cite{gross2006},
+  en el sentido de que tienen funciones de Wigner definidas
   positivas; por otro lado se ha demostrado que los
   operadores de Clifford son mapeos definidos positivos.
   Esto implica que los circuitos de Clifford son simulables
@@ -160,8 +153,7 @@
   explícita, los operadores \textit{puntuales} de fase
   discretos (núcleos de la transformación de Wigner) para
   qubits y qutrits. Estrictamente hablando, buscamos la
-  construcción \textit{estándar}
-  \cite{woottersWignerFunctionFormulationFiniteState1987} y
+  construcción \textit{estándar} \cite{wootters1987} y
   \textit{no estándar} (contribución del trabajo) de los
   núcleos que permitan dos formas de la función de Wigner,
   utilizando conjuntos de bases no equivalentes bajo
@@ -173,10 +165,7 @@
   inequivalencia conduce a la posibilidad de encontrar
   estados no estabilizadores con funciones de Wigner no
   negativas, lo que contrasta con resultados previos para el
-  caso discreto
-  \cite{grossHudsonTheoremFinitedimensional2006,
-    galvaoDiscreteWignerFunctions2005,
-  cormickInterferenceDiscreteWigner2006}.
+  caso discreto \cite{gross2006, galvao2005, cormick2006a}.
 
   \chapter{Preliminares}
 
@@ -192,16 +181,16 @@
   función de Wigner a sistemas de dimensión finita. Para los
   sistemas continuos resulta que la función de Wigner es
   prácticamente única en el sentido de que posee la
-  propiedad tomográfica básica [CITE], pero para sistemas
-  discretos no hay una función de Wigner única, e incluso
-  hay distintas construcciones con distintas propiedades.
-  Esencialmente existen dos versiones básicas, una que imita
-  la construcción de la versión continua de una manera muy
-  natural y otra construcción que se basa en las propiedades
-  que satisface la versión continua. En éste trabajo
-  adoptamos la segunda construcción, la cual se debe a
-  Wootters. La razón principal para ésta elección es que nos
-  brinda una metodología que se puede aplicar para una
+  propiedad tomográfica básica \cite{ellinas2008}, pero para
+  sistemas discretos no hay una función de Wigner única, e
+  incluso hay distintas construcciones con distintas
+  propiedades.  Esencialmente existen dos versiones básicas,
+  una que imita la construcción de la versión continua de
+  una manera muy natural y otra construcción que se basa en
+  las propiedades que satisface la versión continua. En éste
+  trabajo adoptamos la segunda construcción, la cual se debe
+  a Wootters. La razón principal para ésta elección es que
+  nos brinda una metodología que se puede aplicar para una
   construcción alternativa de la función Wigner.
 
   Para poder estudiar la función de Wigner discreta es
@@ -593,55 +582,124 @@
   
   El uso de las bases mutuamente insesgadas (MUBs de aquí en
   adelante) ha sido impulsado principalmente por la busqueda
-  de métodos óptimos de reconstrucción de estados. De la
-  sección anterior sabemos que un estado cuántico en un
-  espacio de Hilbert de dimensión $d$ es descrito por un
-  operador de densidad.  Eligiendo un base y expresando al
-  operador como una matriz sabemos que el operador consiste
-  de $d^2-1$ números reales ya que $\Tr(\rho) = 1$ y el
-  operador es auto-adjunto. La tomografía cuántica estima
-  éstos números al hacer mediciones sobre un conjunto de
-  estados preparados de manera identica. Proyectando sobre
-  los $d$ elementos de un conjunto de $d+1$ bases
-  ortonormales del espacio obtendríamos $d^2+d$
-  probabilidades de los cuales solo $d-1$ de cada conjunto
-  serían linealmente indepediente.  Así obtendríamos
-  $(d-1)(d+1) = d^2-1$ probabilidades linealmente
-  independientes de los cuales podríamos reconstruir el
-  estado. Pero por razones obvias, no se puede reproducir el
-  experimento una cantidad infinita de veces, por lo tanto
-  los números acumularán un error estadístico. El uso de
-  bases mutuamente insesgadas minimizan dicho error en
-  cierto sentido [KLIMOV C7].
+  de métodos óptimos de reconstrucción de estados. Kanat
+  \cite{abdukhalikov2015} menciona que las bases mutuamente
+  insesgadas fueron estudiadas por primera vez por Schwinger
+  en 1960, pero no fueron definidas y ejemplificadas hasta
+  1987 por parte de Wootters y Fields \cite{wootters1987}.
+  En dicho trabajo Wootters y Fields investigan la
+  determinación de estados óptima y llegan a la conclusión
+  de que si se puede encontrar un conjunto de $d+1$ bases
+  mutuamente insesgadas para un espacio de Hilbert $\H$ de
+  dimensión $d$, entonces las mediciones correspondientes a
+  esas bases proveen una manera óptima de determinar el
+  operador de densidad de un ensamble de estados, en el
+  sentido de que el error estadístico es minimizado. Además
+  demuestran que la cantidad máxima de MUBs para un sistema
+  de dimensión $d$ es precisamente $d+1$ y nos dan una
+  manera de cálcular las bases explícitamente.
 
-  Kanat [CITE] menciona que las bases mutuamente insesgadas
-  fueron estudiadas por primera vez por Schwinger en 1960,
-  pero no fueron definidas y ejemplificadas hasta 1987 por
-  parte de Wootters y Fields. 
+  La caracteristica de ser mutuamente insesgados es una
+  relación entre distintas bases ortogonales del espacio de
+  Hilbert.
+  \begin{definition}
+    Sea $\H = \C^{d}$, decimos que dos bases
+    $\mathcal B_0 = \{\ket{\psi_i}\}$ y $\mathcal B_1 =
+    \{\ket{\phi_j}\}$ son mutuamente insesgadas
+    \begin{equation}
+      |\braket{\phi_i|\phi_j}|^2
+      = \frac{1}{d},
+    \end{equation} 
+    para cualesquiera $i$ y $j$.
+  \end{definition}
+  Dado que tenemos una preferencia por expresar estados
+  cuánticos por medio de operadores de densidad, es útil
+  notar que podemos expresar ésta noción de ser mutuamente
+  insesgado en términos de los proyectores. Si $\Pi_i$ es el
+  operador que proyecta al subespacio generado por
+  $\ket{\psi_i}$ y $\Pi_j$ el que proyecta hacia
+  $\ket{\phi_j}$, entonces dos bases son mutuamente
+  insesgadas si
+  \begin{equation}
+    \Tr\left( \Pi_i \Pi_j \right) 
+    = \frac{1}{d},
+  \end{equation}
+  para todo $i$ y $j$. El ejemplo más básico es para un
+  qubit, $\H = \C^2$.  Un cálculo directo prueba que las
+  siguientes bases son mutuamente insesgadas:
+  \begin{equation}
+    \left\{
+      \begin{pmatrix} 1\\0 \end{pmatrix},
+      \begin{pmatrix} 0\\1 \end{pmatrix}
+    \right\},
+    \left\{
+      \frac{1}{\sqrt{2}} \begin{pmatrix} 1\\1 \end{pmatrix},
+      \frac{1}{\sqrt{2}} \begin{pmatrix} 1\\-1 \end{pmatrix}
+    \right\},
+    \left\{
+      \frac{1}{\sqrt{2}} \begin{pmatrix} 1\\i \end{pmatrix},
+      \frac{1}{\sqrt{2}} \begin{pmatrix} 1\\-i \end{pmatrix}
+    \right\}.
+  \end{equation}
+  Éstas son las bases a las que se refiera Kanat, pues
+  Schwinger identificó que son los eigenestados de
+  operadores que son \textit{complementarios}
+  \cite{wootters1989}. Son complementarios en el sentido de
+  que la información que obtenemos al medir en un base no
+  nos aporta nada en cuanto a los resultados de la medición
+  en alguna otra base.
 
+  Hemos mencionado el problema de la determinación de
+  estados cuánticos múltiples veces, enseguida hacemos ésto
+  más claro. El problema de la determinación de estados, ó
+  de tomografía cuántica es el problema de determinar la
+  matriz de densidad\footnote{En la literatura física
+    generalmente se utilizan los términos matriz de densidad
+    y operador de densidad para referirse al mismo objeto,
+    nosotros hacemos el ligero incapie en que la matriz de
+    densidad es la representación matricial del operador de
+  densidad en alguna base.} correspondiente a un ensamble
+  de sistemas $d$-dimensionales preparados de manera
+  idéntica. Para un sistema de dimensión $d$, la matriz de
+  densidad está totalmente determinada por $d^2-1$
+  parámetros reales. Una medición en una base de un
+  subconjunto del ensamble nos genera solamente $d-1$
+  números reales independientes, ya que la regla de Born
+  nos dice que su suma debe ser la unidad. Se sigue que
+  requerimos \textit{al menos} $d+1$ distintas mediciones
+  para recuperar el estado cuántico. Se ha demostrado que si
+  uno puede obtener $d+1$ MUBs, entonces las mediciones en
+  éstas bases son suficientes para determinar la matriz de
+  densidad.
 
-  Recordemos que un conjunto de
-  MUBs en un espacio de Hilbert $\C^{d}$ se define como un
-  conjunto de bases ortonormales $\{B_0,B_1,\ldots,B_r\}$ 
-  del espacio tales que
-  \[
-    |\braket{x|y}|^2 = \frac{1}{d},
-  \] 
-  para cualesquiera dos vectores $x$ y $y$ de bases
-  distintas. 
+  No es necesario que las bases sean mutuamente insesgadas
+  para recuperar el estado, pero si lo son, nos brindan una
+  manera óptima en el siguiente sentido. Como no podemos
+  hacer una cantidad infinita de experimentos, estamos
+  sujetos al error estadístico que se introduce, i.e., no
+  podremos recuperar las probabilidades con precisión
+  exacta. Wootters y Fields  establecen ésta noción de error
+  estadístico de manera precisa y prueban que las mediciones
+  hechas con MUBs son óptimas en el sentido de que minimizan
+  el error estadístico. Nuestro interés en las MUBs para
+  éste trabajo es que surgen de manera natural a la hora de
+  asignar una estructura cuántica al espacio de fase
+  discreto para la construcción de una función de Wigner
+  discreta. Antes de continuar con ese tema es necesario
+  introducir el concepto de la función de Wigner. A pesar de
+  que la mayoría de éste trabajo se centra en sistemas
+  finitos, nos será útil repasar sistemas continuos ó
+  dimensión infinita, ya que la función de Wigner
+  originalmente se introdujo para el uso en esos sistemas
+  cuánticos.
 
   \subsection{Sistemas continuos}
 
-  A pesar de que la mayoría de éste trabajo se centra en
-  sistemas finitos, nos será útil repasar sistemas continuos
-  ó dimensión infinita, ya que la función de Wigner
-  originalmente se introdujo para el uso en éstos sistemas.
-
-  Los dos operadores fundamentales de la mecánica cuántica
-  son los operadores de posición y de momentum. En
-  particular pensemos en el sistema de una partícula
-  moviendose sobre la recta real $\R$. El espacio de Hilbert
-  es el espacio de las funciones cuadráticamente
+  En sistemas continuos, los dos operadores fundamentales de
+  la mecánica cuántica son los operadores de posición y de
+  momentum. En particular pensemos en el sistema de una
+  partícula moviendose sobre la recta real $\R$. El espacio
+  de Hilbert es el espacio de las funciones cuadráticamente
   integrables, $L^2(\R)$. Si $\psi \in L^2(\R)$ es un vector
   unitario, entonces $|\psi|^2$ puede ser interpretado como
   la densidad de probabilidad de la posición de la partícula
@@ -649,7 +707,7 @@
   la partícula se encuentre en el subconjunto $B \subset \R$
   es $\int_B |\psi|^2$. A partir de ésto es posible definir
   los operadores de posición y de momentum que satisfacen
-  ésta propiedad.
+  ésta propiedad:
   \begin{definition}
     El operador de posición $\hat X$ se define como
     \[
@@ -674,18 +732,18 @@
   \end{align*} 
   donde las integrales se interpretan en el sentido de las
   distribuciones de Schwartz. La teoría de distribuciones
-  aporta una manera de hacer rigurosa los cálculos con los
-  deltas de Dirac por medio del triplete de Gel'fand, por
-  otro lado, la teoría espectral de los operadores
-  auto-adjuntos nos brinda una manera de hacer riguroso toda
-  la maquinaria matemática necesaria para hacer los cálculos
-  sin recurrir a la distribuciones. A pesar de ésto,
-  generalmente se opta por utilizar dicha maquinaria sin
-  cuidar el rigor con la finalidad de facilitar los
-  cálculos. Dado que éstos detalles no aparecen en el caso
-  finito, el cual es la parte principal de éste trabajo,
-  nosotros no seremos muy rigurosos a la hora de introducir
-  a la función de Wigner en el caso continuo.
+  aporta una manera de hacer riguroso los cálculos con los
+  deltas de Dirac por medio del triplete de Gel'fand
+  \cite{folland1989}, por otro lado, la teoría espectral de
+  los operadores auto-adjuntos nos brinda una manera de
+  hacer riguroso toda la maquinaria matemática necesaria
+  para hacer los cálculos sin recurrir a la distribuciones.
+  A pesar de ésto, generalmente se opta por utilizar dicha
+  maquinaria sin cuidar el rigor con la finalidad de
+  facilitar los cálculos. Dado que éstos detalles no
+  aparecen en el caso finito, nosotros no seremos muy
+  rigurosos a la hora de introducir a la función de Wigner
+  en el caso continuo.
 
   Es común considerar a la \textit{función de onda}
   correspondiente a un estado $\psi$, ésto es una
@@ -697,8 +755,8 @@
   \] 
   donde el $x \in \R$ del lado izquierdo es un `eigenvalor'
   y del lado derecho es un `eigenestado' del operador de
-  posición. 
-
+  posición. Por otro lado, podemos definir el operador que
+  corresponde al momentum clásico de la siguiente manera:
   \begin{definition}
     El operador de momentum $\hat P$ se define como
     \[
@@ -706,7 +764,6 @@
     \] 
     donde $\psi \in L^2(\R)$ es tal que
   \end{definition}
-
   El operador de momentum también tiene un espectro continuo
   por lo cual es necesario introducir estados generalizados
   para poder hacer cálculos. Además, de manera análoga al
@@ -731,14 +788,12 @@
   \textit{variables} de posición y momentum,
   \textit{variables conjugadas}.
 
-  En la práctica generalmente no conocemos la
-  información completa del sistema y en éste caso decimos
-  que el sistema está en un \textit{estado mixto}. Podemos
-  definir un estado mixto como un conjunto de pares
-  $\{(\lambda_j,\psi_j)\}_{j \in \N}$ donde cada $\psi_j \in
-  L^2(\R^{n})$ es un estado puro y $0 \leq \lambda_j \leq 1$
-  es un probabilidad clásica, es decir, $\sum_j \lambda_j =
-  1$.
+  Los estados mixtos se expresan de una manera análoga al
+  caso finito. Definimos un estado mixto como un conjunto de
+  pares $\{(\lambda_j,\psi_j)\}_{j \in \N}$ donde cada
+  $\psi_j \in L^2(\R^{n})$ es un estado puro y $0 \leq
+  \lambda_j \leq 1$ es un probabilidad clásica, es decir,
+  $\sum_j \lambda_j = 1$.
   \begin{definition}
     Un estado cuántico es el conjunto de pares $(\lambda_j,
     \psi_j) \in [0,1] \times L^2(\R^{n})$, indexado por un
@@ -757,12 +812,53 @@
   El operador de densidad definido de ésta manera es
   auto-adjunto, semi-definido positivo, y es de clase de
   traza con $\Tr(\hat{\rho}) = 1$, por lo tanto cumple con
-  el primero postulado de la mecánica cuántica. El espectro
+  el primer postulado de la mecánica cuántica. El espectro
   de un operador de densidad $\hat{\rho}$ sobre
   $L^2(\R^{n})$ es discreto y consiste de números no
   negativos tales que $\lambda_1 \geq \lambda_2 \geq \ldots
   \geq 0$, y $\lim_{j \to \infty} \lambda_j = 0$ (en el caso
   en que $F$ es infinito).
+
+  El postulado de la medición nos dice que podemos calcular
+  el valor esperado de un observable cuántico $A$, en un
+  estado cuántico $\rho$ de la siguiente manera:
+  \begin{equation}
+    \langle \hat A \rangle = \Tr(\hat A \rho).
+  \end{equation}
+  También podemos calcular las probabilidades de observar un
+  valor específico de una medición de un observable, éstos
+  valores son elementos del espector del observable en
+  cuestión.  Como mencionamos antes, el espectro del un
+  observable generalmente es más grande que su conjunto de
+  eigenestados. Aún así, podemos trabajar con la idea de
+  eigenestados generalizados para poder hacer los cálculos
+  de manera análoga como lo hicimos en el caso finito. De
+  hecho la función de onda en la representación de la
+  posición nos da precisamente la probabilidad de medir la
+  posición en un punto $x$ para un estado que modela la
+  posición de una partícula. Sucede lo mismo con la función
+  de onda en representación del momentum.
+  
+  La no conmutatividad de los operadores de posición y de
+  momentum tiene consecuencias profundas en la teoría de la
+  medición.  El principio de incertidumbre nos dice que no
+  podemos medir de manera simultánea la posición y momentum
+  de una partícula con precisión (ni siquiera en teoría).
+  Del repaso de la mecánica clásico en el apéndice, sabemos
+  que mediante el uso del espacio de fase, podemos
+  representar a los estados de un sistema físico por puntos
+  en el plano $\R^2$. En la mecánica clásica sí es posible,
+  en teoría, medir la posición y el momentum de una
+  partícula en cualquier momento. Por lo tanto tiene sentido
+  representar al estado de un sistema como un punto en el
+  plano. La evolución temporal del sistema forma
+  trayectorias en el plano de acuerdo a las leyes de
+  movimiento. En el caso cuántico el principio de
+  incertidumbre no nos permite localizar el estado en un
+  espacio de fase. Pero, no todo está perdido, hay maneras
+  de vincular éstos dos conceptos por medio de las
+  cuasi-distribuciones, y en particular la función de
+  Wigner.
 
   \chapter{Función de Wigner}
 
@@ -774,7 +870,7 @@
   la noción de un espacio de fase análogo al de la mecánica
   clásica, sea problemático para la teoría cuántica. Ésto se
   debe a que la posición y el momentum de una partícula no
-  éstan bien definida de manera simultánea. Aún así exiten
+  no se pueden medir de manera simultánea. Aún así exiten
   funciones que se \textit{asemejan} a distribuciones
   probabilísticas sobre el espacio de fase, llamadas
   funciones de distribución quasi-probabilísticas, las
@@ -788,19 +884,18 @@
 
   La función de Wigner tiene una larga historia que inicia
   con un artículo publicado por Eugene P. Wigner en 1932
-  \cite{wignerQuantumCorrectionThermodynamic1932} sobre
-  correcciones cuánticas del equilibrio termodinámico. La
-  idea principal de Wigner fue introducir una
-  quasi-distribución que le permite calcular valores
-  esperados cuánticos de una manera análoga a los valores
-  esperados de la mecánica estadística. Para el caso de una
-  función $\psi$ la expresión que expuso Wigner
+  \cite{wigner1932} sobre correcciones cuánticas del
+  equilibrio termodinámico. La idea principal de Wigner fue
+  introducir una quasi-distribución que le permite calcular
+  valores esperados cuánticos de una manera análoga a los
+  valores esperados de la mecánica estadística. Para el caso
+  de una función $\psi$ la expresión que expuso Wigner
   originalmente (para una dimensión) es:
   \begin{equation}
     \label{eqn:wigners_original}
     W(x,p)
     = \frac{1}{\hbar \pi} \int_{\R}
-    \overline{\psi(x+y)}\psi(x-y) e^{\frac{2i}{\hbar}py} \,
+    \overline{\psi}(x+y)\psi(x-y) e^{\frac{2i}{\hbar}py} \,
     dy.
   \end{equation}
   En el caso de un estado cuántico puro, la función $W(x,p)$
@@ -810,24 +905,24 @@
   dice que cuando se tiene un conjunto de partículas, la
   evolución del sistema puede ser estudiado de manera
   probabilística mediante la ecuación de Liouville, la cual
-  nos brinda una distribución sobre el espacio de fase [?].
+  nos brinda una distribución sobre el espacio de fase.
   La idea es considerar una distribución en el espacio de
   fase que nos permita hacer las mismas interpretaciones
-  probabilísticas de la mecánica cuántica que podemos hacer
-  con la formulación en el espacio de Hilbert.
+  probabilísticas de la mecánica cuántica que se pueden
+  hacer con la formulación en el espacio de Hilbert.
 
   Unos años antes de la publicación de Wigner, Hermann Weyl
   formuló una manera de mapear observables clásicos a
   observables cuánticos, lo cual se conoce como la
-  cuantización de Weyl [?]. Debido a la no conmutatividad de
-  los operadores canónicos $\hat X$ y $\hat P$, la
-  cuantización de un observable clásico no es único y es
-  necesario introducir un orden específico. Para el mapeo de
-  Weyl, el orden utilizado para los operadores canónicos se
-  conoce como el orden simétrico, por ejemplo $xp \mapsto
-  \frac{1}{2}\left( \hat{X} \hat{P} + \hat{P} \hat{X}
-  \right)$, ésto nos permite mapear polinomios de los
-  operadores canónicos a operadores lineales sobre algún
+  cuantización de Weyl \cite{degosson2021}. Debido a la no
+  conmutatividad de los operadores canónicos $\hat X$ y
+  $\hat P$, la cuantización de un observable clásico no es
+  único y es necesario introducir un orden específico. Para
+  el mapeo de Weyl, el orden utilizado para los operadores
+  canónicos se conoce como el orden simétrico, por ejemplo
+  $xp \mapsto \frac{1}{2}\left( \hat{X} \hat{P} + \hat{P}
+  \hat{X} \right)$, ésto nos permite mapear polinomios de
+  los operadores canónicos a operadores lineales sobre algún
   espacio de Hilbert. Generalizando, Weyl utiliza la la
   transformación de Fourier, para producir operadores
   correspondientes a ciertas funciones de $x$ y $p$ en el
@@ -837,13 +932,12 @@
 
   Utilizando las transformaciones de Wigner y de Weyl,
   Enrique Moyal y Groenewold formularon una descripción
-  completa de la mecánica cuántica en el espacio de fase, de
-  manera independiente
-  \cite{curtrightQuantumMechanicsPhase2012}.  El trabajo de
-  Groenewold (en forma de su tésis de 1946) reconoció que el
-  mapeo de Weyl es realmente una transformación invertible,
-  y \textit{no} solo una regla de cuantización
-  \cite{todorovQuantizationMystery2012}. Por otro lado Moyal
+  \textit{completa} de la mecánica cuántica en el espacio de
+  fase, de manera independiente \cite{curtright2012}.  El
+  trabajo de Groenewold (en forma de su tésis de 1946)
+  reconoció que el mapeo de Weyl es realmente una
+  transformación invertible, y \textit{no} solo una regla de
+  cuantización \cite{todorov2012}. Por otro lado Moyal
   desarrolló sus ideas sobre la naturaleza estadística de la
   mecánica cuántica, y en su formulación se introduce un
   producto en el espacio de fase correspondiente al producto
@@ -852,7 +946,7 @@
   tercera formulación de la mecánica cuántica, en especial
   la representación de estados cuánticos en el espacio de
   fase, ha sido muy útil en muchas ramas de la física,
-  particularmente en la óptica cuántica [?].
+  particularmente en la óptica cuántica \cite{zachos2005}.
 
   \section{La transformación de Wigner-Weyl}
 
@@ -860,25 +954,24 @@
   recuento completo de la mecánica cuántica en el espacio de
   fase, en caso de que el lector esté interesado en la
   formulación completa de la mecánica cuántica en el espacio
-  de fase, le invtamos a consultar los trabajos de Moyal [?]
-  y Groenwold [?]. Lo que haremos es definir la
-  transformación de Wigner para ciertas funciones, lo que
-  nos permitirá definir la función de Wigner de un estado
+  de fase, le invtamos a consultar los trabajos de Moyal
+  \cite{moyal1949} y Groenwold \cite{groenewold}. Lo que
+  haremos es definir la transformación de Wigner estados
+  puros, los cuales serán elementos de $L^2(\R)$, lo que nos
+  permitirá definir la función de Wigner de un estado
   cuántico arbitrario. Para ésto primero introducirimos el
-  concepto de la cuantización de Weyl con la finalidad de
-  dar argumentos ligeramente más rigurosos que aquellos que
-  generalmente se encuentran en varios trabajos y libros de
-  física y porque de ésta forma surgen de manera muy natural
-  varios de los objetos que intervienen en las definiciones
-  de la función de Wigner.
+  concepto de la cuantización de Weyl porque de ésta forma
+  surgen de manera muy natural varios de los objetos que
+  aparecen en las definiciones de la función de Wigner,
+  independientemente de la dimensión del sistema.
 
   De manera motivacional, consideremos un conjunto de
-  partículas que se mueven en un esapcio $\R^{n}$. La
+  partículas que se mueven en un espacio $\R^{n}$. La
   ecuación de Liouville rige la evolución temporal de una
   función de distribución en el espacio de fase del conjunto
-  de partículas [WIKI]. La solución de dicha ecuación nos
-  brinda una densidad probabilística y dado un observable $A
-  : \R^{2n} \to \R$, que depende de la posición $x$ y del
+  de partículas. La solución de dicha ecuación nos brinda
+  una densidad probabilística y dado un observable clásico
+  $A : \R^{2n} \to \R$, que depende de la posición $x$ y del
   momentum $p$ de una partícula, podemos calcular el valor
   esperado del observable como una integral sobre el espacio
   de fase
@@ -894,12 +987,10 @@
   mediante una integración en el espacio de fase, en donde
   la densidad que obtenemos representa a algún estado
   cuántico:
-
   \begin{equation}
     \Tr\left(\hat{\rho} \hat{A}\right)
     = \iint A(x,p)W(x,p) \, dx \, dp,
   \end{equation}
-
   La función $W : \R^{2n} \to \R$ que actúa como una
   distribución probabilística es precisamente la
   transformación de Wigner de un estado cuántico.
@@ -909,7 +1000,7 @@
   nos permite calcular los valores esperados de los
   operadores cuánticos y otras cantidades probabilísticas
   como las densidades de la posición y momentum de la
-  partícula, dandonos una representación de nuestro estado
+  partícula, dándonos una representación de nuestro estado
   cuántico distinta y útil.
 
   Notemos que la definición (\ref{eqn:wigners_original}) es
@@ -919,7 +1010,7 @@
   pasos previos. En particular introducimos el concepto de
   \textit{cuantización} lo que nos permite pasar de un
   observable clásico definido en el espacio de fase a un
-  operador cuántico.
+  operador cuántico definido en el espacio de Hilbert.
 
   \subsection{La transformación de Weyl}
 
@@ -946,8 +1037,8 @@
   La idea de la cuantización de Weyl, es la siguiente:
   consideramos un observable clásico $A : \R^{2n} \to \R$,
   comunmente llamado \textit{símbolo} en el análisis
-  armónico y en la óptica cuántica, y lo expresamos mediante
-  la transformación de Fourier inversa:
+  armónico y en la óptica cuántica. Lo podemos expresar
+  mediante la transformación de Fourier inversa:
   \begin{equation}
     A(x,p)
     = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} \Fr A(\xi,
@@ -955,10 +1046,10 @@
     \, d\xi \, d\eta,
   \end{equation}
   donde $\Fr A$ es la transformada de Fourier de $A$.
-  Enseguida reemplazamos de manera formal a las variables
-  $x$ y $p$ por los operadores $\hat{X}$ y $\hat{P}$, (ésto
-  corresponde con el orden simétrico de Weyl) para obtener
-  al operador $\hat{A}$ correspondiente:
+  Enseguida reemplazamos de manera \textit{formal} a las
+  variables $x$ y $p$ por los operadores $\hat{X}$ y
+  $\hat{P}$\footnote{ésto corresponde con el orden simétrico de
+  Weyl}, para obtener al operador $\hat{A}$ correspondiente:
   \begin{equation}
     \label{eqn:weyl_quant_1}
     \hat{A}(\hat{X},\hat{P})
@@ -974,9 +1065,10 @@
   L^2(\R^{2n})$ y luego se extiende a las funciones
   cuadraticamente integrables y por dualidad a las
   distribuciones templadas $\Sz'(\R^{2n})$. Evitaremos
-  hablar de éstos detalles, pero para darle sentido riguroso
-  comenzamos por definir al operador exponencial que aparece
-  en el integrando de (\ref{eqn:weyl_quant_1}).
+  hablar de éstos detalles y solo vamos a definir los
+  objetos que vayan apareciendo en éste desarrolloéste
+  desarrollo. Comenzamos por definir al operador exponencial
+  que aparece en el integrando de (\ref{eqn:weyl_quant_1}).
   \begin{definition}
     El operador $\hat{M}(\xi, \eta) : L^2(\R^{n}) \to
     L^2(\R^{n})$ definido como
@@ -1035,7 +1127,8 @@
   conoce como el operador de Grossmann-Royer y generalmente
   se denota $\hat{R}(x,p)$. En la literatura física
   comunmente se conoce como el operador puntual de
-  cuantización o del espacio de fase, en donde formalmente
+  cuantización o del espacio de fase\footnote{también se
+    conoce como el núcleo}, en donde formalmente
   se puede ver como la transformada de Fourier del operador
   característico de Weyl $\hat{M}(\xi,\eta)$:
   \begin{equation}
@@ -1044,7 +1137,6 @@
     = \int_{\R^{2n}} e^{-i(\xi x + \eta p)}
     \hat{M}(\xi,\eta) \, d\xi \, d\eta.
   \end{equation}
-
   Existe otra forma de expresar a los operadores puntuales
   $\Delta(x,p)$ particularmente iluminadora para nuestros
   objetivos, por medio de los operadores de Heisenberg-Weyl,
@@ -1056,30 +1148,29 @@
   Los operadores de Heisenberg-Weyl son muy estudiados en la
   mecánica cuántica, pues son operadores unitarios sobre
   $L^2(\R^{n})$ que pueden ser utilizados para definir al
-  grupo de Heisenberg [CITE].
-
+  grupo de Heisenberg \cite{degosson2011}.
   \begin{definition}
     El operador de Heisenberg-Weyl $\hat{D}(\xi,\eta)$ se
     define como
-    \[
+    \begin{equation}
       \hat{D}(\xi,\eta)\psi(x)
       = e^{\frac{i}{\hbar} (\eta x - \frac{1}{2} \eta
       \xi)}\psi(x - \xi).
-    \] 
+    \end{equation} 
     Equivalentemente
-    \[
+    \begin{equation}
       \hat{D}(\xi,\eta)\psi(x)
       = e^{\frac{i}{\hbar} \sigma((\xi,\eta),
       (\hat{x},\hat{p}))}\psi(x),
-    \] 
+    \end{equation} 
     donde $\sigma((x,p),(x',p')) = p \cdot x' - p' \cdot x$.
     Tales operadores satisfacen la relación de
     conmutatividad:
-    \[
+    \begin{equation}
       \hat{D}(z_0)\hat{D}(z_1)
       = e^{\frac{i}{\hbar} \sigma(z_0,z_1)}
       \hat{D}(z_1)\hat{D}(z_0).
-    \] 
+    \end{equation} 
   \end{definition}
   Enseguida definimos el operador de Grossmann-Royer, el
   cual resulta ser la traslación de un \textit{operador de
@@ -1088,37 +1179,36 @@
   \begin{definition}
     El operador puntual del espacio de fase (operador de
     Grossmann-Royer) $\hat{\Delta}(\xi,\eta)$ es el operador
-    \[
+    \begin{equation}
       \hat{\Delta}(\xi,\eta) : \Sz(\R^{n}) \to \Sz(\R^{n})
-    \] 
+    \end{equation} 
     definido por las formulas 
-    \[
+    \begin{equation}
       \hat{\Delta}(0,0)\psi(x)
       = \psi(-x),
-    \]
+    \end{equation}
     y
-    \[
+    \begin{equation}
       \hat{\Delta}(\xi,\eta)
       = \hat{D}(\xi,\eta) \hat{R}(0,0)
       \hat{D}(\xi,\eta)^{-1},
-    \] 
+    \end{equation} 
     donde $\hat D$ es el operador de Heisenberg-Weyl. El
     operador de Grossmann-Royer es unitario y es una
     involución en el espacio de Schwartz. Su acción sobre
     cualquier función $\psi : \R^{n} \to \C$ está dado por
-    \[
+    \begin{equation}
       \hat{\Delta}(\xi,\eta)\psi(x)
       = e^{\frac{2i}{\hbar} \eta (x - \xi)}\psi(2\xi - x).
-    \] 
+    \end{equation} 
   \end{definition}
   Elegimos la notación $\Delta$ porque los operadores de
   Grossmann-Royer son precisamente los operadores puntuales
-  anteriormente definidos. Con ésta nueva expresión es más
-  fácil probar que el operador puntual de cuantización es
-  unitario sobre $L^2(\R^{n})$.  Además ahora podemos
-  definir el operador de Weyl de manera operacional y en
-  términos del símbolo $A$ directamente:
-  
+  definidos en la sección anterior. Con ésta nueva expresión
+  es más fácil probar que el operador puntual de
+  cuantización es unitario sobre $L^2(\R^{n})$.  Además
+  ahora podemos definir el operador de Weyl de manera
+  operacional y en términos del símbolo $A$ directamente:
   \begin{definition}
     Sea $A \in \Sz(\R^{2n})$. El operador de Weyl $\hat{A} =
     \Op_W(A)$ está dado para todo $\psi \in \Sz(\R^{n})$ 
@@ -1130,7 +1220,6 @@
       d\eta.
     \end{equation}
   \end{definition}
-
   El uso de los operadores puntuales nos dará una expresión
   bastante sencilla de la función de Wigner de un estado
   cuántico, y además muchas de las propiedades interesantes
@@ -1148,12 +1237,13 @@
   conoce como símbolo de Weyl. Ésto nos dice que existe una
   correspondencia entre los símbolos cuadracticamente
   integrables sobre el espacio de fase y una clase de
-  operadores acotados de $L^2(\R^{n})$ [GOSSON]. Gosson
-  demuestra en partícular, que la transformación de Weyl de
-  una función cuadraticamente integrable corresponde a un
-  operador Hilbert-Schmidt. Ésto es particularmente útil
-  para nosotros porque los estados cuánticos representados
-  por operadores de densidad son de Hilbert-Schmidt.
+  operadores acotados de $L^2(\R^{n})$ \cite{degosson2016}.
+  Gosson demuestra en partícular, que la transformación de
+  Weyl de una función cuadraticamente integrable corresponde
+  a un operador Hilbert-Schmidt. Ésto es particularmente
+  útil para nosotros porque los estados cuánticos
+  representados por operadores de densidad son de
+  Hilbert-Schmidt.
 
   El proceso de \textit{decuantización}, no es una cuestión
   trivial. Una fuente de posibles problemas es que para
@@ -1168,7 +1258,7 @@
   la cual solo tiene sentido de manera obvia cuando
   $\Op_W(A)$ es de clase traza. Como mencionamos
   anteriormente, éstos detalles nos son particularmente
-  complicados para nuestro trabajo porque los operadores de
+  importantes para nuestro trabajo porque los operadores de
   densidad cumplen con los requisitos.
 
   En resumen hemos mostrado una manera de cuantizar
@@ -1190,178 +1280,139 @@
   \section{La transformación de Wigner}
 
   Lo que sigue está principalmente basado en los libros de
-  Gosson \cite{gossonWignerTransform2017} y de Folland
-  \cite{follandHarmonicAnalysisPhase1989}, quienes
-  introducen la función de Wigner de manera general, como
-  una transformación integral entre ciertos espacios de
-  funciones. Iniciamos definiendo una versión más general de
-  la transformación de Wigner, la cual se conoce como la
-  \textit{transformación de Wigner cruzada}. 
-
+  Gosson \cite{gosson2017} y de Folland \cite{folland1989},
+  quienes introducen la función de Wigner de manera general,
+  como una transformación integral entre ciertos espacios de
+  funciones. 
   \begin{definition}
-    La transformación de Wigner cruzada es una
-    transformación integral
-    \[
+    La transformación de Wigner es una transformación
+    integral
+    \begin{equation}
       W : L^2(\R^{n}) \times L^2(\R^{n}) \to L^2(\R^{2n}),
-    \]
+    \end{equation}
     definida como
     \begin{equation}
       \label{eqn:cross_wigner_transform}
-      W(\psi,\phi)(x,p)
+      W(\psi)(x,p)
       = (2\pi\hbar)^{-n} \int_{\R^{n}} e^{-\frac{i}{\hbar} p
-      \cdot y} \psi(x + \tfrac{1}{2}y) \overline{\phi(x -
+      \cdot y} \psi(x + \tfrac{1}{2}y) \overline{\psi(x -
       \tfrac{1}{2}y)} \, dy,
     \end{equation}
-    para $\psi, \phi \in L^2(\R^{n})$ y $x,p \in \R^{n}$.  
-  \end{definition}
-  En partícular, denotaremos la transformación de Wigner de
-  un elemento $\psi$ de $L^2(\R^{n})$ como $W\psi =
-  W(\psi,\psi)$. Gosson demuestra que la transformación de
-  Wigner cruzada puede ser extendida a un mapeo sesquilineal
-  sobre las distribuciones templadas, $W : \Sz'(\R^{n})
-  \times \Sz'(\R^{n}) \to \Sz'(\R^{2n})$. Por ejemplo, la
-  transformación de Wigner de la delta de Dirac es
-  \[
-    W\delta = (2\pi\hbar)^{-n} (\delta \otimes 1).
-  \] 
-  Utilizando los operadores puntuales (operador de
-  Grossmann-Royer) nos permite dar una definición
-  particularmente sencilla de la transformación de Wigner:
+    para $\psi \in L^2(\R^{n})$ y $x,p \in \R^{n}$.  
+  \end{definition} 
+  Denotaremos la \textit{función de Wigner} de una función
+  $\psi$ por el símbolo $W_\psi$. Utilizando los operadores
+  puntuales (operador de Grossmann-Royer) nos permite dar
+  una definición particularmente sencilla de la
+  transformación de Wigner:
   \begin{definition}
-    Sean $\psi,\phi \in \Sz(\R^{n})$. La función
-    $(\psi,\phi) \mapsto W(\psi,\phi)$ definida como
+    Sea $\psi \in \Sz(\R^{n})$. La transformación de Wigner
+    $W : \psi \mapsto W_\psi$ se puede definir como
     \begin{equation}
       W(\psi,\phi)(x,p)
-      = \frac{1}{(\pi\hbar)^{n}} \braket{\phi|
+      = \frac{1}{(\pi\hbar)^{n}} \braket{\psi|
       \hat{R}(x,p)\psi}.
     \end{equation}
   \end{definition}
-  La transformación de Wigner cruzada satisface varias
-  propiedades interesantes, por ejemplo para $\psi, \phi \in
-  L^2(\R^{n})$, es real valuada, acotada y continua. Además
-  satisface la siguiente importante propiedad de ser
-  \textit{covariante bajo traslaciones}. 
+  La transformación de Wigner satisface varias propiedades
+  interesantes, por ejemplo para $\psi \in L^2(\R^{n})$, es
+  real valuada, acotada y continua \cite{degosson2016}.
   \begin{proposition}
-    Si $\psi, \phi \in L^2(\R^{n})$, entonces $W(\psi,\phi)
-    = \overline{W}(\phi,\psi)$. En particular
-    \[
-      W\psi
-      = W(\psi,\psi)
-      = \overline{W}(\psi,\psi)
-      = \overline{W\psi},
-    \] 
-    por lo tanto $W\psi$ es real-valuada. 
+    Si $\psi \in L^2(\R^{n})$, entonces $W_\psi =
+    \overline{W_\psi}$, por lo tanto $W_\psi$ es
+    real-valuada. 
   \end{proposition}
   \begin{proposition}
-    Para todo $\psi \in L^2(\R^{n})$ y $z_0 = (x_0,p_0) \in
-    \R^{2n}$ tenemos
-    \[
-      W(\hat{D}(z_0)\psi, \hat{D}(z_0)\phi)(z)
-      = T(z_0)W(\psi,\phi)(z),
-    \] 
-    donde $T(z_0)$ es una traslación, $z \mapsto z + z_0$, y
-    sobre funciones definidas en $\R^{2n}$ actúa como
-    $T(z_0)f(z) = f(z-z_0)$.
-  \end{proposition}
-  
-  \begin{proposition}
-    Sean $\psi \in L^2(\R^{n})$ y supongamos que $W\psi \in
-    L^{1}(\R^{2n})$. Entonces $W\psi \in L^{1}(\R^{2n})$ y
+    Sean $\psi \in L^2(\R^{n})$ y supongamos que su función
+    de Wigner es absolutamente integrable, i.e., $W_\psi \in
+    L^{1}(\R^{2n})$. Entonces $W_\psi \in L^{1}(\R^{2n})$ y
     \begin{equation}
-      \int_{\R^{2n}} (W\psi)(x,p) \, dx \, dp 
+      \int_{\R^{2n}} W_\psi(x,p) \, dx \, dp 
       = \|\psi\|^2_{L^2(\R^{n})}.
     \end{equation}
   \end{proposition}
-
   \begin{proposition}
     Supongamos que $\psi, \phi \in L^2(\R^{n})$. La función
     $z \mapsto W(\psi,\phi)(z)$ es acotada y continua en
     $\R^{2n}$.
   \end{proposition}
-
   \begin{proposition}
     Sean $\psi,\phi \in \Sz'(\R^{n})$. La función $z
     \mapsto W(\psi,\phi)(z)$ es continua en $\R^{2n}$.
   \end{proposition}
 
-  Las siguientes propiedades justifican el término de
-  quasi-distribución, pues nos brindan con la posibilidad de
-  dar la interpretación probabilística requerida de la
-  mecánica cuántica.
+  Además, la función de Wigner satisface la siguiente
+  importante propiedad a la que nombraremos
+  \textit{covarianza bajo traslaciones}. 
+  \begin{proposition}
+    Para todo $\psi \in L^2(\R^{n})$ y $z_0 = (x_0,p_0) \in
+    \R^{2n}$ tenemos
+    \begin{equation}
+      W(\hat{D}(z_0)\psi)(z)
+      = T(z_0)W_\psi(z),
+    \end{equation} 
+    donde $T(z_0)$ es una traslación en el espacio de fase,
+    $z \mapsto z + z_0$, y sobre funciones definidas en
+    $\R^{2n}$ actúa como $T(z_0)f(z) = f(z-z_0)$.
+  \end{proposition}
+  Ésta propiedad nos dice que un desplazamiento por el
+  operador de $D(z_0)$ en el espacio de Hilbert, simplemente
+  resulta en una traslación de la función de Wigner en el
+  espacio de fase.
+
+  Por otro lado, las siguientes propiedades justifican el
+  término de quasi-distribución, pues nos brindan con la
+  posibilidad de dar la interpretación probabilística
+  requerida de la mecánica cuántica.
   \begin{proposition}
     La transformación de Wigner cruzada satisface la
     identidad de Moyal, en particular
     \begin{equation}
-      \|W\psi\|_{L^2(\R^{2n})}
+      \|W_\psi\|_{L^2(\R^{2n})}
       = (2\pi\hbar)^{-n / 2} \|\psi\|_{L^2(\R^{n})}.
     \end{equation}
   \end{proposition}
-
   \begin{proposition}
-    Supongamos que $\psi, \phi \in L^{1}(\R^{n}) \cap
+    Supongamos que $\psi \in L^{1}(\R^{n}) \cap
     L^2(\R^{n})$. Entonces
     \begin{equation}
-      \int_{\R^{n}} W(\psi,\phi)(x,p) \, dp
-      = \psi(x)\overline{\phi}(x),
-    \end{equation}
-    \begin{equation}
-      \int_{\R^{n}} W(\psi,\phi)(x,p) \, dx
-      = \Fr\psi(p) \overline{\Fr\phi}(p).
-    \end{equation}
-    En particular tenemos
-    \begin{equation}
-      \int_{\R^{n}} W\psi(x,p) \, dp
+      \int_{\R^{n}} W_\psi(x,p) \, dp
       = |\psi(x)|^2,
       \quad
-      \int_{\R^{n}} W\psi(x,p) \, dx
+      \int_{\R^{n}} W_\psi(x,p) \, dx
       = |\Fr\psi(p)|^2.
     \end{equation}
   \end{proposition}
-
-  Gosson menciona que las dos fórmulas anteriores solo son
-  casos particulares de una transformación de Radon
-  (generalizada) de la distribución de Wigner $W\psi$,
-  correspondiente a una integración sobre planos
-  Lagrangianos particulares $\ell_P = 0 \times \R^{n}$ y
-  $\ell_X = \R^{n} \times 0$, respectivamente. En general
-  uno puede definir dicha transformación por medio de
-  \[
-    R_{\ell}(u)
-    = \int_{\ell} W\psi(z) d\mu_{\ell}(z)
-  \] 
-  donde $d\mu_{\ell}(z)$ es la medida euclideana sobre el
-  plano Lagrangiano $\ell$. Un tratado riguroso se puede
-  encontrar bajo el área de la geometría integral.
-
   De las proposiciones anteriores ya podemos ver la utilidad
   que nos puede brindar la transformación de Wigner, ya que
   por medio de integrales sobre algún eje podemos recuperar
   las densidades de la posición y momentum de las funciones
-  de onda. Más aún, integrando sobre franjas rectas nos dará
-  la probabilidad de medir una clase de operadores en
-  ciertos estados. Hablaremos más sobre ésta propiedad más
-  adelante pues es parte crucial de la construcción de las
-  funciones discretas. Aún con éste primer acercamiento, no
-  hemos hablado sobre la transformación de Wigner de estados
-  cuánticos ya sean puros o mixtos, ni de operadores en
-  general.  Antes que ésto veremos que la relación con la
-  transformación de Weyl nos permite calcular los valores
-  esperados de los operadores en un estado particular, lo
-  cual es lo que deseabamos al inicio de la sección.
+  de onda. Más aún, integrando sobre franjas rectas en el
+  espacio de fase nos dará la probabilidad de medir una
+  clase de operadores en ciertos estados. Hablaremos más
+  sobre ésta propiedad más adelante pues es parte crucial de
+  la construcción de las funciones discretas. Aún con éste
+  primer acercamiento, no hemos hablado sobre la
+  transformación de Wigner de estados cuánticos ya sean
+  puros o mixtos, ni de operadores en general.  Antes que
+  ésto veremos que la relación con la transformación de Weyl
+  nos permite calcular los valores esperados de los
+  operadores en un estado particular, lo cual es lo que
+  deseabamos al inicio de la sección.
   
   Consideremos el operador de Weyl de un observable adecuado
   sobre el espacio de fase. Entonces podemos utilizar a la
-  transformación cruzada de Wigner para calcular el producto
-  interior $\braket{\psi|\hat{A}\phi}$, para funciones de
-  Schwartz.
+  transformación de Wigner para calcular el producto
+  interior $\braket{\psi|\hat{A}\psi}$, para funciones
+  adecuadas.
   \begin{proposition}
     \label{prop:wigner-weyl}
     Sea $A \in \Sz(\R^{2n})$. Tenemos que
     \begin{equation}
-      \braket{\psi, \hat{A}\phi}
-      = \int_{\R^{2n}} A(x,p)W(\psi,\phi)(z) \, dx \, dp.
+      \braket{\psi, \hat{A}\psi}
+      = \int_{\R^{2n}} A(x,p)W_\psi(z) \, dx \, dp.
     \end{equation}
-    para todo $\psi, \phi \in \Sz(\R^{n})$, donde $\hat{A} =
+    para todo $\psi \in \Sz(\R^{n})$, donde $\hat{A} =
     \Op_W(A)$.
   \end{proposition}
   De hecho, Gosson menciona que muchas veces se define la
@@ -1375,7 +1426,7 @@
     \begin{equation}
       \langle \hat{A} \rangle_\psi
       = \frac{1}{\braket{\psi|\psi}} 
-      \int_{\R^{2n}} A(z) W\psi(z) \, dz.
+      \int_{\R^{2n}} A(z) W_\psi(z) \, dz.
     \end{equation}
   \end{proposition}  
 
@@ -1401,7 +1452,6 @@
       = \frac{1}{(2\pi\hbar)^{n}} \int_{\R^{2n}} a(z) \, dz.
     \end{equation}
   \end{proposition}
-
   Con las propiedades que se mostraron en la sección de la
   transformación de Wigner respecto a la integración en los
   ejes del espacio de fase, y con el resultado anterior que
@@ -1426,11 +1476,11 @@
   probar que la proyección ortogonal $\Pi_\psi$ sobre el
   rayo $\C\psi$ es el operador de Weyl cuyo símbolo está
   dado por la transformación de Wigner de $\psi$, i.e.,
-  \[
+  \begin{equation}
     \pi_\psi = (2\pi\hbar)^{n}W\psi,
     \quad \text{donde }
     \Op_W(\pi_\psi) = \Pi_\psi.
-  \] 
+  \end{equation} 
   Con ésto podemos identificar un estado cuántico puro
   $\psi$ con su función de Wigner y vice-versa, lo cual nos
   dice que la función de Wigner de un estado cuántico
@@ -1449,9 +1499,9 @@
   Recordemos que un estado mixto $\{(\psi_j,\lambda_j)\}$ se
   puede identificar con el operador dado por la suma de
   proyectores ortogonales
-  \[
+  \begin{equation}
     \rho = \sum_{j}^{} \lambda_j \Pi_j,
-  \] 
+  \end{equation} 
   al cual se le conoce como operador de densidad. Dada la
   expresión del operador de densidad como una serie
   convergente de proyecciones ortogonales, es natural
@@ -1459,24 +1509,21 @@
   densidad como
   \begin{equation}
     W_\rho 
-    := \sum_{j}^{} \lambda_j W\psi_j,
+    := \sum_{j}^{} \lambda_j W_{\psi_j},
   \end{equation} 
   donde los $\psi_j$ son los estados puros que conforma el
   estado mixto. La serie $W_\rho$ converge en $L^2(\R^{2n})$
   y 
-  \[
+  \begin{equation}
     W_\rho \in L^2(\R^{2n}) \cap L^{\infty}(\R^{2n}).
-  \]
+  \end{equation}
   A pesar de lo natural que es la definición anterior, no es
-  la definición predominante en la literatura. La expresión
-  común es similar a la expresión (), donde el integrando se
-  modifica de tal manera que el operador de densidad se
-  expresa en términos del espacio de posición. De manera
-  análoga a la expresión de la función de Wigner de un
-  estado puro en términos del operador puntual, podemos
-  expresar la función de Wigner como el valor esperado del
-  operador puntual en el estado mixto, por medio de la
-  traza:
+  la definición predominante en la literatura. En su lugar,
+  de manera análoga a la expresión de la función de Wigner
+  de un estado puro en términos del operador puntual,
+  podemos expresar la función de Wigner como el valor
+  esperado del operador puntual en el estado mixto, por
+  medio de la traza:
   \begin{equation}
     W_\rho(x,p)
     = \frac{1}{2\pi\hbar} \Tr\left( \rho \hat \Delta(x,p)
@@ -1540,8 +1587,8 @@
   \end{align*}
   Se puede demostrar que la función de Wigner
   correspondiente al $n$-ésimo eigenestado del oscilador
-  armónico se puede expresar en términos del $n$-ésimo polinomio
-  de Laguerre [CITE], 
+  armónico se puede expresar en términos del $n$-ésimo
+  polinomio de Laguerre \cite{zachos2005}, 
   \[
     (W\psi_n)(x,p)
     = \frac{(-1)^{n}}{\pi} \exp\left[ -\left( \frac{x}{a}
@@ -1568,30 +1615,63 @@
 
   \subsection{Propiedad básica de tomografía cuántica}
 
-  Wootters [CITE1987] expone una propiedad fundamental de la
-  función de Wigner, la que el llama la propiedad
-  proyectiva. Si $W_\rho$ es la función de Wigner de un
-  estado $\rho$, entonces podemos considerar la integral de
-  $W_\rho$ sobre una franja infinita delimitada por dos
-  rectas paralelas $ax+bp=c_1$ y $ax+bp=c_2$. Resulta que la
-  integral es igual a la probabilidad de que se observebe un
-  valor entre $c_1$ y $c_2$ del observable
-  $a \hat X + b \hat P$.  Integrando sobre una sola recta
-  brinda la densidad marginal del operador correspondiente.
-  Ésto es una generalización de las  densidades de posición
-  y de momentum y se ha demostrado que sí se exige ésta
-  propiedad a una cuasi-distibución del espacio de fase, la
-  función de Wigner se vuelve única [CITE]. Si tenemos un
+  Wootters \cite{wootters1987} expone una propiedad
+  fundamental de la función de Wigner, la que el llama la
+  propiedad proyectiva, y nosotros llamaremos
+  \textit{propiedad básica de tomografía cuántica}. Si
+  $W_\rho$ es la función de Wigner de un estado $\rho$,
+  entonces podemos considerar la integral de $W_\rho$ sobre
+  una franja infinita delimitada por dos rectas paralelas
+  $ax+bp=c_1$ y $ax+bp=c_2$.  Resulta que la integral es
+  igual a la probabilidad de que se observebe un valor entre
+  $c_1$ y $c_2$ del observable $a \hat X + b \hat P$.
+  Integrando sobre una sola recta brinda la densidad
+  marginal del operador correspondiente del cual hicimos
+  mención en la sección anterior. Ésto es una
+  generalización de las densidades de posición y de
+  momentum y se ha demostrado que si imponemos ésta propiedad
+  a una cuasi-distibución del espacio de fase, la función de
+  Wigner se vuelve única \cite{ellinas2008}. Si tenemos un
   conjunto completo de éstas ``marginales generalizadas'',
   podemos recuperar la distribución conjunta sobre todo el
-  espacio. Braasch et al. [Braasch] le llama a éste conjunto
-  de marginales un conjunto tomograficamente completo. La
-  función de Wigner discreta que definen Wootters
-  será basada principalmente en ésta propiedad, en donde en
-  lugar de integrar sobre franjas infinitas se suma sobre
-  rectas en el espacio de fase discreto.
+  espacio. Braasch et al. [CITE] le llama a éste conjunto de
+  marginales un conjunto \textit{tomograficamente completo}.
+  La función de Wigner discreta que definen Wootters será
+  basada principalmente en ésta propiedad, en donde en lugar
+  de integrar sobre franjas infinitas se suma sobre rectas
+  en el espacio de fase discreto.
 
-  . . .
+  Muchas de las propiedades de la función de Wigner pueden
+  ser demostradas (al menos de manera formal) a partir de
+  propiedades de los operadores puntuales $\hat\Delta(x,p)$.
+  \begin{proposition}
+    Los operadores puntuales $\hat\Delta(x,p)$ satisfacen
+    las siguientes propiedades:
+    \begin{enumerate}
+      \item Son auto-adjuntos.
+      \item Son ortogonales en el siguiente sentido:
+        \begin{equation}
+          \Tr\left( \hat\Delta(x,p)\hat\Delta(x',p') \right) 
+          = \frac{1}{2\pi} \delta(x-x')\delta(p-p').
+        \end{equation}
+      \item Integrando el operador puntual $\hat\Delta(x,p)$
+        sobre una recta $ax+bq = l$ en el espacio de fase
+        nos brinda un proyector correspondiente al
+        eigenestado de $a\hat X + b \hat P$ con eigenvalor
+        $l$:
+        \begin{equation}
+          \int_{R^2} \hat\Delta(x,p) \delta(ax+bq-l) \, dx
+          \, dp = \Pi_l.
+        \end{equation}
+    \end{enumerate}
+  \end{proposition}
+  En particular la propiedad (2) nos dice que los operadores
+  puntuales forman una base para el espacio de operadores
+  Hilbert-Schmidt. La propiedad (3) es una reexpresión de la
+  propiedad básica de tomografía, en términos de los
+  operadores. En la siguiente sección, seremos guiados por
+  éstas propiedades en la construcción de la versión
+  discreta de la función de Wigner. 
 
   \chapter{Funciones de Wigner en el Espacio Fase Discreto}
 
@@ -1624,22 +1704,22 @@
   análoga a la versión continua, i.e., identificando el
   espacio de fase discreto con las variables de posición y
   de momentum, construyendo los operadores de desplazamiento
-  y luego los puntuales, para luego definir la función
-  por medio del valor esperado del operador puntual en el
-  estado cuántico. La ventaja de éste camino es
-  que la definición discreta asemeja lo más posible al caso
-  continuo y sus a interpretaciones.  Ésta versión se puede
-  encontrar en los trabajos de Klimov, Sanches y Soto
-  [CITE], Paz [CITE], Vourdas [CITE], Gross [CITE], etc. El
-  segundo camino dominante es el que intenta definir la
-  función discreta a partir de la preservación de las
-  propiedades más importantes del caso continuo, en
-  particular la propiedad tomográfica. Ésta versión se debe
-  a Wootters [CITE] y la idea es identificar una
-  \textit{estructura cuántica} al espacio de fase discreto,
-  la cual permite que la función de Wigner exprese las
-  mismas propiedades que la versión discreta.  Los
-  operadores de desplazamiento y los puntuales vuelven a
+  y luego los puntuales, para luego definir la función por
+  medio del valor esperado del operador puntual en el estado
+  cuántico. La ventaja de éste camino es que la definición
+  discreta asemeja lo más posible al caso continuo y sus a
+  interpretaciones.  Ésta versión se puede encontrar en los
+  trabajos de Klimov, Sanches y Soto \cite{klimov2005}, Paz
+  \cite{paz}, Vourdas \cite{vourdas2005}, Gross
+  \cite{gross2005}, etc. El segundo camino dominante es el
+  que intenta definir la función discreta a partir de la
+  preservación de las propiedades más importantes del caso
+  continuo, en particular la propiedad tomográfica. Ésta
+  versión se debe a Wootters \cite{gibbons2004} y la idea es
+  identificar una \textit{estructura cuántica} al espacio de
+  fase discreto, la cual permite que la función de Wigner
+  exprese las mismas propiedades que la versión discreta.
+  Los operadores de desplazamiento y los puntuales vuelven a
   aparecer, pero se introduce un tipo de arbitrariedad y de
   flexbilidad, perdiendo la unicidad pero permitiendo una
   construcción alternativa. Además ésta segunda metodología
@@ -1650,13 +1730,13 @@
   insesgados para un sistema cuántico de dimensión $d$ es
   $d+1$, y en particular si la dimensión es una potencia de
   un número primo, entonces siempre se puede alcanzar la
-  cantidad máxima [CITE]. Parece que aun es un problema
-  abierto identificar la cantidad máxima para dimensiones
-  que no son potencias de números primos. La construcción de
-  Wootters requiere de la construcción explícita
-  de las $d+1$ MUBs para la definición de los operadores
-  puntuales y como consecuencia la definición de la función
-  de Wigner. Ésto es una consecuencia natural de
+  cantidad máxima \cite{gibbons2004}. Parece que aun es un
+  problema abierto identificar la cantidad máxima para
+  dimensiones que no son potencias de números primos. La
+  construcción de Wootters requiere de la construcción
+  explícita de las $d+1$ MUBs para la definición de los
+  operadores puntuales y como consecuencia la definición de
+  la función de Wigner. Ésto es una consecuencia natural de
   exigir que la función discreta satisfaga las mismas
   propiedades tomográficas que satisface la versión
   continua. Por éstas razones nuestro trabajo se basa en la
@@ -1704,22 +1784,23 @@
 
   \section{Construcción de Wootters}
 
-  En su artículo del 2004 [CITE], Wootters comienzan notando
-  que la función de Wigner en sistemas continuos puede ser
-  obtenida al exigir una estructura cuántica al espacio de
-  fase. Ésta estructura corresponde a la asignación de
-  estados cuánticos a rectas en el espacio de fase, de tal
-  manera que las integrales sobre éstas rectas o franjas de
-  rectas nos dan la probabilidad de observar el sistema en
-  el estado correspondiente, tal como se mencionó en la
-  sección anterior. Con ésta asignación, es posible
-  recuperar los operadores puntuales y así construir la
-  función de Wigner para un estado arbitrario $\rho$.
-  Wootters intentan definir una versión discreta siguiendo
-  éstos pasos, cuidando que la construcción preserve otras
-  propiedades de la versión continua.  Resulta que su método
-  introduce cierto tipo de arbitrariedad por lo que acaban
-  definiendo una clase de funciones discretas.
+  En su artículo del 2004 \cite{gibbons2004}, Wootters
+  comienzan notando que la función de Wigner en sistemas
+  continuos puede ser obtenida al exigir una estructura
+  cuántica al espacio de fase. Ésta estructura corresponde a
+  la asignación de estados cuánticos a rectas en el espacio
+  de fase, de tal manera que las integrales sobre éstas
+  rectas o franjas de rectas nos dan la probabilidad de
+  observar el sistema en el estado correspondiente, tal como
+  se mencionó en la sección anterior. Con ésta asignación,
+  es posible recuperar los operadores puntuales y así
+  construir la función de Wigner para un estado arbitrario
+  $\rho$.  Wootters intentan definir una versión discreta
+  siguiendo éstos pasos, cuidando que la construcción
+  preserve otras propiedades de la versión continua.
+  Resulta que su método introduce cierto tipo de
+  arbitrariedad por lo que acaban definiendo una clase de
+  funciones discretas.
 
   Evidentemente hay una relación directa entre la geometría
   del espacio de fase y la estructura cuántica por asignar.
@@ -1782,7 +1863,6 @@
         medir el valor $c$ del operador $a \hat X + b \hat P$.
     \end{enumerate}
   \end{proposition}
-  
   Recordemos que éstas propiedades pueden ser demostradas a
   partir de las propiedades análogas de los operadores
   puntuales. En particular para la propiedad (4), si $ax+bp
@@ -1791,8 +1871,8 @@
   ésta recta nos da una proyección ortogonal
   $\Pi_{\ket{abc}}$ donde $\ket{abc}$ es un eigenestado del
   operador $a\hat X + b\hat P$ correspondiente al eigenvalor
-  $c$ [CITE]. Ésta es parte fundamental para la definición
-  de la función discreta, mientras que la propiedad de ser
+  $c$. Ésta es parte fundamental para la definición de la
+  función discreta, mientras que la propiedad de ser
   covariante bajo traslaciones surge a partir de las
   propiedades de los operadores de desplazamiento. 
     
@@ -2049,8 +2129,9 @@
   de fase discreto. A pesar de ésto Klimov et al. hacen la
   observación que debido a la arbitrariedad de las bases, la
   analogía con la posición y momentum en el espacio de fase
-  discreto es un poco forzada [CITEchap7]. Otra propiedad
-  interesante de éstas dos bases surge del siguiente cálculo:
+  discreto es un poco forzada \cite{bjork2008}. Otra
+  propiedad interesante de éstas dos bases surge del
+  siguiente cálculo:
   \begin{equation}
     \braket{m|\tilde j}
     = \frac{1}{\sqrt{p}}
@@ -2271,10 +2352,11 @@
   de la expansión de $\alpha$ respecto a la base elegida.
   Debido a la libertad que tenemos en la elección de la base
   del campo, la factorización no es única. Klimov et al
-  [CITE] muestran que los estados etiquetados con los
-  elementos de la extensión de Galois pueden ser mapeados a
-  estados fisicos con propiedades de factorización
-  distintas, y ésto a su vez tiene consecuencias físicas.
+  \cite{bjork2008} muestran que los estados etiquetados con
+  los elementos de la extensión de Galois pueden ser
+  mapeados a estados fisicos con propiedades de
+  factorización distintas, y ésto a su vez tiene
+  consecuencias físicas.
   \begin{example}
     PENDIENTE. Ejemplo de estado con distintas factorizaiones.
   \end{example}
@@ -2360,7 +2442,7 @@
   conmutativos nos brinda una de las características más
   atractivas de la construcción de Wootters de la función de
   Wigner, que depende del siguiente resultado de Bandyophyay
-  et al [CITE]:
+  et al \cite{bandyopadhyay2001}:
   \begin{theorem}[Bandyophyay et al, teorema 3.2]
     Si existe una partición de $n^2-1$ matrices unitarias
     mutuamente ortogonales en $d+1$ conjuntos de $d-1$
@@ -3435,20 +3517,22 @@
 
   \chapter{Construcción no-estándar}
 
-  Para obtener la función de Wigner discreta
-  siguiendo la metodología de Wootters y Gibbons, sería
-  necesario obtener al menos un eigenvector mutuo para cada
-  una de las $d+1$ estrías (recordemos que solo uno es
-  necesario porque la propiedad de covarianza bajo
-  traslaciones determina el resto). La obtención de los
-  eigenvectores sería analíticamente y computacionalmente
-  latoso conforme la dimensión va creciendo. Por suerte
-  existen múltiples construcciones explícitas de bases
-  mutuamente insesgadas, y Godsil y Roy [CITE] probaron que
-  las construcciones de MUBs más conocidas, debido a
-  Ivánovic [CITE], Wootters y Fields [CITE], Klappenecker
-  [CITE] y Bandyophyay [CITE] son todos unitariamente
-  equivalentes en el sentido (REF).
+  Para obtener la función de Wigner discreta siguiendo la
+  metodología de Wootters y Gibbons, sería necesario obtener
+  al menos un eigenvector mutuo para cada una de las $d+1$
+  estrías (recordemos que solo uno es necesario porque la
+  propiedad de covarianza bajo traslaciones determina el
+  resto). La obtención de los eigenvectores sería
+  analíticamente y computacionalmente latoso conforme la
+  dimensión va creciendo. Por suerte existen múltiples
+  construcciones explícitas de bases mutuamente insesgadas,
+  y Godsil y Roy \cite{godsil2009} probaron que las
+  construcciones de MUBs más conocidas, debido a Ivánovic,
+  Wootters y Fields \cite{wootters1989}, Klappenecker
+  \cite{klappenecker2005a} y Bandyophyay
+  \cite{bandyopadhyay2001} son todos unitariamente
+  equivalentes en el sentido de que existe una
+  transformación unitaria que nos lleva de una base a otra.
 
   Gibbons y Wootters utilizaron los resultados de
   Bandyophyay et al para demostrar que los operadores de
@@ -3470,7 +3554,7 @@
   solo de esos conjuntos. Éstos objetos han sido estudiados
   en otras áreas de las matemáticas, por ejemplo en la
   geometría finita donde llevan el nombre de \textit{plano
-  afín} [CITE]. 
+  afín} \cite{kantor2012}. 
 
   \begin{definition}[Plano afín]
     Un plano afín de orden $d$ es un objeto combinatorio que
@@ -3482,38 +3566,38 @@
     particionando a todo el conjunto de puntos. 
   \end{definition}
 
-  En su artículo [CITE], Kantor muestra que hay una relación
-  íntima entre planos afínes y bases mutuamente insesgadas.
-  Ésto lo hace recordando algunos resultados más viejos que
-  conectaban planos afínes con otras estructuras algebráicas
-  llamadas \textit{spreads simplécticos} y con familias de
-  subespacios unidimiensionales mutuamente ortogonales.  El
-  método de construcción de MUBs de Kantor es lo
-  suficientemente general para incluir a las construcciones
-  conocidas (incluyendo la de Wootters) y además permite
-  construir MUBs que \textit{no} son unitariamente
-  equivalente a las construcciones estándares. La idea de
-  éste capítulo es utilizar spreads simplécticos (y por ende
-  planos afínes) distintos a los de Wootters para obtener
-  bases de MUBs no unitariamente equivalentes. Utilizando la
-  construcción de Wootters podemos definir una función de
-  Wigner que sigue preservando la propiedad tomográfica
-  básica. 
+  En su artículo \cite{kantor2012}, Kantor muestra que hay
+  una relación íntima entre planos afínes y bases mutuamente
+  insesgadas.  Ésto lo hace recordando algunos resultados
+  más viejos que conectaban planos afínes con otras
+  estructuras algebráicas llamadas \textit{spreads
+  simplécticos} y con familias de subespacios
+  unidimiensionales mutuamente ortogonales.  El método de
+  construcción de MUBs de Kantor es lo suficientemente
+  general para incluir a las construcciones conocidas
+  (incluyendo la de Wootters) y además permite construir
+  MUBs que \textit{no} son unitariamente equivalente a las
+  construcciones estándares. La idea de éste capítulo es
+  utilizar spreads simplécticos (y por ende planos afínes)
+  distintos a los de Wootters para obtener bases de MUBs no
+  unitariamente equivalentes. Utilizando la construcción de
+  Wootters podemos definir una función de Wigner que sigue
+  preservando la propiedad tomográfica básica. 
 
   Para construir las MUBs de manera explícita, utilizaremos
-  los resultados de Kanat [CITE], quien nos muestra que de
-  \textit{presemicampos simplécticos} es posible obtener
-  spreads simplécticos los cuales a su vez nos producen MUBs
-  por medio de los resultados de Kantor, éste procedimiento
-  se organiza como en la figura (\ref{diag:kanat}).  En
-  dicho artículo Kanat adicionalmente construye MUBs a
-  partir de \textit{funciones planares} y muestra que el
-  grupo de automorfismos de un conjunto completo de MUBs es
-  isomorfo al grupo de automorfismos de una
-  \textit{descomposición ortogonal} del álgebra de Lie
-  $\Sl_d(\C)$. Para nuestro caso, será suficiente considerar
-  solamente los spreads simplécticos generados por
-  presemicampos.
+  los resultados de Kanat \cite{abdukhalikov2015}, quien nos
+  muestra que de \textit{presemicampos simplécticos} es
+  posible obtener spreads simplécticos los cuales a su vez
+  nos producen MUBs por medio de los resultados de Kantor,
+  éste procedimiento se organiza como en la figura
+  (\ref{diag:kanat}).  En dicho artículo Kanat
+  adicionalmente construye MUBs a partir de
+  \textit{funciones planares} y muestra que el grupo de
+  automorfismos de un conjunto completo de MUBs es isomorfo
+  al grupo de automorfismos de una \textit{descomposición
+  ortogonal} del álgebra de Lie $\Sl_d(\C)$. Para nuestro
+  caso, será suficiente considerar solamente los spreads
+  simplécticos generados por presemicampos.
 
   \begin{figure}[h]
     \centering
@@ -3526,7 +3610,7 @@
       \arrow[d] \\
       \text{MUBs completos}
     \end{tikzcd}
-    \caption{Metodología de Kanat [CITE].}
+    \caption{Metodología de Kanat.}
     \label{diag:kanat}
   \end{figure}
   Los spreads simplécticos fueron estudiados en el contexto
@@ -3554,14 +3638,14 @@
   \end{equation}
   es una descomposición ortogonal si las subálgebras
   $\mathfrak{H}_i$ son ortogonales entre si respecto a la
-  forma de Killing en $\mathfrak{L}$.
-  Las subálgebras de Cartán de $\Sl_d(\C)$ consisten de
-  matrices sin traza las cuales son diagonales. La relación
-  entre MUBs y la descomposición ortogonal de $\Sl_d(\C)$ es
-  lo que utiliza Kanat para encontrar expresiones explícitas de
-  MUBs a partir de spreads simpléticos. Kanat cita al
-  siguiente teorema de Boykin et al [CITE]:
-  \begin{theorem}[Boykin et al (CITE)]
+  forma de Killing en $\mathfrak{L}$.  Las subálgebras de
+  Cartán de $\Sl_d(\C)$ consisten de matrices sin traza las
+  cuales son diagonales. La relación entre MUBs y la
+  descomposición ortogonal de $\Sl_d(\C)$ es lo que utiliza
+  Kanat para encontrar expresiones explícitas de MUBs a
+  partir de spreads simpléticos. Kanat cita al siguiente
+  teorema de Boykin et al \cite{boykin2005}:
+  \begin{theorem}[Boykin et al, Teorema 5.2]
     \label{thm:boykin}
     Los conjuntos maximales de MUBs en $\C^{d}$ están en
     correspondencia con descomposiciones ortogonales del
@@ -3779,7 +3863,7 @@
 
   Con la construcción anterior de los operadores de
   desplazamiento, y utilizando los resultados de Kantor
-  [CITE NOTE ON LIE], Kanat concluye que si $\Sigma = \{W_0,
+  \cite{kantor1996}, Kanat concluye que si $\Sigma = \{W_0,
   W_1, \ldots, W_d\}$ es un spread simpléctico, entonces
   existe una descomposición ortogonal del álgebra de Lie
   $\Sl_n(\C)$ dada por:
@@ -3798,16 +3882,16 @@
   De la descomposición ortogonal de $\Sl_d(\C)$ se pueden
   obtener un conjunto de $d+1$ MUBs a partir de la
   diagonalización de los operadores de desplazamiento que
-  son generadores de las subálgebras de Cartán [CITE
-  BOYKIN], ésto es basicamente lo que Wootters hizo mediante
-  los resultados de Bandyophyay. Kanat va un paso más allá y
-  nos da una manera de obtener los MUBs directamente a
-  partir de un spread simpléctico, de nuevo siguiendo a
-  Kantor. Por otro lado, Kantor demuestró que la
+  son generadores de las subálgebras de Cartán
+  \cite{boykin2005}, ésto es basicamente lo que Wootters
+  hizo mediante los resultados de Bandyophyay. Kanat va un
+  paso más allá y nos da una manera de obtener los MUBs
+  directamente a partir de un spread simpléctico, de nuevo
+  siguiendo a Kantor. Por otro lado, Kantor demuestró que la
   inequivalencia de spreads simplécticos conlleva a la
-  inequivalencia de MUBs [CITE]:
+  inequivalencia de MUBs \cite{kantor2012}:
 
-  \begin{theorem}[Kantor (CITE), Teorema 2.3
+  \begin{theorem}[Kantor (\cite{kantor2012}), Teorema 2.3
     (Inequivalencia)]
     \label{thm:kantor_ineq}
     Todo spread simpléctico $\Sigma$ de $V \oplus V$
@@ -4016,8 +4100,9 @@
   [HIST] Introducimos brevemente algunas nociones que
   vinculan los presemicampos y los spreads simplécticos,
   pero no seremos muy rigurosos ya que para éste trabajo nos
-  basta con tomar los ejemplos dados por Kantor [CITE] para
-  construir nuestros spreads no equivalentes.
+  basta con tomar los ejemplos dados por Kantor
+  \cite{kantor2012} para construir nuestros spreads no
+  equivalentes.
   \begin{definition}[Presemicampo y semicampo]
     \label{def:presemifield}
     Un presemicampo es un anillo sin divisores del cero, y
@@ -4067,7 +4152,7 @@
   completo de MUBs simplemente utilizando la operación del
   presemicampo.
 
-  \begin{theorem}[Kanat (CITE) Teorema 3.3]
+  \begin{theorem}[Kanat (\cite{abdukhalikov2015}) Teorema 3.3]
     \label{thm:kanat_presemi_mubs}
     Sea $F = \GF(p^{n})$. Si $(F, +, \circ)$ es un
     presemicampo simpléctico finito de característica impar,
@@ -4104,12 +4189,12 @@
   un spread $\Sigma$, solo hemos trasladado la dificultad a
   la busqueda de presemicampos cuyo spread es simpléctico,
   i.e., un spread de $d+1$ subespacios totalmente
-  isotrópicos. Por suerte, en [CITE] Kantor genera múltiples
-  spreads simplécticos a partir de presemicampos y en lo que
-  sigue del trabajo hemos elegido algunos de ellos para
-  poder construir MUBs no equivalentes. El ejemplo más
-  sencillo es el que está dado simplemente por la
-  multiplicación del campo finito.
+  isotrópicos. Por suerte, en \cite{kantor1982} Kantor
+  genera múltiples spreads simplécticos a partir de
+  presemicampos y en lo que sigue del trabajo hemos elegido
+  algunos de ellos para poder construir MUBs no
+  equivalentes. El ejemplo más sencillo es el que está dado
+  simplemente por la multiplicación del campo finito.
   \begin{definition}[Spread Desarguesiano]
     \label{def:desarguesian_semifield}
     Sea $\GF(p^{n})$ un campo finito. En particular
@@ -4163,7 +4248,7 @@
   podremos obtener un conjunto de MUBs no equivalentes a las
   de Wootters. Para característica impar el siguiente
   presemicampo genera un spread simpléctico no equivalente
-  al Desarguesiano [CITE].
+  al Desarguesiano \cite{kantor1982}.
   \begin{definition}[Campo torcido de Albert]
     \label{def:alberts_spread}
     Sea $n$ impar y sea $s \in \N$ un primo relativo de $n$
@@ -4211,7 +4296,7 @@
   \textit{anillo de Galois}. La razón para ésto no es
   trivial pero se puede encontrar un explicación en el
   artículo sobre códigos de Kerdock y spreads simplécticos
-  escrito por Kantor [CITE].
+  escrito por Kantor \cite{kantor1982}.
 
   Sea $\F = \GF(2^{n})$ el campo de Galois y $\omega \in \C$
   una cuarta raíz primitiva de la unidad. Sea $R =
@@ -4291,7 +4376,7 @@
     \ref{thm:kanat_even} son precisamente los eigenvectores
     de los operadores de desplazamiento $D(u,u\circ m)$ para
     todo $u \in V$.  Se pueden consultar los detalles en
-    [CITE].
+    \cite{abdukhalikov2015}.
     %Demostraremos que para todo $m,v \in \GF(2^{n})$ el
     %vector $\ket{d_{m,v}}$ es un eigenvector de los
     %opeardores $D(u,u\circ m)$ para todo $u \in V$.
@@ -4365,10 +4450,10 @@
   \end{definition}
   Kantor prueba que el spread simpléctico de $V \oplus V$
   generado por éste presemicampo no es equivalente al
-  Desarguesiano [CITE]. Con el teorema \ref{thm:kanat_even}
-  podemos obtener una expresión explícita de las MUBs
-  haciendo las operaciones pertinentes en el anillo de
-  Galois.
+  Desarguesiano \cite{kantor2012}. Con el teorema
+  \ref{thm:kanat_even} podemos obtener una expresión
+  explícita de las MUBs haciendo las operaciones pertinentes
+  en el anillo de Galois.
 
   \section{Definición no estándar de una función de Wigner
   discreta}
@@ -4510,11 +4595,11 @@
   bases mutuamente insesgadas para el sistema cuántico de un
   par de qubits. Utilizaremos el teorema
   \ref{thm:kanat_even} para la construcción notando que las
-  bases obtenidas son equivalentes a las de Wootters [CITE]
-  (salvo permutaciones).  Despues, daremos dos ejemplos para
-  los cuales calcularemos dos conjuntos completos de MUBs:
-  un conjunto estándar (spread Desarguesiano) y un conjunto
-  no estándar. En la siguiente sección utilizaremos ambos
+  bases obtenidas son equivalentes a las de Wootters (salvo
+  permutaciones).  Despues, daremos dos ejemplos para los
+  cuales calcularemos dos conjuntos completos de MUBs: un
+  conjunto estándar (spread Desarguesiano) y un conjunto no
+  estándar. En la siguiente sección utilizaremos ambos
   conjuntos para comparar las funciones de Wigner.
 
   \begin{example}
@@ -4632,7 +4717,7 @@
   anillo con $4^{5}$ elementos. El polinomio que
   utilizaremos es el polinomio de Conway\footnote{La mayoría
   de los CAS utilizan a los polinomios de Conway para las
-  extensiones de campos y de anillos por default [CITE].}
+  extensiones de campos y de anillos por default.}
   dado por $f(x) = x^5 + x^2 + 1$. Así
   \[
     \GR(4^{5}) \cong \Z_4[x] / \langle x^5 + x^2 + 1
@@ -5011,16 +5096,6 @@
       \ket{GHZ} = \frac{1}{\sqrt{3}}
       \left( \ket{000} + \ket{111} + \ket{222} \right).
     \end{equation}
-    Con la base $\{1,\alpha,\alpha^2\}$, el estado
-    $\ket{GHZ} $ se expresa como la superposición de
-    vectores de la base estándar de $\C^{27}$:
-    \begin{equation}
-      \ket{GHZ} = \frac{1}{\sqrt{3}}
-      \left(
-        \ket{0} + \ket{1 + \alpha + \alpha^2} 
-        + \ket{2 + 2\alpha + 2\alpha^2}
-      \right). 
-    \end{equation}
   \end{example}
   Las figuras () y () muestra la función de Wigner estándar
   $W$ y no estándar $W^{\mathcal K}$ del estado
@@ -5107,16 +5182,17 @@
   cantidad máxima de bases mutuamente insesgados para
   sistemas de dimensión compuesta que no son potencias de
   primos. De la misma manera existen problemas abiertos
-  análogos en el álgebra combinatoria [CITE], en la teoría
-  de códigos [CITE] y en la teoría de las álgebras de Lie
-  [CITE], entre otros, que parece indicar una relación más
-  profunda. Es posible que hallazgos y avances en algunas de
-  éstas áreas nos provee la solución al problema de las MUBs
-  o vice-versa. Si los sistemas de dimensión que son
-  potencias de primos son los únicos de los cuales podemos
-  obtener la cantidad máxima de MUBs, ¿qué nos dice ésto en
-  cuestión de la tomografía cuántica y en la cuestión de la
-  medición de estados cuánticos?
+  análogos en el álgebra combinatoria \cite{kantor2003}, en
+  la teoría de códigos \cite{kantor1982} y en la teoría de
+  las álgebras de Lie \cite{ivanov1987, kantor1996,
+  boykin2005}, entre otros, que parece indicar una relación
+  más profunda. Es posible que hallazgos y avances en
+  algunas de éstas áreas nos provee la solución al problema
+  de las MUBs o vice-versa. Si los sistemas de dimensión que
+  son potencias de primos son los únicos de los cuales
+  podemos obtener la cantidad máxima de MUBs, ¿qué nos dice
+  ésto en cuestión de la tomografía cuántica y en la
+  cuestión de la medición de estados cuánticos?
 
   En un aspecto más práctico, el hecho de que podemos
   obtener MUBs que no son unitariamente equivalentes a las
@@ -5126,11 +5202,11 @@
   interesante que nos gustaría investigar posteriormente.
   También recordamos que unas de las motivaciones
   principales de éste trabajo fueron los resultados
-  relativamente recientes de Gross [CITE] entre otros,
-  que relacionan la positividad de una versión particular de
-  la función de Wigner discreta con estados Gaussianos,
-  entre ellos los estabilizadores, de los cuales se ha
-  probado que son simulables de manera clásica. Como
+  relativamente recientes de Gross \cite{gross2006} entre
+  otros, que relacionan la positividad de una versión
+  particular de la función de Wigner discreta con estados
+  Gaussianos, entre ellos los estabilizadores, de los cuales
+  se ha probado que son simulables de manera clásica. Como
   consecuencia inmediata de éste trabajo es que podríamos
   buscar estados no estabilizadores con funciones de Wigner
   positiva, algo que contrastaría con los resultados

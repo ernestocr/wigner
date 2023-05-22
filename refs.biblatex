@@ -1049,6 +1049,22 @@
   file = {/Users/ernesto/Zotero/storage/N2RP8PRP/Kantor - 1982 - Spreads, Translation Planes and Kerdock Sets. I.pdf}
 }
 
+@incollection{kantor1996,
+  title = {Note on {{Lie}} Algebras, Finite Groups and Finite Geometries},
+  booktitle = {Groups, {{Difference Sets}}, and the {{Monster}}},
+  author = {Kantor, William M.},
+  editor = {Arasu, K.T. and Dillon, J.F. and Harada, K. and Sehgal, S. and Solomon, R.},
+  date = {1996-12-31},
+  pages = {73--82},
+  publisher = {{DE GRUYTER}},
+  doi = {10.1515/9783110893106.73},
+  url = {https://www.degruyter.com/document/doi/10.1515/9783110893106.73/html},
+  urldate = {2023-05-22},
+  isbn = {978-3-11-014791-9},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/ZMMPBQA9/Kantor - 1996 - Note on Lie algebras, finite groups and finite geo.pdf}
+}
+
 @article{kantor2003,
   title = {Commutative Semifields and Symplectic Spreads},
   author = {Kantor, William M.},
