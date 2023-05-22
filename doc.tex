@@ -139,25 +139,22 @@
   formulado una nueva perspectiva basada en los espacios de
   fase discretos de estados y operadores en espacios de
   Hilbert finitos, utilizando funciones discretas de Wigner.
-  Se ha demostrado que los estados estabilizadores tienen
-  funciones de Wigner discretas definidas positivas y que
-  los operadores de Clifford son mapeos definidos positivos.
+  La función de Wigner en el caso continuo surge de vincular
+  la mecánica cuántica con la mecánica clásica estadística,
+  mediante el espacio de fase. Las funciones de Wigner nos
+  dan una representación alternativa de estados de sistemas
+  cuánticos y la generalización a sistemas discretos a
+  tomado distintas formas a traves de los años, cada una con
+  ventajas y desventajas. Para una clase particular de
+  funciones de Wigner discretas, se ha demostrado que los
+  estados estabilizadores son análogos discretos a los
+  estados Gaussianos en sistemas continuos
+  \cite{grossHudsonTheoremFinitedimensional2006}, en el
+  sentido de que tienen funciones de Wigner definidas
+  positivas; por otro lado se ha demostrado que los
+  operadores de Clifford son mapeos definidos positivos.
   Esto implica que los circuitos de Clifford son simulables
-  eficientemente en computadores clásicas. En sistemas de
-  dimensiones impares, se ha demostrado que los estados
-  estabilizadores son análogos discretos a los estados
-  gaussianos en sistemas continuos
-  \cite{grossHudsonTheoremFinitedimensional2006} y se ha
-  demostrado que las compuertas del grupo de Clifford tienen
-  Hamiltonianos armónicos subyacentes que conservan los
-  puntos discretos del espacio de fase
-  \cite{kociaSemiclassicalFormulationGottesmanKnill2017}.
-  Esto significa que los circuitos de Clifford se pueden
-  expresar mediante integrales de trayectoria truncadas en
-  el orden $\hbar^{0}$ y por lo tanto son expresamente
-  clásicos
-  \cite{kociaSemiclassicalFormulationGottesmanKnill2017,
-  kohComputingQuopitClifford2017}.
+  eficientemente en computadores clásicas.
 
   En este trabajo, buscamos construir, de una manera
   explícita, los operadores \textit{puntuales} de fase
@@ -165,20 +162,20 @@
   qubits y qutrits. Estrictamente hablando, buscamos la
   construcción \textit{estándar}
   \cite{woottersWignerFunctionFormulationFiniteState1987} y
-  \textit{no estandar} (contribución del trabajo) de los
+  \textit{no estándar} (contribución del trabajo) de los
   núcleos que permitan dos formas de la función de Wigner,
   utilizando conjuntos de bases no equivalentes bajo
   transformaciones unitarias. La motivación para realizar
   éste trabajo es que, los núcleos que no son equivalentes
   conservan la propiedad tomográfica básica, lo que permite
   expresar la función de Wigner de cualquier estado como una
-  combinación lineal de probabilidades medidas y la
+  combinación lineal de probabilidades observadas y la
   inequivalencia conduce a la posibilidad de encontrar
   estados no estabilizadores con funciones de Wigner no
   negativas, lo que contrasta con resultados previos para el
   caso discreto
   \cite{grossHudsonTheoremFinitedimensional2006,
-  galvaoDiscreteWignerFunctions2005,
+    galvaoDiscreteWignerFunctions2005,
   cormickInterferenceDiscreteWigner2006}.
 
   \chapter{Preliminares}
@@ -218,98 +215,12 @@
   puede medir del sistema) está completamente determinado.
   En la mecánica cuántica ésto ya no es cierto, los
   observables solo nos brindan distribuciones de los
-  posibles valores. Antes de plantear los principios de la
-  mecánica cuántica, repasamos rápidamente el concepto del
-  espacio de fase en la mecánica clásica, ya que hay una
-  relación directa de la función de Wigner con ambas teorías
-  físicas.
-
-  \section{La mecánica clásica y el espacio de fase}
-
-  El concepto del espacio de fase es una herramienta de la
-  mecánica clásica, la cual describe la evolución temporal
-  de un sistema físico. Dicho de una manera muy sencilla, la
-  mecánica clásica estudia partículas y sus trayectorias,
-  las cuales se rigen de acuerdo a las leyes de Newton.  Se
-  considera que la partícula se `mueve' en un espacio
-  euclideano, es decir, su \textit{posición} está dado por
-  $x = (x_1,\ldots,x_n) \in \R^{n}$. El
-  \textit{momentum} es una cantidad dada por $p_j = m \dot
-  x_j$, donde $\dot x$ es la derivada respecto al
-  tiempo de la posición, es decir, la velocidad de la
-  partícula, y $m$ es la \textit{masa} de la partícula. Las
-  cantidades que uno desea medir de nuestro sistema físico
-  se les llama \textit{observables}, y en la mecánica
-  clásica, son las funciones continuas que tienen como
-  argumentos las cantidades $x,p$ y $m$. Ejemplos
-  de ellos son el momentum, la energía cinética, la energía
-  potencial, etc. La función de energía más usual es la que
-  está dada como la suma de la \textit{energía cinética} y
-  \textit{energía potencial}:
-  \begin{equation}
-    H(x,p)
-    = \frac{1}{2m} \sum_{j=1}^{n} p_j^2 + V(x).
-  \end{equation}
-  A la energía del sistema se le conoce como el
-  \textit{Hamiltoniano}.  Utilizando ésta función de
-  energía, la ley de Newton nos brinda las ecuaciones de
-  movimiento de la partícula en cuestión:
-  \begin{equation}
-    \frac{dx_j}{dt}
-    = \frac{\partial H}{\partial p_j},
-    \quad
-    \frac{dp_j}{dt}
-    = -\frac{\partial H}{\partial x_j}.
-  \end{equation}
-  Expresada como un sistema de ecuaciones diferenciales, a
-  la ley de Newton se le conoce como las \textit{ecuaciones
-  de Hamilton}. Con ésto, es natural representar el estado
-  del sistema clásico considerando el par $(x,p) \in
-  \R^{2n}$. Al espacio $\R^{2n}$ se le conoce como el
-  \textit{espacio de fase}. A las soluciones de las
-  ecuaciones de Hamilton se les conoce como
-  \textit{trayectorias}, y son curvas que viven en el
-  espacio de fase.
-  \begin{definition}
-    El espacio de fase de una partícula que se mueve en
-    $\R^{n}$ es $\R^{2n}$, considerado como el conjunto de
-    las $(2n)$-tuplas de la forma
-    \[
-      \left(
-        x_1, \ldots, x_n, p_1, \ldots, p_n
-      \right),
-    \] 
-    donde $x_j$ y $p_j$ son elementos de $\R$.
-  \end{definition}
-
-  Cabe mencionar que el tratado moderno de la mecánica
-  clásica está fundamentado en la geometría diferencial de
-  las variedades simplécticas
-  \cite{mcinerneyFirstStepsDifferential2013}, en donde el
-  espacio de fase se define como el espacio cotangente del
-  espacio de configuraciones $T^{*} \R_x \cong \R_x \times
-  \R_p$, donde el espacio de configuraciones  $\R_x$ es el
-  espacio de posición y el $\R_p$ es el espacio del
-  momentum.  Para nuestros objetivos basta con desginar el
-  espacio de fase como el espacio $\R^{2n}$.
-
-  Notemos que por el momento no ha surgido ninguna
-  interpretación probabilística en la mecánica clásica, pues
-  es una teoría determinística. Dado que la teoría cuántica
-  es probabilística, es natural preguntarnos ¿qué
-  características de la mecánica clásica serían deseables en
-  la teoría cuántica? y ¿qué beneficios habría en hacer un
-  vínculo entre la mecánica clásica y la cuántica?
-  \cite{schroeckQuantumMechanicsPhase1996}, especialmente
-  cuando sabemos que la teoría cuántica (y sus derivados) es
-  nuestra teoría más precisa. Un esfuerzo por vincular las
-  descripciones clásicas y cuánticas del mundo es la
-  representación de Wigner-Weyl-Moyal de la mecánica
-  cuántica.  Ésta es una formulación que intenta usar la
-  noción del espacio de fase en la dinámica cuántica y la
-  idea básica es la construcción de
-  \textit{cuasi-distribuciones} real-valuadas que
-  representan a los sistemas cuánticos.
+  posibles valores. La siguiente sección introduce los
+  conceptos básicos de la mecánica cuántica que
+  necesitaremos para formular las funciones de Wigner en el
+  caso continuo y discreto. El apéndice (REF) puede ser
+  consultado para repasar el concepto del espacio de fase en
+  la mecánica clásica. 
 
   \section{La mecánica cuántica}
 
@@ -371,22 +282,21 @@
   
   \subsection{La formulación en el espacio de Hilbert}
 
-  Con lo anterior aclarado, comencemos definiendo los
-  conceptos y algunos de los postulados que necesitaremos de
-  la mecánica cuántica. Existen múltiples versiones de los
-  postulados, dependiendo del rigor con el cual se planea
-  trabajar, en éste trabajo solo enunciamos los necesarios y
-  de una forma básica ignorando el teorema espectral para el
-  caso continuo.
+  Comencemos definiendo los conceptos y algunos de los
+  postulados que necesitaremos de la mecánica cuántica.
+  Existen múltiples versiones de los postulados, dependiendo
+  del rigor con el cual se planea trabajar, en éste trabajo
+  solo enunciamos los necesarios y de una forma básica
+  ignorando el teorema espectral para el caso continuo.
 
   \begin{axiom}
+    \label{ax:1}
     A cada sistema cúantico le corresponde un espacio de
     Hilbert $\H$. Los estados del sistema son todos los
     operadores lineales $\rho : \H \to \H$,
     definidos-positivos y de traza finita, tales que $\Tr(
     \rho) = 1$.
   \end{axiom}
-
   Un estado cuántico $\rho$ se dice \textit{puro}, is
   existe un elemento $\psi \in \H$, tal que para todo
   $\alpha \in \H$ se cumple
@@ -402,19 +312,43 @@
   literatura física.
 
   \begin{axiom}
+    \label{ax:2}
     A cada observable físico, $A$, sobre el espacio de fase
     clásico, le corresponde un observable cuántico
-    representado por un operador auto-adjunto $\hat{A} :
-    \mathcal D_{\hat{A}} \to \H$.  
+    representado por un operador auto-adjunto del espacio de
+    Hilbert, 
+    \[
+      \hat{A} : \mathcal D_{\hat{A}} \to \H.  
+    \]
   \end{axiom}
+  Los operadores auto-adjuntos representan a los observables
+  físicos como la energía, posición, momentum y momentum
+  angular. De manera alternativa, un sistema físico puede
+  ser de dimensión finita, representando por ejemplo, a los
+  grados de libertad de un sistema \textit{spin}, para los
+  cuales pudiera ser que no existe un análogo clásico. Como
+  hemos mencionado anteriormente, la matemática se vuelve
+  más sencilla en el caso finito, por lo que los tratados
+  sobre la teoría de la medición generalmente se hacen en el
+  caso finito, evitando las cuestiones delicadas pertinentes
+  a la convergencia, cuestiones de acotamiento y del dominio
+  del operador, etc. Muchos problemas surgen del ignorar
+  éstos detalles y se pueden tratar rigurosamente con la
+  teoría espectral, pero dada la naturaleza de éste trabajo,
+  nos podemos dar el lujo de ignorarlos pues nos centramos
+  en el estudio de sistemas finitos principalemnte. 
 
-  Es importante aclarar que el dominio de un operador no es
-  un detalle pequeño, ya que generalmente no están definidos
-  en todo el espacio de Hilbert. Muchos problemas surgen del
-  ignorar los detalles de los dominios. Ahora pasamos al
-  postulado de la medición.
-
+  El proceso de medición consiste de la prueba o
+  manipulación de un sistema físico para obtener un valor
+  númerico. En la mecánica cuántica, dichas predicciones son
+  probabilísticas de manera natural. A pesar de las
+  cuestiones filosóficas que aun no se resuelven
+  rotúndamente sobre todo en la cuestión de la medición,
+  experimentalmente es un éxito. La prescripción que
+  seguiremos para obtener la información probabilística del
+  sistema es dada por el postulado de la medición:
   \begin{axiom}
+    \label{ax:3}
     Si un sistema cuántico está en un estado descrito por un
     vector unitario $\psi \in \H$, entonces el valor
     esperado de un observable $A$ satisface
@@ -430,7 +364,6 @@
     \]
     donde $\Tr$ es la traza del operador.
   \end{axiom}
-
   Los valores que pueden tomar los observables cuánticos
   pertenecen al \textit{espectro} del operador. En la
   literatura física es común que se consideren los elementos
@@ -443,42 +376,266 @@
   valor. En el caso finito, las cuestiones matemáticas se
   vuelven más fácil porque el espectro de los operadores
   auto-adjuntos \textit{sí} es el conjunto de eigenvalores
-  del operador.
+  del operador. Por el momento nos enfocamos en sistemas
+  cuánticos discretos para poder estudiar un poco más fondo
+  el concepto de la medición.
 
-  En la práctica generalmente no conocemos la
-  información completa del sistema y en éste caso decimos
-  que el sistema está en un \textit{estado mixto}. Podemos
-  definir un estado mixto como un conjunto de pares
-  $\{(\lambda_j,\psi_j)\}_{j \in \N}$ donde cada $\psi_j \in
-  L^2(\R^{n})$ es un estado puro y $0 \leq \lambda_j \leq 1$
-  es un probabilidad clásica, es decir, $\sum_j \lambda_j =
-  1$.
-  \begin{definition}
-    Un estado cuántico es el conjunto de pares $(\lambda_j,
-    \psi_j) \in [0,1] \times L^2(\R^{n})$, indexado por un
-    conjunto discreto $F$ donde $\|\psi_j\|_{L^2(\R^{n})} =
-    1$ para todo $j \in F$ y $\sum_{j \in F} \lambda_j = 1$.
-    El operador lineal $\hat{\rho}$ sobre $L^2(\R^{n})$
-    definido por
-    \begin{equation}
-      \hat{\rho} \psi
-      = \sum_{j \in F}^{} \lambda_j \Pi_{\psi_j} \psi
-      = \sum_{j \in F}^{} \lambda_j \braket{\psi| \psi_j}
-      \psi_j,
-    \end{equation}
-    es el operador de densidad asociado al estado. 
-  \end{definition}
-  El operador de densidad definido de ésta manera es
-  auto-adjunto, semi-definido positivo, y es de clase de
-  traza con $\Tr(\hat{\rho}) = 1$, por lo tanto cumple con
-  el primero postulado de la mecánica cuántica. El espectro
-  de un operador de densidad $\hat{\rho}$ sobre
-  $L^2(\R^{n})$ es discreto y consiste de números no
-  negativos tales que $\lambda_1 \geq \lambda_2 \geq \ldots
-  \geq 0$, y $\lim_{j \to \infty} \lambda_j = 0$ (en el caso
-  en que $F$ es infinito).
+  \section{En dimensión finita}
+
+  El ejemplo clásico es el del \textit{spin} de una
+  partícula, la cual toma una cantidad de valores finitos.
+  El ejemplo físico más sencillo es el de las partículas de
+  spin-$\frac{1}{2}$, en éste caso el spin solo toma dos
+  valores, y se dice que la partícula es de $2$-niveles.
+  Para una partícula de $d$-niveles, el espacio de Hilbert
+  correspondiente es $\H  = \C^{d}$. Para el caso finito,
+  adoptaremos por completo a la notación (maquinaria) de P.
+  A. M. Dirac, pues es una manera fácil de hacer cálculos y
+  de expresar a los operadores de los observables y aquellos
+  correspondientes a los estados puros. En ésta notación,
+  los estados puros $\psi$ del sistema cuántico, se denotan
+  con un \textit{ket}, $\ket \psi$. A cada ket, le
+  corresponde un funcional lineal llamado \textit{bra},
+  $\bra \psi$, el cual se define por su acción:
+  \[
+    (\bra \psi)(\ket{\phi})
+    := \braket{\psi|\phi}.
+  \] 
+  Utilizando el bra, para todo estado puro $\ket{\psi}$ podemos
+  formar un operador de rango uno, que resulta ser la
+  proyección $\Pi_\psi$ al subespacio generado por
+  $\ket{\psi}$,
+  dicho operador está formado por el producto tensorial del
+  dual de $\ket{\psi}$:
+  \begin{equation}
+    \ket \psi \bra \psi
+    := \Pi_\psi
+    = \ket \psi \otimes \bra \psi.
+  \end{equation} 
+  Su acción sobre algun elemento del espacio de Hilbert se
+  expresa de manera muy natural utilizando la notación de
+  Dirac:
+  \[
+    \left(\ket \psi \bra \psi\right) \ket \phi
+    = \braket{\psi|\phi} \ket \psi.
+  \] 
+  Dado que los observables son operadores auto-adjuntos, sus
+  eigenestados forman una base ortonormal del espacio de
+  Hilbert. En particular los proyectores de cada elemento de
+  la base ortonormal son auto-adjuntos. En general los
+  operadores auto-adjuntos satisfacen las siguientes
+  propiedades:
+  \begin{proposition}
+    Si $A$ es un operador auto-adjunto entonces:
+    \begin{enumerate}
+      \item Sus eigenvalores son reales.
+      \item Sus eigenestados son ortogonales.
+      \item Existe una base ortonormal del espacio de
+        Hilbert que consiste de los eigenestados del
+        operador (normalizados).
+    \end{enumerate}
+  \end{proposition}
+  En éste trabajo no trataremos con la dinámica de un
+  sistema cuántico, por lo que no será necesario introducir
+  el concepto de la evolución unitaria de un sistema
+  cuántico.
+
+  \subsection{Medidas proyectivas}
+
+  La idea básica de la teoría de medición consiste en el
+  hecho de que podemos elegir \textit{cualquier} base
+  ortonormal del espacio de Hilbert $\H$ y observar en que
+  estado de la base nuestro sistema cuántico se encuentra.
+  Al hacer la medición siempre encontraremos uno de los
+  estados de dicha base, y, utilizando el postulado de la
+  medición (\ref{ax:3}), podemos calcular la probabilidad de
+  observar una de las posibles mediciones. Una medición de
+  éste tipo se conoce como \textit{medición de Von Neumann}
+  ó medición proyectiva.  Existen otros tipos de mediciones
+  que generalizan éste concepto, como las POVMs (medidas de
+  operadores positivos), pero la construcción de la función
+  de Wigner está basada en las medidas proyectivas así que
+  no será necesario estudiar esas alternativas para éste
+  trabajo.
+
+  La regla que asigna una probabilidad al evento de observar
+  un valor específico de los posibles se conoce como la
+  \textit{regla de Born}. Si tenemos un operador
+  auto-adjunto, sus eigenvectores y eigenvalores forman un
+  conjunto de posibles mediciones. Denotemos por $m$ el
+  resultado correspondiente al eigenestado $\ket{\phi_m}$.
+  Entonces la regla de Born nos dice que la probabilidad de
+  observar a $m$ está dada por la norma cuadrada de la
+  proyección del vector $\ket \psi$ hacia el subespacio
+  generado por el vector $\ket{\phi_m}$, i.e., si
+  $\Pi_{m}$ representa dicha proyección, entonces:
+  \begin{equation}
+    p(m)
+    = \|\Pi_m\ket \psi\|^2
+    = \braket{\psi|\Pi_m^{*}\Pi_m|\psi}
+    = \braket{\psi|\Pi_m|\psi}.
+  \end{equation}
+  La última igualdad se sigue de que los proyectores son
+  idempotentes y son auto-adjuntos. En otras palabras, la
+  probabilidad de obtener $m$ en una medición corresponde al
+  valor esperado del proyector $\Pi_m$ en el estado
+  $\ket{\psi}$. Utilizando cualquier base ortonormal
+  $\{\ket{\varphi_n}\}$, podemos expresar a la regla de Born
+  en términos de la traza para un estado puro $\ket{\psi}$
+  de la siguiente manera:
+  \begin{align}
+    p(m)
+    &= \braket{\psi|\Pi_m|\psi} \\
+    &= \sum_{n}^{}
+    \braket{\psi|\varphi_n}\braket{\varphi_n|\Pi_m|\psi} \\
+    &= \sum_{n}^{}
+    \braket{\varphi_n|\Pi_m|\psi}\braket{\psi|\varphi_n} \\
+    &= \Tr\left( \ket\psi\bra\psi \Pi_m \right).
+  \end{align}
   
-  \subsection{Los operadores de posición y de momentum}
+  Para proyecciones de rango uno, es decir operadores de que
+  proyectan a subespacios unidimensionales, es fácil
+  observar que la probabilidad de la medición $m$, $p(m)$,
+  es igual a los coeficientes de la expansión de el estado
+  en la base de medición, ya que podemos expresar al
+  proyector como $\Pi_m = \ket m \bra m$:
+  \begin{align}
+    p(m)
+    &= \braket{\psi|\Pi_m|\psi} \\
+    &= \braket{\psi|m} \braket{m|\psi} \\
+    &= \overline{\braket{m|\psi}} \braket{m|\psi} \\
+    &= \left|\langle m|\psi \rangle\right|^2.
+  \end{align}
+  Una \textit{medida proyectiva} es un conjunto de
+  proyectores que proyectan hacia subespacios ortogonales y
+  además su suma es igual a la identidad. Los eigenvectores
+  de operadores auto-adjuntos forman una medida proyectiva.
+  Es evidente que la suma de las probabilidades debe ser
+  igual a $1$ para una medida proyectiva, ya que la suma de
+  los proyectores nos da la identidad, y los estados
+  cuánticos puros son de norma unitaria por el primer
+  postulado:
+  \begin{equation}
+    \sum_{m}^{} p(m)
+    = \sum_{m}^{} \braket{\psi|\Pi_m|\psi}
+    = \braket{\psi|\left( \sum_{m}^{} \Pi_m \right)|\psi}
+    = \braket{\psi|I|\psi}
+    = 1.
+  \end{equation}
+
+  Hasta ahorita hemos expuesto los mecanismos de la medición
+  para estados puros. Éstos corresponden a la posesión de la
+  información completa del sistema, algo generalmente no es
+  el caso. Ahora supongamos que no se conoce con certeza en
+  que estado está el sistema. Lo único que sabemos es que el
+  sistema está preparado en el estado $\ket{\psi_k}$ con
+  probabilidad $p_k$ de una colección de posibles estados
+  $\{(p_k, \ket{\psi_k})\}$, de tal modo que $\sum_{k}^{}
+  p_k = 1$. Con ésto podemos darle un significado al uso de
+  operadores para describir estados cuánticos como lo
+  hicimos en el primero postulado.a
+  \begin{definition}
+    \label{def:density_operator}
+    Si el conjunto $\{(p_k, \ket{\psi_k})\}$ corresponde a
+    un estado mixto, entonces definimos al operador de
+    densidad como 
+    \begin{equation}
+      \rho 
+      = \sum_{k}^{} p_k \ket{\psi_k}\bra{\psi_k}.
+    \end{equation}
+  \end{definition}
+  \begin{proposition}
+    Un operador $\rho$ es el operador de densidad asociado a
+    conjunto estadístico $\{(p_k, \ket{\psi_k})\}$ si y solo
+    si es auto-adjunto, positivo y de traza unitaria.
+  \end{proposition}
+  Resulta que la correspondencia entre conjuntos
+  estadísticos y operadores de densidad no es única.
+  Distintos conjuntos estadísticos nos llevan al mismo
+  operador de densidad. Por lo tanto tienen los mismos
+  valores esperados para cualquier observable y en efecto
+  son indistinguibles. Es por ésto que el operador de
+  densidad es la generalización más natural de un estado
+  cuántico, en lugar de simplemente los vectores unitarios
+  del espacio de Hilbert. Es común confundir el significado
+  de la superposición de estados cuánticos y una mezcla de
+  estados. Para ganar intuición, podemos considerar el
+  ejemplo de una mezcla de dos estados. Ésta mezcla describe
+  nuestra \textit{falta de conocimiento}, el sistema
+  realmente se encuentra en uno de los dos, solo que no
+  sabemos cual es. En cambio, una superposición de estados,
+  el sistema \textit{no} se encuentra en uno de los dos
+  específicamente, sino que el estado se encuentra en ambos
+  a la vez.
+
+  Para operadores de densidad, la regla de Born se expresa
+  naturalmente como el valor esperado del proyector $\Pi_m$ 
+  en el estado $\rho$:
+  \begin{equation}
+    p(m) = \Tr\left( \rho \Pi_m \right). 
+  \end{equation}
+
+  \subsection{Tomografía cuántica y MUBs}
+
+  En la mecánica cuántica, el estado de un sistema cuántico
+  no puede ser observado ni puede ser determinado de manera
+  experimental. Dado que una sola medición no es suficiente
+  para obtener la información necesaria para reconstruir el
+  estado cuántico, y dado que la medición afecta el estado
+  se vuelve imposible obtener el resto de la información con
+  mediciones subsiguientes [ROYER1989]. Pero si tenemos un
+  conjunto (ensamble) de sistemas \textit{identicamente}
+  preparados, la noción de la determinación del estado
+  mediante mediciones cobra sentido, ya que se puede, en
+  principio identificar el estado en que se \textit{prepara}
+  el sistema cuántico. A ésto se le conoce como
+  \textit{tomografía cuántica}.
+  
+  El uso de las bases mutuamente insesgadas (MUBs de aquí en
+  adelante) ha sido impulsado principalmente por la busqueda
+  de métodos óptimos de reconstrucción de estados. De la
+  sección anterior sabemos que un estado cuántico en un
+  espacio de Hilbert de dimensión $d$ es descrito por un
+  operador de densidad.  Eligiendo un base y expresando al
+  operador como una matriz sabemos que el operador consiste
+  de $d^2-1$ números reales ya que $\Tr(\rho) = 1$ y el
+  operador es auto-adjunto. La tomografía cuántica estima
+  éstos números al hacer mediciones sobre un conjunto de
+  estados preparados de manera identica. Proyectando sobre
+  los $d$ elementos de un conjunto de $d+1$ bases
+  ortonormales del espacio obtendríamos $d^2+d$
+  probabilidades de los cuales solo $d-1$ de cada conjunto
+  serían linealmente indepediente.  Así obtendríamos
+  $(d-1)(d+1) = d^2-1$ probabilidades linealmente
+  independientes de los cuales podríamos reconstruir el
+  estado. Pero por razones obvias, no se puede reproducir el
+  experimento una cantidad infinita de veces, por lo tanto
+  los números acumularán un error estadístico. El uso de
+  bases mutuamente insesgadas minimizan dicho error en
+  cierto sentido [KLIMOV C7].
+
+  Kanat [CITE] menciona que las bases mutuamente insesgadas
+  fueron estudiadas por primera vez por Schwinger en 1960,
+  pero no fueron definidas y ejemplificadas hasta 1987 por
+  parte de Wootters y Fields. 
+
+
+  Recordemos que un conjunto de
+  MUBs en un espacio de Hilbert $\C^{d}$ se define como un
+  conjunto de bases ortonormales $\{B_0,B_1,\ldots,B_r\}$ 
+  del espacio tales que
+  \[
+    |\braket{x|y}|^2 = \frac{1}{d},
+  \] 
+  para cualesquiera dos vectores $x$ y $y$ de bases
+  distintas. 
+
+  \subsection{Sistemas continuos}
+
+  A pesar de que la mayoría de éste trabajo se centra en
+  sistemas finitos, nos será útil repasar sistemas continuos
+  ó dimensión infinita, ya que la función de Wigner
+  originalmente se introdujo para el uso en éstos sistemas.
 
   Los dos operadores fundamentales de la mecánica cuántica
   son los operadores de posición y de momentum. En
@@ -493,7 +650,6 @@
   es $\int_B |\psi|^2$. A partir de ésto es posible definir
   los operadores de posición y de momentum que satisfacen
   ésta propiedad.
-
   \begin{definition}
     El operador de posición $\hat X$ se define como
     \[
@@ -501,7 +657,6 @@
     \] 
     donde $\psi \in L^2(\R)$ es tal que $x\psi \in L^2(\R)$.
   \end{definition}
-
   Notemos que no existen estados $\psi \in L^2(\R)$ para los
   cuales el operador $\hat X$ toma valores definitivos. Las
   `eigenfunciones' de $\hat X$ nisiquiera son funciones,
@@ -574,110 +729,40 @@
   donde $\hbar$ es la constante de Planck. Ésta relación es
   una de las razones por la cual se les llama a las
   \textit{variables} de posición y momentum,
-  \textit{variables conjugadas}.  
+  \textit{variables conjugadas}.
 
-  \subsection{En dimensión finita}
-
-  Ahora consideremos un sistema cuántico de dimensión
-  finita. El ejemplo clásico es el del \textit{spin} de una
-  partícula, la cual toma una cantidad de valores finitos.
-  El ejemplo físico más sencillo es el de las partículas de
-  spin-$\frac{1}{2}$, en éste caso el spin solo toma dos
-  valores, y se dice que la partícula es de $2$-niveles.
-  Para una partícula de $d$-niveles, el espacio de Hilbert
-  correspondiente es $\H  = \C^{d}$.
-
-  Para el caso finito, adoptaremos por completo a la
-  notación (maquinaria) de Dirac, pues es una manera fácil
-  de hacer cálculos y de expresar a los operadores de los
-  observables y aquellos correspondientes a los estados
-  puros. En ésta notación, los estados puros $\psi$ del
-  sistema cuántico, se denotan con un \textit{ket}, $\ket
-  \psi$. A cada ket, le corresponde un funcional lineal
-  llamado \textit{bra}, $\bra \psi$, el cual se define como
-  \[
-    (\bra \psi)(\phi)
-    := \braket{\psi|\phi}.
-  \] 
-  Utilizando el bra, para todo estado puro $\psi$ podemos
-  formar un operador de rango uno, que resulta ser la
-  proyección $\Pi_\psi$ al subespacio generado por $\psi$,
-  dicho operador está formado por el producto tensorial del
-  dual de $\psi$ con $\psi$:
-  \[
-    \ket \psi \bra \psi
-    := \Pi_\psi
-    = \ket \psi \otimes \bra \psi.
-  \] 
-  Su acción sobre algun elemento del espacio de Hilbert se
-  expresa de manera muy natural utilizando la notación:
-  \[
-    \ket \psi \bra \psi \ket \phi
-    = \braket{\psi|\phi} \ket \psi.
-  \] 
-
-  \begin{itemize}
-    \item Bases ortonormales del espacio de Hilbert
-    \item Resolución de la identidad
-    \item Diagonalización
-    \item Base computacional
-  \end{itemize}
-
-  \subsection{Tomografía cuántica y MUBs}
-
-  En la mecánica cuántica, el estado de un sistema cuántico
-  no puede ser observado ni puede ser determinado de manera
-  experimental. Ya una sola medición no es suficiente para
-  obtener la información necesaria para reconstruir el
-  estado cuántico, y dado que la medición afecta el estado
-  se vuelve imposible obtener el resto de la información con
-  mediciones subsiguientes [ROYER1989]. Pero si se tiene un
-  conjunto de sistemas \textit{identicamente} preparados, la
-  noción de la determinación del estado mediante mediciones
-  cobra sentido, ya que se puede, en principio identificar
-  el estado en que se \textit{prepara} el sistema cuántico.
-  El uso de las bases mutuamente insesgadas ha sido
-  impulsado principalmente por la busqueda de métodos
-  óptimos de reconstrucción de estados, algo que se conoce
-  como tomografía cuántica. De la sección anterior sabemos
-  que un estado cuántico en un espacio de Hilbert de
-  dimensión $d$ es descrito por un operador de densidad.
-  Eligiendo un base y expresando al operador como una matriz
-  sabemos que el operador consiste de $d^2-1$ números reales
-  ya que $\Tr(\rho) = 1$ y el operador es auto-adjunto. La
-  tomografía cuántica estima éstos números al hacer
-  mediciones sobre un conjunto de estados preparados de
-  manera identica. Proyectando sobre los $d$ elementos de un
-  conjunto de $d+1$ bases ortonormales del espacio
-  obtendríamos $d^2+d$ probabilidades de los cuales solo
-  $d-1$ de cada conjunto serían linealmente indepediente.
-  Así obtendríamos $(d-1)(d+1) = d^2-1$ probabilidades
-  linealmente independientes de los cuales podríamos
-  reconstruir el estado. Pero por razones obvias, no se
-  puede reproducir el experimento una cantidad infinita de
-  veces, por lo tanto los números tendrán un error
-  estadístico. El uso de bases mutuamente insesgadas
-  minimizan dicho error [KLIMOV C7].
-
-  Kanat [CITE] menciona que las bases mutuamente insesgadas
-  fueron estudiadas por primera vez por Schwinger en 1960,
-  pero no fueron definidas y ejemplificadas hasta 1987 por
-  parte de Wootters y Fields. Recordemos que un conjunto de
-  MUBs en un espacio de Hilbert $\C^{d}$ se define como un
-  conjunto de bases ortonormales $\{B_0,B_1,\ldots,B_r\}$ 
-  del espacio tales que
-  \[
-    |\braket{x|y}|^2 = \frac{1}{d},
-  \] 
-  para cualesquiera dos vectores $x$ y $y$ de bases
-  distintas. 
-
-  \subsection{Teoría de la información cuántica}
-
-  \begin{itemize}
-    \item Estados gaussianos?
-    \item Estados estabilizadores?
-  \end{itemize}
+  En la práctica generalmente no conocemos la
+  información completa del sistema y en éste caso decimos
+  que el sistema está en un \textit{estado mixto}. Podemos
+  definir un estado mixto como un conjunto de pares
+  $\{(\lambda_j,\psi_j)\}_{j \in \N}$ donde cada $\psi_j \in
+  L^2(\R^{n})$ es un estado puro y $0 \leq \lambda_j \leq 1$
+  es un probabilidad clásica, es decir, $\sum_j \lambda_j =
+  1$.
+  \begin{definition}
+    Un estado cuántico es el conjunto de pares $(\lambda_j,
+    \psi_j) \in [0,1] \times L^2(\R^{n})$, indexado por un
+    conjunto discreto $F$ donde $\|\psi_j\|_{L^2(\R^{n})} =
+    1$ para todo $j \in F$ y $\sum_{j \in F} \lambda_j = 1$.
+    El operador lineal $\hat{\rho}$ sobre $L^2(\R^{n})$
+    definido por
+    \begin{equation}
+      \hat{\rho} \psi
+      = \sum_{j \in F}^{} \lambda_j \Pi_{\psi_j} \psi
+      = \sum_{j \in F}^{} \lambda_j \braket{\psi| \psi_j}
+      \psi_j,
+    \end{equation}
+    es el operador de densidad asociado al estado. 
+  \end{definition}
+  El operador de densidad definido de ésta manera es
+  auto-adjunto, semi-definido positivo, y es de clase de
+  traza con $\Tr(\hat{\rho}) = 1$, por lo tanto cumple con
+  el primero postulado de la mecánica cuántica. El espectro
+  de un operador de densidad $\hat{\rho}$ sobre
+  $L^2(\R^{n})$ es discreto y consiste de números no
+  negativos tales que $\lambda_1 \geq \lambda_2 \geq \ldots
+  \geq 0$, y $\lim_{j \to \infty} \lambda_j = 0$ (en el caso
+  en que $F$ es infinito).
 
   \chapter{Función de Wigner}
 
@@ -4346,24 +4431,22 @@
   reemplazadas por las lineas del spread simpléctico en
   cuestión. El caso del spread Desarguesiano coincide con
   las rectas de Wootters.
-
   \begin{definition}
     Sea $\rho$ un operador de densidad. La función de Wigner
     no estándar, denotada como $W_\rho^{\mathcal K}$ en
     referencia a Kantor, se define como
     \begin{equation}
       W_\rho^{\mathcal K}
-      = \Tr\left( \rho A(\alpha) \right),
+      = \Tr\left( \rho A^{\mathcal K}(\alpha) \right),
     \end{equation}
     donde los operadores puntuales son
     \begin{equation}
-      A(\alpha)
+      A^{\mathcal K}(\alpha)
       = \sum_{\alpha \ni \lambda}^{} Q(\lambda) - I,
     \end{equation}
     donde las $\lambda$ son las lineas del spread que
     contienen al punto $\alpha$.
   \end{definition}
-
   Elegimos la convención de tomar el primer elemento de las
   bases generadas de manera algorítmica por los teoremas
   \ref{thm:kanat_presemi_mubs} y \ref{thm:kanat_even}
@@ -4371,18 +4454,68 @@
   Los estados posteriores de cada estría quedan determinados
   por los operadores de desplazamiento correspondientes.
 
+  \begin{proposition}
+    Los operadores puntuales $A^{\mathcal K}(\alpha)$ donde
+    $\alpha = (a,b) \in \F \oplus \F$ satisfacen las
+    siguientes propiedades
+    \begin{enumerate}
+      \item Son auto-adjuntos.
+      \item Son de traza unitaria.
+      \item Son ortogonales bajo el producto interno de
+        Hilbert-Schmidt.
+    \end{enumerate}
+  \end{proposition}
+  \begin{proof}
+    Las pruebas para cada punto son idénticas a las pruebas
+    de la proposición (\ref{prop:point_props}). Que los
+    operadores puntuales sean auto-adjuntos y de traza
+    unitaria se sigue directamente de que los operadores de
+    densidad son que constituyen al operador puntual por
+    medio de la red $Q$, son precisamente auto-adjuntos y de
+    traza unitaria. La prueba del tercer punto dependía de
+    que las bases fuera mutuamente insesgadas, algo que las
+    bases alternativas también satisfacen.
+  \end{proof}
+  Como consecuencia de la proposición anterior, la
+  construcción no estándar también satisface las propiedades
+  deseadas de una función de Wigner.
+  \begin{proposition}
+    Sea $\rho$ un estado cuántico y $W_\rho^{\mathcal K}$ su
+    función de Wigner discreta no estándar. Entonces
+    \begin{enumerate}
+      \item $W_\rho^{\mathcal K}$ es real.
+      \item La suma de $W_\rho^{\mathcal K}$ sobre cualquier
+        linea $\lambda$ del plano afín es igual al valor
+        esperado de $Q(\lambda)$ en el estado $\rho$.
+      \item La suma de $W_\rho^{\mathcal K}$ sobre todo el
+        espacio de fase discreto es igual a $1$.
+      \item La función de Wigner no estándar es covariante
+        bajo traslaciones en el espacio de fase discreto.
+    \end{enumerate}
+  \end{proposition}
+  \begin{proof}
+    De nuevo la demostración es prácticamente idéntica a la
+    de la construcción estándar. Los primeros tres puntos
+    surgen directamente de las propiedades de los operadores
+    puntuales. La cuarta propiedad depende del hecho de que
+    $Q$ sea covariante bajo traslaciones, pero ésto también
+    se satisface ya que el grupo de Pauli deja invariante
+    (salvo permutaciones) a cada base ortonormal de las MUBs
+    producidas por cualquier spread simpléctico.
+  \end{proof}
+
   \section{Ejemplos}
 
   El primer ejemplo de ésta sección consiste en calcular las
   bases mutuamente insesgadas para el sistema cuántico de un
   par de qubits. Utilizaremos el teorema
   \ref{thm:kanat_even} para la construcción notando que las
-  bases obtenidas son equivalentes a las de Wootters [CITE].
-  Despues, daremos dos ejemplos para los cuales calcularemos
-  dos conjuntos completos de MUBs: un conjunto estándar
-  (spread Desarguesiano) y un conjunto no estándar. En la
-  siguiente sección utilizaremos ambos conjuntos para
-  comparar las funciones de Wigner.
+  bases obtenidas son equivalentes a las de Wootters [CITE]
+  (salvo permutaciones).  Despues, daremos dos ejemplos para
+  los cuales calcularemos dos conjuntos completos de MUBs:
+  un conjunto estándar (spread Desarguesiano) y un conjunto
+  no estándar. En la siguiente sección utilizaremos ambos
+  conjuntos para comparar las funciones de Wigner.
 
   \begin{example}
     Consideremos el sistema cuántico de dos qubits. El
@@ -4896,8 +5029,113 @@
   \clearpage
   \section{Discusión}
 
-  .
-  
+  Hemos construido dos versiones de funciones de Wigner para
+  sistemas de dimensión finita. El método de construcción se
+  basa en la metodología de Wootters y Gibbons, en donde le
+  asignamos una estructura cuántica al espacio de fase
+  discreto. La estructura cuántica corresponde a un conjunto
+  maximal de bases mutuamente insesgadas, las cuales dotan a
+  la función de Wigner las propiedades análogas al caso
+  continuo, en particular la propiedad tomográfica básica.
+  Ésta propiedad nos permite recuperar el operador de
+  densidad a partir de su función de Wigner. Dada la
+  libertad en la asignación de la estructura cuántica al
+  espacio de fase discreto, pudimos construir una versión no
+  estándar utilizando MUBs que no son unitariamente
+  equivalentes a las de Wootters. Ahora, el hecho de que
+  podemos construir múltiples funciones de Wigner nos obliga
+  a estudiar las relaciones entre ellas, pero ésto queda
+  fuera del alcance de éste trabajo por el momento, pero,
+  mencionamos lo siguiente de manera breve.  Wootters
+  considera dos maneras de relacionar las distintas
+  definiciones de la función de Wigner, a lo que el llama
+  \textit{equivalencia} y \textit{similitud}. Primero,
+  propone que dos redes cuánticas son equivalentes si solo
+  difieren por una transformación unitaria, es decir,
+  consideramos a dos redes cuánticas $Q$ y $Q'$ como iguales
+  si existe una transformación unitaria $U$ tal que
+  \begin{equation}
+    Q'(\lambda)
+    = U Q(\lambda) U^{*},
+  \end{equation}
+  para toda linea $\lambda$ del espacio de fase discreto.
+  Utilizando ésta definición, Wootters prueba, mediante un
+  argumento de conteo, que toda red cuántica es equivalente
+  si y solo si el plano afín difiere por una traslación en
+  el espacio de fase discreto. Por un lado es fácil ver que
+  si $Q$ y $Q'$ son unitariamente equivalentes, entonces los
+  operadores puntuales $A(\alpha)$ y $A'(\alpha)$ también lo
+  son, ya que
+  \begin{equation}
+    A'(\alpha)
+    = \sum_{\lambda \ni \alpha}^{} Q'(\lambda) - I 
+    = \sum_{\lambda \ni \alpha}^{} U Q(\lambda) U^{*} - I
+    = U \left( 
+      \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I
+    \right) U^{*} 
+    = U A(\alpha) U^{*}.
+  \end{equation}
+  El converso no nos queda tan claro, i.e., si no existe una
+  transformación unitaria entre dos redes cuánticas, ¿es
+  verdad que los operadores puntuales tampoco son
+  unitariamente equivalentes? Ésta cuestión es importante
+  pues la clasificación de funciones de Wigner pudiera
+  depender más allá de la clasificación de las redes
+  cuánticas.
+
+  Siguiendo ésta misma cuestión de la equivalencia de la
+  función de Wigner, notamos otro aspecto que es victima de
+  la arbitrariedad: la gráfica de una función de Wigner
+  depende del orden elegido del campo finito utilizado para
+  armar el espacio de fase. Evidentemente no hay un
+  ordenamiento predilecto, ya que los campos finitos no son
+  ordenados. Durante todo el trabajo hemos optado por
+  utilizar el ordenamiento por potencias del generado de la
+  extensión de Galois, pero se ha observado que distintos
+  ordenamientos producen gráficas con distintas cualidades,
+  unas más ordenadas que otras. Como trabajo futuro sería
+  interesante estudiar los efectos del orden elegido en
+  cuanto alguna medida del orden o aleatoriedad de la
+  gráfica de la función de Wigner, y estudiar si ésto tiene
+  consecuencias en las interpretaciones físicas.
+
+  Por otro lado, la metodología de Wootters revela de manera
+  directa la relación que existe entre estructuras
+  geométricas finitas y algunas particularidades de los
+  sistemas cuánticos discretos. Como hemos mencionado
+  anteriormente, aun es un problema abierto el encontrar la
+  cantidad máxima de bases mutuamente insesgados para
+  sistemas de dimensión compuesta que no son potencias de
+  primos. De la misma manera existen problemas abiertos
+  análogos en el álgebra combinatoria [CITE], en la teoría
+  de códigos [CITE] y en la teoría de las álgebras de Lie
+  [CITE], entre otros, que parece indicar una relación más
+  profunda. Es posible que hallazgos y avances en algunas de
+  éstas áreas nos provee la solución al problema de las MUBs
+  o vice-versa. Si los sistemas de dimensión que son
+  potencias de primos son los únicos de los cuales podemos
+  obtener la cantidad máxima de MUBs, ¿qué nos dice ésto en
+  cuestión de la tomografía cuántica y en la cuestión de la
+  medición de estados cuánticos?
+
+  En un aspecto más práctico, el hecho de que podemos
+  obtener MUBs que no son unitariamente equivalentes a las
+  `clasicas', nos da la posibilidad de encontrar otros
+  esquemas de factorización que pudieran resultar útiles
+  para ciertos problemas físicos. Ésto es otra dirección
+  interesante que nos gustaría investigar posteriormente.
+  También recordamos que unas de las motivaciones
+  principales de éste trabajo fueron los resultados
+  relativamente recientes de Gross [CITE] entre otros,
+  que relacionan la positividad de una versión particular de
+  la función de Wigner discreta con estados Gaussianos,
+  entre ellos los estabilizadores, de los cuales se ha
+  probado que son simulables de manera clásica. Como
+  consecuencia inmediata de éste trabajo es que podríamos
+  buscar estados no estabilizadores con funciones de Wigner
+  positiva, algo que contrastaría con los resultados
+  previos, ó, se podría intentar probar un resultado análogo
+  para ésta construcción alternativa.
 
   \newpage
   \appendix

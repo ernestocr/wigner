@@ -1,5 +1,92 @@
 \chapter{Apéndices}
 
+ \section{La mecánica clásica y el espacio de fase}
+
+  El concepto del espacio de fase es una herramienta de la
+  mecánica clásica, la cual describe la evolución temporal
+  de un sistema físico. Dicho de una manera muy sencilla, la
+  mecánica clásica estudia partículas y sus trayectorias,
+  las cuales se rigen de acuerdo a las leyes de Newton.  Se
+  considera que la partícula se `mueve' en un espacio
+  euclideano, es decir, su \textit{posición} está dado por
+  $x = (x_1,\ldots,x_n) \in \R^{n}$. El
+  \textit{momentum} es una cantidad dada por $p_j = m \dot
+  x_j$, donde $\dot x$ es la derivada respecto al
+  tiempo de la posición, es decir, la velocidad de la
+  partícula, y $m$ es la \textit{masa} de la partícula. Las
+  cantidades que uno desea medir de nuestro sistema físico
+  se les llama \textit{observables}, y en la mecánica
+  clásica, son las funciones continuas que tienen como
+  argumentos las cantidades $x,p$ y $m$. Ejemplos
+  de ellos son el momentum, la energía cinética, la energía
+  potencial, etc. La función de energía más usual es la que
+  está dada como la suma de la \textit{energía cinética} y
+  \textit{energía potencial}:
+  \begin{equation}
+    H(x,p)
+    = \frac{1}{2m} \sum_{j=1}^{n} p_j^2 + V(x).
+  \end{equation}
+  A la energía del sistema se le conoce como el
+  \textit{Hamiltoniano}.  Utilizando ésta función de
+  energía, la ley de Newton nos brinda las ecuaciones de
+  movimiento de la partícula en cuestión:
+  \begin{equation}
+    \frac{dx_j}{dt}
+    = \frac{\partial H}{\partial p_j},
+    \quad
+    \frac{dp_j}{dt}
+    = -\frac{\partial H}{\partial x_j}.
+  \end{equation}
+  Expresada como un sistema de ecuaciones diferenciales, a
+  la ley de Newton se le conoce como las \textit{ecuaciones
+  de Hamilton}. Con ésto, es natural representar el estado
+  del sistema clásico considerando el par $(x,p) \in
+  \R^{2n}$. Al espacio $\R^{2n}$ se le conoce como el
+  \textit{espacio de fase}. A las soluciones de las
+  ecuaciones de Hamilton se les conoce como
+  \textit{trayectorias}, y son curvas que viven en el
+  espacio de fase.
+  \begin{definition}
+    El espacio de fase de una partícula que se mueve en
+    $\R^{n}$ es $\R^{2n}$, considerado como el conjunto de
+    las $(2n)$-tuplas de la forma
+    \[
+      \left(
+        x_1, \ldots, x_n, p_1, \ldots, p_n
+      \right),
+    \] 
+    donde $x_j$ y $p_j$ son elementos de $\R$.
+  \end{definition}
+
+  Cabe mencionar que el tratado moderno de la mecánica
+  clásica está fundamentado en la geometría diferencial de
+  las variedades simplécticas
+  \cite{mcinerneyFirstStepsDifferential2013}, en donde el
+  espacio de fase se define como el espacio cotangente del
+  espacio de configuraciones $T^{*} \R_x \cong \R_x \times
+  \R_p$, donde el espacio de configuraciones  $\R_x$ es el
+  espacio de posición y el $\R_p$ es el espacio del
+  momentum.  Para nuestros objetivos basta con desginar el
+  espacio de fase como el espacio $\R^{2n}$.
+
+  Notemos que por el momento no ha surgido ninguna
+  interpretación probabilística en la mecánica clásica, pues
+  es una teoría determinística. Dado que la teoría cuántica
+  es probabilística, es natural preguntarnos ¿qué
+  características de la mecánica clásica serían deseables en
+  la teoría cuántica? y ¿qué beneficios habría en hacer un
+  vínculo entre la mecánica clásica y la cuántica?
+  \cite{schroeckQuantumMechanicsPhase1996}, especialmente
+  cuando sabemos que la teoría cuántica (y sus derivados) es
+  nuestra teoría más precisa. Un esfuerzo por vincular las
+  descripciones clásicas y cuánticas del mundo es la
+  representación de Wigner-Weyl-Moyal de la mecánica
+  cuántica.  Ésta es una formulación que intenta usar la
+  noción del espacio de fase en la dinámica cuántica y la
+  idea básica es la construcción de
+  \textit{cuasi-distribuciones} real-valuadas que
+  representan a los sistemas cuánticos.
+
   \section{Espacio de Schwartz y su dual}
 
   \begin{definition}
