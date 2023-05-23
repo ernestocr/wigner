@@ -1,0 +1,1039 @@
+\documentclass[10pt]{beamer}
+
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{braket}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{cd,calc,arrows}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+
+\let\H\relax
+\DeclareMathOperator{\H}{\mathcal H}
+\DeclareMathOperator{\Sz}{\mathcal S}
+
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\prob}{Prob}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Op}{Op}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Fr}{\mathcal{F}\!}
+\DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\GR}{GR}
+\DeclareMathOperator{\Sl}{\mathfrak{sl}}
+
+%\newtheorem{definition}{Definición}
+%\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}{Proposición}
+%\newtheorem{lemma}{Lema}
+%\newtheorem{corollary}{Corolario}
+%\newtheorem{example}{Ejemplo}
+%\newtheorem{axiom}{Postulado}
+%\newtheorem{remark}{Observación}
+
+\title{Funciones de Wigner en el Espacio de Fase Discreto}
+\subtitle{Proyecto integrador}
+
+\author{Ernesto Camacho Ramírez, Dr. Andrés García Sandoval}
+
+\institute{
+  Centro Universitario de Ciencias Exactas e Ingenierías
+  \and
+  Universidad de Guadalajara
+}
+
+\begin{document}
+  \maketitle
+
+  \section{Introducción}
+
+  \begin{frame}
+    \frametitle{Introducción}
+
+    El uso de espacios de fases discretos de
+    estados y operadores mediante las funciones de Wigner
+    discreta ofrece otra perspectiva a varios problemas de
+    la teoría de la información cuántica y de la teoría
+    cuántica para sistemas finitos en general.
+
+    \vspace{15pt}
+
+    \pause
+
+    Han resultado útiles en diversas áreas de la física
+    aplicada y teórica, por ejemplo en códigos de corrección
+    de errores, en la óptica cuántica, en temas de
+    teleportación cuántica, etc. 
+
+    \vspace{15pt}
+
+    \pause
+
+    Desde una perspectiva matemática, la relación que existe
+    entre éstos métodos de la física con la geometria
+    finita, el álgebra combinatoria, la teoría de códigos,
+    entre otras áreas, resulta ser interesante.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Objetivos}
+
+    El objetivo principal de éste trabajo fue construir
+    funciones de Wigner bajo la metodología
+    \textbf{estándar} y aportar una construcción \textbf{no
+    estándar}.
+
+    \vspace{10pt}
+
+    Los objetivos secundarios del trabajo consistieron en:
+    \begin{enumerate}
+      \item La investigación de las funciones de Wigner en
+        el caso continuo.
+      \item La investigación de las distintas definiciones
+        de las funciones de Wigner discretas.
+      \item La implementación de las construcciones
+        (estándar y no estándar) en un software.
+    \end{enumerate}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents
+  \end{frame}
+
+  \section{La mecánica cuántica en el espacio de fase}
+
+  \begin{frame}
+    \frametitle{El espacio de fase en la mecánica clásica}
+
+    \begin{columns}
+      \column{0.6\linewidth}
+      \begin{tikzpicture}[
+        scale=0.8,
+        axis/.style={thick, ->, >=stealth'},
+        important line/.style={thick},
+        dashed line/.style={dashed, thick},
+        every node/.style={color=black,}
+      ]
+      \draw[axis] (0,0)  -- (6,0) node(xline)[right] {$x$};
+      \draw[axis] (0,0)  -- (0,6) node(yline)[above] {$p$};
+
+      \draw[blue] (1,1) .. controls +(1.5,1) and +(-3,2) .. (4,4);
+
+      \fill[blue] (1,1) circle (2pt) node[above right] {${}$};
+      \fill[blue] (4,4) circle (2pt) node[above right] {${}$};
+      \end{tikzpicture}
+
+      \column{0.4\linewidth}
+      El \textbf{espacio de fase} es un espacio en donde los
+      estados de un sistema físico pueden ser representados.
+
+      \vspace{10pt}
+
+      Los estados son los puntos $(x,p)$ y las trayectorias
+      representan la dinámica del sistema.
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{La mecánica cuántica en el espacio de fase}
+
+    En un primer acercamiento, el principio de incertidumbre
+    limita el uso del espacio de fase para sistemas
+    cuánticos, pues la precisión con la que podemos predecir
+    la posición y el momentum de manera simultánea es
+    acotada.
+
+    \vspace{15pt}
+
+    \pause
+
+    Pero, resulta que sí es posible formular la mecánica
+    cuántica en el espacio de fase de una manera
+    consistente, por medio de las
+    \textbf{cuasi-distribuciones} del espacio de fase.
+
+    \vspace{15pt}
+
+    \pause
+
+    Las cuasi-distribuciones son funciones sobre el espacio
+    de fase que nos permiten calcular valores esperados y
+    otras cantidades probabilísticas de los observables
+    cuánticos.
+  \end{frame}
+
+  %\begin{frame}
+  %  \frametitle{Cuasi-distribuciones}
+
+  %  Las cuasi-distribuciones son funciones en el espacio de
+  %  fase $\R^{2n}$ que brindan un representación alternativa
+  %  de un estado y/o observable cuántico. Mediante el uso de
+  %  las cuasi-distribuciones podemos calcular los valores
+  %  esperados de observables cuánticos de manera análoga a
+  %  los valores esperados de la mecánica estadística.
+  %\end{frame}
+
+  %\begin{frame}
+  %  \frametitle{Cuasi-distribuciones}
+
+  %  En la mecánica clásica podemos calcular el valor
+  %  esperado de un observable $A$ utilizando una densidad
+  %  probabilística correspondiente a un conjunto de
+  %  partículas:
+  %  \begin{equation}
+  %    \mathbb E(A)
+  %    = \iint A(x,p) F(x,p) \, dx \, dp.
+  %  \end{equation}
+
+  %  \vspace{10pt}
+
+  %  Utilizando las cuasi-distribuciones podemos cálcular el
+  %  valor esperado de un observable cuántico $\hat A$ en un
+  %  estado $\hat \rho$ de manera similar:
+  %  \begin{equation}
+  %    \Tr\left( \hat A \hat \rho \right)
+  %    = \iint A(x,p) W(x,p) \, dx \, dp.
+  %  \end{equation}
+  %\end{frame}
+
+  \subsection{Función de Wigner}
+
+  \begin{frame}
+    \frametitle{Función ó cuasi-distribución de Wigner}
+
+    La cuasi-distribución más estudiada es la función de
+    Wigner, la cual se define para un estado puro $\psi \in
+    L^2(\R)$ de la siguiente manera:
+    \begin{equation}
+      W_\psi(x,p)
+      = \frac{1}{\hbar \pi} \int_{\R}
+      \overline{\psi}(x+y) \psi(x-y)
+      e^{\frac{2i}{\hbar} p y } \, dy.
+    \end{equation}
+    Fue introducida por Eugene P. Wigner en 1932, lleva el
+    nombre de \textit{cuasi}-distribución porque no es una
+    distribución válida.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo}
+
+    Los eigenestados del oscilador armónico unidimensional
+    se pueden expresar en términos de los polinomios de
+    Hermite:
+    \begin{equation}
+      \psi_n(x) = \frac{1}{\sqrt{2^{n} n! a \sqrt{\pi}}}
+      e^{-x^2 / 2a^2} H_n(x),
+      \quad n = 0,1,2,\ldots
+    \end{equation}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.7\textwidth]{
+      imgs/harmonic_osc_wigner.png}
+      \caption{
+      Funciones de Wigner de los estados $\psi_3$ y $\psi_7$ 
+      con $\hbar = 1$ y $\omega = 1$.}
+      \label{fig:harmonic_osc_wigner}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Operador puntual del espacio de fase}
+
+    Es común expresar la función de Wigner de un estado como
+    el valor esperado de un operador $\hat
+    \Delta(x,p)$. 
+
+    \vspace{10pt}
+
+    \begin{definition}[Operador puntual de fase]
+      El operador puntual del espacio de fase
+      (operador puntual, núcleo, operador de
+      Grossmann-Royer) es un operador
+      \begin{equation}
+        \hat \Delta(\xi,\eta)
+        : \mathcal D \subset L^2(\R) \to L^2(\R),
+      \end{equation}
+      definido operacionalmente para todo $\psi \in \mathcal
+      D$ de la siguiente manera:
+      \begin{equation}
+        \hat \Delta(\xi,\eta) \psi(x)
+        = e^{\frac{2i}{\hbar} \eta(x - \xi)} \psi(2\xi - x).
+      \end{equation}
+    \end{definition}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Operador puntual del espacio de fase}
+
+    Los operadores puntuales a su vez se pueden expresar
+    (definir) en términos de los operadores de
+    desplazamiento.
+
+    \vspace{10pt}
+
+    \begin{definition}[Operadores de desplazamiento]
+      Los operadores de desplazamiento (operadores de
+      Heisenberg-Weyl) 
+      \begin{equation}
+        \hat D(\xi,\eta) : \mathcal D \subset L^2(\R) \to
+        L^2(\R)
+      \end{equation}
+      se definen como
+      \begin{equation}
+        \hat D(\xi,\eta) \psi(x)
+        = e^{\frac{i}{\hbar} (\eta x - \frac{1}{2} \eta \xi)}
+        \psi(x - \xi).
+      \end{equation}
+    \end{definition}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Operador puntual del espacio de fase}
+
+    \begin{proposition}
+      El operador puntual se puede expresar como la
+      transformación unitaria del operador de paridad:
+      \begin{equation}
+        \hat \Delta(0,0)\psi(x) 
+        = \psi(-x),
+      \end{equation}
+      por medio de los operadores de desplazamiento:
+      \begin{equation}
+        \hat \Delta(\xi,\eta)
+        = \hat D(\xi,\eta) \hat\Delta(0,0) \hat
+        D(\xi,\eta)^{*}.
+      \end{equation}
+    \end{proposition}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Función de Wigner}
+
+    \begin{proposition}
+      La función de Wigner de un estado $\psi$ se puede
+      expresar como el valor esperado del operador puntual:
+      \begin{equation}
+        W_\psi(x,p)
+        = \frac{1}{\pi \hbar} \braket{\psi|\hat
+          \Delta(x,p)|\psi}.
+      \end{equation}
+    \end{proposition}
+
+    De manera análoga, para un estado arbitrario,
+    representado por un operador de densidad $\rho$, la
+    función de Wigner se define como:
+    \begin{equation}
+      W_\psi(x,p)
+      = \frac{1}{\pi \hbar} \Tr\left( \hat \rho \hat
+      \Delta(x,p) \right).
+    \end{equation}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Propiedades de la función de Wigner}
+
+    La función de Wigner $W_\rho$ de un estado cuántico
+    $\rho$ satisface las siguientes propiedades:
+
+    \vspace{5pt}
+
+    \begin{enumerate}
+      \item $W_\rho$ es real.
+      \item La integral de $W_\rho$ sobre todo el espacio de
+        fase es igual a $1$.
+      \item $W_\rho$ es \textit{covariante bajo
+        traslaciones}: si $\rho'$ es un estado obtenido por
+        desplazar a $\rho$ por $\hat D(x',p')$, entonces
+        \begin{equation}
+          W_{\rho'}(x,p)
+          = W_\rho(x-x',p-p').
+        \end{equation}
+      \item Las integrales sobre el espacio de fase brindan
+        las \textit{marginales} correctas.
+    \end{enumerate}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Propiedad tomográfica básica}
+
+    Integrando sobre el espacio de fase obtenemos densidades
+    probabilísticas: integrando a $W_\rho$ sobre una franja
+    delimitada por las rectas paralelas
+    \[
+      ax+bp=c_1,
+      \quad \text{y} \quad ax+bp=c_2,
+    \]
+    nos brinda la probabilidad de medir un
+    valor entre $c_1$  y $c_2$ del operador $a \hat X + b
+    \hat P$.
+
+    \vspace{15pt}
+
+    \pause
+
+    La función de Wigner posee una propiedad que llamamos
+    \textit{propiedad básica tomográfica}, la cual significa
+    que dado un conjunto completo de marginales podemos
+    recuperar a la función de Wigner, y como consecuencia al
+    estado cuántico.
+
+    \vspace{15pt}
+
+    \pause
+
+    La mayoría de las propiedades mencionadas se pueden
+    obtener mediante propiedades análogas de los operadores
+    puntuales.
+  \end{frame}
+
+  %\section{Tomografía cuántica y MUBs}
+
+  %\begin{frame}
+  %  \frametitle{Determinación de un estado cuántico}
+
+  %  De aquí en adelante consideramos sistemas cuánticos
+  %  finitos $d$-dimensionales, i.e., $\H = \C^{d}$, ya sea
+  %  para sistemas de $d$-niveles o sistemas compuestos.
+
+  %  \vspace{10pt}
+
+  %  El problema de la determinación de estados cuánticos, (ó
+  %  de tomografía cuántica), es el problema de determinar la
+  %  matriz de densidad correspondiente a un ensamble de
+  %  sistemas identicamente preparados.
+
+  %  \vspace{15pt}
+
+  %  \pause
+
+  %  La matriz de densidad está determinada por $d^2 - 1$
+  %  parámetros reales. Una medición en una base nos genera
+  %  $d-1$ números reales independientes. Por lo tanto
+  %  requerimos de al menos $d+1$ distintas mediciones para
+  %  recuperar el estado cuántico.
+  %\end{frame}
+
+  %\begin{frame}
+  %  \frametitle{MUBs}
+
+  %  \begin{definition}[Bases mutuamente insesagadas]
+  %    Las MUBs son un conjunto de bases ortonormales,
+  %    $\mathcal B = \{\mathcal B_0, \mathcal
+  %    B_1,\ldots,\mathcal B_k\}$ tales que 
+  %    \begin{equation}
+  %      \left|\braket{\psi_i|\phi_j}\right|^2
+  %      = \frac{1}{d},
+  %    \end{equation}
+  %    para todo $i$ y $j$ con $\psi_i$ y $\phi_j$ de distintas
+  %    bases.
+  %  \end{definition}
+  %    
+  %  \vspace{10pt}
+
+  %  También se les conoce como bases complementarias porque
+  %  la información que se obtiene al medir en una base no
+  %  nos aporta información sobre las mediciones en otra
+  %  base.
+  %\end{frame}
+
+  %\begin{frame}
+  %  \frametitle{MUBs y tomografía cuántica}
+
+  %  Ivanovic probó que un conjunto de $d+1$ MUBs es
+  %  suficiente para determinar un estado cuántico.
+
+  %  \vspace{15pt}
+
+  %  \pause
+
+  %  Wootters y Fields probaron en 1989 que la reconstrucción
+  %  de un estado cuántico por medio medidas proyectivas es
+  %  óptima cuando las bases utilizadas son MUBs, en el
+  %  sentido de que reducen el error estadístico.
+
+  %  \vspace{15pt}
+
+  %  \pause
+
+  %  El interés por las MUBs para nuestro trabajo es que
+  %  surgen de una manera muy natural a la hora de definir un
+  %  espacio de fase discreto y una función de Wigner
+  %  discreta.
+  %\end{frame}
+
+  \section{El espacio de fase discreto}
+
+  \begin{frame}
+    \frametitle{Espacio de fase discreto basado en campos
+    finitos}
+
+    Han existido múltiples intentos de generalizar la
+    función de Wigner al caso de sistemas finitos.
+
+    \vspace{15pt}
+
+    Wootters (2004) propone un método basado en
+    \textbf{campos finitos}. Su metodología consiste en la
+    preservación de las propiedades de la función de Wigner
+    en el caso continuo, en específico, la preservación de
+    la propiedad tomográfica básica.
+
+    \pause
+
+    \vspace{15pt}
+
+    De aquí en adelante trabajamos con sistemas de dimensión
+    finita, $\dim \H = d$.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{El espacio de fase discreto}
+
+    \begin{definition}[Espacio de fase discreto]
+      El espacio de fase discreto consiste de un espacio
+      vectorial de dos dimensiones sobre un campo finito
+      $\F$. Lo visualizamos como una malla de $d \times d$ 
+      puntos de manera análoga al espacio de fase continuo.
+    \end{definition}
+
+    \vspace{10pt}
+
+    El uso de un campo finito le brinda al espacio de fase
+    una geometría similar a la euclideana. En particular las
+    rectas paralelas no se intersectan, por dos puntos pasa
+    solamente una recta, y por cada punto pasan exactamente
+    $d+1$ rectas.
+
+    \vspace{10pt} 
+
+    Por otro lado, el uso de campos finitos nos limita a
+    sistemas de dimensión $p^{n}$ donde $p$ es un número
+    primo. El campo finito será la extensión de Galois
+    $\GF(p^{n})$.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.6\textwidth]{imgs/GF23.png}
+      \caption{Las nueve \textit{estrías} del espacio de
+      discreto etiquetado por los elementos de $\GF(2^{3})$.
+      Ésto corresponde a un sistema de tres qubits.}
+      \label{fig:GF23}
+    \end{figure}
+  \end{frame}
+
+  \section{Funciones de Wigner discretas}
+
+  \subsection{Asignación de una estructura cuántica al
+  espacio de fase discreto}
+
+  \begin{frame}
+    \frametitle{Asignación de una estructura cuántica}
+
+    Wootters inicia su busqueda por una función de Wigner
+    satisfaciendo la propiedad de covarianza bajo
+    traslaciones. Empieza haciendo una correspondencia entre
+    traslaciones en el espacio de fase y desplazamientos en
+    el espacio de Hilbert. Su idea consiste en asignar
+    estados cuánticos a \textit{cada} recta del espacio de
+    fase. Al mapeo 
+    \[
+      Q : \lambda \mapsto \mathcal L(\H)
+    \]
+    que hace ésta asignación le llama
+    \textbf{malla cuántica}.
+
+    \vspace{10pt}
+
+    \pause
+
+    Para que $Q$ cumpla con ésta propiedad es necesario que
+    preserve de cierto modo las traslaciones en el espacio
+    de fase. Si $\mathcal T(a,b)$ es una traslación,
+    entonces
+    \begin{equation}
+      Q\left( \mathcal T(a,b) \lambda \right) 
+      =
+      D(a,b) Q(\lambda) D(x,y)^{*},
+    \end{equation}
+    para toda recta $\lambda$.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Red cuántica}
+
+    En particular, si una traslación deja invariante a una
+    recta $\lambda$, entonces la malla cuántica también debe
+    ser invariante cuando es operada por el desplazamiento
+    correspondiente:
+    \begin{equation}
+      D(a,b) Q(\lambda) D(a,b)^{*}
+      = Q(\mathcal T(a,b) \lambda)
+      = Q(\lambda).
+    \end{equation}
+
+    Ésto sucede cuando $Q(\lambda)$ es la proyección a un
+    eigenestado del operador de desplazamiento.
+
+    \vspace{10pt}
+
+    \pause
+
+    Si agrupamos a los operadores $D(a,b)$ correspondientes
+    a las traslaciones $\mathcal T(a,b)$ que dejan
+    invariante a una estría, obtendremos operadores que
+    conmutan y por lo tanto son diagonalizables
+    simultáneamente. 
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Bases mutuamente insesgadas}
+
+    \begin{theorem}[Bandyophyay et al]
+      Si existe una partición de $n^2-1$ matrices unitarias
+      mutuamente ortogonales en $d+1$ conjuntos de $d-1$ 
+      matrices conmutativas, entonces existen un conjunto de
+      $d+1$ bases mutuamente insesgadas (MUBs).
+    \end{theorem} 
+
+    \vspace{15pt}
+
+    El método de Wootters satisface las condiciones, las
+    bases formadas por los eigenestados son precisamente las
+    MUBs.
+  \end{frame}
+
+  \subsection{Definición de la función de Wigner}
+
+  \begin{frame}
+    \frametitle{Definición de una función de Wigner}
+
+    La propiedad tomográfica básica para una función de
+    Wigner discreta se define como:
+    \begin{equation}
+      \sum_{\alpha \in \lambda}^{} W_\rho(\alpha)
+      = \Tr\left( \rho Q(\lambda) \right),
+    \end{equation}
+    para toda recta del espacio de fase discreto. Ésta
+    propiedad junto con la propiedad de
+    \textit{normalización} determinan a la función de
+    Wigner.
+
+    \vspace{10pt}
+
+    Utilizando las propiedades del espacio de fase
+    discreto podemos invertir ésta relación para obtener una
+    expresión para $W_\rho(\alpha)$.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Definición de una función de Wigner}
+
+    \begin{definition}[Función de Wigner discreta]
+      Sea $\rho$ un estado cuántico. Dada una malla cuántica
+      $Q$, definimos a la función de Wigner discreta del
+      estado $\rho$ como:
+      \begin{equation}
+        W_\rho(\alpha)
+        = \frac{1}{d} \Tr\left( \rho A(\alpha) \right),
+      \end{equation}
+      donde
+      \begin{equation}
+        A(\alpha)
+        = \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I.
+      \end{equation}
+    \end{definition}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Propiedades de la función de Wigner
+    discreta}
+
+    \begin{enumerate}
+      \item La función de Wigner es real.
+      \item La suma de $W_\rho$ sobre cualquier recta
+        $\lambda$ es igual al valor esperado de $Q(\lambda)$
+        en el estado $\rho$.
+      \item La suma de $W_\rho$ sobre todo el espacio de
+        fase es igual a $1$.
+      \item La función de Wigner es covariante bajo
+        traslaciones.
+    \end{enumerate}
+
+    \vspace{10pt}
+
+    Dada la función de Wigner, podemos recuperar al estado
+    cuántico utilizando los operadores puntuales.
+    \begin{equation}
+      \rho
+      = \sum_{\alpha \in \F \oplus \F}^{}
+      W_\rho(\alpha) A(\alpha).
+    \end{equation}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo}
+
+    Consideremos un sistema de dos qubits cuyo espacio de
+    Hilbert es $\H = \C^2 \otimes \C^2 \cong \C^{4}$. El
+    campo finito es $\F = \GF(2^2) =
+    \{0,1,\alpha,\alpha+1\}$.
+    \begin{figure}[h]
+      \centering
+      \scalebox{0.5}{
+        \input{imgs/affine-desargues-2-2.pgf}
+      }
+      \caption{Rayos en el espacio de fase discreto.}
+      \label{fig:affine-desargues-2-2}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.6\textwidth]{
+      imgs/wigner-desargues-2-2-s1.png}
+      \caption{Función de Wigner del estado
+      $\ket{\uparrow\uparrow} = \ket{0}$.}
+      \label{fig:wigner-desargues-2-2-s1}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.6\textwidth]{
+      imgs/wigner-desargues-2-2-s2.png}
+      \caption{Función de Wigner del estado
+      $\frac{1}{\sqrt{2}} \left(
+        \ket{\uparrow\downarrow} -
+      \ket{\downarrow\uparrow}\right)$.}
+      \label{fig:wigner-desargues-2-2-s2}
+    \end{figure}
+  \end{frame}
+
+  \section{Construcción no estándar}
+
+  \begin{frame}
+    \frametitle{Construcción no estándar}
+
+    La asignación de un conjunto maximal de MUBs al espacio
+    de fase discreto es lo que distingue la construcción de
+    Wootters de otras definiciones de funciones de Wigner
+    discretas.
+
+    \vspace{15pt}
+
+    \pause
+
+    El método depende de como se \textit{cubre} el espacio
+    de fase discreto. Las rectas de Wootters es un caso
+    particular.
+
+    \vspace{15pt}
+
+    Kantor et al, vinculan la construcción de MUBs con
+    \textit{planos afínes} y \textit{coberturas
+    simplécticas}.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Operadores de desplazamiento}
+
+    Sea $\{\ket{e_w} : w \in \F\}$ una base ortonormal del
+    espacio de Hilbert de dimensión $d$.
+
+    \begin{definition}[Operadores de Pauli generalizados]
+      Sea $\omega \in \C$ la $p$-ésima raíz primitiva de la
+      unidad y sean $u, v \in \F$. Los operadores de Pauli
+      generalizados se definen como:
+      \begin{align}
+        X(u) &: \ket{e_w} \mapsto \ket{e_{w+u}} \\
+        Z(v) &: \ket{e_w} \mapsto \omega^{\tr(vw)}
+        \ket{e_w}.
+      \end{align}
+    \end{definition}
+
+    \begin{definition}[Operador de desplazamiento]
+      Un operador de desplazamiento arbitrario se define como
+      \begin{equation}
+        D(u,v) 
+        = X(u) Z(v).
+      \end{equation}
+    \end{definition}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Operadores de desplazamiento}
+
+    El conmutador de dos operadores de desplazamiento
+    $D(u,v)$ y $D(u',v')$ está dado por
+    \begin{equation}
+      \left[
+        D(u,v), D(u',v')
+      \right]
+      = \omega^{\tr(vu')} \left( 1 - \omega^{\langle (u,v),
+      (u',v') \rangle} \right) D(u+u', v+v'),
+    \end{equation}
+    donde
+    \begin{equation}
+      \langle (u,v), (u',v') \rangle
+      = uv' - vu'.
+    \end{equation}
+
+    \begin{proposition}
+      Dos operadores de desplazamiento conmutan si y solo si
+      la forma bilineal aleternante se anula.
+    \end{proposition}
+  \end{frame}
+
+  \subsection{Coberturas simplécticas}
+
+  \begin{frame}
+    \frametitle{Coberturas simplécticas y MUBs}
+
+    \begin{definition}[Cobertura simpléctica]
+      Una cobertura simpléctica $\Sigma$ de un espacio
+      simpléctico $W = \F \oplus \F$ es una familia $\Sigma$ 
+      de $d+1$ subespacios de $W$, de dimensión $k$ 
+      totalmente isotrópicos, tales que su intersección
+      uno-a-uno es el espacio trivial.
+    \end{definition}
+
+    \pause
+
+    \begin{theorem}[Kantor, 2.3]
+      Toda cobertura simpléctica $\Sigma$ determina un
+      conjunto completo de $d+1$ MUBs en $\C^{d}$. Además,
+      si $\Sigma'$ es otra cobertura simpléctica, entonces
+      $\Sigma$ y $\Sigma'$ son equivalentes bajo una
+      transformación lineal de $\F \oplus \F$ que preserva
+      la forma bilineal alternante, si y solo si las MUBs
+      respecto a $\Sigma$ y $\Sigma'$ son equivalentes bajo
+      una transformación unitaria de $\C^{d}$.
+    \end{theorem}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{¿Como generar coberturas simplécticas?}
+
+    La mayoría de las coberturas simplécticas pueden ser
+    generadas a partir de presemicampos y semicampos. La
+    cobertura $\Sigma$ generada por la operación del presemicampo
+    $\circ$ consiste de los subespacios 
+    \begin{equation}
+      \{(0,v) : v \in \F\},
+      \quad
+      \{(u,u\circ m) : u \in \F\},
+      \quad \text{para todo } m \in \F.
+    \end{equation}
+
+    \vspace{10pt}
+
+    \begin{example}
+      Las rectas de Wootters corresponden a los subespacios
+      unidimensionales del espacio de fase. En éste caso la
+      operación $\circ$ es la operación del campo y el plano
+      afín generado por la cobertura es
+      \begin{equation}
+        x = 0
+        \quad
+        \text{ y }
+        \quad
+        y = mx
+        \quad \text{para todo } m \in \F,
+      \end{equation}
+      conocido como el plano de \textit{Desargues} ó plano
+      \textit{Desarguesiano}.
+    \end{example}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo}
+
+    \begin{figure}[h]
+      \centering
+      \scalebox{0.6}{
+        \input{imgs/affine-desargues-3-3.pgf}
+      }
+      \caption{Espacio de fase discreto para tres qutrits,
+      cubierto por la cobertura Desarguesiana (Wootters).}
+      \label{fig:affine-desargues-3-3}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{MUBs no equivalentes}
+
+    \begin{example}[Campo torcido de Albert]
+      Para tres qutrits ($\H = \C^{27}$) la cobertura
+      generada por la operación
+      \begin{equation}
+        w \circ m = m w^{3^2} + m^{3} w^{3},
+        \quad m,w \in \GF(3^{3}),
+      \end{equation}
+      no es equivalente a la cobertura Desarguesiana.
+    \end{example}
+
+    \begin{example}[Kantor]
+      Para cinco qubits ($\H = \C^{32}$) la cobertura
+      generada por la operación
+      \begin{equation}
+        w \circ m = m^2 w + m \tr(w) + \tr(mw),
+        \quad m,w \in \GF(2^{5})
+      \end{equation}
+      no es equivalente a la cobertura Desarguesiana.
+    \end{example}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo}
+    \begin{figure}[h]
+      \centering
+      \scalebox{0.6}{
+        \input{imgs/affine-albert-3-3.pgf}
+      }
+      \caption{Cobertura generada por el campo torcido de
+      Albert.}
+      \label{fig:affine-albert-3-3}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo}
+    \begin{figure}[h]
+      \centering
+      \scalebox{0.6}{
+        \input{imgs/affine-kantor-2-5.pgf}
+      }
+      \caption{Cobertura de Kantor.}
+      \label{fig:affine-kantor-2-5}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Función de Wigner}
+
+    Utilizando el conjunto de MUBs correspondiente a una
+    cobertura simpléctica, podemos definir la función de
+    Wigner de la misma manera que lo hicimos en la
+    construcción estándar.
+
+    \begin{enumerate}
+      \item Le asignamos a cada \textit{linea/curva}
+        $\lambda$ del espacio de fase discreto un
+        eigenestado $Q(\lambda)$ de las MUBs.
+      \item Definimos los operadores puntuales $A(\alpha)$.
+      \item Obtenemos la función de Wigner $W_\rho$ para un
+        estado  $\rho$.
+    \end{enumerate}
+  \end{frame}
+
+  \subsection{Ejemplos}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+
+    Construímos la función de Wigner estándar y no estándar
+    para el caso de un sistema de cinco qubits, utilizando
+    la cobertura Desarguesiana y la de Kantor.
+
+    \vspace{5pt}
+
+    \begin{enumerate}
+      \item Tomamos un elemento $\ket{\psi_1}$ de las MUBs
+        estándar.
+      \item Tomamos un elemento $\ket{\psi_2}$ de las MUBs
+        no estándar.
+      \item Consideremos el estado dado por una combinación
+        lineal de la base estándar
+        \[
+          \ket{\psi_3}
+          = \frac{1}{\sqrt{2}} 
+          \left( \ket{\alpha + \alpha^3 + \alpha^{4}} +
+          \ket{\alpha+1} \right). 
+        \]
+    \end{enumerate}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para tres qutrits}
+
+    Construímos la función de Wigner estándar y no estándar
+    para un sistema de tres qutrits. Como ejemplo
+    consideramos un element $\ket{\psi}$ de las MUBs
+    estándar.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para tres qutrits}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para tres qutrits}
+  \end{frame}
+
+  \subsection{Construcciones explícitas de MUBs}
+
+  \begin{frame}
+    \frametitle{Característica impar}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Característica par}
+  \end{frame}
+
+  \subsection{Detalles de implementación}
+
+  \begin{frame}
+    \frametitle{Detalles de la implementación}
+  \end{frame}
+
+  \section{Discusión}
+
+  \begin{frame}
+    \frametitle{Discusión}
+  \end{frame}
+
+\end{document}

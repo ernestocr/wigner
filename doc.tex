@@ -9,7 +9,7 @@
 \decimalpoint
 
 \usepackage{csquotes}
-\usepackage[sorting=none,style=chicago-authordate]{biblatex}
+\usepackage[sorting=none]{biblatex}
 \addbibresource{refs.biblatex}
 
 \usepackage{amsmath, amssymb}
@@ -34,7 +34,7 @@
 
 %\usepackage{layouts}
 
-\usepackage[marginal]{showlabels}
+%\usepackage[marginal]{showlabels}
 
 \DeclareMathOperator{\R}{\mathbb{R}}
 \DeclareMathOperator{\C}{\mathbb{C}}
@@ -5088,18 +5088,47 @@
     qutrits. En la sección anterior, construímos dos
     conjuntos maximales de MUBs no unitariamente
     equivalentes, así que podremos definir dos funciones de
-    Wigner para los estados de interes, tal como se hizo en
-    el ejemplo anterior. Ésta vez solo graficaremos el
-    estado GHZ de tres qubits, el cual se expresa en la base
-    estándar de $\C^3 \otimes \C^3 \otimes \C^3$ como:
-    \begin{equation}
-      \ket{GHZ} = \frac{1}{\sqrt{3}}
-      \left( \ket{000} + \ket{111} + \ket{222} \right).
-    \end{equation}
+    Wigner para un estado de interes. Consideramos un
+    eigenestado $\ket{\psi}$  de las MUBs estándar.
   \end{example}
-  Las figuras () y () muestra la función de Wigner estándar
-  $W$ y no estándar $W^{\mathcal K}$ del estado
-  $\ket{GHZ}$, respectivamente. PENDIENTE.
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{
+    imgs/wigner-standard-3-3-s1.png}
+    \caption{Función de Wigner estándar para el estado
+    $\ket{\psi}$.}
+    \label{fig:wigner-standard-3-3-s1}
+  \end{figure}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{
+    imgs/wigner-standard-3-3-s1.png}
+    \caption{Función de Wigner no estándar para el estado
+    $\ket{\psi}$.}
+    \label{fig:wigner-kantor-3-3-s1}
+  \end{figure}
+  Las figuras (\ref{fig:wigner-standard-3-3-s1}) y
+  (\ref{fig:wigner-kantor-3-3-s1}) muestran la función de
+  Wigner estándar $W$ y no estándar $W^{\mathcal K}$ del
+  elemento $\ket{\psi}$. Son idénticas! Esperabamos ver
+  funciones de Wigner muy distintas como sucedió en el caso
+  de los cinco qubits, pero por alguna razón que aún no
+  hemos podido aclarar, las funciones de Wigner no difieren
+  en el caso de tres qutrits. Que las MUBs sean no
+  equivalentes bajo una transformación unitaria no
+  necesariamente implica los operadores puntuales lo sean.
+  El converso es claro, pero es posible que la suma de los
+  proyectores de eigenestados de distintas bases
+  \textit{anulen} las diferencias. No hemos podido dar un
+  contra ejemplo formal, pero númericamente hemos observado
+  que los operadores puntuales efectivamente son iguales a
+  pesar de ser la suma de proyectores de eigenestados que no
+  son equivalentes bajo transformaciones unitarias. Hace
+  falta hacer un estudio sobre las equivalencias de las
+  funciones de Wigner y éste resultado nos da una indicación
+  de que probablemente sea necesario analizar la
+  equivalencia de los operadores puntuales y no solo de las
+  redes cuánticas como lo hace Wootters.
 
   \clearpage
   \section{Discusión}
