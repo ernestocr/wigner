@@ -1,8 +1,10 @@
-\documentclass[10pt]{beamer}
+\documentclass[10pt, spanish]{beamer}
+\usetheme{Berlin}
 
 \usepackage[spanish]{babel}
+\decimalpoint
 \usepackage{amsmath, amssymb}
-\usepackage{amsthm}
+%\usepackage{amsthm}
 \usepackage{bm}
 \usepackage{braket}
 
@@ -45,7 +47,9 @@
 \title{Funciones de Wigner en el Espacio de Fase Discreto}
 \subtitle{Proyecto integrador}
 
-\author{Ernesto Camacho Ramírez, Dr. Andrés García Sandoval}
+\author{
+  \textbf{Alumno}: Ernesto Camacho Ramírez,\\
+  \textbf{Asesor}: Dr. Andrés García Sandoval}
 
 \institute{
   Centro Universitario de Ciencias Exactas e Ingenierías
@@ -136,42 +140,19 @@
       \end{tikzpicture}
 
       \column{0.4\linewidth}
-      El \textbf{espacio de fase} es un espacio en donde los
-      estados de un sistema físico pueden ser representados.
+      En un primer acercamiento, el principio de
+      incertidumbre limita el uso del espacio de fase para
+      sistemas cuánticos.
 
       \vspace{10pt}
 
-      Los estados son los puntos $(x,p)$ y las trayectorias
-      representan la dinámica del sistema.
+      \pause
+
+      Pero, resulta que sí es posible formular la mecánica
+      cuántica en el espacio de fase de una manera
+      consistente, por medio de las
+      \textbf{cuasi-distribuciones}.
     \end{columns}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{La mecánica cuántica en el espacio de fase}
-
-    En un primer acercamiento, el principio de incertidumbre
-    limita el uso del espacio de fase para sistemas
-    cuánticos, pues la precisión con la que podemos predecir
-    la posición y el momentum de manera simultánea es
-    acotada.
-
-    \vspace{15pt}
-
-    \pause
-
-    Pero, resulta que sí es posible formular la mecánica
-    cuántica en el espacio de fase de una manera
-    consistente, por medio de las
-    \textbf{cuasi-distribuciones} del espacio de fase.
-
-    \vspace{15pt}
-
-    \pause
-
-    Las cuasi-distribuciones son funciones sobre el espacio
-    de fase que nos permiten calcular valores esperados y
-    otras cantidades probabilísticas de los observables
-    cuánticos.
   \end{frame}
 
   %\begin{frame}
@@ -241,7 +222,7 @@
 
     \begin{figure}[h]
       \centering
-      \includegraphics[width=0.7\textwidth]{
+      \includegraphics[width=0.55\textwidth]{
       imgs/harmonic_osc_wigner.png}
       \caption{
       Funciones de Wigner de los estados $\psi_3$ y $\psi_7$ 
@@ -251,97 +232,113 @@
   \end{frame}
 
   \begin{frame}
-    \frametitle{Operador puntual del espacio de fase}
-
-    Es común expresar la función de Wigner de un estado como
-    el valor esperado de un operador $\hat
-    \Delta(x,p)$. 
-
-    \vspace{10pt}
-
-    \begin{definition}[Operador puntual de fase]
-      El operador puntual del espacio de fase
-      (operador puntual, núcleo, operador de
-      Grossmann-Royer) es un operador
-      \begin{equation}
-        \hat \Delta(\xi,\eta)
-        : \mathcal D \subset L^2(\R) \to L^2(\R),
-      \end{equation}
-      definido operacionalmente para todo $\psi \in \mathcal
-      D$ de la siguiente manera:
-      \begin{equation}
-        \hat \Delta(\xi,\eta) \psi(x)
-        = e^{\frac{2i}{\hbar} \eta(x - \xi)} \psi(2\xi - x).
-      \end{equation}
-    \end{definition}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Operador puntual del espacio de fase}
-
-    Los operadores puntuales a su vez se pueden expresar
-    (definir) en términos de los operadores de
-    desplazamiento.
-
-    \vspace{10pt}
-
-    \begin{definition}[Operadores de desplazamiento]
-      Los operadores de desplazamiento (operadores de
-      Heisenberg-Weyl) 
-      \begin{equation}
-        \hat D(\xi,\eta) : \mathcal D \subset L^2(\R) \to
-        L^2(\R)
-      \end{equation}
-      se definen como
-      \begin{equation}
-        \hat D(\xi,\eta) \psi(x)
-        = e^{\frac{i}{\hbar} (\eta x - \frac{1}{2} \eta \xi)}
-        \psi(x - \xi).
-      \end{equation}
-    \end{definition}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Operador puntual del espacio de fase}
-
-    \begin{proposition}
-      El operador puntual se puede expresar como la
-      transformación unitaria del operador de paridad:
-      \begin{equation}
-        \hat \Delta(0,0)\psi(x) 
-        = \psi(-x),
-      \end{equation}
-      por medio de los operadores de desplazamiento:
-      \begin{equation}
-        \hat \Delta(\xi,\eta)
-        = \hat D(\xi,\eta) \hat\Delta(0,0) \hat
-        D(\xi,\eta)^{*}.
-      \end{equation}
-    \end{proposition}
-  \end{frame}
-
-  \begin{frame}
     \frametitle{Función de Wigner}
 
-    \begin{proposition}
-      La función de Wigner de un estado $\psi$ se puede
-      expresar como el valor esperado del operador puntual:
-      \begin{equation}
-        W_\psi(x,p)
-        = \frac{1}{\pi \hbar} \braket{\psi|\hat
-          \Delta(x,p)|\psi}.
-      \end{equation}
-    \end{proposition}
+    Es común expresar la función de Wigner de un estado como
+    el valor esperado de un operador $\hat\Delta(x,p)$:
+    \begin{equation}
+      W_\psi(x,p)
+      = \frac{1}{\pi \hbar} \braket{\psi|\hat
+        \Delta(x,p)|\psi}.
+    \end{equation}
+    donde $\hat \Delta(x,p) = \hat D(x,p) \hat \Delta(0,0)
+    \hat D(x,p)^{*}$, se conoce como el \textit{operador
+    puntual de fase, núcleo ó operador de Grossmann-Royer}. 
 
-    De manera análoga, para un estado arbitrario,
-    representado por un operador de densidad $\rho$, la
-    función de Wigner se define como:
+    \vspace{15pt}
+
+    Para un estado arbitrario, representado por un operador
+    de densidad $\rho$, la función de Wigner se define como:
     \begin{equation}
       W_\psi(x,p)
       = \frac{1}{\pi \hbar} \Tr\left( \hat \rho \hat
       \Delta(x,p) \right).
     \end{equation}
+
+
+    %\begin{definition}[Operador puntual de fase]
+    %  El operador puntual del espacio de fase
+    %  (operador puntual, núcleo, operador de
+    %  Grossmann-Royer) es un operador
+    %  \begin{equation}
+    %    \hat \Delta(\xi,\eta)
+    %    : \mathcal D \subset L^2(\R) \to L^2(\R),
+    %  \end{equation}
+    %  definido operacionalmente para todo $\psi \in \mathcal
+    %  D$ de la siguiente manera:
+    %  \begin{equation}
+    %    \hat \Delta(\xi,\eta) \psi(x)
+    %    = e^{\frac{2i}{\hbar} \eta(x - \xi)} \psi(2\xi - x).
+    %  \end{equation}
+    %\end{definition}
   \end{frame}
+
+  %\begin{frame}
+  %  \frametitle{Operador puntual del espacio de fase}
+
+  %  Los operadores puntuales a su vez se pueden expresar
+  %  (definir) en términos de los operadores de
+  %  desplazamiento.
+
+  %  \vspace{10pt}
+
+  %  \begin{definition}[Operadores de desplazamiento]
+  %    Los operadores de desplazamiento (operadores de
+  %    Heisenberg-Weyl) 
+  %    \begin{equation}
+  %      \hat D(\xi,\eta) : \mathcal D \subset L^2(\R) \to
+  %      L^2(\R)
+  %    \end{equation}
+  %    se definen como
+  %    \begin{equation}
+  %      \hat D(\xi,\eta) \psi(x)
+  %      = e^{\frac{i}{\hbar} (\eta x - \frac{1}{2} \eta \xi)}
+  %      \psi(x - \xi).
+  %    \end{equation}
+  %  \end{definition}
+  %\end{frame}
+
+  %\begin{frame}
+  %  \frametitle{Operador puntual del espacio de fase}
+
+  %  \begin{proposition}
+  %    El operador puntual se puede expresar como la
+  %    transformación unitaria del operador de paridad:
+  %    \begin{equation}
+  %      \hat \Delta(0,0)\psi(x) 
+  %      = \psi(-x),
+  %    \end{equation}
+  %    por medio de los operadores de desplazamiento:
+  %    \begin{equation}
+  %      \hat \Delta(\xi,\eta)
+  %      = \hat D(\xi,\eta) \hat\Delta(0,0) \hat
+  %      D(\xi,\eta)^{*}.
+  %    \end{equation}
+  %  \end{proposition}
+  %\end{frame}
+
+  %\begin{frame}
+  %  \frametitle{Función de Wigner}
+
+  %  \begin{proposition}
+  %    La función de Wigner de un estado $\psi$ se puede
+  %    expresar como el valor esperado del operador puntual:
+  %    \begin{equation}
+  %      W_\psi(x,p)
+  %      = \frac{1}{\pi \hbar} \braket{\psi|\hat
+  %        \Delta(x,p)|\psi}.
+  %    \end{equation}
+  %  \end{proposition}
+
+  %  De manera análoga, para un estado arbitrario,
+  %  representado por un operador de densidad $\rho$, la
+  %  función de Wigner se define como:
+  %  \begin{equation}
+  %    W_\psi(x,p)
+  %    = \frac{1}{\pi \hbar} \Tr\left( \hat \rho \hat
+  %    \Delta(x,p) \right).
+  %  \end{equation}
+  %\end{frame}
 
   \begin{frame}
     \frametitle{Propiedades de la función de Wigner}
@@ -391,13 +388,13 @@
     recuperar a la función de Wigner, y como consecuencia al
     estado cuántico.
 
-    \vspace{15pt}
+    %\vspace{15pt}
 
-    \pause
+    %\pause
 
-    La mayoría de las propiedades mencionadas se pueden
-    obtener mediante propiedades análogas de los operadores
-    puntuales.
+    %La mayoría de las propiedades mencionadas se pueden
+    %obtener mediante propiedades análogas de los operadores
+    %puntuales.
   \end{frame}
 
   %\section{Tomografía cuántica y MUBs}
@@ -492,8 +489,6 @@
     en el caso continuo, en específico, la preservación de
     la propiedad tomográfica básica.
 
-    \pause
-
     \vspace{15pt}
 
     De aquí en adelante trabajamos con sistemas de dimensión
@@ -520,10 +515,9 @@
 
     \vspace{10pt} 
 
-    Por otro lado, el uso de campos finitos nos limita a
-    sistemas de dimensión $p^{n}$ donde $p$ es un número
-    primo. El campo finito será la extensión de Galois
-    $\GF(p^{n})$.
+    El campo finito será la extensión de Galois
+    $\GF(p^{n})$, así que nos limitamos a sistemas de
+    dimensión $p^{n}$ donde $p$ es un número primo.
   \end{frame}
 
   \begin{frame}
@@ -531,7 +525,7 @@
 
     \begin{figure}[h]
       \centering
-      \includegraphics[width=0.6\textwidth]{imgs/GF23.png}
+      \includegraphics[width=0.45\textwidth]{imgs/GF23.png}
       \caption{Las nueve \textit{estrías} del espacio de
       discreto etiquetado por los elementos de $\GF(2^{3})$.
       Ésto corresponde a un sistema de tres qubits.}
@@ -547,61 +541,59 @@
   \begin{frame}
     \frametitle{Asignación de una estructura cuántica}
 
-    Wootters inicia su busqueda por una función de Wigner
-    satisfaciendo la propiedad de covarianza bajo
-    traslaciones. Empieza haciendo una correspondencia entre
-    traslaciones en el espacio de fase y desplazamientos en
-    el espacio de Hilbert. Su idea consiste en asignar
-    estados cuánticos a \textit{cada} recta del espacio de
-    fase. Al mapeo 
+    La idea principal de Wootters es asignar una estructura
+    cuántica al espacio de fase que conserve una
+    correspondencia entre traslaciones en el espacio de fase
+    y desplazamientos en el espacio de Hilbert. Lo hace al
+    asignar estados cuánticos a \textit{cada} recta del
+    espacio de fase. Al mapeo 
     \[
       Q : \lambda \mapsto \mathcal L(\H)
     \]
-    que hace ésta asignación le llama
+    que hace ésta asignación (adecuadamente) le llama
     \textbf{malla cuántica}.
 
     \vspace{10pt}
 
     \pause
 
-    Para que $Q$ cumpla con ésta propiedad es necesario que
-    preserve de cierto modo las traslaciones en el espacio
-    de fase. Si $\mathcal T(a,b)$ es una traslación,
-    entonces
+    Para que la función de Wigner sea covariante bajo
+    traslaciones la malla debe preservar las traslaciones.
+    Si $\mathcal T(a,b)$ es una traslación, entonces
     \begin{equation}
       Q\left( \mathcal T(a,b) \lambda \right) 
       =
-      D(a,b) Q(\lambda) D(x,y)^{*},
+      D(a,b) Q(\lambda) D(a,b)^{*},
     \end{equation}
     para toda recta $\lambda$.
   \end{frame}
 
-  \begin{frame}
-    \frametitle{Red cuántica}
+  %\begin{frame}
+  %  \frametitle{Red cuántica}
 
-    En particular, si una traslación deja invariante a una
-    recta $\lambda$, entonces la malla cuántica también debe
-    ser invariante cuando es operada por el desplazamiento
-    correspondiente:
-    \begin{equation}
-      D(a,b) Q(\lambda) D(a,b)^{*}
-      = Q(\mathcal T(a,b) \lambda)
-      = Q(\lambda).
-    \end{equation}
+  %  En particular, si una traslación deja invariante a una
+  %  recta $\lambda$, entonces la malla cuántica también debe
+  %  ser invariante cuando es operada por el desplazamiento
+  %  correspondiente:
+  %  \begin{equation}
+  %    D(a,b) Q(\lambda) D(a,b)^{*}
+  %    = Q(\mathcal T(a,b) \lambda)
+  %    = Q(\lambda).
+  %  \end{equation}
 
-    Ésto sucede cuando $Q(\lambda)$ es la proyección a un
-    eigenestado del operador de desplazamiento.
+  %  Ésto sucede cuando $Q(\lambda)$ es la proyección a un
+  %  eigenestado del operador de desplazamiento.
 
-    \vspace{10pt}
+  %  \vspace{10pt}
 
-    \pause
+  %  \pause
 
-    Si agrupamos a los operadores $D(a,b)$ correspondientes
-    a las traslaciones $\mathcal T(a,b)$ que dejan
-    invariante a una estría, obtendremos operadores que
-    conmutan y por lo tanto son diagonalizables
-    simultáneamente. 
-  \end{frame}
+  %  Si agrupamos a los operadores $D(a,b)$ correspondientes
+  %  a las traslaciones $\mathcal T(a,b)$ que dejan
+  %  invariante a una estría, obtendremos operadores que
+  %  conmutan y por lo tanto son diagonalizables
+  %  simultáneamente. 
+  %\end{frame}
 
   \begin{frame}
     \frametitle{Bases mutuamente insesgadas}
@@ -631,12 +623,12 @@
       \sum_{\alpha \in \lambda}^{} W_\rho(\alpha)
       = \Tr\left( \rho Q(\lambda) \right),
     \end{equation}
-    para toda recta del espacio de fase discreto. Ésta
-    propiedad junto con la propiedad de
+    para toda recta $\lambda$ del espacio de fase discreto.
+    Ésta propiedad junto con la propiedad de
     \textit{normalización} determinan a la función de
     Wigner.
 
-    \vspace{10pt}
+    \vspace{15pt}
 
     Utilizando las propiedades del espacio de fase
     discreto podemos invertir ésta relación para obtener una
@@ -697,7 +689,7 @@
     \{0,1,\alpha,\alpha+1\}$.
     \begin{figure}[h]
       \centering
-      \scalebox{0.5}{
+      \scalebox{0.4}{
         \input{imgs/affine-desargues-2-2.pgf}
       }
       \caption{Rayos en el espacio de fase discreto.}
@@ -710,8 +702,10 @@
 
     \begin{figure}[h]
       \centering
-      \includegraphics[width=0.6\textwidth]{
-      imgs/wigner-desargues-2-2-s1.png}
+      \scalebox{0.6}{
+        \input{imgs/wigner-desargues-2-2-s1.pgf}
+      }
+      %\includegraphics[width=0.6\textwidth]{imgs/wigner-desargues-2-2-s1.png}
       \caption{Función de Wigner del estado
       $\ket{\uparrow\uparrow} = \ket{0}$.}
       \label{fig:wigner-desargues-2-2-s1}
@@ -723,8 +717,10 @@
 
     \begin{figure}[h]
       \centering
-      \includegraphics[width=0.6\textwidth]{
-      imgs/wigner-desargues-2-2-s2.png}
+      \scalebox{0.6}{
+        \input{imgs/wigner-desargues-2-2-s2.pgf}
+      }
+      %\includegraphics[width=0.6\textwidth]{imgs/wigner-desargues-2-2-s2.png}
       \caption{Función de Wigner del estado
       $\frac{1}{\sqrt{2}} \left(
         \ket{\uparrow\downarrow} -
@@ -758,55 +754,7 @@
     simplécticas}.
   \end{frame}
 
-  \begin{frame}
-    \frametitle{Operadores de desplazamiento}
-
-    Sea $\{\ket{e_w} : w \in \F\}$ una base ortonormal del
-    espacio de Hilbert de dimensión $d$.
-
-    \begin{definition}[Operadores de Pauli generalizados]
-      Sea $\omega \in \C$ la $p$-ésima raíz primitiva de la
-      unidad y sean $u, v \in \F$. Los operadores de Pauli
-      generalizados se definen como:
-      \begin{align}
-        X(u) &: \ket{e_w} \mapsto \ket{e_{w+u}} \\
-        Z(v) &: \ket{e_w} \mapsto \omega^{\tr(vw)}
-        \ket{e_w}.
-      \end{align}
-    \end{definition}
-
-    \begin{definition}[Operador de desplazamiento]
-      Un operador de desplazamiento arbitrario se define como
-      \begin{equation}
-        D(u,v) 
-        = X(u) Z(v).
-      \end{equation}
-    \end{definition}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Operadores de desplazamiento}
-
-    El conmutador de dos operadores de desplazamiento
-    $D(u,v)$ y $D(u',v')$ está dado por
-    \begin{equation}
-      \left[
-        D(u,v), D(u',v')
-      \right]
-      = \omega^{\tr(vu')} \left( 1 - \omega^{\langle (u,v),
-      (u',v') \rangle} \right) D(u+u', v+v'),
-    \end{equation}
-    donde
-    \begin{equation}
-      \langle (u,v), (u',v') \rangle
-      = uv' - vu'.
-    \end{equation}
-
-    \begin{proposition}
-      Dos operadores de desplazamiento conmutan si y solo si
-      la forma bilineal aleternante se anula.
-    \end{proposition}
-  \end{frame}
+  
 
   \subsection{Coberturas simplécticas}
 
@@ -874,11 +822,10 @@
 
     \begin{figure}[h]
       \centering
-      \scalebox{0.6}{
+      \scalebox{0.45}{
         \input{imgs/affine-desargues-3-3.pgf}
       }
-      \caption{Espacio de fase discreto para tres qutrits,
-      cubierto por la cobertura Desarguesiana (Wootters).}
+      \caption{Espacio de fase discreto para tres qutrits; cobertura Desarguesiana.}
       \label{fig:affine-desargues-3-3}
     \end{figure}
   \end{frame}
@@ -911,7 +858,7 @@
     \frametitle{Ejemplo}
     \begin{figure}[h]
       \centering
-      \scalebox{0.6}{
+      \scalebox{0.5}{
         \input{imgs/affine-albert-3-3.pgf}
       }
       \caption{Cobertura generada por el campo torcido de
@@ -924,12 +871,62 @@
     \frametitle{Ejemplo}
     \begin{figure}[h]
       \centering
-      \scalebox{0.6}{
+      \scalebox{0.5}{
         \input{imgs/affine-kantor-2-5.pgf}
       }
       \caption{Cobertura de Kantor.}
       \label{fig:affine-kantor-2-5}
     \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Operadores de desplazamiento}
+
+    
+    \begin{definition}[Operadores de Pauli generalizados]
+      Sea $\{\ket{e_w} : w \in \F\}$ una base ortonormal del
+      espacio de Hilbert de dimensión $d$.  Sea $\omega \in
+      \C$ la $p$-ésima raíz primitiva de la unidad y sean
+      $u, v \in \F$. Los operadores de Pauli generalizados
+      se definen como:
+      \begin{align}
+        X(u) &: \ket{e_w} \mapsto \ket{e_{w+u}} \\
+        Z(v) &: \ket{e_w} \mapsto \omega^{\tr(vw)}
+        \ket{e_w}.
+      \end{align}
+    \end{definition}
+
+    \begin{definition}[Operador de desplazamiento]
+      Un operador de desplazamiento arbitrario se define como
+      \begin{equation}
+        D(u,v) 
+        = X(u) Z(v).
+      \end{equation}
+    \end{definition}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Operadores de desplazamiento}
+
+    El conmutador de dos operadores de desplazamiento
+    $D(u,v)$ y $D(u',v')$ está dado por
+    \begin{equation}
+      \left[
+        D(u,v), D(u',v')
+      \right]
+      = \omega^{\tr(vu')} \left( 1 - \omega^{\langle (u,v),
+      (u',v') \rangle} \right) D(u+u', v+v'),
+    \end{equation}
+    donde
+    \begin{equation}
+      \langle (u,v), (u',v') \rangle
+      = uv' - vu'.
+    \end{equation}
+
+    \begin{proposition}
+      Dos operadores de desplazamiento conmutan si y solo si
+      la forma bilineal aleternante se anula.
+    \end{proposition}
   \end{frame}
 
   \begin{frame}
@@ -939,6 +936,8 @@
     cobertura simpléctica, podemos definir la función de
     Wigner de la misma manera que lo hicimos en la
     construcción estándar.
+
+    \vspace{15pt}
 
     \begin{enumerate}
       \item Le asignamos a cada \textit{linea/curva}
@@ -955,9 +954,10 @@
   \begin{frame}
     \frametitle{Funciones de Wigner para cinco qubits}
 
-    Construímos la función de Wigner estándar y no estándar
-    para el caso de un sistema de cinco qubits, utilizando
-    la cobertura Desarguesiana y la de Kantor.
+    Construímos la funciones de Wigner estándar y no
+    estándar para el caso de un sistema de cinco qubits, $\H
+    = \C^{32} \cong \left( \C^2 \right)^{\otimes 5}$,
+    utilizando la cobertura Desarguesiana y la de Kantor.
 
     \vspace{5pt}
 
@@ -979,22 +979,106 @@
 
   \begin{frame}
     \frametitle{Funciones de Wigner para cinco qubits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-standard-2-5-s1.png}
+      \caption{Función de Wigner estándar para
+      $\ket{\psi_1}$.}
+      \label{fig:wigner-standard-2-5-s1}
+    \end{figure}
   \end{frame}
 
   \begin{frame}
     \frametitle{Funciones de Wigner para cinco qubits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-kantor-2-5-s1.png}
+      \caption{Función de Wigner no estándar para
+      $\ket{\psi_1}$.}
+      \label{fig:wigner-kantor-2-5-s1}
+    \end{figure}
   \end{frame}
 
   \begin{frame}
     \frametitle{Funciones de Wigner para cinco qubits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-kantor-2-5-s2.png}
+      \caption{Función de Wigner no estándar para
+      $\ket{\psi_2}$.}
+      \label{fig:wigner-kantor-2-5-s2}
+    \end{figure}
   \end{frame}
 
   \begin{frame}
     \frametitle{Funciones de Wigner para cinco qubits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-standard-2-5-s2.png}
+      \caption{Función de Wigner estándar para
+      $\ket{\psi_2}$.}
+      \label{fig:wigner-standard-2-5-s2}
+    \end{figure}
   \end{frame}
 
   \begin{frame}
     \frametitle{Funciones de Wigner para cinco qubits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-standard-2-5-s3.png}
+      \caption{Función de Wigner estándar para
+      $\ket{\psi_3}$.}
+      \label{fig:wigner-standard-2-5-s3}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-standard-2-5-s3-heat.png}
+      \caption{Función de Wigner estándar para
+      $\ket{\psi_3}$.}
+      \label{fig:wigner-standard-2-5-s3-heat}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-kantor-2-5-s3.png}
+      \caption{Función de Wigner no estándar para
+      $\ket{\psi_3}$.}
+      \label{fig:wigner-kantor-2-5-s3}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funciones de Wigner para cinco qubits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-kantor-2-5-s3-heat.png}
+      \caption{Función de Wigner no estándar para
+      $\ket{\psi_3}$.}
+      \label{fig:wigner-kantor-2-5-s3-heat}
+    \end{figure}
   \end{frame}
 
   \begin{frame}
@@ -1002,38 +1086,85 @@
 
     Construímos la función de Wigner estándar y no estándar
     para un sistema de tres qutrits. Como ejemplo
-    consideramos un element $\ket{\psi}$ de las MUBs
+    consideramos un elemento $\ket{\psi}$ de las MUBs
     estándar.
   \end{frame}
 
   \begin{frame}
     \frametitle{Funciones de Wigner para tres qutrits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-standard-3-3-s1.png}
+      \caption{Función de Wigner estándar para
+      $\ket{\psi}$.}
+      \label{fig:wigner-standard-3-3-s1}
+    \end{figure}
   \end{frame}
 
   \begin{frame}
     \frametitle{Funciones de Wigner para tres qutrits}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.65\textwidth]{
+      imgs/wigner-standard-3-3-s1.png}
+      \caption{Función de Wigner no estándar para
+      $\ket{\psi}$.}
+      \label{fig:wigner-kantor-3-3-s1}
+    \end{figure}
   \end{frame}
 
-  \subsection{Construcciones explícitas de MUBs}
-
-  \begin{frame}
-    \frametitle{Característica impar}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Característica par}
-  \end{frame}
-
-  \subsection{Detalles de implementación}
-
-  \begin{frame}
-    \frametitle{Detalles de la implementación}
-  \end{frame}
-
+  
   \section{Discusión}
 
   \begin{frame}
     \frametitle{Discusión}
+
+    \begin{itemize}
+      \item Equivalencia de las funciones de Wigner
+        discretas.
+      \pause
+      \item Diferencias entre la característica par e impar.
+      \pause
+      \item Ordenamiento del campo finito.
+      \pause
+      \item ¿Qué vínculos adicionales existen con otras
+        áreas?
+      \pause
+      \item Generalización a dimensiones arbitrarias.
+      \pause
+      \item Dinámica en el espacio de fase discreto.
+      \pause
+      \item Esquemas de factorización tensorial.
+      \pause
+      \item Investigación en estados estabilizadores para
+        ésta versión.
+    \end{itemize}
   \end{frame}
+
+  \begin{frame}
+    \frametitle{Fin}
+
+    Gracias por su atención!
+  \end{frame}
+
+  %\subsection{Construcciones explícitas de MUBs}
+
+  %\begin{frame}
+  %  \frametitle{Característica impar}
+  %\end{frame}
+
+  %\begin{frame}
+  %  \frametitle{Característica par}
+  %\end{frame}
+
+  %\subsection{Detalles de implementación}
+
+  %\begin{frame}
+  %  \frametitle{Detalles de la implementación}
+  %\end{frame}
+
 
 \end{document}
