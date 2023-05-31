@@ -49,3 +49,8 @@ def saveMubs(mubs, path):
     np.save(path, np.concatenate(nmubs))
     print('Saved to', path)
     pass
+
+def proj(v):
+    d = len(v)
+    v = v.reshape((d,1))
+    return np.kron(v, v.conj().T)

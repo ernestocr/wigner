@@ -67,7 +67,7 @@
 \newtheorem{axiom}{Postulado}
 \newtheorem{remark}{Observación}
 
-\hfuzz=50pt
+\hfuzz=59pt
 
 \begin{document}
   \begin{titlepage}
@@ -670,28 +670,57 @@
   para recuperar el estado cuántico. Se ha demostrado que si
   uno puede obtener $d+1$ MUBs, entonces las mediciones en
   éstas bases son suficientes para determinar la matriz de
-  densidad.
+  densidad. No es necesario que las bases sean mutuamente
+  insesgadas para recuperar el estado, pero si lo son, nos
+  brindan una manera óptima en el siguiente sentido. Como no
+  podemos hacer una cantidad infinita de experimentos,
+  estamos sujetos al error estadístico que se introduce,
+  i.e., no podremos recuperar las probabilidades con
+  precisión exacta. Wootters y Fields  establecen ésta
+  noción de error estadístico de manera precisa y prueban
+  que las mediciones hechas con MUBs son óptimas en el
+  sentido de que minimizan el error estadístico. 
 
-  No es necesario que las bases sean mutuamente insesgadas
-  para recuperar el estado, pero si lo son, nos brindan una
-  manera óptima en el siguiente sentido. Como no podemos
-  hacer una cantidad infinita de experimentos, estamos
-  sujetos al error estadístico que se introduce, i.e., no
-  podremos recuperar las probabilidades con precisión
-  exacta. Wootters y Fields  establecen ésta noción de error
-  estadístico de manera precisa y prueban que las mediciones
-  hechas con MUBs son óptimas en el sentido de que minimizan
-  el error estadístico. Nuestro interés en las MUBs para
-  éste trabajo es que surgen de manera natural a la hora de
-  asignar una estructura cuántica al espacio de fase
-  discreto para la construcción de una función de Wigner
-  discreta. Antes de continuar con ese tema es necesario
-  introducir el concepto de la función de Wigner. A pesar de
-  que la mayoría de éste trabajo se centra en sistemas
-  finitos, nos será útil repasar sistemas continuos ó
-  dimensión infinita, ya que la función de Wigner
-  originalmente se introdujo para el uso en esos sistemas
-  cuánticos.
+  Otro aspecto fundamental de las MUBs para nuestro trabajo,
+  es que en general no son únicas, en el sentido de que para
+  ciertas dimensiones existen bases que no son unitariamente
+  equivalentes.
+  \begin{definition}
+    Sea $B_k$ la matriz correspondiente a una base $\mathcal
+    B_k$ de un conjunto de MUBs $\mathcal B$. Decimos que
+    dos conjuntos de MUBs, 
+    \[
+      \mathcal B = \{B_0,\ldots,B_k\}
+      \quad \text{y} \quad
+      \mathcal B' = \{B_0',\ldots, B_k'\},
+    \]
+    son equivalentes si existe una transformación unitaria
+    $U$ de $\C^{d}$ tal que
+    \begin{equation}
+      \{B_0',\ldots,B_k'\}
+      = \{UB_0, \ldots,UB_k\},
+    \end{equation}
+    donde el orden no se preserva necesariamente.
+  \end{definition}
+  Calderbank, Cameron, Kantor y Seidel demostraron la
+  existencia de varias bases mutuamente insesagados que no
+  son equivalentes \cite{kantor2012}, i.e., tales que
+  \textit{no} existe una transformación unitaria que
+  satisface la definición anterior. Ésto lo hacen a partir
+  de la inequivalencia de unas estructuras llamadas
+  \textit{coberturas simplécticas}, las cuales veremos en el
+  capítulo cuatro.
+
+  Nuestro interés en las MUBs para éste trabajo es que
+  surgen de manera natural a la hora de asignar una
+  estructura cuántica al espacio de fase discreto para la
+  construcción de una función de Wigner discreta. Antes de
+  continuar con ese tema es necesario introducir el concepto
+  de la función de Wigner. A pesar de que la mayoría de éste
+  trabajo se centra en sistemas finitos, nos será útil
+  repasar sistemas continuos ó dimensión infinita, ya que la
+  función de Wigner originalmente se introdujo para el uso
+  en esos sistemas cuánticos.
 
   \subsection{Sistemas continuos}
 
@@ -4909,8 +4938,9 @@
   diagonal', es distinto.
   \begin{figure}[ht]
     \centering
-    \input{imgs/affine-albert-3-3.pgf}
-    %\includegraphics[width=\textwidth]{example-image-a}
+    \scalebox{1}{
+      \input{imgs/affine-albert-3-3.pgf}
+    }
     \caption{$V = \GF(3^{3})$, spread del presemicampo
     torcido de Albert.}
     \label{fig:3-3-albert-plane}
@@ -5244,7 +5274,7 @@
 
   \newpage
   \appendix
-  %\include{appendix}
+  \include{appendix}
 
   \newpage
   \printbibliography

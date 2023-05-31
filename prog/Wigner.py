@@ -56,7 +56,7 @@ class Wigner():
         
         a = np.zeros((d,d), dtype='complex64')
         for k in range(d + 1):
-            B = self.mubs[d*k:d*(k+1), :]
+            B = self.mubs[d*k:d*(k+1)]
             p = self.npProj(B[:, bi[k]])
             a += p
             

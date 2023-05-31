@@ -33,7 +33,7 @@
   urldate = {2023-05-22},
   abstract = {In this paper we give explicit descriptions of complete sets of mutually unbiased bases (MUBs) and orthogonal decompositions of special Lie algebras sln(C) obtained from commutative and symplectic semifields, and from some other non-semifield symplectic spreads. Relations between various constructions are also studied. We show that the automorphism group of a complete set of MUBs is isomorphic to the automorphism group of the corresponding orthogonal decomposition of the Lie algebra sln(C). In the case of symplectic spreads this automorphism group is determined by the automorphism group of the spread. By using the new notion of pseudo-planar functions over fields of characteristic two we give new explicit constructions of complete sets of MUBs.},
   langid = {english},
-  keywords = {05B25; 51A40; 51E15; 12K10; 20B25; 17B20; 05B20,Computer Science - Information Theory,Mathematics - Combinatorics},
+  keywords = {{05B25, 51A40, 51E15, 12K10, 20B25, 17B20, 05B20},Computer Science - Information Theory,Mathematics - Combinatorics},
   file = {/Users/ernesto/Zotero/storage/ZMYC4SNR/Abdukhalikov - 2015 - Symplectic spreads, planar functions and mutually .pdf}
 }
 
@@ -44,6 +44,22 @@
   journaltitle = {Malaysian Journal of Mathematical Sciences},
   volume = {8},
   file = {/Users/ernesto/Zotero/storage/NTGYFCJF/Mojtaba Aliakbarzadeh-1-14.pdf}
+}
+
+@book{alt2001,
+  title = {Computational Discrete Mathematics: Advanced Lectures},
+  shorttitle = {Computational Discrete Mathematics},
+  editor = {Alt, Helmut},
+  date = {2001},
+  series = {Lecture Notes in Computer Science},
+  number = {2122},
+  publisher = {{Springer}},
+  location = {{Berlin ; New York}},
+  isbn = {978-3-540-42775-9},
+  langid = {english},
+  pagetotal = {171},
+  keywords = {Computer science,Mathematics},
+  file = {/Users/ernesto/Zotero/storage/3M9MLUTJ/Alt - 2001 - Computational discrete mathematics advanced lectu.pdf}
 }
 
 @article{aniello,
@@ -104,8 +120,7 @@
   title = {A New Proof for the Existence of Mutually Unbiased Bases},
   author = {Bandyopadhyay, Somshubhro and Boykin, P. Oscar and Roychowdhury, Vwani and Vatan, Farrokh},
   date = {2001-09-07},
-  number = {arXiv:quant-ph/0103162},
-  eprint = {arXiv:quant-ph/0103162},
+  eprint = {quant-ph/0103162},
   eprinttype = {arxiv},
   url = {http://arxiv.org/abs/quant-ph/0103162},
   urldate = {2023-05-22},
@@ -206,9 +221,9 @@
   title = {Wigner's Quasidistribution and {{Dirac}}'s Kets},
   author = {Blass, Andreas and Gurevich, Yuri and Volberg, Alexander},
   date = {2022-01-15},
-  number = {arXiv:2201.05911},
-  eprint = {arXiv:2201.05911},
+  eprint = {2201.05911},
   eprinttype = {arxiv},
+  eprintclass = {math-ph, physics:quant-ph},
   url = {http://arxiv.org/abs/2201.05911},
   urldate = {2023-05-22},
   abstract = {In every state of a quantum particle, Wigner’s quasidistribution is the unique quasidistribution on the phase space with the correct marginal distributions for position, momentum, and all their linear combinations.},
@@ -239,8 +254,7 @@
   title = {Mutually {{Unbiased Bases}} and {{Orthogonal Decompositions}} of {{Lie Algebras}}},
   author = {Boykin, P. Oscar and Sitharam, Meera and Tiep, Pham Huu and Wocjan, Pawel},
   date = {2005-06-10},
-  number = {arXiv:quant-ph/0506089},
-  eprint = {arXiv:quant-ph/0506089},
+  eprint = {quant-ph/0506089},
   eprinttype = {arxiv},
   url = {http://arxiv.org/abs/quant-ph/0506089},
   urldate = {2023-05-22},
@@ -289,7 +303,7 @@
   urldate = {2023-02-23},
   abstract = {In the usual formulation of quantum mechanics, groups of automorphisms of quantum states have ray representations by unitary and antiunitary operators on complex Hilbert space, in accordance with Wigner’s Theorem. In the phase-space formulation, they have real, true unitary representations in the space of square-integrable functions on phase-space. Each such phase-space representation is a Weyl-Wigner product of the corresponding Hilbert space representation with its contragredient, and these can be recovered by ‘factorising’ the Weyl-Wigner product. However, not every real, unitary representation on phase-space corresponds to a group of automorphisms, so not every such representation is in the form of a Weyl-Wigner product and can be factorised. The conditions under which this is possible are examined. Examples are presented.},
   langid = {english},
-  keywords = {81S30; 58D30; 81R05,Mathematical Physics,Mathematics - Group Theory},
+  keywords = {{81S30, 58D30, 81R05},Mathematical Physics,Mathematics - Group Theory},
   file = {/Users/ernesto/Zotero/storage/K9IHLMLK/Bracken et al. - 2003 - Quantum symmetries and the Weyl-Wigner product of .pdf}
 }
 
@@ -354,6 +368,13 @@
   langid = {english},
   keywords = {Mathematical Physics,Quantum Physics},
   file = {/Users/ernesto/Zotero/storage/I2ZG4KIJ/Bracken - 2006 - Complex numbers and symmetries in quantum mechanic.pdf}
+}
+
+@article{calderbank,
+  title = {Z4-{{KERDOCK CODES}}, {{ORTHOGONAL SPREADS}}, {{AND EXTREMAL EUCLIDEAN LINE-SETS}}},
+  author = {Calderbank, A R and Cameron, P J and Kantor, W M and Seidel, J J},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/4QXJM6HB/Calderbank et al. - ޚ4-KERDOCK CODES, ORTHOGONAL SPREADS, AND EXTREMAL.pdf}
 }
 
 @article{casas,
@@ -520,7 +541,6 @@
   booktitle = {Born-{{Jordan Quantization}}},
   author = {De Gosson, Maurice A.},
   date = {2016},
-  series = {Fundamental {{Theories}} of {{Physics}}},
   volume = {182},
   pages = {73--94},
   publisher = {{Springer International Publishing}},
@@ -839,8 +859,9 @@
   booktitle = {Quantum {{Computing}} and {{Quantum Communications}}},
   author = {Gottesman, Daniel},
   editor = {Williams, Colin P.},
+  editorb = {Goos, Gerhard and Hartmanis, Juris and family=Leeuwen, given=Jan, prefix=van, useprefix=true},
+  editorbtype = {redactor},
   date = {1999},
-  series = {Lecture {{Notes}} in {{Computer Science}}},
   volume = {1509},
   pages = {302--313},
   publisher = {{Springer Berlin Heidelberg}},
@@ -849,8 +870,6 @@
   url = {http://link.springer.com/10.1007/3-540-49208-9_27},
   urldate = {2023-01-31},
   abstract = {Instead of a quantum computer where the fundamental units are 2-dimensional qubits, we can consider a quantum computer made up of d-dimensional systems. There is a straightforward generalization of the class of stabilizer codes to d-dimensional systems, and I will discuss the theory of fault-tolerant computation using such codes. I prove that universal fault-tolerant computation is possible with any higher-dimensional stabilizer code for prime d.},
-  editorb = {Goos, Gerhard and Hartmanis, Juris and family=Leeuwen, given=Jan, prefix=van, useprefix=true},
-  editorbtype = {redactor},
   isbn = {978-3-540-65514-5 978-3-540-49208-5},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/E3PHDRFT/Gottesman - 1999 - Fault-Tolerant Quantum Computation with Higher-Dim.pdf}
@@ -931,9 +950,9 @@
   title = {Equivalence of Contextuality and {{Wigner}} Function Negativity in Continuous-Variable Quantum Optics},
   author = {Haferkamp, Jonas and Bermejo-Vega, Juani},
   date = {2021-12-29},
-  number = {arXiv:2112.14788},
-  eprint = {arXiv:2112.14788},
+  eprint = {2112.14788},
   eprinttype = {arxiv},
+  eprintclass = {quant-ph},
   url = {http://arxiv.org/abs/2112.14788},
   urldate = {2023-02-10},
   abstract = {One of the central foundational questions of physics is to identify what makes a system quantum as opposed to classical. One seminal notion of classicality of a quantum system is the existence of a non-contextual hidden variable model as introduced in the early work by Bell, Kochen and Specker. In quantum optics, the non-negativity of the Wigner function is a ubiquitous notion of classicality. In this work we establish an equivalence between these two concepts. In particular, we show that any non-contextual hidden variable model for Gaussian quantum optics has an alternative non-negative Wigner function description. Conversely, it was known that the Wigner representation provides a non-negative non-contextual description of Gaussian quantum optics. It follows that contextuality and Wigner negativity are equivalent notions of non-classicality and equivalent resources for this quantum subtheory. In particular, both contextuality and Wigner negativity are necessary for a computational speed-up of quantum Gaussian optics. At the technical level, our result holds true for any subfamily of Gaussian measurements that include homodyne measurements, i.e., measurements of standard quadrature observables.},
@@ -957,6 +976,14 @@
   isbn = {978-1-4614-7115-8 978-1-4614-7116-5},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/YX28BNET/Hall - 2013 - Quantum Theory for Mathematicians.pdf}
+}
+
+@article{hammons,
+  title = {The {{Z4-Linearity}} of {{Kerdock}}, {{Preparata}}, {{Goethals}}, and {{Related Codes}}},
+  author = {Hammons, Roger and Kumar, P Vijay and Calderbank, R},
+  abstract = {Certain notorious nonlinear binary codes contain more codewords than any known linear code. These include the codes constructed by Nordstrom-Robinson, Kerdock, Preparata, Goethals, and Delsarte-Goethals. It is shown here that all these codes can be very simply constructed as binary images under the Gray map of linear codes over Za, the integers mod 4 (although this requires a slight modification of the Preparata and Goethals codes). The construction implies that all these binary codes are distance invariant. Duality in the Z4 domain implies that the binary images have dual weight distributions. The Kerdock and “Preparata” codes are duals over Z4-and the Nordstrom-Robinson code is self-dual-which explains why their weight distributions are dual to each other. The Kerdock and “Preparata” codes are Z* -analogues of first-order Reed-Muller and extended Hamming codes, respectively. All these codes are extended cyclic codes over Z4, which greatly simplies encoding and decoding. An algebraic hard-decision decoding algorithm is given for the “Preparata” code and a Hadamard-transform softdecision decoding algorithm for the Kerdock code. Binary firstand second-order Reed-Muller codes are also linear over \&, but extended Hamming codes of length n {$>\_$} 32 and the Golay code are not. Using Z.\$-linearity, a new family of distance regular graphs are constructed on the cosets of the “Preparata” code.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/NZ6GBPBP/Hammons et al. - The &-Linearity of Kerdcck, Preparata, Goethals, a.pdf}
 }
 
 @article{hennings1998,
@@ -1125,8 +1152,7 @@
   title = {Constructions of {{Mutually Unbiased Bases}}},
   author = {Klappenecker, Andreas and Roetteler, Martin},
   date = {2003-09-15},
-  number = {arXiv:quant-ph/0309120},
-  eprint = {arXiv:quant-ph/0309120},
+  eprint = {quant-ph/0309120},
   eprinttype = {arxiv},
   url = {http://arxiv.org/abs/quant-ph/0309120},
   urldate = {2023-05-22},
@@ -1352,7 +1378,7 @@
   location = {{New York}},
   isbn = {978-1-4614-7731-0},
   pagetotal = {410},
-  keywords = {Geometry; Differential},
+  keywords = {{Geometry, Differential}},
   annotation = {OCLC: ocn839397537}
 }
 
@@ -1588,15 +1614,15 @@
   title = {Bases of the {{Galois Ring}} \${{GR}}(P\^r,m)\$ over the {{Integer Ring}} \${{Z}}\_\{p\^r\}\$},
   author = {Sison, Virgilio},
   date = {2014-10-01},
-  number = {arXiv:1410.0289},
-  eprint = {arXiv:1410.0289},
+  eprint = {1410.0289},
   eprinttype = {arxiv},
+  eprintclass = {cs, math},
   url = {http://arxiv.org/abs/1410.0289},
   urldate = {2023-05-22},
   abstract = {The Galois ring GR(pr, m) of characteristic pr and cardinality prm, where p is a prime and r, m ≥ 1 are integers, is a Galois extension of the residue class ring Zpr by a root ω of a monic basic irreducible polynomial of degree m over Zpr . Every element of GR(pr, m) can be expressed uniquely as a polynomial in ω with coefficients in Zpr and degree less than or equal to m − 1, thus GR(pr, m) is a free module of rank m over Zpr with basis \{1, ω, ω2, . . . , ωm−1\}. The ring Zpr satisfies the invariant dimension property, hence any other basis of GR(pr, m), if it exists, will have cardinality m.},
   langid = {english},
   pubstate = {preprint},
-  keywords = {94B05; 94B99,Computer Science - Information Theory},
+  keywords = {{94B05, 94B99},Computer Science - Information Theory},
   file = {/Users/ernesto/Zotero/storage/HYIZ23TZ/Sison - 2014 - Bases of the Galois Ring $GR(p^r,m)$ over the Inte.pdf}
 }
 
@@ -1631,15 +1657,15 @@
   title = {"{{Quantization}} Is a Mystery"},
   author = {Todorov, Ivan},
   date = {2012-06-14},
-  number = {arXiv:1206.3116},
-  eprint = {arXiv:1206.3116},
+  eprint = {1206.3116},
   eprinttype = {arxiv},
+  eprintclass = {math-ph, physics:physics},
   url = {http://arxiv.org/abs/1206.3116},
   urldate = {2023-02-10},
   abstract = {Expository notes which combine a historical survey of the development of quantum physics with a review of selected mathematical topics in quantization theory (addressed to students that are not complete novices in quantum mechanics).},
   langid = {english},
   pubstate = {preprint},
-  keywords = {81S10; 01A60,Mathematical Physics,Mathematics - History and Overview,Physics - History and Philosophy of Physics},
+  keywords = {{81S10, 01A60},Mathematical Physics,Mathematics - History and Overview,Physics - History and Philosophy of Physics},
   file = {/Users/ernesto/Zotero/storage/UUGM8Q8F/Todorov - 2012 - Quantization is a mystery.pdf}
 }
 
@@ -1812,8 +1838,7 @@
   title = {Picturing {{Qubits}} in {{Phase Space}}},
   author = {Wootters, William K.},
   date = {2003-08-08},
-  number = {arXiv:quant-ph/0306135},
-  eprint = {arXiv:quant-ph/0306135},
+  eprint = {quant-ph/0306135},
   eprinttype = {arxiv},
   url = {http://arxiv.org/abs/quant-ph/0306135},
   urldate = {2023-05-22},
