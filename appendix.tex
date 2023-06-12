@@ -1,506 +1,999 @@
 \chapter{Apéndices}
 
-  \section{La mecánica clásica y el espacio de fase}
+\section{La mecánica clásica y el espacio de fase}
 
-  El concepto del espacio de fase es una herramienta de la
-  mecánica clásica, la cual describe la evolución temporal
-  de un sistema físico. Dicho de una manera muy sencilla, la
-  mecánica clásica estudia partículas y sus trayectorias,
-  las cuales se rigen de acuerdo a las leyes de Newton.  Se
-  considera que la partícula se `mueve' en un espacio
-  euclideano, es decir, su \textit{posición} está dado por
-  $x = (x_1,\ldots,x_n) \in \R^{n}$. El
-  \textit{momentum} es una cantidad dada por $p_j = m \dot
-  x_j$, donde $\dot x$ es la derivada respecto al
-  tiempo de la posición, es decir, la velocidad de la
-  partícula, y $m$ es la \textit{masa} de la partícula. Las
-  cantidades que uno desea medir de nuestro sistema físico
-  se les llama \textit{observables}, y en la mecánica
-  clásica, son las funciones continuas que tienen como
-  argumentos las cantidades $x,p$ y $m$. Ejemplos
-  de ellos son el momentum, la energía cinética, la energía
-  potencial, etc. La función de energía más usual es la que
-  está dada como la suma de la \textit{energía cinética} y
-  \textit{energía potencial}:
+\label{sec:classical-phase-space}
+
+El concepto del espacio de fase es una herramienta de la
+mecánica clásica, la cual describe la evolución temporal de
+un sistema físico. Dicho de una manera muy sencilla, la
+mecánica clásica estudia partículas y sus trayectorias, las
+cuales se rigen de acuerdo a las leyes de Newton.  Se
+considera que la partícula se `mueve' en un espacio
+euclideano, es decir, su \textit{posición} está dado por $x
+= (x_1,\ldots,x_n) \in \R^{n}$. El \textit{momentum} es una
+cantidad dada por $p_j = m \dot x_j$, donde $\dot x$ es la
+derivada respecto al tiempo de la posición, es decir, la
+velocidad de la partícula, y $m$ es la \textit{masa} de la
+partícula. Las cantidades que uno desea medir de nuestro
+sistema físico se les llama \textit{observables}, y en la
+mecánica clásica, son las funciones continuas que tienen
+como argumentos las cantidades $x,p$ y $m$. Ejemplos de
+ellos son el momentum, la energía cinética, la energía
+potencial, etc. La función de energía más usual es la que
+está dada como la suma de la \textit{energía cinética} y
+\textit{energía potencial}:
+\begin{equation}
+  H(x,p)
+  = \frac{1}{2m} \sum_{j=1}^{n} p_j^2 + V(x).
+\end{equation}
+A la energía del sistema se le conoce como el
+\textit{Hamiltoniano}.  Utilizando ésta función de energía,
+la ley de Newton nos brinda las ecuaciones de movimiento de
+la partícula en cuestión:
+\begin{equation}
+  \frac{dx_j}{dt}
+  = \frac{\partial H}{\partial p_j},
+  \quad
+  \frac{dp_j}{dt}
+  = -\frac{\partial H}{\partial x_j}.
+\end{equation}
+Expresada como un sistema de ecuaciones diferenciales, a
+la ley de Newton se le conoce como las \textit{ecuaciones de
+Hamilton}. Con ésto, es natural representar el estado del
+sistema clásico considerando el par $(x,p) \in \R^{2n}$. Al
+espacio $\R^{2n}$ se le conoce como el \textit{espacio de
+fase}. A las soluciones de las ecuaciones de Hamilton se les
+conoce como \textit{trayectorias}, y son curvas que viven en
+el espacio de fase.
+\begin{definition}
+  El espacio de fase de una partícula que se mueve en
+  $\R^{n}$ es $\R^{2n}$, considerado como el conjunto de
+  las $(2n)$-tuplas de la forma
+  \[
+    \left(
+      x_1, \ldots, x_n, p_1, \ldots, p_n
+    \right),
+  \] 
+  donde $x_j$ y $p_j$ son elementos de $\R$.
+\end{definition}
+
+Cabe mencionar que el tratado moderno de la mecánica clásica
+está fundamentado en la geometría diferencial de las
+variedades simplécticas \cite{mcinerney2013}, en donde el
+espacio de fase se define como el espacio cotangente del
+espacio de configuraciones $T^{*} \R_x \cong \R_x \times
+\R_p$, donde el espacio de configuraciones  $\R_x$ es el
+espacio de posición y el $\R_p$ es el espacio del momentum.
+Para nuestros objetivos basta con desginar el espacio de
+fase como el espacio $\R^{2n}$.
+
+Dado que la mecánica cuántica es una teoría estadística, es
+más apropiado comparar la mecánica de una sola partícula
+cuántica con un \textit{conjunto} de partículas clásicas. La
+maquinaría utilizada para éste propósito es la mecánica
+estadística, especialmente la ecuación de Liouville para la
+distribución de un conjunto de partículas.
+
+%Podemos considerar que una partícula ocupa un punto
+%geométrico $x$ en el espacio euclideano $\R^{n}$ conocido
+%como el espacio de configuración o e posición, y con un
+%momentum $p$ en otro espacio euclideano $\R^{n}$ conocido
+%como el espacio de momentum. Idealmente los valores $x$ y
+%$p$ puede ser medidos de manera precisa en cualquier tiempo
+%$t$. Los observables clásicos son funciones de las
+%cantidades $x$ y $p$, y el conjunto de todos los pares
+%$(x,p)$ es el espacio de fase $\R^{2n}$. Las ecuaciones de
+%movimiento de Newton poseen varias simetrías, por ejemplo
+%las ecuaciones pueden ser invariantes bajo cambios en
+%posición (shift) y cambios en momentum (boost).
+
+%Un sistema físico constituido por varias partículas
+%clásicas se describe por un conjunto de parámetros
+%$(x_i,p_i,t)$ los cuales en principio son observables con
+%total precisión.
+
+%Notemos que por el momento no ha surgido ninguna
+%interpretación probabilística en la mecánica clásica, pues
+%es una teoría determinística. Dado que la teoría cuántica
+%es probabilística, es natural preguntarnos ¿qué
+%características de la mecánica clásica serían deseables en
+%la teoría cuántica? y ¿qué beneficios habría en hacer un
+%vínculo entre la mecánica clásica y la cuántica?
+%\cite{schroeck1996}, especialmente cuando sabemos que la
+%teoría cuántica (y sus derivados) es nuestra teoría más
+%precisa. Un esfuerzo por vincular las descripciones
+%clásicas y cuánticas del mundo es la representación de
+%Wigner-Weyl-Moyal de la mecánica cuántica.  Ésta es una
+%formulación que intenta usar la noción del espacio de fase
+%en la dinámica cuántica y la idea básica es la construcción
+%de \textit{cuasi-distribuciones} real-valuadas que
+%representan a los sistemas cuánticos.
+
+\section{Campos finitos}
+
+Si intentamos definir el espacio de fase discreto sobre un
+anillo como por ejemplo $\Z_4$, tendremos problemas a la
+hora de trabajar con rectas y otras estructuras geométricas.
+Por ejemplo consideramos la recta
+\[
+  x + 2p = 0,
+\]
+la cual tiene como solución al conjunto de puntos
+\begin{equation}
+  \label{eqn:ap_fields_1}
+  \{(0,0), (2,1), (0,2), (2,3)\}.
+\end{equation} 
+Ahora, la recta 
+\[
+  x = 0,
+\] 
+tiene como solución al conjunto
+\begin{equation}
+  \label{eqn:ap_fields_2}
+  \{(0,0), (0,1), (0,2), (0,3)\}.
+\end{equation} 
+Notemos que los dos conjuntos tiene una intersección con
+\textit{más} de un elemento, algo que contradice nuestra
+noción geoemétrica de una linea en el espacio. Ésto es un
+ejemplo de la falta de estructura geométrica de un espacio
+de fase discreto cuando solo utilizamos un anillo. Para
+poder preservar las nociones geométricas del espacio
+Euclideano es necesario utilizar una estructura algebráica
+más \textit{rica}, especificamente la de un campo finito.
+
+Lo que sigue es un resumén breve de los conceptos y
+resultados que fundamentan el uso de los campos finitos para
+trabajar con la geometría necesaria del espacio de fase
+discreto. La mayoría está basado en las notas de Zhe-Xian
+Wan \cite{wan} y en el libro de Rudolf Lidl y Harald
+Niederreiter \cite{lidl1994}.
+
+\begin{definition}
+  Un anillo $(R,+,\cdot)$ es un conjunto $R$, con dos
+  operaciones binarias, denotadas por $+$ y $\cdot$, tales
+  que:
+  \begin{enumerate}
+    \item $R$ es un grupo abeliano respecto a la suma $+$.
+    \item La operación $\cdot$ es asociativa.
+    \item Las leyes distributivas se cumplen, es decir, para
+      todo $a,b,c \in R$ tenemos que
+      \[
+        a \cdot (b+c) = a \cdot b + a \cdot c,
+        \quad
+        \text{y}
+        \quad
+        (b+c) \cdot a = b \cdot a + c \cdot a.
+      \] 
+  \end{enumerate}
+\end{definition}
+Un anillo $R$ se llama \textit{anillo con identidad} si
+tiene una identidad multiplicativa. Si la operación $\cdot$
+es conmutativa entonces el anillo es conmutativo. Decimos
+que el anillo es un \textit{dominio integral} si es un
+anillo conmutatitivo con identidad $1 \neq 0$, tal que $ab =
+0$ implica que $a = 0$ o $b = 0$. Un anillo es un
+\textit{anillo de división} si los elementos no cero de $R$
+forman un grupo bajo $\cdot$. En particular un anillo de
+división conmutativo es un \textit{campo}. Visto de otra
+manera tenemos que:
+\begin{definition}
+  Sea $\F$ un conjunto con dos operaciones binarias, una
+  llamada suma $+$ y otra llamada multiplicación $\cdot$.
+  Decimos que $\F$ es un campo si
+  \begin{enumerate}
+    \item $(\F,+)$ es un grupo abeliano.
+    \item $(\F^{*},\cdot)$ es un grupo abeliano, donde
+      $\F^{*} = \F \setminus \{0\}$ y $0$ es el cero del
+      grupo aditivo.
+    \item Se satisfacen las propiedades distributivas:
+      \[
+        a(b+c) = ab+ac,
+        \quad
+        (b+c)a = ba+ca,
+      \] 
+      para todo $a,b,c \in \F$.
+  \end{enumerate}
+\end{definition}
+El inverso aditivo de un elemento $a \in \F$ se denota como
+$-a$ y el inverso multiplicativo se denota $a^{-1}$.
+\begin{definition}
+  Sea $\F$ un campo. Si el número de elementos de $\F$ es
+  infinito, entonces $\F$ es un \textit{campo infinito}. Si
+  el número de elementos es finito, decimos que $\F$ es un
+  \textit{campo finito}.
+\end{definition}
+Todos los campos son en particular un dominio integral, pero
+el converso no es siempre cierto, al menos que el dominio
+integral sea finito.
+\begin{example}
+  Sea $n$ un número entero. El conjunto $\Z_n = \Z / n\Z$
+  consiste de $n$ clases residuales
+  \[
+    [a] = a + n\Z = \{a + nk : k \in \Z\}.
+  \] 
+  Como de costumbre, omitimos la notación de clase de
+  equivalencia $[\cdot]$. En $\Z_n$ tenemos que
+  \[
+    \underbrace{1 + 1 + \cdots + 1}_{n \text{ veces}} 
+    = 0.
+  \] 
+  Notemos que $\Z_n$ simplemente consiste de los enteros
+  módulo $n$. En el caso en $n$ es un número primo $p$,
+  entonces el anillo de clases residuales de los enteros
+  módulo el ideal principal generado por $p$, $\Z_p$, es un
+  campo.
+\end{example}
+\begin{definition}
+  Sea $\F$ un campo y $1$ su identidad multiplicativa. Si
+  para cualquier entero positivo $m$ tenemos que $m \cdot 1
+  \neq 0$, entonces la \textit{característica} de  $\F$ es
+  0. Si existe un entero positivo $m$ tal que $m \cdot 1 =
+  0$, entonces el entero $p$ más pequeño que satisface $p
+  \cdot 1 = 0$ se llama la \textit{característica} de $\F$.
+\end{definition}
+Los campos $\Q, \R$ y $\C$ son de característica 0, mientras
+que $\Z_p$ es de característica prima $p$. Es fácil probar
+que la característica de un campo es 0 o es un número primo.
+Si $\F$ es un campo de característica $p$ entonces
+\[
+  \Pi = \{0, 1, 2 \cdot 1,\ldots,(p-1) \cdot 1\},
+\] 
+es un \textit{subcampo} de $\F$. De hecho, es el subcampo
+más pequeño de $\F$ y se le conoce como el \textit{campo
+primo} ya que es isomorfo a $\Z_p$.
+\begin{lemma}
+  Sea $\F$ un campo finito de característica $p \neq 0$. Sea
+  $n$ un entero no negativo, entonces el mapeo $\sigma_n :
+  \F \to \F$ dado por
+  \[
+    \sigma_n : a \mapsto a^{p^{n}},
+    \quad a \in \F
+  \] 
+  es un automorfismo de $\F$.
+\end{lemma}
+
+Es natural preguntarnos como podemos construir campos
+finitos de orden no primo. Para ésto investiguemos
+brevemente a los campos de clases residuales. Sea $\F$ un
+campo y $m$ un elemento fijo de $\F$. Entonces para
+cualesquiera dos elementos $a,b \in \F$, decimos que
+\begin{equation}
+  a \cong b \, (\mod m)
+\end{equation}
+si y solo si $m | (a-b)$. Ésto es una clase de equivalencia
+en $\F$ y cada clase de equivalencia se conoce como
+\textit{clase residual} módulo $m$.
+\begin{definition}
+  Sea $\F$ un campo, $\F[x]$ el anillo de polinomios sobre
+  $\F$ y $f(x)$ un polinomio en $\F[x]$. El anillo
+  \[
+    F[x] / \langle f(x) \rangle
+  \] 
+  se conoce como el anillo de clases residuales del anillo
+  polinomial $\F[x]$ módulo el polinomio $f(x)$. Más aún, si
+  $f(x)$ es un polinomio irreducible sobre $\F$, entonces
+  $\F[x] / \langle f(x) \rangle$ es un campo.
+\end{definition}
+\begin{theorem}
+  Sea $\F$ un campo, $\E$ un subcampo de $\F$ y $\alpha \in
+  \E$. Sea $p(x)$ un polinomio irreducible de grado $n$ 
+  sobre $\F_p$ y supongamos que $p(\alpha) = 0$. Entonces
+  $\F[\alpha]$ es un subcampo de $\E$,
   \begin{equation}
-    H(x,p)
-    = \frac{1}{2m} \sum_{j=1}^{n} p_j^2 + V(x).
+    \F[\alpha]
+    = \{a_0 + a_1\alpha + a_2 \alpha^2 + \cdots a_{n-1}
+    \alpha^{n-1} : \alpha_i \in \F\},
   \end{equation}
-  A la energía del sistema se le conoce como el
-  \textit{Hamiltoniano}.  Utilizando ésta función de
-  energía, la ley de Newton nos brinda las ecuaciones de
-  movimiento de la partícula en cuestión:
+  y todo elemento de $\F[\alpha]$ puede ser expresado de
+  manera única como
   \begin{equation}
-    \frac{dx_j}{dt}
-    = \frac{\partial H}{\partial p_j},
+    a_0 + a_1\alpha + a_2 \alpha^2 + \cdots + a_{n-1}
+    \alpha^{n-1}.
+  \end{equation}
+  Además $F[\alpha]$ es isomofo a la clase residual $\F[x] /
+  \langle p(x) \rangle$.
+\end{theorem}
+\begin{theorem}
+  Sea $\F$ un campo y $p(x)$ un polinomio irreducible de
+  grado $n$ sobre $\F$. Denotemos la clase residual de $x
+  \mod p(x)$ por $\alpha$. Entonces
+  \begin{equation}
+    F[x] / \langle p(x) \rangle
+    \cong F[\alpha].
+  \end{equation}
+  Además si $\F$ es un campo finito con $p$ elementos,
+  entonces el orden de  $F[x] / \langle p(x) \rangle$ es
+  $p^{n}$.
+\end{theorem}
+El teorema anterior nos dice que para construir a $\F_d$
+donde $d = p^{n}$ requerimos de un polinomio $f(x)$ de grado
+$n$ que es irreducible en $\F_p$.  Si $\alpha$ es una raíz
+de $f(x)$, el campo que obtenemos al adjuntar $\alpha$ a
+$\F_p$ es
+\begin{equation}
+  \F_N
+  = \F_r(\alpha) \cong \F_r[x] / \langle f(x) \rangle.
+\end{equation} 
+\begin{example}
+  Consideremos el campo $\Z_2$ y el polinomio $f(x) = x^2
+  + x + 1$. Notemos que $f(0) = f(1) = 1$, por lo tanto
+  $f(x)$ no tiene raíces en $\Z_2$, i.e., $f(x)$ es
+  irreducible sobre $\Z_2$. De acuerdo al teorema anterior,
+  la extensión de Galois $\Z_2 / \langle f(x) \rangle$ tiene
+  $2^2$ elementos y está dada por
+  \[
+    \F_4
+    := \Z_2[x] / (x^2 + x + 1)
+    \cong \Z_2[\alpha]
+    = \{0, 1, \alpha, \alpha + 1\},
+  \] 
+  donde $\alpha$ es la clase residual de $x \mod x^2+x+1$.
+  La tabla de adición está dada por
+  \begin{table}[ht]
+    \centering
+    \label{tab:F4_addition}
+    \begin{tabular}{c | c c c c}
+      $+$ & 0 & 1 & $\alpha$ & $\alpha+1$ \\
+      \hline
+      0 & 0 & 1 & $\alpha$ & $\alpha+1$ \\
+      1 & 1 & 0 & $\alpha + 1$ & $\alpha$ \\
+      $\alpha$ & $\alpha$ & $\alpha+1$ & 0 & 1 \\
+      $\alpha + 1$ & $\alpha+1$ & $\alpha$ & 1 & 0
+    \end{tabular}
+    \caption{Tabla de adición de $\F_4$.}
+  \end{table}
+  Similarmente podemos calcular la tabla de multiplicación.
+  \begin{table}[ht]
+    \centering
+    \label{tab:label}
+    \begin{tabular}{c | c c c c}
+      $\cdot$ & 0 & 1 & $\alpha$ & $\alpha+1$ \\
+      \hline
+      0 & 0 & 0 & 0 & 0 \\
+      1 & 0 & 1 & $\alpha$ & $\alpha+1$ \\
+      $\alpha$ & 0 & $\alpha$ & $\alpha+1$ & 1 \\
+      $\alpha+1$ & 0 & $\alpha+1$ & 1 & $\alpha$\\
+    \end{tabular}
+    \caption{Tabla de multiplicación de $\F_4$.}
+  \end{table}
+  Cualquier campo de cuatro elementos es isomorfo a $\F_4$.
+\end{example}
+Si $\F_d$ es un campo finito de $d$ elementos, el grupo
+multiplicativo $\F_d^{*}$ es de orden $d - 1$. El orden de
+cada elemento de éste grupo es un divisor de $d-1$, por lo
+tanto $a^{d-1} = 1$ para todo $a \in \F_d^{*}$. Además se
+puede probar que el grupo multiplicativo de cualquier campo
+finito es cíclico. A los generadores del grupo cíclico
+$\F_d^{*}$ se les conoce como \textit{elementos primitivos}.
+
+
+\subsection{Automorfismos de campos finitos}
+
+Sea $d$ una potencia de un primo y $\F_d$ un campo finito.
+Sea $n$ un entero positivo, entonces podemos ver a $\F_d$
+como un subcampo del campo $\F_{d^{n}}$. El mapeo
+\begin{equation}
+  \sigma : \alpha \mapsto \alpha^{d}
+\end{equation}
+de $\F_{d^{n}}$ a si mismo es un automorfismo de
+$\F_{d^{n}}$. Resulta que $\sigma(a) = a$ si y solo si $a
+\in \F_d$, i.e., los elementos del subcampo son invariantes
+bajo $\sigma$. Al automorfismo $\sigma$ de $\F_d$ se le
+conoce como el \textit{automorfismo de Frobenius}. Denotemos
+por $\sigma^2$ a la composición $\sigma \circ \sigma$,
+entonces $\sigma^2$ también es un automorfismo de
+$\F_{d^{n}}$ sobre $\F_d$. En general, si $\sigma^{0} = 1$
+donde $1$ en éste caso significa el mapeo identidad sobre
+$\F_{d^{n}}$, tenemos que
+\begin{equation}
+  \sigma^{i+1}
+  = \sigma \circ \sigma^{i},
+  \quad i = 1,2,\ldots,
+\end{equation}
+son automorfismos sobre $\F_d$. Notemos que $\sigma^{n} =
+1$. Además de que $\sigma$ fija a todo elemento de $\F_d$,
+también tenemos que $\sigma^{1}$ y $\sigma^{k} \neq 1$ para
+$1 \leq k < n$, y $\sigma^{0} = 1, \sigma, \sigma^2, \ldots,
+\sigma^{n-1}$ son $n$ automorfismos \textit{distintos} de
+$\F_{d^{n}}$ sobre $\F_d$. El conjunto de automorfismos
+de $\F_{d^{n}}$ sobre $\F_d$ forman un grupo respecto a la
+composición, llamado el \textit{grupo de Galois} de
+$\F_{q^{n}}$ sobre $\F_d$, denotado por
+$\Gal\left(\F_{d^{n}} / \F_d\right)$.  Se puede demostrar
+que
+\begin{equation}
+  \Gal\left( \F_{d^{n}} / \F_d \right) 
+  = \langle \sigma \rangle,
+\end{equation}
+i.e., todo automorfismo puede ser expresado como una
+potencia del automorfismo de Frobenius. En otras palabras,
+los automorfismos $\sigma^{0} = 1$, $\sigma, \ldots,
+\sigma^{n-1}$ son \textit{todos} los automorfismos de
+$\F_{d^{n}}$ sobre $\F_d$.
+
+\begin{definition}
+  Sea $d$ una potencia de un primo y $n$ un entero positivo.
+  Podemos asumir que $\F_d$ es un subcampo de $\F_{d^{n}}$.
+  Sea $\sigma$ el automorfismo de Frobenius de $\F_{d^{n}}$ 
+  sobre $\F_d$. Si $\alpha \in \F_{d^{n}}$, su traza
+  relativa a $\F_q$ es
+  \begin{equation}
+    \tr_{\F_{d^{n}} / \F_d}(\alpha)
+    = \sum_{i = 0}^{n-1} \sigma^{i}(\alpha)
+    = \alpha + \alpha^{d} + \alpha^{d^2} + \cdots +
+    \alpha^{d^{n-1}}.
+  \end{equation}
+\end{definition}
+Si el campo y subcampo son claros dentro del contexto en que
+se maneja la traza, simplemente la denotamos por $\tr$. La
+operación $\tr$ mapea a todo elemento del campo finito a un
+elemento del subcampo $\tr : \F_{d^{n}} \to \F_d$. La traza
+satisface la siguientes propiedades.
+\begin{theorem}
+  Para $\alpha,\beta \in \F_{d^{n}}$ y $a \in \F_d$ tenemos
+  \begin{itemize}
+    \item $\tr(\alpha) \in \F_d$.
+    \item $\tr(\alpha+\beta) = \tr(\alpha) + \tr(\beta)$;
+    \item $\tr(a\alpha) = a \tr(\alpha)$ y $\tr(a) = n
+      \tr(a)$.
+    \item $\tr\left( \alpha^{d} \right) = \tr(\alpha)$.
+    \item La traza es suprayectiva y para $\alpha \in
+      \F_{d^{n}}$, $\tr(\alpha) = 0$ si y solo si existe un
+      elemento $\beta \in \F_{d^{n}}$ tal que $\alpha =
+      \beta - \beta^{d}$.
+    \item Para cualquier $a \in \F_d$, el número de
+      elementos $\alpha \in \F_{d^{n}}$ tales que
+      $\tr(\alpha) = a$ es $d^{n-1}$.
+  \end{itemize}
+\end{theorem}
+
+\subsection{Bases de campos}
+
+Sean $\F_{d^{n}}$ y $\F_d$ campos finitos, donde $d$ es una
+potencia de un primo y $n$ es un entero positivo. Supongamos
+además que $\F_d$ es un subcampo de $\F_{d^{n}}$. Podemos
+ver al campo $\F_{d^{n}}$ como un espacio vectorial sobre
+$\F_d$ al definir una multiplicación escalar de la siguiente
+manera:
+\begin{align*}
+  \F_d \times \F_{d^{n}} &\to \F_{d^{n}} \\
+  (a, \alpha) &\mapsto a\alpha.
+\end{align*}
+Supongamos que $\dim \F_{d^{n}} = m$ y sea $\alpha_1,
+\alpha_2, \ldots, \alpha_m$ una base del espacio vectorial
+$\F_{d^{n}}$ sobre $\F_d$. Todo elemento $\beta \in
+\F_{d^{n}}$ puede ser expresado como una combinación lineal
+de elementos de la base con coeficientes en $\F_d$:
+\[
+  \beta = b_1 \alpha_1 + \ldots + b_n \alpha_m.
+\] 
+Por lo tanto $\left|\F_{d^{n}}\right|$ lo que implica que $m
+= n$. En general, $\F_{d^{n}}$ es un espacio vectorial sobre
+$\F_d$ de dimensión $n$. A la cardinalidad de la base se le
+conoce grado de la extensión $\F_{d^{n}}$ sobre $\F_d$ y es
+común denotarla como
+\[
+  [\F_{d^{n}} : \F_d] = n.
+\] 
+Sumar y restar elementos de la base se puede hacer
+utilizando la base de manera natural. Para obtener las
+coordenadas de una suma $\beta + \gamma$, basta con sumar
+las coordenadas de $\beta$ y de $\gamma$ en la base. Podemos
+hacer algo similar para la multiplicación de los elementos.
+Podemos obtener más bases por medio de matrices no
+singulares.
+\begin{theorem}
+  Sea $\{\alpha_1,\alpha_2,\ldots,\alpha_n\}$ una base de
+  $\F_{d^{n}}$ sobre $\F_d$ y 
+  \[
+    (a_{ij}), 
+    \quad 1 \leq i,j \leq n,
+  \] 
+  una matriz $n \times n$ no singular sobre $\F_d$. Los
+  elementos
+  \[
+    \beta_j
+    = \sum_{i=1}^{n} a_{ij} \alpha_i,
+    \quad j = 1,2,\ldots,n
+  \] 
+  forman una base de $\F_{d^{n}}$ sobre $\F_d$.
+\end{theorem}
+Existen distintos criterios para identificar cuando un
+conjunto de elementos del campo es una base para el espacio
+vectorial, pero éstos criterios no serán importantes para
+nosotros. Por ahora, consideremos un elemento $\alpha \in
+\F_{d^{n}}$ de grado $n$ sobre $\F_d$. Entonces
+\[
+  1, \alpha, \alpha^2, \ldots, \alpha^{n-1}
+\] 
+es una base del campo. Ésta base comunmente se conoce como
+la \textit{base polinomial}. Enseguida introducimos el
+concepto de una base dual del campo finito.
+\begin{definition}
+  Sean $\{\alpha_1,\alpha_2,\ldots,\alpha_n\}$ y
+  $\{\beta_1,\beta_2,\ldots,\beta_n\}$ dos bases de
+  $\F_{d^{n}}$ sobre $\F_d$. Si
+  \[
+    \tr(\alpha_i \beta_j)
+    = \delta_{ij},
     \quad
-    \frac{dp_j}{dt}
-    = -\frac{\partial H}{\partial x_j}.
-  \end{equation}
-  Expresada como un sistema de ecuaciones diferenciales, a
-  la ley de Newton se le conoce como las \textit{ecuaciones
-  de Hamilton}. Con ésto, es natural representar el estado
-  del sistema clásico considerando el par $(x,p) \in
-  \R^{2n}$. Al espacio $\R^{2n}$ se le conoce como el
-  \textit{espacio de fase}. A las soluciones de las
-  ecuaciones de Hamilton se les conoce como
-  \textit{trayectorias}, y son curvas que viven en el
-  espacio de fase.
-  \begin{definition}
-    El espacio de fase de una partícula que se mueve en
-    $\R^{n}$ es $\R^{2n}$, considerado como el conjunto de
-    las $(2n)$-tuplas de la forma
-    \[
-      \left(
-        x_1, \ldots, x_n, p_1, \ldots, p_n
-      \right),
-    \] 
-    donde $x_j$ y $p_j$ son elementos de $\R$.
-  \end{definition}
-
-  Cabe mencionar que el tratado moderno de la mecánica
-  clásica está fundamentado en la geometría diferencial de
-  las variedades simplécticas
-  \cite{mcinerneyFirstStepsDifferential2013}, en donde el
-  espacio de fase se define como el espacio cotangente del
-  espacio de configuraciones $T^{*} \R_x \cong \R_x \times
-  \R_p$, donde el espacio de configuraciones  $\R_x$ es el
-  espacio de posición y el $\R_p$ es el espacio del
-  momentum.  Para nuestros objetivos basta con desginar el
-  espacio de fase como el espacio $\R^{2n}$.
-
-  Notemos que por el momento no ha surgido ninguna
-  interpretación probabilística en la mecánica clásica, pues
-  es una teoría determinística. Dado que la teoría cuántica
-  es probabilística, es natural preguntarnos ¿qué
-  características de la mecánica clásica serían deseables en
-  la teoría cuántica? y ¿qué beneficios habría en hacer un
-  vínculo entre la mecánica clásica y la cuántica?
-  \cite{schroeckQuantumMechanicsPhase1996}, especialmente
-  cuando sabemos que la teoría cuántica (y sus derivados) es
-  nuestra teoría más precisa. Un esfuerzo por vincular las
-  descripciones clásicas y cuánticas del mundo es la
-  representación de Wigner-Weyl-Moyal de la mecánica
-  cuántica.  Ésta es una formulación que intenta usar la
-  noción del espacio de fase en la dinámica cuántica y la
-  idea básica es la construcción de
-  \textit{cuasi-distribuciones} real-valuadas que
-  representan a los sistemas cuánticos.
-
-  \section{Resumen de Folland}
-
-  Para Folland, la transformación de Wigner de dos funciones
-  $f$ y $g$ es la transformación de Fourier de la
-  transformación de Fourier-Wigner:
-  \[
-    W(f,g)(\xi, \eta)
-    = \int_{\R^{2n}} e^{-2\pi i (\xi q + \eta p} V(f,g)(q,x)
-    \, dp \, dq.
-  \] 
-  Donde
-  \[
-    V(f,g)(q,p)
-    = \int e^{2\pi i q y} f(y + \frac{1}{2}p)\overline{g(y -
-    \frac{1}{2}p)} \, dy.
-  \] 
-  Así que
-  \[
-    W(f,g)(\xi, \eta) = \int e^{-2\pi i \eta p }
-    f(x+\frac{1}{2}p)\overline{g(y-\frac{1}{2}p)} \, dp.
-  \] 
-
-  Folland muestra que $W$ mapea $\Sz(\R^{n}) \times
-  \Sz(\R^{n})$ a $\Sz(\R^{2n})$ y se puede extender al caso
-  de las distribuciones templadas.
-
-\section{Anillos y campos}
-
-  Si intentamos definir el espacio de fase discreto sobre un
-  anillo como $\Z_4$ tendremos problemas a la hora de
-  definir las rectas. Por ejemplo si consideramos la recta
-  \[
-    x + 2p = 0,
-  \]
-  que tiene como solución al conjunto de puntos
-  \[
-    \{(0,0), (2,1), (0,2), (2,3)\}.
-  \] 
-  Ahora, la recta 
-  \[
-    x = 0,
-  \] 
-  tiene como solución al conjunto
-  \[
-    \{(0,0), (0,1), (0,2), (0,3)\}.
-  \] 
-  Notemos que los dos conjuntos tiene una intersección con
-  más de un elemento, algo que contradice nuestra noción
-  geoemétrica de una linea en el espacio.
-
-  Sea $\F_N$ un campo de $N$ elementos donde $N = r^{k}$ es
-  una potencia de un número primo $r$. El primo $p$ se
-  conoce como la característica de $\F_N$ y se define como
-  el número entero más pequeño tal que
-  \[
-    1 + 1 + \ldots + 1 = 0.
-  \] 
-  $\F_r$ es simplemente $\Z_r$ pero $\F_N$ no es $\Z_N$.
-  Para construir a $\F_N$ requerimos de un polinomio $f(x)$ 
-  de grado $k$ que es irreducible en $\F_r$. Si $\alpha$ es
-  una raíz de $f(x)$, el campo que obtenemos al adjuntar
-  $\alpha$ a $\F_r$ es
-  \[
-    \F_N
-    = \F_r(\alpha) \cong \F_r[x] / \langle f(x) \rangle.
-  \] 
-  \begin{example}
-    Consideremos el anillo $\Z_4$ y el polinomio $f(x) = x^2
-    + x + 1$. El campo de Galois es
-    \[
-      \F_2[x] / (x^2 + x + 1)
-      \cong \F_2(\alpha)
-      = \{0, 1, \alpha, \alpha + 1\},
-    \] 
-    donde $\alpha^2 + \alpha + 1 = 0$. En el campo $\F_2 =
-    {0,1}$ no hay soluciones al polinomio $f(x)$ y definimos
-    su solución como $\alpha$. Todo elemento de
-    $\F_2(\alpha)$ tiene la forma $a_1 \alpha + a_0$, donde
-    $a_j \in \F_2$, por lo tanto $\{1, \alpha\}$ es una base
-    de espacio vectorial de $\F_4$ sobre $\F_2$.
-  \end{example}
-
-  El mapeo $\sigma : \alpha \to \alpha^r$ donde $\alpha \in
-  \F_N$ es un automorfismo lineal de $\F_N$ llamado el
-  \textit{automorfismo de Frobenius} que nos da los
-  conjugados de Galois. Elementos del campo primo son
-  invariantes bajo $\sigma$. Definimos la operación de traza
-  de un elemento $\alpha \in \F_N$ (distinta a la traza de
-  un operador lineal) como:
-  \[
-    \tr(\alpha) 
-    = \alpha + \alpha^{r} + \alpha^{r^2} + \ldots +
-    \alpha^{r^{k-1}}
-    = \sum_{m=0}^{k-1} \sigma^{m}(\alpha).
-  \] 
-  La operación $\tr$ mapea a todo elemento del campo finito
-  a un elemento del campo primo $\tr : \F_N \to \F_r$. Para
-  cualquier base $E = \{e_0,e_1,\ldots,e_{N-1}\}$, existe
-  una única base de campo $\tilde E = \{\tilde
-  e_0,\ldots,\tilde e_{N-1}\}$ tal que $\tr(\tilde e_j e_k)
-  = \delta_{jk}$. La base $\tilde E$ se llama la base dual a
-  $E$. Podemos utilizar la base dual para encontrar la
-  expansión única en coeficientes respecto a la base $E$ 
-  para cualquier elemento $x$ del campo. Para obtener el
-  componente $x_s$ del elemento $x$, hacemos
-  \[
-    \tr(x \tilde e_s)
-    = \sum_{r}^{k} x_r \tr(e_r \tilde e_s)
-    = x_s.
-  \]
-
-  \section{Klappenecker, Godsil, Roy}
-
-  \subsection{Característica impar}
-
-  Consideremos un espacio de Hilbert de dimensión $d =
-  p^{n}$ donde $p$ es un primo impar, y sea $\{\ket{u}\}$ la
-  base estándar para el espacio $\C^{d}$ indexado por los
-  elementos de la extensión de Galois $\mathbb F_{d} =
-  \GF(p,n)$. Dado un $a \in \mathbb F_d$, definamos los
-  operadores
-  \begin{align}
-    X(a) &: \ket u \mapsto \ket{u+a} \\
-    Z(a) &: \ket u \mapsto \omega^{\tr(au)} \ket{u}.
-  \end{align}
-  Notemos que son los operadores de desplazamiento básicos
-  que definimos anteriormente en la metodología de Wootters
-  y Gibbons, pero ésta vez las operaciones dentro de los
-  kets y en las potencias de la raíz primitiva son las del
-  campo finito y no solo operaciones módulo $p$. Recordamos
-  que la base estándar es un conjunto completo de
-  eigenvectores de $Z(a)$. Además la base `Fourier
-  conjugada'
-  \[
-    \ket{\tilde u}
-    = \sum_{v \in \mathbb F_d}^{} \omega^{\tr(uv)} \ket{v},
-    \quad u \in \mathbb F_d,
-  \] 
-  es un conjunto completo de eigenvectores del operador
-  $X(a)$. De nuevo definamos a los operadores de
-  desplazamiento generales como
-  \[
-    D(a,b) = X(a)Z(b).
-  \] 
-  Cada operador de desplazamiento es unitario y monomial.
-  Bandyopadhyay et al particionan dichas matrices en
-  conjuntos mutuamente conmutativos y demuestra que los
-  eigenvectores simultáneaos de cada conjunto forman bases
-  mutuamente insesgadas. La siguiente proposición nos dice
-  como construir a esos eigenvectores.
-  \begin{proposition}
-    Sea $D(a,b)$ un operador de desplazamiento donde $a,b
-    \in \mathbb F_d$. Si $c$ y $n$ son elementos del campo
-    tales que $c = \frac{b}{2a}$, entonces el vector
-    \begin{equation}
-      \ket{a,b; n}
-      = \sum_{x \in \mathbb F_d}^{} \omega^{\tr(cx^2+2nx)}
-      \ket{u},
-    \end{equation}
-    es un eigenvector de $D(a,b)$.
-  \end{proposition}
-  \begin{proof}
-    .
-  \end{proof}
-
-  \subsection{Característica par}
-
-  El caso donde el campo primo es de característica par es
-  un poco más complicado. ¿Por qué? En éste caso es
-  necesario hacer operaciones en un \textit{anillo} de
-  Galois. Sea $\Z_4$ el anillo de los enteros módulo 4.
-  Decimos que un polinomio $h(x) \in \Z_4[x]$ es un
-  \textit{primitivo básico} si y solo si su imágen en
-  \[
-    \Z_4[x] / \langle 2 \rangle
-    \cong
-    \Z_2[x]
-  \] 
-  bajo el mapeo canónico es un polinomio primitivo en
-  $\Z_2[x]$. Sea $h(x)$ un polinomio primitivo básico mónico
-  de grado $n$, entonces el anillo
-  \begin{equation}
-    GR(4,n)
-    = \Z_4[x] / \langle h(x) \rangle    
-  \end{equation}
-  se cono como el anillo de Galois de grado $n$ sobre
-  $\Z_4$.
-  Sea $\xi$ el elemento primitivo de orden $2^{n}-1$ del
-  anillo y consideremos el conjunto Teichmüller
-  \[
-    T_n
-    = \{0,1,\xi,\ldots,\xi^{2n-2}\},
-  \] 
-  del anillo. Klappenecker [CITE] nos menciona que todo
-  elemento $r \in GR(4,n)$ puede ser expresado de manera
-  única en la forma $r = a + 2b$ donde $a,b \in T_n$. Con
-  ésta caracterización de los elementos del anillo en
-  términos de los elementos del Teichmüller podemos definir
-  el automorfismo de Frobenius (ver apéndice ()) $\sigma :
-  GR(4,n) \to \Z_4$ definido como
-  \[
-    \sigma(a+2b)
-    = a^2+2b^2.
-  \] 
-  Con ésto definamos a la traza del anillo de Galois $\tr :
-  GR(4,n) \to \Z_4$ utilizando el mapa de Frobenius:
-  \[
-    \tr(r)
-    = \sum_{k=0}^{n-1} \sigma^{k}(r).
-  \] 
-  Con éstos acordes Klappenecker construye las siguientes
-  bases mutuamente insesgadas.
-  \begin{proposition}
-    Sea $GR(4,n)$ el anillo de Galois de $4^{n}$ elementos y
-    $T_n$ su Teichmüller. Entonces el conjunto de vectores
-    definidos como
-    \begin{equation}
-      \ket{a; b}
-      = 2^{-n / 2} \left(
-        \eta^{\tr\left( ax + 2bx \right)}
-      \right)_{x \in T_n},
-    \end{equation}
-    donde $\eta = e^{2\pi i / 4}$, son bases mutuamente
-    insesgadas del espacio $\C^{2^{n}}$.
-  \end{proposition}
-
-  Godsil y Roy definen las matrices de Pauli para $a, u \in
-  T$ como
-  \begin{align}
-    X(a) &: \ket u \mapsto \ket{u+a+2 \sqrt{ua}} \\
-    Z(a) &: \ket u \mapsto (-1)^{\tr(au)} \ket{u}
-    = i^{\tr(2au)}\ket u.
-  \end{align}
-  \begin{proposition}
-    Si $c,d \in T$, los vectores
-    \begin{equation}
-      \ket{c,d}
-      = \sum_{x \in T}^{} i^{\tr(cx^2+2dx)} \ket x,
-    \end{equation}
-    son eigenvectores de los operadores de desplazamiento
-    $D(a,b)$, donde $a,b \in T$.
-  \end{proposition}
-
-  \section{Campos y anillos de Galois}
-
-  \subsection{Extensiones de campo}
-
-  Como hemos visto, la estructura algebráica del campo
-  finito es necesaria para poder construir una función de
-  Wigner discreta con todas las propiedades deseables. La
-  artimética $d$-modular no es suficiente ya que no se
-  preservan ciertas propiedades importantes de una geometría
-  finita. Los campos $\Z_p$ donde $p$ es un número primo son
-  los más sencillos de manejar porque las operaciones se
-  hacen módulo $p$, pero ésto se vuelve inpráctico porque no
-  todo sistema cuántico puede ser modelado por un espacio de
-  Hilbert de dimensión prima. El concepto de una
-  \textit{extensión de campos} nos permite augmentar el
-  campo $\Z_p$ a un campo finito de orden $p^{n}$. A la
-  extensión de campo se le dice \textit{extensión de Galois}
-  y son de característica $p$.
-
-  Consideremos al anillo de polinomios $\Z_p[x]$ con
-  coeficientes en el campo primo $\Z_p$. Sea $p(x)$ un
-  polynomio mónico irreducible de grado $n$:
-  \begin{equation}
-    p(x)
-    = c_0 + c_1 x + \cdots + c_{n-1} x^{n-1} + x^{n},
-    \quad c_n \in \Z_p.
-  \end{equation}
-  El cociente $\Z_p[x] / p(x)$ es un representación del
-  campo de Galois $\GF(p^{n})$. Distintos polinomios
-  irreducibles del mismo grado nos brinda campos finitos
-  isomorfos. Las operaciones de la extensión de campo son
-  las operaciones de suma y multiplicación usuales, módulo
-  el polinomio $p(x)$. Es importante notar que un elemento
-  $\alpha \in \GF(p^{n})$ se puede ver como un vector
-  $(\alpha_0, \alpha_1, \ldots, \alpha_{n-1})$ en
-  $(\Z_p)^{n}$, utilizando la base
-  $\{1,\omega,\ldots,\omega^{n-1}\}$ donde $\omega$ es una
-  raíz del polinomio irreducible. De ésta manera la adición
-  en la extensión se reduce a la adición usual del espacio
-  vectorial $(\Z_p)^{n}$. Enseguida definimos algunos
-  conceptos necesarios para trabajar con el espacio de fase
-  discreto y para desarrollar la metodología de Wootters
-  para la construcción de la función de Wigner.
-
-  \begin{definition}
-    Sea $\GF(p^{n})$ un campo de Galois, definimos la
-    transformación de Frobenius como
-    \begin{equation}
-      \sigma(\alpha) = \alpha^{p};
-      \quad
-      \sigma^{n} = 1.
-    \end{equation}
-    Dicha transformación define un automorfismo en
-    $\GF(p^{n})$ y produce los \textit{conjugados de
-    Galois}.
-  \end{definition}
-
-  \begin{definition}
-    La traza de un elemento $\alpha \in \GF(p^{n})$ es la
-    suma de todos sus conjugados, y es un elemento del campo
-    primo $\Z_p$:
-    \begin{equation}
-      \tr(\alpha)
-      = \tr_{n / 1}(\alpha)
-      = \alpha + \alpha^{p} + \alpha^{p^2} + \cdots +
-      \alpha^{p^{n-1}}.
-    \end{equation}
-  \end{definition}
-  La traza así definida es la traza \textit{respecto} a la
-  extensión de $\Z_p$ a $\GF(p^{n})$. La traza es lineal
-  respecto a la suma en los elementos de la extensión, y si
-  $\alpha \in \Z_p$ entonces $\tr(\alpha\beta) =
-  \alpha\tr(\beta)$ para todo $\beta \in \GF(p^{n})$.
-
-  \subsection{Bases de una extensión de Galois}
-
-  . . .
-
-  Para construir la base dual y para el cálculo de la traza de
-  los elementos de la extensión, resulta ventajoso definir
-  la siguiente matriz con elementos en el campo primo.
-
-  \begin{proposition}
-    Sean $g,G$ las siguientes matrices simétricas e
-    invertibles $n \times n$ con elementos en $\Z_p$:
-    \begin{equation}
-      g_{ij}
-      = \tr(\omega^{i+j});
-      \quad
-      G = g^{-1},
-      \quad
-      i,j = 0,\ldots,n-1.
-    \end{equation}
-    El conjunto de elementos $\{E_0,E_1,\ldots,E_{n-1}\}$ 
-    definido como
-    \begin{equation}
-      E_i = \sum_{j}^{} G_{ij} \omega^{j},
-    \end{equation}
-    es una base dual a
-    $\{1,\omega,\omega^2,\ldots,\omega^{n-1}\}$.
-  \end{proposition}
-
-  Con lo anterior, podemos calcular los
-  componentes de cualquier elemento $\alpha$ de la extensión
-  de campos, en términos de la base o de su dual:
-  \begin{align}
-    \alpha_i
-    &= \tr(\alpha E E_i);
+    \text{para todo}
     \quad
-    \overline{\alpha}_i
-    = \tr(\alpha \omega^{i}) \\
-    \alpha_i 
-    &= \sum_{j}^{} G_{ij} \overline{\alpha}_j;
-    \quad
-    \overline{\alpha}_i
-    = \sum_{j}^{} g_{ij} \alpha_j.
-  \end{align} 
-
-  \subsection{Sistemas compuestos y factorización tensorial}
-
-  Sabemos que una extensión de Galois $\GF(p^{n})$ se puede
-  ver como un espacio vectorial sobre el campo primo $\Z_p$
-  respecto a la adición del campo. Pero también tiene más
-  estructra, como la multiplicación y las transformaciones
-  de Frobenius. Por ésto, Vourdas [CITE] nota que
-  representar un sistema cuántico con una extensión de
-  Galois de grado $n$ no es lo mismo que representarlo con
-  una suma directa del campo primo. 
-
-  Sea $\ket{\alpha}$ un base ortonormal de un espacio de
-  Hilbert $\H$ de dimensión $p^{n}$, indexada por los
-  elementos de una extensión de Galois. Además sea $\H_p$ un
-  espacio de dimensión $p$ y $\ket{k}$ un base ortonormal de
-  $\H_p$ indexado por los elementos del campo primo $\Z_p$.
-  Utilizando la base natural de la extensión de campo,
-  podemos expresar a cualquier elemento $\alpha \in
-  \GF(p^{n})$ como $\alpha = \sum_{i}^{} \alpha_i \omega^{i}
-  $, ésto nos da un mapeo biyectivo:
+    i,j = 1,2,\ldots,n,
+  \] 
+  entonces decimos que las bases son duales una respecto a
+  la otra, en particular
+  $\{\beta_1,\beta_2,\ldots,\beta_n\}$ es una base dual a
+  $\{\alpha_1,\alpha_2,\ldots,\alpha_n\}$.
+\end{definition}
+Toda base de un campo tiene una \textit{única} base dual.
+Para construir la base dual y para el cálculo de la traza de
+los elementos de la extensión, resulta ventajoso definir la
+siguiente matriz con elementos en el campo primo.
+\begin{proposition}
+  Sean $g,G$ las siguientes matrices simétricas e
+  invertibles $n \times n$ con elementos en $\Z_p$:
   \begin{equation}
-    \label{eqn:extension_field_map}
-    \alpha \mapsto (\alpha_0,\ldots,\alpha_{n-1}),
+    g_{ij}
+    = \tr(\omega^{i+j});
+    \quad
+    G = g^{-1},
+    \quad
+    i,j = 1,\ldots,n.
+  \end{equation}
+  El conjunto de elementos
+  $\{\beta_1,\beta_2,\ldots,\beta_n\}$ definido como
+  \begin{equation}
+    \beta_i = \sum_{j}^{} G_{ij} \omega^{j},
+  \end{equation}
+  es una base dual a
+  $\{1,\alpha,\alpha^2,\ldots,\alpha^{n-1}\}$.
+\end{proposition}
+Con lo anterior, podemos calcular los componentes de
+cualquier elemento $\alpha$ de la extensión de campos, en
+términos de la base o de su dual:
+\begin{align}
+  \alpha_i
+  &= \tr(\alpha \beta_i);
+  \quad
+  \overline{\alpha}_i
+  = \tr(\alpha \alpha^{i}) \\
+  \alpha_i 
+  &= \sum_{j}^{} G_{ij} \overline{\alpha}_j;
+  \quad
+  \overline{\alpha}_i
+  = \sum_{j}^{} g_{ij} \alpha_j.
+\end{align} 
+
+Entre las bases que podemos elegir de un campo finito,
+a parte de la base polinomial, existen bases que resultan
+ser muy útiles, especificamente para la construcción de
+Wootters de los operadores de Pauli generalizados. Ésto es
+el concepto de una base \textit{auto-dual}.
+\begin{definition}
+  Una base $\{\alpha_1,\alpha_2,\ldots,\alpha_n\}$ de
+  $\F_{d^{n}}$ sobre $\F_d$ es una base auto-dual si
+  \begin{equation}
+    \tr_{\F_{d^{n}} / \F_d}(\alpha_i \alpha_j)
+    = \delta_{ij},
+    \quad
+    \text{para todo}
+    \quad
+    i,j = 1,2,\ldots,n.
+  \end{equation}
+\end{definition}
+La existencia de una base auto-dual no es garantizada para
+toda potencia de primos. Pero, para $d = 2^{r}$ sí existe
+una base auto-dual de $\F_{d^{n}}$ sobre $\F_d$. El caso de
+característica impar es más sutil. Si $d$ es una potencia de
+un primo impar, entonces existe una base auto-dual de
+$\F_{d^{n}}$ sobre $\F_d$ si y solo si $n$ también es impar.
+Es natural preguntarnos ¿cuántas bases auto-duales existen
+para un campo finito? La respuesta a ésta pregunta no es
+trivial pero si definitiva, y resulta que también es
+distinta para los casos de característica par e impar.
+\begin{example}
+  Sea $\alpha \in \F_{2^3}$ una raíz del polinomio
+  irreducible $x^3+x^2+1$ en $\F_2[x]$. Entonces el conjunto
+  $\{\alpha,\alpha^2,1+\alpha+\alpha^2\}$ es una base de
+  $\F_{2^3}$ sobre $\F_2$. Además es fácil verificar que es
+  una base auto-dual.
+\end{example}
+
+\subsection{Diferencias entre característica par e impar}
+
+Ahora mencionamos algunas sutilizas o distinciones entre
+campos finitos de característica par e impar. Sea $\F_d$ un
+campo finito de $d$ elementos donde $d = p^{n}$ y $p$ es un
+número primo. Consideremos los conjuntos 
+\[
+  \F_d^2 := \{x^2 : x \in \F_d\}
+  \quad \text{y} \quad
+  \left(\F_d^*\right)^2 := \{x^2 : x \in \F_d^{*}\}.
+\] 
+Si $d = 2^{n}$, entonces todo elemento de $\F_d$ es un
+elemento cuadrado, es decir $\F_d = \F_d^{2}$ y $\F_d^{*} =
+\left( \F_d^{*} \right)^2$. Además, todo elemento de $\F_d$
+tiene una \textit{única} raíz en $\F_d$. Ésto no es el caso
+para característica impar. No todo elemento del grupo
+multiplicactivo tiene una raíz cuadrada. Cuando $p$ es
+impar, los elementos de $\left( \F_d^{*} \right)^2$ son
+elementos \textit{cuadrados} de $\F_d^{*}$ y los elementos
+$\F_d^{*} \setminus \left( \F_d^{*} \right)^2$ son elementos
+\textit{no-cuadrados}.
+
+Otra diferencia es la resolución de la ecuación cuadrática
+\begin{equation}
+  ax^2 + bx + c = 0,
+\end{equation}
+sobre un campo finito $\F$. Si $\F$ no es de característica
+dos, entonces la fórmula
+\begin{equation}
+  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+nos brinda sus soluciones. Ésta fórmula no funciona para
+característica par, pero ésto no significa que no se puede
+resolver para un campo $\F_{d^{n}}$. De hecho el siguiente
+teorema nos dice cuando existe una solución de la ecuación
+cuadrática.
+\begin{theorem}
+  Sea $ax^2 + bx + c = 0$ una ecuación cuadrática sobre
+  $\F_{2^{n}}$. Cuando $b = 0$, entonces la ecuación tiene
+  una única solución
+  \[
+    x = \left( \frac{c}{a} \right)^{2^{n-1}}.
+  \] 
+  Cuando $b \neq 0$, entonces hay dos casos:
+  \begin{itemize}
+    \item Si $\tr(ac / b^2) = 1$, no tiene solución.
+    \item Si $\tr(ac / b^2) = 0$, tiene dos soluciones.
+  \end{itemize}
+\end{theorem}
+
+\subsection{Sumas exponenciales}
+
+El uso de sumas exponenciales para campos finitos resulta
+ser útil para varias aplicaciones. Hacemos un resumen breve
+de algunos resultados ya que mucha de la literatura que
+utilizamos para la construcción explícita de las MUBs
+requiere de manera directa o indirecta de éstos resultados.
+Las sumas exponenciales están formadas por un grupo especial
+de homomorfismos llamados \textit{caracteres}, ya sean
+aditivos o multiplicativos.
+
+Sea $G$ un grupo abeliano finito de orden $|G|$ con
+identidad $1_G$. Un \textit{caracter} $\chi$ de $G$ es un
+homomorfismo de $G$ a el grupo multiplicativo $U$ de los
+números complejos de valor absoluto unitario. Notemos que
+\[
+  \left( \chi(g) \right)^{|G|}
+  = \chi\left( g^{|G|} \right) 
+  = \chi\left( 1_G \right) 
+  = 1
+\] 
+para todo $g \in G$, por lo que los valores $\chi$ son las
+$|G|$-ésimas raíces de la unidad. El conjunto $\hat G$ de
+todos los caracteres de $G$ forma un grupo abeliano bajo la
+multiplicación de caracteres. Ahora veamos algunas
+propiedades interesantes de los caracteres.
+\begin{theorem}
+  Si $\chi$ es un caracter no trivial de un grupo finito
+  abeliano $G$, entonces
+  \begin{equation}
+    \sum_{g \in G}^{} \chi(g) = 0.
+  \end{equation}
+  Además, si $g \in G$ tal que $g \neq 1_G$, entonces
+  \begin{equation}
+    \sum_{\chi \in \hat G}^{} \chi(g) = 0.
+  \end{equation}
+\end{theorem}
+De éste teorema se sigue que el número de caracteres de un
+grupo abeliano finito $G$ es igual a $|G|$. Éstas
+propiedades nos brindan unas relaciones de
+\textit{ortogonalidad} de los caracteres. Si $\chi$ y $\psi$
+son caracteres de $G$, entonces
+\begin{equation}
+  \frac{1}{|G|}
+  \sum_{g \in G}^{} \chi(g) \overline{\psi(g)}
+  = \begin{cases}
+    0 & \text{si } \chi \neq \psi, \\
+    1 & \text{si } \chi = \psi.
+  \end{cases}
+\end{equation}
+Ahora nos enfocamos en campos finitos. Recordemos que en un
+campo finito $\F_d$, existen dos grupos finitos abelianos de
+importancia, el grupo aditivo y el grupo multiplicativo. En
+ambos casos podemos obtener expresiones explicítas de los
+caracteres del grupo. Consideremos el grupo aditivo de
+$\F_d$. Sea $p$ la característica de $\F_d$, e identificamos
+al subcampo primo de $\F_d$ con $\Z_p$. Definamos a la
+función $\chi_1$ de la siguiente manera:
+\begin{equation}
+  \chi_1(c)
+  = e^{2\pi i \tr(c) / p},
+  \quad
+  \text{para todo } c \in \F_d.
+\end{equation}
+Es trivial probar que $\chi_1$ es un caracter del grupo
+aditivo, y le llamamos un \textit{caracter aditivo} de
+$\F_d$. Todos los caracteres aditivos de $\F_d$ pueden ser
+expresados en términos del caracter $\chi_1$. Para los
+caracteres aditivos $\chi_a$ y $\chi_b$ tenemos que
+\begin{equation}
+  \sum_{c \in \F_d}^{}
+  \chi_a(c) \overline{\chi_b(c)}
+  = \begin{cases}
+    0 & \text{para } a \neq b \\
+    d & \text{para } a = b,
+  \end{cases}
+\end{equation}
+y en particular
+\begin{equation}
+  \sum_{c \in \F_d}^{} \chi_a(c) = 0,
+  \quad
+  \text{para } a \neq 0.
+\end{equation}
+Similarmente podemos formar los caracteres del grupo
+multiplicativo $\F_d^{*}$ del campo finito $\F_d$, los
+cuales se llaman \textit{caracteres multiplicativos}. Éstos
+caracteres se pueden expresar de la siguiente manera.
+\begin{theorem}
+  Sea $g$ un elemento primitivo fijo de $\F_d$. Para todo $j
+  = 0,1,\ldots,d-2$, la función $\psi_j$ dada por
+  \begin{equation}
+    \psi_j(g^{k})
+    = e^{2\pi i j k / (d-1)},
+    \quad
+    \text{para todo } k = 0,1,\ldots,d-2,
+  \end{equation}
+  define un caracter multiplicativo en $\F_d$ y además todo
+  caracter multiplicativo se obtiene de ésta manera.
+\end{theorem}
+Éstos caracteres satisfacen propiedades de ortogonalidad
+similares a los de los caracteres aditivos.
+
+Ahora introducimos el concepto de una suma Gaussiana. Sean
+$\psi$ un caracter multiplicativo y $\chi$ un caracter
+aditivo de $\F_d$. La suma Gaussiana $G(\psi,\chi)$ se
+define como
+\begin{equation}
+  G(\psi,\chi)
+  = \sum_{c \in \F_d^{*}}^{} \psi(c) \chi(c).
+\end{equation}
+Las sumas Gaussianas satisfacen las siguientes propiedades
+en cuanto a los posibles valores que pueden tomar.
+\begin{theorem}
+  Sean $\psi$ y $\chi$ caracteres multiplicativos y aditivos
+  de $\F_d$ respectivamente. Entonces la suma Gaussiana
+  satisface
+  \begin{equation}
+    G(\psi,\chi)
+    = \begin{cases}
+      d-1 & \text{para } \psi = \psi_0, \chi = \chi_0, \\
+      -1 & \text{para } \psi = \psi_0, \chi \neq \chi_0, \\
+      0 & \text{para } \psi \neq \psi_0, \chi = \chi_0,
+    \end{cases}
+  \end{equation}
+  y además, si $\psi = \neq \psi$ y $\chi = \chi_0$,
+  entonces
+  \begin{equation}
+    |G(\psi,\chi)| = d^{1 / 2}.
   \end{equation} 
-  lo cual induce una correspondencia entre los elementos de
-  la base de $\H$ y $\H_p$:
-  \begin{equation}
-    \ket{\alpha}
-    = \ket{\alpha_0 + \alpha_1 \omega + \ldots +
-      \alpha_{n-1}\omega^{n-1}}
-    \mapsto \ket{\alpha_0} \otimes \ket{\alpha_1} \otimes
-    \cdots \otimes \ket{\alpha_{n-1}},
-  \end{equation}
-  la cual a su vez nos da una correspondencia entre los
-  espacios de Hilbert $\H$ y $\H_p \otimes \cdots \otimes
-  \H_p$. Notemos que la correspondencia depende de la
-  elección de base del campo, por lo que la construcción de
-  otros objetos por medio del producto tensorial también
-  serán afectados. Por ejemplo los operadores de
-  desplazamiento que actuán sobre el espacio de Hilbert de
-  dimensión $p^{n}$ pueden ser expresados en términos de
-  productos tensoriales de operadores de desplazamiento en
-  los subsistemas. El mapeo(\ref{eqn:extension_field_map})
-  nos permite hacer ésto como:
-  \begin{equation}
-    D(\alpha,\beta)
-    = D(\alpha_0, \beta_0) \otimes \cdots \otimes
-    D(\alpha_{n-1}, \beta_{n-1}),
-  \end{equation}
-  donde $\alpha_i$ son los componentes de $\alpha$ en la
-  base elegida, y $\beta_i$ son los componentes respecto a
-  la base dual, y los operadores $D(\alpha_i,\beta_i)$ son
-  los operadores de desplazamiento actuando sobre los
-  subsistemas $\H_p$.
+\end{theorem}
+Por medio de las sumas Gaussianas podemos expresar los
+caracteres multiplicativos en términos de los caracteres
+aditivos, de hecho se asemeja a una expansión en términos de
+Fourier. En éste sentido las sumas Gaussianas vinculan ambos
+tipos de caracteres.
 
-  Klimov. . .
+. . .
+
+Como hemos visto, la estructura algebráica del campo
+finito es necesaria para poder construir una función de
+Wigner discreta con todas las propiedades deseables. La
+artimética $d$-modular no es suficiente ya que no se
+preservan ciertas propiedades importantes de una geometría
+finita. Los campos $\Z_p$ donde $p$ es un número primo son
+los más sencillos de manejar porque las operaciones se
+hacen módulo $p$, pero ésto se vuelve inpráctico porque no
+todo sistema cuántico puede ser modelado por un espacio de
+Hilbert de dimensión prima. El concepto de una
+\textit{extensión de campos} nos permite augmentar el
+campo $\Z_p$ a un campo finito de orden $p^{n}$. A la
+extensión de campo se le dice \textit{extensión de Galois}.
+
+%\subsection{Formas cuadráticas y formas alternantes sobre
+%campos finitos}
+%
+%Sea $\F_d$ una campo finito de $d$ elementos donde $d$ es
+%una potencia de un primo. El polinomio de grado dos en $n$
+%indeterminadas $x_1,x_2,\ldots,x_n$ sobre $\F_d$ 
+%\begin{equation}
+%  Q(x_1,x_2,\ldots,x_n)
+%  = \sum_{1 \leq i \leq k \leq n}^{} b_{ik} x_i x_k,
+%  \quad b_{ik} \in \F_q,
+%\end{equation}
+%es una \textit{forma cuadrática} en $x_1,x_2,\ldots,x_n$
+%sobre $\F_d$. Se dice que es \textit{definida} si
+%$Q(a_1,a_2,\ldots,a_n) = 0$ para $a_1,a_2,\ldots,a_n \in
+%\F_d$ implica que $a_1 = a_2 = \ldots = a_n = 0$. En caso
+%contrario se dice que es \textit{indefinida}. Ahora
+%supongamos que $d$ es de característica impar.
+%
+%Por otro lado, la forma bilineal en $2n$ indeterminadas
+%$x_1,x_2,\ldots,x_n$ y $y_1,y_2,\ldots,y_n$ 
+%\begin{equation}
+%  K(x_1,x_2,\ldots,x_n; y_1,y_2,\ldots,y_n)
+%  = \sum_{i,j = 1}^{n} k_{ij} x_i y_j,
+%  \quad k_{ij} \in \F_d,
+%\end{equation}
+%se llama \textit{forma alternante} sobre $\F_d$ si
+%$K(x_1,\ldots,x_n; x_1,\ldots,x_n) = 0$ para todo
+%$(x_1,\ldots,x_n) \in \F_d^{n}$. 
+
+\subsection{Sistemas compuestos y factorización tensorial}
+
+Sabemos que una extensión de Galois $\GF(p^{n})$ se puede
+ver como un espacio vectorial sobre el campo primo $\Z_p$
+respecto a la adición del campo. Pero también tiene más
+estructra, como la multiplicación y las transformaciones
+de Frobenius. Por ésto, Vourdas [CITE] nota que
+representar un sistema cuántico con una extensión de
+Galois de grado $n$ no es lo mismo que representarlo con
+una suma directa del campo primo. 
+
+Sea $\ket{\alpha}$ un base ortonormal de un espacio de
+Hilbert $\H$ de dimensión $p^{n}$, indexada por los
+elementos de una extensión de Galois. Además sea $\H_p$ un
+espacio de dimensión $p$ y $\ket{k}$ un base ortonormal de
+$\H_p$ indexado por los elementos del campo primo $\Z_p$.
+Utilizando la base natural de la extensión de campo,
+podemos expresar a cualquier elemento $\alpha \in
+\GF(p^{n})$ como $\alpha = \sum_{i}^{} \alpha_i \omega^{i}
+$, ésto nos da un mapeo biyectivo:
+\begin{equation}
+  \label{eqn:extension_field_map}
+  \alpha \mapsto (\alpha_0,\ldots,\alpha_{n-1}),
+\end{equation} 
+lo cual induce una correspondencia entre los elementos de
+la base de $\H$ y $\H_p$:
+\begin{equation}
+  \ket{\alpha}
+  = \ket{\alpha_0 + \alpha_1 \omega + \ldots +
+    \alpha_{n-1}\omega^{n-1}}
+  \mapsto \ket{\alpha_0} \otimes \ket{\alpha_1} \otimes
+  \cdots \otimes \ket{\alpha_{n-1}},
+\end{equation}
+la cual a su vez nos da una correspondencia entre los
+espacios de Hilbert $\H$ y $\H_p \otimes \cdots \otimes
+\H_p$. Notemos que la correspondencia depende de la
+elección de base del campo, por lo que la construcción de
+otros objetos por medio del producto tensorial también
+serán afectados. Por ejemplo los operadores de
+desplazamiento que actuán sobre el espacio de Hilbert de
+dimensión $p^{n}$ pueden ser expresados en términos de
+productos tensoriales de operadores de desplazamiento en
+los subsistemas. El mapeo(\ref{eqn:extension_field_map})
+nos permite hacer ésto como:
+\begin{equation}
+  D(\alpha,\beta)
+  = D(\alpha_0, \beta_0) \otimes \cdots \otimes
+  D(\alpha_{n-1}, \beta_{n-1}),
+\end{equation}
+donde $\alpha_i$ son los componentes de $\alpha$ en la
+base elegida, y $\beta_i$ son los componentes respecto a
+la base dual, y los operadores $D(\alpha_i,\beta_i)$ son
+los operadores de desplazamiento actuando sobre los
+subsistemas $\H_p$.
+
+Klimov. . .
+
+\section{Anillos de Galois}
+
+En la construcción de las MUBs para campos finitos de
+característica par fue necesario `salirnos' del campo y
+hacer operaciones en el \textit{anillo de Galois}. Aquí
+enunciamos varios de las definiciones y resultados que se
+utilizan para tal construcción. La teoría de anillos de
+Galois fue desarrollada por W. Krull en 1924 [CITE]. 
+\begin{definition}
+  Un anillo de Galois se define como un anillo finito con
+  identidad $1$ tal que el conjunto de sus divisores de 0,
+  más el 0, forma un ideal principal $\langle p \cdot 1
+  \rangle$ para algún primo $p$.
+\end{definition}
+\begin{example}
+  Consideremos el anillo $\Z_{p^{s}}$ donde $p$ es un número
+  primo y $s$ es un entero primo. Identificamos a $n \cdot
+  1$ con $n$ para todo $n \in \Z_{p^{n}}$. El conjunto de
+  divisores de 0 más el 0 forma el ideal principal $\langle
+  p\rangle$. Por lo tanto $\Z_{p^{s}}$ es un anillo de
+  Galois de $p^{s}$ elementos. Cuando $s = 1$, $\Z_{p^{s}} =
+  \F_p$ es el campo de $p$ elementos y $\langle p \rangle =
+  \langle 0 \rangle$.
+\end{example}
+\begin{example}
+  Sea $h(x)$ un polinomio irreducible básico mónico de grado
+  $m$ en $\Z_{p^{s}}[x]$. Ahora consideremos el anillo de
+  clases residuales
+  \[
+    \Z_{p^{s}}[x] / \langle h(x) \rangle.
+  \] 
+  La clase residual
+  \[
+    a_0 + a_1 x + \cdots + a_{m-1} x ^{m-1} + \langle h(x)
+    \rangle,
+  \] 
+  donde $a_0,a_1,\ldots,a_{m-1} \in \Z_{p^{s}}$ son
+  distintos elementos de $\Z_{p^{s}}[x] / \langle h(x)
+  \rangle$. El orden de éste anillo es $p^{sm}$. El elemento
+  $1 + \langle h(x) \rangle$ es la identidad multiplicativa
+  de $\Z_{p^{s}}[x] / \langle h(x) \rangle$ y $\langle h(x)
+  \rangle$ es el cero, por lo tanto dicho anillo es un
+  anillo conmutativo con uno. Todos los elementos del ideal
+  principal $\langle p + \langle h(x) \rangle \rangle$ son
+  divisores del cero o son cero. Ésto demuestra que
+  $\Z_{p^{s}}[x] / \langle h(x) \rangle$ es un anillo de
+  Galois.
+
+  Ahora consideremos $\xi = x + \langle h(x) \rangle$.
+  Entonces $h(\xi) = 0$ y
+  \[
+    a_0+\cdots+a_{m-1}x^{m-1} + \langle h(x) \rangle
+    = a_0+a_1\xi+\cdots+a_{m-1}\xi^{m-1}.
+  \] 
+  Por lo tanto
+  \[
+    \Z_{p^{s}}[x] / \langle h(x) \rangle
+    = Z_{p^{s}}[\xi],
+  \] 
+  y todos los elementos del anillo de Galois pueden ser
+  representados por las potencias de $\xi$. Ésta
+  representación se conoce como la \textit{representación
+  aditiva} de los elementos del anillo de Galois
+  $\Z_{p^{s}}[\xi]$.
+\end{example}
+\begin{definition}
+  Para un anillo conmutativo con identidad $1$, el orden de
+  $1$ en el grupo aditivo del anillo se llama la
+  característica del anillo.
+\end{definition}
+Conmunmente denotamos al anillo de Galois $\Z_{p^{s}}[x] /
+\langle h(x) \rangle$ donde $h(x)$ es un polinomio básico
+irreducible sobre $\Z_{p^{s}}$ de grado $m$, por
+\[
+  \GR(p^{s}, p^{sm}),
+\] 
+donde $p^{s}$ es la característica y $p^{sm}$ su
+cardinalidad.
+
+\subsection{La represetnación \texorpdfstring{$p$}-ádica}
+
+\begin{theorem}
+  En el anillo de Galois $\GR(p^{s}, p^{sm})$ existe un
+  elemento no cero $\xi$ de orden $p^{m}-1$, el cual es raíz
+  de un polinomio básico primitivo $h(x)$ de grado $m$ sobre
+  $\Z_{p^{s}}$ que divide a $x^{p^{m}-1} - 1$ en
+  $Z_{p^{s}}[x]$ tal que
+  \begin{equation}
+    \GR(p^{s},p^{sm})
+    = \Z_{p^{s}}[\xi]
+    = \{a_0+a_1\xi+\ldots+a_{m-1}\xi^{m-1} : a_i \in
+    \Z_{p^{s}}\}.
+  \end{equation}
+  Sea
+  \begin{equation}
+    \mathcal T
+    = \{0,1,\xi,\xi^2,\ldots,\xi^{p^{m}-2}\},
+  \end{equation}
+  entonces cualquier elemento $c \in \GR(p^{s},p^{sm})$ 
+  puede ser escrito de manera única como
+  \[
+    c = a_0 + a_1p + \cdots a_{s-1}p^{s-1},
+  \] 
+  donde $a_0,a_1,\ldots,a_{s-1} \in \mathcal T$.
+\end{theorem}
+La representación de un elemento de $\GR(p^{s},p^{sm})$ en
+términos de los elementos de $\mathcal T$ se conoce como la
+\textit{representación $p$-ádica} del elemento.

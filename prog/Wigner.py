@@ -1,5 +1,6 @@
 from sage.all import *
 import numpy as np
+import matplotlib.pyplot as plt
 
 class Wigner():
 
@@ -8,10 +9,11 @@ class Wigner():
         self.mubs = mubs
 
         self.op = self.Desargues
-        if op == 'kantor':
-            self.op = self.Kantor
-        if op == 'albert':
-            self.op = self.Albert
+        if op != None:
+            if op.lower() == 'kantor':
+                self.op = self.Kantor
+            if op.lower() == 'albert':
+                self.op = self.Albert
 
     def toInt(self, e):
         return list(self.field).index(e)
@@ -73,3 +75,15 @@ class Wigner():
             for j, y in enumerate(self.field):
                 W[i,j] = np.real(self.Wigner(rho, x, y))
         return np.rot90(W)
+
+def plotHeat(W, ax=None):
+    if ax == None:
+        fig, ax = plt.subplots()
+    
+    ax.imshow(np.rot90(W.T), origin='lower')
+    return ax
+
+def npProj(v):
+    d = len(v)
+    v = v.reshape((d,1))
+    return np.kron(v, v.conj().T)
