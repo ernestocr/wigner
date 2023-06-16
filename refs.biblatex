@@ -370,6 +370,14 @@
   file = {/Users/ernesto/Zotero/storage/I2ZG4KIJ/Bracken - 2006 - Complex numbers and symmetries in quantum mechanic.pdf}
 }
 
+@article{cahen,
+  title = {Stratonovich-{{Weyl}} Correspondence via {{Berezin}} Quantization},
+  author = {Cahen, Benjamin},
+  abstract = {Let G be a quasi-Hermitian Lie group and let K be a maximal compactly embedded subgroup of G. Let π be a unitary representation of G which is holomorphically induced from a unitary representation ρ of K. We introduce and study a notion of complex-valued Berezin symbol for an operator acting on the space of π and the corresponding notion of Stratonovich-Weyl correspondence. This generalizes some results already obtained in the case when ρ is a unitary character, see [19]. As an example, we treat in detail the case of the Heisenberg motion groups.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/SVMCUVK9/Cahen - Stratonovich-Weyl correspondence via Berezin quant.pdf}
+}
+
 @article{calderbank,
   title = {Z4-{{KERDOCK CODES}}, {{ORTHOGONAL SPREADS}}, {{AND EXTREMAL EUCLIDEAN LINE-SETS}}},
   author = {Calderbank, A R and Cameron, P J and Kantor, W M and Seidel, J J},
@@ -565,6 +573,22 @@
   isbn = {978-3-11-072261-1},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/SQM463TP/de Gosson - 2021 - Quantum harmonic analysis.pdf}
+}
+
+@online{degosson2022,
+  title = {A {{Few Almost Trivial Notes}} on the {{Symplectic Radon Transform}} and the {{Tomographic Picture}} of {{Quantum Mechanics}}},
+  author = {family=Gosson, given=Maurice, prefix=de, useprefix=true},
+  date = {2022-03-31},
+  eprint = {2203.17210},
+  eprinttype = {arxiv},
+  eprintclass = {math-ph, physics:quant-ph},
+  url = {http://arxiv.org/abs/2203.17210},
+  urldate = {2023-06-16},
+  abstract = {We emphasize in these pedagogical notes the that the theory of the Radon transform and its applications is best understood using the theory of the metaplectic group and the quadratic Fourier transforms generating metaplectic operator.. Doing this we hope that these notes will be useful to a larger audience, including researchers in time-frequency analysis.},
+  langid = {english},
+  pubstate = {preprint},
+  keywords = {Mathematical Physics,Quantum Physics},
+  file = {/Users/ernesto/Zotero/storage/MP7VJGMJ/de Gosson - 2022 - A Few Almost Trivial Notes on the Symplectic Radon.pdf}
 }
 
 @book{dubin2000,
@@ -1039,6 +1063,28 @@
   number = {2},
   abstract = {It is shown that a necessary and sufficient condition for the Wigner quasi-probability density to be a true density is that the corresponding Schrödinger state function be the exponential of a quadratic polynomial.},
   file = {/Users/ernesto/Zotero/storage/ZSZSRF8P/hudson1974.pdf}
+}
+
+@article{ibort2009,
+  title = {An Introduction to the Tomographic Picture of Quantum Mechanics},
+  author = {Ibort, A. and Man'ko, V. I. and Marmo, G. and Simoni, A. and Ventriglia, F.},
+  date = {2009-06},
+  journaltitle = {Physica Scripta},
+  shortjournal = {Phys. Scr.},
+  volume = {79},
+  number = {6},
+  eprint = {0904.4439},
+  eprinttype = {arxiv},
+  eprintclass = {quant-ph},
+  pages = {065013},
+  issn = {0031-8949, 1402-4896},
+  doi = {10.1088/0031-8949/79/06/065013},
+  url = {http://arxiv.org/abs/0904.4439},
+  urldate = {2023-06-16},
+  abstract = {Starting from the famous Pauli problem on the possibility to associate quantum states with probabilities, the formulation of quantum mechanics in which quantum states are described by fair probability distributions (tomograms, i.e. tomographic probabilities) is reviewed in a pedagogical style. The relation between the quantum state description and the classical state description is elucidated. The difference of those sets of tomograms is described by inequalities equivalent to a complete set of uncertainty relations for the quantum domain and to nonnegativity of probability density on phase space in the classical domain. Intersection of such sets is studied. The mathematical mechanism which allows to construct different kinds of tomographic probabilities like symplectic tomograms, spin tomograms, photon number tomograms, etc., is clarified and a connection with abstract Hilbert space properties is established. Superposition rule and uncertainty relations in terms of probabilities as well as quantum basic equation like quantum evolution and energy spectra equations are given in explicit form. A method to check experimentally uncertainty relations is suggested using optical tomograms. Entanglement phenomena and the connection with semigroups acting on simplexes are studied in detail for spin states in the case of two qubits. The star-product formalism is associated with the tomographic probability formulation of quantum mechanics.},
+  langid = {english},
+  keywords = {Quantum Physics},
+  file = {/Users/ernesto/Zotero/storage/X3K57YX2/Ibort et al. - 2009 - An introduction to the tomographic picture of quan.pdf}
 }
 
 @article{ivanov1987,
