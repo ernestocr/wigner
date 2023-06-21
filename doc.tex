@@ -2756,6 +2756,7 @@
   Wigner, que depende del siguiente resultado de Bandyophyay
   et al \cite{bandyopadhyay2001}:
   \begin{theorem}[Bandyophyay et al, teorema 3.2]
+    \label{thm:bandy}
     Si existe una partición de $n^2-1$ matrices unitarias
     mutuamente ortogonales en $d+1$ conjuntos de $d-1$
     matrices conmutativas, entonces existen un conjunto de
@@ -3824,8 +3825,8 @@
 
   \chapter{Construcción no-estándar}
 
-  Para obtener la función de Wigner discreta siguiendo la
-  metodología de Wootters y Gibbons, sería necesario obtener
+  Para construir la función de Wigner discreta siguiendo la
+  metodología de Wootters y Gibbons, es necesario obtener
   al menos un eigenvector mutuo para cada una de las $d+1$
   estrías (recordemos que solo uno es necesario porque la
   propiedad de covarianza bajo traslaciones determina el
@@ -3833,7 +3834,7 @@
   analíticamente y computacionalmente latoso conforme la
   dimensión va creciendo. Por suerte existen múltiples
   construcciones explícitas de bases mutuamente insesgadas,
-  y Godsil y Roy \cite{godsil2009} probaron que las
+  además Godsil y Roy \cite{godsil2009} probaron que las
   construcciones de MUBs más conocidas, debido a Ivánovic,
   Wootters y Fields \cite{wootters1989}, Klappenecker
   \cite{klappenecker2005a} y Bandyophyay
@@ -3852,7 +3853,7 @@
   asignar elementos de bases mutuamente insesgadas a rectas
   en el espacio de fase es lo que distingue la construcción
   de Wootters de otros métodos de construcción de funciones
-  de Wigner. Como hemos visto la idea reside en hacer una
+  de Wigner. Como hemos visto, la idea reside en hacer una
   partición del espacio de fase discreto en \textit{rectas}
   paralelas llamadas estrías, pero, la manera en que
   Wootters hace la partición no es la única manera de
@@ -3882,15 +3883,14 @@
   simplécticas} y con familias de subespacios
   unidimiensionales mutuamente ortogonales.  El método de
   construcción de MUBs de Kantor es lo suficientemente
-  general para incluir a las construcciones conocidas
-  (incluyendo la de Wootters) y además permite construir
-  MUBs que \textit{no} son unitariamente equivalente a las
+  general para incluir a las construcciones conocidas (en
+  particular la de Wootters) y además permite construir MUBs
+  que \textit{no} son unitariamente equivalente a las
   construcciones estándares. La idea de éste capítulo es
   utilizar coberturas simplécticas distintas a los de
   Wootters para obtener bases de MUBs no unitariamente
-  equivalentes. Utilizando la construcción de Wootters
-  podemos definir una función de Wigner que sigue
-  preservando la propiedad tomográfica. 
+  equivalentes, y por lo tanto una función de Wigner
+  distinta que sigue preservando la propiedad tomográfica. 
 
   Para construir las MUBs de manera explícita, utilizaremos
   los resultados de Kanat \cite{abdukhalikov2015}, quien nos
@@ -3898,46 +3898,28 @@
   posible obtener coberturas simplécticas las cuales a su vez
   nos producen MUBs por medio de los resultados de Kantor,
   éste procedimiento se organiza como en la figura
-  (\ref{diag:kanat}).  En dicho artículo Kanat
-  adicionalmente construye MUBs a partir de
-  \textit{funciones planares} y muestra que el grupo de
-  automorfismos de un conjunto completo de MUBs es isomorfo
-  al grupo de automorfismos de una \textit{descomposición
-  ortogonal} del álgebra de Lie $\Sl_d(\C)$. Para nuestro
-  caso, será suficiente considerar solamente las coberturas
-  simplécticas generadas por presemicampos.
+  (\ref{diag:kanat}). 
   \begin{figure}[h]
     \centering
     \begin{tikzcd}
       \text{Pre-semicampo simpléctico}
       \arrow[d] \\
       \text{Combertura simpléctica}
-      \arrow[d] \\
-      \text{Descomposición ortogonal de $\Sl_n(\C)$}
+      %\arrow[d] \\
+      %\text{Descomposición ortogonal de $\Sl_n(\C)$}
       \arrow[d] \\
       \text{MUBs completos}
     \end{tikzcd}
     \caption{Metodología resumida de Kanat.}
     \label{diag:kanat}
   \end{figure}
-  Las coberturas simplécticas fueron estudiadas en el contexto
-  de geometrías finitas y teoría de códigos, mucho antes de
-  vincularlos con las álgebras de Lie. Recordemos que un
-  álgebra de Lie es un espacio vectorial con una operación
-  adicional llamada \textit{bracket de Lie}, el cual es un
-  mapa bilineal alternante que satisface la identidad de
-  Jacobi. El álgebra de Lie en éste contexto es el álgebra
-  de las matrices $d \times d$ sobre $\C$ de traza nula,
+  Kanat expone una relación entre un conjunto completo de
+  MUBs y la descomposición ortogonal del álgebra de Lie de
+  las matrices $d \times d$ sobre $\C$ de traza nula,
   denotado $\mathfrak{L} = \Sl_d(\C)$, donde el producto de
   Lie está dado por el conmutador de matrices. Una
-  subálgebra $\mathfrak{H}$ de un álgebra de Lie
-  $\mathfrak{L}$, es una subálgebra de Cartán si es
-  nilpotente y es igual a su normalizador, el cual se define
-  como el conjunto $\mathfrak{S}$ de elementos de
-  $\mathfrak{L}$ tales que $[\mathfrak{S}, \mathfrak{H}]
-  \subset \mathfrak{H}$.  Una descomposición de un álgebra
-  de Lie simple $\mathfrak{L}$ en una suma directa de
-  subalgebras de Cartan
+  descomposición de un álgebra de Lie simple $\mathfrak{L}$
+  en una suma directa de subalgebras de Cartan
   \begin{equation}
     \mathfrak{L}
     = \mathfrak{H}_0 \oplus \mathfrak{H}_1 \oplus \cdots
@@ -3947,11 +3929,10 @@
   $\mathfrak{H}_i$ son ortogonales entre si respecto a la
   forma de Killing en $\mathfrak{L}$.  Las subálgebras de
   Cartán de $\Sl_d(\C)$ consisten de matrices sin traza las
-  cuales son diagonales. La relación entre MUBs y la
-  descomposición ortogonal de $\Sl_d(\C)$ es lo que utiliza
-  Kanat para encontrar expresiones explícitas de MUBs a
-  partir de coberturas simpléticas. Kanat cita al siguiente
-  teorema de Boykin et al \cite{boykin2005}:
+  cuales son diagonales y resulta que están en
+  correspondencia con las bases de un conjunto completo de
+  MUBs. Kanat cita al siguiente teorema de Boykin et al
+  \cite{boykin2005}:
   \begin{theorem}[Boykin et al, Teorema 5.2]
     \label{thm:boykin}
     Los conjuntos maximales de MUBs en $\C^{d}$ están en
@@ -3961,20 +3942,26 @@
     operación de adjunción.
   \end{theorem}
   La prueba consiste en demostrar que las bases de un
-  conjunto de MUBs $\mathcal B = \{B_0,B_1,\ldots,B_d\}$ 
-  están en correspondencia con la subálgebra de Cartan
-  $\mathfrak{H}_i$ la cual consiste de las matrices sin
-  traza que son diagonales respecto a la base $B_i$. De aquí
-  podemos ver la relación con el trabajo de Bandyophyay et
-  al y como consecuencia, con la construcción estándar de
-  Wootters, ya que la idea básicamente se reduce a encontrar
-  una partición de ciertos operadores tales que conmuten
-  entre sí. La siguiente cuestión es ¿cómo construir una
-  descomposición ortogonal de $\Sl_d(\C)$, tal que satisface
-  las condiciones del teorema \ref{thm:boykin}? No vamos a
-  dar un prueba completa ya que se puede encontrar en los
-  trabajos de Boykin, pero sí vamos a reexpresar los
-  argumentos de Wootters, siguiendo a Kanat y a Kantor.
+  conjunto completo de MUBs $\mathcal B =
+  \{B_0,B_1,\ldots,B_d\}$ están en correspondencia con la
+  subálgebra de Cartan $\mathfrak{H}_i$ la cual consiste de
+  las matrices sin traza que son diagonales respecto a la
+  base $B_i$. De aquí podemos ver la relación con el trabajo
+  de Bandyophyay et al y como consecuencia, con la
+  construcción estándar de Wootters, ya que la idea
+  básicamente se reduce a encontrar una partición de ciertos
+  operadores tales que conmuten entre sí. En dicho artículo
+  Kanat adicionalmente construye MUBs a partir de
+  \textit{funciones planares} y muestra que el grupo de
+  automorfismos de un conjunto completo de MUBs es isomorfo
+  al grupo de automorfismos de la descomposición ortogonal
+  de $\Sl_d(\C)$. No es necesario estudiar la descomposición
+  ortogonal de $\Sl_d(\C)$ para construir el conjunto
+  completo de MUBs. Basta con construir coberturas
+  simplécticas las cuales nos particionan a los operadores
+  de Pauli generalizados de tal manera que podemos utilizar
+  el teorema de Bandyophyay para garantizar la existencia de
+  las MUBs.
   
   Comenzamos por definir a los operadores de desplazamiento
   que actúan sobre el espacio de Hilbert $\H = \C^{d}$ donde
@@ -3983,8 +3970,9 @@
   vectorial $V$ unidimensional.  La cardinalidad de $V$ es
   igual a $d$ y etiquetemos a la base estándar de $\C^{d}$
   por los elementos de $V$, es decir, $\{\ket{e_w} : w \in
-  V\}$.  Enseguida definamos a los operadores shift y boost
-  indexados por los elementos de $V$.
+  V\}$.  Enseguida definamos a los operadores de Pauli
+  generalizados, los cuales serán indexados por los
+  elementos de $V$.
   \begin{definition}
     Sea $\omega \in \C$ la $p$-ésima raíz primitiva de la
     unidad y sean $u,v \in V$. Definimos a los operadores de
@@ -4035,13 +4023,17 @@
     igualdad es en sentido del isomorfismo entre los
     productos tensoriales de $\H_p$ y el espacio $\H$.
   \end{proposition}
-  Ahora vamos a probar varias propiedades de los operadores
-  de desplazamiento, las cuales nos permitirán identificar
-  la condición que deben satisfacer para poder conmutar.
-  Para ésto, nos será util primero definir una forma
-  bilineal alternante sobre el espacio vectorial $W = V
-  \oplus V$ de dimensión $2n$ sobre el subcampo primo de la
-  extensión de Galois. 
+  Recordemos que Wootters llegó a la condición de
+  conmutatividad de los operadores de Pauli a partir de la
+  construcción de la malla cuántica, la cual a su vez estaba
+  sujeta a la invarianza de los subespacios (lineas) del
+  espacio de fase discreto bajo traslaciones. Ahora deseamos
+  identificar la condición necesaria de la conmutatividad
+  sin restringirnos (por el momento) por las propiedades de
+  la malla cuántica. Primero definimos una forma bilineal
+  alternante sobre el espacio vectorial $W = V \oplus V$ de
+  dimensión $2n$ sobre el subcampo primo de la extensión de
+  Galois. 
   \begin{definition}
     Sea $W = V \oplus V$. Definimos la forma bilineal
     alternante 
@@ -4133,14 +4125,15 @@
     \end{align}
   \end{proof}
   Notemos que podemos identificar el espacio de fase
-  discreto con el espacio $W$. La idea de Wootters fue
-  identificar subespacios unidimensionales del espacio de
-  fase tales que los operadores desplazamiento
-  correspondientes conmutaran.  Con la condición
-  (\ref{eqn:disp_comm_condition}) podemos identificar más
-  agrupaciones, y éstas agrupaciones coinciden con los
-  coberturas simpléticas, las cuales definimos de la
-  siguiente manera:
+  discreto con el espacio $W = V \oplus V$. La idea de
+  Wootters fue identificar subespacios unidimensionales del
+  espacio de fase tales que los operadores desplazamiento
+  correspondientes conmutaran. Pero, con la condición
+  (\ref{eqn:disp_comm_condition}) podemos identificar
+  \textit{más} agrupaciones de los puntos del espacio de
+  fase discreto que también anulan la forma simpléctica. A
+  las agrupaciones maximales Kantor las llama coberturas
+  simplécticas.
   \begin{definition}[Cobertura simpléctica]
     Una cobertura simpléctica $\Sigma$ de un espacio
     simpléctico $W = V \oplus V$ es una familia $\Sigma$ de
@@ -4168,31 +4161,32 @@
   \cite{kantor1996}, Kanat concluye que si $\Sigma = \{W_0,
   W_1, \ldots, W_d\}$ es una cobertura simpléctica, entonces
   existe una descomposición ortogonal del álgebra de Lie
-  $\Sl_n(\C)$ dada por:
-  \begin{equation}
-    L
-    = \mathfrak{H}_0 \oplus \mathfrak{H}_1 \oplus \cdots
-    \oplus \mathfrak{H}_n,
-  \end{equation}
-  donde los $\mathfrak{H}_i$ son subálgebras generados por
-  los operadores de desplazamiento agrupados por los
-  puntos del subespacio $W_i$:
+  $\Sl_n(\C)$ donde las subálgebras $\mathfrak{H}_i$ son
+  generadas por los operadores de desplazamiento agrupados
+  por los puntos del subespacio $W_i$:
   \begin{equation}
     \mathfrak{H}_i = \langle D(u,v) : (u,v) \in W_i \rangle.
   \end{equation}
-
   De la descomposición ortogonal de $\Sl_d(\C)$ se pueden
   obtener un conjunto de $d+1$ MUBs a partir de la
   diagonalización de los operadores de desplazamiento que
   son generadores de las subálgebras de Cartán
   \cite{boykin2005}, ésto es basicamente lo que Wootters
-  hizo mediante los resultados de Bandyophyay. Kanat va un
-  paso más allá y nos da una manera de obtener los MUBs
-  directamente a partir de una cobertura simpléctica, de
-  nuevo siguiendo a Kantor. Por otro lado, Kantor demuestró
-  que la inequivalencia de coberturas simplécticas conlleva
-  a la inequivalencia de MUBs \cite{kantor2012}:
-
+  hizo mediante los resultados de Bandyophyay. Por suerte,
+  Kantor y Kanat nos dan una manera de obtener los MUBs
+  \textit{directamente} de la cobertura simpléctica, sin
+  necesidad de diagonalizar a los operadores de Pauli.
+  
+  Por otro lado, es natural pensar que distintas coberturas
+  simplécticas nos darán distintos conjuntos de MUBs, pero
+  ésto no es el caso en general. De hecho bajo un
+  significado particular de equivalencia, muchas de las
+  coberturas que parecen ser distintas son iguales. La
+  motivación principal de éste trabajo es que para algunas
+  dimensiones es posible obtener coberturas simplécticas no
+  equivalentes. Kantor demuestró que la inequivalencia de
+  coberturas simplécticas conlleva a la inequivalencia de
+  MUBs \cite{kantor2012}:
   \begin{theorem}[Kantor (\cite{kantor2012}), Teorema 2.3
     (Inequivalencia)]
     \label{thm:kantor_ineq}
@@ -4247,8 +4241,8 @@
   de Galois.
 
   \begin{theorem}
-    \label{lemma:h_mubs}
-    Sea $\Sigma$ una cobertura simpléctico de $W = V \oplus
+    \label{thm:h_mubs}
+    Sea $\Sigma$ una cobertura simpléctica de $W = V \oplus
     V$ y sea $h : V \to V$ un mapeo lineal tal que
     \begin{equation}
       \{(u,h(u)) : u \in V\} \in \Sigma.
@@ -4350,45 +4344,56 @@
     \end{align}
   \end{proof}
   \begin{corollary}
-    Los vectores $\ket{b_{\cdot,v}}$ correspondientes a un
-    subespacio de la cobertura $\Sigma$ son mutuamente
-    insesgados respecto a los eigenvectores de otro
-    subespacio.
+    Los vectores $\ket{b_{h,v}}$ del teorema
+    \ref{thm:h_mubs} son mutuamente insesgados.
   \end{corollary}
   \begin{proof}
-    Un cálculo directo nos brinda lo siguiente. Sean $h$ y
-    $h'$ mapeos lineales tales que
+    Dado que $\Sigma$ es una cobertura simpléctica, los
+    subespacios $W_h = \{(u, h(u) : u \in \F\} \in \Sigma$,
+    son totalmente isotrópicos. Por lo tanto los conjuntos
+    de operadores
     \[
-      W_h
-      = \{(u,h(u)) : u \in V\},
-      \quad \text{y} \quad
-      W_{h'}
-      = \{(u,g(u)) : u \in V\}
+      \{D(u,h(u)) : u \in \F\}, 
     \] 
-    son elementos distintos de la cobertura simpléctica
-    $\Sigma$.  Entonces
-    \begin{align}
-      \braket{b_{h,v}|b_{h',v'}}
-      &= \sum_{w \in V}^{} 
-      \omega^{-\tr\left( \frac{1}{2} w h(w) + vw \right) }
-      \omega^{\tr\left( \frac{1}{2} w h'(w) + v'w \right) } \\
-      &= \sum_{w \in V}^{}
-      \omega^{\tr\left( \frac{1}{2} w (h'(w) - h(w)) + w(v'
-      - v) \right) }.
-    \end{align}
-    Primero supongamos que $h = h'$. Si $v = v'$ entonces
-    $\braket{b_{h,v}|b_{h',v'}} = d$. Si $h = h'$ pero $v
-    \neq v'$, entonces
-    \begin{equation}
-      \braket{b_{h,v}|b_{h',v'}}
-      = \sum_{w \in V}^{} \omega^{\tr\left( w(v'-v) \right) }
-      = \sum_{z \in V}^{} \omega^{\tr(z)}
-      = 0,
-    \end{equation}
-    donde la última suma se anula porque $\sum_{j = 0}^{p-1}
-    \omega^{j} = 0$ (ver apéndice (REF)). Ésto prueba que
-    los vectores de la misma base son ortonormales. Ahora
-    supongamos que $h \neq h'$, entonces PENDIENTE.
+    son conjuntos maximales de operadores de Pauli
+    conmutativos. Se sigue del teorema \ref{thm:bandy}
+    (Bandyophyay et al) que los conjuntos de eigenvectores
+    simultáneos correspondientes a cada subespacio $W_h$ son
+    mutuamente insesgados.
+    %Un cálculo directo nos brinda lo siguiente. Sean $h$ y
+    %$h'$ mapeos lineales tales que
+    %\[
+    %  W_h
+    %  = \{(u,h(u)) : u \in V\},
+    %  \quad \text{y} \quad
+    %  W_{h'}
+    %  = \{(u,h'(u)) : u \in V\}
+    %\] 
+    %son elementos distintos de la cobertura simpléctica
+    %$\Sigma$.  Entonces
+    %\begin{align}
+    %  \braket{b_{h,v}|b_{h',v'}}
+    %  &= \sum_{w \in V}^{} 
+    %  \omega^{-\tr\left( \frac{1}{2} w h(w) + vw \right) }
+    %  \omega^{\tr\left( \frac{1}{2} w h'(w) + v'w \right) } \\
+    %  &= \sum_{w \in V}^{}
+    %  \omega^{\tr\left( \frac{1}{2} w (h'(w) - h(w)) + w(v'
+    %  - v) \right) }.
+    %\end{align}
+    %Primero supongamos que $h = h'$. Si $v = v'$ entonces
+    %$\braket{b_{h,v}|b_{h',v'}} = d$. Si $v \neq v'$,
+    %entonces
+    %\begin{equation}
+    %  \braket{b_{h,v}|b_{h',v'}}
+    %  = \sum_{w \in V}^{} \omega^{\tr\left( w(v'-v) \right) }
+    %  = \sum_{z \in V}^{} \omega^{\tr(z)}
+    %  = 0,
+    %\end{equation}
+    %donde la última suma se anula porque $\sum_{j = 0}^{p-1}
+    %\omega^{j} = 0$ (ver sección de caracteres aditivos del
+    %apéndice \ref{sec:fields}). Ésto prueba que
+    %los vectores de la misma base son ortonormales. Ahora
+    %supongamos que $h \neq h'$, entonces PENDIENTE.
   \end{proof}
   El teorema anterior nos permite diagonalizar de manera
   simultánea a los operadores de desplazamiento que conmutan
@@ -4401,12 +4406,11 @@
     simplécticas que no provienen de un semicampo
     simpléctico, pero para nuestra construcción alternativa
   basta utilizar aquellos que sí provienen de semicampos.}.
-  [HIST] Introducimos brevemente algunas nociones que
-  vinculan los presemicampos y las coberturas simplécticas,
-  pero no seremos muy rigurosos ya que para éste trabajo nos
-  basta con tomar los ejemplos dados por Kantor
-  \cite{kantor2012} para construir nuestras coberturas no
-  equivalentes.
+  Introducimos brevemente algunas nociones que vinculan los
+  presemicampos y las coberturas simplécticas, pero no
+  seremos muy rigurosos ya que para éste trabajo nos basta
+  con tomar los ejemplos dados por Kantor \cite{kantor2012}
+  para construir nuestras coberturas no equivalentes.
   \begin{definition}[Presemicampo y semicampo]
     \label{def:presemifield}
     Un presemicampo es un anillo sin divisores del cero, y
@@ -4433,14 +4437,9 @@
   \end{enumerate}
   Notemos que todo campo finito es un semicampo y un
   presemicampo. Kantor comenta que todo presemicampo
-  determina un cobertura $\Sigma$ del espacio $V \oplus V$ por
-  medio de la multiplicación.\footnote{La decisión de
-    utilizar presemicampos y semicampos para formar las
-    cobertura simplécticas es simplemente porque nos da una
-    manera general de establecer los resultados que se
-    usarán en la
-  construcción de las MUBs.} Ésta cobertura consiste de los
-  subespacios
+  determina un cobertura $\Sigma$ del espacio $V \oplus V$
+  por medio de la multiplicación. Ésta cobertura consiste de
+  los subespacios
   \begin{equation}
     \label{eqn:presemi_spread}
     \{(0,v) : v \in \mathbb F\},
@@ -4450,7 +4449,7 @@
     \text{para todo } m \in \mathbb F.
   \end{equation}
   Decimos que un presemicampo es \textit{simpléctico} si la
-  cobertura que genera es simpléctico respecto a
+  cobertura que genera es simpléctica respecto a
   algúna forma bilineal alternante. Entonces dado un
   presemicampo simpléctico podemos generar el conjunto
   completo de MUBs simplemente utilizando la operación del
@@ -4480,7 +4479,7 @@
   \begin{proof}
     Si la cobertura que genera la operación del presemicampo
     es una cobertura simpléctica, entonces el teorema
-    \ref{lemma:h_mubs} nos permite construir el conjunto
+    \ref{thm:h_mubs} nos permite construir el conjunto
     completo de MUBs donde el mapeo $h : V \to V$ está dado
     por la operación $\circ$ del presemicampo. La linealidad
     de $h$ se sigue de la distributividad de la operación
@@ -4490,8 +4489,9 @@
   Para poder utilizar utilizar el teorema
   \ref{thm:kanat_presemi_mubs}, debemos formar un
   presemicampo simpléctico. Dado que todo presemicampo forma
-  una cobertura $\Sigma$, solo hemos trasladado la dificultad a
-  la busqueda de presemicampos cuya cobertura es simpléctica,
+  una cobertura $\Sigma$, solo hemos trasladado la
+  dificultad de encontrar una cobertura simpléctica a la
+  busqueda de presemicampos cuya cobertura es simpléctica,
   i.e., una cobertura de $d+1$ subespacios totalmente
   isotrópicos. Por suerte, en \cite{kantor1982} Kantor
   genera múltiples coberturas simplécticas a partir de
@@ -4499,22 +4499,22 @@
   algunos de ellos para poder construir MUBs no
   equivalentes. El ejemplo más sencillo es el que está dado
   simplemente por la multiplicación del campo finito.
-  \begin{definition}[Spread Desarguesiano]
+  \begin{definition}[Cobertura Desarguesiana]
     \label{def:desarguesian_semifield}
-    Sea $\GF(p^{n})$ un campo finito. En particular
-    $\GF(p^{n})$ es un presemicampo con la operación
+    Sea $\F = \GF(p^{n})$ un campo finito. En particular
+    $\F$ es un presemicampo con la operación
     \begin{equation}
       w \circ m = w m.
     \end{equation}
-    La cobertura simpléctica generado por éste presemicampo
+    La cobertura simpléctica generada por éste presemicampo
     se conoce como el cobertura Desarguesiana y consiste
     simplemente de los subespacios unidimensionales de $V
-    \oplus V$ sobre $\GF(p^{n})$.
+    \oplus V$ sobre $\F$.
   \end{definition}
   Las MUBs que Godsil y Roy probaron que son unitariamente
   equivalentes a las mubs `estándares', incluyendo a la de
   Wooters, son casos específico de MUBs generados por una
-  cobertura Desarguesiansa. Por lo tanto utilizando la
+  cobertura Desarguesiana. Por lo tanto utilizando la
   definición \ref{def:desarguesian_semifield} y el teorema
   \ref{thm:kanat_presemi_mubs} podemos construir las bases
   mutuamente insesgadas de Wootters. En éste caso la
@@ -4538,6 +4538,7 @@
   las cuales reconocemos como los rayos de Wootters. Se
   sigue que para todo $v \in V$, el vector
   \begin{equation}
+    \label{eqn:desargues_vectors}
     \ket{b_{m,v}}
     = \sum_{w \in V}^{} \omega^{\tr\left( \frac{1}{2} m w^2
     + v m\right) } \ket{e_w},
@@ -4568,7 +4569,8 @@
     conocido como el campo torcido de Albert.
   \end{definition}
   Kantor muestra que éste presemicampo genera una cobertura
-  simpléctica de $V \oplus V$ y utilizando el teorema
+  simpléctica $\Sigma$ de $V \oplus V$ que no es equivalente
+  a la Desarguesiana. Utilizando el teorema
   \ref{thm:kanat_presemi_mubs} obtenemos el sguiente
   conjunto completo de MUBs:
   \begin{align}
@@ -4583,8 +4585,16 @@
       \left(
         mw^{p^{n-s}+1} + m^{p^{s}}w^{p^{s}+1}
       \right) + v w
-    \right) } \ket{e_w}.
+    \right) } \ket{e_w},
   \end{align}
+  donde $m, v \in V$. Por el teorema \ref{thm:kantor_ineq},
+  éstas MUBs no son unitariamente equivalentes a las MUBs
+  generadas por la ecuación (\ref{eqn:desargues_vectors}).
+  Notemos que el espacio de Hilbert de dimensión $3^{3} =
+  27$ es el espacio de dimensión más pequeña para el cual
+  podemos construir éste conjunto de MUBs en particular. Más
+  adelante lo utilizaremos para construir y comparar dos
+  funciones de Wigner para sistemas de tres qutrits.
     
   \section{Característica par}
 
@@ -4598,22 +4608,27 @@
   presemicampo, solo que la expresión de los eigenvectores
   de los operadores de desplazamiento involucra operaciones
   que no solo suceden en el campo finito si no en un
-  \textit{anillo de Galois}. La razón para ésto no es
-  trivial pero se puede encontrar un explicación en el
-  artículo sobre códigos de Kerdock y coberturas
-  simplécticas escrito por Kantor \cite{kantor1982}.
+  \textit{anillo de Galois}.  Una idea intuitiva de porque
+  la construcción impar no funciona en éste caso se debe a
+  la necesidad de utilizar una raíz primitiva compleja en
+  las expresiones de los vectores. Por lo tanto es necesario
+  utilizar la cuarta raíz primitiva para evitar fases de
+  solo $-1$ ó $1$. Los detalles técnicos son más
+  involucrados, pero se pueden encontrar en el artículo
+  sobre códigos de Kerdock sobre $\Z_4$ y coberturas
+  simplécticas escrito por Kantor et al \cite{kantor1982}.
 
   Sea $\F = \GF(2^{n})$ el campo de Galois y $\omega \in \C$
   una cuarta raíz primitiva de la unidad. Sea $R =
   \GR(4^{n})$ el anillo de Galois de característica cuatro
-  (ver apéndice (REF) para un resumen de extensiones de
-  anillos). Existe un elemento $\xi$ de orden $2^{n}-1$ el
-  cual es una raiz de un único polinomio primitivo mónico
-  $h(x)$ de grado $n$ sobre $\Z_4$ que además divide a
-  $x^{2^{n}-1} - 1$ en $\Z_4[x]$, por lo que es una
-  $2^{n}-1$-ésima raíz primitiva de la unidad en el anillo
-  de Galois. El conjunto \textit{Teichmüller} $T \subset R$,
-  está dado por potencias de éste elemento,
+  (ver apéndice \ref{sec:fields} para un resumen de
+  extensiones de anillos). Existe un elemento $\xi$ de orden
+  $2^{n}-1$ el cual es una raiz de un único polinomio
+  primitivo mónico $h(x)$ de grado $n$ sobre $\Z_4$ que
+  además divide a $x^{2^{n}-1} - 1$ en $\Z_4[x]$, por lo que
+  es una $2^{n}-1$-ésima raíz primitiva de la unidad en el
+  anillo de Galois. El conjunto \textit{Teichmüller} $T
+  \subset R$, está dado por potencias de éste elemento,
   \begin{equation}
     T = \{0,1,\xi,\xi^2,\ldots,\xi^{2^{n}-2}\},
   \end{equation}
@@ -4725,24 +4740,19 @@
   
   De nuevo podemos construir una cobertura Desarguesiana
   mediante la operación del campo finito. Recordemos que
-  ésto significa que
-  \[
-    x \circ y = xy.
-  \] 
-  Entonces el conjunto $\Sigma$ de espacios
-  uni-dimensionales sobre $\GF(2^{n})$ de $W = V \oplus V$
-  es una cobertura simpléctica de $W$. De nuevo ésto nos
-  brinda el plano afín
+  ésto significa que $x \circ y = xy$. El conjunto $\Sigma$
+  de espacios uni-dimensionales sobre $\GF(2^{n})$ de $W = V
+  \oplus V$ es una cobertura simpléctica de $W$.  De nuevo
+  ésto nos brinda el plano afín
   \[
     x = 0
     \quad \text{ y } \quad
     y = mx,
   \]
-  para todo $m \in F$, los cuales reconocemos que son los
-  rayos de las estrías de Wootters. Para formar un conjunto
+  para todo $m \in F$, los cuales reconocemos como los rayos
+  de las estrías de Wootters. Para formar un conjunto de
   MUBs no equivalentes al de Wootters, utilizamos otra
-  cobertura simpléctica que nos brinda Kantor, el cual no es
-  equivalente al Desarguesiano.
+  cobertura simpléctica que nos brinda Kantor.
   \begin{definition}
     \label{def:kantor_even_alt}
     Sea $\F = \GF(2^{n})$. Supongamos que $n >
@@ -4754,25 +4764,26 @@
     es un presemicampo simpléctico.
   \end{definition}
   Kantor prueba que la cobertura simpléctica de $V \oplus V$
-  generado por éste presemicampo no es equivalente al
-  Desarguesiano \cite{kantor2012}. Con el teorema
+  generada por éste presemicampo no es equivalente al
+  Desarguesiana \cite{kantor2012}. Con el teorema
   \ref{thm:kanat_even} podemos obtener una expresión
   explícita de las MUBs haciendo las operaciones pertinentes
   en el anillo de Galois.
 
-  \section{Definición no estándar de una función de Wigner
-  discreta}
+  \section{Función de Wigner discreta no estándar}
 
-  Vamos a recapitular la sección anterior. Dado una un campo
-  finito $\F$ siempre podemos formar un presemicampo mediante
-  una nueva operación $\circ$. Todo presemicampo genera una
-  cobertura $\Sigma$ del espacio $V \oplus V$ donde $V = F$,
-  que consiste de los subespacios
+  Vamos a recapitular la sección anterior. Dado un campo
+  finito $\F$ siempre podemos formar un presemicampo
+  mediante una nueva operación $\circ$. Todo presemicampo
+  genera una cobertura $\Sigma$ del espacio $V \oplus V$
+  donde $V = \F$, que consiste de los subespacios
   \[
     0 \oplus V,
     \quad
-    \{(w, w \circ m) : w \in V\}, 
-    \quad m \in F.
+    \text{y}
+    \quad
+    \{(w, w \circ m) : w \in V\} 
+    \quad \text{para todo } m \in \F.
   \] 
   En ocasiones, la cobertura formada por la operación del
   semicampo será totalmente istrópico respecto a una forma
@@ -4783,27 +4794,28 @@
   por definición anulan a la forma bilineal alternante, ésto
   a su vez es una condición necesaria para que dos
   operadores de desplazamiento conmuten, si son los
-  operadores correspondientes a puntos de las lineas del
-  plano afín.  Dado que los operadores de desplazamiento son
-  diagonalizables, dos operadores conmutativos nos brindan
-  una base de eigenvectores del espacio de Hilbert
-  simultánea. Además como la cobertura simpléctica es
-  maximal, obtenemos una partición de los operadores de
-  desplazamiento en subconjuntos de operadores conmutativos,
-  y obtenemos un conjunto maximal de bases mutuamente
-  insesgadas gracias a las construcciones de la sección
-  anterior. Utilizando nuestra notación, ésto significa que
-  los vectores $\ket{b_{m,v}}$ para todo $v \in \F$
-  corresponden al rayo $\{(u, u \circ m) : u \in \F\}$ y a
-  sus lineas paralelas, y son eigenvectores de los
+  operadores correspondientes a puntos de los subconjuntos
+  de la cobertura.  Dado que los operadores de
+  desplazamiento son diagonalizables, dos operadores
+  conmutativos nos brindan una base de eigenvectores del
+  espacio de Hilbert simultánea. Además como la cobertura
+  simpléctica es maximal, obtenemos una partición de los
+  operadores de desplazamiento en subconjuntos de operadores
+  conmutativos, y obtenemos un conjunto maximal de bases
+  mutuamente insesgadas gracias a las construcciones de la
+  sección anterior.
+
+  Utilizando nuestra notación, ésto significa que los
+  vectores $\ket{b_{m,v}}$ para todo $v \in \F$ corresponden
+  a las \textit{curvas} $\{(u, u \circ m) : u \in \F\}$ y a
+  sus traslaciones; además son eigenvectores de los
   operadores $D(u, u \circ m)$ para todo $u \in \F$. Cada
-  familia de eigenvectores correspondiente a los elementos
-  de la cobertura simpléctica es invariante bajo el grupo de
+  base de eigenvectores es invariante bajo el grupo de
   Pauli \cite{calderbank}, ésto significa que al operar un
   eigenestado por un operador de desplazamiento, obtendremos
-  algún otro eigenestado correspondiente a la estría (o al
-  mismo eigenestado si el operador corresponde a las
-  traslaciones que dejan invariante a las lineas de la
+  algún otro eigenestado correspondiente a la misma base (o
+  al mismo eigenestado si el operador corresponde a las
+  traslaciones que dejan invariante a las curvas de la
   estría). Por lo tanto, despues de asignar un eigenestado
   al rayo, el resto de las asignaciones de eigenestados
   quedan determinados por desplazamientos.
@@ -4815,12 +4827,11 @@
   espacio de fase discreto, por lo tanto el estado cuántico
   asignado a la recta debe corresponder a un eigenvector de
   los operadores de desplazamiento con puntos en en esa
-  linea. Así utilizando la misma metodología de Wootters
-  vamos a construir los operadores puntuales de la misma
-  manera, donde las rectas de Wootters son reemplazadas por
-  las lineas de la cobertura simpléctica en cuestión. El
-  caso de la cobertura Desarguesiana coincide con las rectas
-  de Wootters.
+  linea. Vamos a construir los operadores puntuales de la
+  misma manera, donde las rectas de Wootters son
+  reemplazadas por las curvas de la cobertura simpléctica en
+  cuestión. El caso de la cobertura Desarguesiana coincide
+  con las rectas de Wootters.
   \begin{definition}
     Sea $\rho$ un operador de densidad. La función de Wigner
     no estándar, denotada como $W_\rho^{\mathcal K}$ en
@@ -4834,8 +4845,8 @@
       A^{\mathcal K}(\alpha)
       = \sum_{\alpha \ni \lambda}^{} Q(\lambda) - I,
     \end{equation}
-    donde las $\lambda$ son las lineas de la cobertura que
-    contienen al punto $\alpha$.
+    para toda curva $\lambda$ de la cobertura que contienen
+    al punto $\alpha$.
   \end{definition}
   Elegimos la convención de tomar el primer elemento de las
   bases generadas de manera algorítmica por los teoremas
@@ -4856,15 +4867,19 @@
     \end{enumerate}
   \end{proposition}
   \begin{proof}
-    Las pruebas para cada punto son idénticas a las pruebas
-    de la proposición (\ref{prop:point_props}). Que los
-    operadores puntuales sean auto-adjuntos y de traza
-    unitaria se sigue directamente de que los operadores de
-    densidad son que constituyen al operador puntual por
-    medio de la red $Q$, son precisamente auto-adjuntos y de
-    traza unitaria. La prueba del tercer punto dependía de
-    que las bases fuera mutuamente insesgadas, algo que las
-    bases alternativas también satisfacen.
+    Las pruebas para cada punto son practicamente iguales a
+    las pruebas de la proposición (\ref{prop:point_props}).
+    Que los operadores puntuales sean auto-adjuntos y de
+    traza unitaria es consecuencia de que los operadores
+    $Q(\lambda)$ que constituyen al operador puntual son
+    auto-adjuntos y de traza unitaria. La prueba del tercer
+    punto solo dependía de que las bases fuera mutuamente
+    insesgadas, y de la estructura geométrica del espacio de
+    fase discreto. En particular, sabemos que la cobertura
+    simpléctica genera un plano afín, el cual preserva la
+    propiedad de que por cada punto pasan $d+1$ curvas y que
+    las curvas paralelas no se intersectan, por lo tanto
+    podemos utilizar el mismo argumento de conteo.
   \end{proof}
   Como consecuencia de la proposición anterior, la
   construcción no estándar también satisface las propiedades
@@ -4875,7 +4890,7 @@
     \begin{enumerate}
       \item $W_\rho^{\mathcal K}$ es real.
       \item La suma de $W_\rho^{\mathcal K}$ sobre cualquier
-        linea $\lambda$ del plano afín es igual al valor
+        curva $\lambda$ del plano afín es igual al valor
         esperado de $Q(\lambda)$ en el estado $\rho$.
       \item La suma de $W_\rho^{\mathcal K}$ sobre todo el
         espacio de fase discreto es igual a $1$.
@@ -5416,49 +5431,51 @@
   Las figuras (\ref{fig:wigner-standard-3-3-s1}) y
   (\ref{fig:wigner-kantor-3-3-s1}) muestran la función de
   Wigner estándar $W$ y no estándar $W^{\mathcal K}$ del
-  elemento $\ket{\psi}$. Son idénticas! Esperabamos ver
-  funciones de Wigner muy distintas como sucedió en el caso
-  de los cinco qubits, pero por alguna razón que aún no
-  hemos podido aclarar, las funciones de Wigner no difieren
-  en el caso de tres qutrits. Que las MUBs sean no
-  equivalentes bajo una transformación unitaria no
-  necesariamente implica los operadores puntuales lo sean.
-  El converso es claro, pero es posible que la suma de los
-  proyectores de eigenestados de distintas bases
-  \textit{anulen} las diferencias. No hemos podido dar un
-  contra ejemplo formal, pero númericamente hemos observado
-  que los operadores puntuales efectivamente son iguales a
-  pesar de ser la suma de proyectores de eigenestados que no
-  son equivalentes bajo transformaciones unitarias. Hace
-  falta hacer un estudio sobre las equivalencias de las
-  funciones de Wigner y éste resultado nos da una indicación
-  de que probablemente sea necesario analizar la
-  equivalencia de los operadores puntuales y no solo de las
-  redes cuánticas como lo hace Wootters.
+  elemento $\ket{\psi}$. \textit{Son idénticas!} Esperabamos
+  ver funciones de Wigner muy distintas como sucedió en el
+  caso de los cinco qubits, pero como se puede observar, las
+  funciones de Wigner no difieren en el caso de tres
+  qutrits. Que las MUBs no sean equivalentes bajo ninguna
+  transformación unitaria no necesariamente implica que los
+  operadores puntuales tampoco lo sean.  El converso es
+  claro, pero es probable que la suma de las proyecciones
+  de eigenestados de distintas bases \textit{anulen} las
+  diferencias. 
 
-  Matemáticamente que sucede? Calculemos el operador puntual
-  en el origen:
-  \begin{equation}
+  Fue necesario estudiar ésta situación más a fondo. Una
+  comparación numérica de las funciones de Wigner apuntó
+  hacia la igualdad de los operadores puntuales para ambas
+  coberturas simplécticas. Para simplificar la
+  investigación, consideremos el operador puntual en el
+  origen $A(0,0)$. De la definición de los operadores
+  puntuales tenemos que
+  \begin{align}
     A(0,0)
-    = \sum_{\lambda \ni (0,0)}^{} Q(\lambda) - I
-    = \sum_{m \in \F \cup \{\infty\}}^{} \ket{\lambda_{m,0}}
-    \bra{\lambda_{m,0}} - I,
-  \end{equation}
-  donde $\lambda_{m,0}$ corresponde al rayo con pendiente $m$
-  y $m = \infty$ corresponde con la estría vertical.
-  Utilizando la construcción de Kanat tenemos que
+    &= \sum_{\lambda \ni (0,0)}^{} Q(\lambda) - I \\
+    &= \sum_{m \in \F \cup \{\infty\}}^{} \ket{\lambda_{m,0}}
+    \bra{\lambda_{m,0}} - I \\
+    &= \ket{e_0}\bra{e_0}
+    + \sum_{m \in \F}^{}
+    \ket{\lambda_{m,0}}\bra{\lambda_{m,0}} - I,
+  \end{align}
+  donde $\lambda_{m,0}$ corresponde al rayo con pendiente
+  $m$ y $m = \infty$ corresponde con la estría vertical.
+  Utilizando la expresión (\ref{eqn:kanat_presemi_mubs})
+  tenemos que
   \begin{equation}
     \ket{\lambda_{m,0}}
     = \frac{1}{\sqrt{d}} \sum_{w \in \F}^{}
     \omega^{\tr\left( \frac{1}{2} w(w\circ m) \right) }
-    \ket{e_w}.
+    \ket{e_w},
   \end{equation}
-
-  \ldots Para la cobertura Desarguesiana la operación del
+  donde $\circ$ es la operación del presemicampo. Notemos
+  que la equivalencia del operador puntual se da solo si la
+  suma de las proyecciones respecto a la pendiente $m$ es
+  igual. Para la cobertura Desarguesiana la operación del
   presemicampo es $w \circ m = wm$ y para la cobertura de
   Albert tenemos que $w \circ m = mw^{9} + m^3 w^3$.
-
-  \ldots La proyección está dada por
+  Utilizando la definición de $\ket{\lambda_{m,0}}$, cada
+  proyección se puede expresar como:
   \begin{align}
     \ket{\lambda_{m,0}} \bra{\lambda_{m,0}}
     &= \frac{1}{d} 
@@ -5478,62 +5495,137 @@
     u(u\circ m))} 
     \ket{e_w} \bra{e_u}.
   \end{align}
-
-  Enfocándonos en las trazas tenemos para la cobertura
-  Desarguesiana:
+  Enseguida expresamos el argumento de la traza en términos
+  de la definición de las operaciones del presemicampo.
+  Primero, para la cobertura Desarguesiana obtenemos la
+  expresión:
   \begin{align}
-    \tr(\frac{1}{2} w(w\circ m)) - \tr(\frac{1}{2} u(u\circ m))
-    &= \tr(\frac{1}{2} m w^2) - \tr(\frac{1}{2} m u^2) \\
-    &= \tr\left( \frac{1}{2} m \left( w^2-u^2 \right) \right).
+    \tr\left(\frac{1}{2} w(w\circ m)\right)
+    - \tr\left(\frac{1}{2} u(u\circ m)\right)
+    %&= \tr\left(\frac{1}{2} m w^2\right)
+    %- \tr\left(\frac{1}{2} m u^2\right) \\
+    &= \tr\left(\frac{1}{2} m \left( w^2-u^2 \right)\right).
   \end{align}
-  Para la cobertura de Albert:
+  Similarmente para la cobertura de Albert obtenemos:
   \begin{align}
-    \tr(\frac{1}{2} w(w\circ m)) - \tr(\frac{1}{2} u(u\circ m))
-    &= \tr(\frac{1}{2} w (mw^{9}+m^3w^3)) - \tr(\frac{1}{2}
-    u (mu^{9}+m^3u^3)) \\
-    &= \tr\left( \frac{1}{2} ( 
-      m w^{10} + m^3 w^{4} - mu^{10} - m^3u^{4}
-    ) \right) \\
+    \tr\left(\frac{1}{2} w(w\circ m)\right)
+    - \tr\left(\frac{1}{2} u(u\circ m)\right)
+    %&= \tr\left(\frac{1}{2} w (mw^{9}+m^3w^3)\right)
+    %- \tr\left(\frac{1}{2} u (mu^{9}+m^3u^3)\right) \\
+    %&= \tr\left( \frac{1}{2} ( 
+    %  m w^{10} + m^3 w^{4} - mu^{10} - m^3u^{4}
+    %) \right) \\
     &= \tr\left( 
-      \frac{1}{2} m \left( w^{10} - u^{10} \right) 
-      + \frac{1}{2} m^3 \left( w^{4} - u^{4} \right)
+      \frac{1}{2} m \left( w^{10} - u^{10}  
+      + m^2 \left( w^{4} - u^{4}\right) \right)
     \right). 
   \end{align}
-
-  Todo junto, el operador puntual para el caso de la
-  cobertura estándar está dado por
+  Entonces la igualdad de los operadores puntuales es
+  equivalente a la igualdad de la siguiente triple suma:
   \begin{equation}
-    A(0,0)
-    = \ket{e_0} \bra{e_0}
-    + \frac{1}{d} \left(
-      \sum_{m \in \F}^{} \sum_{w \in \F}^{} \sum_{u \in \F}^{} 
-      \omega^{\tr(\frac{1}{2} m(w^2-u^2))} \ket{e_w} \bra{e_u}
-    \right)
-    - I.
-  \end{equation}
-  Y para el caso de Albert tenemos
-  \begin{equation}
-    A(0,0)
-    = \ket{e_0} \bra{e_0}
-    + \frac{1}{d} \left(
-      \sum_{m \in \F}^{} \sum_{w \in \F}^{} \sum_{u \in \F}^{} 
-      \omega^{\tr(\frac{1}{2} m(w^{10}-u^{10}) +
-      \frac{1}{2} m^3(w^{4}-u^{4}))}
-      \ket{e_w} \bra{e_u}
-    \right)
-    - I.
-  \end{equation}
-  Por lo tanto lo que tenemos que probar es
-  \begin{equation}
-    \sum_{m,w,u \in \F}^{} \omega^{\tr(\frac{1}{2} m(w^2-u^2))}
-    \ket{e_w} \bra{e_u}
+    \sum_{m,w,u \in \F}^{}
+    \omega^{\tr(\frac{1}{2} m(w^2-u^2))}
+    \ket{e_w}\bra{e_u}
     = 
-    \sum_{m,w,u \in \F}^{} \omega^{\tr\left(\frac{1}{2}
-    m(w^{10}-u^{10}) + \frac{1}{2} m^3(w^{4}-u^{4}) \right) }
-    \ket{e_w} \bra{e_u}.
+    \sum_{m,w,u \in \F}^{}
+    \omega^{\tr\left(\frac{1}{2} m
+    \left(w^{10}-u^{10} +  m^2(w^{4}-u^{4})\right) \right)
+    }
+    \ket{e_w}\bra{e_u}.
   \end{equation}
+  Las proyecciones $\ket{e_w}\bra{e_u}$ en la base
+  estándar se representan por matrices con todas sus
+  entradas iguales a cero excepto en la entrada indexada por
+  los elementos $w$ y $u$. Por lo tanto la igualdad de los
+  operadores puntuales en el origen es equivalente a la
+  siguiente igualdad:
+  \begin{equation}
+    \sum_{m \in \F}^{}
+    \omega^{\tr\left( 
+        \frac{1}{2} m \left( w^2 - u^2 \right) 
+    \right) }
+    =
+    \sum_{m \in \F}^{} 
+    \omega^{\tr\left( 
+        \frac{1}{2} m\left( w^{10}-u^{10} + m^2(w^{4}-u^{4})
+        \right) 
+    \right) }.
+  \end{equation}
+  para todo par $u,w \in \F$. Éste tipo de sumas
+  generalmente no son fáciles de evaluar
+  analíticamente\footnote{Para casos particulares, como las
+    sumas Gausianas, sí existen maneras de evaluación
+  analítica y probablemente ésta suma se puede evaluar de
+  manera similar. Desafortunadamente no pudimos demostrarlo, y
+  por eso recurrimos al software.}. Utilizamos el sistema de
+  álgebra computacional de \texttt{SageMath} para evaluar
+  ambas sumas sin recurrir a un cálculo numérico y
+  efectivamente obtenemos el mismo valor. Ésto significa que
+  los operadores puntuales en el origen para ambas
+  coberturas simplécticas son iguales. Un cálculo similar
+  nos muestra que el resto de los operadores puntuales
+  también lo son. Como consecuencia, obtenemos la misma
+  función de Wigner para la construcción estándar y no
+  estándar en el caso de los tres qutrits, respecto a la
+  cobertura de Albert. Éste ejemplo nos indica que la no
+  equivalencia de las MUBs \textit{no} es suficiente para
+  garantizar la desigualdad de las funciones de Wigner
+  estándar y no estándar.  Wootters propone una manera de
+  estudiar la equivalencia de funciones de Wigner discretas
+  bajo relaciones de equivalencia dadas por transformaciones
+  unitarias de las mallas cuánticas.
+  \begin{definition}
+    Decimos que dos mallas cuánticas son equivalentes si
+    solo difieren por una transformación unitaria, es decir,
+    dos mallas cuánticas $Q$ y $Q'$ son iguales si existe
+    una transformación unitaria $U$ tal que
+    \begin{equation}
+      Q'(\lambda)
+      = U Q(\lambda) U^{*},
+    \end{equation}
+    para toda curva $\lambda$ del espacio de fase discreto.
+  \end{definition}
+  %Utilizando ésta definición, Wootters prueba mediante un
+  %argumento de conteo, que toda malla cuántica es equivalente
+  %si y solo si el plano afín difiere por una traslación en
+  %el espacio de fase discreto.
+  Por un lado es fácil ver que si $Q$ y $Q'$ son
+  unitariamente equivalentes, entonces los operadores
+  puntuales $A(\alpha)$ y $A'(\alpha)$ también lo son, ya
+  que
+  \begin{align}
+    A'(\alpha)
+    &= \sum_{\lambda \ni \alpha}^{} Q'(\lambda) - I \\
+    &= \sum_{\lambda \ni \alpha}^{} U Q(\lambda) U^{*} - I
+    \\
+    &= U \left( 
+      \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I
+    \right) U^{*} \\
+    &= U A(\alpha) U^{*}.
+  \end{align}
+  ¿La proposición conversa también se cumple? Si los
+  operadores puntuales son unitariamente equivalentes, ¿ésto
+  implica que las mallas también lo son? Dicho de otra
+  manera, si utilizamos MUBs no equivalentes, ¿los
+  operadores puntuales tampoco serán equivalentes?  El
+  ejemplo de los tres qutrits con las coberturas
+  Desarguesiana y de Albert es un contra ejemplo de la
+  proposición conversa, ya que la identidad es una
+  transformación unitaria. En otras palabras, incluso cuando
+  no existe una transformación unitaria entre dos mallas
+  cuánticas, los operadores puntuales pueden ser
+  equivalentes. Por lo tanto es necesario estudiar que
+  propiedades adicionales debe tener una malla cuántica o el
+  espacio de fase discreto en particular, para poder
+  determinar cuando una función de Wigner es unitariamente
+  distinta a otra. No basta con estudiar la equivalencia de
+  las mallas cuánticas.
 
-  No parece ser fácil de probar :(.
+  El hecho de que ésto no sucede en el ejemplo de los cinco
+  qubits puede ser consecuencia de la cobertura particular
+  que usamos para la construcción no estándar, ó,
+  posiblemente es otra consecuencia interesante de la
+  característica par.
 
   \clearpage
   \section{Discusión}
@@ -5545,68 +5637,29 @@
   discreto. La estructura cuántica corresponde a un conjunto
   maximal de bases mutuamente insesgadas, las cuales dotan a
   la función de Wigner las propiedades análogas al caso
-  continuo, en particular la propiedad tomográfica básica.
+  continuo, en particular la propiedad tomográfica.
   Ésta propiedad nos permite recuperar el operador de
   densidad a partir de su función de Wigner. Dada la
   libertad en la asignación de la estructura cuántica al
   espacio de fase discreto, pudimos construir una versión no
   estándar utilizando MUBs que no son unitariamente
-  equivalentes a las de Wootters. Ahora, el hecho de que
-  podemos construir múltiples funciones de Wigner nos obliga
-  a estudiar las relaciones entre ellas, pero ésto queda
-  fuera del alcance de éste trabajo por el momento, pero,
-  mencionamos lo siguiente de manera breve.  Wootters
-  considera dos maneras de relacionar las distintas
-  definiciones de la función de Wigner, a lo que el llama
-  \textit{equivalencia} y \textit{similitud}. Primero,
-  propone que dos redes cuánticas son equivalentes si solo
-  difieren por una transformación unitaria, es decir,
-  consideramos a dos redes cuánticas $Q$ y $Q'$ como iguales
-  si existe una transformación unitaria $U$ tal que
-  \begin{equation}
-    Q'(\lambda)
-    = U Q(\lambda) U^{*},
-  \end{equation}
-  para toda linea $\lambda$ del espacio de fase discreto.
-  Utilizando ésta definición, Wootters prueba, mediante un
-  argumento de conteo, que toda red cuántica es equivalente
-  si y solo si el plano afín difiere por una traslación en
-  el espacio de fase discreto. Por un lado es fácil ver que
-  si $Q$ y $Q'$ son unitariamente equivalentes, entonces los
-  operadores puntuales $A(\alpha)$ y $A'(\alpha)$ también lo
-  son, ya que
-  \begin{equation}
-    A'(\alpha)
-    = \sum_{\lambda \ni \alpha}^{} Q'(\lambda) - I 
-    = \sum_{\lambda \ni \alpha}^{} U Q(\lambda) U^{*} - I
-    = U \left( 
-      \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I
-    \right) U^{*} 
-    = U A(\alpha) U^{*}.
-  \end{equation}
-  El converso no nos queda tan claro, i.e., si no existe una
-  transformación unitaria entre dos redes cuánticas, ¿es
-  verdad que los operadores puntuales tampoco son
-  unitariamente equivalentes? Ésta cuestión es importante
-  pues la clasificación de funciones de Wigner pudiera
-  depender más allá de la clasificación de las redes
-  cuánticas.
+  equivalentes a las de Wootters. 
 
-  Siguiendo ésta misma cuestión de la equivalencia de la
-  función de Wigner, notamos otro aspecto que es victima de
-  la arbitrariedad: la gráfica de una función de Wigner
-  depende del orden elegido del campo finito utilizado para
-  armar el espacio de fase. Evidentemente no hay un
-  ordenamiento predilecto, ya que los campos finitos no son
-  ordenados. Durante todo el trabajo hemos optado por
-  utilizar el ordenamiento por potencias del generado de la
-  extensión de Galois, pero se ha observado que distintos
-  ordenamientos producen gráficas con distintas cualidades,
-  unas más ordenadas que otras. Como trabajo futuro sería
-  interesante estudiar los efectos del orden elegido en
-  cuanto alguna medida del orden o aleatoriedad de la
-  gráfica de la función de Wigner, y estudiar si ésto tiene
-  consecuencias en las interpretaciones físicas.
+  Retomando el tema de la equivalencia de las funciones de
+  Wigner, notamos otro aspecto que es victima de la
+  arbitrariedad: la gráfica de una función de Wigner depende
+  del orden elegido del campo finito utilizado para armar el
+  espacio de fase. Evidentemente no hay un ordenamiento
+  predilecto, ya que los campos finitos no son ordenados.
+  Durante todo el trabajo hemos optado por utilizar el
+  ordenamiento por potencias del generado de la extensión de
+  Galois, pero se ha observado que distintos ordenamientos
+  producen gráficas con distintas cualidades, unas más
+  ordenadas que otras. Como trabajo futuro sería interesante
+  estudiar los efectos del orden elegido en cuanto alguna
+  medida del orden o aleatoriedad de la gráfica de la
+  función de Wigner, y estudiar si ésto tiene consecuencias
+  en las interpretaciones físicas.
 
   Por otro lado, la metodología de Wootters revela de manera
   directa la relación que existe entre estructuras
