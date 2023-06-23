@@ -1097,11 +1097,15 @@
   number = {4},
   pages = {141--142},
   issn = {0036-0279, 1468-4829},
-  doi = {10.1070/RM1987v042n04ABEH001448},
-  url = {https://iopscience.iop.org/article/10.1070/RM1987v042n04ABEH001448},
-  urldate = {2023-05-22},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/ETTZ2PAJ/Ivanov - 1987 - Orthogonal decompositions of Lie algebras of type .pdf}
+}
+
+@article{kantor,
+  title = {Codes, Quadratic Forms and Finite Geometries},
+  author = {Kantor, William M.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/94ABJEJF/KAl'iTOR - Codes, quadratic forms and finite geometries.pdf}
 }
 
 @article{kantor1982,
@@ -1387,6 +1391,22 @@
   isbn = {978-0-521-46094-1 978-1-139-17276-9},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/CUD249ZI/Lidl and Niederreiter - 1994 - Introduction to Finite Fields and their Applicatio.pdf}
+}
+
+@book{lidl1997,
+  title = {Finite Fields},
+  author = {Lidl, Rudolf and Niederreiter, Harald},
+  date = {1997},
+  series = {Encyclopedia of Mathematics and Its Applications},
+  edition = {2nd ed},
+  number = {v. 20},
+  publisher = {{Cambridge University Press}},
+  location = {{Cambridge ; New York}},
+  isbn = {978-0-521-39231-0},
+  langid = {english},
+  pagetotal = {755},
+  keywords = {Finite fields (Algebra)},
+  file = {/Users/ernesto/Zotero/storage/J7FQTP53/Lidl and Niederreiter - 1997 - Finite fields.pdf}
 }
 
 @article{mari2012,

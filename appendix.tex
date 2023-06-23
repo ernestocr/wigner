@@ -116,16 +116,16 @@ distribución de un conjunto de partículas.
 Si intentamos definir el espacio de fase discreto sobre un
 anillo como por ejemplo $\Z_4$, tendremos problemas a la
 hora de trabajar con rectas y otras estructuras geométricas.
-Por ejemplo consideramos la recta
+Por ejemplo, la recta
 \[
   x + 2p = 0,
 \]
-la cual tiene como solución al conjunto de puntos
+tiene como solución al conjunto de puntos
 \begin{equation}
   \label{eqn:ap_fields_1}
   \{(0,0), (2,1), (0,2), (2,3)\}.
 \end{equation} 
-Ahora, la recta 
+Similarmente, la recta 
 \[
   x = 0,
 \] 
@@ -136,12 +136,13 @@ tiene como solución al conjunto
 \end{equation} 
 Notemos que los dos conjuntos tiene una intersección con
 \textit{más} de un elemento, algo que contradice nuestra
-noción geoemétrica de una linea en el espacio. Ésto es un
-ejemplo de la falta de estructura geométrica de un espacio
-de fase discreto cuando solo utilizamos un anillo. Para
-poder preservar las nociones geométricas del espacio
-Euclideano es necesario utilizar una estructura algebráica
-más \textit{rica}, especificamente la de un campo finito.
+noción geoemétrica de una linea en el espacio, ya que ambas
+lineas son distintas. Ésto es un ejemplo de la falta de
+estructura geométrica de un espacio de fase discreto cuando
+solo utilizamos un anillo. Para poder preservar las nociones
+geométricas del espacio Euclideano es necesario utilizar una
+estructura algebráica más \textit{rica}, especificamente la
+de un campo finito.
 
 Lo que sigue es un resumén breve de los conceptos y
 resultados que fundamentan el uso de los campos finitos para
@@ -602,83 +603,91 @@ distinta para los casos de característica par e impar.
   una base auto-dual.
 \end{example}
 
-\subsection{Diferencias entre característica par e impar}
-
-Ahora mencionamos algunas sutilizas o distinciones entre
-campos finitos de característica par e impar. Sea $\F_d$ un
-campo finito de $d$ elementos donde $d = p^{n}$ y $p$ es un
-número primo. Consideremos los conjuntos 
-\[
-  \F_d^2 := \{x^2 : x \in \F_d\}
-  \quad \text{y} \quad
-  \left(\F_d^*\right)^2 := \{x^2 : x \in \F_d^{*}\}.
-\] 
-Si $d = 2^{n}$, entonces todo elemento de $\F_d$ es un
-elemento cuadrado, es decir $\F_d = \F_d^{2}$ y $\F_d^{*} =
-\left( \F_d^{*} \right)^2$. Además, todo elemento de $\F_d$
-tiene una \textit{única} raíz en $\F_d$. Ésto no es el caso
-para característica impar. No todo elemento del grupo
-multiplicactivo tiene una raíz cuadrada. Cuando $p$ es
-impar, los elementos de $\left( \F_d^{*} \right)^2$ son
-elementos \textit{cuadrados} de $\F_d^{*}$ y los elementos
-$\F_d^{*} \setminus \left( \F_d^{*} \right)^2$ son elementos
-\textit{no-cuadrados}.
-
-Otra diferencia es la resolución de la ecuación cuadrática
-\begin{equation}
-  ax^2 + bx + c = 0,
-\end{equation}
-sobre un campo finito $\F$. Si $\F$ no es de característica
-dos, entonces la fórmula
-\begin{equation}
-  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-\end{equation}
-nos brinda sus soluciones. Ésta fórmula no funciona para
-característica par, pero ésto no significa que no se puede
-resolver para un campo $\F_{d^{n}}$. De hecho el siguiente
-teorema nos dice cuando existe una solución de la ecuación
-cuadrática.
-\begin{theorem}
-  Sea $ax^2 + bx + c = 0$ una ecuación cuadrática sobre
-  $\F_{2^{n}}$. Cuando $b = 0$, entonces la ecuación tiene
-  una única solución
-  \[
-    x = \left( \frac{c}{a} \right)^{2^{n-1}}.
-  \] 
-  Cuando $b \neq 0$, entonces hay dos casos:
-  \begin{itemize}
-    \item Si $\tr(ac / b^2) = 1$, no tiene solución.
-    \item Si $\tr(ac / b^2) = 0$, tiene dos soluciones.
-  \end{itemize}
-\end{theorem}
+%\subsection{Diferencias entre característica par e impar}
+%
+%Ahora mencionamos algunas sutilizas o distinciones entre
+%campos finitos de característica par e impar. Sea $\F_d$ un
+%campo finito de $d$ elementos donde $d = p^{n}$ y $p$ es un
+%número primo. Consideremos los conjuntos 
+%\[
+%  \F_d^2 := \{x^2 : x \in \F_d\}
+%  \quad \text{y} \quad
+%  \left(\F_d^*\right)^2 := \{x^2 : x \in \F_d^{*}\}.
+%\] 
+%Si $d = 2^{n}$, entonces todo elemento de $\F_d$ es un
+%elemento cuadrado, es decir $\F_d = \F_d^{2}$ y $\F_d^{*} =
+%\left( \F_d^{*} \right)^2$. Además, todo elemento de $\F_d$
+%tiene una \textit{única} raíz en $\F_d$. Ésto no es el caso
+%para característica impar. No todo elemento del grupo
+%multiplicactivo tiene una raíz cuadrada. Cuando $p$ es
+%impar, los elementos de $\left( \F_d^{*} \right)^2$ son
+%elementos \textit{cuadrados} de $\F_d^{*}$ y los elementos
+%$\F_d^{*} \setminus \left( \F_d^{*} \right)^2$ son elementos
+%\textit{no-cuadrados}.
+%
+%Otra diferencia es la resolución de la ecuación cuadrática
+%\begin{equation}
+%  ax^2 + bx + c = 0,
+%\end{equation}
+%sobre un campo finito $\F$. Si $\F$ no es de característica
+%dos, entonces la fórmula
+%\begin{equation}
+%  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+%\end{equation}
+%nos brinda sus soluciones. Ésta fórmula no funciona para
+%característica par, pero ésto no significa que no se puede
+%resolver para un campo $\F_{d^{n}}$. De hecho el siguiente
+%teorema nos dice cuando existe una solución de la ecuación
+%cuadrática.
+%\begin{theorem}
+%  Sea $ax^2 + bx + c = 0$ una ecuación cuadrática sobre
+%  $\F_{2^{n}}$. Cuando $b = 0$, entonces la ecuación tiene
+%  una única solución
+%  \[
+%    x = \left( \frac{c}{a} \right)^{2^{n-1}}.
+%  \] 
+%  Cuando $b \neq 0$, entonces hay dos casos:
+%  \begin{itemize}
+%    \item Si $\tr(ac / b^2) = 1$, no tiene solución.
+%    \item Si $\tr(ac / b^2) = 0$, tiene dos soluciones.
+%  \end{itemize}
+%\end{theorem}
 
 \subsection{Sumas exponenciales}
+\label{subsec:exp_sums}
 
 El uso de sumas exponenciales para campos finitos resulta
 ser útil para varias aplicaciones. Hacemos un resumen breve
 de algunos resultados ya que mucha de la literatura que
 utilizamos para la construcción explícita de las MUBs
 requiere de manera directa o indirecta de éstos resultados.
-Las sumas exponenciales están formadas por un grupo especial
-de homomorfismos llamados \textit{caracteres}, ya sean
-aditivos o multiplicativos.
+En particular exponemos (sin prueba) dos resultados que
+utilizamos para demostrar la equivalencia de las sumas que
+aparecen en el ejemplo de los tres qutrits. Las
+demostraciones y detalles se pueden encontrar en el libro de
+Lidl y Niederreiter \cite{lidl1997}.
 
-Sea $G$ un grupo abeliano finito de orden $|G|$ con
-identidad $1_G$. Un \textit{caracter} $\chi$ de $G$ es un
-homomorfismo de $G$ a el grupo multiplicativo $U$ de los
-números complejos de valor absoluto unitario. Notemos que
-\[
-  \left( \chi(g) \right)^{|G|}
-  = \chi\left( g^{|G|} \right) 
-  = \chi\left( 1_G \right) 
-  = 1
-\] 
-para todo $g \in G$, por lo que los valores $\chi$ son las
-$|G|$-ésimas raíces de la unidad. El conjunto $\hat G$ de
-todos los caracteres de $G$ forma un grupo abeliano bajo la
-multiplicación de caracteres. Ahora veamos algunas
-propiedades interesantes de los caracteres.
+Las sumas exponenciales están formadas por un grupo especial
+de homomorfismos llamados \textit{caracteres}.
+\begin{definition}
+  Sea $G$ un grupo abeliano finito de orden $|G|$ con
+  identidad $1_G$. Un \textit{caracter} $\chi$ de $G$ es un
+  homomorfismo de $G$ a el grupo multiplicativo $U$ de los
+  números complejos de valor absoluto unitario. Notemos que
+  \[
+    \left( \chi(g) \right)^{|G|}
+    = \chi\left( g^{|G|} \right) 
+    = \chi\left( 1_G \right) 
+    = 1
+  \] 
+  para todo $g \in G$, por lo que los valores $\chi$ son las
+  $|G|$-ésimas raíces de la unidad. 
+\end{definition}
+El conjunto $\hat G$ de todos los caracteres de $G$ forma un
+grupo abeliano bajo la multiplicación de caracteres. Ahora
+veamos algunas propiedades interesantes de los caracteres.
 \begin{theorem}
+  \label{thm:lidl_char_sum}
   Si $\chi$ es un caracter no trivial de un grupo finito
   abeliano $G$, entonces
   \begin{equation}
@@ -689,27 +698,27 @@ propiedades interesantes de los caracteres.
     \sum_{\chi \in \hat G}^{} \chi(g) = 0.
   \end{equation}
 \end{theorem}
-De éste teorema se sigue que el número de caracteres de un
-grupo abeliano finito $G$ es igual a $|G|$. Éstas
-propiedades nos brindan unas relaciones de
-\textit{ortogonalidad} de los caracteres. Si $\chi$ y $\psi$
-son caracteres de $G$, entonces
-\begin{equation}
-  \frac{1}{|G|}
-  \sum_{g \in G}^{} \chi(g) \overline{\psi(g)}
-  = \begin{cases}
-    0 & \text{si } \chi \neq \psi, \\
-    1 & \text{si } \chi = \psi.
-  \end{cases}
-\end{equation}
-Ahora nos enfocamos en campos finitos. Recordemos que en un
-campo finito $\F_d$, existen dos grupos finitos abelianos de
-importancia, el grupo aditivo y el grupo multiplicativo. En
-ambos casos podemos obtener expresiones explicítas de los
-caracteres del grupo. Consideremos el grupo aditivo de
-$\F_d$. Sea $p$ la característica de $\F_d$, e identificamos
-al subcampo primo de $\F_d$ con $\Z_p$. Definamos a la
-función $\chi_1$ de la siguiente manera:
+%De éste teorema se sigue que el número de caracteres de un
+%grupo abeliano finito $G$ es igual a la cardinalidad de $G$,
+%$|G|$. Éstas propiedades nos brindan unas relaciones de
+%\textit{ortogonalidad} de los caracteres. Si $\chi$ y $\psi$
+%son caracteres de $G$, entonces
+%\begin{equation}
+%  \frac{1}{|G|}
+%  \sum_{g \in G}^{} \chi(g) \overline{\psi(g)}
+%  = \begin{cases}
+%    0 & \text{si } \chi \neq \psi, \\
+%    1 & \text{si } \chi = \psi.
+%  \end{cases}
+%\end{equation}
+Recordemos que en un campo finito $\F_d$, existen dos grupos
+finitos abelianos de importancia, el grupo aditivo y el
+grupo multiplicativo. En ambos casos podemos obtener
+expresiones explicítas de los caracteres del grupo.
+Consideremos el grupo aditivo de $\F_d$. Sea $p$ la
+característica de $\F_d$, e identificamos al subcampo primo
+de $\F_d$ con $\Z_p$. Definamos a la función $\chi_1$ de la
+siguiente manera:
 \begin{equation}
   \chi_1(c)
   = e^{2\pi i \tr(c) / p},
@@ -718,9 +727,11 @@ función $\chi_1$ de la siguiente manera:
 \end{equation}
 Es trivial probar que $\chi_1$ es un caracter del grupo
 aditivo, y le llamamos un \textit{caracter aditivo} de
-$\F_d$. Todos los caracteres aditivos de $\F_d$ pueden ser
-expresados en términos del caracter $\chi_1$. Para los
-caracteres aditivos $\chi_a$ y $\chi_b$ tenemos que
+$\F_d$. Cuando el contexto es claro, denotaremos a $\chi_1$
+simplemente por $\chi$. Todos los caracteres aditivos de
+$\F_d$ pueden ser expresados en términos del caracter
+$\chi_1$. Para los caracteres aditivos $\chi_a$ y $\chi_b$
+tenemos que
 \begin{equation}
   \sum_{c \in \F_d}^{}
   \chi_a(c) \overline{\chi_b(c)}
@@ -751,13 +762,14 @@ caracteres se pueden expresar de la siguiente manera.
   define un caracter multiplicativo en $\F_d$ y además todo
   caracter multiplicativo se obtiene de ésta manera.
 \end{theorem}
-Éstos caracteres satisfacen propiedades de ortogonalidad
-similares a los de los caracteres aditivos.
-
-Ahora introducimos el concepto de una suma Gaussiana. Sean
-$\psi$ un caracter multiplicativo y $\chi$ un caracter
-aditivo de $\F_d$. La suma Gaussiana $G(\psi,\chi)$ se
-define como
+Muchos de los resultados de las sumas Gaussianas y de Weil
+que veremos enseguida dependen de ambos caracteres, pero
+para nuestro trabajo basta con enfocarnos en el grupo de
+caracteres aditivos. Sin embargo, definimos el concepto de
+una suma Gaussiana de forma general, la cual involucra a los
+caracteres multiplicativos. Sean $\psi$ un caracter
+multiplicativo y $\chi$ un caracter aditivo de $\F_d$. La
+suma Gaussiana $G(\psi,\chi)$ se define como
 \begin{equation}
   G(\psi,\chi)
   = \sum_{c \in \F_d^{*}}^{} \psi(c) \chi(c).
@@ -776,33 +788,109 @@ en cuanto a los posibles valores que pueden tomar.
       0 & \text{para } \psi \neq \psi_0, \chi = \chi_0,
     \end{cases}
   \end{equation}
-  y además, si $\psi = \neq \psi$ y $\chi = \chi_0$,
+  y además, si $\psi \neq \psi$ y $\chi \neq \chi_0$,
   entonces
   \begin{equation}
-    |G(\psi,\chi)| = d^{1 / 2}.
+    |G(\psi,\chi)| = \sqrt{d}.
   \end{equation} 
 \end{theorem}
-Por medio de las sumas Gaussianas podemos expresar los
-caracteres multiplicativos en términos de los caracteres
-aditivos, de hecho se asemeja a una expansión en términos de
-Fourier. En éste sentido las sumas Gaussianas vinculan ambos
-tipos de caracteres.
+%Por medio de las sumas Gaussianas podemos expresar a los
+%caracteres multiplicativos en términos de los caracteres
+%aditivos (y vice versa). Ésto asemeja a una expansión
+%en términos de Fourier. En éste sentido las sumas Gaussianas
+%vinculan ambos tipos de caracteres.
+El teorema anterior es fundamental en muchas de las pruebas
+de las construcciones de MUBs que investigamos ya que por
+definición del producto interno del espacio de Hilbert $\H$,
+el producto interno de dos elementos se expresa en términos
+de sumas exponenciales. En nuestro trabajo no hicimos uso
+explícito de éstos resultados ya que nos apoyamos en los
+teoremas de Kanat y de Bandyophyay et al.
 
-. . .
+Otro tipo de sumas exponenciales importante para éste
+trabajo son las sumas de caracteres con argumentos
+polinomiales.
+\begin{definition}
+  Sea $\chi$ un caracter aditivo no trivial de $\F_d$ y sea
+  $f \in \F_d[x]$ un polinomio de grado positivo. La suma de
+  la forma
+  \begin{equation}
+    \sum_{c \in \F_d}^{} \chi\left( f(c) \right),
+  \end{equation}
+  se conoce como una suma de Weil.
+\end{definition} 
+Como mencionamos en el capítulo anterior, la evaluación de
+éstas sumas generalmente es dificil. En ciertos casos es
+posible tratar con éstas sumas de manera directa, por
+ejemplo para polinomios lineales tenemos el siguiente
+resultado.
+\begin{theorem}
+  \label{thm:lidl_linear_sum}
+  Si $\chi$ es un caracter aditivo no trivial de $\F_d$ y
+  $\gcd(n,d-1) = 1$, entonces
+  \begin{equation}
+    \sum_{c \in \F_d}^{} \chi\left( a c^{n} + b \right) 
+    = 0,
+  \end{equation}
+  para todo $a,b \in \F_d$ con $a \neq 0$.
+\end{theorem}
+Para el siguiente caso particular necesitamos el concepto de un
+$p$-polinomio afín. Un polinomio de la forma
+\begin{equation}
+  L(x)
+  = \sum_{i = 0}^{n} \alpha_i x^{p^{i}},
+\end{equation}
+con coeficientes en la extensión de campos $\F_{p^{n}}$ de
+$\F_p$ se conoce como un $p$-polinomio sobre $\F_{p^{n}}$.
+Un polinomio de la forma $A(x) = L(x) - \alpha$, donde
+$L(x)$ es un $p$-polinomio sobre $\F_{p^{n}}$ y $\alpha \in
+\F_{p^{n}}$ se conoce como un $p$-polinomio afín sobre
+$\F_{p^{n}}$.
+\begin{theorem}[Teorema 5.32 de \cite{lidl1997}]
+  \label{thm:lidl_weil_poly}
+  Sea $\F_d$ un campo finito de característica $p$ y sea
+  \begin{equation}
+    f(x) = a_r x^{p^{r}} + a_{r-1} x^{p^{r-1}} + \cdots +
+    a_1 x^{p} + a_0 x + a
+  \end{equation}
+  un $p$-polinomio afín sobre $\F_d$. Además sea $\chi_b$
+  con $b \in \F_d^{*}$ un caracter aditivo no trivial de
+  $\F_d$ donde
+  \begin{equation}
+    \chi_b(c) = \chi(bc).
+  \end{equation}
+  Para simplificar la notación, definamos 
+  \[
+    g(x)
+    = x a_r + x^{p} a_{r-1}^{p} + \cdots +
+    x^{p^{r-1}}a_1^{p^{r-1}} + x^{p^{r}}a_0^{p^{r}}.
+  \] 
+  Entonces
+  \begin{equation}
+    \sum_{c \in \F_d}^{} \chi_b\left( f(c) \right) 
+    = 
+    \begin{cases}
+      \chi_b(a) d & \text{si } g(b) = 0, \\
+      0 & \text{en otro caso}.
+    \end{cases}
+  \end{equation}
+\end{theorem}
 
-Como hemos visto, la estructura algebráica del campo
-finito es necesaria para poder construir una función de
-Wigner discreta con todas las propiedades deseables. La
-artimética $d$-modular no es suficiente ya que no se
-preservan ciertas propiedades importantes de una geometría
-finita. Los campos $\Z_p$ donde $p$ es un número primo son
-los más sencillos de manejar porque las operaciones se
-hacen módulo $p$, pero ésto se vuelve inpráctico porque no
-todo sistema cuántico puede ser modelado por un espacio de
-Hilbert de dimensión prima. El concepto de una
-\textit{extensión de campos} nos permite augmentar el
-campo $\Z_p$ a un campo finito de orden $p^{n}$. A la
-extensión de campo se le dice \textit{extensión de Galois}.
+%\subsection{Geometría finita y planos afínes}
+%
+%Como hemos visto, la estructura algebráica del campo
+%finito es necesaria para poder construir una función de
+%Wigner discreta con todas las propiedades deseables. La
+%artimética $d$-modular no es suficiente ya que no se
+%preservan ciertas propiedades importantes de una geometría
+%finita. Los campos $\Z_p$ donde $p$ es un número primo son
+%los más sencillos de manejar porque las operaciones se
+%hacen módulo $p$, pero ésto se vuelve inpráctico porque no
+%todo sistema cuántico puede ser modelado por un espacio de
+%Hilbert de dimensión prima. El concepto de una
+%\textit{extensión de campos} nos permite augmentar el
+%campo $\Z_p$ a un campo finito de orden $p^{n}$. A la
+%extensión de campo se le dice \textit{extensión de Galois}.
 
 %\subsection{Formas cuadráticas y formas alternantes sobre
 %campos finitos}
@@ -888,8 +976,6 @@ la base dual, y los operadores $D(\alpha_i,\beta_i)$ son
 los operadores de desplazamiento actuando sobre los
 subsistemas $\H_p$.
 
-Klimov. . .
-
 \section{Anillos de Galois}
 
 En la construcción de las MUBs para campos finitos de
@@ -897,7 +983,7 @@ característica par fue necesario `salirnos' del campo y
 hacer operaciones en el \textit{anillo de Galois}. Aquí
 enunciamos varios de las definiciones y resultados que se
 utilizan para tal construcción. La teoría de anillos de
-Galois fue desarrollada por W. Krull en 1924 [CITE]. 
+Galois fue desarrollada por W. Krull en 1924. 
 \begin{definition}
   Un anillo de Galois se define como un anillo finito con
   identidad $1$ tal que el conjunto de sus divisores de 0,
@@ -947,7 +1033,7 @@ Galois fue desarrollada por W. Krull en 1924 [CITE].
   Por lo tanto
   \[
     \Z_{p^{s}}[x] / \langle h(x) \rangle
-    = Z_{p^{s}}[\xi],
+    = \Z_{p^{s}}[\xi],
   \] 
   y todos los elementos del anillo de Galois pueden ser
   representados por las potencias de $\xi$. Ésta
@@ -967,10 +1053,9 @@ irreducible sobre $\Z_{p^{s}}$ de grado $m$, por
   \GR(p^{s}, p^{sm}),
 \] 
 donde $p^{s}$ es la característica y $p^{sm}$ su
-cardinalidad.
-
-\subsection{La represetnación \texorpdfstring{$p$}-ádica}
-
+cardinalidad. Los elementos de un anillo de Galois pueden
+ser representados en términos de combinaciones polinomiales
+de un subgrupo particular de la extensión de anillos.
 \begin{theorem}
   En el anillo de Galois $\GR(p^{s}, p^{sm})$ existe un
   elemento no cero $\xi$ de orden $p^{m}-1$, el cual es raíz
@@ -997,4 +1082,10 @@ cardinalidad.
 \end{theorem}
 La representación de un elemento de $\GR(p^{s},p^{sm})$ en
 términos de los elementos de $\mathcal T$ se conoce como la
-\textit{representación $p$-ádica} del elemento.
+\textit{representación $p$-ádica} del elemento. En
+particular utilizamos la representación $2$-ádica para hacer
+los cálculos requeridos en la construcción de las MUBs en
+característica dos. Los detalles de dicha construcción se
+pueden consultar en el trabajo de Calderbank, Cameron,
+Kantor y Seidel sobre códigos de Kerdock sobre $\Z_4$
+\cite{calderbank}.

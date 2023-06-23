@@ -177,10 +177,10 @@
   propiedad tomográfica, la cual permite expresar la función
   de Wigner de cualquier estado como una combinación lineal
   de probabilidades observadas. La inequivalencia de las
-  construcciones conduce a la posibilidad de encontrar
-  estados no estabilizadores con funciones de Wigner
-  no-negativas, lo que contrasta con resultados previos para
-  el caso discreto \cite{gross2006, galvao2005,
+  construcciones conduce a la \textit{posibilidad} de
+  encontrar estados no estabilizadores con funciones de
+  Wigner no-negativas, lo que contrasta con resultados
+  previos para el caso discreto \cite{gross2006, galvao2005,
   cormick2006a}.
 
   \chapter{Preliminares}
@@ -197,7 +197,7 @@
   función de Wigner a sistemas de dimensión finita. Para los
   sistemas continuos resulta que la función de Wigner es
   prácticamente única en el sentido de que posee la
-  propiedad tomográfica básica \cite{ellinas2008}, pero para
+  propiedad tomográfica \cite{ellinas2008}, pero para
   sistemas discretos no hay una función de Wigner única, e
   incluso hay distintas construcciones con distintas
   propiedades.  Esencialmente existen dos versiones básicas,
@@ -286,15 +286,14 @@
   también nos permite describir su evolución temporal por
   medio de la ecuación de Schrödinger. 
   
-  \subsection{La formulación en el espacio de Hilbert}
+  \subsection{Postulados de la mecánica cuántica}
 
   Comencemos definiendo los conceptos y algunos de los
   postulados que necesitaremos de la mecánica cuántica.
   Existen múltiples versiones de los postulados, dependiendo
-  del rigor con el cual se planea trabajar, en éste trabajo
-  solo enunciamos los necesarios y de una forma básica
-  ignorando el teorema espectral para el caso continuo.
-
+  del rigor matemático con el cual se planea trabajar. Para
+  ésta sección adaptamos las definiciones del libro de Brian
+  Hall \cite{hall2013}.
   \begin{axiom}
     \label{ax:1}
     A cada sistema cúantico le corresponde un espacio de
@@ -328,17 +327,18 @@
     \]
   \end{axiom}
   Los operadores auto-adjuntos representan a los observables
-  físicos como la energía, posición, momentum y momentum
-  angular. De manera alternativa, un sistema físico puede
-  ser de dimensión finita, representando por ejemplo, a los
-  grados de libertad de un sistema \textit{spin}, para los
-  cuales pudiera ser que no existe un análogo clásico. Como
-  hemos mencionado anteriormente, la matemática se vuelve
-  más sencilla en el caso finito, por lo que los tratados
-  sobre la teoría de la medición generalmente se hacen en el
-  caso finito, evitando las cuestiones delicadas pertinentes
-  a la convergencia, cuestiones de acotamiento y del dominio
-  del operador, etc. Muchos problemas surgen del ignorar
+  físicos como por ejemplo la energía, posición, momentum y
+  momentum angular. Pero también pueden representar
+  observables que no tienen un análogo clásico. Por ejemplo
+  pueden representar los grados de libertad de un sistema
+  \textit{spin} mediante un espacio de dimensión finita. La
+  matemática se vuelve más sencilla en el caso finito ya que
+  no se tiene que lidiar con las sutilizas del continuo. Por
+  ésta razón, muchos de los tratados sobre la \textit{teoría
+  de la medición cuántica} generalmente se hacen en el caso
+  finito, evitando las cuestiones delicadas pertinentes de
+  la convergencia, cuestiones de acotamiento y del dominio
+  del operador, etc.  Muchos problemas surgen del ignorar
   éstos detalles y se pueden tratar rigurosamente con la
   teoría espectral, pero dada la naturaleza de éste trabajo,
   nos podemos dar el lujo de ignorarlos pues nos centramos
@@ -426,8 +426,8 @@
   \] 
   Dado que los observables son operadores auto-adjuntos, sus
   eigenestados forman una base ortonormal del espacio de
-  Hilbert. En particular los proyectores de cada elemento de
-  la base ortonormal son auto-adjuntos. En general los
+  Hilbert. En particular las proyecciones de cada elemento
+  de la base ortonormal son auto-adjuntos. En general los
   operadores auto-adjuntos satisfacen las siguientes
   propiedades:
   \begin{proposition}
@@ -440,17 +440,17 @@
         operador (normalizados).
     \end{enumerate}
   \end{proposition}
-  En éste trabajo no trataremos con la dinámica de un
-  sistema cuántico, por lo que no será necesario introducir
-  el concepto de la evolución unitaria de un sistema
-  cuántico.
+  %En éste trabajo no trataremos con la dinámica de un
+  %sistema cuántico, por lo que no será necesario introducir
+  %el concepto de la evolución unitaria de un sistema
+  %cuántico.
 
   \subsection{Medidas proyectivas}
 
   La idea básica de la teoría de medición consiste en el
   hecho de que podemos elegir \textit{cualquier} base
   ortonormal del espacio de Hilbert $\H$ y observar en que
-  estado de la base nuestro sistema cuántico se encuentra.
+  estado de la base se encuentra nuestro sistema cuántico.
   Al hacer la medición siempre encontraremos uno de los
   estados de dicha base, y, utilizando el postulado de la
   medición (\ref{ax:3}), podemos calcular la probabilidad de
@@ -480,10 +480,10 @@
     = \braket{\psi|\Pi_m^{*}\Pi_m|\psi}
     = \braket{\psi|\Pi_m|\psi}.
   \end{equation}
-  La última igualdad se sigue de que los proyectores son
-  idempotentes y son auto-adjuntos. En otras palabras, la
+  La última igualdad se sigue de que las proyecciones son
+  idempotentes y auto-adjuntos. En otras palabras, la
   probabilidad de obtener $m$ en una medición corresponde al
-  valor esperado del proyector $\Pi_m$ en el estado
+  valor esperado de la proyección $\Pi_m$ en el estado
   $\ket{\psi}$. Utilizando cualquier base ortonormal
   $\{\ket{\varphi_n}\}$, podemos expresar a la regla de Born
   en términos de la traza para un estado puro $\ket{\psi}$
@@ -502,8 +502,8 @@
   proyectan a subespacios unidimensionales, es fácil
   observar que la probabilidad de la medición $m$, $p(m)$,
   es igual a los coeficientes de la expansión del estado
-  en la base de medición, ya que podemos expresar al
-  proyector como $\Pi_m = \ket m \bra m$:
+  en la base de medición, ya que podemos expresar la
+  proyección como $\Pi_m = \ket m \bra m$:
   \begin{align}
     p(m)
     &= \braket{\psi|\Pi_m|\psi} \\
@@ -512,14 +512,14 @@
     &= \left|\langle m|\psi \rangle\right|^2.
   \end{align}
   Una \textit{medida proyectiva} es un conjunto de
-  proyectores que proyectan hacia subespacios ortogonales y
-  además su suma es igual a la identidad. Los eigenvectores
-  de operadores auto-adjuntos forman una medida proyectiva.
-  Es evidente que la suma de las probabilidades debe ser
-  igual a $1$ para una medida proyectiva, ya que la suma de
-  los proyectores nos da la identidad, y los estados
-  cuánticos puros son de norma unitaria por el primer
-  postulado:
+  proyecciones que proyectan hacia subespacios ortogonales y
+  cuya suma es igual al operador identidad. Los
+  eigenvectores de operadores auto-adjuntos forman una
+  medida proyectiva.  Es evidente que la suma de las
+  probabilidades debe ser igual a $1$ para una medida
+  proyectiva, ya que la suma de las proyecciones nos da la
+  identidad, y los estados cuánticos puros son de norma
+  unitaria por el primer postulado:
   \begin{equation}
     \sum_{m}^{} p(m)
     = \sum_{m}^{} \braket{\psi|\Pi_m|\psi}
@@ -575,8 +575,8 @@
   adopte).
 
   Para operadores de densidad, la regla de Born se expresa
-  naturalmente como el valor esperado del proyector $\Pi_m$ 
-  en el estado $\rho$:
+  naturalmente como el valor esperado de la proyección
+  $\Pi_m$ en el estado $\rho$:
   \begin{equation}
     p(m) = \Tr\left( \rho \Pi_m \right). 
   \end{equation}
@@ -587,7 +587,7 @@
   no puede ser observado ni puede ser determinado de manera
   experimental. Dado que una sola medición no es suficiente
   para obtener la información necesaria para reconstruir el
-  estado cuántico, y dado que la medición afecta el estado
+  estado cuántico, y dado que la medición afecta el estado,
   se vuelve imposible obtener el resto de la información con
   mediciones subsiguientes \cite{royer1989}. Pero si tenemos
   un conjunto (ensamble) de sistemas \textit{identicamente}
@@ -632,7 +632,7 @@
   Dado que tenemos una preferencia por expresar estados
   cuánticos por medio de operadores de densidad, es útil
   notar que podemos expresar ésta noción de ser mutuamente
-  insesgado en términos de los proyectores. Si $\Pi_i$ es el
+  insesgado en términos de las proyecciones. Si $\Pi_i$ es el
   operador que proyecta al subespacio generado por
   $\ket{\psi_i}$ y $\Pi_j$ el que proyecta hacia
   $\ket{\phi_j}$, entonces dos bases son mutuamente
@@ -893,7 +893,8 @@
   medición.  El principio de incertidumbre nos dice que no
   podemos medir de manera simultánea la posición y momentum
   de una partícula con precisión (ni siquiera en teoría).
-  Del repaso de la mecánica clásica en el apéndice, sabemos
+  Del repaso de la mecánica clásica en el apéndice
+  (\ref{sec:classical-phase-space}), sabemos
   que mediante el uso del espacio de fase, podemos
   representar a los estados de un sistema físico por puntos
   en el plano $\R^2$. En la mecánica clásica sí es posible,
@@ -919,7 +920,7 @@
   la noción de un espacio de fase análogo al de la
   mecánica clásica, sea problemático para la teoría
   cuántica. Ésto se debe a que la posición y el momentum de
-  una partícula no no se pueden medir de manera simultánea.
+  una partícula no se pueden medir de manera simultánea.
   Aún así existen funciones que se \textit{asemejan} a
   distribuciones probabilísticas sobre el espacio de fase,
   llamadas funciones de distribución cuasi-probabilísticas,
@@ -952,13 +953,13 @@
   $W_\psi(x,p)$ representa al estado $\psi$ de manera
   análoga a una densidad probabilística sobre el espacio de
   fase. Wigner partió de la mecánica estadística clásica, en
-  donde evolución del sistema puede ser estudiado de manera
-  probabilística mediante la ecuación de Liouville, la cual
-  nos brinda una distribución sobre el espacio de fase.  Su
-  idea fue construir una distribución que nos permita hacer
-  los mismos cálculos probabilísticos de la mecánica
-  cuántica que se pueden hacer con la formulación en el
-  espacio de Hilbert.
+  donde la evolución del sistema puede ser estudiado de
+  manera probabilística mediante la ecuación de Liouville,
+  la cual nos brinda una distribución sobre el espacio de
+  fase.  Su idea fue construir una distribución que nos
+  permita hacer los mismos cálculos probabilísticos de la
+  mecánica cuántica que se pueden hacer con la formulación
+  en el espacio de Hilbert.
 
   Unos años antes de la publicación de Wigner, Hermann Weyl
   formuló una manera de mapear observables clásicos a
@@ -3890,7 +3891,11 @@
   utilizar coberturas simplécticas distintas a los de
   Wootters para obtener bases de MUBs no unitariamente
   equivalentes, y por lo tanto una función de Wigner
-  distinta que sigue preservando la propiedad tomográfica. 
+  distinta que sigue preservando la propiedad tomográfica.
+  Unos de los objetivos de éste capítulo es exponer dos
+  ejemplos específicos de sistemas cuánticos para los cuales
+  podemos construir la función de Wigner no estándar: para
+  un sistema de cinco qubits y un sistema de tres qutrits.
 
   Para construir las MUBs de manera explícita, utilizaremos
   los resultados de Kanat \cite{abdukhalikov2015}, quien nos
@@ -4127,7 +4132,7 @@
   Notemos que podemos identificar el espacio de fase
   discreto con el espacio $W = V \oplus V$. La idea de
   Wootters fue identificar subespacios unidimensionales del
-  espacio de fase tales que los operadores desplazamiento
+  espacio de fase tales que los operadores de desplazamiento
   correspondientes conmutaran. Pero, con la condición
   (\ref{eqn:disp_comm_condition}) podemos identificar
   \textit{más} agrupaciones de los puntos del espacio de
@@ -5540,6 +5545,7 @@
   operadores puntuales en el origen es equivalente a la
   siguiente igualdad:
   \begin{equation}
+    \label{eqn:qutrit_weil_sum}
     \sum_{m \in \F}^{}
     \omega^{\tr\left( 
         \frac{1}{2} m \left( w^2 - u^2 \right) 
@@ -5551,28 +5557,149 @@
         \right) 
     \right) }.
   \end{equation}
-  para todo par $u,w \in \F$. Éste tipo de sumas
-  generalmente no son fáciles de evaluar
-  analíticamente\footnote{Para casos particulares, como las
-    sumas Gausianas, sí existen maneras de evaluación
-  analítica y probablemente ésta suma se puede evaluar de
-  manera similar. Desafortunadamente no pudimos demostrarlo, y
-  por eso recurrimos al software.}. Utilizamos el sistema de
-  álgebra computacional de \texttt{SageMath} para evaluar
-  ambas sumas sin recurrir a un cálculo numérico y
-  efectivamente obtenemos el mismo valor. Ésto significa que
-  los operadores puntuales en el origen para ambas
-  coberturas simplécticas son iguales. Un cálculo similar
-  nos muestra que el resto de los operadores puntuales
-  también lo son. Como consecuencia, obtenemos la misma
-  función de Wigner para la construcción estándar y no
-  estándar en el caso de los tres qutrits, respecto a la
-  cobertura de Albert. Éste ejemplo nos indica que la no
-  equivalencia de las MUBs \textit{no} es suficiente para
-  garantizar la desigualdad de las funciones de Wigner
-  estándar y no estándar.  Wootters propone una manera de
-  estudiar la equivalencia de funciones de Wigner discretas
-  bajo relaciones de equivalencia dadas por transformaciones
+  para todo par $u,w \in \F$. A éste tipo de sumas se les
+  conoce como sumas de Weil, generalmente se expresan en
+  términos de los caracteres del grupo aditivo:
+  \begin{equation}
+    \sum_{c \in \F}^{} \chi(f(x)),
+  \end{equation}
+  donde $f \in \F[x]$, (ver la sección de \textit{sumas
+  exponenciales} (\ref{subsec:exp_sums}) del apéndice para
+  un resumen rápido de los caracteres aditivos de un campo
+  finito). Las sumas de Weil generalmente no son fáciles de
+  evaluar \cite{lidl1994}.  Usualemente solo podemos obtener
+  estimaciones de las cotas superiores e inferiores del
+  valor absoluto de la suma. En éste caso particular podemos
+  utilizar algunos resultados conocidos para demostrar que
+  la igualdad (\ref{eqn:qutrit_weil_sum}) sí se cumple.
+
+  Primero analizamos el lado izquierdo de la ecuación
+  (\ref{eqn:qutrit_weil_sum}). Expresamos en términos del
+  caracter aditivo no trivial $\chi$ tenemos:
+  \begin{equation}
+    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} \left(
+    w^2-u^2\right) m \right) }
+    = \sum_{m \in \F}^{} \chi\left( \frac{1}{2} \left(
+    w^2-u^2 \right) m \right).
+  \end{equation}
+  Fijando a $w, u \in \F$, observamos que el argumento
+  $\chi$ es lineal siempre y cuando $w^2-u^2 \neq 0$. Si
+  $w^2-u^2 = 0$ entonces
+  \begin{equation}
+    \chi\left( \frac{1}{2} \left(w^2-u^2\right) m \right) 
+    = \chi(0)
+    = 1.
+  \end{equation}
+  Por lo tanto la suma de Weil es igual a la cardinalidad de
+  la extensión de Galois, $d = |\F| = 27$. Si $w^2-u^2 \neq
+  0$, de la linealidad del argumento obtenemos que la suma
+  de Weil es igual a 0, por el teorema
+  (\ref{thm:lidl_linear_sum}):
+  \begin{equation}
+    \sum_{m \in \F}^{} \chi(m) = 0.
+  \end{equation}
+  Se sigue que la suma de Weil tiene dos posibles valores:
+  \begin{equation}
+    \label{eqn:left_weil_sum}
+    \sum_{m \in \F}^{} \omega^{\tr\left(
+    \frac{1}{2}(w^2-u^2)m \right) }
+    = 
+    \begin{cases}
+      27 & \text{cuando } w^2-u^2 = 0, \\
+      0 & \text{en caso contrario}.
+    \end{cases}
+  \end{equation}
+
+  Ahora pasemos al lado derecho de la ecuación
+  (\ref{eqn:qutrit_weil_sum}). Reescribiendo el argumento de
+  la traza y expresando con la notación del caracter aditivo
+  obtenemos:
+  \begin{equation}
+    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
+    w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
+    = 
+    \sum_{m \in F}^{} \chi\left(
+      \frac{1}{2}
+      \left( w^{4} - u^{4} \right) m^3
+      + \frac{1}{2}
+      \left( w^{10} - u^{10} \right) m 
+    \right).
+  \end{equation}
+  El argumento de $\chi$ (sin el factor $1 / 2$) es un
+  $p$-polinomio afín de la forma
+  \begin{equation}
+    f(x) = a_1 x^{p} + a_0 x + a,
+  \end{equation}
+  donde $p = 3$, $a_1 = w^{4} - u^{4}$,  $a_0 = w^{10} -
+  u^{10}$ y $a = 0$. Resulta que podemos evaluar
+  directamente a éste tipo de suma de Weil utilizando el
+  teorema \ref{thm:lidl_weil_poly}. Sean $b = \frac{1}{2}$ y
+  $d = 27$, entonces
+  \begin{equation}
+    \sum_{m \in \F}^{} \chi\left(
+      b \left(
+        a_1 m^{3} + a_0 m
+      \right)
+    \right)
+    = 
+    \begin{cases}
+      \chi_{b}(a) d & \text{cuando } b^3 a_1^3 + b^{3^2}
+      a_0^{3^2} = 0 \\
+      0 & \text{en otro caso}.
+    \end{cases}
+  \end{equation}
+  Primero notemos que $a = 0$, por lo que $\chi_b(0) = 1$.
+  Además el inverso aditivo del dos en característica tres
+  es el dos, i.e., $1 / 2 = 2$, por lo tanto la suma de Weil
+  es igual a
+  \begin{equation}
+    \label{eqn:right_weil_sum}
+    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
+    w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
+    =
+    \begin{cases}
+      27 & \text{para } \left( w^{4}-u^{4} \right) ^3 +
+      2^{6} \left( w^{10} - u^{10} \right) ^{9} = 0, \\
+      0 & \text{en otro caso}.
+    \end{cases}
+  \end{equation}
+  De las ecuaciones (\ref{eqn:left_weil_sum}) y
+  (\ref{eqn:right_weil_sum}) podemos concluír que ambas
+  sumas serán iguales para todo $w, u \in \F$ siempre y
+  cuando las ecuaciones
+  \begin{equation}
+    w^2 - u^2 = 0,
+    \quad
+    \text{ y }
+    \quad
+    \left( w^{4}-u^{4} \right)^3
+    + 2^{6} \left( w^{10} - u^{10} \right)^{9} = 0,
+  \end{equation}
+  compartan el \textit{mismo} conjunto de soluciones. Dado
+  que estamos trabajando con campos finitos, simplemente
+  hemos buscado todas las soluciones de ambas ecuaciones
+  para poder compararlas. Para ésto utilizamos el sistema de
+  álgebra computacional de \texttt{SageMath} y en particular
+  su módulo de campos finitos para encontrarlas.
+  \textit{Efectivamente comparten el mismo conjunto de
+  soluciones!\footnote{La cardinalidad de éste conjunto de
+  soluciones es de 53 elementos $(w,u)$.}} Ésto significa
+  que para todo $w, u \in \F$, ambas sumas de la ecuación
+  (\ref{eqn:qutrit_weil_sum}) nos dan el mismo valor, ya sea
+  $0$ ó $27$. Ésto a su vez significa que los operadores
+  puntuales en el origen para ambas coberturas simplécticas
+  son iguales. Un cálculo computacional similar nos muestra
+  que el resto de los operadores puntuales también lo son.
+  Como consecuencia, obtenemos la misma función de Wigner
+  para la construcción estándar y no estándar en el caso de
+  los tres qutrits, respecto a la cobertura de Albert. Éste
+  ejemplo nos indica que la no equivalencia de las MUBs
+  \textit{no} es suficiente para garantizar la desigualdad
+  de las funciones de Wigner estándar y no estándar.
+
+  Wootters y Gibbons propusieron una manera de estudiar la
+  equivalencia de funciones de Wigner discretas bajo
+  relaciones de equivalencia dadas por transformaciones
   unitarias de las mallas cuánticas.
   \begin{definition}
     Decimos que dos mallas cuánticas son equivalentes si
@@ -5607,25 +5734,26 @@
   operadores puntuales son unitariamente equivalentes, ¿ésto
   implica que las mallas también lo son? Dicho de otra
   manera, si utilizamos MUBs no equivalentes, ¿los
-  operadores puntuales tampoco serán equivalentes?  El
+  operadores puntuales tampoco serán equivalentes?  Nuestro
   ejemplo de los tres qutrits con las coberturas
   Desarguesiana y de Albert es un contra ejemplo de la
   proposición conversa, ya que la identidad es una
   transformación unitaria. En otras palabras, incluso cuando
   no existe una transformación unitaria entre dos mallas
   cuánticas, los operadores puntuales pueden ser
-  equivalentes. Por lo tanto es necesario estudiar que
-  propiedades adicionales debe tener una malla cuántica o el
-  espacio de fase discreto en particular, para poder
-  determinar cuando una función de Wigner es unitariamente
-  distinta a otra. No basta con estudiar la equivalencia de
-  las mallas cuánticas.
+  equivalentes. Por lo tanto el método de Wootters para
+  clasificar funciones de Wigner equivalentes parece no ser
+  apropiado cuando uno desea comparar la función de Wigner.
+  Parece ser necesario estudiar que propiedades adicionales
+  debe tener una malla cuántica o el espacio de fase
+  discreto en particular, para poder determinar cuando una
+  función de Wigner es unitariamente distinta a otra. 
 
   El hecho de que ésto no sucede en el ejemplo de los cinco
   qubits puede ser consecuencia de la cobertura particular
   que usamos para la construcción no estándar, ó,
   posiblemente es otra consecuencia interesante de la
-  característica par.
+  característica par. 
 
   \clearpage
   \section{Discusión}
@@ -5643,23 +5771,28 @@
   libertad en la asignación de la estructura cuántica al
   espacio de fase discreto, pudimos construir una versión no
   estándar utilizando MUBs que no son unitariamente
-  equivalentes a las de Wootters. 
+  equivalentes a las de Wootters. A pesar de ésto, no
+  logramos concluir sobre la inequivalencia entre las
+  funciones de Wigner producidas por ambas construcciones,
+  ya que la no equivalencia de las MUBs no es una condición
+  suficiente para producir funciones de Wigner discretas
+  distintas, como nos muestra el ejemplo de los tres
+  qutrits.
 
-  Retomando el tema de la equivalencia de las funciones de
-  Wigner, notamos otro aspecto que es victima de la
-  arbitrariedad: la gráfica de una función de Wigner depende
-  del orden elegido del campo finito utilizado para armar el
-  espacio de fase. Evidentemente no hay un ordenamiento
-  predilecto, ya que los campos finitos no son ordenados.
-  Durante todo el trabajo hemos optado por utilizar el
-  ordenamiento por potencias del generado de la extensión de
-  Galois, pero se ha observado que distintos ordenamientos
-  producen gráficas con distintas cualidades, unas más
-  ordenadas que otras. Como trabajo futuro sería interesante
-  estudiar los efectos del orden elegido en cuanto alguna
-  medida del orden o aleatoriedad de la gráfica de la
-  función de Wigner, y estudiar si ésto tiene consecuencias
-  en las interpretaciones físicas.
+  Otro aspecto de éste método de construcción que es victima
+  de la arbitrariedad, es que la gráfica de una función de
+  Wigner depende del orden elegido del campo finito
+  utilizado para armar el espacio de fase. Evidentemente no
+  hay un ordenamiento predilecto, ya que los campos finitos
+  no son ordenados.  Durante todo el trabajo hemos optado
+  por utilizar el ordenamiento por potencias del generado de
+  la extensión de Galois, pero se ha observado que distintos
+  ordenamientos producen gráficas con distintas cualidades,
+  unas más ordenadas que otras. Como trabajo futuro sería
+  interesante estudiar los efectos del orden elegido en
+  cuanto alguna medida del orden o aleatoriedad de la
+  gráfica de la función de Wigner, y estudiar si ésto tiene
+  consecuencias en las interpretaciones físicas.
 
   Por otro lado, la metodología de Wootters revela de manera
   directa la relación que existe entre estructuras
@@ -5693,12 +5826,11 @@
   otros, que relacionan la positividad de una versión
   particular de la función de Wigner discreta con estados
   Gaussianos, entre ellos los estabilizadores, de los cuales
-  se ha probado que son simulables de manera clásica. Como
-  consecuencia inmediata de éste trabajo es que podríamos
-  buscar estados no estabilizadores con funciones de Wigner
-  positiva, algo que contrastaría con los resultados
-  previos, ó, se podría intentar probar un resultado análogo
-  para ésta construcción alternativa.
+  se ha probado que son simulables de manera clásica. Una
+  investigación futura podría involucrar la busqueda de
+  estados no estabilizadores con funciones de Wigner no
+  estándar no negativa, algo que contrastaría con los
+  resultados previos.
 
   \newpage
   \appendix

@@ -21,14 +21,17 @@ def char2(m, w, u):
 def charSum(w, u, Char):
     return sum([Char(m, w, u) for m in FF])
 
-#i = 23
-#print(charSum(FF[i], FF[i+1], char1))
-#print(charSum(FF[i], FF[i+1], char2))
+""" Testing """
 
-for w in FF:
-    for u in FF:
-        s1 = charSum(w, u, char1)
-        s2 = charSum(w, u, char2)
-        if s1 != s2:
-            raise Exception('Not the same!')
-        print(s1)
+#print(charSum(FF[1], FF[14], char1))
+#print(charSum(FF[1], FF[14], char2))
+
+#for w in FF:
+#    for u in FF:
+#        s1 = charSum(w, u, char1)
+#        s2 = charSum(w, u, char2)
+#        if s1 != s2:
+#            raise Exception('Not the same!')
+#        print(s1)
+
+
