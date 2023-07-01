@@ -1,5 +1,5 @@
-\documentclass[a4paper]{report}
-\usepackage[margin=1.6in]{geometry}
+\documentclass[a4paper,11pt]{report}
+\usepackage[margin=1.3in]{geometry}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -192,7 +192,7 @@
   cuántica sobre el espacio de fase. Inicialmente solo se
   consideraban sistemas de dimensión infinita en donde las
   variables de posición y de momentum del sistema toman
-  valores de $\R^{n}$. Alrededor de los años 80s se hicieron
+  valores de $\R^{n}$. Alrededor de los años 80's se hicieron
   múltiples intentos de generalizar el concepto de la
   función de Wigner a sistemas de dimensión finita. Para los
   sistemas continuos resulta que la función de Wigner es
@@ -219,11 +219,11 @@
   físico, el valor especificado por un observable (algo se
   puede medir del sistema) está completamente determinado.
   En la mecánica cuántica ésto ya no es cierto, los
-  observables solo nos brindan distribuciones de los
-  posibles valores. La siguiente sección introduce los
-  conceptos básicos de la mecánica cuántica que
-  necesitaremos para formular las funciones de Wigner en el
-  caso continuo y discreto. El apéndice
+  observables solo nos brindan distribuciones
+  probabilísticas de los posibles valores. La siguiente
+  sección introduce los conceptos básicos de la mecánica
+  cuántica que necesitaremos para formular las funciones de
+  Wigner en el caso continuo y discreto. El apéndice
   (\ref{sec:classical-phase-space}) puede ser consultado
   para repasar el concepto del espacio de fase en la
   mecánica clásica de manera introductoria. 
@@ -326,6 +326,7 @@
       \hat{A} : \mathcal D_{\hat{A}} \to \H.  
     \]
   \end{axiom}
+  
   Los operadores auto-adjuntos representan a los observables
   físicos como por ejemplo la energía, posición, momentum y
   momentum angular. Pero también pueden representar
@@ -333,16 +334,16 @@
   pueden representar los grados de libertad de un sistema
   \textit{spin} mediante un espacio de dimensión finita. La
   matemática se vuelve más sencilla en el caso finito ya que
-  no se tiene que lidiar con las sutilizas del continuo. Por
+  no se tiene que lidiar con las sutilezas del continuo. Por
   ésta razón, muchos de los tratados sobre la \textit{teoría
   de la medición cuántica} generalmente se hacen en el caso
-  finito, evitando las cuestiones delicadas pertinentes de
+  finito, evitando las cuestiones delicadas pertinentes a
   la convergencia, cuestiones de acotamiento y del dominio
   del operador, etc.  Muchos problemas surgen del ignorar
   éstos detalles y se pueden tratar rigurosamente con la
   teoría espectral, pero dada la naturaleza de éste trabajo,
-  nos podemos dar el lujo de ignorarlos pues nos centramos
-  en el estudio de sistemas finitos. 
+  podemos prescindir de ellos ya que nuestro estudio será
+  sobre sistemas finitos.
 
   El proceso de medición consiste de la prueba o
   manipulación de un sistema físico para obtener un valor
@@ -350,20 +351,21 @@
   probabilísticas de manera natural. A pesar de las
   cuestiones filosóficas que aun no se resuelven
   rotúndamente sobre todo en la cuestión de la medición,
-  experimentalmente es un éxito. La prescripción que
-  seguiremos para obtener la información probabilística del
-  sistema está dada por el postulado de la medición:
+  experimentalmente es un éxito. El precepto que seguiremos
+  para obtener la información probabilística del sistema
+  está dada por el postulado de la medición:
   \begin{axiom}
     \label{ax:3}
     Si un sistema cuántico está en un estado descrito por un
     vector unitario $\psi \in \H$, entonces el valor
-    esperado de un observable $A$ satisface
+    esperado de un observable $A$, con operador
+    correspondiente $\hat A$, satisface
     \[
       \braket{\hat A}_\psi
       := \braket{\psi|\hat A \psi},
     \] 
     De manera general, dado un estado $\rho$, el valor
-    esperado de un observable $\hat{A}$ está dado por
+    esperado de un observable $A$ está dado por
     \[
       \Tr\left(\hat{A}\rho\right)
       = \Tr\left( \rho\hat{A} \right),
@@ -372,26 +374,26 @@
   \end{axiom}
   Los valores que pueden tomar los observables cuánticos
   pertenecen al \textit{espectro} del operador. En la
-  literatura física es común que se consideren los elementos
-  del espectro como los eigenvalores del operador, pero el
-  espectro generalmente es mucho más grande. En cuanto al
-  postulado de medición, ésto nos dice que a la hora de
-  hacer una medición de un observable en un estado cuántico
-  $\psi$, mediremos un elemento del espectro y el estado
-  colapsa a una `eigenfunción' correspondiente a dicho
-  valor. En el caso finito, las cuestiones matemáticas se
-  vuelven más fácil porque el espectro de los operadores
-  auto-adjuntos \textit{sí} es el conjunto de eigenvalores
-  del operador. Por el momento nos enfocamos en sistemas
-  cuánticos discretos para poder estudiar un poco más fondo
-  el concepto de la medición.
+  literatura física es común que se consideren a los
+  elementos del espectro como los eigenvalores del operador,
+  pero el espectro generalmente es mucho más grande. En
+  cuanto al postulado de medición, ésto nos dice que a la
+  hora de hacer una medición de un observable en un estado
+  cuántico $\psi$, mediremos un elemento del espectro y el
+  estado colapsa a una `eigenfunción' correspondiente a
+  dicho valor. En el caso finito, las cuestiones matemáticas
+  se vuelven más simples porque el espectro de los
+  operadores auto-adjuntos \textit{sí} es el conjunto de
+  eigenvalores del operador. Por el momento nos enfocamos en
+  sistemas cuánticos finitos para poder estudiar un poco más
+  fondo el concepto de la medición.
 
   \section{En dimensión finita}
 
   El ejemplo clásico es el del \textit{spin} de una
   partícula, la cual toma una cantidad de valores finitos.
   El ejemplo físico más sencillo es el de las partículas de
-  spin-$\frac{1}{2}$, en éste caso el spin solo toma dos
+  spin-$1/2$, en éste caso el spin solo toma dos
   valores, y se dice que la partícula es de $2$-niveles.
   Para una partícula de $d$-niveles, el espacio de Hilbert
   correspondiente es $\H  = \C^{d}$. Para el caso finito,
@@ -411,7 +413,7 @@
   podemos formar un operador de rango uno, que resulta ser
   la proyección $\Pi_\psi$ al subespacio generado por
   $\ket{\psi}$, dicho operador está formado por el producto
-  tensorial del dual de $\ket{\psi}$ con $\ket{\psi}$:
+  tensorial de $\ket{\psi}$ con su dual:
   \begin{equation}
     \ket \psi \bra \psi
     := \Pi_\psi
@@ -503,7 +505,7 @@
   observar que la probabilidad de la medición $m$, $p(m)$,
   es igual a los coeficientes de la expansión del estado
   en la base de medición, ya que podemos expresar la
-  proyección como $\Pi_m = \ket m \bra m$:
+  proyección como $\Pi_m = \ket m \bra m$ y así:
   \begin{align}
     p(m)
     &= \braket{\psi|\Pi_m|\psi} \\
@@ -584,18 +586,18 @@
   \subsection{Tomografía cuántica y MUBs}
 
   En la mecánica cuántica, el estado de un sistema cuántico
-  no puede ser observado ni puede ser determinado de manera
-  experimental. Dado que una sola medición no es suficiente
-  para obtener la información necesaria para reconstruir el
-  estado cuántico, y dado que la medición afecta el estado,
-  se vuelve imposible obtener el resto de la información con
-  mediciones subsiguientes \cite{royer1989}. Pero si tenemos
-  un conjunto (ensamble) de sistemas \textit{identicamente}
-  preparados, la noción de la determinación del estado
-  mediante mediciones cobra sentido, ya que se puede, en
-  principio, identificar el estado en que se
-  \textit{prepara} el sistema cuántico. A ésto se le conoce
-  como \textit{tomografía cuántica}.
+  no puede ser observado ni puede ser determinado
+  completamente de manera experimental. Dado que una sola
+  medición no es suficiente para obtener la información
+  necesaria para reconstruir el estado cuántico, y dado que
+  la medición afecta el estado, se vuelve imposible obtener
+  el resto de la información con mediciones subsiguientes
+  \cite{royer1989}. Pero si tenemos un conjunto (ensamble)
+  de sistemas \textit{identicamente} preparados, la noción
+  de la determinación del estado mediante mediciones cobra
+  sentido, ya que se puede, en principio, identificar el
+  estado en que se \textit{prepara} el sistema cuántico. A
+  ésto se le conoce como \textit{tomografía cuántica}.
   
   El uso de las bases mutuamente insesgadas (MUBs) ha sido
   impulsado principalmente por la busqueda de métodos
@@ -606,7 +608,7 @@
   1987 por parte de Wootters y Fields \cite{wootters1987}.
   En dicho trabajo Wootters y Fields investigan la
   determinación de estados óptima y llegan a la conclusión
-  de que si se puede encontrar un conjunto de $d+1$ bases
+  de que sí se puede encontrar un conjunto de $d+1$ bases
   mutuamente insesgadas para un espacio de Hilbert $\H$ de
   dimensión $d$, entonces las mediciones correspondientes a
   esas bases proveen una manera óptima de determinar el
@@ -690,7 +692,7 @@
   éstas bases son suficientes para determinar la matriz de
   densidad. No es necesario que las bases sean mutuamente
   insesgadas para recuperar el estado, pero si lo son, nos
-  brindan una manera óptima en el siguiente sentido. Como no
+  brindan una manera óptima en el siguiente sentido: como no
   podemos hacer una cantidad infinita de experimentos,
   estamos sujetos al error estadístico que se introduce,
   i.e., no podremos recuperar las probabilidades con
@@ -699,6 +701,7 @@
   que las mediciones hechas con MUBs son óptimas en el
   sentido de que minimizan el error estadístico. 
 
+  
   Otro aspecto fundamental de las MUBs para nuestro trabajo,
   es que en general no son únicas, en el sentido de que para
   ciertas dimensiones existen bases que no son unitariamente
@@ -721,7 +724,7 @@
     donde el orden no se preserva necesariamente.
   \end{definition}
   Calderbank, Cameron, Kantor y Seidel demostraron la
-  existencia de varias bases mutuamente insesagados que no
+  existencia de varias bases mutuamente insesagadas que no
   son equivalentes \cite{kantor2012}, i.e., tales que
   \textit{no} existe una transformación unitaria que
   satisface la definición anterior. Ésto lo hacen a partir
@@ -764,11 +767,11 @@
   \end{definition}
   Notemos que no existen estados $\psi \in L^2(\R)$ para los
   cuales el operador $\hat X$ toma valores definitivos. Las
-  `eigenfunciones' de $\hat X$ nisiquiera son funciones,
+  ``eigenfunciones'' de $\hat X$ nisiquiera son funciones,
   sino \textit{deltas de Dirac} $\delta_{x_0}(x) = \delta(x
   - x_0)$. Éstas se pueden considerar como un conjunto de
-  `estados idealizados' y que forman una `base ortonormal
-  continua' del espacio de Hilbert en el siguiente sentido:
+  ``estados idealizados'' y que forman una ``base ortonormal
+  continua'' del espacio de Hilbert en el siguiente sentido:
   \begin{align*}
     \braket{\delta_{x_1}|\delta_{x_2}}
     &= \int \delta(x-x_1)\delta(x-x_2) \, dx
@@ -781,13 +784,13 @@
   distribuciones de Schwartz. La teoría de distribuciones
   aporta una manera de hacer riguroso los cálculos con los
   deltas de Dirac por medio del triplete de Gel'fand
-  \cite{folland1989}, por otro lado, la teoría espectral de
+  \cite{folland1989}. Por otro lado, la teoría espectral de
   los operadores auto-adjuntos nos brinda una manera de
   hacer riguroso toda la maquinaria matemática necesaria
   para hacer los cálculos sin recurrir a la distribuciones.
-  A pesar de ésto, generalmente se opta por utilizar dicha
-  maquinaria sin cuidar el rigor con la finalidad de
-  facilitar los cálculos. Dado que éstos detalles no
+  A pesar de ésto, generalmente se opta por utilizar la
+  maquinaria de Dirac sin cuidar el rigor con la finalidad
+  de facilitar los cálculos. Dado que éstos detalles no
   aparecen en el caso finito, nosotros no seremos muy
   rigurosos a la hora de introducir a la función de Wigner
   en el caso continuo y generalmente optaremos por usar las
@@ -801,10 +804,11 @@
     \psi(x)
     = \braket{x| \psi},
   \end{equation} 
-  donde el $x \in \R$ del lado izquierdo es un `eigenvalor'
-  y del lado derecho es un `eigenestado' del operador de
-  posición. Por otro lado, podemos definir el operador que
-  corresponde al momentum clásico de la siguiente manera:
+  donde el $x \in \R$ del lado izquierdo es un
+  ``eigenvalor'' y del lado derecho es un ``eigenestado''
+  del operador de posición. Por otro lado, podemos definir
+  el operador que corresponde al momentum clásico de la
+  siguiente manera:
   \begin{definition}
     El operador de momentum $\hat P$ se define como
     \[
@@ -1260,7 +1264,7 @@
     \end{enumerate}
   \end{proposition}
   Una versión análoga de la proposición
-  (\ref{prop:HW-ops-props}) volverá a aperecer cuando
+  (\ref{prop:HW-ops-props}) volverá a aparecer cuando
   pasemos a un espacio discreto. Utilizando a los operadores
   de desplazamiento, ahora definimos el operador de
   \textit{Grossmann-Royer}, actuando sobre un operador de
@@ -1516,8 +1520,8 @@
       = |(\Fr\psi)(p)|^2.
     \end{equation}
   \end{proposition}
-  La propiedad (\ref{prop:wigner_marginal}) es una de las
-  características más importantes de la función de Wigner.
+  La proposición (\ref{prop:wigner_marginal}) es una de las
+  propiedades más importantes de la función de Wigner.
   Ésta propiedad nos dice que al integrar sobre el eje del
   momentum $p$, obtenemos la densidad de la función de onda
   en la representación de la posición. Similarmente, si
@@ -1975,7 +1979,7 @@
   camino es que la definición discreta asemeja lo más
   posible al caso continuo y a sus a interpretaciones. Ésta
   versión se puede encontrar en los trabajos de Klimov,
-  Sanches y Soto \cite{klimov2005}, Paz \cite{paz}, Vourdas
+  Sanches-Soto \cite{klimov2005}, Paz \cite{paz}, Vourdas
   \cite{vourdas2005}, Gross \cite{gross2005}, etc. El
   segundo camino dominante es el que intenta definir la
   función discreta a partir de la preservación de las
@@ -1987,8 +1991,8 @@
   mismas propiedades que la versión continua.  Los
   operadores de desplazamiento y los puntuales vuelven a
   aparecer, pero se introduce un tipo de arbitrariedad y de
-  flexbilidad, perdiendo la unicidad pero permitiendo una
-  construcción alternativa. Además ésta segunda metodología
+  flexbilidad, perdiendo la unicidad pero admitiendo una
+  construcción alternativa. Además, ésta segunda metodología
   expone una relación directa con la construcción de bases
   mutuamente insesgadas.
 
@@ -2050,23 +2054,23 @@
 
   \section{Construcción de Wootters}
 
-  En su artículo del 2004 \cite{gibbons2004}, Wootters
-  comienzan notando que la función de Wigner en sistemas
-  continuos puede ser obtenida al exigir una estructura
-  cuántica al espacio de fase. Ésta estructura corresponde a
-  la asignación de estados cuánticos a rectas en el espacio
-  de fase, de tal manera que las integrales sobre éstas
-  rectas o franjas de rectas nos dan la probabilidad de
-  observar el sistema en el estado correspondiente, tal como
-  se mencionó en la sección anterior. Con ésta asignación,
-  es posible recuperar los operadores puntuales y así
-  construir la función de Wigner para un estado arbitrario
-  $\rho$.  Wootters intentan definir una versión discreta
-  siguiendo éstos pasos, cuidando que la construcción
-  preserve otras propiedades de la versión continua.
-  Resulta que su método introduce cierto tipo de
-  arbitrariedad por lo que acaban definiendo distintas clase
-  de funciones discretas.
+  En su artículo del 2004 \cite{gibbons2004}, Wootters y
+  Gibbons comienzan notando que la función de Wigner en
+  sistemas continuos puede ser obtenida al exigir una
+  estructura cuántica al espacio de fase. Ésta estructura
+  corresponde a la asignación de estados cuánticos a rectas
+  en el espacio de fase, de tal manera que las integrales
+  sobre éstas rectas o franjas de rectas nos dan la
+  probabilidad de observar el sistema en el estado
+  correspondiente, tal como se mencionó en la sección
+  anterior. Con ésta asignación, es posible recuperar los
+  operadores puntuales y así construir la función de Wigner
+  para un estado arbitrario $\rho$.  Wootters y Gibbons
+  intentan definir una versión discreta siguiendo éstos
+  pasos, cuidando que la construcción preserve otras
+  propiedades de la versión continua.  Resulta que su método
+  introduce cierto tipo de arbitrariedad por lo que acaban
+  definiendo distintas clase de funciones discretas.
 
   Evidentemente hay una relación directa entre la geometría
   del espacio de fase y la estructura cuántica por asignar.
@@ -2165,7 +2169,7 @@
   permite darle cierta interpretación física, aunque la
   asignación no es naturalmente única. Por ejemplo si
   consideramos un sistema cuántico de dos partículas con
-  spin-$\frac{1}{2}$, entonces el espacio de Hilbert
+  spin-$1 / 2$, entonces el espacio de Hilbert
   correspondiente es $\H = \C^{2} \otimes \C^{2}$, y el
   espacio de fase discreto sería una malla de $4 \times 4$
   elementos. Salvo isomorfismos, el campo finito de cuatro
@@ -2192,12 +2196,12 @@
   el plano Euclideano.
   \begin{figure}
     \centering
-    \subfloat[\centering $\F \times \F$ donde $\F =
-    \GF(2,2)$.]{{
+    \subfloat[\centering $\F \oplus \F$ donde $\F =
+    \GF(2^2)$.]{{
         \includegraphics[width=0.38\linewidth]{imgs/GF22.png}
     }}
     \quad
-    \subfloat[\centering $\F \times \F$ donde $\F =
+    \subfloat[\centering $\F \oplus \F$ donde $\F =
     \Z_3$.]{{
         \includegraphics[width=0.35\linewidth]{imgs/GF31.png}
     }}
@@ -2219,7 +2223,7 @@
   de $d$ rectas paralelas. A cada conjunto de $d$ rectas
   paralelas, se le conoce como un \textit{estría}. 
 
-  Para ejemplifcar un conjunto completo de estrías de un
+  Para ejemplificar un conjunto completo de estrías de un
   espacio de fase discreto, consideremos un campo finito de
   ocho elementos. En éste caso el espacio de fase es el
   espacio vectorial $\F \oplus \F$ donde $\F =
@@ -2271,7 +2275,7 @@
   $(a,b) \in \F \oplus \F$, entonces la traslación $\mathcal
   T(a,b)$ se define simplemente como
   \begin{equation}
-    \mathcal [T(a,b)](c,d) = (a+c, b+d),
+    \mathcal [\mathcal T(a,b)](c,d) = (a+c, b+d),
     \quad
     \text{para todo } (c,d) \in \mathbb F \oplus \F.
   \end{equation} 
@@ -2334,12 +2338,13 @@
   en donde el espacio de fase discreto es simplemente el
   campo finito $\F = \Z_p$, y luego utilizando el producto
   tensorial para obtener los operadores para dimensiones
-  compuestas. Comenzamos por definir a dos operadores
-  básicos, correspondientes a traslaciones horizontales y
-  verticales de una unidad. A la traslación horizontal del
-  espacio de fase $\mathcal T(1,0)$ y la traslación vertical
-  $\mathcal T(0,1)$ les asociamos los operadores unitarios
-  $X$ y $Z$ definidos de la siguiente manera:
+  compuestas. Por el momento seguimos éste camino.
+  Comenzamos por definir a dos operadores básicos,
+  correspondientes a traslaciones horizontales y verticales
+  de una unidad. A la traslación horizontal del espacio de
+  fase $\mathcal T(1,0)$ y la traslación vertical $\mathcal
+  T(0,1)$ les asociamos los operadores unitarios $X$ y $Z$
+  definidos de la siguiente manera:
   \begin{definition}
     Sea $\{\ket k : k \in \Z_p\}$ una base ortonormal del
     espacio de Hilbert $\mathcal H$ correspondiente a un
@@ -2412,8 +2417,8 @@
   de Fourier finita a partir de los caracteres aditivos
   $\chi$ del campo finito y construyen una segunda base del
   espacio de Hilbert mediante su aplicación. De ésta manera
-  obtienen dos bases `Fourier conjugables' y las asocian con
-  la noción de posición (base computacional) y momentum
+  obtienen dos bases ``Fourier conjugables'' y las asocian
+  con la noción de posición (base computacional) y momentum
   (base obtenida por la transformación de Fourier) en el
   espacio de fase discreto. A pesar de ésto Klimov et al.
   hacen la observación que debido a la arbitrariedad de las
@@ -2437,7 +2442,7 @@
   Los operadores de desplazamiento están en correspondencia
   con las traslaciones del espacio de fase discreto. Sean
   $a,b \in \F$, utilizando la proposición
-  (\ref{prop:prime_XZ_props}) naturlamente definimos a los
+  (\ref{prop:prime_XZ_props}) naturalmente definimos a los
   operadores de desplazamiento correspondientes a una
   traslación $\mathcal T(a,b)$ como 
   \begin{equation}
@@ -2471,7 +2476,7 @@
   Hasta ahorita solo hemos trabajado con sistemas de
   dimensión prima. En el siguiente capítulo se definirán los
   operadores $X$ y $Z$ para sistemas de dimensión $p^{n}$,
-  en donde la base ortonormal elegida es etiquetada con
+  en donde la base ortonormal elegida se etiqueta con
   elementos de la extensión de Galois. Mediante el uso de
   bases del campo finito, se pueden factorizar los
   operadores de desplazamiento y de sus eigenvectores.
@@ -2642,7 +2647,7 @@
   donde los $\alpha_1,\ldots,\alpha_n$ son los coeficientes
   de la expansión de $\alpha$ respecto a la base elegida.
   Debido a la libertad que tenemos en la elección de la base
-  del campo, la factorización no es única. Klimov et al
+  del campo, la factorización no es única. Klimov et al.
   \cite{bjork2008} muestran que los estados etiquetados con
   los elementos de la extensión de Galois pueden ser
   mapeados a estados fisicos con propiedades de
@@ -2674,7 +2679,7 @@
     factorizable mientras que el segundo no lo es.
   \end{example}
 
-  \subsection{Definición de la red cuántica}
+  \subsection{Definición de la malla cuántica}
 
   Regresando a la construcción de la función de Wigner,
   vamos a utilizar a los operadores de desplazamiento para
@@ -2691,8 +2696,8 @@
   la preservación la estructura cuántica asignada al espacio
   de fase cuando las lineas son trasladadas, i.e., si
   trasladamos una linea $\lambda$ por $\mathcal T(a,b)$
-  entonces el estado cuántico también debe ser `trasladado'
-  pero por los operadores de desplazamiento
+  entonces el estado cuántico también debe ser
+  ``trasladado'' pero por los operadores de desplazamiento
   correspondientes. Formalmente ésto implica que
   \begin{equation}
     \label{eqn:trans_cov_net}
@@ -2755,7 +2760,7 @@
   conmutativos nos brinda una de las características más
   atractivas de la construcción de Wootters de la función de
   Wigner, que depende del siguiente resultado de Bandyophyay
-  et al \cite{bandyopadhyay2001}:
+  et al. \cite{bandyopadhyay2001}:
   \begin{theorem}[Bandyophyay et al, teorema 3.2]
     \label{thm:bandy}
     Si existe una partición de $n^2-1$ matrices unitarias
@@ -2792,7 +2797,7 @@
   de fase discreto no cambian la pendiente de las rectas,
   por lo tanto al trasladar un recta solo obtendremos otra
   recta \textit{paralela} a ella, es decir a otro elemento
-  de la estría. Que la red cuántica sea covariante bajo
+  de la estría. Que la malla cuántica sea covariante bajo
   traslaciones significa que los eigenestados asignados a
   una estría quedan invariantes bajo los operadores de
   desplazamiento. 
@@ -3107,7 +3112,7 @@
   siempre podemos \textit{invertir} la función de Wigner y
   recuperar el estado correspondiente mediante la expansión
   en los operadores puntuales. A partir de las propiedades
-  de los operadores puntutales, podemos finalmente demostrar
+  de los operadores puntuales, podemos finalmente demostrar
   las propiedades de la función de Wigner que se deseaban al
   inicio del capítulo.
   \begin{proposition}
@@ -3204,7 +3209,7 @@
           = A(\alpha - \beta).
         \end{equation}
         El resultado buscado se sigue de lo anterior y de la
-        definición de $W_\rho'$:
+        definición de $W_{\rho'}$:
         \begin{align}
           W_{\rho'}(\alpha)
           &= \frac{1}{d} \Tr\left( \rho' A(\alpha) \right) \\
@@ -3222,7 +3227,7 @@
     \end{enumerate}
   \end{proof}
 
-  Hemos construído una función de Wigner discreta siguiendo
+  Hemos construido una función de Wigner discreta siguiendo
   el método de Wootters y Gibbons, la cual satisface las
   propiedades análogas al caso continuo y además comparte
   varios aspectos de su construcción con la formulación
@@ -3234,16 +3239,19 @@
   transformaciones en el espacio de fase discreto para hacer
   una clasificación de funciones de Wigner en clases de
   equivalencia. En éste trabajo no estudiaremos éste aspecto
-  de la función de Wigner discreta pero sin duda la falta de
-  unicidad es un detalle importante a considerar.
+  de la función de Wigner discreta a fondo, pero en el
+  siguiente capítulo tendremos que mencionar un poco más
+  debido a los resultados que se obtuvieron en la
+  construcción no estándar. Por el momento pasemos a algunos
+  ejemplos de funciones de Wigner discretas.
 
   \section{Ejemplos ilustrativos}
 
   Daremos dos ejemplos para mostrar el procedimiento de
   Wootters. Visualizamos el espacio de fase discreto así
-  como los rayos de cada estría, luego formamos la red
+  como los rayos de cada estría, luego formamos la malla
   cuántica eligiendo un estado para cada rayo.  Finalmente
-  construímos los operadores puntuales para formar la
+  construimos los operadores puntuales para formar la
   función de Wigner en ambos casos.
 
   \begin{example}
@@ -3283,11 +3291,11 @@
       al origen $(0,0)$.}
       \label{fig:qutrit-phase-space}
     \end{figure}
-    Hasta ahorita solo hemos dicho que las bases de vectores
+    Hasta ahora solo hemos dicho que las bases de vectores
     que se usarán para definir la malla cuántica son los
     eigenvectores de familias de operadores de
     desplazamientos. En el siguiente capítulo veremos una
-    manera de constuirlos explícitamente, por ahorita solo
+    manera de constuirlos explícitamente, por ahora solo
     mostramos la familia de bases mutuamente insesgadas,
     etiquetadas por las traslaciones correspondientes en el
     espacio de fase:
@@ -3349,7 +3357,7 @@
       &= \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\1
       \end{pmatrix}.
     \end{align}
-    Para construir la red cuántica elegimos asignar el
+    Para construir la malla cuántica elegimos asignar el
     primer vector de cada conjunto a cada rayo. Las
     asignaciones restantes de cada estría quedan
     determinadas por las traslaciones y operadores de
@@ -3377,7 +3385,7 @@
     se programó las bases mutuamente insesgadas, pero en
     general el orden no es una restricción. De la misma
     manera podemos hacer el resto de las asignaciones y así
-    definir totalmente a la red cuántica $Q$.
+    definir totalmente a la malla cuántica $Q$.
 
     Dada $Q$, podemos utilizar la ecuación
     (\ref{eqn:discrete_point_op}) para construir a los
@@ -3807,20 +3815,20 @@
 
   En éste capítulo hemos descrito el procedimiento y
   razonamiento de la construcción de la versión de Wootters
-  de la función de Wigner, a la que hemos llamado la
-  \textit{construcción estándar}. En el siguiente capítulo
-  realizamos una definición alternativa de la función de
-  Wigner. La metodología permanece igual, pero se utilizan
-  conjuntos de bases mutuamente insesgadas que no son
-  unitariamente equivalentes a las que se obtienen mediante
-  el método de Wootters. La construcción de éstas bases
-  difiere en como se \textit{cubre} el espacio de fase
-  discreto con \textit{lineas}. Es más general que la
-  versión de Wootters en el sentido de que se recupera dicha
-  versión cuando las lineas son las rectas en el espacio de
-  fase, pero, podemos obtener otras maneras de cubrirlo que
-  aun preservan las propiedades geométricas. La idea es
-  utilizar éstas estructura geométricas y las MUBs
+  de la función de Wigner, a la que de aquí en adelante
+  llamaremos la \textit{construcción estándar}. En el
+  siguiente capítulo realizamos una definición alternativa
+  de la función de Wigner. La metodología permanece igual,
+  pero se utilizan conjuntos de bases mutuamente insesgadas
+  que no son unitariamente equivalentes a las que se
+  obtienen mediante el método de Wootters. La construcción
+  de éstas bases difiere en como se \textit{cubre} el
+  espacio de fase discreto con \textit{lineas}. Es más
+  general que la versión de Wootters en el sentido de que se
+  recupera dicha versión cuando las líneas son las rectas en
+  el espacio de fase, pero, podemos obtener otras maneras de
+  cubrirlo que aun preservan las propiedades geométricas. La
+  idea es utilizar éstas estructura geométricas y las MUBs
   alternativas que producen, para formar una función de
   Wigner discreta distinta a la de Wootters.
 
@@ -3847,7 +3855,7 @@
   Bandyophyay et al para demostrar que los operadores de
   desplazamiento que corresponden a las traslaciones
   invariantes de una estría son simultáneamente
-  diagonalizable. Por otro lado se ha descubierto que las
+  diagonalizableis. Por otro lado se ha descubierto que las
   MUBs están directamente relacionadas con otros problemas
   en diversas áreas de las matemáticas, como en el algebra
   combinatoria y la matemática discreta. La elección de
@@ -3872,30 +3880,41 @@
     $d(d+1)$ conjuntos de puntos llamados \textit{lineas},
     tales que cualesquiera dos puntos distintos pasa por una
     única linea. En éste caso las lineas se pueden agrupar
-    en $d+1$ clases de lineas `paralelas' de tamaño $d$,
+    en $d+1$ clases de lineas ``paralelas'' de tamaño $d$,
     particionando a todo el conjunto de puntos. 
   \end{definition}
 
-  En su artículo \cite{kantor2012}, Kantor muestra que hay
-  una relación íntima entre planos afínes y bases mutuamente
-  insesgadas.  Ésto lo hace recordando algunos resultados
-  más viejos que conectaban planos afínes con otras
-  estructuras algebráicas llamadas \textit{coberturas
-  simplécticas} y con familias de subespacios
-  unidimiensionales mutuamente ortogonales.  El método de
-  construcción de MUBs de Kantor es lo suficientemente
-  general para incluir a las construcciones conocidas (en
-  particular la de Wootters) y además permite construir MUBs
-  que \textit{no} son unitariamente equivalente a las
-  construcciones estándares. La idea de éste capítulo es
-  utilizar coberturas simplécticas distintas a los de
-  Wootters para obtener bases de MUBs no unitariamente
-  equivalentes, y por lo tanto una función de Wigner
-  distinta que sigue preservando la propiedad tomográfica.
-  Unos de los objetivos de éste capítulo es exponer dos
-  ejemplos específicos de sistemas cuánticos para los cuales
-  podemos construir la función de Wigner no estándar: para
-  un sistema de cinco qubits y un sistema de tres qutrits.
+  En su libro de geometría finita \cite{dembowski1968}
+  Dembowski comenta que todas las técnicas de construcción
+  de planos afines conocidas utilizan espacios vectoriales
+  sobre campos finitos de alguna manera esencial. Es por
+  ésto que éstas construcciones siempre nos llevan a planos
+  de orden de una potencia de un primo. Al igual que en la
+  construcción de MUBs en el espacio $\C^{d}$, es un gran
+  problema abierto de la geometría finita demostrar la
+  existencia o no existencia de planos cuyo orden no es una
+  potencia de un primo. A parte de ésta aparente
+  coincidencia, en su artículo \cite{kantor2012}, Kantor
+  muestra que realmente hay una relación íntima entre planos
+  afines y las bases mutuamente insesgadas.  Ésto lo hace
+  recordando algunos resultados más viejos que conectaban
+  planos afínes con otras estructuras algebráicas llamadas
+  \textit{coberturas simplécticas} y con familias de
+  subespacios unidimiensionales mutuamente ortogonales.  El
+  método de construcción de MUBs de Kantor es lo
+  suficientemente general para incluir a las construcciones
+  conocidas (en particular la de Wootters) y además permite
+  construir MUBs que \textit{no} son unitariamente
+  equivalente a las construcciones estándares. La idea de
+  éste capítulo es utilizar coberturas simplécticas
+  distintas a los de Wootters para obtener bases de MUBs no
+  unitariamente equivalentes, y por lo tanto una función de
+  Wigner distinta que por construcción sigue preservando la
+  propiedad tomográfica.  Unos de los objetivos de éste
+  capítulo es exponer dos ejemplos específicos de sistemas
+  cuánticos para los cuales podemos construir la función de
+  Wigner no estándar: para un sistema de cinco qubits y un
+  sistema de tres qutrits.
 
   Para construir las MUBs de manera explícita, utilizaremos
   los resultados de Kanat \cite{abdukhalikov2015}, quien nos
@@ -3907,7 +3926,7 @@
   \begin{figure}[h]
     \centering
     \begin{tikzcd}
-      \text{Pre-semicampo simpléctico}
+      \text{Presemicampo simpléctico}
       \arrow[d] \\
       \text{Combertura simpléctica}
       %\arrow[d] \\
@@ -3952,7 +3971,7 @@
   subálgebra de Cartan $\mathfrak{H}_i$ la cual consiste de
   las matrices sin traza que son diagonales respecto a la
   base $B_i$. De aquí podemos ver la relación con el trabajo
-  de Bandyophyay et al y como consecuencia, con la
+  de Bandyophyay et al. y como consecuencia, con la
   construcción estándar de Wootters, ya que la idea
   básicamente se reduce a encontrar una partición de ciertos
   operadores tales que conmuten entre sí. En dicho artículo
@@ -3975,7 +3994,7 @@
   vectorial $V$ unidimensional.  La cardinalidad de $V$ es
   igual a $d$ y etiquetemos a la base estándar de $\C^{d}$
   por los elementos de $V$, es decir, $\{\ket{e_w} : w \in
-  V\}$.  Enseguida definamos a los operadores de Pauli
+  V\}$. A continuación definimos a los operadores de Pauli
   generalizados, los cuales serán indexados por los
   elementos de $V$.
   \begin{definition}
@@ -4061,7 +4080,7 @@
   \begin{align}
     X(u)Z(v) \ket{e_w}
     &= X(u) \omega^{\tr(v w)} \ket{e_w} \\
-    &= \omega^{\tr(v \cdot w)} \ket{e_{w+u}}.
+    &= \omega^{\tr(v w)} \ket{e_{w+u}}.
   \end{align}
   Por lo tanto
   \begin{align}
@@ -4075,7 +4094,7 @@
     &= \omega^{\tr(v u)} X(u)Z(v) \ket{e_{w}}.
   \end{align}
   Así que los productos de $X$ y $Z$ satisfacen la relación
-  de conmutatividad: $Z(v)X(u) = \omega^{\tr(v \cdot u)}
+  de conmutatividad: $Z(v)X(u) = \omega^{\tr(v u)}
   X(u)Z(v)$ para todo $u,v \in V$. Utilizando ésto, podemos
   observar que los operadores de desplazamiento satisfacen
   la propiedad de traslación análoga a la de los operadores
@@ -4157,9 +4176,9 @@
   de $V \oplus V$. Entonces siempre podemos obtener un plano
   afín a partir de una cobertura simpléctica y resulta que
   la partición en lineas rectas de Wootters del espacio de
-  fase discreto es precisamente un plano afín, conocido como
-  el cobertura de Desargues (ésto lo veremos en los ejemplos
-  más adelante).
+  fase discreto es precisamente un plano afín, producido por
+  una cobertura de Desargues (ésto lo veremos en los
+  ejemplos más adelante).
 
   Con la construcción anterior de los operadores de
   desplazamiento, y utilizando los resultados de Kantor
@@ -4186,12 +4205,12 @@
   simplécticas nos darán distintos conjuntos de MUBs, pero
   ésto no es el caso en general. De hecho bajo un
   significado particular de equivalencia, muchas de las
-  coberturas que parecen ser distintas son iguales. La
-  motivación principal de éste trabajo es que para algunas
-  dimensiones es posible obtener coberturas simplécticas no
-  equivalentes. Kantor demuestró que la inequivalencia de
-  coberturas simplécticas conlleva a la inequivalencia de
-  MUBs \cite{kantor2012}:
+  coberturas que parecen ser distintas, en realidad son
+  iguales. La motivación principal de éste trabajo es que
+  para algunas dimensiones es posible obtener coberturas
+  simplécticas no equivalentes. Kantor demuestró que la
+  inequivalencia de coberturas simplécticas conlleva a la
+  inequivalencia de MUBs \cite{kantor2012}:
   \begin{theorem}[Kantor (\cite{kantor2012}), Teorema 2.3
     (Inequivalencia)]
     \label{thm:kantor_ineq}
@@ -4215,12 +4234,12 @@
   bases no equivalentes para obtener operadores puntuales
   distintos a los de Wootters y por lo tanto una definición
   alternativa de la función de Wigner discreta, que además,
-  por construcción, preserva la propiedad tomográfica
-  básica. Para ver ésto, describimos el método que utiliza
-  Kanat para obtener las expresiones explicítas de las MUBs,
-  y como mencionamos anteriormente, dadas algunas sutilizas
-  de los campos de característica par, dividimos la
-  descripción en dos casos.
+  por construcción, preserva la propiedad tomográfica. Para
+  ver ésto, describimos el método que utiliza Kanat para
+  obtener las expresiones explicítas de las MUBs, y como
+  mencionamos anteriormente, dadas algunas sutilezas de los
+  campos de característica par, dividimos la descripción en
+  dos casos.
   
   \section{Característica impar}
 
@@ -4354,7 +4373,7 @@
   \end{corollary}
   \begin{proof}
     Dado que $\Sigma$ es una cobertura simpléctica, los
-    subespacios $W_h = \{(u, h(u) : u \in \F\} \in \Sigma$,
+    subespacios $W_h = \{(u, h(u)) : u \in \F\} \in \Sigma$,
     son totalmente isotrópicos. Por lo tanto los conjuntos
     de operadores
     \[
@@ -4362,7 +4381,7 @@
     \] 
     son conjuntos maximales de operadores de Pauli
     conmutativos. Se sigue del teorema \ref{thm:bandy}
-    (Bandyophyay et al) que los conjuntos de eigenvectores
+    (Bandyophyay et al.) que los conjuntos de eigenvectores
     simultáneos correspondientes a cada subespacio $W_h$ son
     mutuamente insesgados.
     %Un cálculo directo nos brinda lo siguiente. Sean $h$ y
@@ -4403,19 +4422,45 @@
   El teorema anterior nos permite diagonalizar de manera
   simultánea a los operadores de desplazamiento que conmutan
   entre si para una cobertura simpléctica dada.  La cuestión
-  natural ahora es, ¿cómo obtener coberturas simplécticas?, y
-  sobre todo, ¿cómo obtener coberturas que no son equivalentes?
-  Kantor comenta que encontrar coberturas simplécticas no es
-  trivial, pero podemos construir algunas por medio de
-  presemicampos y semicampos.\footnote{Existen coberturas
+  natural ahora es, ¿cómo obtener coberturas simplécticas o
+  planos afines?, y sobre todo, ¿cómo obtener coberturas que
+  no son equivalentes?  Kantor comenta que encontrar
+  coberturas simplécticas no es trivial, pero podemos
+  construir algunas por medio de unas estructuras
+  algebráicas más relajadas que los campos finitos, llamados
+  \textit{presemicampos} y
+  \textit{semicampos}.\footnote{Existen coberturas
     simplécticas que no provienen de un semicampo
-    simpléctico, pero para nuestra construcción alternativa
-  basta utilizar aquellos que sí provienen de semicampos.}.
-  Introducimos brevemente algunas nociones que vinculan los
-  presemicampos y las coberturas simplécticas, pero no
-  seremos muy rigurosos ya que para éste trabajo nos basta
-  con tomar los ejemplos dados por Kantor \cite{kantor2012}
-  para construir nuestras coberturas no equivalentes.
+  simpléctico, pero para nuestra construcción alternativa
+  basta utilizar aquellos que sí provienen de semicampos.}
+  En la geometría finita el uso de presemicampos y
+  semicampos surge en la descripción de ciertos planos
+  proyectivos, por lo que su uso aparece naturalemente en la
+  construcción de coberturas.  Introducimos los conceptos
+  necesarios pero no detallaremos mucho ya que para éste
+  trabajo nos basta con usar algunos de los ejemplos dados
+  por Kantor \cite{kantor2012}.
+
+  %\begin{itemize}
+  %  \item A proper semifield must contain at least 16
+  %    elements.
+  %  \item A presemifield satisfies the axioms for a
+  %    semifield except, possibly the multiplicative identity
+  %    axiom.
+  %  \item A finite pre-semifield can be thought of as a
+  %    three dimensional array of integers, and a semifield
+  %    can be constructed from a pre-semifield in several
+  %    ways.
+  %  \item The additive group of a pre-semifield must be
+  %    commutative.
+  %  \item The major application of semifields today is for
+  %    the consruction of combinatorial designs, and of
+  %    projective planes in particular.
+  %  \item Every proper semifield determines a
+  %    non-Desarguesian projective plane.
+  %  \item 
+  %\end{itemize}
+
   \begin{definition}[Presemicampo y semicampo]
     \label{def:presemifield}
     Un presemicampo es un anillo sin divisores del cero, y
@@ -4441,7 +4486,7 @@
       \] 
   \end{enumerate}
   Notemos que todo campo finito es un semicampo y un
-  presemicampo. Kantor comenta que todo presemicampo
+  presemicampo. Kantor muestra que todo presemicampo
   determina un cobertura $\Sigma$ del espacio $V \oplus V$
   por medio de la multiplicación. Ésta cobertura consiste de
   los subespacios
@@ -4454,12 +4499,37 @@
     \text{para todo } m \in \mathbb F.
   \end{equation}
   Decimos que un presemicampo es \textit{simpléctico} si la
-  cobertura que genera es simpléctica respecto a
-  algúna forma bilineal alternante. Entonces dado un
-  presemicampo simpléctico podemos generar el conjunto
-  completo de MUBs simplemente utilizando la operación del
-  presemicampo.
-
+  cobertura que genera es simpléctica respecto a algúna
+  forma bilineal alternante. La relación entre la cobertura
+  y el plano afín es de la siguiente manera: sea $\mathcal
+  A(\Sigma)$ la geometría de puntos y líneas correspondiente
+  a una cobertura $\Sigma$, donde los puntos están dados por
+  los vectores de $\F \oplus \F$ y las líneas son las clases
+  laterales $W + v$ donde $W \in \Sigma$ y $v \in \F$.
+  Entonces $\mathcal A(\Sigma)$ es un plano afín de orden $d
+  = |\F|$: 
+  \begin{itemize}
+    \item Dos puntos distintos $u, v$ están sobre una única
+      línea, la cual está dada por la clase $W + v$ donde $u
+      - v \in W$.
+    \item Dada una línea $\lambda$ y un punto $v$ que no
+      pertenece a ella, existe una única línea que pasa por
+      $v$ y que es disjunta a $\lambda$. Ésta linea está
+      dada por $W + v$ si $\lambda$ es una clase lateral de
+      $W$.\footnote{La noción de paralelismo 
+      nos permite adjuntar una nueva ``línea al
+      infinito'' que contiene a todas las clases laterales
+      paralelas, construyendo así a un plano proyectivo de
+      orden $d$ \cite{kantor1982}.}
+    \item Toda línea contiene exáctamente $d$ puntos.
+  \end{itemize}
+   
+  
+  Entonces dado un presemicampo simpléctico obtenemos una
+  cobertura simpléctica y un plano afín. Dada la cobertura
+  podemos generar el conjunto completo de MUBs simplemente
+  utilizando la operación del presemicampo y el siguiente
+  teorema.
   \begin{theorem}[Kanat (\cite{abdukhalikov2015}) Teorema 3.3]
     \label{thm:kanat_presemi_mubs}
     Sea $F = \GF(p^{n})$. Si $(F, +, \circ)$ es un
@@ -4517,13 +4587,13 @@
     \oplus V$ sobre $\F$.
   \end{definition}
   Las MUBs que Godsil y Roy probaron que son unitariamente
-  equivalentes a las mubs `estándares', incluyendo a la de
+  equivalentes a las MUBs ``estándares'', incluyendo a la de
   Wooters, son casos específico de MUBs generados por una
   cobertura Desarguesiana. Por lo tanto utilizando la
   definición \ref{def:desarguesian_semifield} y el teorema
   \ref{thm:kanat_presemi_mubs} podemos construir las bases
-  mutuamente insesgadas de Wootters. En éste caso la
-  cobertura simpléctica $\Sigma$ está dada por los
+  mutuamente insesgadas de Wootters y Gibbons. En éste caso
+  la cobertura simpléctica $\Sigma$ está dada por los
   subespacios
   \begin{equation}
     0 \oplus V
@@ -4597,8 +4667,14 @@
   generadas por la ecuación (\ref{eqn:desargues_vectors}).
   Notemos que el espacio de Hilbert de dimensión $3^{3} =
   27$ es el espacio de dimensión más pequeña para el cual
-  podemos construir éste conjunto de MUBs en particular. Más
-  adelante lo utilizaremos para construir y comparar dos
+  podemos construir éste conjunto de MUBs en particular.
+  Ésto se debe a que la cardinalidad mínima de un
+  presemicampo propio, i.e., un presemicampo que no es un
+  campo, es de 16 elementos \cite{dembowski1968}. Por lo
+  tanto para característica $p = 3$, la extensión de Galois
+  de 27 elementos es el campo finito más pequeño del cual
+  podemos construir presemicampos propios.  Más adelante 
+  utilizaremos éste ejemplo para construir y comparar dos
   funciones de Wigner para sistemas de tres qutrits.
     
   \section{Característica par}
@@ -4606,22 +4682,23 @@
   Para obtener expresiones explícitas de un conjunto
   completo de bases mutuamente insesgadas para el espacio de
   Hilbert $\C^{d}$ con $d = 2^{n}$, es necesario hacer
-  modificaciones al procedimiento anterior. La metodología
-  permanece igual, dado un presemicampo simpléctico
-  obtenemos una cobertura simpléctica y podemos construir
-  las MUBs de manera explícita con la operación del
-  presemicampo, solo que la expresión de los eigenvectores
-  de los operadores de desplazamiento involucra operaciones
-  que no solo suceden en el campo finito si no en un
-  \textit{anillo de Galois}.  Una idea intuitiva de porque
-  la construcción impar no funciona en éste caso se debe a
-  la necesidad de utilizar una raíz primitiva compleja en
-  las expresiones de los vectores. Por lo tanto es necesario
-  utilizar la cuarta raíz primitiva para evitar fases de
-  solo $-1$ ó $1$. Los detalles técnicos son más
-  involucrados, pero se pueden encontrar en el artículo
-  sobre códigos de Kerdock sobre $\Z_4$ y coberturas
-  simplécticas escrito por Kantor et al \cite{kantor1982}.
+  modificaciones al procedimiento de la sección anterior. La
+  metodología permanece igual, dado un presemicampo
+  simpléctico obtenemos una cobertura simpléctica y podemos
+  construir las MUBs de manera explícita con la operación
+  del presemicampo, solo que la expresión de los
+  eigenvectores de los operadores de desplazamiento
+  involucra operaciones que no solo suceden en el campo
+  finito si no en un \textit{anillo de Galois}.  Una idea
+  intuitiva de porque la construcción impar no funciona en
+  éste caso se debe a la necesidad de utilizar una raíz
+  primitiva compleja en las expresiones de los vectores. Por
+  lo tanto es necesario utilizar la cuarta raíz primitiva
+  para evitar fases de solo $-1$ ó $1$. Los detalles
+  técnicos son mucho más involucrados, y provienen de la
+  construcción de códigos lineales sobre $\Z_4$ a partir de
+  códigos no lineales llamados códigos de Kerdock
+  \cite{kantor1982}.
 
   Sea $\F = \GF(2^{n})$ el campo de Galois y $\omega \in \C$
   una cuarta raíz primitiva de la unidad. Sea $R =
@@ -4749,15 +4826,19 @@
   de espacios uni-dimensionales sobre $\GF(2^{n})$ de $W = V
   \oplus V$ es una cobertura simpléctica de $W$.  De nuevo
   ésto nos brinda el plano afín
-  \[
+  \begin{equation}
     x = 0
     \quad \text{ y } \quad
     y = mx,
-  \]
+  \end{equation}
   para todo $m \in F$, los cuales reconocemos como los rayos
-  de las estrías de Wootters. Para formar un conjunto de
-  MUBs no equivalentes al de Wootters, utilizamos otra
-  cobertura simpléctica que nos brinda Kantor.
+  de las estrías de Wootters. Kantor menciona que para
+  característica par, la dimensión más pequeña para el cual
+  podemos generar MUBs a partir de coberturas simplécticas
+  no equivalentes a la Desarguesiana es para $d = 2^{5}$.
+  Además menciona que en general son complicadas para
+  describir, pero nos el siguiente ejemplo no equivalente a
+  partir de la siguiente operación binaria.
   \begin{definition}
     \label{def:kantor_even_alt}
     Sea $\F = \GF(2^{n})$. Supongamos que $n >
@@ -4770,8 +4851,9 @@
   \end{definition}
   Kantor prueba que la cobertura simpléctica de $V \oplus V$
   generada por éste presemicampo no es equivalente al
-  Desarguesiana \cite{kantor2012}. Con el teorema
-  \ref{thm:kanat_even} podemos obtener una expresión
+  Desarguesiana \cite{kantor2012}. Utilizando está cobertura
+  podemos construir el plano afín correspondiente, y con el
+  teorema \ref{thm:kanat_even} podemos obtener una expresión
   explícita de las MUBs haciendo las operaciones pertinentes
   en el anillo de Galois.
 
@@ -5072,11 +5154,12 @@
   Para este sistema cuántico, sí podemos formar dos MUBs no
   equivalentes. Primero utilizamos la cobertura
   Desarguesiana, donde la operación del presemicampo está
-  dado por $x \circ y = xy$.  Recordemos qué esta cobertura
-  coincide con las estrías de Wootters, la figura () nos
-  muestra el espacio discreto etiquetado por los elementos
-  de la extensión de Galois, y nos muestra el plano afín
-  correspondiente a la cobertura Desarguesiana $\Sigma$.
+  dada por $x \circ y = xy$.  Recordemos qué esta cobertura
+  coincide con las estrías de Wootters, la figura
+  (\ref{fig:2-5-desargues-plane}) nos muestra el espacio
+  discreto etiquetado por los elementos de la extensión de
+  Galois, y nos muestra el plano afín correspondiente a la
+  cobertura Desarguesiana $\Sigma$.
   \begin{figure}[ht]
     \centering
     \input{imgs/affine-desargues-2-5.pgf}
@@ -5090,10 +5173,11 @@
   Utilizamos el teorem \ref{thm:kanat_even} para
   generar las MUBs correspondientes. No las enlistamos aquí
   porque cada base de las $33$ bases, es un conjunto de $32$ 
-  vectores de $32$ elementos.\footnote{En el apéndice (REF)
-  se puede encontrar un link del código usado para generar
-  las MUBs y las MUBs generadas en éstos ejemplos en un
-  archivo \texttt{csv}.}
+  vectores de $32$ elementos.
+  %\footnote{En el apéndice (REF)
+  %se puede encontrar un link del código usado para generar
+  %las MUBs y las MUBs generadas en éstos ejemplos en un
+  %archivo \texttt{csv}.}
 
   Ahora consideramos la cobertura generada en el ejemplo
   \ref{def:kantor_even_alt}. Recordemos que la operación del
@@ -5412,7 +5496,7 @@
   \begin{example}
     Consideremos el sistema cuántico modelado por tres
     qutrits. En la sección anterior, construímos dos
-    conjuntos maximales de MUBs no unitariamente
+    conjuntos completos de MUBs no unitariamente
     equivalentes, así que podremos definir dos funciones de
     Wigner para un estado de interes. Consideramos un
     eigenestado $\ket{\psi}$  de las MUBs estándar.
@@ -5445,15 +5529,27 @@
   operadores puntuales tampoco lo sean.  El converso es
   claro, pero es probable que la suma de las proyecciones
   de eigenestados de distintas bases \textit{anulen} las
-  diferencias. 
+  diferencias. Fue necesario estudiar ésta situación más a
+  fondo. 
 
-  Fue necesario estudiar ésta situación más a fondo. Una
-  comparación numérica de las funciones de Wigner apuntó
-  hacia la igualdad de los operadores puntuales para ambas
-  coberturas simplécticas. Para simplificar la
-  investigación, consideremos el operador puntual en el
-  origen $A(0,0)$. De la definición de los operadores
-  puntuales tenemos que
+  \subsection{Equivalencia de la función de Wigner no
+  estándar para el caso de los tres qutrits.}
+
+  Una comparación numérica de las funciones de Wigner nos
+  dirigió hacia la igualdad de los operadores puntuales para
+  ambas coberturas simplécticas. Utilizando algunos
+  resultados sobre sumas de caracteres de campos finitos
+  logramos demostrar que, \textit{utilizando la cobertura de
+  Albert obtenemos el mismo operador puntual del origen que
+  se obtiene en la construcción estándar.}
+  Un argumento similar puede ser utilizado para demostrar la
+  igualdad del resto de los operadores. Ésto tiene
+  implicaciones obvias a la hora de estudiar la equivalencia
+  entre ambas construcciones ya que la función de Wigner
+  queda totalmente determinada por los operadores puntuales.
+  Para simplificar la demostración solo considaremos el
+  operador puntual en el origen $A(0,0)$. De la definición
+  tenemos que
   \begin{align}
     A(0,0)
     &= \sum_{\lambda \ni (0,0)}^{} Q(\lambda) - I \\
@@ -5464,23 +5560,27 @@
     \ket{\lambda_{m,0}}\bra{\lambda_{m,0}} - I,
   \end{align}
   donde $\lambda_{m,0}$ corresponde al rayo con pendiente
-  $m$ y $m = \infty$ corresponde con la estría vertical.
-  Utilizando la expresión (\ref{eqn:kanat_presemi_mubs})
-  tenemos que
+  $m$. El caso $m = \infty$ corresponde con la estría
+  vertical, y en particular $\ket{\lambda_{\infty,0}}$ es el
+  vector $\ket{e_0}$ de la base estándar. Utilizando la
+  expresión (\ref{eqn:kanat_presemi_mubs}) tenemos que
   \begin{equation}
     \ket{\lambda_{m,0}}
     = \frac{1}{\sqrt{d}} \sum_{w \in \F}^{}
     \omega^{\tr\left( \frac{1}{2} w(w\circ m) \right) }
     \ket{e_w},
   \end{equation}
-  donde $\circ$ es la operación del presemicampo. Notemos
-  que la equivalencia del operador puntual se da solo si la
-  suma de las proyecciones respecto a la pendiente $m$ es
-  igual. Para la cobertura Desarguesiana la operación del
-  presemicampo es $w \circ m = wm$ y para la cobertura de
-  Albert tenemos que $w \circ m = mw^{9} + m^3 w^3$.
-  Utilizando la definición de $\ket{\lambda_{m,0}}$, cada
-  proyección se puede expresar como:
+  donde $\circ$ es la operación del presemicampo en
+  cuestión. Notemos que la equivalencia del operador puntual
+  se da solo si la suma de las proyecciones respecto a la
+  pendiente $m$ es igual, ya que el término
+  $\ket{e_0}\bra{e_0}$ y el operador de identidad $I$ se
+  comparten en ambas sumas.  Para la cobertura Desarguesiana
+  la operación del presemicampo es $w \circ m = wm$ y para
+  la cobertura de Albert tenemos que $w * m = mw^{9} +
+  m^3 w^3$.  Utilizando la definición de
+  $\ket{\lambda_{m,0}}$, cada proyección se puede expresar
+  como:
   \begin{align}
     \ket{\lambda_{m,0}} \bra{\lambda_{m,0}}
     &= \frac{1}{d} 
@@ -5491,13 +5591,13 @@
     \right) 
     \left(
       \sum_{u \in \F}^{} \omega^{-\tr\left( \frac{1}{2}
-      u(u\circ m) \right) }
+      u(u \circ m) \right) }
       \bra{e_u}
     \right) \\
     &= \frac{1}{d}
     \sum_{w \in \F}^{} \sum_{u \in \F}^{} 
     \omega^{\tr( \frac{1}{2} w(w\circ m)) - \tr( \frac{1}{2}
-    u(u\circ m))} 
+    u(u \circ m))} 
     \ket{e_w} \bra{e_u}.
   \end{align}
   Enseguida expresamos el argumento de la traza en términos
@@ -5543,7 +5643,7 @@
   entradas iguales a cero excepto en la entrada indexada por
   los elementos $w$ y $u$. Por lo tanto la igualdad de los
   operadores puntuales en el origen es equivalente a la
-  siguiente igualdad:
+  siguiente igualdad de sumas sobre una sola variable:
   \begin{equation}
     \label{eqn:qutrit_weil_sum}
     \sum_{m \in \F}^{}
@@ -5555,11 +5655,11 @@
     \omega^{\tr\left( 
         \frac{1}{2} m\left( w^{10}-u^{10} + m^2(w^{4}-u^{4})
         \right) 
-    \right) }.
+    \right) },
   \end{equation}
   para todo par $u,w \in \F$. A éste tipo de sumas se les
   conoce como sumas de Weil, generalmente se expresan en
-  términos de los caracteres del grupo aditivo:
+  términos de los caracteres $\chi$ del grupo aditivo:
   \begin{equation}
     \sum_{c \in \F}^{} \chi(f(x)),
   \end{equation}
@@ -5575,7 +5675,7 @@
 
   Primero analizamos el lado izquierdo de la ecuación
   (\ref{eqn:qutrit_weil_sum}). Expresamos en términos del
-  caracter aditivo no trivial $\chi$ tenemos:
+  caracter aditivo no trivial $\chi$:
   \begin{equation}
     \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} \left(
     w^2-u^2\right) m \right) }
@@ -5626,12 +5726,13 @@
     \right).
   \end{equation}
   El argumento de $\chi$ (sin el factor $1 / 2$) es un
-  $p$-polinomio afín de la forma
+  $p$-polinomio afín (ver definición \ref{eqn:affine_poly})
+  de la forma
   \begin{equation}
     f(x) = a_1 x^{p} + a_0 x + a,
   \end{equation}
   donde $p = 3$, $a_1 = w^{4} - u^{4}$,  $a_0 = w^{10} -
-  u^{10}$ y $a = 0$. Resulta que podemos evaluar
+  u^{10}$, $r = 1$ y $a = 0$. Resulta que podemos evaluar
   directamente a éste tipo de suma de Weil utilizando el
   teorema \ref{thm:lidl_weil_poly}. Sean $b = \frac{1}{2}$ y
   $d = 27$, entonces
@@ -5643,26 +5744,42 @@
     \right)
     = 
     \begin{cases}
-      \chi_{b}(a) d & \text{cuando } b^3 a_1^3 + b^{3^2}
-      a_0^{3^2} = 0 \\
+      \chi_{b}(a) d & \text{cuando } b a_1 + b^{3} a_0^{3} =
+      0 \\
       0 & \text{en otro caso}.
     \end{cases}
   \end{equation}
   Primero notemos que $a = 0$, por lo que $\chi_b(0) = 1$.
-  Además el inverso aditivo del dos en característica tres
-  es el dos, i.e., $1 / 2 = 2$, por lo tanto la suma de Weil
-  es igual a
+  Además el inverso multiplicativo del dos en característica
+  tres es el dos, i.e., $1 / 2 = 2$, por lo tanto la suma de
+  Weil es igual a
   \begin{equation}
     \label{eqn:right_weil_sum}
     \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
     w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
     =
     \begin{cases}
-      27 & \text{para } \left( w^{4}-u^{4} \right) ^3 +
-      2^{6} \left( w^{10} - u^{10} \right) ^{9} = 0, \\
+      27 & \text{para } 2\left( w^{4}-u^{4} \right) +
+      2^{3} \left( w^{10} - u^{10} \right)^{3} = 0, \\
       0 & \text{en otro caso}.
     \end{cases}
   \end{equation}
+  Podemos simplificar la ecuación que aparece en el primer
+  caso de la suma (\ref{eqn:right_weil_sum}), ya que en
+  característica tres se satisface la identidad $(a+b)^{p} =
+  a^{p} + b^{p}$:
+  \begin{align}
+    2\left( w^{4}-u^{4} \right) + 2^{3} \left( w^{10} -
+    u^{10} \right) ^{3}
+    &= 2 \left(w^{4} - u^{4}\right) + 2^{3} \left( w^{30}
+    - u^{30} \right) \\
+    &= 2\left(w^{4} - u^{4}\right) + 2\left(w^{26 + 4} -
+      u^{26 + 4}\right) \\
+    &= 2\left(w^{4} - u^{4}\right) + 2\left(w^{4} -
+    u^{4}\right) \\
+    &= w^{4} - u^{4}.
+  \end{align}
+  ya que $a^{26} = 1$ para todo $a \in \F$ y $2^{3} = 2$.
   De las ecuaciones (\ref{eqn:left_weil_sum}) y
   (\ref{eqn:right_weil_sum}) podemos concluír que ambas
   sumas serán iguales para todo $w, u \in \F$ siempre y
@@ -5672,8 +5789,7 @@
     \quad
     \text{ y }
     \quad
-    \left( w^{4}-u^{4} \right)^3
-    + 2^{6} \left( w^{10} - u^{10} \right)^{9} = 0,
+    w^{4} - u^{4} = 0,
   \end{equation}
   compartan el \textit{mismo} conjunto de soluciones. Dado
   que estamos trabajando con campos finitos, simplemente
@@ -5693,9 +5809,10 @@
   Como consecuencia, obtenemos la misma función de Wigner
   para la construcción estándar y no estándar en el caso de
   los tres qutrits, respecto a la cobertura de Albert. Éste
-  ejemplo nos indica que la no equivalencia de las MUBs
-  \textit{no} es suficiente para garantizar la desigualdad
-  de las funciones de Wigner estándar y no estándar.
+  ejemplo nos indica que la no equivalencia unitaria de las
+  MUBs \textit{no} es suficiente para garantizar la
+  desigualdad de las funciones de Wigner estándar y no
+  estándar.
 
   Wootters y Gibbons propusieron una manera de estudiar la
   equivalencia de funciones de Wigner discretas bajo
@@ -5743,11 +5860,12 @@
   cuánticas, los operadores puntuales pueden ser
   equivalentes. Por lo tanto el método de Wootters para
   clasificar funciones de Wigner equivalentes parece no ser
-  apropiado cuando uno desea comparar la función de Wigner.
-  Parece ser necesario estudiar que propiedades adicionales
-  debe tener una malla cuántica o el espacio de fase
-  discreto en particular, para poder determinar cuando una
-  función de Wigner es unitariamente distinta a otra. 
+  apropiado cuando uno desea estudiar la inequivalencia de
+  la función de Wigner.  Parece ser necesario estudiar que
+  propiedades adicionales debe tener una malla cuántica o el
+  espacio de fase discreto en particular, para poder
+  determinar cuando una función de Wigner es unitariamente
+  distinta a otra. 
 
   El hecho de que ésto no sucede en el ejemplo de los cinco
   qubits puede ser consecuencia de la cobertura particular
@@ -5776,8 +5894,16 @@
   funciones de Wigner producidas por ambas construcciones,
   ya que la no equivalencia de las MUBs no es una condición
   suficiente para producir funciones de Wigner discretas
-  distintas, como nos muestra el ejemplo de los tres
-  qutrits.
+  distintas. Ésto es una consecuencia de nuestra
+  demostración en el ejemplo de los tres qutrits. Éste
+  resultado que obtuvimos nos indica que debemos encontrar
+  otra manera de estudiar la equivalencia de las funciones
+  de Wigner que va más allá de la malla cuántica. En
+  particular es importante identificar si es un resultado
+  que depende de la cobertura particular elegida o sí es una
+  consecuencia de la dimensión del sistema, ya que para el
+  caso de los cinco qubits sí obtuvimos (al menos
+  numéricamente) distintas funciones.
 
   Otro aspecto de éste método de construcción que es victima
   de la arbitrariedad, es que la gráfica de una función de
@@ -5812,7 +5938,14 @@
   son potencias de primos son los únicos de los cuales
   podemos obtener la cantidad máxima de MUBs, ¿qué nos dice
   ésto en cuestión de la tomografía cuántica y en la
-  cuestión de la medición de estados cuánticos?
+  cuestión de la medición de estados cuánticos? Por otro
+  lado, existen conjuntos de MUBs, digamos $\mathcal B$, que
+  no son maximales y que además son \textit{inextendibles}
+  en el sentido de que no existen otras bases del espacio de
+  Hilbert que son mutuamente insesgadas respecto a los
+  conjuntos de $\mathcal B$ \cite{garcia2021}. Seguramente
+  existen relaciones entre éstos conjuntos y las estructuras
+  geométricas estudiadas en éste trabajo. 
 
   En un aspecto más práctico, el hecho de que podemos
   obtener MUBs que no son unitariamente equivalentes a las

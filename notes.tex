@@ -13,6 +13,9 @@
 \DeclareMathOperator{\N}{\mathbb{N}}
 \DeclareMathOperator{\Z}{\mathbb{Z}}
 \DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\GR}{GR}
 
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
@@ -701,4 +704,459 @@
   tomography and in the theory of mutually unbiased bases
   rely on the geometry of a two dimensional vector space
   which is of course more present in $\mathbb F_{p^{r}}^2$.
+
+  \section{Codes, quadratic forms and finite geometries by
+  Kantor}
+
+  Kantor mentions that important types of projective planes
+  are described using more general types of binary
+  operations. Hence they are led to introduce those
+  operations important in their coding-theoretic context.
+
+  \begin{definition}
+    Consider a binary operation $*$ on $\GF(2^{m})$ related
+    to field multiplication by the following conditions:
+    \begin{itemize}
+      \item $(x+y) * z = x*z + y*z$.
+      \item $x*y=x*z \implies x = 0$ or $y = z$.
+      \item $\tr(x(x*y)) = \tr(xy)$.
+      \item $x * y = 0 \iff x = 0$ or $y = 0$.
+    \end{itemize}
+  \end{definition}
+  Kantor mentions that a fundamental aspect of the subject
+  matter in his paper is that the first and second item in
+  the previous definition are familiar in the theory of
+  projective planes. These amount to some distorted versions
+  of fields. It is just such field-like algebras that arise
+  in the coordinatization of projective planes. Here he
+  gives a recognized example:
+
+  \begin{example}
+    Let $T_1$ denote the trace map from $\GF(2^{m})$ to some
+    proper subfield $F \neq \Z_2$. Then
+    \[
+      x * s = xs^2 + T_1(x)s + T_1(xs)
+    \] 
+    satisfies the definition of the ``algebra''.
+  \end{example}
+
+  He then starts with finite orthogonal geometries. He
+  starts out with a vector space $V = \Z_2^{2n} = X \oplus
+  Y$ for subspaces $X$ and $Y$ identified with $\Z_2^{n}$.
+  He equips $V$ with a quadratic form given by the usual dot
+  product, obtaining an associated bilinear form. He then
+  defines totally singular subspaces of $V$. By a counting
+  argument he notices that $V$ has $(2^{n}-1)(2^{n-1}+1)$ 
+  nonzero singular vectors. Each totally singular $n$-space
+  consists of singular vectors and contains $2^{n}-1$ 
+  nonzero ones. This suggests that there might be families
+  $\Sigma$ of totally singular $n$-spaces that partition the
+  set of all nonzero singular vectors. Such a family of
+  $2^{n-1}+1$ subspaces is called an orthogonal spread. He
+  notes that such a family cannot exist unless $n$ is even,
+  and that there is always at least one such family when $n$ 
+  is even.
+
+  Finally the definition of Kantor's $O^{+}(2n,2)$ notation
+  is given. An isometry of $V$ is a nonsingular linear
+  transformation preserving the quadratic form. These form a
+  group, the \textit{orthogonal group} $O^{+}(2n,2)$ of $V$.
+  The ``$+$'' refers to the fact that  $V$ has totally
+  singular $n$-spaces. This group is transitive on the
+  ordered pairs of totally singular $n$-spaces having only
+  $0$ in common: from the point of view of this orthogonal
+  geometry of $V$, the pair $X,Y$ we started with is
+  indistinguisable from any other such pair. He then goes on
+  to prove a couple of lemmas about the relationship between
+  skew-symmetric matrices and orthogonal spreads. From which
+  he obtains a corllary that allows him to construct
+  orthogonal spreads of $V$ from Kerdock sets $\mathcal K$.
+  Furthermore, he shows that every orthogonal spread of $V$ 
+  that contains both $X$ and $Y$ arises in such a way.
+  
+  Inequivalent choices of $\mathcal K$ can produce
+  equivalent orthogonal spreads. Naturally there are
+  different notions of equivalence between pairs of Kerdock
+  codes, pairs of Kerdock sets and pairs of orthogonal
+  spreads.
+
+  Next he shows how to construct orthogonal spreads from
+  other geometric objects. First he shows how to obtain
+  \textit{symplectic spreads} from orthogongal spreads. Then
+  he reverses this construction.
+
+  Kantor then transitions to the study of projective planes,
+  in order to obtain an entirely different type of geometric
+  view of symplectic spreads. First he considers the
+  definition of the a spread again. Let $V'$ be a
+  $2m$-dimensional vector space over $\GF(q)$. A
+  \textit{spread} of $V'$ is a family $\Sigma'$ of $q^{m}+1$ 
+  subspaces of dimension $m$ whose union is all of $V'$.
+  This means that every nonzero vector is in a unique member
+  of $\Sigma'$. Any family of $q^{m}+1$ $m$-spaces is a
+  $2m$-space, any two of which have only $0$ in common, is a
+  spread.
+
+  Next he introduces the concept of an \textit{affine
+  plane}. He states that the importance of spreads is that
+  they produce affine planes. Let $A(\Sigma')$ denote the
+  point-line geometry whose points are vectors and whose
+  lines are the cosets $W + v$ with $W \in \Sigma'$, $v \in
+  V'$. Then $A(\Sigma')$ is an affine plane of order
+  $q^{m}$:
+  \begin{itemize}
+    \item Any two different points $u,v$ are on a unique
+      line. (Namely, the line $W+v$ where $u-v \in W \in
+      \Sigma'$).
+    \item Given a line $L$ and a point $v$ not on it, there
+      is a unique line through $v$ disjoint from $L$ 
+      (namely, $W+v$ if $L$ is a coset of $W \in \Sigma'$).
+    \item Each line has exactly $q^{m}$ points.
+  \end{itemize}
+
+  There is an obvious notion of parallelism, and by
+  adjoingin a new line at infinity that contains all
+  parallel classes we obtain a projective plane of order
+  $q^{m}$. For each $c \in V'$ the translation $v \mapsto v
+  + c$ is an automorphism fixing every parallel class. These
+  affine planes are called translation planes.
+
+  \begin{example}
+    If $V'$ is a 2-dimensional vector space over $\GF(q)$,
+    its set $\Sigma'$ of $1$-spaces is a desarguesian spread
+    and $A(\Sigma')$ is called a desarguesian plane.
+  \end{example}
+
+  Desarguesian planes produce the original Kerdock codes. He
+  adds the additional notion of a \textit{spread set}. Write
+  $V' = X' \oplus Y'$ with $X',Y' \in \Sigma'$, and write
+  matrices with respect to a basis of $V'$ consisting of a
+  basis of $X'$ and basis of $Y'$. Then every member of
+  $\Sigma' - \{Y\}$ can be written uniquely in the form $X'
+  \begin{pmatrix} I & P \\ O & I \end{pmatrix} = ``y = xP''$
+  for an $m \times m$ matrix $P$. The set $\mathcal S$ of
+  such matrices is essentially what is called a
+  \textit{spread set}, and they describe planes in a very
+  familiar manner using the lines:
+  \[
+    ``x = c''
+    \quad
+    \text{and}
+    \quad
+    ``y = xP + b'',
+    \quad b,c, \in V', P \in \mathcal S.
+  \] 
+  The spread $\Sigma'$ and the spread set $\mathcal S$ 
+  determine one another in the obvious manner. In an
+  analogous manner, he now connects binary operations and
+  spreads. A binary operation $*$ satisfying the conditions
+  of left distributivity and non divisibility of zero also
+  determines a spread, consisting of $Y'$ and the subsets
+  ``$y=x * s$'' of  $\GF(2^{m}) \oplus \GF(2^{m})$. The
+  lines of the associated affine plane have a familiar
+  appearance:
+  \[
+    ``x=c''
+    \quad
+    \text{and}
+    \quad
+    ``y=x*s+b'',
+    \quad
+    b,c,s \in \GF(2^{m}).
+  \] 
+  One can obtain a spread set defining $\mathcal S$ as the
+  set of matrices of the maps $x \mapsto x * s$. Conversely,
+  starting with a spread $\Sigma'$ in a vector space of
+  characteristic 2, and distinct $X',Y' \in \Sigma'$, choose
+  any bases for $X'$ and $Y'$, and obtain a spread set
+  $\mathcal S$ of $m \times m$ matrices as above. Fix an
+  arbitrary bijection $s \mapsto P_s$ of $\GF(2^{m}) \to
+  \mathcal S$ with $P_0 = 0$, and define $x * s := xP_s$ for
+  all $x,y \in \GF(2^{m})$. The conditions of the binary
+  operation are fulfilled.
+
+  So there is a natural way to go back and forth between
+  spreads, spread sets, translation planes and binary
+  operations. It's now time to see how it works for
+  symplectic spreads $\Sigma'$ and the corresponding planes
+  $A(\Sigma')$ called \textit{symplectic translation
+  planes}. First he connects the notions of symplectic
+  spreads and symmetric spread sets. Starting from a
+  symplectic spread $\Sigma'$, fix $X',Y' \in \Sigma'$, and
+  a basis of $X'$, but this time choose the basis $Y'$ to be
+  the dual basis. Then the resulting spread set $\mathcal S$ 
+  consists of symmetric matrices. Conversely each spread set
+  consisting of symmetric matrices produces a symplectic
+  spread.
+
+  The same can be done by relating binary operations with
+  Kerdock sets. Starting with an adequate binary oepration
+  $*$, the transformations $x \mapsto x * s$ are
+  self-adjoint with respect to the inner product $T(xy)$ on
+  $\GF(2^{m})$. In terms of an orthonormal basis of
+  $\GF(2^{m})$ this means that $x \mapsto x * s$ is
+  represented by a symmetric matrix $P_s$. And so one
+  obtains a spread set consisting of symmetric matrices,
+  which produce a symplectic spread.
+
+  \begin{align*}
+    \text{orthogonal spread}
+    &\leftrightarrow
+    \text{symplectic spread} \\
+    \text{orthogonal spread}
+    &\leftrightarrow
+    \text{Kerdock set} \\
+    \text{Kerdock set}
+    &\leftrightarrow
+    \text{symmetric spread set} \\
+    \text{Kerdock set}
+    &\leftrightarrow
+    \text{binary operation}.
+  \end{align*}
+  Each object on the left is associated with many on the
+  right. Each one on the right is associated essentially
+  with just one on the left, under whatever notion of
+  equivalence is appropriate.
+
+  As a follow up section, Kantor starts talking about bounds
+  for \textit{line-sets} in $\R^{N}$ with prescribed angles.
+  It simple to embed $\Z_2^{N}$ into $\R^{N}$, induced by
+  the obvious isomorphism $\Z_2^{N} \to \{\pm 1\}^{N}$.
+  Therefore a code $C$ of length $N$ produces an example of
+  a set of unit vectors; and extremal properties of sets of
+  unit vectors imply ones for codes.
+
+  If we start with any Kerdock set of $\mathcal K$ of
+  matrices, let the corresponding code be  $C(\mathcal K)$ 
+  and set $N = 2^{n}$. Then we can form the following unit
+  vectors in $\R^{N}$, where coordinates are again indexed
+  by vectors of $\Z_2^{n}$ and the exponents again are just
+  Kerdock codewords:
+  \begin{equation}
+    \frac{1}{2^{n / 2}} 
+    \left(
+      (-1)^{Q_B(v)+s \cdot v + \varepsilon}
+    \right)_{v \in \Z_2^{n}},
+    \quad
+    \text{where }
+    B \in \mathcal K, s \in \Z_2^{n}, \varepsilon \in \Z_2.
+  \end{equation}
+  To this set we add the $N = 2^{n}$ standard basis vectors
+  and their negatives, given a total of $N^2+2N$ vectors in
+  $\R^{N}$. A different view is given as sets of lines in
+  $\R^{N}$, these are just the $1$-spaces spanned by the
+  vectors in the above list. The distances between codewords
+  in the kerdock code imply that any two of these lines are
+  either perpendicular or set at an angle of $\cos^{-1} 1 /
+  \sqrt{N}$.
+
+  Finally he gets to $\Z_4$-codes. A $\Z_4$-code of length
+  $N$ is just a subset $C_4$ of $\Z_4^{N}$. It is
+  \textit{linear} if it is an additive subgroup. While one
+  could use the Hamming metric here, an important discovery
+  was the the Lee metric leads to better results. Next one
+  defines the \textit{Gray map}, which allows for the
+  encoding of the elements of $\Z_4$ (or of the points $1,
+  i, -1, -i$ in the complex plane) as pairs of
+  \textit{binary digits}. The $2$-adic expansion $c = c_1 +
+  2c_2$ of $c \in \Z_4$ defines maps $c \mapsto c_1$ and $c
+  \mapsto c_2$ from $\Z_4$ to $\Z_2$. Extend these in an
+  obvious way to maps $v \mapsto v_i$ from $\Z_4^{N}$ to
+  $\Z_2^{N}$. Then binary codes are obtained from
+  $\Z_4$-codes as their images under the Gray map $\varphi :
+  \Z_4^{N} \to \Z_2^{2N}$ given by
+  \[
+    v \varphi = (v_2, v_1+v_2),
+    \quad v \in \Z_4^{N}.
+  \] 
+  The Gray map is an isometry with respect to the Lee metric
+  in $\Z_4^{N}$ and the Hamming metric in $\Z_2^{2N}$. There
+  is more than one Gray map, one can be followed by a
+  permutation of the coordinates of $\Z_2^{2N}$ in order to
+  obtain another one.
+
+  Kantor goes on to show how to construct $Z_4$-Kerdock
+  codes using a Kerdockt set and the Gray map. He then notes
+  that although $C(\mathcal K)$ is never linear, one of the
+  most striking discoveries was that the $\Z_4$-version
+  $C_4(\mathcal S_{\mathcal K})$ of $C(\mathcal K)$ can be
+  linear. 
+
+  \begin{theorem}
+    If $\mathcal K$ is a Kerdock set arising as in
+    Proposition 2.5 by means of a binary operation $*$, then
+    $C_4(\mathcal S_{\mathcal K})$ is a linear $Z_4$-code if
+    and only if $*$ is 2-sided distributive.
+  \end{theorem}
+
+  Kerdock and other $Z_4$-linear codes have the striking
+  properites of being optimal from a combinatorial point of
+  view and yet having linear descriptions that simplify both
+  their study and implementation.
+
+  Finally he talks about bounds for line-sets in $\C^{N'}$ 
+  with prescribed angles. As in the case for the usual
+  Kerdock codes, the $Z_4$-Kerdock codes produce line-sets
+  in $\C^{N'}$ via the isomorphism $\Z_4^{N'} \cong \langle
+  i\rangle^{N'}$, where $N' = 2^{m}$. Thus, the
+  $Z_4$-Kerdock code produces the following set of lines of
+  $\C^{N'}$:
+  \begin{equation}
+    \langle \left( 
+      i^{F_P(v) + 2 \hat s \cdot \hat v + \varepsilon}
+    \right)_{v \in \Z_2^{m}} \rangle,
+    \quad
+    \text{where }
+    P \in \mathcal S_{\mathcal K}, s \in \Z_2^{m},
+    \varepsilon \in \Z_4,
+  \end{equation}
+  along with the $1$-spaces spanned by the $N' = 2^{m}$ 
+  standard basis vectors. These lines fall into $N'+1$ 
+  orthonormal frames such that the angle between members of
+  different frames is always $\cos^{-1} 1 / \sqrt{N}$.
+
+  \section{$\Z_4$-Kerdock codes, symplectic spreads and
+  complex lines-sets with prescribed angles}
+
+  This is a summary of chapter 5 and forward of the CCKS
+  paper. To start out we recall the definition of a
+  symplectic spread.
+
+  \begin{definition}
+    A symplectic spread of $\overline{F}$ is a family
+    $\Sigma'$ of $2^{m}+1$ totally isotropic $m$-spaces such
+    that every point in $\overline{F}$ lies in a unique
+    member of $\Sigma'$. 
+  \end{definition}
+
+  A symplectic spread is a spread in the conventional sense,
+  where by conventional he cites the book by Dembowski. In
+  that book in chapter 5, Dembowski states that the known
+  construction techniques for finite planes all use a finite
+  vector space in a more or less obvious, but always
+  essential way. This is the reason that these constructions
+  always lead to planes of prime-power order. It is ones of
+  the major unsolved problems of the theory of finite
+  geometry whether or not there also exist planes of
+  non-prime-power order.
+
+  A symplectic spread is a family $\Sigma'$ of
+  $\sqrt{|W|}+1$ subspaces of size $\sqrt{|W|}$ of finite
+  vector space $W$ such that every non-zero vector lies in
+  exactly one member of $\Sigma'$. A spread $\Sigma'$ 
+  determines an \textit{affine plane} $A(\Sigma')$ of order
+  $\sqrt{|W|}$ as follows: points are vectors, and lines are
+  cosets $A+w$ where $A \in \Sigma'$ and $w \in W$.
+
+  The magic happens here. After replacing $\Sigma'$ by
+  $\Sigma'^{\ell}$ for some $\ell \in L^{\sharp}$, we may
+  assume $\overline{X}(V)$ and $\overline{Y}(V)$ are in
+  $\Sigma'$. Any totally isotropic $m$-space $\overline{A}
+  \in \Sigma'$, with $\overline{A} \neq \overline{Y}(V)$ can
+  be written in the form $\overline{X}(V) \begin{pmatrix} I
+  & P_A \\ O & I\end{pmatrix} =
+  \{\overline{X(a)}\overline{Y}(aP_A) : a \in V\}$ for a
+  unique binary symmetric $m \times m$ matrix $P_A$. Such a
+  matrix induces an isometry of $\overline{F}$. In terms of
+  the affine plane $A(\Sigma')$, the subspace
+  $\{\overline{X}(a)\overline{Y}(aP_A) : a \in V\}$ can be
+  though of as the line ``$y = xP_A$''. From here we can
+  obtain
+   \begin{equation}
+    \mathcal S(\Sigma')
+    := \{P_A : \overline{A} \in \Sigma' \setminus
+    \{\overline{Y}(V)\}\},
+  \end{equation}
+  is a set of $2^{m}$ symmetric $m \times m$ matrices such
+  that the difference of any two is non-singular. If we
+  remove the requirement of symmetry, then such a condition
+  is a definition of a spread set. The corresponding affine
+  plane $A(\mathcal S(\Sigma'))$ can be viewed as having $V
+  \oplus V$ as its set of points, while the lines are the
+  sets of points $(x,y) \in V \oplus V$ having the familiar
+  appearnce
+  \[
+    x = b, \quad
+    y = xP_A + b
+    \quad
+    \text{with }
+    b \in V 
+    \text{ and }
+    \overline{A} \in \Sigma' \setminus \{\overline{Y}(V)\}.
+  \] 
+  Now he considers the unitary geometry of the $2$-group
+  $F$. These are just counterparts of the orthogonal spreads
+  lemmas.
+
+  \begin{lemma}
+    \begin{itemize}
+      \item The set $\{\langle e_v \rangle : v \in V\}$ is
+        the set of irreducible submodules for $Y(V)$.
+      \item The set $\{\langle e_b^{*} \rangle : b \in V\}$ 
+        is the set of irreducible submodules for $X(V)$.
+    \end{itemize}
+  \end{lemma}
+
+  \begin{lemma}
+    Let $A$ and $B$ be subgroups of $F$ such that
+    $\overline{A}$ $\overline{B}$ are totally isotropic
+    $m$-dimensional subspaces of the symplectic space
+    $\overline{F}$.
+    \begin{itemize}
+      \item The set $\mathcal F(A)$ of $A$-irreducible
+        subspaces of $\C^{2^{m}}$ is an orthogonal frame.
+      \item Assume that $\overline{A} \cap \overline{B} =
+        0$, and let $u_1$ and $u_2$ be unit vectors in
+        different members of $\mathcal F(A) \cup \mathcal
+        F(B)$. If $u_1$ and $u_2$ are both in $\mathcal
+        F(A)$ or are both in $\mathcal F(B)$, then
+        $(u_1,u_2) = 0$ ; otherwise, $|(u_1,u_2)| = 2^{-m /
+        2}$.
+      \item The set $\mathcal F(A)$ is left invariant by
+        $F$.
+    \end{itemize}
+  \end{lemma}
+  Again the proofs follow by using the group $L^{\sharp}$ to
+  assume that $A = X(V)$ and $B = Y(V)$.
+
+  \begin{theorem}
+    Let $\Sigma'$ be any symplectic spread of the symplectic
+    space $\overline{F}$. Then
+    \[
+      \mathcal F(\Sigma')
+      := \cup_{\overline{A} \in \Sigma'}
+      \mathcal F(A)
+    \] 
+    consists of $2^{m}(2^{m}+1)$ 1-spaces in $\C^{2^{m}}$ 
+    such that if $u_1$ and $u_2$ are unit vectors in
+    different members of $\mathcal F(\Sigma')$, then
+    $|(u_1,u_2)| = 0$ or $2^{-m / 2}$.
+  \end{theorem}
+
+  Towards the end he gives us some examples. The usual is
+  given by the desarguesian spread, which consists of the
+  1-spaces of $\GF(2^{m})$. Then he goes to the construction
+  of the $\Z_4$-Kerdock code $\mathcal K_4(\Sigma')$, the
+  one that produces the $\Z_4$-lienar code that appears in a
+  paper by Hammons et al. Such construction requires the
+  Galois ring $\GR(4^{m})$, an extension of $\Z_4$ of degree
+  $m$, contaning a $(2^{m}-1)$-th root of unity.
+
+  The authors then mention the work of Kantor on the
+  construction of inequivalent orthogonal spreads for $m$ 
+  odd and composite. Let $n > 1$ be odd, let $L =
+  \GF(2^{rn})$, let $K = \GF(2^{r})$, and let $\tr: L \to K$ 
+  be the trace map. For $a \in L$ let $P_a$ be the
+  $K$-linear map $L \to L$ given by
+  \[
+    xP_a = a^2 x + a \tr(x) + \tr(ax).
+  \] 
+  Then $a \mapsto P_a$ is additive and if $a \neq 0$, $P_a$ 
+  is non-singular. 
+
+  At the end the authors study the case of extraspecial
+  $p$-groups, symplectic spreads and complex line-sets with
+  prescribed angles (section 11). Basically the results are
+  all analogues of the previous work, except they are now
+  working with $\C^{q}$. 
 \end{document}

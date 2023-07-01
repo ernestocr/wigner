@@ -1,0 +1,376 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\GR}{GR}
+\DeclareMathOperator{\tr}{tr}
+
+\newtheorem{definition}{Definición}
+\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}{Proposición}
+\newtheorem{lemma}{Lema}
+\newtheorem{corollary}{Corolario}
+\newtheorem{example}{Example}
+
+\title{Wigner point operators from Albert's twisted fields}
+\author{Ernesto Camacho Ramírez}
+
+\begin{document}
+
+  \maketitle
+
+  \section{Introduction}
+
+  One of the simplest examples of inequivalent symplectic
+  spreads for odd characteristic, with respect to the
+  Desarguesian spread, in terms of lowest Hilbert space
+  dimension, is given by a particular case of Albert's
+  twisted fields.  The lowest dimension $\C^{p^{n}}$ space
+  for which we can apply the construction is of dimension $d
+  = 3^{3}$. These families of symplectic spreads are
+  actually unbounded in the number of pairwise inequivalent
+  examples as a function of $n$.
+
+  We had previously defined the discrete Wigner function
+  $W_\rho$ of some state $\rho$ in terms of a set of
+  covariant, Hilbert-Schmidt orthogonal \textit{point
+  operators} $A(\alpha)$ for $\alpha \in V \oplus V$. These
+  point operators are defined by summing the mutually
+  unbiased projection operators designated by some
+  \textit{quantum net} or \textit{quadrature system}, for
+  each line in phase space that passes through some point
+  $\alpha$. The quadrature system assigns eigenstates of
+  maximal commuting classes of generalized Pauli operators
+  to lines in phase space in a manner given by some
+  symplectic spread of the space $V \oplus V$, thus
+  guaranteeing the translation covariance property. The
+  operation that produces Albert's twisted fields is a
+  symplectic presemifield operation, from which we can use
+  Kanat's (or Kantor's) explicit construction for the
+  eigenstates.
+
+  Given the unitary inequivalence of the MUBs constructed
+  from the Desarguesian spread and from Albert's spread, we
+  had hoped to construct Wigner functions which were
+  inequivalent in terms of unitary transformations.
+  Suprisingly, numerical comparisons immediately showed no
+  difference between both Wigner functions for the simplest
+  case of three qutrits. This logically motivated us to
+  study the equivalence of point operators of each
+  construction in order to determine if and how the
+  quadrature system managed to nullify the differences
+  between the inequivalent MUBs. Using known results for
+  certain Weil sums, we were indeed able to prove the
+  equivalence of the point operators, and consequently, the
+  equivalence of the Wigner functions when using Albert's
+  twisted fields.
+
+  \section{Albert's twisted fields}
+
+  Let $V$ be $K = \GF(p^{n})$ with $n$ odd, choose an
+  integer $s$ relatively prime to $n$ such that $1 \leq s <
+  n / 2$, and let $\tr(x) := \sum_{j=0}^{n-1} x^{p^{j}}$ for
+  $x \in K$, be the trace map. Then the operation defined as
+  \begin{equation}
+    b * x := bx^{p^{n-s}} + b^{p^{s}} x^{p^{s}+1},
+  \end{equation}
+  defines a symplectic spread of $V \oplus V$.
+
+  \section{Wigner point operators}
+
+  \section{Equivalence of standard and non standard
+  construction}
+
+  Una comparación numérica de las funciones de Wigner nos
+  dirigió hacia la igualdad de los operadores puntuales para
+  ambas coberturas simplécticas. Utilizando algunos
+  resultados sobre sumas de caracteres de campos finitos
+  logramos demostrar que, \textit{utilizando la cobertura de
+  Albert obtenemos el mismo operador puntual del origen que
+  se obtiene en la construcción estándar.}
+  Un argumento similar puede ser utilizado para demostrar la
+  igualdad del resto de los operadores. Ésto tiene
+  implicaciones obvias a la hora de estudiar la equivalencia
+  entre ambas construcciones ya que la función de Wigner
+  queda totalmente determinada por los operadores puntuales.
+  Para simplificar la demostración solo considaremos el
+  operador puntual en el origen $A(0,0)$. De la definición
+  tenemos que
+  \begin{align}
+    A(0,0)
+    &= \sum_{\lambda \ni (0,0)}^{} Q(\lambda) - I \\
+    &= \sum_{m \in \F \cup \{\infty\}}^{} \ket{\lambda_{m,0}}
+    \bra{\lambda_{m,0}} - I \\
+    &= \ket{e_0}\bra{e_0}
+    + \sum_{m \in \F}^{}
+    \ket{\lambda_{m,0}}\bra{\lambda_{m,0}} - I,
+  \end{align}
+  donde $\lambda_{m,0}$ corresponde al rayo con pendiente
+  $m$. El caso $m = \infty$ corresponde con la estría
+  vertical, y en particular $\ket{\lambda_{\infty,0}}$ es el
+  vector $\ket{e_0}$ de la base estándar. Utilizando la
+  expresión (\ref{eqn:kanat_presemi_mubs}) tenemos que
+  \begin{equation}
+    \ket{\lambda_{m,0}}
+    = \frac{1}{\sqrt{d}} \sum_{w \in \F}^{}
+    \omega^{\tr\left( \frac{1}{2} w(w\circ m) \right) }
+    \ket{e_w},
+  \end{equation}
+  donde $\circ$ es la operación del presemicampo en
+  cuestión. Notemos que la equivalencia del operador puntual
+  se da solo si la suma de las proyecciones respecto a la
+  pendiente $m$ es igual, ya que el término
+  $\ket{e_0}\bra{e_0}$ y el operador de identidad $I$ se
+  comparten en ambas sumas.  Para la cobertura Desarguesiana
+  la operación del presemicampo es $w \circ m = wm$ y para
+  la cobertura de Albert tenemos que $w * m = mw^{9} +
+  m^3 w^3$.  Utilizando la definición de
+  $\ket{\lambda_{m,0}}$, cada proyección se puede expresar
+  como:
+  \begin{align}
+    \ket{\lambda_{m,0}} \bra{\lambda_{m,0}}
+    &= \frac{1}{d} 
+    \left(
+      \sum_{w \in \F}^{} \omega^{\tr\left( \frac{1}{2}
+      w(w\circ m) \right) }
+      \ket{e_w}
+    \right) 
+    \left(
+      \sum_{u \in \F}^{} \omega^{-\tr\left( \frac{1}{2}
+      u(u \circ m) \right) }
+      \bra{e_u}
+    \right) \\
+    &= \frac{1}{d}
+    \sum_{w \in \F}^{} \sum_{u \in \F}^{} 
+    \omega^{\tr( \frac{1}{2} w(w\circ m)) - \tr( \frac{1}{2}
+    u(u \circ m))} 
+    \ket{e_w} \bra{e_u}.
+  \end{align}
+  Enseguida expresamos el argumento de la traza en términos
+  de la definición de las operaciones del presemicampo.
+  Primero, para la cobertura Desarguesiana obtenemos la
+  expresión:
+  \begin{align}
+    \tr\left(\frac{1}{2} w(w\circ m)\right)
+    - \tr\left(\frac{1}{2} u(u\circ m)\right)
+    %&= \tr\left(\frac{1}{2} m w^2\right)
+    %- \tr\left(\frac{1}{2} m u^2\right) \\
+    &= \tr\left(\frac{1}{2} m \left( w^2-u^2 \right)\right).
+  \end{align}
+  Similarmente para la cobertura de Albert obtenemos:
+  \begin{align}
+    \tr\left(\frac{1}{2} w(w\circ m)\right)
+    - \tr\left(\frac{1}{2} u(u\circ m)\right)
+    %&= \tr\left(\frac{1}{2} w (mw^{9}+m^3w^3)\right)
+    %- \tr\left(\frac{1}{2} u (mu^{9}+m^3u^3)\right) \\
+    %&= \tr\left( \frac{1}{2} ( 
+    %  m w^{10} + m^3 w^{4} - mu^{10} - m^3u^{4}
+    %) \right) \\
+    &= \tr\left( 
+      \frac{1}{2} m \left( w^{10} - u^{10}  
+      + m^2 \left( w^{4} - u^{4}\right) \right)
+    \right). 
+  \end{align}
+  Entonces la igualdad de los operadores puntuales es
+  equivalente a la igualdad de la siguiente triple suma:
+  \begin{equation}
+    \sum_{m,w,u \in \F}^{}
+    \omega^{\tr(\frac{1}{2} m(w^2-u^2))}
+    \ket{e_w}\bra{e_u}
+    = 
+    \sum_{m,w,u \in \F}^{}
+    \omega^{\tr\left(\frac{1}{2} m
+    \left(w^{10}-u^{10} +  m^2(w^{4}-u^{4})\right) \right)
+    }
+    \ket{e_w}\bra{e_u}.
+  \end{equation}
+  Las proyecciones $\ket{e_w}\bra{e_u}$ en la base
+  estándar se representan por matrices con todas sus
+  entradas iguales a cero excepto en la entrada indexada por
+  los elementos $w$ y $u$. Por lo tanto la igualdad de los
+  operadores puntuales en el origen es equivalente a la
+  siguiente igualdad de sumas sobre una sola variable:
+  \begin{equation}
+    \label{eqn:qutrit_weil_sum}
+    \sum_{m \in \F}^{}
+    \omega^{\tr\left( 
+        \frac{1}{2} m \left( w^2 - u^2 \right) 
+    \right) }
+    =
+    \sum_{m \in \F}^{} 
+    \omega^{\tr\left( 
+        \frac{1}{2} m\left( w^{10}-u^{10} + m^2(w^{4}-u^{4})
+        \right) 
+    \right) },
+  \end{equation}
+  para todo par $u,w \in \F$. A éste tipo de sumas se les
+  conoce como sumas de Weil, generalmente se expresan en
+  términos de los caracteres $\chi$ del grupo aditivo:
+  \begin{equation}
+    \sum_{c \in \F}^{} \chi(f(x)),
+  \end{equation}
+  donde $f \in \F[x]$, (ver la sección de \textit{sumas
+  exponenciales} (\ref{subsec:exp_sums}) del apéndice para
+  un resumen rápido de los caracteres aditivos de un campo
+  finito). Las sumas de Weil generalmente no son fáciles de
+  evaluar \cite{lidl1994}.  Usualemente solo podemos obtener
+  estimaciones de las cotas superiores e inferiores del
+  valor absoluto de la suma. En éste caso particular podemos
+  utilizar algunos resultados conocidos para demostrar que
+  la igualdad (\ref{eqn:qutrit_weil_sum}) sí se cumple.
+
+  Primero analizamos el lado izquierdo de la ecuación
+  (\ref{eqn:qutrit_weil_sum}). Expresamos en términos del
+  caracter aditivo no trivial $\chi$:
+  \begin{equation}
+    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} \left(
+    w^2-u^2\right) m \right) }
+    = \sum_{m \in \F}^{} \chi\left( \frac{1}{2} \left(
+    w^2-u^2 \right) m \right).
+  \end{equation}
+  Fijando a $w, u \in \F$, observamos que el argumento
+  $\chi$ es lineal siempre y cuando $w^2-u^2 \neq 0$. Si
+  $w^2-u^2 = 0$ entonces
+  \begin{equation}
+    \chi\left( \frac{1}{2} \left(w^2-u^2\right) m \right) 
+    = \chi(0)
+    = 1.
+  \end{equation}
+  Por lo tanto la suma de Weil es igual a la cardinalidad de
+  la extensión de Galois, $d = |\F| = 27$. Si $w^2-u^2 \neq
+  0$, de la linealidad del argumento obtenemos que la suma
+  de Weil es igual a 0, por el teorema
+  (\ref{thm:lidl_linear_sum}):
+  \begin{equation}
+    \sum_{m \in \F}^{} \chi(m) = 0.
+  \end{equation}
+  Se sigue que la suma de Weil tiene dos posibles valores:
+  \begin{equation}
+    \label{eqn:left_weil_sum}
+    \sum_{m \in \F}^{} \omega^{\tr\left(
+    \frac{1}{2}(w^2-u^2)m \right) }
+    = 
+    \begin{cases}
+      27 & \text{cuando } w^2-u^2 = 0, \\
+      0 & \text{en caso contrario}.
+    \end{cases}
+  \end{equation}
+
+  Ahora pasemos al lado derecho de la ecuación
+  (\ref{eqn:qutrit_weil_sum}). Reescribiendo el argumento de
+  la traza y expresando con la notación del caracter aditivo
+  obtenemos:
+  \begin{equation}
+    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
+    w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
+    = 
+    \sum_{m \in F}^{} \chi\left(
+      \frac{1}{2}
+      \left( w^{4} - u^{4} \right) m^3
+      + \frac{1}{2}
+      \left( w^{10} - u^{10} \right) m 
+    \right).
+  \end{equation}
+  El argumento de $\chi$ (sin el factor $1 / 2$) es un
+  $p$-polinomio afín (ver definición \ref{eqn:affine_poly})
+  de la forma
+  \begin{equation}
+    f(x) = a_1 x^{p} + a_0 x + a,
+  \end{equation}
+  donde $p = 3$, $a_1 = w^{4} - u^{4}$,  $a_0 = w^{10} -
+  u^{10}$, $r = 1$ y $a = 0$. Resulta que podemos evaluar
+  directamente a éste tipo de suma de Weil utilizando el
+  teorema \ref{thm:lidl_weil_poly}. Sean $b = \frac{1}{2}$ y
+  $d = 27$, entonces
+  \begin{equation}
+    \sum_{m \in \F}^{} \chi\left(
+      b \left(
+        a_1 m^{3} + a_0 m
+      \right)
+    \right)
+    = 
+    \begin{cases}
+      \chi_{b}(a) d & \text{cuando } b a_1 + b^{3} a_0^{3} =
+      0 \\
+      0 & \text{en otro caso}.
+    \end{cases}
+  \end{equation}
+  Primero notemos que $a = 0$, por lo que $\chi_b(0) = 1$.
+  Además el inverso multiplicativo del dos en característica
+  tres es el dos, i.e., $1 / 2 = 2$, por lo tanto la suma de
+  Weil es igual a
+  \begin{equation}
+    \label{eqn:right_weil_sum}
+    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
+    w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
+    =
+    \begin{cases}
+      27 & \text{para } 2\left( w^{4}-u^{4} \right) +
+      2^{3} \left( w^{10} - u^{10} \right)^{3} = 0, \\
+      0 & \text{en otro caso}.
+    \end{cases}
+  \end{equation}
+  Podemos simplificar la ecuación que aparece en el primer
+  caso de la suma (\ref{eqn:right_weil_sum}), ya que en
+  característica tres se satisface la identidad $(a+b)^{p} =
+  a^{p} + b^{p}$:
+  \begin{align}
+    2\left( w^{4}-u^{4} \right) + 2^{3} \left( w^{10} -
+    u^{10} \right) ^{3}
+    &= 2 \left(w^{4} - u^{4}\right) + 2^{3} \left( w^{30}
+    - u^{30} \right) \\
+    &= 2\left(w^{4} - u^{4}\right) + 2\left(w^{26 + 4} -
+      u^{26 + 4}\right) \\
+    &= 2\left(w^{4} - u^{4}\right) + 2\left(w^{4} -
+    u^{4}\right) \\
+    &= w^{4} - u^{4}.
+  \end{align}
+  ya que $a^{26} = 1$ para todo $a \in \F$ y $2^{3} = 2$.
+  De las ecuaciones (\ref{eqn:left_weil_sum}) y
+  (\ref{eqn:right_weil_sum}) podemos concluír que ambas
+  sumas serán iguales para todo $w, u \in \F$ siempre y
+  cuando las ecuaciones
+  \begin{equation}
+    w^2 - u^2 = 0,
+    \quad
+    \text{ y }
+    \quad
+    w^{4} - u^{4} = 0,
+  \end{equation}
+  compartan el \textit{mismo} conjunto de soluciones. Dado
+  que estamos trabajando con campos finitos, simplemente
+  hemos buscado todas las soluciones de ambas ecuaciones
+  para poder compararlas. Para ésto utilizamos el sistema de
+  álgebra computacional de \texttt{SageMath} y en particular
+  su módulo de campos finitos para encontrarlas.
+  \textit{Efectivamente comparten el mismo conjunto de
+  soluciones!\footnote{La cardinalidad de éste conjunto de
+  soluciones es de 53 elementos $(w,u)$.}} Ésto significa
+  que para todo $w, u \in \F$, ambas sumas de la ecuación
+  (\ref{eqn:qutrit_weil_sum}) nos dan el mismo valor, ya sea
+  $0$ ó $27$. Ésto a su vez significa que los operadores
+  puntuales en el origen para ambas coberturas simplécticas
+  son iguales. Un cálculo computacional similar nos muestra
+  que el resto de los operadores puntuales también lo son.
+  Como consecuencia, obtenemos la misma función de Wigner
+  para la construcción estándar y no estándar en el caso de
+  los tres qutrits, respecto a la cobertura de Albert. Éste
+  ejemplo nos indica que la no equivalencia unitaria de las
+  MUBs \textit{no} es suficiente para garantizar la
+  desigualdad de las funciones de Wigner estándar y no
+  estándar.
+  
+\end{document}

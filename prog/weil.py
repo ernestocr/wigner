@@ -21,7 +21,8 @@ for i, w in enumerate(FF):
     for j, u in enumerate(FF):
         if w**2 - u**2 == 0:
             sols_left.append((i, j))
-        if (w**4 - u**4)**3 + F(2)**6*(w**10 - u**10)**9 == 0:
+        #if (w**4 - u**4)**3 + F(2)**9*(w**10 - u**10)**9 == 0:
+        if w**4 - u**4 == 0:
             sols_right.append((i, j))
 
 print('Number of solutions for left side: ', len(sols_left))

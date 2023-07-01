@@ -1,0 +1,644 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\GL}{GL}
+
+\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Teorema}
+%\newtheorem{proposition}{Proposición}
+\newtheorem{lemma}{Lemma}
+%\newtheorem{corollary}{Corolario}
+\newtheorem{example}{Example}
+
+\title{$\Z_4$-Kerdock Codes, Orthogonal Spreads, and
+Extremal Euclidean Line-Sets}
+
+\author{Kantor}
+\begin{document}
+  \maketitle
+  
+  One of the main goals of the paper was to imitate a
+  construction of equiangular lines using binary Kerdock
+  codes, by using $\Z_4$-linear codes instead. Kantor in
+  particular has previously investigated connections between
+  orthogonal spreads and Kerdock sets. When the vector space
+  $\Z_2^{2m+2}$ is equipped with the quadratic form
+  \[
+    x_1x_{m+2} + x_2x_{m+3}+\cdots + x_{m+1}x_{2m+2},
+  \] 
+  there are $(2^{m+1}-1)(2^{m}+1)$ singular points. A
+  partition of this set of points into $2^{m}+1$ totally
+  singular $(m+1)$-spaces is called an \textit{orthogonal
+  spread}. From these spreads, Kantor constructed Kerdock
+  codes and vice-versa. In this paper, they find a way to
+  pass between the binary world of orthogonal spreads and
+  the real or complex world of frames and line-sets. The
+  bridge between them are extraspecial 2-groups. Each such
+  group $E$ has order $2^{1+2k}$ for some integer $k$,
+  arises as a group of isometries of the Euclidean space
+  $\R^{2^{k}}$. On the other hand, $E / Z(E)$ inherits a
+  quadratic form, producing the desired binary geometry.
+
+  They go further and modify the groups with which they work
+  with in order to connect symplectic spreads,
+  $\Z_4$-Kerdock codes and extremal complex lines-sets.
+  Further still, they consider the analogue of the binary
+  case using extraspecial $p$-groups for odd primes $p$, in
+  order to relate symplectic spreads and extremal line-sets
+  in $\C^{p^{m}}$.
+
+  \section{Extraspecial 2-groups}
+
+  Let $k$ be a fixed positive integer and let $N = 2^{k}$.
+  Recall that for a prime $p$, a $p$-group $P$ is
+  \textit{extraspecial} if the centre $Z(P)$ has order $p$ 
+  and if $P / Z(P)$ is elementary abelian. A group is
+  elementary abelian if it is abelian and all of its
+  elements besides the identity have the same (prime) order.
+  It follows the the quotient $P / Z(P)$ is a vector space
+  over the galois field $\GF(p)$.
+
+  Let  $E = E_k$ be an extraspecial 2-group of order
+  $2^{1+2k}$. It is described as an irreducible group of
+  orthogonal $N \times N$ matrices with real entries. A
+  representation of a group $G$ is said to be irreducible if
+  it has only trivial subrepresentations. A
+  subrepresentation is the co-restriction of the
+  representation to the general linear group of a
+  $G$-invariant subspace. Extraspecial groups are analogues
+  of the Heisenberg group over finite fields. Since $E$ has
+  $2^{2k}$ distinct linear characters and
+  \[
+    2^{1+2k} = 2^{2k} \cdot 1^2 + (2^{k})^2,
+  \] 
+  it is a faithful irreducible representation of $E$. A
+  group representation is faithful when the group
+  homomorphism is injective.
+
+  A group $L$ of real orthogonal transformations containing
+  $E$ as a normal subgroup is needed as well. The elements
+  of $L$ act on $E$ by conjugation, fixing the centre $Z(E)$ 
+  of order 2. Therefore there is a well-defined action on
+  the elementary abelian group $\overline{E} = E / Z(E)$ of
+  order $2^{2k}$. This action on $\overline{E}$ preserves a
+  non-singular quadratic form $Q$, which provides us with
+  the bridge between binary orthogonal and real orthogonal
+  geometry.
+
+  Now we explicitly construct the group $E$. Let $V$ denote
+  the vector space $\Z_2^{k}$ and $x \cdot y$ denote the
+  usal dot producto for $x,y \in V$. Now consider $\R^{N}$ 
+  with its natural inner product and let $O(\R^{N})$ denote
+  the group of the orthogonal linear transformations. Label
+  the standard basis of $\R^{N}$ as $e_v$ where $v \in V$.
+  For $b \in V$, define the permutation matrix $X(b)$ and
+  the diagonal matrix $Y(b)$ as follows:
+  \[
+    X(b) : e_v \mapsto e_{v+b},
+    \quad
+    \text{and}
+    \quad
+    Y(b) := \diag[(-1)^{b \cdot v}].
+  \] 
+  The groups $X(V) := \{X(b) | b \in V\}$ and $Y(V) :=
+  \{Y(b) | b \in V\}$ are contained in $O(\R^{N})$ and are
+  ismorphic to the additive group of $V$. Now consider the
+  generated group $E := \langle X(V), Y(V)\rangle$. It is an
+  irreducible subgroup of $O(\R^{N})$. 
+
+  \begin{lemma}
+    The group $E = \langle X(V), Y(V) \rangle$ is
+    extraspecial of order $2^{1+2k}$, and $Z(E) = \langle -I
+    \rangle$. Moreover, $E = X(V)Y(V)\langle -I \rangle$,
+    and every elemento of $E$ can be written uniquely in the
+    form $X(a)Y(b)(-I)^{\gamma}$ for some $a,b \in V$ and
+    $\gamma \in \Z_2$.
+  \end{lemma}
+
+  A consequence of this lemma is that $E / Z(E) \cong V
+  \oplus V$. The natural map from $E$ to $\overline{E} = E /
+  Z(E)$ will be denoted by the overline, so that $X(a) \in
+  E$ maps to $\overline{X}(a) \in V \oplus V$. The centre
+  $Z(E)$ is identified with $\Z_2$ and they consider the map
+  $Q : \overline{E} \mapsto \Z_2$ defined by
+  \[
+    Q(\overline{e}) = e^2,
+  \] 
+  for any $\overline{e} \in \overline{E}$ and any preimage
+  $e$ of $\overline{e}$ in $E$. As an example consider,
+  $\overline{X}(a)\overline{Y}(b) \in \overline{E}$, then
+  \begin{align*}
+    Q\left( \overline{X}(a)\overline{Y}(b) \right) 
+    &= \left(X(a)Y(b)(-I)^{\gamma}\right)
+    \left(X(a)Y(b)(-I)^{\gamma}\right) \\
+    &= X(a+a)Y(b+b)(-I)^{\gamma + \gamma + a \cdot b} \\
+    &= X(0)Y(0)(-I)^{a \cdot b} \\
+    &= a \cdot b.
+  \end{align*} 
+  The quadratic form $Q$ is non-singular on $\overline{E}$,
+  which means the the associated bilinear form is not
+  singular. Such form on $\overline{E}$ is given by 
+  \[
+     \left( \overline{e}_1, \overline{e}_2 \right) 
+     = [e_1,e_2],
+  \] 
+  where
+  \[
+    [x,y] = x^{-1} y^{-1} x y
+  \] 
+  denotes the commutator of $x$ and $y$. It follows from the
+  multiplication law in $E$ that
+  \begin{align*}
+    \left( 
+      \overline{X}(a) \overline{Y}(b),
+      \overline{X}(a') \overline{Y}(b')
+    \right) 
+    &= \left(X(a)Y(b)(-I)^{\gamma}\right)^{-1}
+    \left(X(a')Y(b')(-I)^{\gamma'}\right)^{-1}
+    \left(X(a)Y(b)(-I)^{\gamma})\right)
+    \left(X(a')Y(b')(-I)^{\gamma'}\right) \\
+    &= Y(b)^{-1}X(a)^{-1}  
+    Y(b')^{-1}X(a')^{-1}
+    X(a)Y(b)X(a')Y(b') \\
+    &= Y(b)X(a)Y(b')X(a')X(a)Y(b)X(a')Y(b') \\
+    &= Y(b)X(a)Y(b')X(a') X(a+a')Y(b+b')(-I)^{a' \cdot b} \\
+    &= Y(b) X(a)Y(b') X(a)Y(b+b')(-I)^{a' \cdot b} \\
+    &= Y(b) X(0) Y(b) (-I)^{a' \cdot b} (-I)^{a \cdot b'} \\
+    &= (-I)^{a \cdot b'} (-I)^{a' \cdot b} \\
+    &= a \cdot b' - a' \cdot b.
+  \end{align*}
+
+  The $k$-spaces $\overline{X}(V)$ and $\overline{Y}(V)$ are
+  \textit{totally singular}, i.e., the quadratic form $Q$ 
+  vanishes on each of the them. To see this, take any
+  element $\overline{X}(a) \in \overline{X}(V)$ and compute
+  \[
+    Q(\overline{X}(a))
+    = Q(\overline{X}(a)\overline{Y}(0))
+    = a \cdot 0
+    = 0.
+  \]
+  The same goes for $\overline{Y}(V)$. Kantor trivially
+  notes that $\overline{X}(V) \cap \overline{Y}(V) = 0$.
+  Therefore $\overline{E}$ is an $\Omega^{+}(2k,2)$ space,
+  it has maximal Witt index. Unsure what this means but may
+  not be important.
+
+  Kantor et al then say they require isometries of $\R^{N}$
+  that normalize $E$ (i.e., the normalizer of $E$ in $L$).
+  They obviously normalize the centre $Z(E)$ as well, they
+  act on $\overline{E}$ by conjugation, and induce
+  isometries of $\overline{E}$. They then define a
+  particularly interesting matrix:
+  \begin{equation}
+    H
+    = \frac{1}{\sqrt{N}}
+    \left[(-1)^{u \cdot v}\right]_{u,v \in V}.
+  \end{equation}
+  The matrix $\sqrt{N}H$ is the $k$-fold Kronecker producto
+  of the $2 \times 2$ Hadamard matrix
+  \[
+    \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix},
+  \] 
+  this implies that $H^2 = I$. The matrix $H$ connects the
+  matrix  $X$ and $Y$ by conjugation. First observe that
+  \begin{align}
+    e_a H X(b) H
+    &= \left(
+      \frac{1}{\sqrt{N}} \sum_{v \in V}^{}
+      (-1)^{a \cdot v} e_v
+    \right) X(b) H \\
+    &= \left( 
+      \frac{1}{\sqrt{N}}
+      \sum_{v \in V}^{} (-1)^{a \cdot v} e_{v+b} 
+    \right) H \\
+    &= \frac{1}{N} \sum_{v, w \in V}^{} 
+    (-1)^{a \cdot v} (-1)^{(v+b) \cdot w} e_{w} \\
+    &= \frac{1}{N} \sum_{v,w \in V}^{} 
+    (-1)^{(a + w) \cdot v + b \cdot w} e_{w} \\
+    &= \frac{1}{N} \sum_{v, w \in V}^{} 
+    (-1)^{(a+w) \cdot v + b \cdot w + a \cdot b + a \cdot
+    b}e_w \\
+    &= \frac{1}{N} \sum_{v,w}^{} 
+    (-1)^{(a+w) \cdot (v + b) + a \cdot b} e_w \\
+    &= (-1)^{a \cdot b} \frac{1}{N} \sum_{w \in V}^{}  
+    \left( 
+      \sum_{v \in V}^{} 
+      (-1)^{(a+w) \cdot (v+b)} 
+    \right) e_w \\
+    &= ? \\
+    &= (-1)^{a \cdot b} e_a.
+  \end{align}
+  Therefore $H^{-1} X(b) H = H X(b) H = Y(b)$. Now define
+  the unit vector
+  \begin{equation}
+    e_b^{*}
+    := \frac{1}{\sqrt{N}} \sum_{v \in V}^{}
+    (-1)^{b \cdot v} e_v,
+  \end{equation}
+  to be the $b$-th row of $H$.
+
+  We also need a basis of $\overline{E}$. Let
+  $v_1,\ldots,v_k$ denote the standard basis of $V =
+  \Z_2^{k}$. This determines bases $x_1,\ldots,x_k$ of the
+  subspace $\overline{X}(V)$ and $y_1,\ldots,y_k$ of
+  $\overline{Y}(V)$, given by $x_j = \overline{X}(v_j)$  and
+  $y_j = \overline{Y}(v_j)$. These two bases are ``dual''
+  bases of $\overline{X}(V)$ and $\overline{Y}(V)$ with
+  respect to the bilinera alternating form on
+  $\overline{E}$, i.e.,
+  \[
+    (x_i, y_j) = \delta_{ij},
+    \quad
+    \text{for all } i, j.
+  \] 
+  To prove this, let $x_i = \overline{X}(v_j)$ and $y_j =
+  \overline{Y}(v_j)$. Then
+  \begin{align}
+    \left( x_i, y_j \right) 
+    &= \left( 
+      \overline{X}(v_i)\overline{Y}(0),
+      \overline{X}(0)\overline{Y}(v_j)
+    \right)  \\
+    &= v_i \cdot v_j - 0 \cdot 0 \\
+    &= \delta_{ij},
+  \end{align}
+  since the standard basis is orthogonal with respect to the
+  inner product. The matrices of linear transformations on
+  $\overline{E}$ will be written with respect to the ordered
+  basis, $x_1,\ldots,x_k,y_1,\ldots,y_k$. Since $HX(b)H =
+  Y(b)$, it follows that $H$ induces the map $x_j
+  \leftrightarrow y_j$ on $\overline{E}$.
+
+  The authors then state that every matrix $A$ in the
+  general linear group $\GL(V)$ induces an orthogonal
+  transformation $\tilde A$ of $\R^{N}$ by permuting
+  coordinates: $e_v \mapsto e_{vA}$. Recall the $\GL(V)$ is
+  group of invertible maps of $V$, but $V$ a $k$-vector
+  space and so these maps are just permutation matrices. The
+  group $\GL(V)$ is to be identified with $\{\tilde A | A
+  \in \GL(V)\}$.
+
+  \begin{lemma}
+    \begin{enumerate}
+      \item The orthogonal transformation $\tilde A$ 
+        normalizes $E$ and induces $\begin{pmatrix} A & O \\
+        O & A^{-T}\end{pmatrix}$ on $\overline{E}$ by
+        conjugation:
+        \[
+          \tilde A^{-1}\overline{X}(a)\overline{Y}(b)\tilde
+          A
+          = \overline{X}(aA)\overline{Y}(bA^{-T})
+          = \overline{X}(a)\overline{Y}(b) 
+          \begin{pmatrix} A & O \\ O & A^{-T} \end{pmatrix}.
+        \] 
+      \item The group $\GL(V)$ acts transitively by
+        conjugation on both
+         \begin{equation}
+          \{\overline{X}(a)\overline{Y}(b) | a \cdot b = 0,
+          a, b \neq 0\}
+          \quad \text{and} \quad
+          \{\overline{X}(a)\overline{Y}(b) | a \cdot b =
+          1\}.
+        \end{equation}
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    Let $A \in \GL(V)$ and observe that
+    \[
+      e_v 
+      = e_v \left( \widetilde{AA^{-1}} \right) 
+      = e_{v AA^{-1}}
+      = e_{(vA) A^{-1}}
+      = e_{vA} \widetilde{A^{-1}} 
+      = \left( e_v \tilde A \right) \widetilde{A^{-1}}.
+    \] 
+    Therefore $\widetilde{A^{-1}} = \tilde A^{-1}$.  Now,
+    for all $b,v \in V$ we have
+    \begin{equation*}
+      e_v(\tilde A^{-1}X(b)\tilde A)
+      = e_{vA^{-1}+b}\tilde A \\
+      = e_{v+bA}  \\
+      = e_v X(bA),
+    \end{equation*}
+    so that $\tilde A^{-1}X(b) \tilde A = X(bA)$.
+    Furthermore, observing that
+    \[
+      vA^{-1} \cdot b
+      = v \cdot b A^{-T},
+    \] 
+    we obtain
+    \begin{align*}
+      e_v \left( \tilde A^{-1} Y(b) \tilde A \right) 
+      &= (-1)^{vA^{-1} \cdot b} e_{vA^{-1}} \tilde A \\
+      &= (-1)^{vA^{-1} \cdot b} e_{v} \\
+      &= (-1)^{v \cdot bA^{-T}} e_v \\
+      &= e_v Y(bA^{-T}).
+    \end{align*}
+    In other words, $\tilde A^{-1}Y(b)\tilde A =
+    Y(bA^{-T})$. Then (1) follows:
+    \begin{align*}
+       A^{-1} \overline{X}(a)\overline{Y}(b) A
+      &= \tilde A^{-1} X(a)\tilde A \tilde A^{-1}Y(b) \tilde
+      A \\
+      &= X(aA) Y(bA^{-T}) \\
+      &= \overline{X}(aA)\overline{Y}(bA^{-T}) \\
+      &= \overline{X}(a) \overline{Y}(b) \begin{pmatrix} A &
+      O \\ 0 & A^{-T}\end{pmatrix}.
+    \end{align*}
+    For the second part, the authors give an argument about
+    the sets of incident and non-incident point-hyperplane
+    pairs from $V$. We do not understand this, but an action
+    on a set $X$ is transitive if there is only one orbit,
+    that is, if there exists $x$ in $X$ such that $Gx = X$.
+  \end{proof}
+
+  A part from the isometries mentioned before, the authors
+  state that more isometries of $\overline{E}$ and $\R^{N}$
+  will be needed. It is mentioned quickly that the
+  isometries of $\overline{E}$ that induce the identity on
+  $\overline{Y}(V)$ are precisely those described by
+  matrices $\begin{pmatrix} I & M \\ O & I \end{pmatrix}$,
+  where $M$ is a skew-symmetric $k \times k$ matrix. I
+  assume what is meant by an isometry inducing the identity
+  on $\overline{Y}(V)$ is that the isometry restricted to
+  the subspace is the identity. A direct proof: let $b \in
+  V$, then $\overline{X}(0)\overline{Y}(b) \in
+  \overline{Y}(V)$ and
+  \begin{align*}
+    \overline{Y}(b) 
+    \begin{pmatrix} I & M \\ O & I \end{pmatrix}
+    &= \overline{X}(0)\overline{Y}(b) 
+    \begin{pmatrix} I & M \\ O & I \end{pmatrix} \\
+    &= 
+    \begin{pmatrix} O & O  \end{pmatrix} +
+    \begin{pmatrix} O & \overline{Y}(b) \end{pmatrix} \\
+    &= \begin{pmatrix} O & \overline{Y}(b) \end{pmatrix}  \\
+    &= \overline{Y}(b).
+  \end{align*}
+  I suppose the necesity of $M$ being a skew-symmetric
+  matrix is to preserve the inner product. What the authors
+  want is an isometry $d_M$ of $\R^{N}$ that induces
+  precisely $\begin{pmatrix} I & M \\ O & I \end{pmatrix}$ 
+  on $\overline{E}$ by conjugation.
+
+  To do this consider any quadratic form $Q_M$ on $V$ such
+  that the associated bilinear form is $u M v^{T}$, so that
+  $Q_M(u+v) = Q_M(u) + Q_M(v) + uMv^{T}$ for all $u, v \in
+  V$. Now define
+  \begin{equation}
+    d_M := \diag\left[(-1)^{Q_M(v)}\right]_{v \in V}.
+  \end{equation}
+  Then 
+  \begin{align*}
+    e_v d_M^{-1} X(a) d_M X(a)
+    &= (-1)^{Q_M(v)} e_v X(a) d_M X(a) \\
+    &= (-1)^{Q_M(v)} e_{v+a} d_M X(a) \\
+    &= (-1)^{Q_M(v)} (-1)^{Q_M(v+a)} e_{v+a} X(a) \\
+    &= (-1)^{Q_M(v)} (-1)^{Q_M(v+a)} e_v \\
+    &= (-1)^{Q_M(v)} (-1)^{Q_M(v) + Q_M(a) + vMa^{T}} e_v \\
+    &= (-1)^{Q_M(a)} (-1)^{vMa^{T}} e_v \\
+    &= (-1)^{Q_M(a)} (-1)^{aM^{T}v^{T}} e_v \\
+    &= (-1)^{Q_M(a)} (-1)^{aM \cdot v} e_v,
+  \end{align*}
+  since $M$ is symmetric. And so $d_M^{-1} X(a) d_M X(a) =
+  (-1)^{Q_M(a)} Y(aM)$. Furthermore
+  \begin{align*}
+    e_v d_M^{-1} Y(b) d_M
+    &= (-1)^{Q_M(v)} e_v Y(b) d_M \\
+    &= (-1)^{Q_M(v)} (-1)^{b \cdot v} e_v d_M \\
+    &= (-1)^{Q_M(v)} (-1)^{b \cdot v} (-1)^{Q_M(v)} e_v \\
+    &= (-1)^{b \cdot v} e_v \\
+    &= e_v Y(b).
+  \end{align*}
+  Hence
+  \begin{align*}
+    d_M^{-1} X(a)Y(b)d_M
+    &= d_M^{-1} X(a) d_M X(a) X(a) d_M^{-1} Y(b) d_M \\
+    &= (-1)^{Q_M(a)} Y(aM) X(a) Y(b) \\
+    &= (-1)^{Q_M(a)} X(a) X(a) Y(aM) X(a) Y(b) \\
+    &= (-1)^{Q_M(a)} X(a) X(a+a) Y(aM+b) (-I)^{a \cdot aM}
+    \\
+    &= (-I)^{\gamma} X(a) Y(aM+b) \\
+    &= (-I)^{\gamma} X(a) Y(aM) Y(b).
+  \end{align*}
+  The ``phase'' doesn't matter under the bar map, so we have
+  \begin{equation}
+    d_M^{-1} \overline{X}(a)\overline{Y}(b)d_M
+    = \overline{X}(a) \overline{Y}(aM) \overline{Y}(b)
+    = \overline{X}(a)\overline{Y}(b) 
+    \begin{pmatrix} I & M \\ O & I \end{pmatrix}.
+  \end{equation}
+  In this manner $d_M$ induces (by conjugation)
+  $\begin{pmatrix} I & M \\ O & I\end{pmatrix}$ on
+  $\overline{E}$.
+
+  This construction is used in proof of the following lemma,
+  which the authors cite an earlier work of Kantor.
+
+  \begin{lemma}
+    \begin{enumerate}
+      \item Every totally singular $k$-space $W$ of
+        $\overline{E}$ such that $\overline{Y}(V) \cap W =
+        0$ has the form
+        \[
+          W = d_M^{-1} \overline{X}(V) d_M
+          = \overline{X}(V)
+          \begin{pmatrix} I & M \\ O & I \end{pmatrix} 
+          = \{\overline{X}(a)\overline{Y}(aM) | a \in V\}
+        \] 
+        for a unique binary skew-symmetric $k \times k$ 
+        matrix $M$. The linear transformation of
+        $\overline{E}$ produced by $\begin{pmatrix} I & M \\
+        O & I\end{pmatrix}$ preserves the quadratic form
+        $Q$.
+      \item Let $M_1$ and $M_2$ be binary skew-symmetric $k
+        \times k$ matrices for which the corresponding
+        totally singular $k$-spaces $W_1$ and $W_2$ satisfy
+        $\overline{Y} \cap W_1 = \overline{Y}(V) \cap W_2 =
+        0$. Then $W_1 \cap W_2 = 0$ if and only if $M_1 -
+        M_2$ is non-singular.
+    \end{enumerate}
+  \end{lemma}
+  The first part of the lemma uses the fact that the
+  subspace $\overline{X}(V)$ is a totally singular $k$-space
+  of $\overline{E}$, and since the transformation induced by
+  $d_M$ preserves the quadratic form, any of the $k$-spaces
+  $W$ obtained in this manner will also be totally singular. 
+
+  The authors add one more element of $O(\R^{N})$ that
+  normalizes $E$, one that induces a transvection on
+  $\overline{E}$, denoted by $\tilde H_2$. Not sure what it
+  is for, but they assure that with it, we have enough
+  isometries of $ \overline{E}$ to generate the orthogonal
+  group $O^{+}(2k,2)$ using conjugation by isometries in
+  $O(\R^{N})$ that normalize $E$. The defined the generated
+  group
+  \begin{equation}
+    L := \langle E, \GL(V), d_M, H, \tilde H_2 : M \text{ is
+      skew-symmetric}\rangle,
+  \end{equation}
+  which contains $E$ as a normal subgroup and $L / E$ acts
+  on $\overline{E}$ by conjugation. $L$ contains all
+  isometries of $\overline{E}$ that fix $\overline{Y}(V)$,
+  and hence all that fix $H^{-1}\overline{Y}(V)H =
+  \overline{X}(V)$ ; these two groups generate
+  $\Omega^{+}(2k,2)$.
+
+  \section{Binary Kerdock codes, orthogonal spreads, and
+  real line-set with prescribed angles}
+
+  The authors start by fixing an odd integer $m$ and setting
+  $k = m + 1$ for the preceding section. So $E = E_{m+1}$ is
+  an extraspecial 2-group of order $2^{1+2(m+1)}$, and
+  $\overline{E}$ is an $\Omega^{+}(2m+2,2)$-space. Now
+  define our main character.
+
+  \begin{definition}
+    An orthogonal spread of $\overline{E}$ is a family
+    $\Sigma$ of $2^{m}+1$ totally singular $(m+1)$-spaces
+    such that every singular point of $\overline{E}$ belongs
+    to exactly one member of $\Sigma$.
+  \end{definition}
+
+  The authors defer the construction of orthogonal spreads
+  for later. In what follows they establish the connection
+  with Kerdock codes. Using one of the previous lemmas, we
+  know that $L$ acts transitively on the ordered pairs of
+  disjoint (non-trivially) totally singular $(m+1)$-spaces
+  of $\overline{E}$. By replacing $\Sigma$ by some $\Sigma
+  \ell$ where $\ell \in L$, it can be assumed that
+  $\overline{X}(V), \overline{Y}(V) \in \SIgma$. By the
+  latest lemma, any $\overline{A} \in \Sigma \setminus
+  \{\overline{Y}(V)\}$ can be written as $\overline{X}(V)
+  \begin{pmatrix} I & M_A \\ O & I \end{pmatrix}$ for some
+  unique skew-symmetric $(m+1) \times (m+1)$ matrix $M_A$.
+  The linear transformation induced by such a matrix
+  preserves the quadratic form $Q$ defined on $\overline{E}$.
+
+  Now consider a set of binary skew-symmetric $(m+1) \times
+  (m+1)$ matrices such that the difference between any two
+  of them is non-singular. The authors mention that such a
+  set has size at most $2^{m}$. With this they define
+  maximal sets of such matrices which they identify with
+  \texit{Kerdock sets}.
+
+  \begin{definition}
+    A Kerdock set is a set of $2^{m}$ binary skew-symmetric
+    $(m+1) \times (m+1)$ matrices such that the difference
+    of any two is non-singular.
+  \end{definition}
+
+  It happens that $\{M_A : \overline{A} \in \Sigma \setminus
+  \{\overline{Y}(V)\}\}$ is a Kerdock set for any orthogonal
+  spread $\Sigma$ containing $\overline{Y}(V)$. The
+  corresponding \textit{Kerdock code} $\mathcal K(\Sigma)$ 
+  is a binary code of length $2^{m+1}$ ; its $2^{m+1}$ 
+  coordinate positions are labelled by vectores in $V =
+  \Z_2^{m+1}$, and
+  \begin{equation}
+    \mathcal K(\Sigma)
+    := \left\{
+      \left( Q_{M_A}(v) + s \cdot v + \varepsilon \right)_{v
+      \in V} : \overline{A} \in \Sigma \setminus
+      \{\overline{Y}(V)\}, s \in V, \varepsilon \in \Z_2
+    \right\},
+  \end{equation}
+  where $Q_{M_A}$ denotes any quadratic form asociated with
+  the alternating bilinear form $u M_A v^{T}$ for each
+  $\overline{A} \in \Sigma \setminus \{\overline{Y}(V)\}$.
+  There is a lot arbitrariness that goes on in this
+  definition, but up to equivalence of codes, the Kerdock
+  code $\mathcal K(\Sigma)$ depends only on $\Sigma$ and on
+  the distinguished member $\overline{Y}(V)$ of $\Sigma$ 
+  that was discarded in the construction of the Kerdock set.
+  It is noted that there is not a one-to-one correspondence
+  between Kerdock sets and orthogonal spreads.
+
+  Now they consider the Euclidean geometry of the
+  extraspecial 2-group $E$. This is where the relationship
+  with the rest of the works comes into view, as they
+  authors now start studying the invariant subspaces of
+  matrices $Y(V)$ and $X(V)$. Let us first recall that a
+  module is basically a vector space over rings instead of
+  fields. A submodule is a subset of a module that is
+  itself a module. An irreducible submodule $N$ of a module
+  $M$ is a submodule that is not the intersection of two
+  submodules of $M$ in which it is properly contained. This
+  is to say, that for all submodules $N_1$ and $N_2$ of $M$,
+  \[
+    N = N_1 \cap N_2 \implies N_1 = N \quad \text{ or }
+    \quad N_2 = N.
+  \] 
+
+  \begin{lemma}
+    If $e_b^{*}$ is as defined previously, then
+    \begin{enumerate}
+      \item $\{\langle e_v \rangle : v \in V\}$ is the set
+        of irreducible submodules for $Y(V)$.
+      \item $\{\langle e_b^{*} \rangle : b \in V\}$ is the
+        set of irreducible submodules for $X(V)$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    For the first part of the lemma, it is easily seen the
+    $Y(V)$, being a group of a diagonal matrices, leaves
+    invariant each of the $1$-spaces $\langle e_v \rangle$.
+    The authors then make an argument that I don't exactly
+    follow in which they prove that they have $2^{m+1}$ 
+    inequivalent $1$-dimensional submodules of an
+    $2^{m+1}$-dimensional module, so these comprise all
+    irreducible submodules.
+
+    For the second part, the $1$-spaces $\langle e_b H
+    \rangle = \langle e_b^{*} \rangle$ are the irreducible
+    submodules of $H^{-1}Y(V)H = X(V)$. To see this note the
+    following:
+    \begin{align*}
+      e_b^{*} X(v) 
+      &= e_b^{*} X(v) H^2 \\
+      &= \left(e_b H\right) X(v) H^2 \\
+      &= e_b H X(v) H H \\
+      &= e_b Y(v) H \\
+      &= e_c H \\
+      &= e_c^{*} \in \langle e_b H \rangle.
+    \end{align*} 
+  \end{proof}
+
+  And now for the main lemma Kantor used in his MUBs
+  inequivalence proof.
+  \begin{lemma}
+    Let $A$ and $B$ be subgroups of $E$ such that
+    $\overline{A}$ and $\overline{B}$ are totally singular
+    $(m+1)$-spaces of $\overline{E}$.
+    \begin{enumerate}
+      \item The set $\mathcal F(A)$ of $A$-irreducible
+        subspaces of $\R^{2^{m+1}}$ is an orthogonal frame:
+        a set of $2^{m+1}$ pairwise orthogonal lines through
+        the origin.
+      \item Assume that $\overline{A} \cap \overline{B} =
+        0$, and let $u_1$ and $u_2$ be unit vectors in
+        different members of $\mathcal F(A) \cup \mathcal
+        F(B)$. If $u_1$ and $u_2$ are both in different
+        members of $\mathcal F(A)$, or both are in different
+        members of $\mathcal F(B)$, then $(u_1,u_2) = 0$ ;
+        otherwise $|(u_1,u_2)| = 2^{-(m+1) / 2}$.
+      \item The set $\mathcal F(A)$ is left invariant by
+        $E$.
+    \end{enumerate}
+  \end{lemma}
+ 
+\end{document}

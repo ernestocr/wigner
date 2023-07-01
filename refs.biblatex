@@ -591,6 +591,20 @@
   file = {/Users/ernesto/Zotero/storage/MP7VJGMJ/de Gosson - 2022 - A Few Almost Trivial Notes on the Symplectic Radon.pdf}
 }
 
+@book{dembowski1968,
+  title = {Finite {{Geometries}}},
+  author = {Dembowski, Peter},
+  date = {1968},
+  publisher = {{Springer Berlin Heidelberg}},
+  location = {{Berlin, Heidelberg}},
+  doi = {10.1007/978-3-642-62012-6},
+  url = {http://link.springer.com/10.1007/978-3-642-62012-6},
+  urldate = {2023-06-29},
+  isbn = {978-3-540-61786-0 978-3-642-62012-6},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/SLGDZNJ5/Dembowski - 1968 - Finite Geometries.pdf}
+}
+
 @book{dubin2000,
   title = {Mathematical Aspects of Weyl Quantization and Phase},
   author = {Dubin, D. A. and Hennings, M. A. and Smith, T. B.},
@@ -795,6 +809,24 @@
   abstract = {We study the Wigner phase space formulation of quantum mechanics and compare it to the Hamiltonian picture of classical mechanics. In this comparison we focus on the differences in initial conditions available to each theory as well as the differences in dynamics. First we derive new necessary conditions for the admissibility of Wigner functions and interpret their physical meaning. One advantage of these conditions is that they have a natural, geometric interpretation as integrals over polygons in phase space. Furthermore, they hint at what is required beyond the uncertainty principle in order for a Wigner function to be valid. Next we design and implement numerical methods to propagate Wigner functions via the quantum Liouville equation. Using these methods we study the quantum mechanical phenomena of reflection, interference, and tunnelling and explain how these phenomena arise in phase space as a direct consequence of the first quantum correction to classical mechanics.},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/V5RGTNM7/Ganguli - Quantum Mechanics on Phase Space Geometry and Mot.pdf}
+}
+
+@article{garcia2021,
+  title = {Unextendible {{Sets}} of {{Mutually Unbiased Basis Obtained}} from {{Complete Subgraphs}}},
+  author = {García, Andrés and López, Pablo Carlos},
+  date = {2021-06-15},
+  journaltitle = {Mathematics},
+  shortjournal = {Mathematics},
+  volume = {9},
+  number = {12},
+  pages = {1388},
+  issn = {2227-7390},
+  doi = {10.3390/math9121388},
+  url = {https://www.mdpi.com/2227-7390/9/12/1388},
+  urldate = {2023-06-29},
+  abstract = {We propose a method, based on the search and identification of complete subgraphs of a regular graph, to obtain sets of Pauli operators whose eigenstates form unextendible complete sets of mutually unbiased bases of n-qubit systems. With this method we can obtain results for complete and inextensible sets of mubs for 2, 3, 4 and 5 qubits.},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/75TLDT4Q/García and López - 2021 - Unextendible Sets of Mutually Unbiased Basis Obtai.pdf}
 }
 
 @article{gibbons2004,
@@ -1088,7 +1120,7 @@
 }
 
 @article{ivanov1987,
-  title = {Orthogonal Decompositions of {{Lie}} Algebras of Type {{{\emph{A}}}} {\textsubscript{ {\emph{p}} {\textsuperscript{ {\emph{n}} }} -1 }} and Isotropic Fiberings},
+  title = {Orthogonal Decompositions of {{Lie}} Algebras of Type {{{\emph{A}}}}{\textsubscript{{\emph{p}}{\textsuperscript{{\emph{n}}}}-1}} and Isotropic Fiberings},
   author = {Ivanov, D N},
   date = {1987-08-31},
   journaltitle = {Russian Mathematical Surveys},
@@ -1180,6 +1212,19 @@
   langid = {english},
   keywords = {Mathematics - Combinatorics,Quantum Physics},
   file = {/Users/ernesto/Zotero/storage/SJ9PSEGI/Kantor - 2012 - MUBs inequivalence and affine planes.pdf}
+}
+
+@inproceedings{kantora,
+  title = {Orthogonal {{Spreads}} and {{Translation Planes}}},
+  author = {Kantor, William M.},
+  pages = {227--242},
+  doi = {10.2969/aspm/02410227},
+  url = {https://projecteuclid.org/euclid.aspm/1534360734},
+  urldate = {2023-06-27},
+  abstract = {There have been a number of striking new results concerning translation planes of characteristic 2, obtained using orthogonal and symplectic spreads. The impetus for this came from coding theory. This paper surveys the geometric advances, while providing a hint of their coding-theoretic connections.},
+  eventtitle = {Progress in {{Algebraic Combinatorics}}},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/ARFAFRSV/Kantor - Orthogonal Spreads and Translation Planes.pdf}
 }
 
 @book{kim1991,
