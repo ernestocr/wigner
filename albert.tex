@@ -3,11 +3,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usepackage[spanish]{babel}
+%\usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb}
 \usepackage{amsthm}
 \usepackage{braket}
-\decimalpoint
+%\decimalpoint
+
+\usepackage{biblatex}
+\addbibresource{refs.biblatex}
 
 \DeclareMathOperator{\R}{\mathbb{R}}
 \DeclareMathOperator{\C}{\mathbb{C}}
@@ -17,12 +20,14 @@
 \DeclareMathOperator{\GF}{GF}
 \DeclareMathOperator{\GR}{GR}
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\im}{img}
 
-\newtheorem{definition}{Definición}
-\newtheorem{theorem}{Teorema}
-\newtheorem{proposition}{Proposición}
-\newtheorem{lemma}{Lema}
-\newtheorem{corollary}{Corolario}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corrollary}
 \newtheorem{example}{Example}
 
 \title{Wigner point operators from Albert's twisted fields}
@@ -36,13 +41,12 @@
 
   One of the simplest examples of inequivalent symplectic
   spreads for odd characteristic, with respect to the
-  Desarguesian spread, in terms of lowest Hilbert space
-  dimension, is given by a particular case of Albert's
-  twisted fields.  The lowest dimension $\C^{p^{n}}$ space
-  for which we can apply the construction is of dimension $d
-  = 3^{3}$. These families of symplectic spreads are
-  actually unbounded in the number of pairwise inequivalent
-  examples as a function of $n$.
+  Desarguesian spread, is given by a particular case of
+  Albert's twisted fields.  The lowest dimension
+  $\C^{p^{n}}$ space for which we can apply the construction
+  is of dimension $d = 3^{3}$. These families of symplectic
+  spreads are actually unbounded in the number of pairwise
+  inequivalent examples as a function of $n$.
 
   We had previously defined the discrete Wigner function
   $W_\rho$ of some state $\rho$ in terms of a set of
@@ -51,7 +55,7 @@
   point operators are defined by summing the mutually
   unbiased projection operators designated by some
   \textit{quantum net} or \textit{quadrature system}, for
-  each line in phase space that passes through some point
+  each line in phase space that passes through the point
   $\alpha$. The quadrature system assigns eigenstates of
   maximal commuting classes of generalized Pauli operators
   to lines in phase space in a manner given by some
@@ -73,304 +77,645 @@
   construction in order to determine if and how the
   quadrature system managed to nullify the differences
   between the inequivalent MUBs. Using known results for
-  certain Weil sums, we were indeed able to prove the
-  equivalence of the point operators, and consequently, the
-  equivalence of the Wigner functions when using Albert's
-  twisted fields.
+  certain Weil sums, we try to prove the equivalence of the
+  point operators, and consequently, the equivalence of the
+  Wigner functions when using Albert's twisted fields.
 
   \section{Albert's twisted fields}
 
-  Let $V$ be $K = \GF(p^{n})$ with $n$ odd, choose an
-  integer $s$ relatively prime to $n$ such that $1 \leq s <
-  n / 2$, and let $\tr(x) := \sum_{j=0}^{n-1} x^{p^{j}}$ for
-  $x \in K$, be the trace map. Then the operation defined as
+
+  %The usual way of defining the twisted fileds is to take a
+  %finite field $E$ of odd order, and a non-trivial
+  %automorphism $\rho$ that $-1 \neq E^{\rho-1}$. Kantor
+  %notes that this $\rho$ behaves in this manner only when
+  %$E$ has odd digree over the fixed field $E_\rho$ of
+  %$\rho$.
+
+  %Now consider $F = \GF(q)$ as a subfield of $E_\rho$ and
+  %set $n = [E : F]$, i.e., the degree of the extension $E$ 
+  %over $F$. Then the subspaces 
+  %\begin{equation}
+  %  \{(0,y) : y \in E\},
+  %  \quad
+  %  \{(x,mx^{\rho^{-1}} + m^{\rho}x^{\rho} : x \in E\},
+  %  \quad m \in E
+  %\end{equation}
+  %of the $F$-space $E \oplus E$ form a spread $\Sigma$ of
+  %the corresponding projective space $PG(2n-1,q)$. The
+  %spread is symplectic with respect to the bilinear
+  %alternating form given by
+  %\begin{equation}
+  %  \langle (x_1,y_1), (x_2,y_2) \rangle
+  %  = \tr(x_1y_2 - x_2y_1).
+  %\end{equation}
+  %\begin{proof}
+  %  To prove this we must show that every subspace of the
+  %  spread is totally isotropic.
+  %  \begin{align}
+  %    \langle (x_1,y_1), (x_2,y_2) \rangle
+  %    &= \tr\left[
+  %      x \left( my^{\rho^{-1}}+m^{\rho}y^{\rho} \right)
+  %      - \left( mx^{\rho^{-1}}+m^{\rho}x^{\rho} \right) y
+  %    \right] \\
+  %    &= \tr\left(xmy^{\rho^{-1}}\right)
+  %    + \tr\left( xm^{\rho}y^{\rho} \right) 
+  %    - \tr\left( ymx^{\rho^{-1}} \right) 
+  %    - \tr\left( ym^{\rho}x^{\rho} \right) \\
+  %    &= \tr\left( x^{\rho}m^{\rho}y \right)
+  %    + \tr\left( xm^{\rho}y^{\rho} \right) 
+  %    - \tr\left( y^{\rho}m^{\rho}x \right) 
+  %    - \tr\left( ym^{\rho}x^{\rho} \right) \\
+  %    &= 0.
+  %  \end{align}
+  %\end{proof}
+  %This spread arises from a semifield. The presemifield
+  %operation is given by
+  %\begin{equation}
+  %  m * x = mx^{\rho^{-1}} + m^{\rho}x^{\rho},
+  %  \quad
+  %  m, x \in E,
+  %\end{equation}
+  %and is isotopic to the presemifield defined by $m \circ x
+  %= mx^{\rho^{-1}}+m^{\rho}x^{\rho^2}$, which produces
+  %Albert's twisted fields.
+
+  In \cite{bader}, Kantor presents a family of spreads based
+  on Albert's twisted fields.  Consider the field $F =
+  \GF(p^{n})$ with $n$ odd, choose an integer $s$ relatively
+  prime to $n$ such that $1 \leq s < n / 2$, and let $\tr(x)
+  := \sum_{j=0}^{n-1} x^{p^{j}}$ for $x \in F$, be the trace
+  map. Then the operation defined as
   \begin{equation}
-    b * x := bx^{p^{n-s}} + b^{p^{s}} x^{p^{s}+1},
+    x * m := mx^{p^{n-s}} + m^{p^{s}} x^{p^{s}},
   \end{equation}
-  defines a symplectic spread of $V \oplus V$.
+  defines a presemifield $(K,+,*)$. This presemifield
+  produces a symplectic spread of $F \oplus F$ given by the
+  $p^{n}+1$ subspaces:
+  \begin{equation}
+    \{(0,y) : y \in K\}
+    \quad \text{and} \quad
+    \{(x,x * m) : x \in K\},
+    \quad \text{for all } m \in K,
+  \end{equation}
+  with respect to the alternating bilinear form
+  \begin{equation}
+    \langle (x_1,y_1), (x_2,y_2) \rangle
+    := \tr\left( x_1y_2 - y_1x_2 \right).
+  \end{equation}
+  \begin{proof}
+    By definition each subspace is totally isotropic if the
+    bilinear form vanishes for all elements of the subspace.
+    Let $n$ and $s$ be suitable parameters. Since
+    $\tr\left(x^{p^{s}}\right) = \tr(x)$ and $x^{p^{n}} = x$
+    for all $x \in K$, it follows that
+    \begin{align}
+      \langle (x, &x * m), (y, y * m) \rangle \\
+      &= \tr\left( x(m*y) - (m*x)y \right) \\
+      &= \tr\left[x\left(
+          my^{p^{n-s}} + m^{p^{s}}y^{p^{s}}
+        \right) 
+        - \left(
+          mx^{p^{n-s}} + m^{p^{s}}x^{p^{s}}
+        \right) y
+      \right] \\
+      %&= \tr\left(
+      %  xmy^{p^{n-s}} + xm^{p^{s}}y^{p^{s}} - ymx^{p^{n-s}}
+      %  - ym^{p^{s}}x^{p^{s}}
+      %\right) \\
+      &= \tr\left( xmy^{p^{n-s}} \right)
+      + \tr\left( xm^{p^{s}}y^{p^{s}} \right) 
+      - \tr\left( ymx^{p^{n-s}}  \right)
+      - \tr\left( ym^{p^{s}}x^{p^{s}} \right) \\
+      &= \tr\left( x^{p^{s}}m^{p^{s}}y^{p^{n-s+s}} \right) 
+      + \tr\left( xm^{p^{s}}y^{p^{s}} \right) 
+      - \tr\left( y^{p^{s}}m^{p^{s}}x^{p^{n-s+s}} \right) 
+      - \tr\left( ym^{p^{s}}x^{p^{s}} \right) \\
+      &= \tr\left( x^{p^{s}}m^{p^{s}}y^{p^{n}} \right) 
+      + \tr\left( xm^{p^{s}}y^{p^{s}} \right) 
+      - \tr\left( y^{p^{s}}m^{p^{s}}x^{p^{n}} \right) 
+      - \tr\left( ym^{p^{s}}x^{p^{s}} \right) \\
+      &= \tr\left( x^{p^{s}}m^{p^{s}}y \right) +
+      \tr\left( xm^{p^{s}}y^{p^{s}} \right) 
+      - \tr\left( y^{p^{s}}m^{p^{s}}x \right) 
+      - \tr\left( ym^{p^{s}}x^{p^{s}} \right) \\
+      &= 0.
+    \end{align}
+  \end{proof}
+  The proof of inequivalence with respect to the
+  Desarguesian spread can be found in \cite{bader}. By
+  appropriately defining the generalized Pauli operators
+  of the Hilbert space $\mathcal H = \C^{d}$ using the
+  finite field $V = \GF(d)$ where $d = p^{n}$, we can use
+  the alternating bilinear form to identify maximal
+  commuting subsets of such operators. The Pauli operators
+  are each diagonalizable and so commuting Pauli operators
+  are \textit{simultaneously diagonalizable}. The unique
+  eigenbasis they define is mutually unbiased with respect
+  to the eigenbasis of another subset of commuting operators
+  (c.f. to Bandyophyay's proof \cite{bandyopadhyay2001}). In
+  this manner we can identify sets of MUBs with the
+  subspaces of the symplectic spread. By assigning an
+  eigenbasis element to each ray  of the corresponding
+  affine plane, we can cover the \textit{phase space}
+  $\Gamma = V \oplus V$ by lines which only intersect at the
+  origin point $(0,0) \in \Gamma$. Parallel classes of lines
+  are then assigned the rest of the elements of the
+  corresponding eigenbasis. This is enough to construct the
+  covariant point operators which are then used to define
+  the discrete Wigner function, following Wootters and
+  Gibbons \cite{gibbons2004}.
 
   \section{Wigner point operators}
 
-  \section{Equivalence of standard and non standard
-  construction}
+  \subsection{The discrete Wigner function}
 
-  Una comparación numérica de las funciones de Wigner nos
-  dirigió hacia la igualdad de los operadores puntuales para
-  ambas coberturas simplécticas. Utilizando algunos
-  resultados sobre sumas de caracteres de campos finitos
-  logramos demostrar que, \textit{utilizando la cobertura de
-  Albert obtenemos el mismo operador puntual del origen que
-  se obtiene en la construcción estándar.}
-  Un argumento similar puede ser utilizado para demostrar la
-  igualdad del resto de los operadores. Ésto tiene
-  implicaciones obvias a la hora de estudiar la equivalencia
-  entre ambas construcciones ya que la función de Wigner
-  queda totalmente determinada por los operadores puntuales.
-  Para simplificar la demostración solo considaremos el
-  operador puntual en el origen $A(0,0)$. De la definición
-  tenemos que
-  \begin{align}
+  Wootters and Gibbons define a discrete Wigner function for
+  the finite phase space $\Gamma = V \oplus V$ where $V$ is
+  a finite field of order $d = p^{n}$ for some prime $p$.
+  Their method is based on the \textit{tomographic} property
+  of the continuous Wigner function, in which a complete set
+  of Radon transforms, which can be seen as generalized
+  marginal densities, is enough to recover the Wigner
+  function of some quantum state $\rho$  by inversion
+  \cite{gibbons2004}. The marginal densities correspond to
+  straight lines in the phase space $\Gamma = \R^2$, the
+  analogy of course is to identify some sort of
+  probabilistic mass function with a ``straight'' line of
+  the discrete phase space. The measurements used to produce
+  these mass functions are given by the sets of MUBs.
+
+  By using the properties of the finite geometry of
+  $\Gamma$, Wootters and Gibbons obtain an expression for
+  the Wigner function in terms of point operators akin to
+  the point kernels of the continous Wigner function. A
+  point operator $A(\alpha)$ is constructed by summing the
+  projection operators of the eigenstates assigned to all
+  the lines that intersect at the point $\alpha$:
+  \begin{equation}
+    A(\alpha)
+    = \sum_{\lambda \ni \alpha}^{} Q(\lambda) - I,
+  \end{equation}
+  where $Q(\lambda)$ is the projection corresponding to the
+  line $\lambda \subset \Gamma$. The map $Q : \mathcal
+  P(\Gamma) \to \mathcal L(\mathcal H)$ is called the
+  \textit{quadrature system} or \textit{quantum net}. By
+  construction $Q$ is covariant with respect to phase space
+  translations, this is because the union of the subspaces
+  generated by the MUBs is invariant under the action of
+  Pauli operators \cite{kantor2012}.
+
+  The Wigner function of a state $\rho$ at a point $\alpha$,
+  is defined as the exptectation value of the point operator
+  $A(\alpha)$ in the state $\rho$:
+  \begin{equation}
+    W_\rho(\alpha)
+    = \Tr\left( \rho A(\alpha) \right).
+  \end{equation}
+  This definition satisfies a discrete version of the
+  Stratonovich-Weyl criteria, as any sensible Wigner
+  function should.
+
+  By construction the quadrature system $Q$ is covariant
+  with respect to phase space translations. This means that
+  for an arbitrary translation $T(a,b)$ we have
+  \begin{equation}
+    D(a,b) Q(\lambda) D(a,b)^{*}
+    = Q(T(a,b)\lambda).
+  \end{equation}
+  Now consider two points $(a,b)$ and $(c,d)$ of $\Gamma$.
+  The translation that takes $(a,b)$ to $(c,d)$ is given by
+  $T(c-a, d-b)$. So if $(a,b) \in \lambda$ then
+  \begin{equation*}
+    Q\left( T(c-a, d-b)\lambda \right) 
+    = Q(\lambda'),
+  \end{equation*}
+  where $\lambda'$ contains the point $(c,d)$. By
+  definition of the point operators in terms of the
+  quadrature system we have that
+  \begin{align*}
+    D(c-a, d-b) &A(a,b) D(c-a, d-b)* \\
+    &= D(c-a, d-b) \left( 
+      \sum_{\lambda \ni (a,b)}^{} Q(\lambda) - I
+    \right)  D(c-a, d-b)* \\
+    &= \sum_{\lambda \ni (a,b)}^{}
+    D(c-a,d-b) Q(\lambda) D(c-a,d-b)^{*} - I \\
+    &= \sum_{\lambda \ni (a,b)}^{} Q(T(c-a,d-b)\lambda) - I
+    \\
+    &= \sum_{\lambda' \ni (c,d)}^{} Q(\lambda') - I \\
+    &= A(c,d),
+  \end{align*}
+  where the $D(a,b)$ operators are known as the
+  \textit{displacement operators}, which are formed by
+  products of the generalized Pauli matrices. In particular
+  we have 
+  \[
+    A(a,b) = D(a,b) A(0,0) D(a,b)^{*},
+  \]
+  and so in order to analyze the possible unitary
+  equivalence of the point operators it is enough to study
+  the origin point operator $A(0,0)$, because the
+  displacement operators are unitary \cite{gibbons2004}.
+
+  \subsection{Construction of MUBs}
+
+  The task of simultaneously diagonalizing sets of commuting
+  Pauli matrices is greatly simplified by explicit
+  expressions obtained \textit{directly} from the
+  presemifield operations. We use the constructions of Kanat
+  \cite{abdukhalikov2015} which are based on those initially
+  found by Calderbank, Cameron, Kantor and Seidel
+  \cite{calderbank}.
+
+  \begin{theorem}[Kanat (3.3) \cite{abdukhalikov2015}]
+    Let $(F,+,\circ)$ be a finite symplectic presemifield of
+    odd characteristic and let $\ket{e_w}$ for $w \in F$ be
+    the standard basis in $\C^{d}$. Then the following set
+    forms a complete set of MUBs:
+    \begin{equation}
+      B_\infty
+      = \{\ket{e_w} : w \in F\},
+      \quad
+      B_m
+      = \{\ket{b_{m,v}} : v \in F\},
+      \quad m \in F,
+    \end{equation}
+    where
+    \begin{equation}
+      \label{eqn:kanat_mubs}
+      \ket{b_{m,v}}
+      = \frac{1}{\sqrt{d}} \sum_{w \in F}^{}
+      \omega^{\tr\left( \frac{1}{2} w (w \circ m) + vw
+      \right) } \ket{e_w},
+    \end{equation}
+    and $\omega$ is a $p$-th root of unity.
+  \end{theorem}
+  By iteratively evaluating equation (\ref{eqn:kanat_mubs})
+  we obtain an eigenbasis corresponding to each $m \in F$.
+  Although we are allowed a choice of which eigenstate we
+  assign to the ray of the affine plane corresponding to the
+  ``slope'' $m$, we always choose the state $\ket{b_{m,0}}$
+  in order to minimize the arbitrariness. The rest of the
+  states corresponding to the parallel lines are obtained by
+  using the different values of $v \in F$, and these are
+  fixed by the covariance property of $Q$.
+
+  Let us now express the point operators in terms of the
+  projections $Q(\lambda)$ and the eigenstates obtained
+  using Kanat's theorem. For any point $(u,v) \in \Gamma$ we
+  can obtain the expressions for the lines that are incident
+  to it by solving for $b$ in the equation $v = u \circ m +
+  b$ for $m \in F$. To simplify the calculations we will use
+  the fact that we can obtain $A(u,v)$ from $A(0,0)$ by
+  using the appropiate displacement operators, and so the
+  rest of this analysis is made using only the origin
+  operator. By definition we have
+  \begin{equation}
+    \label{eqn:point_op}
+    A(u,v)
+    = \sum_{\lambda \ni (u,v)}^{} Q(\lambda) - I
+    = \ket{e_u}\bra{e_u}
+    + \sum_{m \in F}^{}
+    \ket{\lambda_{m,b}}
+    \bra{\lambda_{m,b}} - I,
+  \end{equation}
+  where $Q(\lambda) =
+  \ket{\lambda_{m,b}}\bra{\lambda_{m,b}}$.  For the
+  particular case of $A(0,0)$ we obtain
+  \begin{equation}
+    \label{eqn:origin_op}
     A(0,0)
-    &= \sum_{\lambda \ni (0,0)}^{} Q(\lambda) - I \\
-    &= \sum_{m \in \F \cup \{\infty\}}^{} \ket{\lambda_{m,0}}
-    \bra{\lambda_{m,0}} - I \\
-    &= \ket{e_0}\bra{e_0}
-    + \sum_{m \in \F}^{}
-    \ket{\lambda_{m,0}}\bra{\lambda_{m,0}} - I,
-  \end{align}
-  donde $\lambda_{m,0}$ corresponde al rayo con pendiente
-  $m$. El caso $m = \infty$ corresponde con la estría
-  vertical, y en particular $\ket{\lambda_{\infty,0}}$ es el
-  vector $\ket{e_0}$ de la base estándar. Utilizando la
-  expresión (\ref{eqn:kanat_presemi_mubs}) tenemos que
-  \begin{equation}
-    \ket{\lambda_{m,0}}
-    = \frac{1}{\sqrt{d}} \sum_{w \in \F}^{}
-    \omega^{\tr\left( \frac{1}{2} w(w\circ m) \right) }
-    \ket{e_w},
+    = \ket{e_0}\bra{e_0}
+    + \sum_{m \in F}^{} \ket{\lambda_{m,0}}
+    \bra{\lambda_{m,0}} - I,
   \end{equation}
-  donde $\circ$ es la operación del presemicampo en
-  cuestión. Notemos que la equivalencia del operador puntual
-  se da solo si la suma de las proyecciones respecto a la
-  pendiente $m$ es igual, ya que el término
-  $\ket{e_0}\bra{e_0}$ y el operador de identidad $I$ se
-  comparten en ambas sumas.  Para la cobertura Desarguesiana
-  la operación del presemicampo es $w \circ m = wm$ y para
-  la cobertura de Albert tenemos que $w * m = mw^{9} +
-  m^3 w^3$.  Utilizando la definición de
-  $\ket{\lambda_{m,0}}$, cada proyección se puede expresar
-  como:
+  where
   \begin{align}
-    \ket{\lambda_{m,0}} \bra{\lambda_{m,0}}
-    &= \frac{1}{d} 
-    \left(
-      \sum_{w \in \F}^{} \omega^{\tr\left( \frac{1}{2}
-      w(w\circ m) \right) }
-      \ket{e_w}
-    \right) 
-    \left(
-      \sum_{u \in \F}^{} \omega^{-\tr\left( \frac{1}{2}
-      u(u \circ m) \right) }
-      \bra{e_u}
+    \ket{\lambda_{m,b}} \bra{\lambda_{m,b}}
+    &= \frac{1}{d} \left( 
+      \sum_{k \in F}^{} \omega^{\tr\left(
+          \frac{1}{2} k (k \circ m)
+      \right)} \ket{e_k}
+    \right) \left( 
+      \sum_{j \in F}^{} \omega^{-\tr\left(
+          \frac{1}{2} j (j \circ m)
+      \right)} \bra{e_j}
     \right) \\
-    &= \frac{1}{d}
-    \sum_{w \in \F}^{} \sum_{u \in \F}^{} 
-    \omega^{\tr( \frac{1}{2} w(w\circ m)) - \tr( \frac{1}{2}
-    u(u \circ m))} 
-    \ket{e_w} \bra{e_u}.
-  \end{align}
-  Enseguida expresamos el argumento de la traza en términos
-  de la definición de las operaciones del presemicampo.
-  Primero, para la cobertura Desarguesiana obtenemos la
-  expresión:
-  \begin{align}
-    \tr\left(\frac{1}{2} w(w\circ m)\right)
-    - \tr\left(\frac{1}{2} u(u\circ m)\right)
-    %&= \tr\left(\frac{1}{2} m w^2\right)
-    %- \tr\left(\frac{1}{2} m u^2\right) \\
-    &= \tr\left(\frac{1}{2} m \left( w^2-u^2 \right)\right).
-  \end{align}
-  Similarmente para la cobertura de Albert obtenemos:
-  \begin{align}
-    \tr\left(\frac{1}{2} w(w\circ m)\right)
-    - \tr\left(\frac{1}{2} u(u\circ m)\right)
-    %&= \tr\left(\frac{1}{2} w (mw^{9}+m^3w^3)\right)
-    %- \tr\left(\frac{1}{2} u (mu^{9}+m^3u^3)\right) \\
-    %&= \tr\left( \frac{1}{2} ( 
-    %  m w^{10} + m^3 w^{4} - mu^{10} - m^3u^{4}
-    %) \right) \\
-    &= \tr\left( 
-      \frac{1}{2} m \left( w^{10} - u^{10}  
-      + m^2 \left( w^{4} - u^{4}\right) \right)
-    \right). 
-  \end{align}
-  Entonces la igualdad de los operadores puntuales es
-  equivalente a la igualdad de la siguiente triple suma:
-  \begin{equation}
-    \sum_{m,w,u \in \F}^{}
-    \omega^{\tr(\frac{1}{2} m(w^2-u^2))}
-    \ket{e_w}\bra{e_u}
-    = 
-    \sum_{m,w,u \in \F}^{}
-    \omega^{\tr\left(\frac{1}{2} m
-    \left(w^{10}-u^{10} +  m^2(w^{4}-u^{4})\right) \right)
-    }
-    \ket{e_w}\bra{e_u}.
-  \end{equation}
-  Las proyecciones $\ket{e_w}\bra{e_u}$ en la base
-  estándar se representan por matrices con todas sus
-  entradas iguales a cero excepto en la entrada indexada por
-  los elementos $w$ y $u$. Por lo tanto la igualdad de los
-  operadores puntuales en el origen es equivalente a la
-  siguiente igualdad de sumas sobre una sola variable:
-  \begin{equation}
-    \label{eqn:qutrit_weil_sum}
-    \sum_{m \in \F}^{}
+    &= \frac{1}{d} \sum_{k, j \in F}^{} 
     \omega^{\tr\left( 
-        \frac{1}{2} m \left( w^2 - u^2 \right) 
-    \right) }
-    =
-    \sum_{m \in \F}^{} 
+        \frac{1}{2} k (k\circ m) - \frac{1}{2} j (j
+        \circ m) 
+    \right) } \ket{e_k} \bra{e_j} \\
+    &= \frac{1}{d} \sum_{k, j \in F}^{} 
     \omega^{\tr\left( 
-        \frac{1}{2} m\left( w^{10}-u^{10} + m^2(w^{4}-u^{4})
-        \right) 
-    \right) },
-  \end{equation}
-  para todo par $u,w \in \F$. A éste tipo de sumas se les
-  conoce como sumas de Weil, generalmente se expresan en
-  términos de los caracteres $\chi$ del grupo aditivo:
-  \begin{equation}
-    \sum_{c \in \F}^{} \chi(f(x)),
-  \end{equation}
-  donde $f \in \F[x]$, (ver la sección de \textit{sumas
-  exponenciales} (\ref{subsec:exp_sums}) del apéndice para
-  un resumen rápido de los caracteres aditivos de un campo
-  finito). Las sumas de Weil generalmente no son fáciles de
-  evaluar \cite{lidl1994}.  Usualemente solo podemos obtener
-  estimaciones de las cotas superiores e inferiores del
-  valor absoluto de la suma. En éste caso particular podemos
-  utilizar algunos resultados conocidos para demostrar que
-  la igualdad (\ref{eqn:qutrit_weil_sum}) sí se cumple.
-
-  Primero analizamos el lado izquierdo de la ecuación
-  (\ref{eqn:qutrit_weil_sum}). Expresamos en términos del
-  caracter aditivo no trivial $\chi$:
-  \begin{equation}
-    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} \left(
-    w^2-u^2\right) m \right) }
-    = \sum_{m \in \F}^{} \chi\left( \frac{1}{2} \left(
-    w^2-u^2 \right) m \right).
-  \end{equation}
-  Fijando a $w, u \in \F$, observamos que el argumento
-  $\chi$ es lineal siempre y cuando $w^2-u^2 \neq 0$. Si
-  $w^2-u^2 = 0$ entonces
-  \begin{equation}
-    \chi\left( \frac{1}{2} \left(w^2-u^2\right) m \right) 
-    = \chi(0)
-    = 1.
-  \end{equation}
-  Por lo tanto la suma de Weil es igual a la cardinalidad de
-  la extensión de Galois, $d = |\F| = 27$. Si $w^2-u^2 \neq
-  0$, de la linealidad del argumento obtenemos que la suma
-  de Weil es igual a 0, por el teorema
-  (\ref{thm:lidl_linear_sum}):
-  \begin{equation}
-    \sum_{m \in \F}^{} \chi(m) = 0.
-  \end{equation}
-  Se sigue que la suma de Weil tiene dos posibles valores:
-  \begin{equation}
-    \label{eqn:left_weil_sum}
-    \sum_{m \in \F}^{} \omega^{\tr\left(
-    \frac{1}{2}(w^2-u^2)m \right) }
-    = 
-    \begin{cases}
-      27 & \text{cuando } w^2-u^2 = 0, \\
-      0 & \text{en caso contrario}.
-    \end{cases}
-  \end{equation}
-
-  Ahora pasemos al lado derecho de la ecuación
-  (\ref{eqn:qutrit_weil_sum}). Reescribiendo el argumento de
-  la traza y expresando con la notación del caracter aditivo
-  obtenemos:
-  \begin{equation}
-    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
-    w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
-    = 
-    \sum_{m \in F}^{} \chi\left(
-      \frac{1}{2}
-      \left( w^{4} - u^{4} \right) m^3
-      + \frac{1}{2}
-      \left( w^{10} - u^{10} \right) m 
-    \right).
-  \end{equation}
-  El argumento de $\chi$ (sin el factor $1 / 2$) es un
-  $p$-polinomio afín (ver definición \ref{eqn:affine_poly})
-  de la forma
-  \begin{equation}
-    f(x) = a_1 x^{p} + a_0 x + a,
-  \end{equation}
-  donde $p = 3$, $a_1 = w^{4} - u^{4}$,  $a_0 = w^{10} -
-  u^{10}$, $r = 1$ y $a = 0$. Resulta que podemos evaluar
-  directamente a éste tipo de suma de Weil utilizando el
-  teorema \ref{thm:lidl_weil_poly}. Sean $b = \frac{1}{2}$ y
-  $d = 27$, entonces
-  \begin{equation}
-    \sum_{m \in \F}^{} \chi\left(
-      b \left(
-        a_1 m^{3} + a_0 m
-      \right)
-    \right)
-    = 
-    \begin{cases}
-      \chi_{b}(a) d & \text{cuando } b a_1 + b^{3} a_0^{3} =
-      0 \\
-      0 & \text{en otro caso}.
-    \end{cases}
-  \end{equation}
-  Primero notemos que $a = 0$, por lo que $\chi_b(0) = 1$.
-  Además el inverso multiplicativo del dos en característica
-  tres es el dos, i.e., $1 / 2 = 2$, por lo tanto la suma de
-  Weil es igual a
-  \begin{equation}
-    \label{eqn:right_weil_sum}
-    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
-    w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
-    =
-    \begin{cases}
-      27 & \text{para } 2\left( w^{4}-u^{4} \right) +
-      2^{3} \left( w^{10} - u^{10} \right)^{3} = 0, \\
-      0 & \text{en otro caso}.
-    \end{cases}
-  \end{equation}
-  Podemos simplificar la ecuación que aparece en el primer
-  caso de la suma (\ref{eqn:right_weil_sum}), ya que en
-  característica tres se satisface la identidad $(a+b)^{p} =
-  a^{p} + b^{p}$:
-  \begin{align}
-    2\left( w^{4}-u^{4} \right) + 2^{3} \left( w^{10} -
-    u^{10} \right) ^{3}
-    &= 2 \left(w^{4} - u^{4}\right) + 2^{3} \left( w^{30}
-    - u^{30} \right) \\
-    &= 2\left(w^{4} - u^{4}\right) + 2\left(w^{26 + 4} -
-      u^{26 + 4}\right) \\
-    &= 2\left(w^{4} - u^{4}\right) + 2\left(w^{4} -
-    u^{4}\right) \\
-    &= w^{4} - u^{4}.
+        \frac{1}{2} \left( k(k \circ m) - j (j\circ m) \right)
+    \right) } \ket{e_k} \bra{e_j}.
   \end{align}
-  ya que $a^{26} = 1$ para todo $a \in \F$ y $2^{3} = 2$.
-  De las ecuaciones (\ref{eqn:left_weil_sum}) y
-  (\ref{eqn:right_weil_sum}) podemos concluír que ambas
-  sumas serán iguales para todo $w, u \in \F$ siempre y
-  cuando las ecuaciones
+
+  \subsection{Equivalence of the origin point operator}
+
+  From the expression (\ref{eqn:point_op}) we can see that
+  the point operator at $(u,v)$ for two presemifields
+  $(F,+,\circ)$ and $(F,+,*)$, is equal if the middle term
+  consisting of the sum over $m \in F$ is equal. Since
+  $\left(\ket{e_k}\bra{e_j}\right)_{kj} = \delta_{kj}$ with
+  respect to the standard basis, equality follows if and
+  only if the sums
   \begin{equation}
-    w^2 - u^2 = 0,
-    \quad
-    \text{ y }
-    \quad
-    w^{4} - u^{4} = 0,
+    \label{eqn:weil_left}
+    S_1 
+    = \sum_{m \in F}^{} 
+    \omega^{\tr\left\{ 
+        \frac{1}{2}\left[ k(k\circ m) - j(j\circ m) \right]
+    \right\} }
   \end{equation}
-  compartan el \textit{mismo} conjunto de soluciones. Dado
-  que estamos trabajando con campos finitos, simplemente
-  hemos buscado todas las soluciones de ambas ecuaciones
-  para poder compararlas. Para ésto utilizamos el sistema de
-  álgebra computacional de \texttt{SageMath} y en particular
-  su módulo de campos finitos para encontrarlas.
-  \textit{Efectivamente comparten el mismo conjunto de
-  soluciones!\footnote{La cardinalidad de éste conjunto de
-  soluciones es de 53 elementos $(w,u)$.}} Ésto significa
-  que para todo $w, u \in \F$, ambas sumas de la ecuación
-  (\ref{eqn:qutrit_weil_sum}) nos dan el mismo valor, ya sea
-  $0$ ó $27$. Ésto a su vez significa que los operadores
-  puntuales en el origen para ambas coberturas simplécticas
-  son iguales. Un cálculo computacional similar nos muestra
-  que el resto de los operadores puntuales también lo son.
-  Como consecuencia, obtenemos la misma función de Wigner
-  para la construcción estándar y no estándar en el caso de
-  los tres qutrits, respecto a la cobertura de Albert. Éste
-  ejemplo nos indica que la no equivalencia unitaria de las
-  MUBs \textit{no} es suficiente para garantizar la
-  desigualdad de las funciones de Wigner estándar y no
-  estándar.
-  
+  and
+  \begin{equation}
+    \label{eqn:weil_right}
+    S_2
+    = \sum_{m \in F}^{} 
+    \omega^{\tr\left\{ 
+        \frac{1}{2} \left[ k(k * m) - j(j * m)\right]
+    \right\} },
+  \end{equation}
+  are equal for all $k,j \in F$. These types of exponential
+  sums are known as \textit{Weil sums} in the theory of
+  characters over finite fields. It is usually very
+  difficult to find closed form expressions for these types
+  of character sums, but known formulas for certain cases do
+  exist. We now present two results found in Lidl's book on
+  finite fields \cite{lidl1997} that we will use shortly.
+  Let $\chi$ be a non-trivial additive character of the
+  finite field $F$, and define the character $\chi_c(a) =
+  \chi(ca)$ for all $c \in F$.
+
+  \begin{theorem}[Lidle (5.31) \cite{lidl1997}]
+    \label{thm:lidl_1}
+    If $\chi$ is a nontrivial additive character of a finite
+    field $F$ of order $d$ and $\gcd(n,d-1) = 1$, then
+    \begin{equation}
+      \sum_{c \in F}^{} \chi\left( ac^{n}+b \right) 
+      = 0,
+    \end{equation}
+    for any $a,b \in F$ with $a \neq 0$.
+  \end{theorem}
+
+  Suppose the field $F$ of $d$ elements is of characteristic
+  $p$. A polynomial $f(x) \in F[x]$ of the form
+  \begin{equation}
+    \label{eqn:affine_poly}
+    f(x)
+    = a_r x^{p^{r}} + a_{r-1} x^{p^{r-1}} + \cdots + a_1
+    x^{p} + a_0 x + a,
+  \end{equation}
+  for some $r \in \N$, is known as an affine $p$-polynomial
+  over $F$. Just as in the linear case, we can evaluate
+  Weils sums with affine $p$-polynomials as arguments.
+  \begin{theorem}[Lidle (5.34) \cite{lidl1997}]
+    \label{thm:lidl_2}
+    Let $f(x) \in F[x]$ be an affine $p$-polynomial of the
+    form (\ref{eqn:affine_poly}) and let $\chi_b$, with $b
+    \in F^{*}$, be a nontrivial additive character of $F$.
+    Then
+    \begin{equation}
+      \sum_{c \in F}^{} 
+      \chi_b\left( f(c) \right) 
+      = \begin{cases}
+        \chi_b(a) d
+        & \text{if } ba_r + b^{p}a^{p}_{r-1} + \cdots +
+        b^{p^{r-1}}a^{p^{r-1}}_1 + b^{p^{r}}a^{p^{r}}_0 = 0,
+        \\
+        0 & \text{otherwise.}
+      \end{cases}
+    \end{equation}
+  \end{theorem}
+
+  With these theorems on hand, we now we consider the sum
+  $S_1$ (\ref{eqn:weil_left}) where the symplectic spread is
+  the Desarguesian spread. Recall that the presemifield
+  operation that generates this spread is simply the field
+  multiplication, $a \circ b = ab$ for $a,b \in F$. The
+  argument of the trace is then simplified to
+  \begin{equation}
+    \frac{1}{2} \left[
+      k(k\circ m) - j(j\circ m)
+    \right]
+    = \frac{1}{2} \left( k^2m - j^2m \right) 
+    = \frac{1}{2} \left( k^2-j^2 \right) m.
+  \end{equation}
+  In this form, and noting that $\chi(c) = \omega^{\tr(c)}$
+  is the canonical additive character, we clearly see from
+  theorem (\ref{thm:lidl_1}) that for the Desarguesian
+  spread the Weil sum (\ref{eqn:weil_left}) will evaluate to
+  0 as long as $k^2-j^2 \neq 0$. If this is not the case,
+  then the argument of $\chi$ becomes 0 and so the sum
+  evaluates to $d$ since $\chi(0) = 1$. And so we have:
+  \begin{equation}
+    \label{eqn:weil_left_sum}
+    S_1
+    = \begin{cases}
+      d & \text{if } k^2-j^2 = 0 \\
+      0 & \text{otherwise,}
+    \end{cases}
+  \end{equation}
+  for all entries indexed by $j, k \in F$. We now evaluate
+  the second Weil sum given by (\ref{eqn:weil_right}) using
+  Kantor's presemifield version of Albert's twisted fields.
+  We recall that the operation is given by $x * m =
+  mx^{p^{n-s}} + m^{p^{s}}x^{p^{s}}$ for $s$ relatively
+  prime to $n$ and $1 \leq s \leq n / 2$.  In order to use
+  theorem (\ref{thm:lidl_2}) we must express the argument of
+  the trace as a scalar multiple of an affine
+  $p$-polynomial, but for the moment we ignore the $1 / 2$
+  factor:
+  \begin{align}
+    k(k*m)-j(j*m)
+    &= k\left( mk^{p^{n-s}}+m^{p^{s}}k^{p^{s}} \right)
+    - j\left( mj^{p^{n-s}}+m^{p^{s}}j^{p^{s}} \right) \\
+    &= m k^{p^{n-s}+1} + m^{p^{s}} k^{p^{s}+1} 
+    - m j^{p^{n-s} + 1} - m^{p^{s}} j^{p^{s}+1}\\
+    &= \left( k^{p^{s}+1} - j^{p^{s}+1} \right) m^{p^{s}}
+    + \left( k^{p^{n-s}+1} - j^{p^{n-s}+1} \right)
+    m.\label{eqn:albert_affine_poly}
+  \end{align}
+  Observe that the expression (\ref{eqn:albert_affine_poly})
+  is an affine $p$-polynomial where
+  \[
+    a_s = k^{p^{s}+1} - j^{p^{s}+1},
+    \quad
+    a_0 = k^{p^{n-s}+1} - j^{p^{n-s}+1},
+    \quad
+    \text{and}
+    \quad
+    a = 0.
+  \] 
+  The rest of the coeficients $a_{r-i}$ are null. Since
+  $\chi_b(c) = \chi(bc) = \omega^{\tr(bc)}$, it is easy to
+  see that $S_2$ (\ref{eqn:weil_right}) has the required
+  form to use theorem (\ref{thm:lidl_2}) for $b = 1 / 2$ and
+  $a = 0$. And so
+  \begin{equation}
+    \label{eqn:s2_sum}
+    S_2
+    = \begin{cases}
+      d & \text{if } 2a_s + 2^{p^{s}}a_0^{p^{s}} = 0, \\
+      0 & \text{otherwise.}
+    \end{cases}
+  \end{equation}
+  We can simplify the equation in the first case a bit,
+  using properties of odd characteristic finite fields:
+  \begin{align*}
+    2a_s + 2^{p^{s}} a_0^{p^{s}}
+    &= 2 \left( k^{p^{s}+1} - j^{p^{s}+1} \right) 
+    + 2^{p^{s}} \left( k^{p^{n-s}+1} - j^{p^{n-s}+1}
+    \right)^{p^{s}} \\
+    &= 2 \left( k^{p^{s}+1} - j^{p^{s}+1} \right)
+    + 2^{p^{s}} \left( k^{p^{s}+1} - j^{p^{s}+1} \right) \\
+    &= (2 + 2) \left( k^{p^{s}+1} - j^{p^{s}+1} \right) \\
+    &= k^{p^{s}+1} - j^{p^{s}+1}. 
+  \end{align*}
+  since the following is valid for odd prime characteristic
+  (Lidl 1.46):
+  \begin{align*}
+    \left( k^{p^{n-s}+1} - j^{p^{n-s}+1} \right)^{p^{s}}
+    &= k^{p^{s}(p^{n-s}+1)} - j^{p^{s}(p^{n-s}+1)} \\
+    &= k^{p^{n} + p^{s}} - j^{p^{n}+p^{s}} \\
+    &= k^{p^{n}}k^{p^{s}} - j^{p^{n}}j^{p^{s}} \\
+    &= k^{p^{s}+1} - j^{p^{s}+1}.
+  \end{align*}
+  And so equation (\ref{eqn:s2_sum}) becomes 
+   \begin{equation}
+    \label{eqn:s2_value}
+    S_2
+    = \begin{cases}
+      d & \text{if } k^{p^{s}+1} - j^{p^{s}+1} = 0, \\
+      0 & \text{otherwise}.
+    \end{cases}
+  \end{equation}
+  Comparing the values of $S_1$ and $S_2$ we see that the
+  point operators at the origin for both symplectic spreads
+  will be equal if and only if the equations
+  \begin{equation}
+    \label{eqn:system}
+    k^2 - j^2 = 0
+    \quad
+    \text{and}
+    \quad
+    k^{p^{s}+1} - j^{p^{s}+1} = 0
+  \end{equation}
+  share the \textit{same} set of solutions in $\GF(p^{n})$.
+  The form of both equations allows for a somewhat simple
+  verification that this indeed happens for the appropriate
+  $p, n$ and $s$.
+
+  Ignoring the trivial solution, by the change of variables
+  $r = k / j$ the equations in (\ref{eqn:system}) can be
+  expressed as
+  \begin{equation}
+    r^2 = 1
+    \quad
+    \text{and}
+    \quad
+    r^{p^{s}+1} = 1.
+  \end{equation} 
+  These two equations share the same solution set if and
+  only if the original equations do too. In odd
+  characteristic the equation $r^2 = 1$ has two solutions,
+  namely $r = 1$ and $r = -1$, and so all we have to do is
+  prove that $r^{p^{s}+1} = 1$ has \textit{exactly} the same
+  solutions.  First note that $r = 1$ and $r = -1$ are
+  indeed solutions of the equation $r^{p^{s}+1} = 1$, so we
+  actually only need to prove that the equation $r^{p^{s}+1}
+  = 1$ doesn't have any other solutions in $\GF(p^{n})$. 
+
+  Consider $g$ a generator of the cyclic group $F^{*}$ of
+  $p^{n}-1$ elements, which is the multiplicative group of
+  the finite field $F$. It is well known [??] in the theory
+  of cyclic groups, that the order of the element
+  $g^{p^{s}+1}$ is
+  \begin{equation}
+    \label{eqn:order_phi}
+    \left|g^{p^{s}+1}\right|
+    = \frac{p^{n}-1}{\gcd\left( p^{n}-1, p^{s}+1 \right) }.
+  \end{equation} 
+  Now define $\phi : F^{*} \to F^{*}$ to be the map $x
+  \mapsto x^{p^{s}+1}$.  The map $\phi$ is obviously a group
+  homomorphism and since $g$ is a generator for $F^{*}$, the
+  image of $g$ under $\phi$ is a generator for $\im(\phi)$,
+  which implies that $|\im(\phi)| =
+  \left|g^{p^{s}+1}\right|$. So by the first isomorphism
+  theorem and by equation (\ref{eqn:order_phi}) we obtain
+  %\[
+  %  F^{*} / \ker(\phi) \cong \im(\phi),
+  %\] 
+  \begin{equation}
+    |\ker(\phi)|
+    = \frac{|F^{*}|}{|\im(\phi)|}
+    = \frac{p^{n}-1}{\left|g^{p^{s}+1}\right|}
+    = \gcd(p^{n}-1, p^{s}+1).
+  \end{equation}
+  So proving that $r^{p^{s}+1}=1$ has at most two solutions
+  is equivalent to proving $\gcd(p^{n}-1, p^{s}+1) \leq 2$.
+  Now assume $d$ is a divisor of $p^{n}-1$ and $p^{s}+1$.
+  Since $d$ divides $p^{s}+1$, it also divides $p^{2s}-1 =
+  \left( p^{s}+1\right) \left( p^{s}-1 \right)$. It can be
+  proved [??] using the Euclidean algorithm on the exponents
+  that 
+  \[
+    d \mid p^{2s}-1, p^{n}-1
+    \implies
+    d \mid p^{\gcd(2s, n)} - 1.
+  \] 
+  But by assumption $n$ is odd and $\gcd(s,n) = 1$, so
+  $\gcd(2s, n) = \gcd(s, n) = 1$. Therefore $d \mid p - 1$,
+  which means $p \equiv 1 \mod d$. This in turn implies that
+  $p^{s} \equiv 1 \mod d$ for any $s$, and so $d \mid p^{s}
+  - 1$. It follows from $d \mid p^{s} + 1, p^{s} - 1$ that
+  $d \mid 2$. So $\gcd(p^{n}-1, p^{s}+1) \leq 2$ and so
+  $|\ker(\phi)| \leq 2$. This concludes the proof. 
+
+  We have proven that the equations in (\ref{eqn:system})
+  share the same solution set. As we have mentioned, this
+  means that the Weil sums $S_1$ and $S_2$ are equal for all
+  $k,j \in F$.  This equality in turn implies that the
+  origin operator for the Desarguesian and the whole family
+  of Albert's spreads are the same.  Translational
+  covariance then implies that \textit{all} of the point
+  operators obtained from these MUBs are the same and so
+  produce identical discrete Wigner functions, even though
+  the sets of MUBs used to construct the functions are not
+  equivalent under any unitary transformation.
+
+  \section{Discussion}
+
+  The whole family of inequivalent symplectic spreads
+  given by Albert's twisted fields produce unitarily
+  inequivalent MUBs in $\C^{p^{n}}$, but as we have shown,
+  this is not enough to obtain unitarily inequivalent Wigner
+  functions. In fact the discrete Wigner functions turn out
+  to be identical for all $p$, $n$ and $s$ satisfying the
+  necessary conditions. An obvious next step would be to
+  study different odd characteristic symplectic spreads
+  which are also inequivalent to the Desarguesian spread,
+  and see if something similar happens. The main problem
+  with this approach would be the difficulty of finding
+  closed form evaluations of the corresponding Weil sums.
+  Furthermore, a general argument using arbitrary
+  inequivalent symplectic spreads seems unreasonable with
+  this approach, as we explicitely require the definition of
+  the presemifield operation. It is still interesting to
+  investigate the differences between even and odd
+  characteristic, as we have found (in another work)
+  empirical evidence that this unitary equivalence of
+  discrete Wigner functions using unitary inequivelent MUBs
+  does not always occur for even characteristic.
+
+  \printbibliography
+
+  % stackexchange references
+  % https://math.stackexchange.com/questions/32737/prove-gcdab-a-b-1-or-2-if-gcda-b-1
+  % https://math.stackexchange.com/questions/875940/show-m-odd-rightarrow-gcdam-1-an1-1-or-2
+  % https://math.stackexchange.com/questions/2588518/find-gcdpn-1-pm1
+  % https://proofwiki.org/wiki/Homomorphic_Image_of_Cyclic_Group_is_Cyclic_Group
+  % https://math.stackexchange.com/questions/1906718/how-to-prove-ak-n-gcdn-k-whenever-a-n
+  % https://proofwiki.org/wiki/Congruence_of_Powers
 \end{document}

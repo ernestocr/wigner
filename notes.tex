@@ -16,6 +16,7 @@
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\GF}{GF}
 \DeclareMathOperator{\GR}{GR}
+\DeclareMathOperator{\im}{im}
 
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
@@ -1159,4 +1160,110 @@
   prescribed angles (section 11). Basically the results are
   all analogues of the previous work, except they are now
   working with $\C^{q}$. 
+
+  \section{Affinoid}
+
+  %Specifically, the two equations are $x^2-y^2=0$ and
+  %$x^{p^s+1}-y^{p^s+1}=0$ where $p$ is an odd prime and the
+  %polynomials are over the finite field of order $p^n$. The
+  %parameter $s$ is relatively prime to $n$ and $1 \leq s < n
+  %/ 2$ but I think it doesn't matter. For the simple case
+  %$p=3$, $n=3$ and $s=1$ it was easy to prove the equality
+  %of the solutions since $x^{4}-y^{4} = (x^2+y^2)(x^2-y^2) =
+  %0$ and $x^2+y^2=0$ does not have a solution in the finite
+  %field of $3^3$ elements, but I think this argument doesn't
+  %work in general. Any tips or suggestions?
+
+  %Well you just want the solution sets of $x^2=1$ and
+  %$x^{p^s+1}=1$ to be equal, which means that there are only
+  %two solutions to $x^{p^s+1}=1$. Indeed, let $g$ be a
+  %generator of the cyclic group $F^*$, the multiplicative
+  %group of the finite field F. The order of $g^{p^s+1}$ is
+  %$(p^n-1) / \gcd(p^n-1,p^s+1)$, so the kernel of the map $x
+  %\mapsto x^{p^s+1}$ has size $\gcd(p^n-1,p^s+1)$, which
+  %must be 2.  Conversely, if this is 2, we get the desired
+  %solutions since there's a unique cyclic subgroup of order
+  %2.
+
+  %You just need to see when $2 = \gcd(2,p^n-1) =
+  %\gcd(p^s+1,p^n-1)$.  Suppose that $d | p^s+1$, $p^n-1$.
+  %Then $d | p^{2s}-1$, $p^n-1$. By the Euclidean algorithm
+  %on the exponents, $d|p^{gcd(2s,n)}-1$ and so $d|p^2-1$. If
+  %s is even, then we conclude that $p^s=1 \mod d$, so $d|2$.
+  %If s is odd, then $p^s=p \mod d$, so $d|p+1$. If $n$ is
+  %odd, then $p^n=p \mod d$, and so $d|2$ again. If $n$ is
+  %even, then $p+1|p^s+1,p^n-1$, and so the condition breaks
+  %precisely when $n$ is even, $s$ is odd.
+
+  %---
+
+  By the change of variables $r = x / y$ the equations
+  $x^2-y^2 = 0$ and $x^{p^{s}+1} - y^{p^{s}+1} = 0$ can be
+  expressed as
+  \begin{equation}
+    r^2 = 1
+    \quad
+    \text{and}
+    \quad
+    r^{p^{s}+1} = 1.
+  \end{equation} 
+  These two equations share the same solution set if and
+  only if the original equations do too. In odd
+  characteristic the equation $r^2 = 1$ has two solutions,
+  namely $r = 1$ and $r = -1 = p - 1$, and so all we have to
+  do is prove that $r^{p^{s}+1} = 1$ has \textit{exactly}
+  the same solutions.  First note that $r = 1$ and $r = -1$
+  are indeed solutions of the equation $r^{p^{s}+1} = 1$, so
+  we actually only need to prove that the equation
+  $r^{p^{s}+1} = 1$ doesn't have anymore solutions in
+  $\GF(p^{n})$. 
+
+  Consider $g$ a generator of the cyclic group $F^{*}$, the
+  multiplicative group of the finite field $F$. It is well
+  known [?] in the theory of cyclic groups, that the order
+  of the element $g^{p^{s}+1}$ is
+  \begin{equation}
+    \label{eqn:order_phi}
+    \left|g^{p^{s}+1}\right|
+    = \frac{p^{n}-1}{\gcd\left( p^{n}-1, p^{s}+1 \right) }.
+  \end{equation} 
+  Now define $\phi$ to be the map $x \mapsto x^{p^{s}+1}$.
+  It is easy to see that $\phi$ is group homomorphism and
+  since $g$ is generator for $F^{*}$, the image of $g$ under
+  $\phi$ is a generator for $\im(\phi)$, which implies that
+  $|\im(\phi)| = \left|g^{p^{s}+1}\right|$. So by the first
+  isomorphism theorem and by equation (\ref{eqn:order_phi})
+  we obtain
+  %\[
+  %  F^{*} / \ker(\phi) \cong \im(\phi),
+  %\] 
+  \begin{equation}
+    |\ker(\phi)|
+    = \frac{|F^{*}|}{|\im(\phi)|}
+    = \frac{p^{n}-1}{\left|g^{p^{s}+1}\right|}
+    = \gcd(p^{n}-1, p^{s}+1).
+  \end{equation}
+  So proving that $r^{p^{s}+1}=1$ has two solutions is
+  equivalent to proving $\gcd(p^{n}-1, p^{s}+1) = 2$. Now
+  assume $d$ is divisor of $p^{n}-1$ and $p^{s}+1$. Since
+  $d$ divides $p^{s}+1$, it also divides $p^{2s}-1 = \left(
+  p^{s}+1\right) \left( p^{s}-1 \right)$. It can be proved
+  using the Euclidean algorithm on the exponents that 
+  \[
+    d \, | \, p^{2s}-1, p^{n}-1
+    \implies
+    d \, | \, p^{\gcd(2s, n)} - 1.
+  \] 
+  But by assumption $n$ is odd and $\gcd(s,n) = 1$, so
+  $\gcd(2s, n) = \gcd(2, n) = 1$. Therefore $d \, | \, p -
+  1$, which means $p \equiv 1 \mod d$. This in turn implies
+  that $p^{s} \equiv 1 \mod d$, and so $d \mid p^{s} - 1$.
+  But since $d \mid p^{s} + 1$ we can finally conclude that
+  $d \mid 2$. So $\gcd(p^{n}-1, p^{s}+1) \leq 2$ and so
+  $|\ker(\phi)| \leq 2$. This finalizes the proof that
+  $r^{p^{s}+1} = 1$ has no more than two solutions and
+  furthermore shares its solutions with $r^{2} = 1$. 
+
+  
+
 \end{document}
