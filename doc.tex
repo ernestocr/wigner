@@ -60,6 +60,7 @@
 \DeclareMathOperator{\GR}{GR}
 \DeclareMathOperator{\Sl}{\mathfrak{sl}}
 \DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\img}{img}
 
 \newtheorem{definition}{Definición}
 \newtheorem{theorem}{Teorema}
@@ -5532,24 +5533,25 @@
   diferencias. Fue necesario estudiar ésta situación más a
   fondo. 
 
-  \subsection{Equivalencia de la función de Wigner no
-  estándar para el caso de los tres qutrits.}
+  \subsection{Equivalencia de la función de Wigner respecto
+  a la cobertura de Albert}
 
-  Una comparación numérica de las funciones de Wigner nos
-  dirigió hacia la igualdad de los operadores puntuales para
-  ambas coberturas simplécticas. Utilizando algunos
-  resultados sobre sumas de caracteres de campos finitos
-  logramos demostrar que, \textit{utilizando la cobertura de
-  Albert obtenemos el mismo operador puntual del origen que
-  se obtiene en la construcción estándar.}
-  Un argumento similar puede ser utilizado para demostrar la
-  igualdad del resto de los operadores. Ésto tiene
-  implicaciones obvias a la hora de estudiar la equivalencia
-  entre ambas construcciones ya que la función de Wigner
-  queda totalmente determinada por los operadores puntuales.
-  Para simplificar la demostración solo considaremos el
-  operador puntual en el origen $A(0,0)$. De la definición
-  tenemos que
+  Una comparación numérica de las funciones de Wigner del
+  ejemplo anterior nos dirigió hacia la igualdad de los
+  operadores puntuales para ambas coberturas simplécticas.
+  Utilizando algunos resultados sobre sumas de caracteres de
+  campos finitos logramos demostrar que, \textit{utilizando
+    la cobertura generada por la familia de campos torcidos
+    de Albert, obtenemos el mismo operador puntual del
+    origen que se obtiene en la construcción estándar.} La
+    propiedad de
+  ser covariante bajo traslaciones nos permite concluir que
+  el resto de los operadores puntuales también son iguales
+  por lo que ambas coberturas producen la misma función de
+  Wigner discreta. El caso de los tres qutrits es el ejemplo
+  básico. Para simplificar la demostración podemos solo
+  considerar el operador puntual en el origen $A(0,0)$. De
+  la definición de $A(a,b)$ tenemos que
   \begin{align}
     A(0,0)
     &= \sum_{\lambda \ni (0,0)}^{} Q(\lambda) - I \\
@@ -5558,6 +5560,7 @@
     &= \ket{e_0}\bra{e_0}
     + \sum_{m \in \F}^{}
     \ket{\lambda_{m,0}}\bra{\lambda_{m,0}} - I,
+    \label{eqn:expanded_origin_op}
   \end{align}
   donde $\lambda_{m,0}$ corresponde al rayo con pendiente
   $m$. El caso $m = \infty$ corresponde con la estría
@@ -5571,95 +5574,56 @@
     \ket{e_w},
   \end{equation}
   donde $\circ$ es la operación del presemicampo en
-  cuestión. Notemos que la equivalencia del operador puntual
-  se da solo si la suma de las proyecciones respecto a la
-  pendiente $m$ es igual, ya que el término
-  $\ket{e_0}\bra{e_0}$ y el operador de identidad $I$ se
-  comparten en ambas sumas.  Para la cobertura Desarguesiana
-  la operación del presemicampo es $w \circ m = wm$ y para
-  la cobertura de Albert tenemos que $w * m = mw^{9} +
-  m^3 w^3$.  Utilizando la definición de
+  cuestión. Utilizando la definición de
   $\ket{\lambda_{m,0}}$, cada proyección se puede expresar
   como:
   \begin{align}
     \ket{\lambda_{m,0}} \bra{\lambda_{m,0}}
     &= \frac{1}{d} 
     \left(
-      \sum_{w \in \F}^{} \omega^{\tr\left( \frac{1}{2}
-      w(w\circ m) \right) }
-      \ket{e_w}
+      \sum_{k \in \F}^{} \omega^{\tr\left( \frac{1}{2}
+      k(k\circ m) \right) }
+      \ket{e_k}
     \right) 
     \left(
-      \sum_{u \in \F}^{} \omega^{-\tr\left( \frac{1}{2}
-      u(u \circ m) \right) }
-      \bra{e_u}
+      \sum_{j \in \F}^{} \omega^{-\tr\left( \frac{1}{2}
+      j(j \circ m) \right) }
+      \bra{e_j}
     \right) \\
     &= \frac{1}{d}
-    \sum_{w \in \F}^{} \sum_{u \in \F}^{} 
-    \omega^{\tr( \frac{1}{2} w(w\circ m)) - \tr( \frac{1}{2}
-    u(u \circ m))} 
-    \ket{e_w} \bra{e_u}.
-  \end{align}
-  Enseguida expresamos el argumento de la traza en términos
-  de la definición de las operaciones del presemicampo.
-  Primero, para la cobertura Desarguesiana obtenemos la
-  expresión:
-  \begin{align}
-    \tr\left(\frac{1}{2} w(w\circ m)\right)
-    - \tr\left(\frac{1}{2} u(u\circ m)\right)
-    %&= \tr\left(\frac{1}{2} m w^2\right)
-    %- \tr\left(\frac{1}{2} m u^2\right) \\
-    &= \tr\left(\frac{1}{2} m \left( w^2-u^2 \right)\right).
-  \end{align}
-  Similarmente para la cobertura de Albert obtenemos:
-  \begin{align}
-    \tr\left(\frac{1}{2} w(w\circ m)\right)
-    - \tr\left(\frac{1}{2} u(u\circ m)\right)
-    %&= \tr\left(\frac{1}{2} w (mw^{9}+m^3w^3)\right)
-    %- \tr\left(\frac{1}{2} u (mu^{9}+m^3u^3)\right) \\
-    %&= \tr\left( \frac{1}{2} ( 
-    %  m w^{10} + m^3 w^{4} - mu^{10} - m^3u^{4}
-    %) \right) \\
-    &= \tr\left( 
-      \frac{1}{2} m \left( w^{10} - u^{10}  
-      + m^2 \left( w^{4} - u^{4}\right) \right)
-    \right). 
-  \end{align}
-  Entonces la igualdad de los operadores puntuales es
-  equivalente a la igualdad de la siguiente triple suma:
+    \sum_{k \in \F}^{} \sum_{j \in \F}^{} 
+    \omega^{\tr( \frac{1}{2} k(k\circ m)) - \tr( \frac{1}{2}
+    j(j \circ m))} 
+    \ket{e_k} \bra{e_j} \\
+    &= \frac{1}{d}
+    \sum_{k, j \in \F}^{} 
+    \omega^{\tr\left( \frac{1}{2} \left( 
+          k(k\circ m) - j(j\circ m)
+    \right)  \right) } \ket{e_k} \bra{e_j}.
+  \end{align}  
+  De la ecuación (\ref{eqn:expanded_origin_op}), vemos que
+  dos operadores puntuales en el origen para dos
+  presemicampos $(\F,+,\circ)$ y $(\F,+,*)$ serán iguales si
+  el término en medio, que consiste de la suma sobre $m \in
+  \F$, es igual. Notemos que $\left( \ket{e_k}\bra{e_j}
+  \right)_{kj} = \delta_{kj}$ respecto a la base estándar,
+  por lo tanto se obtiene la igualdad si y solo si las sumas
   \begin{equation}
-    \sum_{m,w,u \in \F}^{}
-    \omega^{\tr(\frac{1}{2} m(w^2-u^2))}
-    \ket{e_w}\bra{e_u}
-    = 
-    \sum_{m,w,u \in \F}^{}
-    \omega^{\tr\left(\frac{1}{2} m
-    \left(w^{10}-u^{10} +  m^2(w^{4}-u^{4})\right) \right)
-    }
-    \ket{e_w}\bra{e_u}.
+    \label{eqn:weil_sum_1}
+    S_1 = \sum_{m \in \F}^{} 
+    \omega^{\tr\left\{\frac{1}{2} [k(k\circ m) - j(j\circ
+      m)]\right\}},
   \end{equation}
-  Las proyecciones $\ket{e_w}\bra{e_u}$ en la base
-  estándar se representan por matrices con todas sus
-  entradas iguales a cero excepto en la entrada indexada por
-  los elementos $w$ y $u$. Por lo tanto la igualdad de los
-  operadores puntuales en el origen es equivalente a la
-  siguiente igualdad de sumas sobre una sola variable:
+  y
   \begin{equation}
-    \label{eqn:qutrit_weil_sum}
-    \sum_{m \in \F}^{}
-    \omega^{\tr\left( 
-        \frac{1}{2} m \left( w^2 - u^2 \right) 
-    \right) }
-    =
-    \sum_{m \in \F}^{} 
-    \omega^{\tr\left( 
-        \frac{1}{2} m\left( w^{10}-u^{10} + m^2(w^{4}-u^{4})
-        \right) 
-    \right) },
+    \label{eqn:weil_sum_2}
+    S_2 = \sum_{m \in \F}^{} 
+    \omega^{\tr\left\{\frac{1}{2} [k(k*m) - j(j*m)]\right\}}
   \end{equation}
-  para todo par $u,w \in \F$. A éste tipo de sumas se les
-  conoce como sumas de Weil, generalmente se expresan en
-  términos de los caracteres $\chi$ del grupo aditivo:
+  son iguales para todo $k,j \in \F$.
+  A éste tipo de sumas se les conoce como \textit{sumas de
+    Weil}, generalmente se expresan en términos de los
+  caracteres $\chi$ del grupo aditivo:
   \begin{equation}
     \sum_{c \in \F}^{} \chi(f(x)),
   \end{equation}
@@ -5669,150 +5633,214 @@
   finito). Las sumas de Weil generalmente no son fáciles de
   evaluar \cite{lidl1994}.  Usualemente solo podemos obtener
   estimaciones de las cotas superiores e inferiores del
-  valor absoluto de la suma. En éste caso particular podemos
-  utilizar algunos resultados conocidos para demostrar que
-  la igualdad (\ref{eqn:qutrit_weil_sum}) sí se cumple.
+  valor absoluto de la suma. Para nuestra suerte, en el caso
+  de la cobertura Desarguesiana y la de Albert, sí existen
+  fórmulas de evaluación.
 
-  Primero analizamos el lado izquierdo de la ecuación
-  (\ref{eqn:qutrit_weil_sum}). Expresamos en términos del
-  caracter aditivo no trivial $\chi$:
+  Primero consideremos la suma (\ref{eqn:weil_sum_1}), en
+  donde la cobertura simpléctica es la Desarguesiana.
+  Recordemos que la operación del presemicampo que genera a
+  ésta cobertura es simplemente la multiplicación del campo
+  finito, $a \circ b = ab$, para todo $a,b \in \F$. El
+  argumento de la traza se reduce a
   \begin{equation}
-    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} \left(
-    w^2-u^2\right) m \right) }
-    = \sum_{m \in \F}^{} \chi\left( \frac{1}{2} \left(
-    w^2-u^2 \right) m \right).
-  \end{equation}
-  Fijando a $w, u \in \F$, observamos que el argumento
-  $\chi$ es lineal siempre y cuando $w^2-u^2 \neq 0$. Si
-  $w^2-u^2 = 0$ entonces
+    \frac{1}{2} [k(k\circ m) - j(j\circ m)]
+    = \frac{1}{2} \left( k^2m - j^2m \right) 
+    = \frac{1}{2} \left( k^2 - j^2 \right) m.
+  \end{equation} 
+  En ésta forma y notando que $\chi(c) = \omega^{\tr(c)}$ es
+  el caracter aditivo canónico, podemos ver a partir del
+  teorema (\ref{thm:lidl_linear_sum}) que la suma de Weil
+  nos dará igual a $0$ siempre que $k^2 - j^2 \neq 0$. Si
+  ésto no es el caso, entonces el argumento de $\chi$ se
+  vuelve nulo, por lo tanto la suma nos dará $d$ ya que
+  $\chi(0) = 1$. Por lo tanto la suma de Weil es
   \begin{equation}
-    \chi\left( \frac{1}{2} \left(w^2-u^2\right) m \right) 
-    = \chi(0)
-    = 1.
-  \end{equation}
-  Por lo tanto la suma de Weil es igual a la cardinalidad de
-  la extensión de Galois, $d = |\F| = 27$. Si $w^2-u^2 \neq
-  0$, de la linealidad del argumento obtenemos que la suma
-  de Weil es igual a 0, por el teorema
-  (\ref{thm:lidl_linear_sum}):
-  \begin{equation}
-    \sum_{m \in \F}^{} \chi(m) = 0.
-  \end{equation}
-  Se sigue que la suma de Weil tiene dos posibles valores:
-  \begin{equation}
-    \label{eqn:left_weil_sum}
-    \sum_{m \in \F}^{} \omega^{\tr\left(
-    \frac{1}{2}(w^2-u^2)m \right) }
-    = 
-    \begin{cases}
-      27 & \text{cuando } w^2-u^2 = 0, \\
-      0 & \text{en caso contrario}.
+    S_1
+    = \begin{cases}
+      d & \text{si } k^2 - j^2 = 0, \\
+      0 & \text{en otro caso},
     \end{cases}
   \end{equation}
-
-  Ahora pasemos al lado derecho de la ecuación
-  (\ref{eqn:qutrit_weil_sum}). Reescribiendo el argumento de
-  la traza y expresando con la notación del caracter aditivo
-  obtenemos:
+  para todas las entradas del operador puntual indexadas por
+  $k, j \in \F$. Ahora evaluamos la segunda suma de Weil
+  dada por (\ref{eqn:weil_sum_2}) utilizando la versión de
+  presemicampo de Kantor de los campos torcidos de Albert.
+  El ejemplo de la sección anterior corresponde a la
+  dimensión más pequeña para el cual podemos generar una
+  cobertura simpléctica no equivalente a la estándar. La
+  prueba que damos enseguida funciona para todo $p, n$ y $s$ 
+  que satisface las condiciones del campo torcido de Albert.
+  Recordemos que la operación del presemicampo está dada por
+  $x * m = mx^{p^{n-s}} + m^{p^{s}}x^{p^{s}}$ para $n$
+  impar, un $s$ coprimo a $n$ y $1 \leq s \neq n / 2$. Para
+  evaluar la suma de Weil utilizaremos el teorema
+  (\ref{thm:lidl_weil_poly}), para ésto debemos expresar el
+  argumento de la traza como un múltiplo escalar de un
+  $p$-polinomio afín. Ignorando el factor $1 / 2$ por el
+  momento obtenemos
+  \begin{align}
+    k(k*m) - j(j*m)
+    &= k \left( mk^{p^{n-s}} + m^{p^{s}}k^{p^{s}} \right) 
+    - j\left( mj^{p^{n-s}} + m^{p^{s}}j^{p^{s}} \right) \\
+    &= m k^{p^{n-s}+1} + m^{p^{s}}k^{p^{s}+1} - m
+    j^{p^{n-s}+1} - m^{p^{s}}j^{p^{s}+1} \\
+    &= \left( k^{p^{s}+1} - j^{p^{s}+1} \right) m^{p^{s}} 
+    + \left( k^{p^{n-s}+1} - j^{p^{n-s}+1} \right) m.
+    \label{eqn:p_poly_albert}
+  \end{align}
+  Observamos que la ecuación (\ref{eqn:p_poly_albert}) es un
+  $p$-polinomio afín donde
   \begin{equation}
-    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
-    w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
-    = 
-    \sum_{m \in F}^{} \chi\left(
-      \frac{1}{2}
-      \left( w^{4} - u^{4} \right) m^3
-      + \frac{1}{2}
-      \left( w^{10} - u^{10} \right) m 
-    \right).
+    a_s = k^{p^{s}+1} - j^{p^{s}+1},
+    \quad
+    a_0 = k^{p^{n-s}+1} - j^{p^{n-s}+1},
+    \quad
+    \text{ y }
+    \quad a = 0.
   \end{equation}
-  El argumento de $\chi$ (sin el factor $1 / 2$) es un
-  $p$-polinomio afín (ver definición \ref{eqn:affine_poly})
-  de la forma
+  El resto de los coeficientes $a_{r-i}$ son nulos. Dado que
+  $\chi_b(c) = \chi(bc) = \omega^{\tr(bc)}$, es fácil ver
+  que la suma $S_2$ (\ref{eqn:weil_sum_2}) tiene la forma
+  requerida para usar el teorema (\ref{thm:lidl_weil_poly})
+  para $b = 1 / 2$ y $a = 0$. Por lo tanto
   \begin{equation}
-    f(x) = a_1 x^{p} + a_0 x + a,
-  \end{equation}
-  donde $p = 3$, $a_1 = w^{4} - u^{4}$,  $a_0 = w^{10} -
-  u^{10}$, $r = 1$ y $a = 0$. Resulta que podemos evaluar
-  directamente a éste tipo de suma de Weil utilizando el
-  teorema \ref{thm:lidl_weil_poly}. Sean $b = \frac{1}{2}$ y
-  $d = 27$, entonces
-  \begin{equation}
-    \sum_{m \in \F}^{} \chi\left(
-      b \left(
-        a_1 m^{3} + a_0 m
-      \right)
-    \right)
-    = 
-    \begin{cases}
-      \chi_{b}(a) d & \text{cuando } b a_1 + b^{3} a_0^{3} =
-      0 \\
-      0 & \text{en otro caso}.
-    \end{cases}
-  \end{equation}
-  Primero notemos que $a = 0$, por lo que $\chi_b(0) = 1$.
-  Además el inverso multiplicativo del dos en característica
-  tres es el dos, i.e., $1 / 2 = 2$, por lo tanto la suma de
-  Weil es igual a
-  \begin{equation}
-    \label{eqn:right_weil_sum}
-    \sum_{m \in \F}^{} \omega^{\tr\left( \frac{1}{2} m\left(
-    w^{10}-u^{10} + m^2(w^{4}-u^{4})\right)  \right) }
-    =
-    \begin{cases}
-      27 & \text{para } 2\left( w^{4}-u^{4} \right) +
-      2^{3} \left( w^{10} - u^{10} \right)^{3} = 0, \\
+    S_2
+    = \begin{cases}
+      d & \text{si } 2a_s + 2^{p^{s}} a_0^{p^{s}} = 0, \\
       0 & \text{en otro caso}.
     \end{cases}
   \end{equation}
   Podemos simplificar la ecuación que aparece en el primer
-  caso de la suma (\ref{eqn:right_weil_sum}), ya que en
-  característica tres se satisface la identidad $(a+b)^{p} =
-  a^{p} + b^{p}$:
+  caso utilizando ciertas propiedades de campos finitos de
+  característica impar:
   \begin{align}
-    2\left( w^{4}-u^{4} \right) + 2^{3} \left( w^{10} -
-    u^{10} \right) ^{3}
-    &= 2 \left(w^{4} - u^{4}\right) + 2^{3} \left( w^{30}
-    - u^{30} \right) \\
-    &= 2\left(w^{4} - u^{4}\right) + 2\left(w^{26 + 4} -
-      u^{26 + 4}\right) \\
-    &= 2\left(w^{4} - u^{4}\right) + 2\left(w^{4} -
-    u^{4}\right) \\
-    &= w^{4} - u^{4}.
+    2a_s + 2^{p^{s}}a_0^{p^{s}}
+    &= 2 \left( k^{p^{s}+1} - j^{p^{s}+1} \right) 
+    + 2^{p^{s}} \left( k^{p^{n-s}+1} - j^{p^{n-s}+1}
+    \right)^{p^{s}} \\
+    &= 2 \left( k^{p^{s}+1} - j^{p^{s}+1} \right) 
+    + 2^{p^{s}} \left( k^{p^{s}+1} - j^{p^{s}+1} \right) \\
+    &= (2+2) \left( k^{p^{s}+1} - j^{p^{s}+1} \right) \\
+    &= k^{p^{s}+1} - j^{p^{s}+1}.
   \end{align}
-  ya que $a^{26} = 1$ para todo $a \in \F$ y $2^{3} = 2$.
-  De las ecuaciones (\ref{eqn:left_weil_sum}) y
-  (\ref{eqn:right_weil_sum}) podemos concluír que ambas
-  sumas serán iguales para todo $w, u \in \F$ siempre y
-  cuando las ecuaciones
+  Por lo tanto
   \begin{equation}
-    w^2 - u^2 = 0,
+    \label{eqn:weil_sum_2_ev}
+    S_2
+    = \begin{cases}
+      d & \text{if } k^{p^{s}+1} - j^{p^{s}+1} = 0, \\
+      0 & \text{en otro caso.}
+    \end{cases}
+  \end{equation}
+  Comparando los valores de las sumas $S_1$ y $S_2$
+  observamos que los operadores puntuales en el origen para
+  ambas coberturas simplécticas serán iguales si y solo si
+  las ecuaciones
+  \begin{equation}
+    \label{eqn:system}
+    k^2 - j^2 = 0
     \quad
     \text{ y }
-    \quad
-    w^{4} - u^{4} = 0,
+    \quad 
+    k^{p^{s}+1} - j^{p^{s}+1} = 0
+  \end{equation} 
+  compartan el \textit{mismo} conjunto de soluciones en
+  $\GF(p^{n})$. La estructura particular de éste sistema de
+  ecuaciones permite una verificación relativamente sencilla
+  de que efectivamente sucede ésto para todo $p,n$ y $s$
+  apropiados.
+
+  Ignoremos la solución trivial, utilizando el cambio de
+  variables $r = k / j$ las ecuaciones del sistema
+  (\ref{eqn:system}) se pueden expresar como
+  \begin{equation}
+    r^2 = 1
+    \quad \text{ y } \quad
+    r^{p^{s}+1} = 1.
   \end{equation}
-  compartan el \textit{mismo} conjunto de soluciones. Dado
-  que estamos trabajando con campos finitos, simplemente
-  hemos buscado todas las soluciones de ambas ecuaciones
-  para poder compararlas. Para ésto utilizamos el sistema de
-  álgebra computacional de \texttt{SageMath} y en particular
-  su módulo de campos finitos para encontrarlas.
-  \textit{Efectivamente comparten el mismo conjunto de
-  soluciones!\footnote{La cardinalidad de éste conjunto de
-  soluciones es de 53 elementos $(w,u)$.}} Ésto significa
-  que para todo $w, u \in \F$, ambas sumas de la ecuación
-  (\ref{eqn:qutrit_weil_sum}) nos dan el mismo valor, ya sea
-  $0$ ó $27$. Ésto a su vez significa que los operadores
-  puntuales en el origen para ambas coberturas simplécticas
-  son iguales. Un cálculo computacional similar nos muestra
-  que el resto de los operadores puntuales también lo son.
-  Como consecuencia, obtenemos la misma función de Wigner
-  para la construcción estándar y no estándar en el caso de
-  los tres qutrits, respecto a la cobertura de Albert. Éste
-  ejemplo nos indica que la no equivalencia unitaria de las
-  MUBs \textit{no} es suficiente para garantizar la
-  desigualdad de las funciones de Wigner estándar y no
-  estándar.
+  Éstas dos ecuaciones comparten el mismo conjunto de
+  soluciones si y solo si el sistema original también
+  comparte las suyas. En característica impar la
+  ecuación $r^2 = 1$ tiene dos soluciones, dadas por $r = 1$ 
+  y $r = -1$. Notemos que éstas dos soluciones también
+  satisfacen la ecuación $r^{p^{s}+1} = 1$, por lo tanto
+  realmente solo tenemos que demostrar que $r^{p^{s}+1} = 1$ 
+  \textit{no tiene más de dos} soluciones en $\GF(p^{n})$.
+
+  Consideremos un generador $g$ del grupo cíclico $\F^{*}$ 
+  de $p^{n}-1$ elementos, el cual es el grupo
+  multiplicactivo del campo $\F$. Se conoce en la teoría de
+  los grupos cíclicos que el orden del elemento
+  $g^{p^{s}+1}$ es
+  \begin{equation}
+    \label{eqn:gcd_order}
+    \left|g^{p^{s}+1}\right|
+    = \frac{p^{n}-1}{\gcd(p^{n}-1, p^{s}+1)},
+  \end{equation}
+  donde $\gcd(a,b)$ es el máximo común divisor de los
+  números $a$ y $b$. Sea $\phi : \F^{*} \to \F^{*}$ el mapa
+  definido por $x \mapsto x^{p^{s}+1}$. El mapa $\phi$ 
+  claramente es un homomorfismo de grupos y dado que $g$ es
+  un generador de $\F^{*}$, la imágen de $g$ bajo $\phi$ es
+  un generador de $\img(\phi)$. Ésto a su vez implica que
+  $|\img(\phi)| = \left|g^{p^{s}+1}\right|$. Entonces del
+  primer teorema de isomorfía y de la ecuación
+  (\ref{eqn:gcd_order}) obtenemos
+  \begin{equation}
+    \label{eqn:kernel_order}
+    |\ker(\phi)|
+    = \frac{|\F^{*}|}{|\img(\phi)|}
+    = \frac{p^{n}-1}{|g^{p^{s}+1}|}
+    = \gcd(p^{n}-1, p^{s} + 1).
+  \end{equation}
+  Se sigue que el demostrar que $r^{p^{s}+1} = 1$ no tiene
+  más de dos soluciones es equivalente a demostrar que
+  $\gcd(p^{n}-1, p^{s}+1) \leq 2$. Supongamos que $d$ es un
+  divisor de $p^{n}-1$ y de $p^{s}+1$. Dado que divide a
+  $p^{s}+1$, también divide a $p^{2s}-1 =
+  (p^{s}+1)(p^{s}-1)$. Se puede demostrar utilizando el
+  algoritmo Euclideano sobre los exponentes que 
+  \[
+    d \mid p^{2s} - 1, p^{n}-1
+    \implies
+    d \mid p^{\gcd(2s,n)} - 1.
+  \] 
+  Por hipótesis, $n$ es impar y $\gcd(s,n) = 1$, por lo
+  tanto $\gcd(2s,n) = \gcd(s,n) = 1$. Entonces $d \mid p -
+  1$, lo cual significa que $p \equiv 1 \mod d$. Ésto a su
+  vez implica que $p^{s} \equiv 1 \mod d$ para todo $s$, en
+  particular $d \mid p^{s} - 1$. Dado que $d \mid p^{s}+1,
+  p^{s}-1$, se sigue que $d \mid 2$. Por lo tanto
+  $\gcd(p^{n}-1, p^{s}+1) \leq 2$ y así $|\ker(\phi)| \leq
+  2$. Ésto concluye la demostración. 
+
+  %Dado
+  %que estamos trabajando con campos finitos, simplemente
+  %hemos buscado todas las soluciones de ambas ecuaciones
+  %para poder compararlas. Para ésto utilizamos el sistema de
+  %álgebra computacional de \texttt{SageMath} y en particular
+  %su módulo de campos finitos para encontrarlas.
+  %\textit{Efectivamente comparten el mismo conjunto de
+  %soluciones!\footnote{La cardinalidad de éste conjunto de
+  %soluciones es de 53 elementos $(w,u)$.}}
+
+  Con todo lo anterior, hemos demostrado que las ecuaciones
+  en (\ref{eqn:system}) comparten el mismo conjunto de
+  soluciones. Por lo tanto las sumas de Weil $S_1$ y $S_2$
+  son iguales para todo $k,j \in \F$.  Ésto a su vez
+  significa que los operadores puntuales en el origen para
+  ambas coberturas simplécticas son iguales. La covarianza
+  bajo traslaciones implica que \textit{todos} los
+  operadores puntuales para ambas coberturas también serán
+  iguales. Como consecuencia, obtenemos la misma función de
+  Wigner discreta para la construcción estándar y no
+  estándar, utilizando \textit{toda} la famila de coberturas
+  de Albert. Ésto sucede a pesar de que las MUBs no son
+  unitariamente equivalentes.  Éste caso particular nos hace
+  concluir que la no equivalencia unitaria de las MUBs
+  \textit{no} es suficiente para garantizar la desigualdad
+  de las funciones de Wigner estándar y no estándar.
 
   Wootters y Gibbons propusieron una manera de estudiar la
   equivalencia de funciones de Wigner discretas bajo
@@ -5851,13 +5879,12 @@
   operadores puntuales son unitariamente equivalentes, ¿ésto
   implica que las mallas también lo son? Dicho de otra
   manera, si utilizamos MUBs no equivalentes, ¿los
-  operadores puntuales tampoco serán equivalentes?  Nuestro
-  ejemplo de los tres qutrits con las coberturas
-  Desarguesiana y de Albert es un contra ejemplo de la
-  proposición conversa, ya que la identidad es una
-  transformación unitaria. En otras palabras, incluso cuando
-  no existe una transformación unitaria entre dos mallas
-  cuánticas, los operadores puntuales pueden ser
+  operadores puntuales tampoco serán equivalentes? El
+  resultado que obtuvimos en ésta sección es un contra
+  ejemplo de la proposición conversa, ya que la identidad es
+  una transformación unitaria. En otras palabras, incluso
+  cuando no existe una transformación unitaria entre dos
+  mallas cuánticas, los operadores puntuales pueden ser
   equivalentes. Por lo tanto el método de Wootters para
   clasificar funciones de Wigner equivalentes parece no ser
   apropiado cuando uno desea estudiar la inequivalencia de
@@ -5867,11 +5894,28 @@
   determinar cuando una función de Wigner es unitariamente
   distinta a otra. 
 
-  El hecho de que ésto no sucede en el ejemplo de los cinco
-  qubits puede ser consecuencia de la cobertura particular
-  que usamos para la construcción no estándar, ó,
-  posiblemente es otra consecuencia interesante de la
-  característica par. 
+  El hecho de que ésto no sucede (al menos numericamente) en
+  el ejemplo de los cinco qubits puede ser consecuencia de
+  la cobertura particular que usamos para la construcción no
+  estándar, ó, posiblemente es otro detalle interesante
+  consecuencia de los campos de característica par. Un
+  siguiente paso sería estudiar otras coberturas
+  simplécticas para característica impar que también son
+  inequivalentes a la Desarguesiana, para ver si sucede algo
+  similar. Dado que nuestra demostración de la equivalencia
+  depende totalmente de la forma de las operaciones de los
+  presemicampos en cuestión, no podemos concluir mucho sobre
+  las funciones de Wigner discretas obtenidas con otras
+  coberturas simplécticas en general.  Creemos que será
+  conveniente utilizar otro método de demostración que no
+  requiera utilizar la forma explícita de la operación del
+  presemicampo, ya que dependemos de fórmulas de evaluación
+  de sumas exponenciales las cuales no siempre se conocen.
+  %La desventaja
+  %principal de nuestro método de prueba es la dificultad en
+  %la evaluación de las sumas de Weil, ya que no siempre se
+  %conocen fórmulas cerradas para toda suma.
+  
 
   \clearpage
   \section{Discusión}
@@ -5895,14 +5939,14 @@
   ya que la no equivalencia de las MUBs no es una condición
   suficiente para producir funciones de Wigner discretas
   distintas. Ésto es una consecuencia de nuestra
-  demostración en el ejemplo de los tres qutrits. Éste
-  resultado que obtuvimos nos indica que debemos encontrar
-  otra manera de estudiar la equivalencia de las funciones
-  de Wigner que va más allá de la malla cuántica. En
-  particular es importante identificar si es un resultado
-  que depende de la cobertura particular elegida o sí es una
-  consecuencia de la dimensión del sistema, ya que para el
-  caso de los cinco qubits sí obtuvimos (al menos
+  demostración en el ejemplo de la familia de presemicampos
+  de Albert. Éste resultado que obtuvimos nos indica que
+  debemos encontrar otra manera de estudiar la equivalencia
+  de las funciones de Wigner que va más allá de la malla
+  cuántica. En particular es importante identificar si es un
+  resultado que depende de la cobertura particular elegida o
+  sí es una consecuencia de la dimensión del sistema, ya que
+  para el caso de los cinco qubits sí obtuvimos (al menos
   numéricamente) distintas funciones.
 
   Otro aspecto de éste método de construcción que es victima
