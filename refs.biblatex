@@ -69,9 +69,12 @@
   file = {/Users/ernesto/Zotero/storage/W6G24L8X/Aniello and Arienzo - Quantum Mechanics on Discrete Phase Space a Group.pdf}
 }
 
-@article{bader,
+@article{bader1994,
   title = {Symplectic Spreads from Twisted Fields},
   author = {Bader, L. and Kantor, W.M. and Lunardon, G.},
+  date = {1994},
+  journaltitle = {Bolletino Dell'Unione Matematica Italiana},
+  issn = {0392-4033},
   file = {/Users/ernesto/Zotero/storage/YHFN5NL6/symplSpread.pdf}
 }
 
@@ -110,9 +113,11 @@
   file = {/Users/ernesto/Zotero/storage/7GTPJVVU/Balazs and Jennings - 1984 - Wigner's function and other distribution functions.pdf}
 }
 
-@incollection{ball,
+@incollection{ball2011,
   title = {An {{Introduction}} to {{Finite Geometry}}},
+  booktitle = {An {{Introduction}} to {{Finite Geometry}}},
   author = {Ball, Simeon and Weiner, Zsuzsa},
+  date = {2011},
   file = {/Users/ernesto/Zotero/storage/9X9LVB6B/IFG.pdf}
 }
 
@@ -378,9 +383,12 @@
   file = {/Users/ernesto/Zotero/storage/SVMCUVK9/Cahen - Stratonovich-Weyl correspondence via Berezin quant.pdf}
 }
 
-@article{calderbank,
-  title = {Z4-{{KERDOCK CODES}}, {{ORTHOGONAL SPREADS}}, {{AND EXTREMAL EUCLIDEAN LINE-SETS}}},
+@article{calderbank1997,
+  title = {Z\_4-{{Kerdock Codes}}, {{Orthogonal Spreads}}, and {{Extremal Euclidean Line-Sets}}},
   author = {Calderbank, A R and Cameron, P J and Kantor, W M and Seidel, J J},
+  date = {1997},
+  journaltitle = {London Mathematical Society},
+  doi = {10.1112/S0024611597000403},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/4QXJM6HB/Calderbank et al. - ޚ4-KERDOCK CODES, ORTHOGONAL SPREADS, AND EXTREMAL.pdf}
 }
@@ -446,7 +454,7 @@
 }
 
 @article{conrad,
-  title = {{{SIMULTANEOUS COMMUTATIVITY OF OPERATORS}}},
+  title = {Simultaneous {{Commutativity}} of {{Operators}}},
   author = {Conrad, Keith},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/HUR9UD28/Conrad - SIMULTANEOUS COMMUTATIVITY OF OPERATORS.pdf}
@@ -937,13 +945,6 @@
   abstract = {Our problems are about the correspondence a +--+ a between physical quantities a and quantum operators a (quantization) and the possibility of understanding the statistical character of quantum mechanics by averaging over uniquely determined processes as in classical statistical mechanics (interpretation). ct a n d \textasciitilde{} are closely connected. Their m e a n i n g d e p e n d s on the notion of observability. We have tried to put these problems in a form which is fit for discussion. We could not bring them to an issue. (We are inclined to restrict the meaning of \textasciitilde{} to the t r i v i a l correspondence a --+ a (for lira h --* 0) and to d e n y the p o s s i b i l i t y suggested in [\textasciitilde ).},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/U6BEKDQY/Groenewold - ON THE PRINCIPLES OF ELEMENTARY QUANTUM MECHANICS.pdf}
-}
-
-@article{gross,
-  title = {Tag Der {{Disputation}}: 3. {{Mai}} 202},
-  author = {Gross, Dr David and Müller, Dr Markus},
-  langid = {english},
-  file = {/Users/ernesto/Zotero/storage/BYYQNP4H/Gross and Müller - Tag der Disputation 3. Mai 202.pdf}
 }
 
 @thesis{gross2005,
@@ -1526,6 +1527,15 @@
   abstract = {An attempt is made to interpret quantum mechanics as a statistical theory, or more exactly as a form of non-deterministic statistical dynamics. The paper falls into three parts. In the first, the distribution functions of the complete set of dynamical variables specifying a mechanical system (phase-space distributions), which are fundamental in any form of statistical dynamics, are expressed in terms of the wave vectors of quantum theory. This is shown to be equivalent to specifying a theory of functions of non-commuting operators, and may hence be considered as an interpretation of               quantum kinematics               . In the second part, the laws governing the transformation with time of these phase-space distributions are derived from the equations of motion of               quantum dynamics               and found to be of the required form for a dynamical stochastic process. It is shown that these phase-space transformation equations can be used as an alternative to the Schrödinger equation in the solution of quantum mechanical problems, such as the evolution with time of wave packets, collision problems and the calculation of transition probabilities in perturbed systems; an approximation method is derived for this purpose. The third part,               quantum statistics               , deals with the phase-space distribution of members of large assemblies, with a view to applications of quantum mechanics to kinetic theories of matter. Finally, the limitations of the theory, its uniqueness and the possibilities of experimental verification are discussed.},
   langid = {english},
   file = {/Users/ernesto/Zotero/storage/GCMBMLNA/Moyal - 1949 - Quantum mechanics as a statistical theory.pdf}
+}
+
+@article{muller2021,
+  title = {On Stabiliser Techniques and Their Application to Simulation and Certification of Quantum Devices},
+  author = {Müller, Markus},
+  date = {2021},
+  pages = {231},
+  langid = {english},
+  file = {/Users/ernesto/Zotero/storage/BYYQNP4H/Gross and Müller - Tag der Disputation 3. Mai 202.pdf}
 }
 
 @article{munoz2017,

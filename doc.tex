@@ -79,11 +79,12 @@
       \vspace{1.0in}
 
       \huge
-      Universidad de Guadalajara\\
+      UNIVERSIDAD DE GUADALAJARA\\
       \vspace{0.2cm}
-      \large
-      Centro Universitario de Ciencias Exactas e Ingenerías\\
-      Licenciatura en Matemáticas\\
+      \Large{Centro Universitario de Ciencias Exactas e
+        Ingenerías} \\
+      \vspace{0.2cm}
+      División de Ciencias Básicas\\
 
       \vspace{0.5in}
 
@@ -99,14 +100,18 @@
       \large
       \vspace{1.0in}
       
-      Alumno: Ernesto Camacho Ramírez \\
+      Tesis \\
+      que para obtener el título de \\
       \vspace{0.2cm}
-      Asesor: Dr. Andrés García Sandoval \\
-
+      \Large{Matemático} \\
+      \vspace{0.2cm}
+      presenta \\
+      \vspace{0.2cm}
+      \Large{Ernesto Camacho Ramírez} \\
+      
       \vfill
-           
-      \textit{Proyecto integrador}: Estudio de las
-      disciplinas fundamentales de la matemática.
+
+      \large{Director: Dr. Andrés García Sandoval} \\
      \end{center}
   \end{titlepage}
 
@@ -4899,7 +4904,7 @@
   sus traslaciones; además son eigenvectores de los
   operadores $D(u, u \circ m)$ para todo $u \in \F$. Cada
   base de eigenvectores es invariante bajo el grupo de
-  Pauli \cite{calderbank}, ésto significa que al operar un
+  Pauli \cite{calderbank1997}, ésto significa que al operar un
   eigenestado por un operador de desplazamiento, obtendremos
   algún otro eigenestado correspondiente a la misma base (o
   al mismo eigenestado si el operador corresponde a las
@@ -5669,12 +5674,12 @@
   El ejemplo de la sección anterior corresponde a la
   dimensión más pequeña para el cual podemos generar una
   cobertura simpléctica no equivalente a la estándar. La
-  prueba que damos enseguida funciona para todo $p, n$ y $s$ 
-  que satisface las condiciones del campo torcido de Albert.
-  Recordemos que la operación del presemicampo está dada por
-  $x * m = mx^{p^{n-s}} + m^{p^{s}}x^{p^{s}}$ para $n$
-  impar, un $s$ coprimo a $n$ y $1 \leq s \neq n / 2$. Para
-  evaluar la suma de Weil utilizaremos el teorema
+  prueba que daremos enseguida funciona para todo $p, n$ y
+  $s$ que satisface las condiciones del campo torcido de
+  Albert.  Recordemos que la operación del presemicampo está
+  dada por $x * m = mx^{p^{n-s}} + m^{p^{s}}x^{p^{s}}$ para
+  $n$ impar, un $s$ coprimo a $n$ y $1 \leq s \neq n / 2$.
+  Para evaluar la suma de Weil utilizaremos el teorema
   (\ref{thm:lidl_weil_poly}), para ésto debemos expresar el
   argumento de la traza como un múltiplo escalar de un
   $p$-polinomio afín. Ignorando el factor $1 / 2$ por el
@@ -5745,14 +5750,14 @@
     \quad 
     k^{p^{s}+1} - j^{p^{s}+1} = 0
   \end{equation} 
-  compartan el \textit{mismo} conjunto de soluciones en
+  comparten el \textit{mismo} conjunto de soluciones en
   $\GF(p^{n})$. La estructura particular de éste sistema de
   ecuaciones permite una verificación relativamente sencilla
   de que efectivamente sucede ésto para todo $p,n$ y $s$
   apropiados.
 
-  Ignoremos la solución trivial, utilizando el cambio de
-  variables $r = k / j$ las ecuaciones del sistema
+  Ignorando a la solución trivial y utilizando el cambio de
+  variable $r = k / j$, las ecuaciones del sistema
   (\ref{eqn:system}) se pueden expresar como
   \begin{equation}
     r^2 = 1
@@ -5825,7 +5830,7 @@
   %soluciones!\footnote{La cardinalidad de éste conjunto de
   %soluciones es de 53 elementos $(w,u)$.}}
 
-  Con todo lo anterior, hemos demostrado que las ecuaciones
+  Con lo anterior, hemos demostrado que las ecuaciones
   en (\ref{eqn:system}) comparten el mismo conjunto de
   soluciones. Por lo tanto las sumas de Weil $S_1$ y $S_2$
   son iguales para todo $k,j \in \F$.  Ésto a su vez
@@ -5835,12 +5840,12 @@
   operadores puntuales para ambas coberturas también serán
   iguales. Como consecuencia, obtenemos la misma función de
   Wigner discreta para la construcción estándar y no
-  estándar, utilizando \textit{toda} la famila de coberturas
-  de Albert. Ésto sucede a pesar de que las MUBs no son
-  unitariamente equivalentes.  Éste caso particular nos hace
-  concluir que la no equivalencia unitaria de las MUBs
-  \textit{no} es suficiente para garantizar la desigualdad
-  de las funciones de Wigner estándar y no estándar.
+  estándar, para cualquier cobertura de la famila de
+  presemicampos de Albert. Ésto sucede a pesar de que las
+  MUBs no son unitariamente equivalentes.  Al parecer la
+  inequivalencia unitaria de las MUBs \textit{no} es
+  suficiente para garantizar la desigualdad de las funciones
+  de Wigner estándar y no estándar.
 
   Wootters y Gibbons propusieron una manera de estudiar la
   equivalencia de funciones de Wigner discretas bajo
@@ -5875,24 +5880,24 @@
     \right) U^{*} \\
     &= U A(\alpha) U^{*}.
   \end{align}
-  ¿La proposición conversa también se cumple? Si los
-  operadores puntuales son unitariamente equivalentes, ¿ésto
-  implica que las mallas también lo son? Dicho de otra
-  manera, si utilizamos MUBs no equivalentes, ¿los
-  operadores puntuales tampoco serán equivalentes? El
-  resultado que obtuvimos en ésta sección es un contra
-  ejemplo de la proposición conversa, ya que la identidad es
-  una transformación unitaria. En otras palabras, incluso
-  cuando no existe una transformación unitaria entre dos
-  mallas cuánticas, los operadores puntuales pueden ser
-  equivalentes. Por lo tanto el método de Wootters para
-  clasificar funciones de Wigner equivalentes parece no ser
-  apropiado cuando uno desea estudiar la inequivalencia de
-  la función de Wigner.  Parece ser necesario estudiar que
-  propiedades adicionales debe tener una malla cuántica o el
-  espacio de fase discreto en particular, para poder
-  determinar cuando una función de Wigner es unitariamente
-  distinta a otra. 
+  Naturalmente nos preguntamos si la proposición conversa
+  también se cumple. Si los operadores puntuales son
+  unitariamente equivalentes, ¿ésto implica que las mallas
+  también lo son? Dicho de otra manera, si utilizamos MUBs
+  no equivalentes, ¿los operadores puntuales tampoco serán
+  equivalentes? El resultado que obtuvimos en ésta sección
+  es un contra ejemplo de la proposición conversa, ya que la
+  identidad es una transformación unitaria. En otras
+  palabras, incluso cuando no existe una transformación
+  unitaria entre dos mallas cuánticas, los operadores
+  puntuales pueden ser equivalentes. Por lo tanto el método
+  de Wootters para clasificar funciones de Wigner
+  equivalentes parece no ser apropiado cuando uno desea
+  estudiar la inequivalencia de la función de Wigner.
+  Parece ser necesario estudiar que propiedades adicionales
+  debe tener una malla cuántica o el espacio de fase
+  discreto en particular, para poder determinar cuando una
+  función de Wigner es unitariamente distinta a otra. 
 
   El hecho de que ésto no sucede (al menos numericamente) en
   el ejemplo de los cinco qubits puede ser consecuencia de
