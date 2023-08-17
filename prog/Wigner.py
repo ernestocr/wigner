@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class Wigner():
-
     def __init__(self, field, mubs, op=None):
         self.field = field
         self.mubs = mubs

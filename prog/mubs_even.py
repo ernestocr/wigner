@@ -20,6 +20,7 @@ def ringTrace(a, b):
 # Teichmüller
 T = [GR(0)] + [w**k for k in range((2**n - 2) + 1)]
 
+# Really brute force
 def brute2adic(x):
     for a in T:
         for b in T:
