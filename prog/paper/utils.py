@@ -1,5 +1,7 @@
 from sage.all import *
 
+d = 2**3 # hardcoded sorry
+
 def checkON(A):
     return A.conjugate_transpose() * A == identity_matrix(d)
 
