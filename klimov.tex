@@ -1,0 +1,400 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[margin=1.3in]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage[spanish]{babel}
+\usepackage[spanish,es-noshorthands]{babel}
+\decimalpoint
+
+%\usepackage{csquotes}
+%\usepackage[sorting=none]{biblatex}
+%\addbibresource{refs.biblatex}
+
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{braket}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+
+\let\H\relax
+\DeclareMathOperator{\H}{\mathcal H}
+\DeclareMathOperator{\Sz}{\mathcal S}
+
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\prob}{Prob}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Op}{Op}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Fr}{\mathcal{F}\!}
+\DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\GR}{GR}
+\DeclareMathOperator{\Sl}{\mathfrak{sl}}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\img}{img}
+
+\newtheorem{definition}{Definición}
+\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}{Proposición}
+\newtheorem{lemma}{Lema}
+\newtheorem{corollary}{Corolario}
+\newtheorem{example}{Ejemplo}
+\newtheorem{axiom}{Postulado}
+\newtheorem{remark}{Observación}
+
+\title{Garcia, Klimov 2010 - Qubit MUBs generation}
+\author{Ernesto}
+
+\begin{document}
+    \maketitle
+
+    Summary of Garcia's and Klimov's \textit{Generation of
+    bases with definite factorization for an $n$-qubit
+    system and mutually unbiased sets construction} written
+    in 2010.
+
+    The intention of the paper is to classify the bases for
+    $n$-qubit systems for its importance to optimal state
+    and process tomography and for the quantification of
+    entanglement in a multipartite state.
+
+    They focus on a subset of all possible bases which can
+    be constructed from a $2^{n}$-dimensional Hilbert space,
+    namely, those obtained from the standard logical basis
+    by applying only local Clifford transformations and CNOT
+    gates.
+
+    \begin{definition}
+        A Clifford gate is a quantum gate that belongs the
+        Clifford Group, which is a set of transformations
+        which normalize the $n$-qubit Pauli group. Quantum
+        circuits that consist of only Clifford gates can be
+        efficiently simulated with a classical computer
+        (Gottesman-Knill theorem).
+    \end{definition}
+
+    Such bases have a definite factorization structure. Each
+    basis vetor is divided into the same number of $K$ 
+    blocks, $1 \leq K \leq n$, and each block contains $m_K$ 
+    completely non-separable states of the same qubits
+    (i.e., $\sum_{K}^{} m_K = n$). For $K = n$ we have a
+    completely factorizable basis (each element is a tensor
+    product of $n$ qubits) and for $K = 1$ the basis is
+    non-separable.
+
+    I don't like the following. They state that a
+    \textit{general} method for the construction of such
+    bases can be formulated in the framework of the
+    so-called stabilizer formalism. This is obvious by
+    construction, but they say that the bases with
+    \textit{definite factorization} (meaning what?) in the
+    $2^{n}$-dimensional Hilbert space can be constructed as
+    eigenstates of $n$ commuting monomials formed by
+    products of $n$ Pauli operators and generators of an
+    Abelian group of order $2^{n}$. Where is the direct
+    relationship with the factorization?
+
+    They then state that it is clear that the non-separable
+    blocks can be considered as common eigenstates of a set
+    of commuting monomials each containing a product of
+    $m_k$ Pauli operators. This means that the non-separable
+    blocks are locally isomorphic to some $m_K$-qubit graph
+    state. Graph states are multiparticle entangle states
+    that correspond to mathematical graphs, where the
+    vertices take the role of quantum spin systems and the
+    edges represent Ising interactions.
+
+    A drawback is that the stabilizer formalism does not
+    provided a systematic method for \textit{defining} sets
+    of such commuting monomials. The authors confer to an
+    elegant way for small dimensions using a graph-state
+    approach. This method is limited for higher dimensions.
+
+    Then out of the blue, the authors state that the problem
+    of bases generation is related to the classification of
+    elements of the symplectic group $Sp_{2n}(\Z_2)$. The
+    main difficult of this approach consists of factoring
+    out the elements of $Sp_{2n}(\Z_2)$ which lead to the
+    same bases. The order of this group grows rapidly with
+    $n$,
+
+    \begin{equation}
+        \left|
+        Sp_{2n}(\Z_2)
+        = 2^{n^2} \prod_{k=1}^{n} \left( 2^{2k} - 1 \right) 
+        \right|.
+    \end{equation}
+
+    As an example, the symplectic group corresponding to
+    three qubits has order $|Sp_{6}(\Z_2)| = 1,451,520$, but
+    there are only 135 \textit{adequate} elements, which are
+    the different bases for three qubits.
+
+    Some of the just mentioned bases are mutually unbiased.
+    For a $d$-dimensional system it has been found that the
+    maximum number of MUBs cannot be greater than $d+1$ and
+    this limit is reached if $d = p$ is prime or a power of
+    a prime $d = p^{n}$.
+
+    An interesting phenomena related to MUBs in prime power
+    dimension is the existence of locally non-isomorphic
+    sets of such bases, which are bases with different
+    separability structures. The authors plan to show that
+    among all possible bases, there are
+    $\prod_{k=1}^{n}\left( 2^{k}+1 \right)$ unbiased sets of
+    $2^{n}+1$. Moreover, these bases cannot be transformed
+    into each other by local transformations. This is
+    combinatorial problem.
+
+    The approach of the authors consists of a systematic
+    procedure to determine symplectic matrices which
+    generate all possible different sets of commuting
+    monomials in a non-redundant way, and thus all possible
+    bases for an $n$-qubit system.
+
+    \section{Commutativity condition and symplectic group}
+
+    We label the states in the Hilbert space of an $n$-qubit
+    system by elements of the finite field $\GF(2^{n})$.
+    Denote $\ket \alpha$, $\alpha \in \GF(2^{n})$, an
+    orthnormal basis in the Hilbert space, i.e.,
+    $\braket{\beta|\alpha} = \delta_{\beta\alpha}$.
+
+    The analog of an orthogonal basis is the so-called
+    self-dual basis, satisfying the condition $\tr(\theta_i
+    \theta_j) = \delta_{ij}$, so that $a_i = \tr(\alpha
+    \theta_i)$ where $\tr : \GF(2^{n}) \to \Z_2$ is the
+    field trace. Using this decomposition we can establish a
+    correspondence between the Hilbert space $\C^{2^{n}}$ 
+    and the tensor product space $\C^2 \otimes \cdots
+    \otimes \C^2$:
+    \begin{equation}
+        \ket \alpha
+        \mapsto \ket{a_1} \otimes \cdots \otimes \ket{a_n}
+        = \ket{a_1,\ldots,a_n}.
+    \end{equation}
+
+    Now we consider the generators of the generalized Pauli
+    groups:
+    \begin{equation}
+        Z_{\beta}
+        = \sum_{\alpha \in \GF(2^{n})}^{}
+        (-1)^{\tr(\alpha\beta)} \ket \alpha \bra \alpha,
+        \quad
+        X_{\beta}
+        = \sum_{\alpha \in \GF(2^{n})}^{} 
+        \ket{\alpha + \beta} \bra{\alpha}.
+    \end{equation}
+    
+    The basis vectors $\ket \alpha$ are eigenstates of the
+    operators $Z_\beta$. These operators satisfy the
+    important commutation relation:
+    
+    \begin{equation}
+        Z_\alpha X_\beta
+        = (-1)^{\tr(\alpha\beta)} X_\beta Z_\alpha.
+    \end{equation}
+    
+    Using the same correspondence between the Hilbert space
+    and the tensor product space, we can factorize the
+    operators into tensor products of the single-particle
+    Pauli operators $\sigma_z$ and $\sigma_x$:
+
+    \begin{equation}
+        Z_\alpha
+        = \sigma_{z}^{a_1} \otimes \cdots \otimes
+        \sigma_z^{a_n},
+        \quad
+        X_\beta
+        = \sigma_x^{b_1} \otimes \cdots \otimes
+        \sigma_x^{b_n},
+    \end{equation}
+    
+    where of course $a_j$ and $b_j$ are the expansion
+    coefficients of $\alpha$ and $\beta$ using the self-dual
+    basis. The simplest set of commuting operators is
+    $\{Z_\alpha, \alpha \in \GF(2^{n})\}$ that determines
+    the standard logical (completely factorizable) basis
+    $\ket \alpha$. Now consider a set of commuting
+    monomials
+
+    \begin{equation}
+        Y
+        = \{Y_i = Z_{\alpha_i}X_{\beta_i} : i =
+        1,\ldots,2^{n}\}.
+    \end{equation}
+
+    Since any monomial can be obtained from the corrsponding
+    $Z_{\alpha_i}$ by local Clifford transformations and
+    CNOT operations, $Y_i = U Z_{\alpha_i} U^{*}$, the basis
+    $\{U\ket\alpha : \alpha \in \GF(2^{n})\}$ formed by the
+    eigenstates of $Y_i$ has a definite factorization
+    structure, this means that all the elements of this
+    basis are factorized in the same manner. But how trivial
+    is it show that in fact any monomial can be obtained
+    from a $Z_{\alpha_i}$? And what is meant by
+    \textit{local} Clifford operations? I assume it means
+    that we take tensor products of Clifford operations and
+    act upon the $Z_{\alpha_i}$ operator.
+
+    \begin{proof}
+        Let $Y_i = Z_{\alpha_i}X_{\beta_i}$ be an arbitrary
+        monomial. Suppose there exists $U$ such that $Y_i =
+        U Z_{\alpha_i} U^{*}$, then
+        \begin{align*}
+            U &= Y_i U Z_{\alpha_i}^{-1} \\
+              &= Z_{\alpha_i} X_{\beta_i} U
+              Z_{\alpha_i}^{-1} \\
+              &= ?
+        \end{align*}
+
+        A more direct argument. Since the Clifford gates
+        normalize the Pauli group, then $U Z_{\alpha_i}
+        U^{*}$ is element of the Pauli group. How to show
+        that it is of the form $Z_{\alpha_i} X_{\beta_i}$?
+    \end{proof}
+
+    It is not difficult to see that each set $Y$ is
+    isomorphic to an Abelian group of order $2^{n}$ with the
+    structure $\Z_2 \otimes \Z_2 \otimes \cdots \otimes
+    \Z_2$. This means that only $n$ different (non-trivial)
+    operators are required to generate the wholse set. First
+    of all what is this structure? It is abelian with
+    respect to what operation? 
+
+    Ignore these questions for now. The commutator of two
+    monomials $Z_{\alpha_1}X_{\beta_1}$ and
+    $Z_{\alpha_2}X_{\beta_2}$ is given by
+
+    \begin{equation}
+        [
+        Z_{\alpha_1}X_{\beta_1}, Z_{\alpha_2}X_{\beta_2}
+        ]
+        = \left\{
+            (-1)^{\tr(\alpha_2\beta_1)}
+            - (-1)^{\tr(\alpha_1\beta_2)}
+        \right\} Z_{\alpha_2+\alpha_1} X_{\beta_2+\beta_1}.
+    \end{equation}
+
+    This takes us to the commutativity condition between
+    them to be $\tr(\alpha_1\beta_2 + \beta_1\alpha_2) = 0$.
+    In terms of the self-dual basis, this condition takes
+    and explicit symplectic form:
+
+    \begin{equation}
+        \sum_{i=1}^{n} 
+        \left( a_i^{1}b_i^{2} + b_i^{1}a_i^{2} \right) = 0.
+    \end{equation}
+
+    Such a condition can be re-written in vector notation,
+    like it is done in the stabilizer formalism:
+
+    \begin{equation}
+        \left(C_{b^2}^{a^2}\right)^{T}
+        J
+        C^{a^{1}}_{b^{1}} = 0,
+    \end{equation}
+    
+    where $C_{b}$ is a $2n$-dimensional vector
+
+    \begin{equation}
+        \left(C_{b^2}^{a^2}\right)^{T}
+        = \begin{bmatrix}
+            a_n^k & \cdots & a_1^k & b_1^k & \cdots & b_n^k
+        \end{bmatrix},
+        \quad k = 1, 2.
+    \end{equation}
+
+    This in turn determines the corresponding monomial
+
+    \begin{equation}
+        C_b^a \mapsto Z_\alpha X_\beta,
+        \quad
+        \alpha = \sum_{i=1}^{n} a_i \theta_i,
+        \quad
+        \beta = \sum_{i=1}^{n} b_i \theta_i,
+        \quad
+        a_i,b_i \in \Z_2.
+    \end{equation}
+
+    Of course $J$ is the standard $2n \times 2n$ symplectic
+    matrix
+
+    \begin{equation}
+        \begin{bmatrix}
+            0_n & \Xi_n \\
+            \Xi_n & 0_n,
+        \end{bmatrix},
+        \quad
+        \Xi_n = \begin{bmatrix}
+            0 & \cdots & 1 \\
+            \vdots & \ddots & \vdots \\
+            1 & \cdots & 0
+        \end{bmatrix}. 
+    \end{equation}
+
+    We can focus in particular on the vectors $C_0^{a}$,
+    corresponding to the set $Z_\alpha$. These operators
+    trivially satisfy nullity condition. And then comes the
+    unbacked statement (is it trivial?): any other
+    commutative set $Y' = \{Z_{\alpha'}X_{\beta'}\}$ 
+    corresponds to vectors
+
+    \begin{equation}
+        C_{b'}^{a'} = P C_0^{a},
+    \end{equation}
+
+    where $P$ is a symplectic matrix over $\Z_2$ satisfying
+    $P^{T} J P = J$ and $a$ is a binary $n$-tuple. Of course
+    it forms a commutative set since $P$ preserves the
+    symplectic form, but how do you conclude that
+    \textit{all other} sets are obtained in this manner?
+
+    Therefore each $P \in Sp_{2n}(\Z_2)$ generates a set of
+    commuting operators starting with the standard set
+    $\{Z_\alpha\}$. Not all different symplectic matrices
+    produce different commutative sets, and the number of
+    commutative sets is essentially less then the order of
+    the symplectic group. Thus the main problem one is faced
+    with in this method is to find only those matrices that
+    generate \textit{different} sets of commuting operators.
+
+    This is where things get interesting. Since the
+    symplectic operators are applied to the very particular
+    $C_0^a$, whose $n$ last components are zeros, a
+    convenient form to disregard partially the symplectic
+    matrices that lead to the same commutative sets consists
+    of using the Bruhat decomposition of $P \in
+    Sp_{2n}(\Z_2)$ into right cosets:
+
+    \begin{equation}
+        P = a_\pi b_C^{+},
+    \end{equation}
+
+    where $b_C^{+} \in \mathbb B_C^{+}$, $\mathbb B_C^{+}$ 
+    is the Borel subgroup (a group of upper triangular
+    symplectic matrices on $\Z_2$), $a_\pi \in A_\pi$, and
+    each coset $A_\pi$ is constructed inserting some free
+    parameters $x_k \in \Z_2$ into the matrix realization
+    $[\pi]$ of the Weyl group $W_n$ of permutations $\pi$: a
+    group of permutation of $2n$ objects, such that if these
+    objects are labeled by natural numbers $1,2,\ldots,2n$,
+    it has that $\pi(i) + \pi(2n+1-i) = 2n+1$, $i =
+    1,\ldots,n$. 
+
+
+    
+\end{document}
