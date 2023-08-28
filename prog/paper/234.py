@@ -16,9 +16,6 @@ FF = f
 def omega(x):
     return exp(I * 2 * pi * int(x.trace()) / p)
 
-# \beta = 0
-# p1 = identity_matrix(d)
-
 # \alpha = 0
 # P_f = F (Fourier matrix)
 F = zero_matrix(SR, d, d)
