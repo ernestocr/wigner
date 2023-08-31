@@ -17,9 +17,11 @@ def curveIntegers(curve):
 
 def plotCurves(curves, title=None):
     fig, ax = plt.subplots()
-    for curve in curves:
-        ax.plot(*zip(*curveIntegers(curve)), marker='o') 
+    labels = ['oo'] + [str(k) for k in F]
+    for i, curve in enumerate(curves):
+        ax.plot(*zip(*curveIntegers(curve)), marker='o', label=labels[i]) 
     plt.title(title)
+    plt.legend()
     plt.show()
 
 def plotCurve(curve):
@@ -45,8 +47,9 @@ def toInt(k):
     return list(F).index(k)
 
 # \beta = \sigma \alpha
-for j in range(7):
+for j in range(1,7):
     curves.append([(k, (x**(j)) * k) for k in F])
+curves.append([(k, k) for k in F])
 
 plotCurves(curves)
 
