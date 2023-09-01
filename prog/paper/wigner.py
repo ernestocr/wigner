@@ -7,9 +7,10 @@ import matplotlib.cm as cm
 
 class Wigner():
 
-    state = None
-    mubs  = None
-    cache = None
+    state  = None
+    mubs   = None
+    cache  = None
+    curves = None
 
     def __init__(self, d, mubs=None, state=None):
         self.d = d
@@ -48,6 +49,9 @@ class Wigner():
         if not self.CheckMubs(mubs):
             raise Exception('MUBs are not valid!')
         self.mubs = mubs
+    
+    def LoadCurves(self, curves):
+        self.curves = curves
 
     def Idx(self, k):
         return list(self.F).index(k)
@@ -62,7 +66,6 @@ class Wigner():
         # Hard coded for 306 (standard mubs)
         # Fourier basis first (X op)
         op = self.Proj(self.mubs[:self.d][:, self.Idx(a)])
-        # Add all operators whose lines contain (a,b)
         for i, k in enumerate(self.F):
             for j, l in enumerate(self.F):
                 v = self.mubs[(i+1)*self.d:(i+2)*self.d][:,j]
@@ -71,11 +74,21 @@ class Wigner():
         return op
     
     def Kernel(self, a, b):
-        pass
+        op = self.Proj(self.mubs[:self.d][:, self.Idx(a)])
+        for l, curve in enumerate(self.curves):
+            for j, k in enumerate(self.F):
+                for t in self.F:
+                    d1 = self.Delta(a, t)
+                    d2 = self.Delta(b, curve(t) + k)
+                    v = self.mubs[(l+1)*self.d:(l+2)*self.d][:,j]
+                    op += d1 * d2 * self.Proj(v)
+        op -= np.eye(self.d)
+        return op
 
     def Wigner(self, a, b):
         return (
-            self.state @ self.PhasePointOperator(a, b)
+            # self.state @ self.PhasePointOperator(a, b)
+            self.state @ self.Kernel(a, b)
         ).trace() / self.d
 
     def WignerMatrix(self, recalc=False):
@@ -120,20 +133,61 @@ def PlotWignerFunction(w):
 
     return (fig, ax)
 
-mubs = np.load('mubs-306.npy')
+# TESTING
+
+F = GF(8, 'x')
+x = F.gen()
+
+# 306
+# mubs = np.load('mubs-306.npy')
+# w = Wigner(8, mubs)
+
+# 162
+# mubs = np.load('mubs-162.npy')
+# w = Wigner(8, mubs)
+# w.LoadCurves([
+#     lambda t: x * t**2 + x * t**4,
+#     lambda t: x * t + x * t**2 + x * t**4,
+#     lambda t: x**2 * t + x * t**2 + x * t**4,
+#     lambda t: x**3 * t + x * t**2 + x * t**4,
+#     lambda t: x**4 * t + x * t**2 + x * t**4,
+#     lambda t: x**5 * t + x * t**2 + x * t**4,
+#     lambda t: x**6 * t + x * t**2 + x * t**4,
+#     lambda t: t + x * t**2 + x * t**4
+# ])
+
+# 234
+mubs = np.load('mubs-234.npy')
 w = Wigner(8, mubs)
+w.LoadCurves([
+    lambda t: 0,
+    lambda t: x**6 * t + x**3 * t**2 + x**5 * t**4,
+    lambda t: x**2 * t + x**5 * t**2 + x**6 * t**4,
+    lambda t: x**4 * t + x**3 * t**2 + x**5 * t**4,
+    lambda t: x**3 * t,
+    lambda t: x**5 * t + x**5 * t**2 + x**6 * t**4,
+    lambda t: x**1 * t + x**2 * t**2 + x**1 * t**4,
+    lambda t: t + x**2 * t**2 + x * t**4
+])
 
 # from utils import checkPhasePointOperators
-
 # ops = []
 # for a in w.F:
 #     for b in w.F:
-#         ops.append(w.PhasePointOperator(a,b))
+#         # ops.append(w.PhasePointOperator(a,b))
+#         ops.append(w.Kernel(a,b))
 # checkPhasePointOperators(ops)
 
-# i = 8
-# w.LoadState(w.Proj(w.mubs[8*i:8*(i+1),0]))
+# Stabilizer states
+for i in range(9):
+    w.LoadState(w.Proj(w.mubs[8*i:8*(i+1),5]))
+    w.WignerMatrix(recalc=True)
+    fig, ax = PlotWignerFunction(w) 
+    plt.show()
+
+# GHZ
 s = np.array([1/np.sqrt(2),0,0,0,0,0,0,1/np.sqrt(2)])
 w.LoadState(w.Proj(s))
+w.WignerMatrix(recalc=True)
 fig, ax = PlotWignerFunction(w) 
 plt.show()

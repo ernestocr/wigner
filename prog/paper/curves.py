@@ -19,9 +19,9 @@ def plotCurves(curves, title=None):
     fig, ax = plt.subplots()
     labels = ['oo'] + [str(k) for k in F]
     for i, curve in enumerate(curves):
-        ax.plot(*zip(*curveIntegers(curve)), marker='o', label=labels[i]) 
+        ax.plot(*zip(*curveIntegers(curve)), marker='o', label=i) 
     plt.title(title)
-    plt.legend()
+    plt.legend(loc='upper right')
     plt.show()
 
 def plotCurve(curve):
@@ -78,7 +78,6 @@ curves.append([(k, x**6 * k + x * k**2 + x * k**4) for k in F])
 # \beta = \alpha + \sigma \apha^2 + \sigma \alpha^4
 curves.append([(k, k + x * k**2 + x * k**4) for k in F])
 
-# %%
 plotCurves(curves)
 # %%
 # (2,3,4)
