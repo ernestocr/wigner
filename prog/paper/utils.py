@@ -23,8 +23,9 @@ d = 2**3 # hardcoded sorry
 
 def checkMUBs(mubs):
     d = mubs.shape[1]
-    for i in range(d+1):
-        for j in range(d+1):
+    n = int(mubs.shape[0] / d) - 1
+    for i in range(n+1):
+        for j in range(n+1):
             for k in range(d):
                 for l in range(d):
                     v1 = mubs[i*d:(i+1)*d,k]
@@ -75,3 +76,24 @@ def checkPhasePointOperators(ops):
                     print(t, i, j)
                     raise Exception('Not orthonormal.')
     print('Operators are orthonormal!')
+
+# For verifying probabilities
+
+def TransitionProb(s1, s2):
+    return np.abs(np.dot(s1, s2.conjugate()))**2
+
+def TestProbs(w, state, F=None):
+    if F == None:
+        d = w.d
+        F = GF(d, 'x')
+
+    for i, l in enumerate(w.curves):
+        for j, k in enumerate(F):
+            pl = lambda t: l(t) + k
+            wp = w.WignerProb(pl)
+            tp = TransitionProb(state, w.mubs[(i+1)*8:(i+2)*8][:,j])
+            if not np.isclose(tp, wp):
+                print(i, j, tp, wp)
+                raise Exception('Probabilities do not match!')
+
+    print('Probabilities match!')

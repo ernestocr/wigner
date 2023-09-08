@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import matplotlib.cm as cm
 
+from utils import TestProbs
+
 class Wigner():
 
     state  = None
@@ -98,11 +100,25 @@ class Wigner():
                 for j, b in enumerate(self.F):
                     m[i,j] = np.real(self.Wigner(a, b))
             # Cache matrix in object
-            self.cache = np.rot90(np.rot90(m, 1).T)
+            # self.cache = np.rot90(np.rot90(m, 1).T)
+            self.cache = m
         return self.cache
+    
+    def WignerProb(self, curve):
+        s = 0
+        w = self.WignerMatrix()
+
+        # ray i <-> mub i+1, curve ij <-> mub i+1, column j ?
+        for i, a in enumerate(F):
+            for j, b in enumerate(F):
+                # delta brute force
+                if b == curve(a):
+                    s += w[i,j]
+        return s
+
 
 def PlotWignerFunction(w):
-    data_array = w.cache
+    data_array = np.rot90(w.cache)
 
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -141,6 +157,16 @@ x = F.gen()
 # 306
 # mubs = np.load('mubs-306.npy')
 # w = Wigner(8, mubs)
+# w.LoadCurves([
+#     lambda t: 0,
+#     lambda t: x * t,
+#     lambda t: x**2 * t,
+#     lambda t: x**3 * t,
+#     lambda t: x**4 * t,
+#     lambda t: x**5 * t,
+#     lambda t: x**6 * t,
+#     lambda t: t
+# ])
 
 # 162
 # mubs = np.load('mubs-162.npy')
@@ -179,15 +205,27 @@ w.LoadCurves([
 # checkPhasePointOperators(ops)
 
 # Stabilizer states
-for i in range(9):
-    w.LoadState(w.Proj(w.mubs[8*i:8*(i+1),5]))
-    w.WignerMatrix(recalc=True)
-    fig, ax = PlotWignerFunction(w) 
-    plt.show()
+# for i in range(9):
+#     w.LoadState(w.Proj(w.mubs[8*i:8*(i+1),0]))
+#     w.WignerMatrix(recalc=True)
+#     fig, ax = PlotWignerFunction(w) 
+#     plt.show()
 
 # GHZ
+# s = np.array([1/np.sqrt(2),0,0,0,0,0,0,1/np.sqrt(2)])
+# w.LoadState(w.Proj(s))
+# w.WignerMatrix(recalc=True)
+# fig, ax = PlotWignerFunction(w) 
+# plt.show()
+
+# Verifying the transition probabilities
+
+# s = mubs[32:40][:,5]
 s = np.array([1/np.sqrt(2),0,0,0,0,0,0,1/np.sqrt(2)])
 w.LoadState(w.Proj(s))
 w.WignerMatrix(recalc=True)
-fig, ax = PlotWignerFunction(w) 
+
+fig, ax = PlotWignerFunction(w)
 plt.show()
+
+# TestProbs(w, s)

@@ -29,7 +29,32 @@ def plotCurve(curve):
     ax.plot(*zip(*curveIntegers(curve)), marker='o')
     ax.grid()
     plt.show()
-
+# %%
+curve = [
+    (F(0), F(0)),
+    (F(0), x**5),
+    (F(1),x),
+    (F(1),x**6),
+    (x,x**2),
+    (x,x**3),
+    (x**2,x**2),
+    (x**2,x**3),
+    (x**3,x**4),
+    (x**3,F(1)),
+    (x**4,F(0)),
+    (x**4,x**5),
+    (x**5,x),
+    (x**5,x**6),
+    (x**6,x**4),
+    (x**6,F(1))
+]
+plotCurve(curve)
+iso = {}
+for c in curve:
+    for b in curve:
+        if (c[0]*b[1] - c[1]*b[0]).trace() == 0:
+            iso.add(c)
+print(iso)
 # %%
 # (3,0,6) (Standard)
 
