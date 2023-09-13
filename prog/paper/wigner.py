@@ -149,12 +149,13 @@ def PlotWignerFunction(w):
 
     return (fig, ax)
 
+# - - - - -- - - - - - - - - - - - - - -- - - - -- - -
 # TESTING
 
-F = GF(8, 'x')
-x = F.gen()
+# F = GF(8, 'x')
+# x = F.gen()
 
-# 306
+# # 306
 # mubs = np.load('mubs-306.npy')
 # w = Wigner(8, mubs)
 # w.LoadCurves([
@@ -183,18 +184,18 @@ x = F.gen()
 # ])
 
 # 234
-mubs = np.load('mubs-234.npy')
-w = Wigner(8, mubs)
-w.LoadCurves([
-    lambda t: 0,
-    lambda t: x**6 * t + x**3 * t**2 + x**5 * t**4,
-    lambda t: x**2 * t + x**5 * t**2 + x**6 * t**4,
-    lambda t: x**4 * t + x**3 * t**2 + x**5 * t**4,
-    lambda t: x**3 * t,
-    lambda t: x**5 * t + x**5 * t**2 + x**6 * t**4,
-    lambda t: x**1 * t + x**2 * t**2 + x**1 * t**4,
-    lambda t: t + x**2 * t**2 + x * t**4
-])
+# mubs = np.load('mubs-234.npy')
+# w = Wigner(8, mubs)
+# w.LoadCurves([
+#     lambda t: 0,
+#     lambda t: x**6 * t + x**3 * t**2 + x**5 * t**4,
+#     lambda t: x**2 * t + x**5 * t**2 + x**6 * t**4,
+#     lambda t: x**4 * t + x**3 * t**2 + x**5 * t**4,
+#     lambda t: x**3 * t,
+#     lambda t: x**5 * t + x**5 * t**2 + x**6 * t**4,
+#     lambda t: x**1 * t + x**2 * t**2 + x**1 * t**4,
+#     lambda t: t + x**2 * t**2 + x * t**4
+# ])
 
 # from utils import checkPhasePointOperators
 # ops = []
@@ -206,7 +207,8 @@ w.LoadCurves([
 
 # Stabilizer states
 # for i in range(9):
-#     w.LoadState(w.Proj(w.mubs[8*i:8*(i+1),0]))
+#     # w.LoadState(w.Proj(w.mubs[8*i:8*(i+1),0]))
+#     w.LoadState(w.Proj(mubs[8*i:8*(i+1),0]))
 #     w.WignerMatrix(recalc=True)
 #     fig, ax = PlotWignerFunction(w) 
 #     plt.show()
@@ -221,11 +223,11 @@ w.LoadCurves([
 # Verifying the transition probabilities
 
 # s = mubs[32:40][:,5]
-s = np.array([1/np.sqrt(2),0,0,0,0,0,0,1/np.sqrt(2)])
-w.LoadState(w.Proj(s))
-w.WignerMatrix(recalc=True)
+# s = np.array([1/np.sqrt(2),0,0,0,0,0,0,1/np.sqrt(2)])
+# w.LoadState(w.Proj(s))
+# w.WignerMatrix(recalc=True)
 
-fig, ax = PlotWignerFunction(w)
-plt.show()
+# fig, ax = PlotWignerFunction(w)
+# plt.show()
 
-# TestProbs(w, s)
+# TestProbs(w, w.Proj(mubs[8*1:8*(1+1),0]))
