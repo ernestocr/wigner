@@ -1,0 +1,350 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.2in]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+
+\title{Wigner function for two rotations}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+  
+  The question to investigate is when or under what
+  conditions does the Wigner function created from MUBs
+  obtained from two rotation operators produce a ``delta
+  function'' for eigenvectors of another set of two rotation
+  MUBs.
+
+  The MUBs in question can be obtained from the rotation
+  operators $Q_g, P_f, V_\xi$ and the Fourier transform $F$.
+  \begin{equation}
+    \ket{\psi_{\xi,\nu}^{(f,g)}}
+    = Q_g P_f V_\xi \ket{\nu},
+    \quad
+    \ket{\phi_{\nu}^{(f,g)}} 
+    = Q_g P_f F \ket{\nu},
+  \end{equation}
+  for adequate functions $f$ and $g$ on the field
+  $GF(p^{n})$, and where $\ket\nu$ is the computational
+  basis labeled by the field elements.
+
+  Such eigenvectors correspond to the curves
+  \begin{equation}
+    \alpha(\mu,\nu)
+    = \mu + g(\mu\xi) + g(f(\mu)) + g(\nu),
+    \quad
+    \beta(\mu,\nu)
+    = \mu\xi + f(\mu) + \nu,
+  \end{equation}
+  and
+  \begin{equation}
+    \alpha(\mu,\nu) = g(\mu) + \nu,
+    \quad
+    \beta(\mu,\nu) = \mu.
+  \end{equation}
+
+  Using the complete set of MUBs we can define the Wigner
+  kernel as:
+  \begin{equation}
+    w_{fg}(\alpha,\beta)
+    = \ket{\phi_{\alpha + g(\beta)}^{(f,g)}}
+    \bra{\phi_{\alpha + g(\beta)}^{(f,g)}}
+    + \sum_{\xi,\nu,\mu}^{} \delta_{\alpha,\mu+g(\mu\xi) +
+    g(f(\mu)) + g(\nu)} \delta_{\beta,\mu\xi+f(\mu)+\nu}
+    \ket{\psi_{\xi,\nu}^{(f,g)}}
+    \bra{\psi_{\xi,\nu}^{(f,g)}}
+    - I.
+  \end{equation}
+
+  Now consider two other functions $f'$ and $g'$ and the
+  MUBs they create. The calculation to be done is the
+  following:
+  \begin{equation}
+    \braket{
+      \psi_{\xi',\nu'}^{(f',g')}
+      |w_{fg}(\alpha,\beta)|
+      \psi_{\xi',\nu'}^{(f',g')}
+    }.
+  \end{equation}
+
+  By linearility we can tackle the problem in three terms.
+  Since the eigenvectors are orthonormal the last term of
+  the inner product evaluates to 1. Now let's consider the
+  first term of the Wigner kernel.
+
+  \begin{align}
+    \braket{
+      \psi_{\xi',\nu'}^{(f',g')}
+      |\phi_{\alpha + g(\beta)}^{(f,g)}
+    }
+    \braket{
+      \phi_{\alpha + g(\beta)}^{(f,g)}
+      |\psi_{\xi',\nu'}^{(f',g')}
+    }
+    &= \left|
+    \braket{
+      \psi_{\xi',\nu'}^{(f',g')}
+      |\phi_{\alpha + g(\beta)}^{(f,g)}
+    }
+    \right|^2.
+  \end{align}
+  \begin{align}
+    \braket{
+      \psi_{\xi',\nu'}^{(f',g')}
+      |\phi_{\alpha + g(\beta)}^{(f,g)}
+    }
+    &= \bra{\nu'}V_{\xi'}^* P_{f'}^* Q_{g'}^*
+    Q_g P_f F \ket{\alpha + g(\beta)} \\
+    &= \bra{\nu'}V_{\xi'}^* P_{f'}^* Q_{g'}^*
+    Q_g P_f \ket{\widetilde{\alpha + g(\beta)}} \\
+    &= \bra{\nu'}V_{\xi'}^* P_{f'}^* Q_{g'}^*
+    Q_g \left(
+      \sum_{\kappa}^{} c_{\kappa}^{(f)}
+      \ket{\tilde \kappa}
+      \braket{\tilde \kappa|
+      \widetilde{\alpha+g(\beta)}}
+    \right) \\
+    &= \bra{\nu'}V_{\xi'}^* P_{f'}^* Q_{g'}^*
+    Q_g c_{\alpha+g(\beta)}^{(f)}
+      \ket{\widetilde{\alpha+g(\beta)}} \\
+    &= \bra{\nu'}V_{\xi'}^* P_{f'}^* Q_{g'}^*
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa}^{} c_{\kappa}^{(f)} \ket\kappa
+      \braket{\kappa|\widetilde{\alpha+g(\beta)}}
+    \right) \\
+    &= \bra{\nu'}V_{\xi'}^* P_{f'}^* Q_{g'}^*
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa}^{} c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      \ket\kappa
+    \right) \\
+    &= \bra{\nu'}V_{\xi'}^* P_{f'}^* 
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa}^{} c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      \left(
+        \sum_{\eta}^{} c_{\eta}^{(g')}
+        \ket\eta\braket{\eta|\kappa}
+      \right) 
+    \right) \\
+    &= \bra{\nu'}V_{\xi'}^* P_{f'}^* 
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa}^{} c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      c_{\kappa}^{(g')} \ket\kappa 
+    \right) \\
+    &= \bra{\nu'}V_{\xi'}^*  
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa}^{} c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      c_{\kappa}^{(g')} P_{f'}^* \ket\kappa 
+    \right) \\
+    &= \bra{\nu'}V_{\xi'}^*  
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa}^{} c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      c_{\kappa}^{(g')} \left( 
+        \sum_{\eta}^{} c_{\eta}^{*(f')} 
+        \ket{\tilde\eta}\braket{\tilde\eta|\kappa}
+      \right)  
+    \right) \\
+    &= \bra{\nu'}V_{\xi'}^*  
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa, \eta}^{} c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      c_{\kappa}^{(g')} 
+         c_{\eta}^{*(f')} 
+        \chi^{*}(\eta\kappa)
+        \ket{\tilde\eta}
+    \right) \\
+    &= \bra{\nu'}  
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa, \eta}^{} c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      c_{\kappa}^{(g')} 
+         c_{\eta}^{*(f')} 
+        \chi^{*}(\eta\kappa)
+        \left( 
+          \sum_{\sigma}^{} c_{\sigma,\xi'}^{*} \ket{\tilde
+          \sigma}\braket{\tilde\sigma|\tilde\eta}
+        \right)  
+    \right) \\
+    &= \bra{\nu'}  
+    c_{\alpha+g(\beta)}^{(f)}
+    \left(
+      \sum_{\kappa, \eta}^{}
+      c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      c_{\kappa}^{(g')} 
+      c_{\eta}^{*(f')} 
+      \chi^{*}(\eta\kappa)
+      c_{\eta,\xi'}^{*}
+      \ket{\tilde\eta}
+    \right) \\
+    &= c_{\alpha+g(\beta)}^{(f)}
+      \sum_{\kappa, \eta}^{} c_{\kappa}^{(f)}
+      \chi(\kappa\alpha + \kappa g(\beta))
+      c_{\kappa}^{(g')} 
+         c_{\eta}^{*(f')} 
+        \chi^{*}(\eta\kappa)
+          c_{\eta,\xi'}^{*}
+          \braket{\nu'|\tilde \eta} \\
+    &= \sum_{\kappa, \eta}^{}
+    c_{\alpha+g(\beta)}^{(f)}
+    c_{\kappa}^{(f)}
+    \chi(\kappa\alpha + \kappa g(\beta))
+    c_{\kappa}^{(g')} 
+    c_{\eta}^{*(f')} 
+    \chi^{*}(\eta\kappa)
+    c_{\eta,\xi'}^{*}
+    \chi(v'\eta). \\
+    &= \sum_{\kappa, \eta}^{} 
+    c_{\alpha+g(\beta)}^{(f)}
+    c_{\kappa}^{(f)}
+    c_{\kappa}^{(g')} 
+    c_{\eta}^{*(f')} 
+    c_{\eta,\xi'}^{*}
+    \chi(\kappa\alpha + \kappa g(\beta) + \eta\kappa +
+    \nu'\eta) \\
+    &= \sum_{\kappa,\eta}
+    c^{(f)}_{\alpha+g(\beta)+\kappa}\chi(\kappa f(\alpha +
+    g(\beta))) \ldots
+  \end{align}
+  As we can see, this expression is always non-negative.
+
+  Oh well, on to the middle term.
+
+  \begin{align}
+    \bra{\psi_{\xi',\nu'}^{(f',g')}}\cdots
+    \ket{\psi_{\xi',\nu'}^{(f',g')}} 
+    &= \sum_{\xi,\nu,\mu}^{} \delta_{\alpha,\mu+g(\mu\xi) +
+    g(f(\mu)) + g(\nu)} \delta_{\beta,\mu\xi+f(\mu)+\nu}
+    \braket{\psi_{\xi',\nu'}^{(f',g')}|
+    \psi_{\xi,\nu}^{(f,g)}}
+    \braket{\psi_{\xi,\nu}^{(f,g)}|
+    \psi_{\xi',\nu'}^{(f',g')}}.
+  \end{align}
+
+  Let's focus again on the inner product of vectors from
+  different MUBs.
+
+  \begin{align}
+    \braket{\psi_{\xi',\nu'}^{(f',g')}|\psi_{\xi,\nu}^{(f,g)}}
+    &= \bra{\nu'} V_{\xi'}^{*} P_{f'}^{*} Q_{g'}^{*}
+    Q_{g} P_{f} V_{\xi} \ket{\nu} \\
+    &= \bra{\psi_{\xi',\nu'}^{(f',g')}}
+    Q_g P_f V_\xi \ket\nu \\
+    &= \bra{\psi_{\xi',\nu'}^{(f',g')}}
+    Q_g P_f
+    \left( \sum_{\kappa}^{} c_{\kappa,\xi}
+      \ket{\tilde\kappa}\braket{\tilde\kappa|\nu} \right) \\
+    &= \bra{\psi_{\xi',\nu'}^{(f',g')}}
+    Q_g
+    \left( \sum_{\kappa}^{} c_{\kappa,\xi}
+      \chi(\kappa\nu) P_f \ket{\tilde\kappa}  \right) \\
+    &= \bra{\psi_{\xi',\nu'}^{(f',g')}} Q_g
+    \left( \sum_{\kappa}^{} c_{\kappa,\xi}
+      \chi(\kappa\nu) \left( 
+        \sum_{\eta}^{} c_{\eta}^{(f)}
+        \ket{\tilde\eta}\braket{\tilde\eta|\tilde\kappa}
+    \right) \right) \\
+    &= \bra{\psi_{\xi',\nu'}^{(f',g')}} 
+    \left( \sum_{\kappa}^{} c_{\kappa,\xi}
+      \chi(\kappa\nu) 
+        c_{\kappa}^{(f)}
+        Q_g\ket{\tilde\kappa}
+    \right) \\
+    &= \bra{\psi_{\xi',\nu'}^{(f',g')}} 
+    \left( \sum_{\kappa}^{} c_{\kappa,\xi}
+      \chi(\kappa\nu) 
+        c_{\kappa}^{(f)}
+        \left( 
+          \sum_{\eta}^{} c_{\eta}^{(g)}
+          \ket{\eta}\braket{\eta|\tilde\kappa}
+        \right) 
+    \right) \\
+    &= \bra{\psi_{\xi',\nu'}^{(f',g')}} 
+    \left( \sum_{\kappa}^{} c_{\kappa,\xi}
+      \chi(\kappa\nu) 
+        c_{\kappa}^{(f)}
+        \left( 
+          \sum_{\eta}^{} c_{\eta}^{(g)}
+          \chi(\eta\kappa)^{*} \ket{\eta}
+        \right) 
+    \right) \\
+    &=
+    \bra{\psi_{\xi',\nu'}^{(f',g')}}
+    \sum_{\kappa, \eta}^{} 
+    c_{\kappa,\xi} 
+    c_{\kappa}^{(f)}
+    c_{\eta}^{(g)}
+    \chi(\kappa(\nu+\eta))
+    \ket{\eta} \\
+    &=
+    \left( 
+      \sum_{\omega, \sigma}^{} 
+      c_{\omega,\xi'}^{*} 
+      c_{\omega}^{(f')*}
+      c_{\sigma}^{(g')*}
+      \chi(\omega(\nu'+\sigma))^{*}
+      \bra{\sigma}
+    \right) 
+    \left( 
+      \sum_{\kappa, \eta}^{} 
+      c_{\kappa,\xi} 
+      c_{\kappa}^{(f)}
+      c_{\eta}^{(g)}
+      \chi(\kappa(\nu+\eta))
+      \ket{\eta}
+    \right) \\
+    &= 
+    \sum_{\kappa,\eta,\omega,\sigma}^{} 
+    c_{\omega,\xi'}^{*} 
+    c_{\omega}^{(f')*}
+    c_{\sigma}^{(g')*}
+    \chi(\omega(\nu'+\sigma))^{*}
+    c_{\kappa,\xi} 
+    c_{\kappa}^{(f)}
+    c_{\eta}^{(g)}
+    \chi(\kappa(\nu+\eta))
+    \braket{\sigma|\eta} \\
+    &= 
+    \sum_{\kappa,\eta,\omega}^{} 
+    c_{\omega,\xi'}^{*} 
+    c_{\omega}^{(f')*}
+    c_{\eta}^{(g')*}
+    \chi(\omega(\nu'+\eta))^{*}
+    c_{\kappa,\xi} 
+    c_{\kappa}^{(f)}
+    c_{\eta}^{(g)}
+    \chi(\kappa(\nu+\eta)) \\
+    &= \sum_{\kappa,\eta,\omega}^{} 
+    c_{\omega,\xi'}^{*} 
+    c_{\kappa,\xi} 
+    c_{\omega}^{*(f')}
+    c_{\kappa}^{(f)}
+    c_{\eta}^{*(g')}
+    c_{\eta}^{(g)}
+    \chi\left( \omega\nu' + \kappa\nu + \omega\eta +
+    \kappa\eta \right). 
+  \end{align}
+\end{document}

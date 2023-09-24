@@ -1,3 +1,5 @@
+# Testing Gauss sums
+
 from sage.all import *
 
 p = 3

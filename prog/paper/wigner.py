@@ -152,8 +152,8 @@ def PlotWignerFunction(w):
 # - - - - -- - - - - - - - - - - - - - -- - - - -- - -
 # TESTING
 
-# F = GF(8, 'x')
-# x = F.gen()
+F = GF(8, 'x')
+x = F.gen()
 
 # # 306
 # mubs = np.load('mubs-306.npy')
@@ -170,18 +170,18 @@ def PlotWignerFunction(w):
 # ])
 
 # 162
-# mubs = np.load('mubs-162.npy')
-# w = Wigner(8, mubs)
-# w.LoadCurves([
-#     lambda t: x * t**2 + x * t**4,
-#     lambda t: x * t + x * t**2 + x * t**4,
-#     lambda t: x**2 * t + x * t**2 + x * t**4,
-#     lambda t: x**3 * t + x * t**2 + x * t**4,
-#     lambda t: x**4 * t + x * t**2 + x * t**4,
-#     lambda t: x**5 * t + x * t**2 + x * t**4,
-#     lambda t: x**6 * t + x * t**2 + x * t**4,
-#     lambda t: t + x * t**2 + x * t**4
-# ])
+mubs = np.load('mubs-162.npy')
+w = Wigner(8, mubs)
+w.LoadCurves([
+    lambda t: x * t**2 + x * t**4,
+    lambda t: x * t + x * t**2 + x * t**4,
+    lambda t: x**2 * t + x * t**2 + x * t**4,
+    lambda t: x**3 * t + x * t**2 + x * t**4,
+    lambda t: x**4 * t + x * t**2 + x * t**4,
+    lambda t: x**5 * t + x * t**2 + x * t**4,
+    lambda t: x**6 * t + x * t**2 + x * t**4,
+    lambda t: t + x * t**2 + x * t**4
+])
 
 # 234
 # mubs = np.load('mubs-234.npy')
@@ -231,3 +231,10 @@ def PlotWignerFunction(w):
 # plt.show()
 
 # TestProbs(w, w.Proj(mubs[8*1:8*(1+1),0]))
+
+# Stabilizer for Z operators
+s = np.array([1,0,0,0,0,0,0,0])
+w.LoadState(w.Proj(s))
+w.WignerMatrix(recalc=True)
+fig, ax = PlotWignerFunction(w)
+plt.show()

@@ -1,0 +1,284 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Friday, September 08, 2023 16:35:01}
+%TCIDATA{LastRevised=Thursday, September 14, 2023 12:45:16}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+The standard WF%
+\begin{eqnarray}
+w\left( \alpha ,\beta \right)  &=&F\left\vert \alpha \right\rangle
+\left\langle \alpha \right\vert F^{\dag }+\dsum\limits_{\xi ,\nu }\delta
+_{\beta ,\alpha \xi +\nu }V_{\xi }\left\vert \nu \right\rangle \left\langle
+\nu \right\vert V_{\xi }^{\dag }-I,  \label{_I001c} \\
+W\left( \alpha ,\beta \right)  &=&\left\langle \alpha \right\vert F^{\dag
+}\rho F\left\vert \alpha \right\rangle +\dsum\limits_{\xi ,\nu }\delta
+_{\beta ,\alpha \xi +\nu }\left\langle \nu \right\vert V_{\xi }^{\dag }\rho
+V_{\xi }\left\vert \nu \right\rangle -1,
+\end{eqnarray}%
+P-rotation%
+\begin{equation*}
+P_{f}Z_{\alpha }P_{f}^{\dag }=\phi _{f}\left( \alpha \right) Z_{\alpha
+}X_{f\left( \alpha \right) },\qquad P_{f}=\dsum\limits_{\kappa }c_{\kappa
+}^{\left( f\right) }\left\vert \widetilde{\kappa }\right\rangle \left\langle 
+\widetilde{\kappa }\right\vert ,\qquad \left[ P_{f},X_{\beta }\right] =0
+\end{equation*}
+
+\begin{equation*}
+P_{f}Z_{\alpha }P_{f}^{\dag }=\dsum\limits_{\kappa }c_{\kappa +\alpha
+}^{\left( f\right) }c_{\kappa }^{\ast \left( f\right) }\left\vert \widetilde{%
+\kappa +\alpha }\right\rangle \left\langle \widetilde{\kappa }\right\vert 
+\end{equation*}
+
+\begin{equation*}
+\phi _{f}\left( \alpha \right) Z_{\alpha }X_{f\left( \alpha \right) }=\phi
+_{f}\left( \alpha \right) \dsum\limits_{\kappa }\chi \left( \kappa f\left(
+\alpha \right) \right) \left\vert \widetilde{\kappa +\alpha }\right\rangle
+\left\langle \widetilde{\kappa }\right\vert 
+\end{equation*}
+
+\begin{eqnarray}
+c_{\kappa +\alpha }^{\left( f\right) }c_{\kappa }^{\ast \left( f\right) }
+&=&\phi _{f}\left( \alpha \right) \chi \left( \kappa f\left( \alpha \right)
+\right)  \notag \\
+c_{0}^{\left( f\right) } &=&1,
+\end{eqnarray}
+
+at $\kappa =\alpha $
+
+\begin{equation*}
+c_{\kappa }^{\ast \left( f\right) }=\phi _{f}\left( \kappa \right) \chi
+\left( \kappa f\left( \kappa \right) \right) 
+\end{equation*}
+
+\begin{equation*}
+c_{\alpha }^{\left( f\right) }c_{\kappa }^{\left( f\right) }=c_{\alpha
++\kappa }^{\left( f\right) }\chi \left( \kappa f\left( \alpha \right)
+\right) 
+\end{equation*}
+
+Q-rotation
+
+\begin{equation*}
+Q_{g}X_{\beta }Q_{g}^{\dag }=\psi _{g}\left( \beta \right) Z_{g\left( \beta
+\right) }X_{\beta },\qquad Q_{g}=\dsum\limits_{\kappa }c_{\kappa }^{\left(
+g\right) }\left\vert \kappa \right\rangle \left\langle \kappa \right\vert
+,\qquad \left[ Q_{g},Z_{\alpha }\right] =0 
+\end{equation*}
+
+\begin{equation*}
+Q_{g}X_{\beta }Q_{g}^{\dag }=\dsum\limits_{\kappa }c_{\kappa +\beta
+}^{\left( g\right) }c_{\kappa }^{\ast \left( g\right) }\left\vert \kappa
++\beta \right\rangle \left\langle \kappa \right\vert 
+\end{equation*}
+
+\begin{equation*}
+\psi _{g}\left( \beta \right) Z_{g\left( \beta \right) }X_{\beta }=\psi
+_{g}\left( \beta \right) \dsum\limits_{\kappa }\chi \left( \kappa g\left(
+\beta \right) +\beta g\left( \beta \right) \right) \left\vert \kappa +\beta
+\right\rangle \left\langle \kappa \right\vert 
+\end{equation*}
+
+\begin{eqnarray}
+c_{\kappa +\beta }^{\left( g\right) }c_{\kappa }^{\ast \left( g\right) }
+&=&\psi _{g}\left( \beta \right) \chi \left( \kappa g\left( \beta \right)
++\beta g\left( \beta \right) \right)  \notag \\
+c_{0}^{\left( g\right) } &=&1
+\end{eqnarray}
+
+at $\kappa =\beta $
+
+\begin{equation*}
+c_{\kappa }^{\ast \left( g\right) }=\psi _{g}\left( \kappa \right) 
+\end{equation*}%
+MUBs 
+\begin{equation}
+\left\vert \psi _{\nu }^{\left( f,g\right) }\right\rangle
+=Q_{g}P_{f}\left\vert \nu \right\rangle ,  \notag
+\end{equation}
+
+\begin{gather}
+Z_{\alpha }\left\vert \nu \right\rangle =\chi (\alpha \nu )\left\vert \nu
+\right\rangle   \notag \\
+Q_{g}P_{f}Z_{\alpha }P_{f}^{\dag }Q_{g}^{\dag }Q_{g}P_{f}\left\vert \nu
+\right\rangle =\chi (\alpha \nu )Q_{g}P_{f}\left\vert \nu \right\rangle  
+\notag \\
+Q_{g}P_{f}Z_{\alpha }P_{f}^{\dag }Q_{g}^{\dag }\left\vert \psi _{\nu
+}^{\left( f,g\right) }\right\rangle =\chi (\alpha \nu )\left\vert \psi _{\nu
+}^{\left( f,g\right) }\right\rangle   \notag \\
+\\
+\left[ c_{\alpha }^{\ast \left( f\right) }\chi \left( \alpha f\left( \alpha
+\right) \right) \right] Q_{g}Z_{\alpha }X_{f\left( \alpha \right)
+}Q_{g}^{\dag }\left\vert \psi _{\nu }^{\left( f,g\right) }\right\rangle
+=\chi (\alpha \nu )\left\vert \psi _{\nu }^{\left( f,g\right) }\right\rangle 
+\notag \\
+\left[ c_{\alpha }^{\ast \left( f\right) }\chi \left( \alpha f\left( \alpha
+\right) \right) c_{f\left( \alpha \right) }^{\ast \left( g\right) }\right]
+Z_{\alpha +g\left( f\left( \alpha \right) \right) }X_{f\left( \alpha \right)
+}\left\vert \psi _{\nu }^{\left( f,g\right) }\right\rangle =\chi (\alpha \nu
+)\left\vert \psi _{\nu }^{\left( f,g\right) }\right\rangle   \notag \\
+Z_{\alpha +g\left( f\left( \alpha \right) \right) }X_{f\left( \alpha \right)
+}\left\vert \psi _{\nu }^{\left( f,g\right) }\right\rangle =\left[ c_{\alpha
+}^{\left( f\right) }c_{f\left( \alpha \right) }^{\left( g\right) }\chi
+\left( \alpha f\left( \alpha \right) +\alpha \nu \right) \right] \left\vert
+\psi _{\nu }^{\left( f,g\right) }\right\rangle ,
+\end{gather}%
+new curve: 
+\begin{eqnarray}
+\alpha  &=&\mu +g\left( f\left( \mu \right) \right) ,  \label{curve1} \\
+\beta  &=&f\left( \mu \right)   \notag
+\end{eqnarray}%
+if $f\left( \mu \right) $ is invertible:%
+\begin{equation*}
+\alpha =f^{-1}(\beta )+g\left( \beta \right) 
+\end{equation*}
+
+MUBs form the standard MUB%
+\begin{align*}
+\left\vert \psi _{\xi ,\nu }^{\left( f,g\right) }\right\rangle &
+=Q_{g}P_{f}V_{\xi }\left\vert \nu \right\rangle ,\qquad \\
+\left\vert \phi _{\nu }^{\left( f,g\right) }\right\rangle &
+=Q_{g}P_{f}F\left\vert \nu \right\rangle ,
+\end{align*}
+
+$V_{\xi }$ ray rotation operator
+
+\begin{equation*}
+V_{\xi }Z_{\alpha }V_{\xi }^{\dag }=c_{\alpha ,\xi }^{\ast }\chi \left( \xi
+\alpha ^{2}\right) Z_{\alpha }X_{\alpha \xi },\qquad V_{\xi
+}=\dsum\limits_{\kappa }c_{\kappa ,\xi }\left\vert \widetilde{\kappa }%
+\right\rangle \left\langle \widetilde{\kappa }\right\vert ,\qquad c_{\alpha
+,\xi }c_{\kappa ,\xi }=c_{\alpha +\kappa ,\xi }\chi \left( \xi \kappa \alpha
+\right) ,
+\end{equation*}%
+\begin{gather*}
+Z_{\alpha }X_{\alpha \xi }V_{\xi }\left\vert \nu \right\rangle =\lambda
+_{\alpha ,\nu }^{\left( \xi \right) }V_{\xi }\left\vert \nu \right\rangle
+,\quad \lambda _{\alpha ,\nu }^{\left( \xi \right) }=\chi (\alpha \nu
+)c_{\alpha ,\xi }\chi \left( \xi \alpha ^{2}\right)  \\
+Q_{g}P_{f}Z_{\alpha }X_{\alpha \xi }P_{f}^{\dag }Q_{g}^{\dag
+}Q_{g}P_{f}V_{\xi }\left\vert \nu \right\rangle =\lambda _{\alpha ,\nu
+}^{\left( \xi \right) }Q_{g}P_{f}V_{\xi }\left\vert \nu \right\rangle  \\
+Q_{g}P_{f}Z_{\alpha }X_{\alpha \xi }P_{f}^{\dag }Q_{g}^{\dag }\left\vert
+\psi _{\xi ,\nu }^{\left( f,g\right) }\right\rangle =\lambda _{\alpha ,\nu
+}^{\left( \xi \right) }\left\vert \psi _{\xi ,\nu }^{\left( f,g\right)
+}\right\rangle  \\
+Q_{g}Z_{\alpha }X_{\alpha \xi +f\left( \alpha \right) }Q_{g}^{\dag
+}\left\vert \psi _{\xi ,\nu }^{\left( f,g\right) }\right\rangle =\lambda
+_{\alpha ,\nu }^{\left( \xi \right) }c_{\alpha }^{\left( f\right) }\chi
+\left( \alpha f\left( \alpha \right) \right) \left\vert \psi _{\xi ,\nu
+}^{\left( f,g\right) }\right\rangle  \\
+Z_{\alpha +g\left( \alpha \xi +f\left( \alpha \right) \right) }X_{\alpha \xi
++f\left( \alpha \right) }\left\vert \psi _{\xi ,\nu }^{\left( f,g\right)
+}\right\rangle =\lambda _{\alpha ,\nu }^{\left( \xi \right) }c_{\alpha
+}^{\left( f\right) }\chi \left( \alpha f\left( \alpha \right) \right)
+c_{\alpha \xi +f\left( \alpha \right) }^{\left( g\right) }\left\vert \psi
+_{\xi ,\nu }^{\left( f,g\right) }\right\rangle  \\
+Z_{\alpha +g\left( \alpha \xi \right) +g\left( f\left( \alpha \right)
+\right) }X_{\alpha \xi +f\left( \alpha \right) }\left\vert \psi _{\xi ,\nu
+}^{\left( f,g\right) }\right\rangle =\lambda _{\alpha ,\nu }^{\left( \xi
+\right) }c_{\alpha }^{\left( f\right) }c_{\alpha \xi +f\left( \alpha \right)
+}^{\left( g\right) }\chi \left( \alpha f\left( \alpha \right) \right)
+\left\vert \psi _{\xi ,\nu }^{\left( f,g\right) }\right\rangle ,
+\end{gather*}%
+parallel curves (\ref{curve1})
+
+\begin{eqnarray}
+\alpha \left( \mu ,\nu \right)  &=&\mu +g\left( \mu \xi \right) +g\left(
+f\left( \mu \right) \right) +g\left( \nu \right) ,\beta \left( \mu ,\nu
+\right) =\mu \xi +f\left( \mu \right) +\nu \Leftrightarrow \left\vert \psi
+_{\xi ,\nu }^{\left( f,g\right) }\right\rangle   \label{PC} \\
+\alpha \left( \mu \right)  &=&g\left( \mu \right) +\nu ,\beta \left( \mu
+\right) =\mu \Leftrightarrow \left\vert \phi _{\nu }^{\left( f,g\right)
+}\right\rangle 
+\end{eqnarray}
+
+curved based Wigner kernel
+
+\begin{equation*}
+w_{fg}\left( \alpha ,\beta \right) =\left\vert \phi _{\alpha +g\left( \beta
+\right) }^{\left( f,g\right) }\right\rangle \left\langle \phi _{\alpha
++g\left( \beta \right) }^{\left( f,g\right) }\right\vert +\dsum\limits_{\xi
+,\nu ,\mu }\delta _{\alpha ,\mu +g\left( \mu \xi \right) +g\left( f\left(
+\mu \right) \right) +g\left( \nu \right) }\delta _{\beta ,\mu \xi +f\left(
+\mu \right) +\nu }\left\vert \psi _{\xi ,\nu }^{\left( f,g\right)
+}\right\rangle \left\langle \psi _{\xi ,\nu }^{\left( f,g\right)
+}\right\vert -1
+\end{equation*}
+
+tomography condition%
+\begin{eqnarray*}
+\dsum\limits_{\epsilon }W_{\rho }\left( \epsilon +g\left( \epsilon \xi
+^{\prime }\right) +g\left( f\left( \epsilon \right) \right) +g\left( \nu
+^{\prime }\right) ,\epsilon \xi ^{\prime }+f\left( \epsilon \right) +\nu
+^{\prime }\right)  &=&2^{n}\left\langle \psi _{\xi ^{\prime },\nu ^{\prime
+}}^{\left( f,g\right) }\right\vert \rho \left\vert \psi _{\xi ^{\prime },\nu
+^{\prime }}^{\left( f,g\right) }\right\rangle , \\
+\dsum\limits_{\epsilon }W_{\rho }\left( g\left( \epsilon \right) +\nu
+^{\prime },\epsilon \right)  &=&2^{n}\left\langle \phi _{\nu ^{\prime
+}}^{\left( f,g\right) }\right\vert \rho \left\vert \phi _{\nu ^{\prime
+}}^{\left( f,g\right) }\right\rangle 
+\end{eqnarray*}%
+monomial form%
+\begin{equation*}
+w\left( \alpha ,\beta \right) =\frac{1}{2^{n}}\dsum\limits_{\gamma ,\delta
+}\phi ^{\prime }\left( \gamma ,\delta \right) \chi \left( \gamma \beta
++\delta \alpha \right) Z_{\gamma }X_{\delta }.
+\end{equation*}
+\begin{eqnarray*}
+\phi ^{\prime }\left( \gamma ,\delta \right)  &=&\QATOPD\{ . {c_{\delta
+}^{\ast \left( g\right) }c_{\gamma +g\left( \delta \right) }^{\left(
+f\right) }\phi \left( \gamma +g\left( \delta \right) ,\delta +f\left( \gamma
++g\left( \delta \right) \right) \right) ,\qquad \gamma \neq g\left( \delta
+\right) }{c_{\delta }^{\ast \left( g\right) },\qquad \gamma =g\left( \delta
+\right) }, \\
+\phi \left( \gamma ,\delta \right)  &=&\QATOPD\{ . {c_{\gamma ,\delta \gamma
+^{-1}},\qquad \gamma \neq 0}{1,\qquad \gamma =0} \\
+c_{\alpha ,\xi }c_{\kappa ,\xi } &=&c_{\alpha +\kappa ,\xi }\chi \left( \xi
+\kappa \alpha \right) ,
+\end{eqnarray*}
+
+en que caso se da:%
+\begin{equation*}
+\langle \psi _{\xi ^{\prime },\nu ^{\prime }}^{\left( f^{\prime },g^{\prime
+}\right) }|w_{fg}\left( \alpha ,\beta \right) |\psi _{\xi ^{\prime },\nu
+^{\prime }}^{\left( f^{\prime },g^{\prime }\right) }\rangle =\text{ delta
+function}
+\end{equation*}
+
+\end{document}
