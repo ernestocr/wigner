@@ -102,7 +102,7 @@ class Wigner():
             # Cache matrix in object
             # self.cache = np.rot90(np.rot90(m, 1).T)
             self.cache = m
-        return self.cache
+        # return self.cache
     
     def WignerProb(self, curve):
         s = 0
@@ -149,6 +149,11 @@ def PlotWignerFunction(w):
 
     return (fig, ax)
 
+def WW(w, v):
+    w.LoadState(w.Proj(v))
+    w.WignerMatrix(recalc=True)
+    return np.round(w.cache, 3)
+
 # - - - - -- - - - - - - - - - - - - - -- - - - -- - -
 # TESTING
 
@@ -156,35 +161,36 @@ F = GF(8, 'x')
 x = F.gen()
 
 # # 306
-# mubs = np.load('mubs-306.npy')
-# w = Wigner(8, mubs)
-# w.LoadCurves([
-#     lambda t: 0,
-#     lambda t: x * t,
-#     lambda t: x**2 * t,
-#     lambda t: x**3 * t,
-#     lambda t: x**4 * t,
-#     lambda t: x**5 * t,
-#     lambda t: x**6 * t,
-#     lambda t: t
-# ])
-
-# 162
-mubs = np.load('mubs-162.npy')
+# mubs = np.load('andres/mubs-306.npy')
+mubs = np.load('sainz/306.npy')
 w = Wigner(8, mubs)
 w.LoadCurves([
-    lambda t: x * t**2 + x * t**4,
-    lambda t: x * t + x * t**2 + x * t**4,
-    lambda t: x**2 * t + x * t**2 + x * t**4,
-    lambda t: x**3 * t + x * t**2 + x * t**4,
-    lambda t: x**4 * t + x * t**2 + x * t**4,
-    lambda t: x**5 * t + x * t**2 + x * t**4,
-    lambda t: x**6 * t + x * t**2 + x * t**4,
-    lambda t: t + x * t**2 + x * t**4
+    lambda t: 0,
+    lambda t: x * t,
+    lambda t: x**2 * t,
+    lambda t: x**3 * t,
+    lambda t: x**4 * t,
+    lambda t: x**5 * t,
+    lambda t: x**6 * t,
+    lambda t: t
 ])
 
+# 162
+# mubs = np.load('andres/mubs-162.npy')
+# w = Wigner(8, mubs)
+# w.LoadCurves([
+#     lambda t: t**2 + t**4,
+#     lambda t: x**1 * t + t**2 + t**4,
+#     lambda t: x**2 * t + t**2 + t**4,
+#     lambda t: x**3 * t + t**2 + t**4,
+#     lambda t: x**4 * t + t**2 + t**4,
+#     lambda t: x**5 * t + t**2 + t**4,
+#     lambda t: x**6 * t + t**2 + t**4,
+#     lambda t: x**0 * t + t**2 + t**4
+# ])
+
 # 234
-# mubs = np.load('mubs-234.npy')
+# mubs = np.load('andres/mubs-234.npy')
 # w = Wigner(8, mubs)
 # w.LoadCurves([
 #     lambda t: 0,
@@ -205,36 +211,8 @@ w.LoadCurves([
 #         ops.append(w.Kernel(a,b))
 # checkPhasePointOperators(ops)
 
-# Stabilizer states
-# for i in range(9):
-#     # w.LoadState(w.Proj(w.mubs[8*i:8*(i+1),0]))
-#     w.LoadState(w.Proj(mubs[8*i:8*(i+1),0]))
-#     w.WignerMatrix(recalc=True)
-#     fig, ax = PlotWignerFunction(w) 
-#     plt.show()
-
 # GHZ
-# s = np.array([1/np.sqrt(2),0,0,0,0,0,0,1/np.sqrt(2)])
-# w.LoadState(w.Proj(s))
-# w.WignerMatrix(recalc=True)
+s = np.array([1/np.sqrt(2),0,0,0,0,0,0,1/np.sqrt(2)])
+print(WW(w, s))
 # fig, ax = PlotWignerFunction(w) 
 # plt.show()
-
-# Verifying the transition probabilities
-
-# s = mubs[32:40][:,5]
-# s = np.array([1/np.sqrt(2),0,0,0,0,0,0,1/np.sqrt(2)])
-# w.LoadState(w.Proj(s))
-# w.WignerMatrix(recalc=True)
-
-# fig, ax = PlotWignerFunction(w)
-# plt.show()
-
-# TestProbs(w, w.Proj(mubs[8*1:8*(1+1),0]))
-
-# Stabilizer for Z operators
-s = np.array([1,0,0,0,0,0,0,0])
-w.LoadState(w.Proj(s))
-w.WignerMatrix(recalc=True)
-fig, ax = PlotWignerFunction(w)
-plt.show()
