@@ -1,57 +1,32 @@
 from sage.all import *
 import numpy as np
 
-d = 2**3 # hardcoded sorry
+# d = 2**5 # hardcoded sorry
 
-# def checkON(A):
-#     return A.conjugate_transpose() * A == identity_matrix(d)
+def checkON(A):
+    d = A.shape[0]
+    return np.allclose(A.conj().T @ A, np.eye(d))
 
-# def checkMUB(A, B):
-#     m = (A.conjugate_transpose() * B).apply_map(lambda t: abs(t))
-#     return m == (1/sqrt(d) * ones_matrix(d))
-
-# def checkMUBs(mubs):
-#     for A in mubs:
-#         for B in mubs:
-#             if A == B:
-#                 if not checkON(A):
-#                     raise Exception('Found a basis that is not ON!')
-#             else:
-#                 if not checkMUB(A, B):
-#                     raise Exception('Found two basis that are not MUB!')
-#     print('All is good!')
+def checkMUB(A, B):
+    d = A.shape[0]
+    m = np.abs(A.conj().T @ B)**2
+    return np.allclose(m, np.ones((d, d)) / d)
 
 def checkMUBs(mubs):
-    d = mubs.shape[1]
-    n = int(mubs.shape[0] / d) - 1
-    for i in range(n+1):
-        for j in range(n+1):
-            for k in range(d):
-                for l in range(d):
-                    v1 = mubs[i*d:(i+1)*d,k]
-                    v2 = mubs[j*d:(j+1)*d,l]
-                    inp = np.abs(np.conjugate(v1) @ v2)
-                    if i == j:
-                        if k == l:
-                            if not np.isclose(inp, 1):
-                                print(inp, i, j, k, l)
-                                raise Exception('Not normalized.')
-                        else:
-                            if not np.isclose(inp, 0):
-                                print(inp, i, j, k, l)
-                                raise Exception('Not orthogonal.')
-                    else:
-                        if not np.isclose(inp, 1/np.sqrt(d)):
-                            print(inp, i, j, k, l)
-                            raise Exception('Not mutually unbiased.')
-        print('MUB {} check.'.format(i))
+    d = mubs[0].shape[1]
+    for i, A in enumerate(mubs):
+        for j, B in enumerate(mubs):
+            if i == j:
+                if not checkON(A):
+                    raise Exception('Found a basis that is not ON!', i)
+            else:
+                if not checkMUB(A, B):
+                    raise Exception('Found two basis that are not MUB!', i, j)
     print('MUBs are good!')
 
 def saveMUBs(mubs, name='mubs.npy'):
-    # M = mubs[0].numpy(dtype='complex128')
     M = mubs[0]
     for m in mubs[1:]:
-        # M = np.concatenate((M, m.numpy(dtype='complex128')))
         M = np.concatenate((M, m))
     np.save(name, M)
 
