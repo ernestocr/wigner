@@ -1,0 +1,457 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+
+\title{Wigner function for one rotation}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  I was under the understanding that this was trivial. But
+  the numerical evidence just doesn't match up, so I will
+  try to prove it and see if there is a faulty step
+  anywhere.  Let's consider the standard Wigner function
+  kernel:
+  \begin{equation}
+    \label{eqn:ray_kernel}
+    w(\alpha,\beta)
+    = \ket{\tilde\alpha}\bra{\tilde\alpha}
+    + \sum_{\xi,\nu}^{} \delta_{\beta,\xi\alpha+\nu} 
+    \ket{\psi_{\xi,\nu}}\bra{\psi_{\xi,\nu}}
+    - I,
+  \end{equation}
+  where $\ket{\kappa}$ is the computational basis,
+  $\ket{\tilde\kappa}$ is the Fourier basis and
+  $\ket{\psi_{\xi,\nu}} = V_\xi \ket{\nu}$ where $V_\xi$ is
+  the ray rotation operator for a given slope $\xi$. These
+  rotation operators are defined by their action on the
+  horizontal $Z_\alpha$ operators:
+  \begin{equation}
+    V_\xi Z_\alpha V_\xi^{*}
+    = c_{\alpha,\xi}^* \chi(\xi \alpha^2) Z_\alpha
+    X_{\xi\alpha},
+  \end{equation}
+  where $V_\xi$ is unitary and can be expressed diagonally
+  in the Fourier basis:
+  \begin{equation}
+    V_\xi
+    = \sum_{\kappa}^{} c_{\kappa,\xi} \ket{\tilde\kappa}
+    \bra{\tilde\kappa},
+  \end{equation}
+  with the coefficients satisfying the recurrence relation
+  \begin{equation}
+    c_{\alpha,\xi} c_{\kappa,\xi}
+    = c_{\alpha+\kappa,\xi} \chi(\xi\kappa\alpha).
+  \end{equation}
+  This condition must be satisfied in order for the Wigner
+  kernel to have the tomographic property. In order to
+  explícitly calculate these operators we must solve the
+  recurrence relation. In order to match up with the results
+  of Klimov, Muñoz, Sanchez-Soto we can follow their
+  methodology. This consists in first noting that for
+  $\alpha = \kappa$ we obtain:
+  \begin{equation}
+    c_{\alpha,\xi}^2 = \chi(\xi\alpha^2).
+  \end{equation}
+  By choosing a basis $\{\sigma_j\}$ of the Galois field
+  $GF(2^N)$, we can solve this equation (non-uniquely) for
+  each basis element $\sigma_j$. Of course we have multiple
+  sets of solutions considering the square root, so the
+  authors \textit{fix} a choice of signs. In the 2017 paper
+  they decided to choose the all positive solutions. Having
+  fixed a solution for the basis, we can decompose any
+  element of the field as a linear combination of said basis
+  elements and use the recurrence relation to obtain the
+  general formula:
+  \begin{equation}
+    c_{\alpha,\xi}
+    = c_{\sum_{j=1}^{} a_j \sigma_j,\xi}
+    = \chi\left[
+    \mu \sum_{k=1}^{N-1} \left(
+      a_k \sigma_k 
+      \sum_{j=k+1}^{N} a_j \sigma_j
+    \right) \right]
+    \prod_{l=1}^N c_{a_l \sigma_l, \mu}.
+  \end{equation}
+
+  Given this solution for the recurrence equation we can now
+  obtain the explicit expression of the ray rotation
+  operators.
+
+  In the 2017 paper, the authors use the same solution
+  method for curves more general than those of the rays.  A
+  curve of the form $\beta = f(\alpha)$ for suitable $f$ can
+  always be transformed into the horizontal ray. In the
+  operator viewpoint this can be accomplished by a
+  symplectic operator $P_f$ such that
+  \begin{equation}
+    P_f Z_\alpha P_f^* \sim Z_\alpha X_{f(\alpha)}.
+  \end{equation}
+  This operator can once again be expressed diagonally in
+  the Fourier basis:
+  \begin{equation}
+    P_f = \sum_{\kappa}^{} c_{\kappa,f}
+    \ket{\tilde\kappa}\bra{\tilde\kappa},
+  \end{equation}
+  where the coefficients $c_{\kappa,f}$ now satisfy the
+  recurrence relation:
+  \begin{equation}
+    c_{\kappa,f} c_{\alpha,f}
+    = \chi(\alpha f(\kappa)) c_{\kappa+\alpha,f},
+    \quad c_{0,f} = 1.
+  \end{equation}
+  Again, assuming that $\alpha = \kappa$ we obtain the
+  non-uniquely solvable equation:
+  \begin{equation}
+    c_{\kappa,f}^2 = \chi(\kappa f(\kappa)).
+  \end{equation}
+  We employ the same solution method as before, i.e., we
+  solve this equation for the basis elements and fix a sign
+  convention, which in our case is the all positive
+  solutions. Then we use the recurrence relation to obtain
+  the following general formula:
+  \begin{equation}
+    c_{\alpha,f}
+    = c_{\sum_{j=1} a_j \sigma_j, f}
+    = \prod_{l=1}^N c_{a_l \sigma_l, f} \chi\left[
+    \sum_{k=1}^{N-1} \left(\sum_{j=k+1}^N a_j
+    \sigma_j\right) f(a_k \sigma_k) \right],
+    \quad c_{0,f} = 1.
+  \end{equation}
+  Which is, of course, very similar to the ray formula. We
+  can use this rotation operator $P_f$ to obtain new sets of
+  orthonormal basis from the standard set
+  $\ket{\psi_{\xi,\nu}}$. The nature of the $P_f$ implies
+  that these new sets preserve the mutual unbiasedness of
+  the standard sets. We label these elements as:
+  \begin{equation}
+    \ket{\psi_{\xi,\nu}^f}
+    = P_f \ket{\psi_{\xi,\nu}},
+    \quad
+    \ket{\tilde\nu^f}
+    = P_f \ket{\tilde\nu}.
+  \end{equation}
+
+  Now onto our main question. Given a Wigner kernel
+  $w(\alpha,\beta)$ made up of the standard states, under
+  what conditions is Wigner function of a state from a
+  \textit{rotated set} equal to a delta function?
+  \textit{(Just as a thought, isn't this kinda of like
+    asking if the Wigner kernel is covariant under rotation
+    operations? We know that for states from the standard
+    set, the standard kernel will produce a delta function.
+    So if the kernel is covariant under rotations then this
+    would imply that the Wigner function of a rotated state
+    would just be translated in phase space, and therefore
+    it would still be a delta function? But we know that for
+    the qubit case, there is no
+  covariant-under-all-symplectic-transformations
+  Wigner kernel.)}
+
+  From the definition of the ray kernel
+  (\ref{eqn:ray_kernel}) we have for an arbitrary state
+  $\rho = \ket{\psi_{\xi',\nu'}^f}
+  \bra{\psi_{\xi',\nu'}^f}$:
+  \begin{align}
+    W_\rho(\alpha,\beta)
+    &= \Tr(\rho w(\alpha,\beta)) \\
+    &=
+    \braket{
+      \psi_{\xi',\nu'}^f|w(\alpha,\beta)|\psi_{\xi',\nu'}^f
+    } \\
+    &= \braket{\psi_{\xi',\nu'}^f|\tilde\alpha}
+    \braket{\tilde\alpha|\psi_{\xi',\nu'}^f} 
+    + \sum_{\xi,\nu}^{} \delta_{\beta,\xi\alpha+\nu}
+    \braket{\psi_{\xi',\nu'}^f|\psi_{\xi,\nu}}
+    \braket{\psi_{\xi,\nu}|\psi_{\xi',\nu'}^f}
+    - \braket{\psi_{\xi',\nu'}^f|\psi_{\xi',\nu'}^f} \\
+    &= \left|\braket{\psi_{\xi',\nu'}^f|\tilde\alpha}\right|^2
+    + \sum_{\xi,\nu}^{} \delta_{\beta,\xi\alpha+\nu}
+    \left|\braket{\psi_{\xi',\nu'}^f|\psi_{\xi,\nu}}\right|^2
+    - 1.
+  \end{align}
+
+  Let's first analyze the sum term in the middle of the last
+  equation. The properties of the inner products of states
+  from different sets of MUBs are being studied right now,
+  and for the moment the only thing that seems to be
+  interesting is that they all seem to be equal to
+  $\frac{1}{2^k}$ to some $k \le N$. For now let's
+  calculate an arbitrary inner product. First recall that
+  \begin{equation}
+    \braket{\lambda|\tilde\kappa}
+    = \bra{\lambda} F\ket{\kappa} \\
+    = \bra{\lambda} \frac{1}{\sqrt{d}}\sum_{m,n}^{}
+    \chi(mn) \ket{m}\braket{n|\kappa} \\
+    %&= \bra{\lambda}\frac{1}{\sqrt{d}} \sum_{m}^{}
+    %\chi(m\kappa) \ket{m} \\
+    %&= \frac{1}{\sqrt{d}}\sum_{m}^{} \chi(m\kappa) 
+    %\braket{\lambda|m} \\
+    = \frac{1}{\sqrt{d}} \chi(\lambda \kappa).
+  \end{equation}
+  Therefore
+  \begin{align}
+    \braket{\psi_{\xi,\nu}|\tilde\kappa}
+    &= \bra{\nu} V_\xi^* \ket{\tilde\kappa} \\
+    &= \bra{\nu} 
+    \left( 
+      \sum_{m}^{} c_{m,\xi}^* \ket{\tilde m}\bra{\tilde m}
+    \right) 
+    \ket{\tilde\kappa} \\
+    &= \sum_{m}^{} c_{m,\xi}^* \braket{\nu|\tilde m} 
+    \braket{\tilde m|\tilde \kappa} \\
+    &= c_{\kappa,\xi}^* \braket{\nu|\tilde\kappa} \\
+    &= \frac{1}{\sqrt{d}} c_{\kappa,\xi}^* \chi(\nu\kappa).
+  \end{align}
+  Using this we obtain the following expression for the
+  inner product of two states:
+  \begin{align}
+    \braket{\psi_{\xi,\nu}|\psi_{\xi',\nu'}^f}
+    &= \braket{\psi_{\xi,\nu}| P_f |\psi_{\xi',\nu'}} \\
+    &= \bra{\psi_{\xi,\nu}} 
+    \left( \sum_{\kappa}^{} c_{\kappa,f} 
+      \ket{\tilde\kappa}\bra{\tilde\kappa}
+    \right) 
+    \ket{\psi_{\xi',\nu'}} \\
+    &= \sum_{\kappa}^{} c_{\kappa,f} 
+    \braket{\psi_{\xi,\nu}|\tilde\kappa}
+    \braket{\tilde\kappa|\psi_{\xi',\nu'}} \\
+    &= \sum_{\kappa}^{} c_{\kappa,f}
+    \left( 
+      \frac{1}{\sqrt{d}} c_{\kappa,\xi}^* \chi(\nu\kappa)
+    \right) 
+    \left( 
+      \frac{1}{\sqrt{d}} c_{\kappa,\xi'}^* \chi(\nu'\kappa)
+    \right)^* \\
+    &= \frac{1}{d} \sum_{\kappa}^{} c_{\kappa,f} 
+    c_{\kappa,\xi}^* c_{\kappa,\xi'} \chi(\kappa(\nu+\nu')).
+  \end{align}
+
+  Doesn't seem like we can do much more than this for now,
+  so let's proceed by finding its absolute square:
+
+  \begin{align}
+    \braket{\psi_{\xi',\nu'}^f|\psi_{\xi,\nu}}
+    \braket{\psi_{\xi,\nu}|\psi_{\xi',\nu'}^f}
+    &= \left( 
+      \frac{1}{d} \sum_{\kappa}^{} c_{\kappa,f} 
+      c_{\kappa,\xi}^* c_{\kappa,\xi'} \chi(\kappa(\nu+\nu'))
+    \right)^*
+    \left( 
+      \frac{1}{d} \sum_{\kappa}^{} c_{\kappa,f} 
+      c_{\kappa,\xi}^* c_{\kappa,\xi'} \chi(\kappa(\nu+\nu'))
+    \right) \\
+    &= \frac{1}{d^2} 
+    \left( 
+      \sum_{\kappa}^{} c_{\kappa,f}^* 
+      c_{\kappa,\xi} c_{\kappa,\xi'}^* \chi(\kappa(\nu+\nu'))
+    \right)
+    \left( 
+      \sum_{\kappa}^{} c_{\kappa,f} 
+      c_{\kappa,\xi}^* c_{\kappa,\xi'} \chi(\kappa(\nu+\nu'))
+    \right) \\
+    &= \frac{1}{d^2} 
+    \sum_{\kappa,\kappa'}^{}  
+    (c_{\kappa,f}^* c_{\kappa',f})
+    (c_{\kappa,\xi'}^* c_{\kappa',\xi'})
+    (c_{\kappa',\xi}^* c_{\kappa,\xi})
+    \chi((\kappa+\kappa')(\nu+\nu')).
+    \label{eqn:squared_modulus}
+  \end{align}
+
+  Before continuing we will express the recurrence relation
+  in a different manner to accomadate the previous
+  equations. For the curve rotation coefficients we recall
+  that 
+  \begin{equation}
+    c_{\kappa,f}^2
+    = \chi(\kappa f(\kappa))
+    = \chi(\kappa f(\kappa))^*
+    = \left( c_{\kappa,f}^2 \right)^*
+    = \left( c_{\kappa,f}^* \right)^2.
+  \end{equation}
+  Therefore
+  \begin{align}
+    c_{\kappa,f}^* c_{\kappa',f}
+    &= \left(c_{\kappa,f}^*\right)^2 (c_{\kappa,f}
+    c_{\kappa',f}) \\
+    &= \chi(\kappa f(\kappa)) \chi(\kappa' f(\kappa))
+    c_{\kappa+\kappa',f}  \\
+    &= \chi\left( \kappa(f(\kappa) +f(\kappa')) \right) 
+    c_{\kappa+\kappa',f} \\
+    &= \chi\left( \kappa f(\kappa + \kappa') \right) 
+    c_{\kappa+\kappa',f},
+  \end{align}
+  where we have used the property $\chi(\kappa' f(\kappa)) =
+  \chi(\kappa f(\kappa'))$ for all $\kappa,\kappa' \in
+  GF(2^N)$ and the additivity of the curve $f$. An analogous
+  property holds for the ray rotation coefficients:
+  \begin{equation}
+    c_{\kappa,\xi}^* c_{\kappa',\xi}
+    = \chi\left( \kappa \xi(\kappa+\kappa') \right) 
+    c_{\kappa+\kappa',\xi}.
+  \end{equation}
+  Using this last expression we can see that:
+  \begin{equation}
+    c_{\kappa,\xi} c_{\kappa',\xi}^*
+    = \chi(\kappa \xi(\kappa + \kappa')) c_{\kappa +
+    \kappa',\xi}^*.
+  \end{equation}
+
+  Substituting these expressions in equation
+  (\ref{eqn:squared_modulus}) and using the change of
+  variables $\eta = \kappa + \kappa'$ we obtain:
+  \begin{align}
+    \left|\braket{\psi_{\xi,\nu}|\psi_{\xi',\nu'}^f}\right|^2
+    &= \frac{1}{d^2} 
+    \sum_{\kappa,\kappa'}^{}  
+    (c_{\kappa,f}^* c_{\kappa',f})
+    (c_{\kappa,\xi'}^* c_{\kappa',\xi'})
+    (c_{\kappa',\xi}^* c_{\kappa,\xi})
+    \chi((\kappa+\kappa')(\nu+\nu')) \\
+    %&= \frac{1}{d^2} \sum_{\kappa,\kappa'}^{} 
+    %\chi\left( \kappa f(\kappa+\kappa') \right) 
+    %c_{\kappa+\kappa',f}
+    %\chi\left( \kappa \xi'(\kappa+\kappa') \right) 
+    %c_{\kappa+\kappa',\xi'}
+    %\chi\left( \kappa \xi(\kappa+\kappa') \right) 
+    %c_{\kappa+\kappa',\xi} \\
+    %&\qquad\qquad\qquad
+    %\chi\left( (\kappa+\kappa')(\nu+\nu') \right) \\
+    &= \frac{1}{d^2} \sum_{\kappa,\kappa'}^{} 
+    \chi\left( \kappa f(\kappa+\kappa') + 
+      \kappa(\xi + \xi')(\kappa+\kappa')
+    +(\kappa+\kappa') (\nu+\nu') \right)
+    c_{\kappa+\kappa',f} c_{\kappa+\kappa',\xi'}
+    c_{\kappa+\kappa',\xi}^* \\
+    &= \frac{1}{d} \sum_{\kappa,\eta}^{} 
+    \chi\left[
+      \kappa(f(\eta) + (\xi+\xi')\eta)
+    \right]
+    \chi(\eta(\nu+\nu'))
+    c_{\eta,f} c_{\eta,\xi'} c_{\eta,\xi}^* \\
+    &= \frac{1}{d} \sum_{\eta}^{} 
+    \chi\left( \eta(\nu+\nu') \right) 
+    c_{\eta,f}c_{\eta,\xi'}c_{\eta,\xi}^* 
+    \delta_{f(\eta), (\xi+\xi')\eta}.
+  \end{align}
+
+  I have computationally verified the change of variables,
+  so now we will proceed by summing over the slopes of the
+  lines that pass through the point in question. So we have:
+
+  \begin{align}
+    \sum_{\xi,\nu}^{} 
+    \delta_{\beta,\xi\alpha+\nu}
+    \left|
+    \braket{\psi_{\xi,\nu}|\psi_{\xi',\nu'}^f}
+    \right|^2
+    &= \sum_{\xi,\nu}^{} 
+    \delta_{\beta,\xi\alpha+\nu}
+    \left(
+      \frac{1}{d} \sum_{\eta}^{} 
+      \chi\left( \eta(\nu+\nu') \right) 
+      c_{\eta,f}c_{\eta,\xi'}c_{\eta,\xi}^* 
+      \delta_{f(\eta), (\xi+\xi')\eta}
+    \right) \\
+    &= \frac{1}{d}
+    \left( 
+      \sum_{\xi,\eta}^{} 
+      \chi\left( \eta(\beta + \xi\alpha+\nu') \right) 
+      c_{\eta,f}c_{\eta,\xi'}c_{\eta,\xi}^* 
+      \delta_{f(\eta), (\xi+\xi')\eta}
+    \right). 
+  \end{align}
+
+  Notice that $\delta_{f(\eta), (\xi+\xi')\eta} = 1$ only
+  when $\eta = 0$ or $\xi = \eta^{-1}f(\eta) + \xi'$. We
+  split the sum in these to cases and sum over $\xi$ to
+  obtain:
+  \begin{align}
+    d \sum_{\xi,\nu}^{} 
+    \delta_{\beta,\xi\alpha+\nu}
+    \left|
+    \braket{\psi_{\xi,\nu}|\psi_{\xi',\nu'}^f}
+    \right|^2
+    &= \sum_{\xi}^{} 1
+    + \sum_{\xi, \eta \in F^*}^{} 
+    \chi\left( \eta(\beta + \xi\alpha+\nu') \right) 
+    c_{\eta,f}c_{\eta,\xi'}c_{\eta,\xi}^* 
+    \delta_{f(\eta), (\xi+\xi')\eta} \\
+    &= d + \sum_{\eta \in F^*}^{} 
+    \chi\left\{
+      \eta\left[
+        \beta + \left( \eta^{-1}f(\eta) + \xi' \right)
+        \alpha + \nu'
+      \right]
+    \right\}
+    c_{\eta,f} c_{\eta,\xi'}
+    c_{\eta,\eta^{-1}f(\eta) + \xi'}^* \\
+    &= d + \sum_{\eta \in F^*}^{} 
+    \chi\left[
+      \eta(\beta + \xi'\alpha + \nu') + f(\eta)\alpha
+    \right] 
+    c_{\eta,f} c_{\eta,\xi'}
+    c_{\eta,\eta^{-1}f(\eta) + \xi'}^* \\
+    &= d + \sum_{\eta \in F^*}^{} 
+    \chi\left[
+      \eta(\beta + \xi'\alpha + \nu' + f(\alpha))
+    \right] 
+    c_{\eta,f} c_{\eta,\xi'}
+    c_{\eta,\eta^{-1}f(\eta) + \xi'}^*. 
+  \end{align}
+
+  Notice that if the rotation coefficients somehow manage to
+  vanish, then we will be left with a delta function. So the
+  question is now, \textit{if and how} can we remove these
+  terms from the sum. Basically my claim is that the
+  following is \textit{not} true:
+  \begin{equation}
+    c_{\eta,f} c_{\eta,\xi'}
+    c_{\eta,\eta^{-1}f(\eta) + \xi'}^*
+    = 1,
+  \end{equation}
+  for all $\eta \in F^*$ and $\xi' \in F$. Equivalently we
+  are asking when the following recurrence relation is true:
+  \begin{equation}
+    c_{\eta,f} c_{\eta,\xi'}
+    = 
+    c_{\eta,\eta^{-1}f(\eta) + \xi'}.
+  \end{equation}
+  The first problem I see is that the rotation coefficients
+  are calculated in a slightly different manner for the ray
+  and curve operators. When substituting $\xi =
+  \eta^{-1}f(\eta)+\xi'$ in the coefficient $c_{\eta,\xi}^*$ 
+  we must remember that such coefficient is calculated using
+  the function $g(\kappa) = \xi \kappa$, and so the new $g$
+  is given by $g(\kappa) = \left( \eta^{-1}f(\eta)+\xi
+  \right) \kappa$. This is just a thought but, recall that in
+  the general formula of the coefficients we use the curve
+  (ray or real curve) to calculate the coefficients for the
+  basis. This information is always used in the calculation
+  for arbitrary elements, and so simply replacing the
+  coefficient indices doesn't change this information.
+  
+  Whatever the reason may be, the calculation does not
+  verify computationally for the case of the curve
+  $f(\alpha) = \alpha + \alpha^2 + \alpha^4$, which by one
+  rotation $P_f$ produces the $(1,6,2)$ factorization MUBs,
+  and so at least for this case we cannot reduce the
+  expression to a delta function.
+
+\end{document}
