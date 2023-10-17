@@ -1,0 +1,196 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+
+\title{Rotation coefficients}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  To get us up to speed, we recall the method for
+  calculating the rotation operator coefficients. We can
+  solve the following recurrence relation:
+  \begin{equation}
+    c_{\alpha,\xi} c_{\kappa,\xi}
+    = c_{\alpha+\kappa,\xi} \chi(\xi\kappa\alpha).
+  \end{equation}
+  by first noting that for $\alpha = \kappa$ we obtain:
+  \begin{equation}
+    c_{\alpha,\xi}^2 = \chi(\xi\alpha^2).
+  \end{equation}
+  By choosing a basis $\{\sigma_j\}$ of the Galois field
+  $GF(2^N)$, we can solve this equation (non-uniquely) for
+  each basis element $\sigma_j$. Of course we have multiple
+  sets of solutions considering the square root, so the
+  authors \textit{fix} a choice of signs. In the 2017 paper
+  they decided to choose the all positive solutions. Having
+  fixed a solution for the basis, we can decompose any
+  element of the field as a linear combination of said basis
+  elements and use the recurrence relation to obtain the
+  general formula:
+  \begin{equation}
+    c_{\alpha,\xi}
+    = c_{\sum_{j=1}^{} a_j \sigma_j,\xi}
+    = \chi\left[
+    \sum_{k=1}^{N-1} \left(
+      a_k \sigma_k
+      \sum_{j=k+1}^{N} \mu a_j \sigma_j
+    \right) \right]
+    \prod_{l=1}^N c_{a_l \sigma_l, \mu}.
+  \end{equation}
+
+  Given this solution for the recurrence equation we can now
+  obtain the explicit expression of the ray rotation
+  operators. We can do the same for a commutative additive
+  curve $f$, where the coefficients of the rotation operator
+  satisfy:
+  \begin{equation}
+    c_{\kappa,f} c_{\alpha,f}
+    = \chi(\alpha f(\kappa)) c_{\kappa+\alpha,f},
+    \quad c_{0,f} = 1.
+  \end{equation}
+  Again, assuming that $\alpha = \kappa$ we obtain the
+  non-uniquely solvable equation:
+  \begin{equation}
+    c_{\kappa,f}^2 = \chi(\kappa f(\kappa)).
+  \end{equation}
+  We employ the same solution method as before, i.e., we
+  solve this equation for the basis elements and fix a sign
+  convention, which in our case is the all positive
+  solutions. Then we use the recurrence relation to obtain
+  the following general formula:
+  \begin{equation}
+    c_{\alpha,f}
+    = c_{\sum_{j=1} a_j \sigma_j, f}
+    = \chi\left[
+    \sum_{k=1}^{N-1} \left(\sum_{j=k+1}^N a_j
+    \sigma_j\right) f(a_k \sigma_k) \right] \prod_{l=1}^N
+    c_{a_l \sigma_l, f}  , \quad c_{0,f} = 1.
+  \end{equation}
+ 
+  What we are trying to see is if there exists some fixed
+  geometrical structure on the discrete phase space such
+  that for a set of rays and set of curves, the displacement
+  operator phases match for each point. The sets of curves
+  in question are the rays:
+  \begin{equation}
+    \beta = \mu \alpha,
+    \quad \mu \in F,
+  \end{equation}
+  and the set of curves given by the equation:
+  \begin{equation}
+    \beta = \phi_0 \alpha + \sigma^3 \alpha + \sigma^{5}
+    \alpha,
+    \quad \phi_0 \in F,
+  \end{equation}
+  where $\sigma \in F$ is the field generator. If the sets
+  of curves cover the whole phase space (and for now
+  considering mutually non-intersecting curves), then for a
+  given point $(\alpha,\beta)$ there exists $\mu$ and $\nu$ 
+  such that $\beta = \mu \alpha = f_\nu(\alpha)$. The
+  question is, if there is a way to calculate the
+  coefficients such that $c_{\alpha,\mu} = c_{\alpha,f_\nu}$
+  for all possible combinations? We must first ask ourselves
+  how much freedom we have in the calculation of the
+  coefficients.  After fixing a self-dual basis, e.g.,
+  $\{\sigma^3, \sigma^{5}, \sigma^{6}\}$, and fixing a curve
+  parameter $\mu$, we have two possible solutions for each
+  basis element, and therefore $2^3$ possible solution sets
+  for each $\mu$. After fixing these coefficients there
+  doesn't seem to be anymore choices to be made. So for each
+  element of the field $F$ we have $2^{3}$ possible basis
+  solutions, and so we have $8^8$ possible ``geometric
+  structures'' for a given set of curves.
+
+  The next question is, how can we compare two different
+  geometric structures? For each point $(\alpha,\beta)$ in
+  phase space we can obtain the displacement operator phase
+  by finding the appropriate ray and curve parameters and
+  calculating the rotation coefficients:
+  \begin{align}
+    \phi(\alpha,\beta)
+    &= c_{\alpha,\alpha^{-1}\beta} \\
+    \phi'(\alpha,\beta)
+    &= c_{\alpha,\alpha^{-1}\phi_0 + \sigma^2 + \sigma^{5}}.
+  \end{align}
+  For example, by choosing the all positive basis solutions
+  for each ray and each curve we obtain the following
+  matrices (we fix the order the of the field by the powers
+  of the generating element $\sigma$):
+  \begin{align}
+    \beta = \mu \alpha
+    &\rightarrow
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    1 & -1 & -i & 1 & -i & i & i & -1 \\
+    1 & -i & -1 & i & -i & i & 1 & -1 \\
+    1 & 1 & i & i & i & 1 & 1 & i \\
+    1 & -i & -i & i & -1 & 1 & i & -1 \\
+    1 & i & i & 1 & 1 & i & 1 & i \\
+    1 & i & 1 & 1 & i & 1 & i & i \\
+    1 & -1 & -1 & i & -1 & i & i & -i
+    \end{array}\right) \\
+    \beta = \phi_0 \alpha + \sigma^3 \alpha + \sigma^5 \alpha
+    &\rightarrow
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    1 & -1 & i & 1 & i & -i & -i & -1 \\
+    1 & i & -1 & -i & i & -i & 1 & -1 \\
+    1 & 1 & i & i & i & 1 & 1 & i \\
+    1 & i & i & -i & -1 & 1 & -i & -1 \\
+    1 & i & i & 1 & 1 & i & 1 & i \\
+    1 & i & 1 & 1 & i & 1 & i & i \\
+    1 & 1 & -1 & -i & 1 & -i & i & -i
+    \end{array}\right)
+  \end{align}
+  We can now compare each entry in both matrices to see if
+  the phases are the same. For the all positive choice for
+  each curve parameter we can clearly see that we do
+  \textit{not} obtain the same phases at the same points.
+  For example, consider the entries at the second row and
+  third column. The second row corresponds to the element
+  $\sigma$, and so we can easily obtain the ray parameter
+  which is $\mu = \sigma$, and the curve parameter $\phi_0 =
+  \sigma^2 + \sigma$. It can be verified quickly that
+  \begin{equation}
+    \mu \sigma = \sigma^2 = f_{\phi_0}(\sigma).
+  \end{equation}
+  But, as we can see from the matrices the rotation
+  coefficients are \textit{not} the same:
+  \begin{equation}
+    c_{\sigma,\mu} = -i \neq i = c_{\sigma,\phi_0}.
+  \end{equation}
+
+  The problem is now comparing each of the $8^8$ possible
+  $64$ element matrices between the sets of curves.  There
+  must be a large amount of redundency in these geometric
+  structures but I don't see an easy way to reduce the size
+  of the combinatorial problem from a practical point of
+  view.
+
+
+  From an analytical view, we are trying to see if there is
+  a set of basis solutions such that:
+  \begin{equation}
+    \phi(\alpha,\beta) = \phi'(\alpha,\beta),
+  \end{equation}
+  for all $\alpha,\beta \in F$, i.e., for all $\mu,\nu \in
+  F$ there exists $\{c_{\sigma_j,\mu}\}$ and
+  $\{c_{\sigma_j,f_\nu}\}$ such that . . . 
+
+\end{document}

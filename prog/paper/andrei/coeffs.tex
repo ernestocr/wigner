@@ -1,0 +1,269 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+
+\title{Rotation coefficients}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  We will try to study an example where the substitution of
+  the indices in the coefficients is not trivial. To get up
+  to speed let's recall the definition of the rotation
+  operators. For a given slope $\xi$ the ray rotation
+  operator is defined by its action on the horizontal
+  $Z_\alpha$ operators:
+  \begin{equation}
+    V_\xi Z_\alpha V_\xi^{*}
+    = c_{\alpha,\xi}^* \chi(\xi \alpha^2) Z_\alpha
+    X_{\xi\alpha},
+  \end{equation}
+  where $V_\xi$ is unitary and can be expressed diagonally
+  in the Fourier basis:
+  \begin{equation}
+    V_\xi
+    = \sum_{\kappa}^{} c_{\kappa,\xi} \ket{\tilde\kappa}
+    \bra{\tilde\kappa},
+  \end{equation}
+  with the coefficients satisfying the recurrence relation
+  \begin{equation}
+    c_{\alpha,\xi} c_{\kappa,\xi}
+    = c_{\alpha+\kappa,\xi} \chi(\xi\kappa\alpha).
+  \end{equation}
+  This condition must be satisfied in order for the Wigner
+  kernel to have the tomographic property. In order to
+  explícitly calculate these operators we must solve the
+  recurrence relation. In order to match up with the results
+  of Klimov, Muñoz, Sanchez-Soto we can follow their
+  methodology which consists in first noting that for
+  $\alpha = \kappa$ we obtain:
+  \begin{equation}
+    c_{\alpha,\xi}^2 = \chi(\xi\alpha^2).
+  \end{equation}
+  By choosing a basis $\{\sigma_j\}$ of the Galois field
+  $GF(2^N)$, we can solve this equation (non-uniquely) for
+  each basis element $\sigma_j$. Of course we have multiple
+  sets of solutions considering the square root, so the
+  authors \textit{fix} a choice of signs. In the 2017 paper
+  they decided to choose the all positive solutions. Having
+  fixed a solution for the basis, we can decompose any
+  element of the field as a linear combination of said basis
+  elements and use the recurrence relation to obtain the
+  general formula:
+  \begin{equation}
+    c_{\alpha,\xi}
+    = c_{\sum_{j=1}^{} a_j \sigma_j,\xi}
+    = \chi\left[
+    \mu \sum_{k=1}^{N-1} \left(
+      a_k \sigma_k
+      \sum_{j=k+1}^{N} a_j \sigma_j
+    \right) \right]
+    \prod_{l=1}^N c_{a_l \sigma_l, \mu}.
+  \end{equation}
+
+  Given this solution for the recurrence equation we can now
+  obtain the explicit expression of the ray rotation
+  operators.
+
+  In the 2017 paper, the authors use the same solution
+  method for curves more general than those of the rays.  A
+  curve of the form $\beta = f(\alpha)$ for suitable $f$ can
+  always be transformed into the horizontal ray. In the
+  operator viewpoint this can be accomplished by a
+  symplectic operator $P_f$ such that
+  \begin{equation}
+    P_f Z_\alpha P_f^* \sim Z_\alpha X_{f(\alpha)}.
+  \end{equation}
+  This operator can once again be expressed diagonally in
+  the Fourier basis:
+  \begin{equation}
+    P_f = \sum_{\kappa}^{} c_{\kappa,f}
+    \ket{\tilde\kappa}\bra{\tilde\kappa},
+  \end{equation}
+  where the coefficients $c_{\kappa,f}$ now satisfy the
+  recurrence relation:
+  \begin{equation}
+    c_{\kappa,f} c_{\alpha,f}
+    = \chi(\alpha f(\kappa)) c_{\kappa+\alpha,f},
+    \quad c_{0,f} = 1.
+  \end{equation}
+  Again, assuming that $\alpha = \kappa$ we obtain the
+  non-uniquely solvable equation:
+  \begin{equation}
+    c_{\kappa,f}^2 = \chi(\kappa f(\kappa)).
+  \end{equation}
+  We employ the same solution method as before, i.e., we
+  solve this equation for the basis elements and fix a sign
+  convention, which in our case is the all positive
+  solutions. Then we use the recurrence relation to obtain
+  the following general formula:
+  \begin{equation}
+    c_{\alpha,f}
+    = c_{\sum_{j=1} a_j \sigma_j, f}
+    = \chi\left[
+    \sum_{k=1}^{N-1} \left(\sum_{j=k+1}^N a_j
+    \sigma_j\right) f(a_k \sigma_k) \right] \prod_{l=1}^N
+    c_{a_l \sigma_l, f}  , \quad c_{0,f} = 1.
+  \end{equation}
+  Which is, of course, very similar to the ray formula. We
+  can use this rotation operator $P_f$ to obtain new sets of
+  orthonormal basis from the standard set
+  $\ket{\psi_{\xi,\nu}}$. The nature of the $P_f$ implies
+  that these new sets preserve the mutual unbiasedness of
+  the standard sets. We label these elements as:
+  \begin{equation}
+    \ket{\psi_{\xi,\nu}^f}
+    = P_f \ket{\psi_{\xi,\nu}},
+    \quad
+    \ket{\tilde\nu^f}
+    = P_f \ket{\tilde\nu}.
+  \end{equation}
+
+  Somewhere along the calculation of the Wigner function of
+  some rotated state, we substitute some indices of the
+  rotation coefficients hoping for some form of cancelation
+  of a product of coefficients.  There is no problem with
+  the substitution of indices using the delta function, the
+  problem stems from \textit{how} the rotation coefficients
+  are calculated.  For the particular case of $\xi' = 0$.
+  The product of coefficients that we wish to cancel is
+  given by:
+  \begin{equation}
+    c_{\eta,f} c_{\eta,\xi}^* 
+    = c_{\eta,f} c_{\eta,\eta^{-1}f(\eta)}^* 
+    = 1,
+  \end{equation}
+  for $\xi = \eta^{-1}f(\eta)$.
+
+  The problem seems to be that even though $f(\eta) = \eta
+  \left( \eta^{-1}f(\eta) \right)$ (which means that the
+  curve and the ray intersect at the point $\eta$ in phase
+  space), the coefficients are calculated slightly
+  differently, since the general formula uses the curve/ray
+  information in a \textit{multiplicative} manner and not
+  just linearly. We try to clarify this using the following
+  example. Recall that we are working with the Galois field
+  $GF(2^3)$ and the curve in question is given by $f(\alpha)
+  = \alpha + \alpha^2 + \alpha^4$. The chosen self-dual
+  basis is $\{x^3, x^5, x^6\}$. Now consider the example
+  $\eta = 1$.  In the self-dual basis we can express $\eta$
+  as the sum 
+  \begin{equation}
+    \eta = 1 = x^3 + x^5 + x^6,
+  \end{equation}
+  and so its components in $\Z_2$ are $a_k = 1$ for
+  $k=1,2,3$. Now we calculate the solution of the equation
+  () (for the ray coefficients) for the chosen basis
+  elements: 
+  \begin{equation}
+    c_{\sigma_j,1}^2
+    = \chi(1 \cdot \sigma_j^2),
+  \end{equation}
+  for which we obtain, after choosing the
+  positive solutions:
+  \begin{equation}
+    c_{\sigma_j,1} = i,
+    \quad j = 1,2,3.
+  \end{equation}
+  Similarly, for the curve coefficients we solve the
+  equation ():
+  \begin{equation}
+    c_{\sigma_j, f}^2
+    = \chi(\sigma_j f(\sigma_j)),
+  \end{equation}
+  and again choosing the positive solutions we obtain:
+  \begin{equation}
+    c_{\sigma_j, f} = i,
+    \quad j = 1,2,3.
+  \end{equation}
+  Considering the components of $\eta = 1$, we see that
+  \begin{equation}
+    c_{a_l \sigma_l, 1}
+    = c_{a_l \sigma_l, f}
+    = i.
+  \end{equation}
+  and so the product term in both formulas for the general
+  coefficients is the same, namely
+  \begin{equation}
+    \prod_{l=1}^N c_{a_l \sigma_l, 1}
+    = \prod_{l=1}^N c_{a_l \sigma_l, f}
+    = i^3
+    = -i.
+  \end{equation}
+  Seeing that the coefficients for the basis elements is the
+  same for both the ray and curve coefficients, one would
+  like to assume that the general coefficients would also be
+  the same, considering we can express any field element as
+  a linear combination of the basis elements. But as we
+  shall see this is not the case at least for our example.
+  Let us now calculate the sums inside the group character
+  for both cases. For the ray coefficients:
+  \begin{align}
+    \mu \sum_{k=1}^{N-1} \left( 
+      a_k \sigma_k \sum_{j=k+1}^{N} a_j \sigma_j
+    \right) 
+    &= \sum_{k=1}^{N-1} \left( 
+      \sigma_k \sum_{j=k+1}^{N} \sigma_j
+    \right) \\
+    &= \sigma_1 \sum_{j=2}^{3} \sigma_j
+    + \sigma_2 \sum_{j=3}^{3} \sigma_j \\
+    &= \sigma_1 \left( \sigma_2 + \sigma_3 \right) 
+    + \sigma_2 \sigma_3 \\
+    &= x^3 (x^{5} + x^{6}) + x^5 x^6 \\
+    &= 0.
+  \end{align}
+  For the curve coefficients we have:
+  \begin{align}
+    \sum_{k=1}^{N-1} \left( 
+      a_k \sigma_k \sum_{j=k+1}^{N} f(a_j \sigma_j)
+    \right) 
+    &= \sum_{k=1}^{N-1} \left( 
+      \sigma_k \sum_{j=k+1}^{N} f(\sigma_j)
+    \right) \\
+    &= \sigma_1 \sum_{j=2}^{3} f(\sigma_j)
+    + \sigma_2 \sum_{j=3}^{3} f(\sigma_j) \\
+    &= \sigma_1 \left( f(\sigma_2) + f(\sigma_3) \right) 
+    + \sigma_2 f(\sigma_3) \\
+    &= x^3 \left( f(x^5) + f(x^6) \right) 
+    + x^5 f(x^6) \\
+    &= x^3 \left( 1 + 1 \right) + x^5 \cdot 1 \\
+    &= x^5.
+  \end{align}
+  As we can see the sum is distinct and it happens that the
+  group character is also different:
+  \begin{equation}
+    \chi(0) = 1,
+    \quad
+    \text{and}
+    \quad
+    \chi(x^5) = -1,
+  \end{equation}
+  therefore even though $\xi \eta = f(\eta)$ for $\eta = 1$
+  and $\xi = \eta^{-1}f(\eta) = 1$, we obtain distinct
+  coefficients:
+  \begin{equation}
+    c_{\eta,\xi} = c_{1,1} = -i,
+    \quad
+    \text{and}
+    \quad
+    c_{\eta,f} = c_{1,f} = i.
+  \end{equation}
+  It follows that the desired identity does not hold for all
+  $\eta$ in this example.
+
+\end{document}

@@ -1,0 +1,187 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+
+\title{Rotation coefficients}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  To get us up to speed, we recall the method for
+  calculating the rotation operator coefficients. We can
+  solve (non-uniquely) the following recurrence relation:
+  \begin{equation}
+    c_{\alpha,\mu} c_{\kappa,\mu}
+    = c_{\alpha+\kappa,\mu} \chi(\mu\kappa\alpha),
+  \end{equation}
+  for the basis elements. Having fixed a solution for the
+  basis, we can decompose any element of the field as a
+  linear combination of said basis elements and use the
+  recurrence relation to obtain the general formula:
+  \begin{equation}
+    c_{\alpha,\mu}
+    = c_{\sum_{j=1}^{} a_j \sigma_j,\mu}
+    = \chi\left[
+    \sum_{k=1}^{N-1} \left(
+      a_k \sigma_k
+      \sum_{j=k+1}^{N} \mu a_j \sigma_j
+    \right) \right]
+    \prod_{l=1}^N c_{a_l \sigma_l, \mu}.
+  \end{equation}
+  Using the rotation coefficients we can calculate the
+  corresponding phase $\phi(\alpha,\beta)$ for any point in
+  phase space. Finally we can assign a displacement operator
+  $D(\alpha,\beta)$ at every point in the following manner:
+  \begin{equation}
+    D(\alpha,\beta)
+    = \phi(\alpha,\beta) Z_\alpha X_\beta.
+  \end{equation}
+
+  We are trying to see is if for some fixed choice of discrete
+  phase space given by the phases of the rays, there exists
+  a curve (not included in the set of rays) such that the
+  operators given by these points satisfy the equation
+  \begin{equation}
+    D(\alpha_1,f(\alpha_1)) D(\alpha_2,f(\alpha_2))
+    = D(\alpha_1+\alpha_2, f(\alpha_1+\alpha_2)),
+  \end{equation}
+  or more generaly for a curve given by a set of points
+  $\{(\alpha_i,\beta_i)\}$:
+  \begin{equation}
+    \label{eqn:prop}
+    D(\alpha_1,\beta_1) D(\alpha_2,\beta_2)
+    = D(\alpha_1+\alpha_2, \beta_1+\beta_2).
+  \end{equation}
+  
+  By choosing the all positive basis solutions for each ray
+  we obtain the following phase space (we fix the order the
+  of the field by the powers of the generating element
+  $\sigma$, where the rows are labeled by $\alpha$ and the
+  columns by $\beta$):
+  \begin{align}
+    \Gamma
+    &=
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    1 & -1 & -i & 1 & -i & i & i & -1 \\
+    1 & -i & -1 & i & -i & i & 1 & -1 \\
+    1 & 1 & i & i & i & 1 & 1 & i \\
+    1 & -i & -i & i & -1 & 1 & i & -1 \\
+    1 & i & i & 1 & 1 & i & 1 & i \\
+    1 & i & 1 & 1 & i & 1 & i & i \\
+    1 & -1 & -1 & i & -1 & i & i & -i
+    \end{array}\right) \\
+  \end{align}
+
+  Now we consider equation (5.19) from the Annals article
+  which shows the exceptional curve given the by the set of
+  points
+  \begin{equation}
+    (0,0), (\sigma^4,0), (\sigma^4, \sigma^5), (\sigma^3,
+    \sigma^7), (\sigma^3, \sigma^4), (\sigma^6, \sigma^4),
+    (\sigma^6, \sigma^7), (0, \sigma^5).
+  \end{equation}
+  This curve can be obtained by the equation:
+  \begin{equation}
+    \beta^2 + \sigma^5 \beta
+    = \sigma^6 \alpha + \sigma^2 \alpha^2.
+  \end{equation}
+  The amount of points that actually satisfy this equation
+  is 16, I'm not sure exactly how we extract the points
+  above, but I have verified that this curve is closed under
+  addition. \textit{For fixed phases, the operators indexed
+    by this curve do satisfy the property (\ref{eqn:prop})}.
+
+  As an illustrative example (for sanity check) consider the
+  points $(\sigma^6,\sigma^4)$ and $(\sigma^3,\sigma^7)$.
+  Their phases according to $\Gamma$ are
+  \begin{equation}
+    \phi(\sigma^6,\sigma^4) = i
+    \quad
+    \text{and}
+    \quad
+    \phi(\sigma^3,\sigma^7) = i.
+  \end{equation}
+  The displacement operators are:
+  \begin{equation}
+    D(\sigma^6,\sigma^4) = 
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+    0 & 0 & 0 & 0 & i & 0 & 0 & 0 \\
+    0 & 0 & -i & 0 & 0 & 0 & 0 & 0 \\
+    0 & i & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & i & 0 \\
+    -i & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & i \\
+    0 & 0 & 0 & -i & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & -i & 0 & 0
+    \end{array}\right)
+  \end{equation}
+  And
+  \begin{equation}
+    D(\sigma^3,\sigma^7) = 
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & i \\
+    0 & 0 & 0 & i & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & -i & 0 \\
+    0 & -i & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & -i & 0 & 0 \\
+    0 & 0 & 0 & 0 & i & 0 & 0 & 0 \\
+    0 & 0 & i & 0 & 0 & 0 & 0 & 0 \\
+    -i & 0 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{array}\right)
+  \end{equation}
+  Their product is
+  \begin{equation}
+    D(\sigma^6,\sigma^4) D(\sigma^3,\sigma^7) =
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+    0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 & 0 & 0
+    \end{array}\right)
+  \end{equation}
+  Which is equal to the operator:
+  \begin{equation}
+    D(\sigma^6+\sigma^3,\sigma^4 +\sigma^7) = 
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+    0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 & 0 & 0
+    \end{array}\right)
+  \end{equation}
+
+  As an example that doesn't work we can consider the curve
+  \begin{equation}
+    \beta
+    = \sigma^6 \alpha + \sigma^3 \alpha^2 + \sigma^5 \alpha^4.
+  \end{equation}
+  In particular the property (\ref{eqn:prop}) does not hold
+  for the points $(\sigma^2,\sigma^4)$ and
+  $(\sigma^3,\sigma^3)$ of this curve.
+
+
+\end{document}
