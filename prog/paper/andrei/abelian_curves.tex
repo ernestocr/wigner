@@ -1,0 +1,303 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+
+\title{Abelian curves}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  We will use the basis $\{\sigma^3,\sigma^5,\sigma^6\}$ for
+  the field $GF(2^3)$ where $\sigma$ is the generating
+  element. We solve the recurrence relation for the basis
+  elements and choose the all positive solution for all
+  rays. From this we can decompose any element of the field
+  as a linear combination of said basis elements and use the
+  recurrence relation to obtain the general formula:
+  \begin{equation}
+    c_{\alpha,\mu}
+    = c_{\sum_{j=1}^{} a_j \sigma_j,\mu}
+    = \chi\left[
+    \sum_{k=1}^{N-1} \left(
+      \mu a_k \sigma_k
+      \sum_{j=k+1}^{N} a_j \sigma_j
+    \right) \right]
+    \prod_{l=1}^N c_{a_l \sigma_l, \mu}.
+  \end{equation}
+  Using the rotation coefficients we can calculate the
+  corresponding phase $\phi(\alpha,\beta)$ for any point in
+  phase space. Finally we can assign a displacement operator
+  $D(\alpha,\beta)$ at every point in the following manner:
+  \begin{equation}
+    D(\alpha,\beta)
+    = \phi(\alpha,\beta) Z_\alpha X_\beta.
+  \end{equation}
+
+  For this fixed choice of phases for the discrete phase
+  space we will see which curves out of all possible types
+  of curves are abelian in the sense that they satisfy the
+  following equations:
+  \begin{equation}
+    D(\alpha_1,f(\alpha_1)) D(\alpha_2,f(\alpha_2))
+    = D(\alpha_1+\alpha_2, f(\alpha_1+\alpha_2)),
+  \end{equation}
+  or more generaly for a curve given by a set of points
+  $\{(\alpha_i,\beta_i)\}$:
+  \begin{equation}
+    \label{eqn:prop}
+    D(\alpha_1,\beta_1) D(\alpha_2,\beta_2)
+    = D(\alpha_1+\alpha_2, \beta_1+\beta_2).
+  \end{equation}
+
+  The fixed phase space for the rays is given by the
+  following matrix where the rows are indexed by $\alpha$
+  and the columns by $\beta$, where the origin is the
+  top-left most entry and the field elements are ordered by
+  the powers of the generating element $\sigma$:
+  \begin{align}
+    \Gamma
+    &=
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    1 & -1 & -i & 1 & -i & i & i & -1 \\
+    1 & -i & -1 & i & -i & i & 1 & -1 \\
+    1 & 1 & i & i & i & 1 & 1 & i \\
+    1 & -i & -i & i & -1 & 1 & i & -1 \\
+    1 & i & i & 1 & 1 & i & 1 & i \\
+    1 & i & 1 & 1 & i & 1 & i & i \\
+    1 & -1 & -1 & i & -1 & i & i & -i
+    \end{array}\right) \\
+  \end{align}
+
+  Following the Annals paper we know how to obtain all types
+  of additive curves for three qubits. There are 100 regular
+  curves, 21 doubly degenerated exceptional curves of the
+  form (5.18) and 7 exceptional curves of the form (5.24),
+  which are quadruply degenerate in one direction and doubly
+  in the other. 
+
+  In addition to this, we can form \textit{bundles} of
+  curves with four possible factorization schemes: $(3,0,6),
+  (1,6,2), (2,3,4)$ and $(0,9,0)$. We can actually obtain
+  different bundles for each factorization scheme, and
+  to simplify the search we will focus on the examples given
+  in the Annals paper.
+
+  \section{$(3,0,6)$ curves}
+
+  Four bundles of nine regular curves each
+  \begin{equation}
+    \beta = \phi_0 \alpha + \phi^2 \alpha^2 + \phi
+    \alpha^{4},
+    \quad
+    \alpha = 0,
+  \end{equation}
+  where $\phi_0 \in F$ and $\tr(\phi) = 0$ have $(3,0,6)$ 
+  factorization. The simplest choice is of course given by
+  the rays ($\phi = 0$) which were used to fix the phase
+  space, and therefore these curves are trivially abelian.
+  The other bundles of curves can be obtained by using the
+  values $\sigma, \sigma^2$ and $\sigma^{4}$ for $\phi$.
+  These bundles can in fact be obtained from the rays by
+  local transformations and one would hope that all of them
+  are abelian but it seems that this is not the case. 
+
+  Consider the bundle given by $\phi = \sigma$. The curves
+  are given by the equation:
+  \begin{equation}
+    \beta = \phi_0 \alpha + \sigma^2 \alpha^2 + \sigma
+    \alpha^{4},
+  \end{equation}
+  along with the vertical line. For the specific choice of
+  $\Gamma$ (all positive solutions for all rays), we
+  actually get \textit{five} abelian curves (including the
+  vertical ray which is trivial):
+  \begin{align}
+    \beta = \sigma \alpha + \sigma^2 \alpha^2 + \sigma
+    \alpha^{4} 
+    &\to \{
+      (0,0), (\sigma,\sigma^6), (\sigma^2,\sigma),
+      (\sigma^3,\sigma^{7}), (\sigma^{4},\sigma^{5}),
+      (\sigma^{5}, \sigma^{3}), (\sigma^{6},\sigma^{4}),
+      (\sigma^{7}, \sigma^2)
+    \} \\
+    \beta = \sigma^2 \alpha + \sigma^2 \alpha^2 + \sigma
+    \alpha^{4}
+    &\to \{
+      (0,0), (\sigma,\sigma), (\sigma^2,\sigma^{5}),
+      (\sigma^3,0), (\sigma^{4},\sigma^{6}),
+      (\sigma^{5}, \sigma^{5}), (\sigma^{6},\sigma^{6}),
+      (\sigma^{7}, \sigma^1)
+    \} \\
+    \beta = \sigma^3 \alpha + \sigma^2 \alpha^2 + \sigma
+    \alpha^{4} 
+    &\to \{
+      (0,0), (\sigma,\sigma^5), (\sigma^2,\sigma^{4}),
+      (\sigma^3,\sigma), (\sigma^{4},\sigma^{7}),
+      (\sigma^{5}, \sigma^{2}), (\sigma^{6},\sigma^{3}),
+      (\sigma^{7}, \sigma^6)
+    \} \\
+    \beta = \sigma^6 \alpha + \sigma^2 \alpha^2 + \sigma
+    \alpha^{4} 
+    &\to \{
+      (0,0), (\sigma,0), (\sigma^2,\sigma^{3}),
+      (\sigma^3,\sigma^3), (\sigma^{4},\sigma^{3}),
+      (\sigma^{5}, 0), (\sigma^{6},0),
+      (\sigma^{7}, \sigma^3)
+    \}.
+  \end{align}
+  I have not tested with the other possible values of
+  $\phi$, but something similar is bound to happen.
+
+  \section{$(1,6,2)$ curves}
+
+  We can get another four bundles of nine curves of the form
+  \begin{equation}
+    \beta = \phi_0 \alpha + \phi^2 \alpha^2 + \phi
+    \alpha^{4},
+    \quad
+    \alpha = 0,
+  \end{equation}
+  where $\phi_0 \in F$ and $\tr(\phi) = 1$. Interestingly
+  for $\phi = 1$ we don't get any abelian curves
+  (except $\alpha=0$). But by choosing $\phi = \sigma^3$ we
+  obtain two non-trivial abelian curves:
+  \begin{align}
+    \beta = \sigma^{6} \alpha^2 + \sigma^3 \alpha^{4}
+    &\to 
+    \{
+      (0,0), (\sigma,\sigma^3), (\sigma^2,\sigma^{6}),
+      (\sigma^3,\sigma^{6}), (\sigma^{4},\sigma^{4}), 
+      (\sigma^{5},0), (\sigma^{6},\sigma^3), (1,\sigma^{4})
+    \} \\
+    \beta = \alpha + \sigma^{6} \alpha^2 + \sigma^3
+    \alpha^{4}
+    &\to
+    \{
+      (0,0), (\sigma,1), (\sigma^2,1),
+      (\sigma^3,\sigma^{4}), (\sigma^{4},0),
+      (\sigma^{5},\sigma^{5}), (\sigma^{6},\sigma^{4}), 
+      (1,\sigma^{5})
+    \}.
+  \end{align}
+  Again all the bundles with $\tr(\phi) = 1$ can be obtained
+  from the bundle given by $\phi = 1$ by local
+  transformations. The paper mentions that we can actually
+  use \textit{nonlocal} transformations to obtain bundles of
+  factorization $(3,0,6)$ from these bundles.
+
+  \section{$(2,3,4)$ curves}
+
+  There is a third factorization that consists of bundles
+  of regular curves. They obtain this by choosing three
+  appropriate non-intersecting regular curves and construct
+  five additional curves from these ones. By adding the
+  vertical line they obtain a complet set of regular curves
+  of factorization $(2,3,4)$. One such example of these
+  bundles is given by equation (7.17) in the Annals paper.
+  Using this example we find that there are four abelian
+  curves, only one of which is non-trivial since $\alpha=0$,
+  $\beta=0$ and $\beta = \sigma^{3}\alpha$ are obviuosly
+  abelian:
+  \begin{align}
+    \beta = \sigma \alpha + \sigma^2 \alpha^2 + \sigma
+    \alpha^{4} 
+    &\to 
+    \{
+      (0,0), (\sigma,\sigma^{6}), (\sigma^2,\sigma), 
+      (\sigma^3,1), (\sigma^{4},\sigma^{5}), 
+      (\sigma^{5},\sigma^3), (\sigma^{6},\sigma^{4}),
+      (1,\sigma^2)
+    \}.
+  \end{align}
+
+  \section{$(0,9,0)$ curves}
+
+  Bundles of this last factorization type always contain
+  exceptional curves. We study the example given by the
+  equations (7.18) and (7.19) in the Annals paper. This set
+  includes seven regular curves and two exceptional curves.
+  Both exceptional curves are doubly degenerate in both
+  directions. We have found that \textit{six} of these
+  curves are abelian, including both exceptional curves:
+  \begin{align}
+    \alpha = \beta + \sigma^{6} \beta^2 + \sigma^3 \beta^{4}
+    &\to \{
+      (0,0), (1, \sigma), (1,\sigma^2),
+      (\sigma^{4},\sigma^3), (0,\sigma^{4}),
+      (\sigma^{5},\sigma^{5}), (\sigma^{4},\sigma^{6}), 
+      (\sigma^{5},1)
+    \} \\
+    \alpha = \sigma^3 \beta^2 + \sigma^{5} \beta^{4}
+    &\to \{
+      (0,0), (\sigma^3,\sigma), (\sigma^2,\sigma^2),
+      (\sigma^{5},\sigma^3), (\sigma^{5},\sigma^{4}),
+      (\sigma^3,\sigma^{5}), (0,\sigma^{6}), (\sigma^2,1)
+    \} \\
+    \beta = \sigma^6 \alpha^2 + \sigma^3 \alpha^{4}
+    &\to \{
+      (0,0), (\sigma,\sigma^3), (\sigma^2,\sigma^{6}),
+      (\sigma^3,\sigma^{6}), (\sigma^{4},\sigma^{4}),
+      (\sigma^{5},0), (\sigma^{6},\sigma^3), (1,\sigma^{4})
+    \} \\
+    \beta = \alpha + \sigma^3 \alpha^2 + \sigma^{5}
+    \alpha^{4} 
+    &\to \{
+      (0,0), (\sigma,1), (\sigma^2,0), (\sigma^3,\sigma^2),
+      (\sigma^{4},1), (\sigma^{5},\sigma^2),
+      (\sigma^{6},\sigma^{6}), (1,\sigma^{6})
+    \} \\
+    \beta^2 + \sigma^{5} \beta = \sigma^2\alpha^2 +
+    \sigma^{6}\alpha
+    &\to \{
+      (0,0), (0,\sigma^{5}), (\sigma^3,\sigma^{4}),
+      (\sigma^3,1), (\sigma^{4},0), (\sigma^{4},\sigma^{5}),
+      (\sigma^{6},\sigma^{4}), (\sigma^{6},1)
+    \} \\
+    \beta^2 + \sigma^2 \beta = \sigma^{6} \alpha^2 +
+    \sigma^{5} \alpha
+    &\to \{
+      (0,0), (0,\sigma^2), (\sigma^2,\sigma^3),
+      (\sigma^2,\sigma^{5}), (\sigma^{6},0),
+      (\sigma^{6},\sigma^2), (1,\sigma^{3}), (1, \sigma^{5})
+    \}.
+  \end{align}
+
+  \textbf{Note}. Although in the factorization $(0,9,0)$
+  example both curves were doubly degenerate in both
+  directions, the following curve given by equation (5.25)
+  in the Annals paper is doubly degenerate in one direction
+  and quadruply degenerate in the other and but it is also
+  abelian. This curve has the points:
+  \begin{equation}
+    \{
+      (0,0), (\sigma^3,0), (\sigma^{5},0), (\sigma^2,0),
+      (\sigma^3,\sigma^6), (\sigma^5,\sigma^6), 
+      (\sigma^2, \sigma^6), (0,\sigma^6)
+    \}.
+  \end{equation}
+
+  In fact the Annals paper states that there are 21
+  exceptional curves of type doubly degenerated in both
+  directions, and 7 of the type doubly degenerated in one
+  direction and quadruply in the other (section 5.2.2). For
+  our $\Gamma$, out of the 21 curves of the first type, 6
+  were abelian, and out of the 7 of the other type, 3 were
+  abelian.
+
+\end{document}
