@@ -36,6 +36,8 @@
 
 %\usepackage[marginal]{showlabels}
 
+\usepackage{pdfpages}
+
 \DeclareMathOperator{\R}{\mathbb{R}}
 \DeclareMathOperator{\Q}{\mathbb{Q}}
 \DeclareMathOperator{\C}{\mathbb{C}}
@@ -118,6 +120,11 @@
       \large{Guadalajara, Jal., julio 2023}
      \end{center}
   \end{titlepage}
+
+  % For thesis submission
+  \includepdf[pages=-]{titulacion/dictamen.pdf}
+  \includepdf[pages=-]{titulacion/comprobante.pdf}
+  \includepdf[pages=-]{titulacion/autorizacion.pdf}
 
   \tableofcontents
 
