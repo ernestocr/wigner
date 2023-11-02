@@ -1,0 +1,423 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+
+\newtheorem{theorem}{Theorem}
+
+\title{Delta function for $GF(p^{n})$}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  Recall the definition of an eigenstate of an abelian curve
+  $\Gamma = \{(\alpha(\tau),\beta(\tau)) : \tau \in F\}$
+  using the displacement operators:
+  \begin{equation}
+    \ket{\psi_\kappa^{\alpha,\beta}}
+    \bra{\psi_\kappa^{\alpha,\beta}}
+    = \frac{1}{p^{n}}
+    \sum_{\tau}^{} \chi(\kappa\tau) 
+    D(\alpha(\tau),\beta(\tau)).
+  \end{equation}
+  By fixing a phase space and using the definition of the
+  kernel in terms of the displacement operators:
+  \begin{equation}
+    w(\alpha,\beta)
+    = \frac{1}{p^{n}} \sum_{\gamma,\delta}^{} 
+    \chi(\gamma\beta - \delta\alpha) D(\gamma,\delta),
+  \end{equation}
+  we can calculate the Wigner function for any eigenstate of
+  commuting displacement operators.  Running through the
+  calculations and using the fact the displacement operators
+  have the correct phases (for odd characteristic the phases
+  are unique) we obtain the following simplified expression
+  for the Wigner function at the arbitrary point $(a,b)$:
+  \begin{equation}
+    \braket{
+      \psi_{\kappa}^{\alpha,\beta}|w(a,b)|
+      \psi_{\kappa}^{\alpha,\beta}
+    }
+    = \frac{1}{2^{n}}
+    \sum_{\tau}^{} 
+    \chi\left( \alpha(\tau)b - \beta(\tau)a \right) 
+    \chi(\kappa\tau).
+  \end{equation}
+  Ignoring the cases $\kappa \neq 0$ for the moment, our
+  task becomes evaluating the Gauss sum:
+  \begin{equation}
+    \sum_{\tau}^{} 
+    \chi\left( \alpha(\tau)b - \beta(\tau)a \right).
+  \end{equation}
+
+  We will use theorem (5.34) from the book
+  \textit{Finite Fields} by Lidle and Niederreiter, to show
+  that this Gauss sum evaluates to $p^{n}$ precisely at the
+  points of the curve, and $0$ anywhere else. We now state
+  the the theorem:
+  \begin{theorem}
+    Let $F$ be a finite field of $p^{n}$ elements where $p$
+    is a prime number and let
+    \begin{equation}
+      f(x)
+      = a_r x^{p^{r}} + a_{r-1}x^{p^{r-1}} + \ldots
+      + a_1x^{p} + a_0x + a,
+    \end{equation}
+    be an affine $p$-polynomial over $F$. If $b \in F^{*}$,
+    then
+    \begin{equation}
+      \sum_{\tau}^{} 
+      \chi(bf(\tau))
+      = \begin{cases}
+        \chi(ba) p^{n} & \text{ if } 
+        ba_r + b^{p}a_{r-1}^p + \ldots +
+        b^{p^{r-1}}a_1^{p^{r-1}} + b^{p^{r}}a_0^{p^{r}} = 0,
+        \\
+        0 & \text{ otherwise. }
+      \end{cases}
+    \end{equation}
+  \end{theorem}
+
+  Now let us consider the general parametric form of an
+  additive curve for the Galois field $F$ of $p^{n}$
+  elements:
+  \begin{equation}
+    \alpha(\tau)
+    = \sum_{m=0}^{n-1} \alpha_m \tau^{p^{m}},
+    \quad
+    \quad
+    \beta(\tau)
+    = \sum_{m=0}^{n-1} \beta_m \tau^{p^{m}}.
+  \end{equation}
+  We say that a curve $\Gamma$ is \textit{commutative} if
+  for any two points $(\alpha,\beta), (\alpha',\beta')$ on
+  the curve we have $\tr(\alpha \beta' - \beta \alpha') =
+  0$, which of course imposes certain restrictions on the
+  coefficients $\alpha_m$ and $\beta_m$. 
+  %This definition imposes the following restriction to
+  %the coefficients $\alpha_m$ and $\beta_m$ of the
+  %parametrization:
+  %\begin{equation}
+  %  \label{eqn:commutativity}
+  %  \sum_{m=0}^{n-1} \alpha_{n-m}^{p^{m}}
+  %  \beta_{n-m+q}^{p^{m}}
+  %  =
+  %  \sum_{m=0}^{n-1} \beta_{n-m}^{p^{m}}
+  %  \alpha_{n-m+q}^{p^{m}},
+  %  \quad
+  %  \text{for } q = 1,2,\ldots,n-1,
+  %\end{equation}
+  %where the indices must be understood modulo $n$. 
+  Now for a curve of this form, the Gauss sum becomes:
+  \begin{align}
+    \sum_{\tau}^{} 
+    \chi\left( \alpha(\tau)b - \beta(\tau)a \right) 
+    &= \sum_{\tau}^{} 
+    \chi\left[
+    \left(
+      \sum_{m=0}^{n-1} \alpha_m \tau^{p^{m}}
+    \right)b
+    - \left(
+      \sum_{m=0}^{n-1} \beta_m \tau^{p^{m}}
+    \right)a
+    \right] \\
+    &= \sum_{\tau}^{} 
+    \chi\left[
+      \sum_{m=0}^{n-1} \left(
+        \alpha_m \tau^{p^{m}} b -
+        \beta_m \tau^{p^{m}} a
+      \right)
+    \right] \\
+    &= \sum_{\tau}^{} 
+    \chi\left[
+      \sum_{m=0}^{n-1} 
+      (\alpha_m b - \beta_m a) \tau^{p^{m}}
+    \right].
+  \end{align}
+  Notice that the argument of the additive character has the
+  required form for the use of Lidl's theorem, for $b = 1$,
+  $r = n-1$ and $a = 0$.  Therefore the gauss sum will be
+  equal to $p^{n}$ if and only if the point $(a,b)$ 
+  satisfies the following condition:
+  \begin{equation}
+    \label{eqn:lidl_cond}
+      \sum_{m=0}^{n-1} 
+      (\alpha_{n-1-m} b - \beta_{n-1-m} a)^{p^{m}}
+      %= \sum_{m=0}^{n-1} 
+      %\left(
+      %  \alpha_{n-1-m}^{p^{m}} b^{p^{m}}
+      %  - \beta_{n-1-m}^{p^{m}} a^{p^{m}}
+      %\right)
+      = 0.
+  \end{equation}
+
+  %Let us now consider the particular case in which the point
+  %$(a,b) = (\alpha(\tau), \beta(\tau))$ belongs to the curve
+  %$\Gamma$. Substituting in the left hand side of equation
+  %\eqref{eqn:lidl_cond} we obtain:
+
+  %\begin{align}
+  %  \sum_{m=0}^{n-1} 
+  %  (\alpha_{n-1-m} \beta(\tau)
+  %  - \beta_{n-1-m} \alpha(\tau))^{p^{m}}
+  %  &= \sum_{m=0}^{n-1} 
+  %  \left[
+  %    \alpha_{n-1-m} \left( 
+  %      \sum_{k=0}^{n-1} \beta_{k} \tau^{p^{k}}
+  %    \right)  - \beta_{n-1-m} \left( 
+  %      \sum_{k=0}^{n-1} \alpha_{k} \tau^{p^{k}}
+  %    \right) 
+  %  \right]^{p^{m}} \\
+  %  &= \sum_{m=0}^{n-1} 
+  %  \left[
+  %    \left( 
+  %      \sum_{k=0}^{n-1}
+  %      \alpha_{n-1-m} \beta_{k} \tau^{p^{k}}
+  %    \right)  - \left( 
+  %      \sum_{k=0}^{n-1}
+  %      \beta_{n-1-m} 
+  %      \alpha_{k} \tau^{p^{k}}
+  %    \right) 
+  %  \right]^{p^{m}} \\
+  %  &= \sum_{m=0}^{n-1} 
+  %  \left[
+  %    \sum_{k=0}^{n-1}
+  %    (\alpha_{n-1-m} \beta_{k}
+  %    -
+  %    \beta_{n-1-m} \alpha_{k}) \tau^{p^{k}}
+  %  \right]^{p^{m}} \\
+  %  &= \sum_{m=0}^{n-1}\left[
+  %    \sum_{k=0}^{n-1} \left( 
+  %    \alpha_{n-1-m}^{p^{m}} \beta_k^{p^{m}}
+  %    - \beta_{n-1-m}^{p^{m}} \alpha_k^{p^{m}}
+  %  \right) \tau^{p^{k+m}}\right] \\
+  %  %= \left[(\alpha_2\beta_0 + \beta_2\alpha_0)\tau
+  %  % (\alpha_2\beta_1 + \beta_2\alpha_1)\tau^{p}
+  %  % (\alpha_2\beta_2 +
+  %  %beta_2\alpha_2)\tau^{p^{2}}\right]\\
+  %  %+ \left[(\alpha_1^{p}\beta_0^{p} +
+  %  %beta_1^{p}\alpha_0^{p})\tau^{p} +
+  %  %\alpha_1^{p}\beta_1^{p} +
+  %  %beta_1^{p}\alpha_1^{p})\tau^{p^2}
+  %  % (\alpha_1^{p}\beta_2^{p} +
+  %  %beta_1^{p}\alpha_2^{p})\tau^{p^3} \right] \\
+  %  %+ \left[
+  %  % (\alpha_0^{p^{2}}\beta_0^{p^2} +
+  %  % \beta_0^{p^2}\alpha_0^{p^2})\tau^{p^2}
+  %  % + (\alpha_0^{p^2}\beta_1^{p^2} +
+  %  % \beta_0^{p^2}\alpha_1^{p^2})\tau^{p^{3}}
+  %  % + (\alpha_0^{p^2}\beta_2^{p^2} +
+  %  % \beta_0^{p^2}\alpha_2^{p^2})\tau^{p^{4}}
+  %  %right] \\
+  %  %= \left[(\alpha_2\beta_0 + \beta_2\alpha_0)\tau
+  %  % (\alpha_2\beta_1 + \beta_2\alpha_1)\tau^{p}
+  %  % (\alpha_2\beta_2 +
+  %  %beta_2\alpha_2)\tau^{p^{2}}\right]\\
+  %  %+ \left[(\alpha_1^{p}\beta_0^{p} +
+  %  %beta_1^{p}\alpha_0^{p})\tau^{p} +
+  %  %\alpha_1^{p}\beta_1^{p} +
+  %  %beta_1^{p}\alpha_1^{p})\tau^{p^2}
+  %  % (\alpha_1^{p}\beta_2^{p} +
+  %  %beta_1^{p}\alpha_2^{p})\tau \right] \\
+  %  %+ \left[
+  %  % (\alpha_0^{p^{2}}\beta_0^{p^2} +
+  %  % \beta_0^{p^2}\alpha_0^{p^2})\tau^{p^2}
+  %  % + (\alpha_0^{p^2}\beta_1^{p^2} +
+  %  % \beta_0^{p^2}\alpha_1^{p^2})\tau
+  %  % + (\alpha_0^{p^2}\beta_2^{p^2} +
+  %  % \beta_0^{p^2}\alpha_2^{p^2})\tau^{p}
+  %  %right] \\
+  %  %= \left( 
+  %  % \alpha_2\beta_0 + \beta_2\alpha_0 +
+  %  % \alpha_1^{p}\beta_2^{p} + \beta_1^{p}\alpha_2^{p} +
+  %  % \alpha_0^{p^2}\beta_1^{p^2} +
+  %  % \beta_0^{p^2}\alpha_1^{p^2}
+  %  %right)\tau\\
+  %  %+ \left( 
+  %  % \alpha_2\beta_1 + \beta_2\alpha_1 
+  %  % + \alpha_1^{p}\beta_0^{p} + \beta_1^{p}\alpha_0^{p}
+  %  % + \alpha_0^{p^2}\beta_2^{p^2} +
+  %  % \beta_0^{p^2}\alpha_2^{p^2}
+  %  %right)\tau^{p} \\
+  %  %+ \left( 
+  %  % \alpha_2\beta_2 + \beta_2\alpha_2
+  %  % + \alpha_1^{p}\beta_1^{p} + \beta_1^{p}\alpha_1^{p}
+  %  % + \alpha_0^{p^2}\beta_0^{p^2} +
+  %  % \beta_0^{p^2}\alpha_0^{p^2}
+  %  %right)\tau^{p^2} \\
+  %  &= \sum_{m=0}^{n-1} 
+  %  \left[
+  %    \sum_{k=0}^{n-1} 
+  %    \left(
+  %      \alpha_{n-1-k}^{p^{k}}
+  %      \beta_{m-k}^{p^{k}}
+  %      - 
+  %      \beta_{n-1-k}^{p^{k}}
+  %      \alpha_{m-k}^{p^{k}}
+  %    \right)
+  %  \right]\tau^{p^{m}} \\
+  %  &= \sum_{m=0}^{n-1} 
+  %  \left[
+  %    -\sum_{k=0}^{n-1} \left(
+  %    \alpha_{m-k}^{p^{k}}\beta_{n-1-k}^{p^{k}} 
+  %    - \beta_{m-k}^{p^{k}} \alpha_{n-1-k}^{p^{k}} \right)
+  %  \right]
+  %  \tau^{p^{m}}.\label{eqn:sign}
+  %\end{align}
+
+  %First notice that for the case $m = n-1$, the coefficient
+  %of the term $\tau^{p^{n-1}}$ is equal to zero. For all
+  %other cases the coefficient of the term
+  %$\tau^{p^{m}}$ in equation \eqref{eqn:sign} can be made
+  %equal to a case of equation \eqref{eqn:commutativity} by
+  %exponentiating to an appropriate power. In particular for
+  %a given $m$, we have that the coefficient in
+  %\eqref{eqn:sign} is equal to the $p^{m}$-th power of
+  %\eqref{eqn:commutativity}, for $q = n-1-m$:
+  %\begin{align}
+  %  \left[
+  %  \sum_{l=0}^{n-1} \left( 
+  %    \alpha_{n-l}^{p^{l}} \beta_{n-l+q}^{p^{l}}
+  %    - \beta_{n-l}^{p^{l}} \alpha_{n-l+q}^{p^{l}}
+  %  \right) 
+  %  \right]^{p^{m}}
+  %  &= \sum_{l=0}^{n-1} \left( 
+  %    \alpha_{n-l}^{p^{l+m}} \beta_{n-l+n-1-m}^{p^{l+m}}
+  %    - \beta_{n-l}^{p^{l+m}} \alpha_{n-l+n-1-m}^{p^{l+m}}
+  %  \right) \\
+  %  &= \sum_{k=0}^{n-1} \left( 
+  %    \alpha_{n-k+m}^{p^{k}}\beta_{n-k+m+n-1-m}^{p^{k}}
+  %    - \beta_{n-k+m}^{p^{k}}\alpha_{n-k+m+n-1-m}^{p^{k}}
+  %  \right)  \\
+  %  &= \sum_{k=0}^{n-1} \left( 
+  %    \alpha_{m-k}^{p^{k}}\beta_{n-1-k}^{p^{k}}
+  %    - \beta_{m-k}^{p^{k}}\alpha_{n-1-k}^{p^{k}}
+  %  \right), 
+  %\end{align}
+  %where we have used the change of variables $k = l + m$.
+  %Therefore for a point on the curve, all such coefficients
+  %vanish and we obtain
+  %\begin{equation}
+  %  \sum_{m=0}^{n-1} 
+  %  \left( \alpha_{n-1-m}\beta(\tau) -
+  %  \beta_{n-1-m}\alpha(\tau) \right)^{p^{m}}
+  %  = 0,
+  %\end{equation}
+  %i.e., Lidl's theorem condition is satisfied and the Gauss
+  %sum evaluates to $p^{n}$.  Now we only need to prove that
+  %the only points that satisfy condition
+  %\eqref{eqn:lidl_cond} are precisely the ones that belong
+  %to the curve. If this is the case then the Gauss sum
+  %evaluates to $0$ for every point \textit{not} in the
+  %curve, which will finally give us a Wigner function
+  %represented as delta function.
+
+  %No other point $(a,b)$ can satisfy the commutativity
+  %condition, but it is not so easy to see that the
+  %overall sum \eqref{eqn:lidl_cond} does not vanish for an
+  %arbitrary point. We proceed by contradiction.
+
+  We will now prove that the only points that satisfy this
+  condition for a given curve $\Gamma$ are precisely the
+  points that belong to it. Let $(a,b)$ be a point in phase
+  space that satisfies condition \eqref{eqn:lidl_cond} for a
+  parametrization given by the functions $\alpha(\tau)$ and
+  $\beta(\tau)$, and now consider the following identity:
+  \begin{align}
+    \sum_{m=0}^{n-1}  
+    \tr\left[
+      (\alpha_m b - \beta_m a) \tau^{p^{m}}
+    \right]
+    &= \sum_{m=0}^{n-1} 
+    \left[
+      \sum_{k=0}^{n-1} 
+      (\alpha_m b - \beta_m a)^{p^{k}}
+      \tau^{p^{m+k}}
+    \right] \\
+    &= \sum_{m=0}^{n-1} \left[
+    \sum_{k=0}^{n-1} \left( 
+      \alpha_{m-k} b - \beta_{m-k} a
+    \right)^{p^{k}} \right] \tau^{p^{m}} \\
+    &= \sum_{m=0}^{n-1} \left[
+    \sum_{k=0}^{n-1}
+    (\alpha_{n-1-k} b - \beta_{n-1-k} a)^{p^{m+k+1}}
+    \right] \tau^{p^{m}} \\
+    &= \sum_{m=0}^{n-1} \left[
+    \sum_{k=0}^{n-1}
+    (\alpha_{n-1-k} b - \beta_{n-1-k} a)^{p^{k}}
+    \right]^{p^{m+1}} \tau^{p^{m}}.
+  \end{align}
+  Notice that the coefficient of the term $\tau^{p^{m}}$ is
+  simply the $(m+1)$-th power of the left hand side of
+  condition \eqref{eqn:lidl_cond}. Therefore since by
+  hypothesis the point $(a,b)$ satisfies the condition
+  \eqref{eqn:lidl_cond}, each of the coefficients of the
+  terms $\tau^{p^{m}}$ vanish, and therefore
+  \begin{equation}
+    \sum_{m=0}^{n-1} 
+    \tr\left[
+      (\alpha_m b - \beta_m a) \tau^{p^{m}}
+    \right] = 0,
+  \end{equation}
+  for all $\tau \in F$. On the other hand notice that
+  \begin{align}
+    \sum_{m=0}^{n-1} 
+    \tr\left[
+      (\alpha_m b - \beta_m a) \tau^{p^{m}}
+    \right]
+    &= \tr\left[
+      \sum_{m=0}^{n-1} 
+      (\alpha_m b - \beta_m a) \tau^{p^{m}}
+    \right] \\
+    &= \tr\left[
+      \left(\sum_{m=0}^{n-1} 
+      \alpha_m \tau^{p^{m}}\right) b
+      - \left(\sum_{m=0}^{n-1} 
+      \beta_m \tau^{p^{m}}\right) a
+    \right] \\
+    &= \tr\left[\alpha(\tau) b - \beta(\tau) a\right].
+  \end{align}
+  Therefore $\tr\left( \alpha(\tau) b - \beta(\tau) a
+  \right) = 0$ for all $\tau \in F$, i.e., the point $(a,b)$
+  \textit{commutes} with all of the points of the curve
+  $\Gamma$. We know that the number of points on a
+  commutative curve is $p^{n}$, therefore the only points
+  whose Gauss sum is equal to $p^{n}$ are the points that
+  are precisely elements of curve $\Gamma$.  So for an
+  arbitrary point $(a,b)$ and $\kappa = 0$ we obtain the
+  desired delta function:
+  \begin{align}
+    \braket{
+      \psi_{0}^{\alpha,\beta}|w(a,b)|
+      \psi_{0}^{\alpha,\beta}
+    }
+    &= \frac{1}{2^{n}}
+    \sum_{\tau}^{} 
+    \chi\left( \alpha(\tau)b + \beta(\tau)a \right)  \\
+    &= \frac{1}{2^{n}}\begin{cases}
+      2^{n} & \text{ if } (a,b) =
+      (\alpha(\nu),\beta(\nu)) \quad \text{for some } \nu
+      \in F,\\
+      0 & \text{ otherwise }
+    \end{cases} \\
+    &= \sum_{\nu}^{}
+    \delta_{a,\alpha(\nu)} \delta_{b,\beta(\nu)}.
+  \end{align}
+
+  Now we consider the case $\kappa \neq 0\ldots$
+
+\end{document}

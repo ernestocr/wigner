@@ -1,0 +1,201 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+
+\newtheorem{theorem}{Theorem}
+
+\title{Fixed phase space example}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  Recall the definition of an eigenstate of an abelian curve
+  $\{(\alpha(\tau),\beta(\tau) : \tau \in F\}$ using the
+  displacement operators:
+  \begin{equation}
+    \ket{\psi_\kappa^{\alpha,\beta}}
+    \bra{\psi_\kappa^{\alpha,\beta}}
+    = \frac{1}{2^{n}}
+    \sum_{\tau}^{} \chi(\kappa\tau) 
+    D(\alpha(\tau),\beta(\tau)).
+  \end{equation}
+  By fixing a phase space and using the definition of the
+  kernel in terms of the displacement operators:
+  \begin{equation}
+    w(\alpha,\beta)
+    = \frac{1}{2^{n}} \sum_{\gamma,\delta}^{} 
+    \chi(\gamma\beta +\delta\alpha) D(\gamma,\delta),
+  \end{equation}
+  we can calculate the Wigner function for any eigenstate of
+  commuting displacement operators.
+  Running through the calculations and using the fact the
+  displacement operators have the correct phases we obtain
+  the following simplified expression for the Wigner
+  function at the arbitrary point $(a,b)$:
+  \begin{equation}
+    \braket{
+      \psi_{\kappa}^{\alpha,\beta}|w(a,b)|
+      \psi_{\kappa}^{\alpha,\beta}
+    }
+    = \frac{1}{2^{n}}
+    \sum_{\tau}^{} 
+    \chi\left( \alpha(\tau)b + \beta(\tau)a \right) 
+    \chi(\kappa\tau).
+  \end{equation}
+  Ignoring the cases $\kappa \neq 0$ for the moment our task
+  becomes evaluating the gauss sum:
+  \begin{equation}
+    \sum_{\tau}^{} 
+    \chi\left( \alpha(\tau)b + \beta(\tau)a \right).
+  \end{equation}
+
+  We will try to use Lidl's theorem (5.34) to show that this
+  gauss sum evaluates to $2^{n}$ precisely at the points of
+  the curve, and 0 anywhere else.
+
+  \begin{theorem}
+    For a polynomial of the form
+    \begin{equation}
+      f(x)
+      = a_r x^{2^{r}} + a_{r-1}x^{2^{r-1}} + \ldots
+      + a_1x^{2} + a_0x + a.
+    \end{equation}
+    Then 
+    \begin{equation}
+      \sum_{\tau}^{} 
+      \chi(f(\tau))
+      = \begin{cases}
+        \chi(a) 2^{n} & \text{ if } 
+        a_r + a_{r-1}^2 + \ldots + a_1^{2^{r-1}} +
+        a_0^{2^{r}} = 0 \\
+        0 & \text{ otherwise. }
+      \end{cases}
+    \end{equation}
+  \end{theorem}
+
+  Now let us consider the general form of an additive curve
+  for the field $F = GF(2^3)$:
+  \begin{equation}
+    \alpha(\tau)
+    = \sum_{m=0}^{2} \alpha_m \tau^{2^{m}}
+    = \alpha_0\tau + \alpha_1\tau^2 + \alpha_2\tau^{4},
+    \quad
+    \beta(\tau)
+    = \sum_{m=0}^{2} \beta_m \tau^{2^{m}}
+    = \beta_0\tau + \beta_1\tau^2 + \beta_2\tau^{4}.
+  \end{equation}
+  If this curve is to be commutative then we require:
+  \begin{equation}
+    \sum_{m=0}^{2} \alpha_{3-m}^{2^{m}} \beta_{3-m+q}^{2^{m}}
+    =
+    \sum_{m=0}^{2} \beta_{3-m}^{2^{m}}
+    \alpha_{3-m+q}^{2^{m}},
+    \quad
+    q = 1,2,
+  \end{equation}
+  where the indices must be understood modulo $n=3$. Now for
+  a curve of this form, the gauss sum becomes:
+  \begin{align}
+    \sum_{\tau}^{} 
+    \chi\left( \alpha(\tau)b + \beta(\tau)a \right) 
+    &= \sum_{\tau}^{} 
+    \chi\left(
+    (\alpha_0\tau + \alpha_1\tau^2 + \alpha_2\tau^{4})b
+    + (\beta_0\tau + \beta_1\tau^2 + \beta_2\tau^{4})a
+    \right) \\
+    &= \sum_{\tau}^{} 
+    \chi\left( 
+      (\alpha_0 b + \beta_0 a)\tau
+      + (\alpha_1 b + \beta_1 a)\tau^2
+      + (\alpha_2 b + \beta_2 a)\tau^{4}
+    \right).
+  \end{align}
+  Notice that the argument of the additive character has the
+  required form of Lidl's theorem, for $r = 2$ and $a = 0$.
+  Then the gauss sum will be equal to $2^{n}$ if and only if
+  \begin{equation}
+    \label{eqn:lidl_cond}
+      (\alpha_2 b + \beta_2 a)
+      + (\alpha_1 b + \beta_1 a)^2
+      + (\alpha_0 b + \beta_0 a)^{4}
+      = \alpha_2 b + \beta_2 a
+      + \alpha_1^2 b^2 + \beta_1^2 a^2
+      + \alpha_0^{4} b^{4} + \beta_0^{4} a^{4}
+      = 0.
+  \end{equation}
+  Using the commutativity condition we can see that the
+  points $(a,b)$ which belong to the curve
+  $\{(\alpha(\tau),\beta(\tau)) : \tau \in F\}$ satisfy this
+  last equation and therefore we obtain $2^{n}$ for the
+  Gauss sum, to see this, consider some $\tau \in F$
+  and substitute $a = \alpha(\tau)$ and $b = \beta(\tau)$ in
+  equation \eqref{eqn:lidl_cond} (I only show for the linear
+  term, but the quadratic and quartic term also disappear): 
+  \begin{align}
+    \alpha_2 b + \beta_2 a
+    + \alpha_1^2 b^2 + \beta_1^2 a^2
+    + \alpha_0^{4} b^{4} + \beta_0^{4} a^{4}
+    &= \left( 
+      \alpha_0 \beta_2 + \alpha_2^2 \beta_1^2
+      + \alpha_1^{4} \beta_0^{4}
+      + \beta_0 \alpha_2 + \beta_2^2\alpha_1^2
+      + \beta_1^{4}\alpha_0^{4}
+    \right)\tau + \ldots \\
+    &= \left( 
+      \sum_{m=0}^{2}
+      \alpha_{3-m}^{2^{m}} \beta_{3-m+2}^{2^{m}}
+      + 
+      \sum_{m=0}^{2}
+      \beta_{3-m}^{2^{m}} \alpha_{3-m+2}^{2^{m}}
+    \right) \tau + \ldots \\
+    &= 0 \cdot \tau + \ldots \\
+    &= 0.
+  \end{align}
+
+  So for any point on the curve, Lidl's condition is
+  satisfied and so the sum evaluates to $2^{n}$. This isn't
+  saying much since we could have used the trace property of
+  the points on a commutative curve to obtain the same
+  result easier, but, given Lidl's theorem we  now only need to
+  prove that the only points that satisfy condition
+  \eqref{eqn:lidl_cond} are the ones that belong to the
+  curve. If this is the case then the gauss
+  sum evaluates to $0$ for every point not in the curve. 
+
+  \begin{equation}
+    \vdots
+  \end{equation}
+
+  So for an arbitrary point $(a,b)$ we have
+  \begin{align}
+    \braket{
+      \psi_{0}^{\alpha,\beta}|w(a,b)|
+      \psi_{0}^{\alpha,\beta}
+    }
+    &= \frac{1}{2^{n}}
+    \sum_{\tau}^{} 
+    \chi\left( \alpha(\tau)b + \beta(\tau)a \right)  \\
+    &= \frac{1}{2^{n}}\begin{cases}
+      2^{n} & \text{ if } (a,b) =
+      (\alpha(\nu),\beta(\nu)), \quad \nu \in F \\
+      0 & \text{ otherwise, }
+    \end{cases} \\
+    &= \delta_{a,\alpha(\nu)} \delta_{b,\beta(\nu)}.
+  \end{align}
+
+\end{document}

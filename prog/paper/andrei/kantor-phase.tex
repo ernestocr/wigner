@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=0.5in, landscape]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+
+%\newtheorem{definition}{Definición}
+%\newtheorem{theorem}{Teorema}
+%\newtheorem{proposition}{Proposición}
+%\newtheorem{lemma}{Lema}
+%\newtheorem{corollary}{Corolario}
+\newtheorem{example}{Example}
+
+\title{Kantor}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+
+  El polinomio utilizado para generar la extensión de Galois
+  es $x^{5} + x^2 + 1$. La matriz de fases para los rayos
+  con todas las soluciones positivas es:
+
+  \[
+    \small
+  \displaystyle \left(\begin{array}{rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -i & 1 & i & -i & -1 & -1 & i & -i & i & -i & i & -1 & 1 & -1 & -i & i & 1 & -i & i & -i & 1 & i & 1 & -i & -1 & 1 & 1 & -1 & i & -1 \\
+1 & -i & 1 & -i & i & 1 & -1 & -i & i & i & -i & i & -1 & 1 & -1 & i & -i & 1 & -i & i & i & 1 & i & -1 & -i & -1 & 1 & -1 & -1 & -i & -1 & 1 \\
+1 & 1 & i & i & 1 & 1 & i & i & i & i & i & 1 & 1 & 1 & i & i & 1 & i & i & i & 1 & i & 1 & i & 1 & 1 & 1 & 1 & i & 1 & 1 & i \\
+1 & -i & i & 1 & -1 & i & i & i & -i & i & 1 & 1 & -1 & -i & -i & -1 & i & -i & -i & -1 & -i & -1 & i & 1 & 1 & 1 & -1 & i & 1 & -1 & -i & -1 \\
+1 & i & 1 & 1 & i & i & i & i & i & 1 & 1 & 1 & i & i & 1 & i & i & i & 1 & i & 1 & i & 1 & 1 & 1 & 1 & i & 1 & 1 & i & 1 & i \\
+1 & 1 & -1 & -i & i & i & -i & i & -1 & -1 & 1 & i & i & 1 & i & -i & -i & -1 & -i & -1 & i & 1 & 1 & -1 & -1 & i & -1 & 1 & -i & 1 & -i & -i \\
+1 & -1 & i & i & -i & i & i & 1 & 1 & -1 & -i & -i & -1 & -i & -i & i & 1 & i & 1 & i & 1 & 1 & 1 & 1 & -i & 1 & 1 & -i & -1 & i & -i & 1 \\
+1 & i & i & -i & i & -i & -1 & -1 & -1 & -i & -i & 1 & -i & -i & i & -1 & i & -1 & -i & -1 & 1 & -1 & 1 & i & 1 & 1 & -i & 1 & i & i & 1 & -1 \\
+1 & i & i & i & i & -1 & -1 & -1 & -i & -i & 1 & i & i & -i & -1 & i & -1 & i & -1 & 1 & -1 & -1 & i & -1 & -1 & i & 1 & -i & i & -1 & -1 & i \\
+1 & -i & -i & -i & 1 & -1 & -1 & i & -i & 1 & -i & -i & -i & 1 & -i & 1 & i & 1 & 1 & -1 & 1 & i & 1 & 1 & -i & 1 & i & -i & 1 & -1 & -i & -i \\
+1 & i & i & 1 & 1 & 1 & i & i & 1 & i & i & i & 1 & i & 1 & i & 1 & 1 & 1 & 1 & i & 1 & 1 & i & 1 & i & i & 1 & 1 & i & i & i \\
+1 & -i & -1 & -1 & 1 & -i & i & 1 & i & -i & -i & 1 & -i & -1 & i & 1 & 1 & -1 & -1 & i & 1 & -1 & -i & -1 & -i & i & -1 & 1 & i & -i & i & i \\
+1 & 1 & 1 & 1 & i & -i & -1 & -i & -i & -i & 1 & i & 1 & -i & -1 & 1 & -1 & 1 & -i & 1 & -1 & -i & 1 & -i & -i & 1 & 1 & -i & i & -i & -i & i \\
+1 & 1 & -1 & i & i & 1 & -i & -i & i & -1 & -i & 1 & i & 1 & -1 & -1 & 1 & i & -1 & -1 & -i & -1 & i & -i & 1 & 1 & -i & i & i & -i & -i & -1 \\
+1 & -1 & -i & i & 1 & -i & -i & -i & -1 & i & 1 & i & 1 & 1 & -1 & 1 & i & -1 & 1 & i & -1 & -i & i & 1 & -1 & -i & -i & i & i & -i & -1 & -1 \\
+1 & i & i & 1 & -i & -i & i & -1 & -i & 1 & i & 1 & -1 & -1 & 1 & i & -1 & -1 & -i & -1 & i & -i & 1 & 1 & -i & i & i & -i & -i & -1 & 1 & -1 \\
+1 & i & -1 & -i & -i & -i & 1 & -i & 1 & i & -1 & 1 & 1 & -1 & -i & -1 & 1 & -i & 1 & i & i & -1 & -1 & i & -i & -i & i & i & 1 & -1 & -1 & i \\
+1 & 1 & i & -i & i & 1 & i & -1 & i & 1 & 1 & -1 & -1 & -i & -1 & 1 & -i & -1 & -i & -i & -1 & 1 & i & i & i & -i & i & 1 & -1 & -1 & -i & -i \\
+1 & i & -i & i & 1 & -i & -1 & -i & 1 & 1 & 1 & 1 & -i & 1 & -1 & -i & -1 & i & i & 1 & -1 & -i & -i & i & i & i & 1 & 1 & 1 & -i & i & 1 \\
+1 & i & -i & 1 & -i & -1 & -i & -1 & -1 & -1 & 1 & -i & -1 & 1 & -i & 1 & -i & -i & -1 & 1 & -i & i & i & i & i & -1 & 1 & 1 & i & i & -1 & i \\
+1 & i & -1 & i & -1 & i & 1 & 1 & -1 & -1 & i & 1 & -1 & i & -1 & -i & -i & 1 & 1 & -i & -i & -i & i & -i & 1 & -1 & 1 & -i & i & -1 & -i & i \\
+1 & 1 & i & 1 & i & 1 & 1 & 1 & 1 & i & 1 & 1 & i & 1 & i & i & 1 & 1 & i & i & i & i & i & 1 & 1 & 1 & i & i & 1 & i & i & i \\
+1 & i & -1 & i & 1 & 1 & -1 & -1 & i & -1 & -1 & i & 1 & i & -i & -1 & 1 & i & -i & -i & -i & -i & 1 & -1 & 1 & i & -i & 1 & i & -i & -i & -1 \\
+1 & 1 & i & 1 & 1 & 1 & 1 & i & 1 & 1 & i & 1 & i & i & 1 & 1 & i & i & i & i & i & 1 & 1 & 1 & i & i & 1 & i & i & i & 1 & i \\
+1 & -i & -1 & 1 & 1 & 1 & i & -1 & 1 & i & -1 & -i & -i & -1 & 1 & i & -i & i & i & i & -1 & 1 & 1 & i & -i & -1 & -i & -i & i & -1 & -i & -1 \\
+1 & -1 & -1 & -1 & -1 & -i & 1 & -1 & -i & 1 & -i & i & -1 & -1 & -i & i & -i & i & i & 1 & 1 & -1 & i & i & 1 & i & -i & i & 1 & -i & 1 & -i \\
+1 & 1 & -1 & 1 & i & 1 & 1 & -i & 1 & i & i & 1 & -1 & i & i & -i & i & -i & -1 & -1 & -1 & -i & -i & 1 & -i & -i & i & -1 & i & -1 & -i & -1 \\
+1 & 1 & -1 & i & 1 & 1 & -i & -1 & i & i & -1 & 1 & -i & -i & -i & i & i & -1 & -1 & -1 & i & -i & 1 & -i & i & -i & 1 & -i & -1 & i & 1 & -1 \\
+1 & -1 & i & -1 & -1 & i & -1 & -i & -i & 1 & 1 & -i & i & i & i & i & 1 & 1 & -1 & i & -i & 1 & -i & -i & -i & -1 & i & -1 & -i & 1 & 1 & -1 \\
+1 & i & -1 & 1 & i & 1 & -i & -i & 1 & -1 & -i & i & i & i & -i & -1 & 1 & 1 & -i & -i & -1 & -i & i & -i & 1 & i & -1 & i & 1 & -1 & -1 & -1 \\
+1 & 1 & 1 & -i & 1 & i & -i & -1 & 1 & i & i & -i & -i & -i & -1 & -1 & 1 & -i & i & -1 & i & -i & -i & -1 & -i & -1 & -i & -1 & -1 & -1 & -1 & i
+\end{array}\right)
+\]
+  
+\end{document}
