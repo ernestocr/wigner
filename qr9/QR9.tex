@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{eurosym}
+\usepackage[shortlabels]{enumitem}
 
 \setcounter{MaxMatrixCols}{10}
 %TCIDATA{OutputFilter=Latex.dll}
@@ -919,6 +920,160 @@ tomographic universality of $n$-qubit DWFs under the freedom of the phase
 choice. This conjecture has been verified by extensive numerical simulations
 and, it can be justified by the same functional form of the recurrence
 equation (\ref{phase 2}) for the phase (\ref{Phi}) of any abelian curve.
+
+\appendix
+
+\section{Commutative curves}
+
+In this Appendix we recall some basic properties of commutative curves in
+even local dimensions.
+
+Commuting sets constituted by $2^{n}$ different monomials (stabilizers) $\{
+\hat{Z}_{\alpha _{\lambda }(\tau )}\hat{X}_{\beta _{\lambda }(\tau )}, \, \tau
+\in \mathbb{F}_{2^{n}}\}$ are labelled by points of a discrete grid belonging to
+a non-singular curve (i.e., with no self-intersection) $\Gamma^{\lambda }$ that
+passes through the origin, $(\alpha (0),\beta (0))=(0,0)\in \Gamma^{\lambda }$
+and satisfies
+
+\begin{equation*}
+  \tr\left(
+    \alpha_{\lambda}(\tau^{\prime})\beta_{\lambda}(\tau)
+  \right)
+  = \tr\left(
+    \alpha_{\lambda}(\tau)\beta_{\lambda}(\tau^{\prime })
+  \right),
+  \quad \left(
+    \alpha_{\lambda }(\tau), \beta_{\lambda}(\tau)
+  \right) \in \Gamma^{\lambda}. 
+\end{equation*}
+
+A general parametric form of such a curve is given by
+
+\begin{equation}
+  \alpha (\tau)
+  = \sum_{k=0}^{n-1}\alpha_{k}\,\tau^{2^{k}},
+  \quad
+  \beta(\tau)
+  = \sum_{k=0}^{n-1}\beta_{k} \, \tau^{2^{k}},
+  \quad \alpha_{k},\beta_{k}\in \mathbb{F}_{2^{n}},
+  \label{curve1a}
+\end{equation}
+
+where the coefficients $\alpha_k$ and $\beta_k$ are such that $\sum_{m \neq k}
+\tr(\alpha_{m}\beta_{k})=0$, which implies
+
+\begin{equation}
+  \lbrack
+  \hat{Z}_{\alpha (\tau )}\hat{X}_{\beta (\tau )},
+  \hat{Z}_{\alpha (\tau^{\prime })}\hat{X}_{\beta(\tau^{\prime})}
+  ] = 0 \, , \;\; \left(
+    \alpha_{\lambda}(\tau),\beta_{\lambda}(\tau)
+  \right) \in \Gamma ^{\lambda }.
+  \label{stab}
+\end{equation}
+
+It is worth noting that $n$ appropriately chosen points of the curve, e.g. $\tau
+= \{\theta _{1},\ldots,\theta_{n}\}$ generate the entire curve. This is because
+the set of points of these curves form an abelian group where each element is of
+order two, and therefore is isomorphic to $\mathbb Z_{2}^n$.
+
+The regular curves, which are non-degenerated in at least one of the directions
+$\alpha$ or $\beta$ (i.e., they take on all the values of the field in such a
+direction), can be represented in the explicit form,
+
+\begin{equation}
+  \beta = f(\alpha) = \sum_{k=0}^{n-1} \phi_{k} \, \alpha^{2^{k}}
+  \quad \text{or}
+  \quad \alpha = g(\beta) = \sum_{k=0}^{n-1} \psi_{k}\,\beta^{2^{k}},
+  \label{RC}
+\end{equation}
+
+where $\phi_{k},\psi_{k} \in \mathbb{F}_{2^{n}}$ satisfy the following
+commutativity restrictions,
+
+\begin{equation}
+  \phi_{k}
+  = \phi _{n-k}^{2^{k}}\,, \qquad \psi_{k}
+  = \psi_{n-k}^{2^{k}}\,, \qquad k=1,\ldots,
+  \left\lfloor \frac{n-1}{2}\right\rfloor,
+  \label{Acc}
+\end{equation}
+
+where $\left\lfloor . \right\rfloor$ denotes the integer part and in particular
+for even $n$ the additional restriction:
+\begin{equation}
+  \phi_{n/2}
+  = \phi_{n/2}^{2^{n/2}}, \qquad \psi_{n/2}
+  = \psi_{n/2}^{2^{n/2}}.
+\end{equation}
+
+The degenerate (or exceptional) curves are characterized by multiple appearances
+of the admissible points in both directions $\alpha $ and $\beta$. In other
+words, for every point $(\alpha_{j},\beta_{j})$ of such a curve, $\alpha_{j}$ and
+$\beta_{j}$ take on only $2^{n-r_{\beta }}$ and $2^{n-r_{\alpha}}$ different
+values respectively, where $r_{\alpha }$ and $r_{\beta }$ are the degrees of
+degenerations along the corresponding axes. The admissible points of such curves
+are fixed by the relations $\tr(\sigma_{j}\beta)=0$ and
+$\tr(\sigma_{k}\alpha)=0$ where $\sigma_{j}, \sigma_{k}$ are some given elements
+of $\mathbb{F}_{2^{n}}$.
+
+The partitions of the DPS constituted by $2^{n}+1$ commutative curves are
+classified by their factorization structures (\ref{curve_part}), $\lambda
+=\{m_{1},m_{2},\ldots ,m_{n}\}\,$, where $\sum_{k}$ $m_{k}=2^{n}+1$, which
+indicates the number and the lengths of the commuting sub-blocks of the
+stabilizers labelled by the points of a curve. Locally equivalent stabilizers
+can be labelled by points of different curves, but  have the same factorization
+structure. On the other hand, curves with different factorization structures are
+not locally equivalent.
+
+In particular, in the partition given by Eq. (\ref{rays}) there are three
+completely factorized rays ($\beta = 0, \alpha = 0$, and $\beta = \alpha$),
+i.e., of the structure $\{1,1,1\}$, and the other six rays have the structure
+$\{3\}$, so that the whole partition is $(3,0,6)$.
+
+The $(0,9,0)$ partitions include only curves with the factorization $\{1,2\}$,
+and always contain exceptional curves. One example of those partitions is given
+by the following seven regular and two exceptional curves:
+
+\begin{enumerate}[a)]
+  \item Regular curves
+    \begin{equation}
+      \begin{array}{ll}
+        \alpha = \sigma^{2}\beta + \sigma^{3}\beta^{2} + \sigma^{5}\beta^{4},
+        \qquad
+        & \alpha = \sigma^{6}\beta + \sigma^{3}\beta^{2} +
+        \sigma^{5}\beta^{4},\\[4pt]
+        \beta = \sigma^{2}\alpha + \sigma^{3}\alpha^{2} + \sigma^{5}\alpha^{4},
+        \qquad
+        & \beta = \sigma^{6}\alpha^{2} + \sigma^{3}\alpha^{4}, \\[4pt]
+        \alpha = \beta + \sigma^{6}\beta^{2} + \sigma^{3}\beta^{4},
+        \qquad
+        & \beta = \alpha + \sigma^{3}\alpha^{2} + \sigma^{5}\alpha^{4}, \\[4pt]
+        \alpha = \sigma^{3}\beta^{2} + \sigma^{5}\beta^{4},
+        \qquad
+        &
+      \end{array}
+    \end{equation}
+
+  \item Exceptional curves
+    \begin{eqnarray}
+      \beta^{2} + \sigma^{5}\beta
+      &=& \sigma^{2}\alpha^{2} + \sigma^{6}\alpha,
+      \qquad 
+      \tr(\sigma^{4}\beta)=0,
+      \quad
+      \tr(\sigma^{5}\alpha)=0;
+      \nonumber \\
+      && \\
+      \beta^{2} + \sigma^{2}\beta
+      &=& \sigma^{6}\alpha^{2} + \sigma^{5}\alpha,
+      \qquad
+      \tr(\sigma^{6}\beta)=0,
+      \quad
+      \tr(\sigma^{2}\alpha)=0.
+      \nonumber
+    \end{eqnarray}
+\end{enumerate}
 
 \begin{thebibliography}{99}
 \bibitem{wigner} Wigner, E. On the quantum correction for thermodynamic

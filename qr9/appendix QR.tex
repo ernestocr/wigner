@@ -1,0 +1,144 @@
+
+\documentclass{article}
+\usepackage{amsfonts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Sunday, November 05, 2023 11:51:03}
+%TCIDATA{LastRevised=Sunday, November 05, 2023 13:12:11}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{Language=American English}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+In this Appendix we recall some basic properties of commutative curves in
+even dimensions.
+
+Commuting sets constituted by $2^{n}$ different monomials (stabilizers) $\{%
+\hat{Z}_{\alpha _{\lambda }(\tau )}\hat{X}_{\beta _{\lambda }(\tau )},\tau
+\in \mathbb{F}_{2^{n}}\}$ are labelled by points of a discrete grid
+belonging to a non-singular curve  (i.e., with no self-intersection) $\Gamma
+^{\lambda }$, such that $(\alpha (0),\beta (0))=(0,0)\in \Gamma ^{\lambda }$
+and%
+\[
+tr\left( \alpha _{\lambda }(\tau ^{\prime })\beta _{\lambda }(\tau )\right)
+=tr\left( \alpha _{\lambda }(\tau )\beta _{\lambda }(\tau ^{\prime })\right)
+,\;\;\left( \alpha _{\lambda }(\tau ),\beta _{\lambda }(\tau )\right) \in
+\Gamma ^{\lambda }.
+\]
+
+A general form of such curves is 
+\begin{equation}
+\alpha (\tau )=\sum_{i=0}^{n-1}\alpha _{i}\,\tau ^{2^{i}},\qquad \beta (\tau
+)=\sum_{i=0}^{n-1}\beta _{i}\,\tau ^{2^{i}}\,,\;\alpha _{i},\beta _{i}\in 
+\mathbb{F}_{2^{n}},  \label{curve1}
+\end{equation}%
+where $\sum_{i\neq j}tr(\alpha _{i}\beta _{j})=0\,$, such that  
+\begin{equation}
+\lbrack \hat{Z}_{\alpha (\tau )}\hat{X}_{\beta (\tau )},\hat{Z}_{\alpha
+(\tau ^{\prime })}\hat{X}_{\beta (\tau ^{\prime })}]=0\,,\;\;\left( \alpha
+_{\lambda }(\tau ),\beta _{\lambda }(\tau )\right) \in \Gamma ^{\lambda }.
+\label{stab}
+\end{equation}%
+It is worth noting that $n$\ appropriately chosen points, e.g. $\tau
+=\{\theta _{1},...,\theta _{n}\}$ generate the entire curve. 
+
+The regular curves, non-degenerated at lest in one of directions  $\alpha $
+or $\beta $, can be represented in the explicit form, 
+\begin{equation}
+\beta =f(\alpha )=\sum_{i=0}^{n-1}\phi _{i}\,\alpha ^{2^{i}}\quad \mathrm{or}%
+\quad \alpha =g(\beta )=\sum_{i=0}^{n-1}\psi _{i}\,\beta ^{2^{i}}\,,
+\label{RC}
+\end{equation}%
+where $\phi _{i},\psi _{i}\in \mathbb{F}_{2^{n}}.$ satisfy the conditions,  
+\begin{eqnarray}
+\phi _{k} &=&\phi _{n-k}^{2^{k}}\,,\qquad \psi _{k}=\psi
+_{n-k}^{2^{k}}\,,\quad k=1,\ldots ,[(n-1)/2]\,,\text{ odd }n  \label{Acc} \\
+\phi _{n/2} &=&\phi _{n/2}^{2^{n/2}},\qquad \psi _{n/2}=\psi
+_{n/2}^{2^{n/2}},\text{ even }n\text{.}
+\end{eqnarray}%
+and $[\,]$ denotes the integer part. 
+
+The degenerate (or exceptional) curves are characterized by multiple
+appearance of the admissible points in both directions $\alpha $ and $\beta $%
+. In other words, for every point $(\beta _{j},\alpha _{j})$  of such curve $%
+\alpha _{j}$ and $\beta _{j}$ take only $2^{n-r_{\beta }}$ and  $%
+2^{n-r_{\alpha }}$ values correspondingly, where  $r_{\alpha }$ and $%
+r_{\beta }$ are the degrees of degenerations along the respective axes. The
+admissible points of such curves are fixed by relations $tr(\sigma _{j}\beta
+)=0,\quad tr(\sigma _{k}\alpha )=0$ where $\sigma _{j}$ are some given
+elements of $\mathbb{F}_{2^{n}}$.
+
+The partitions of DPS constituted by  $2^{n}+1$ commutative curves are
+classified by their factorization structures (\ref{curve_part}), $\lambda
+=\{m_{1},m_{2},\ldots ,m_{n}\}\,$, $\sum_{k}$ $m_{k}=2^{n}+1$, which
+indicates the number and the lengths of the commuting sub-blocks of the
+stabilizers labelled by the points of a curve. Locally equivalent
+stabilziers can be labelled by points of different curves, but  have the
+same factorization structure. On the other hand, curves with different
+factorization structures are no locally equivalent.
+
+In particular, in the partition (\ref{rays}) there are $3$ completely
+factorized rays ($\beta =0,\alpha =0,\beta =\alpha $) , i.e. of the
+structure $\{1,1,1\}$,and the other six rays have the structure $\{3\}$, so
+that the whole partition is  $(3,0,6)$. 
+
+The partitions $(0,9,0)$ include only curves with the factorization $\{1,2\}$%
+, and always contain exceptional curves. One example of those partitions is:
+
+a) Regular curves 
+\begin{equation}
+\begin{array}{ll}
+\alpha =\sigma ^{2}\beta +\sigma ^{3}\beta ^{2}+\sigma ^{5}\beta ^{4},\qquad
+\qquad  & \alpha =\sigma ^{6}\beta +\sigma ^{3}\beta ^{2}+\sigma ^{5}\beta
+^{4}, \\ 
+\beta =\sigma ^{2}\alpha +\sigma ^{3}\alpha ^{2}+\sigma ^{5}\alpha
+^{4},\qquad \qquad  & \beta =\sigma ^{6}\alpha ^{2}+\sigma ^{3}\alpha ^{4},
+\\ 
+\alpha =\beta +\sigma ^{6}\beta ^{2}+\sigma ^{3}\beta ^{4},\qquad \qquad  & 
+\beta =\alpha +\sigma ^{3}\alpha ^{2}+\sigma ^{5}\alpha ^{4}, \\ 
+\alpha =\sigma ^{3}\beta ^{2}+\sigma ^{5}\beta ^{4},\qquad \qquad  & 
+\end{array}%
+\end{equation}%
+b) Exceptional curves 
+\begin{eqnarray}
+\beta ^{2}+\sigma ^{5}\beta  &=&\sigma ^{2}\alpha ^{2}+\sigma ^{6}\alpha
+,\qquad \qquad tr(\sigma ^{4}\beta )=0,\quad tr(\sigma ^{5}\alpha )=0; 
+\nonumber \\
+&& \\
+\beta ^{2}+\sigma ^{2}\beta  &=&\sigma ^{6}\alpha ^{2}+\sigma ^{5}\alpha
+,\qquad \qquad tr(\sigma ^{6}\beta )=0,\quad tr(\sigma ^{2}\alpha )=0. 
+\nonumber
+\end{eqnarray}
+
+\end{document}
