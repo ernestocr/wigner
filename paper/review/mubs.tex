@@ -1,0 +1,160 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\decimalpoint
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+
+%\newtheorem{definition}{Definición}
+%\newtheorem{theorem}{Teorema}
+%\newtheorem{proposition}{Proposición}
+%\newtheorem{lemma}{Lema}
+%\newtheorem{corollary}{Corolario}
+\newtheorem{example}{Example}
+
+\title{MUBs rayos}
+\author{Ernesto Camacho Ramírez}
+\begin{document}
+  \maketitle
+  
+  Las columnas de las matrices forman la base. La primera
+  base es la de Fourier:
+
+  \begin{equation}
+    F =
+    \frac{1}{\sqrt{8}}\displaystyle \left(\begin{array}{rrrrrrrr}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & 1 & -1 & 1 & -1 & -1 & -1 & 1 \\
+1 & -1 & 1 & -1 & -1 & -1 & 1 & 1 \\
+1 & 1 & -1 & -1 & -1 & 1 & 1 & -1 \\
+1 & -1 & -1 & -1 & 1 & 1 & -1 & 1 \\
+1 & -1 & -1 & 1 & 1 & -1 & 1 & -1 \\
+1 & -1 & 1 & 1 & -1 & 1 & -1 & -1 \\
+1 & 1 & 1 & -1 & 1 & -1 & -1 & -1
+\end{array}\right)
+  \end{equation}
+
+  El resto de las bases se obtienen a partir de la
+  construcción del operador de rotación $V_\mu$ donde $\mu
+  \in \mathbb F$. 
+
+  \begin{equation}
+    V_0 = 
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{array}\right)
+  \end{equation}
+
+  \begin{equation}
+    V_{\sigma} = \frac{1}{4}
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+i + 1 & -i - 1 & i - 1 & -i + 1 & -i + 1 & i + 1 & i + 1 & -i + 1 \\
+-i - 1 & i + 1 & -i + 1 & -i + 1 & i - 1 & i + 1 & i + 1 & -i + 1 \\
+i - 1 & -i + 1 & i + 1 & i + 1 & -i - 1 & -i + 1 & -i + 1 & i + 1 \\
+-i + 1 & -i + 1 & i + 1 & i + 1 & i + 1 & i - 1 & -i + 1 & -i - 1 \\
+-i + 1 & i - 1 & -i - 1 & i + 1 & i + 1 & -i + 1 & -i + 1 & i + 1 \\
+i + 1 & i + 1 & -i + 1 & i - 1 & -i + 1 & i + 1 & -i - 1 & -i + 1 \\
+i + 1 & i + 1 & -i + 1 & -i + 1 & -i + 1 & -i - 1 & i + 1 & i - 1 \\
+-i + 1 & -i + 1 & i + 1 & -i - 1 & i + 1 & -i + 1 & i - 1 & i + 1
+\end{array}\right)
+  \end{equation}
+
+  \begin{equation}
+    V_{\sigma^2} = \frac{1}{4}
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+i + 1 & -i + 1 & -i - 1 & i + 1 & i - 1 & i + 1 & -i + 1 & -i + 1 \\
+-i + 1 & i + 1 & i - 1 & -i + 1 & -i - 1 & -i + 1 & i + 1 & i + 1 \\
+-i - 1 & i - 1 & i + 1 & i + 1 & -i + 1 & i + 1 & -i + 1 & -i + 1 \\
+i + 1 & -i + 1 & i + 1 & i + 1 & -i + 1 & -i - 1 & i - 1 & -i + 1 \\
+i - 1 & -i - 1 & -i + 1 & -i + 1 & i + 1 & -i + 1 & i + 1 & i + 1 \\
+i + 1 & -i + 1 & i + 1 & -i - 1 & -i + 1 & i + 1 & -i + 1 & i - 1 \\
+-i + 1 & i + 1 & -i + 1 & i - 1 & i + 1 & -i + 1 & i + 1 & -i - 1 \\
+-i + 1 & i + 1 & -i + 1 & -i + 1 & i + 1 & i - 1 & -i - 1 & i + 1
+\end{array}\right)
+  \end{equation}
+  
+  \begin{equation}
+    V_{\sigma^3} = \frac{1}{4}
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+i + 1 & -i + 1 & i + 1 & -i + 1 & i - 1 & -i + 1 & i + 1 & -i - 1 \\
+-i + 1 & i + 1 & i - 1 & -i - 1 & i + 1 & i + 1 & -i + 1 & -i + 1 \\
+i + 1 & i - 1 & i + 1 & -i + 1 & -i + 1 & -i + 1 & -i - 1 & i + 1 \\
+-i + 1 & -i - 1 & -i + 1 & i + 1 & i + 1 & i + 1 & i - 1 & -i + 1 \\
+i - 1 & i + 1 & -i + 1 & i + 1 & i + 1 & -i - 1 & -i + 1 & -i + 1 \\
+-i + 1 & i + 1 & -i + 1 & i + 1 & -i - 1 & i + 1 & -i + 1 & i - 1 \\
+i + 1 & -i + 1 & -i - 1 & i - 1 & -i + 1 & -i + 1 & i + 1 & i + 1 \\
+-i - 1 & -i + 1 & i + 1 & -i + 1 & -i + 1 & i - 1 & i + 1 & i + 1
+\end{array}\right)
+  \end{equation}
+
+  \begin{equation}
+    V_{\sigma^4} = \frac{1}{4}
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+i + 1 & i - 1 & -i + 1 & i + 1 & -i - 1 & -i + 1 & i + 1 & -i + 1 \\
+i - 1 & i + 1 & -i - 1 & -i + 1 & -i + 1 & i + 1 & -i + 1 & i + 1 \\
+-i + 1 & -i - 1 & i + 1 & -i + 1 & i - 1 & i + 1 & -i + 1 & i + 1 \\
+i + 1 & -i + 1 & -i + 1 & i + 1 & i + 1 & -i + 1 & -i - 1 & i - 1 \\
+-i - 1 & -i + 1 & i - 1 & i + 1 & i + 1 & -i + 1 & i + 1 & -i + 1 \\
+-i + 1 & i + 1 & i + 1 & -i + 1 & -i + 1 & i + 1 & i - 1 & -i - 1 \\
+i + 1 & -i + 1 & -i + 1 & -i - 1 & i + 1 & i - 1 & i + 1 & -i + 1 \\
+-i + 1 & i + 1 & i + 1 & i - 1 & -i + 1 & -i - 1 & -i + 1 & i + 1
+\end{array}\right)
+  \end{equation}
+
+  \begin{equation}
+    V_{\sigma^5} = \frac{1}{4}
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+i + 1 & i + 1 & i - 1 & i + 1 & -i + 1 & -i + 1 & -i + 1 & -i - 1 \\
+i + 1 & i + 1 & -i + 1 & -i - 1 & i - 1 & -i + 1 & -i + 1 & i + 1 \\
+i - 1 & -i + 1 & i + 1 & -i + 1 & i + 1 & i + 1 & -i - 1 & -i + 1 \\
+i + 1 & -i - 1 & -i + 1 & i + 1 & -i + 1 & i - 1 & -i + 1 & i + 1 \\
+-i + 1 & i - 1 & i + 1 & -i + 1 & i + 1 & -i - 1 & i + 1 & -i + 1 \\
+-i + 1 & -i + 1 & i + 1 & i - 1 & -i - 1 & i + 1 & i + 1 & -i + 1 \\
+-i + 1 & -i + 1 & -i - 1 & -i + 1 & i + 1 & i + 1 & i + 1 & i - 1 \\
+-i - 1 & i + 1 & -i + 1 & i + 1 & -i + 1 & -i + 1 & i - 1 & i + 1
+\end{array}\right)
+  \end{equation}
+
+  \begin{equation}
+    V_{\sigma^6} = \frac{1}{4}
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+i + 1 & i - 1 & -i + 1 & -i + 1 & i + 1 & i + 1 & -i + 1 & -i - 1 \\
+i - 1 & i + 1 & i + 1 & -i - 1 & -i + 1 & -i + 1 & i + 1 & -i + 1 \\
+-i + 1 & i + 1 & i + 1 & i + 1 & i - 1 & -i + 1 & -i - 1 & -i + 1 \\
+-i + 1 & -i - 1 & i + 1 & i + 1 & -i + 1 & -i + 1 & i + 1 & i - 1 \\
+i + 1 & -i + 1 & i - 1 & -i + 1 & i + 1 & -i - 1 & -i + 1 & i + 1 \\
+i + 1 & -i + 1 & -i + 1 & -i + 1 & -i - 1 & i + 1 & i - 1 & i + 1 \\
+-i + 1 & i + 1 & -i - 1 & i + 1 & -i + 1 & i - 1 & i + 1 & -i + 1 \\
+-i - 1 & -i + 1 & -i + 1 & i - 1 & i + 1 & i + 1 & -i + 1 & i + 1
+\end{array}\right)
+  \end{equation}
+
+  \begin{equation}
+    V_{\sigma^7} = \frac{1}{4}
+    \displaystyle \left(\begin{array}{rrrrrrrr}
+i - 1 & -i + 1 & -i + 1 & i + 1 & -i + 1 & i + 1 & i + 1 & -i - 1 \\
+-i + 1 & i - 1 & -i + 1 & -i - 1 & -i + 1 & i + 1 & i + 1 & i + 1 \\
+-i + 1 & -i + 1 & i - 1 & i + 1 & -i + 1 & i + 1 & -i - 1 & i + 1 \\
+i + 1 & -i - 1 & i + 1 & i - 1 & i + 1 & -i + 1 & -i + 1 & -i + 1 \\
+-i + 1 & -i + 1 & -i + 1 & i + 1 & i - 1 & -i - 1 & i + 1 & i + 1 \\
+i + 1 & i + 1 & i + 1 & -i + 1 & -i - 1 & i - 1 & -i + 1 & -i + 1 \\
+i + 1 & i + 1 & -i - 1 & -i + 1 & i + 1 & -i + 1 & i - 1 & -i + 1 \\
+-i - 1 & i + 1 & i + 1 & -i + 1 & i + 1 & -i + 1 & -i + 1 & i - 1
+\end{array}\right)
+  \end{equation}
+\end{document}
