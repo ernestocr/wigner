@@ -173,5 +173,62 @@
   %the phases won't change depending on the bundle chosen for
   %the partition. The following figure shows the DPS for the
   %rays.
+
+  Since the phase $\Phi(\alpha,\beta) =
+  \chi(-2^{-1}\alpha\beta) = \chi(\alpha\beta)$ factors as
+  the product
+  \begin{equation}
+    \prod_i^n \omega^{\alpha_i \beta_i q_i},
+  \end{equation}
+  we can express the phase space $\Phi$ above as an element
+  wise product of matrices:
+  \begin{align}
+    & \left(\begin{array}{rrrrrrrrr}
+      1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+      1 & 1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega \\
+      1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 \\
+      1 & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega \\
+      1 & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega \\
+      1 & 1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega & \omega^{2} \\
+      1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega & \omega^{2} & 1 \\
+      1 & \omega^{2} & \omega & 1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} \\
+      1 & \omega & 1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2}
+      \end{array}\right) \\
+    &= \underbrace{
+    \left(\begin{array}{rrrrrrrrr}
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    1 & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega \\
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    1 & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega \\
+    1 & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega \\
+    1 & \omega & 1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2} \\
+    1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    1 & \omega & 1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2} \\
+    1 & \omega & 1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2}
+    \end{array}\right)
+    }_{
+      \omega^{\alpha_1  \beta_1 q_1},
+      \; \alpha_1 = \tr(\alpha\theta_1),
+      \; \beta_1 = \tr(\beta\theta_1)
+    }
+    \odot
+    \underbrace{
+      \left(\begin{array}{rrrrrrrrr}
+      1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+      1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 \\
+      1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 \\
+      1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega & \omega^{2} & 1 \\
+      1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+      1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega & \omega^{2} & 1 \\
+      1 & \omega^{2} & \omega^{2} & \omega & 1 & \omega & \omega & \omega^{2} & 1 \\
+      1 & \omega & \omega & \omega^{2} & 1 & \omega^{2} & \omega^{2} & \omega & 1 \\
+      1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+      \end{array}\right)
+    }_{
+      \omega^{\alpha_2 \beta_2 q_2},
+      \; \alpha_2 = \tr(\alpha\theta_2),
+      \; \beta_2 = \tr(\beta\theta_2)
+    }
+  \end{align}
   
 \end{document}
