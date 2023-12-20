@@ -201,7 +201,7 @@ eigenstates of disjoint sets of $p^{n}$ commuting monomials (stabilizers) formed
 by products of the generalized Pauli operators. In power-of-prime dimensions one
 can always arrange the operational basis formed by $p^{2n}-1$ monomials
 (excluding the identity operator) into $p^{n}+1$ disjoint stabilizers
-~\cite{Bandyopadhyay2002}. {\color{teal} In addition, it is possible to
+~\cite{Bandyopadhyay2002}. {\color{teal}In addition, it is possible to
 associate lines in the DPS with projectors onto elements of a certain
 (stabilizer) basis in a way that non-intersecting lines correspond to a
 certain basis, while (single) intersecting lines are related to states
@@ -708,11 +708,10 @@ in the case of three qubits for two different partitions.}
   \color{teal}
   \centering
   \subfloat[\centering]{{
-    \includegraphics[width=6.5cm]{DPS_rays_heat.eps}
+    \includegraphics[width=6.9cm]{DPS_rays_heat.eps}
   }}
-  \quad 
   \subfloat[\centering]{{
-    \includegraphics[width=6.5cm]{DPS_curve_heat.eps}
+    \includegraphics[width=6.9cm]{DPS_curve_heat.eps}
   }}
   \caption{
     \color{teal}
@@ -1297,9 +1296,9 @@ and, it can be justified by the same functional form of the recurrence equation
 \label{appA}
 \section[\appendixname~\thesection]{}
 
-In this Appendix we derive Eq.(\ref{WF qubit}) of the main text.
-
-Taking into account the expansion inverse to (\ref{Dexp}),
+\color{teal}
+In this Appendix we derive Eq.(\ref{WF qubit}) of the main text. Taking into
+account the expansion inverse to (\ref{Dexp}),
 
 \begin{equation*}
   |\psi_{\kappa }^{\lambda}\rangle \langle \psi_{\kappa }^{\lambda}|
@@ -1308,6 +1307,7 @@ Taking into account the expansion inverse to (\ref{Dexp}),
 
 and the representation (\ref{wabD}) of the Wigner kernel, one obtains,
 
+\begin{adjustwidth}{-\extralength}{0cm}
 \begin{equation*}
   \langle \psi_{\kappa}^{\lambda}(\pi)
   |\hat{w}\left(\alpha,\beta\,|\,\pi_{0}\right)
@@ -1321,6 +1321,7 @@ and the representation (\ref{wabD}) of the Wigner kernel, one obtains,
     \right)
   \right),
 \end{equation*}
+\end{adjustwidth}
 
 where the summation on $\tau $ denots summation on the points of the curve
 $\left(\alpha_{\lambda}^{\prime}(\tau),\beta_{\lambda}^{\prime}(\tau)\right) \in
@@ -1341,11 +1342,14 @@ the abelian property (\ref{DD}). Thus, one gets
   \chi\left(\gamma \beta +\delta \alpha\right) \chi (\kappa \tau)
   \Phi_{\gamma,\delta }^{\pi_{0}}
   \Phi_{\alpha^{\prime}(\tau),\beta^{\prime}(\tau)}^{\pi\ast}
-  \delta_{\alpha^{\prime }(\tau),\gamma} \delta_{\beta^{\prime }(\tau),\delta},
+  \delta_{\alpha^{\prime }(\tau),\gamma}
+  \delta_{\beta^{\prime }(\tau),\delta},
 \end{equation*}
 
 which after performing a summation over $\gamma ,\delta$ is reduced to
 Eq.(\ref{WF qubit}).
+
+\color{black}
 
 \label{appB}
 \section[\appendixname~\thesection]{}
@@ -1493,12 +1497,15 @@ by the following seven regular and two exceptional curves:
 \label{appC}
 \section[\appendixname~\thesection]{}
 
-{\color{teal}In this Appendix we provide the explicit expressions for the
-reconstruction of the states $|\psi_{0}^{(\beta;1,\sigma^{5})}(0,9,0)\rangle$
-and $|\psi_{0}^{(\beta ;\sigma^{2},\sigma^{5})}(0,9,0)\rangle$ associated to the
-curves (\ref{ac2}) and (\ref{nac}) in terms of ray-related MUBs projectors in
-terms of the corresponding probabilities (\ref{tom r}):}
+\color{teal}
 
+In this Appendix we provide the explicit expressions for the reconstruction of
+the states $|\psi_{0}^{(\beta;1,\sigma^{5})}(0,9,0)\rangle$ and
+$|\psi_{0}^{(\beta ;\sigma^{2},\sigma^{5})}(0,9,0)\rangle$ associated to the
+curves (\ref{ac2}) and (\ref{nac}) in terms of ray-related MUBs projectors in
+terms of the corresponding probabilities (\ref{tom r}):
+
+\begin{adjustwidth}{-\extralength}{0cm}
 \begin{equation*}
   |\psi _{0}^{(\beta ;1, \sigma^{5})}(0,9,0)\rangle
   \langle \psi_{0}^{(\beta;1,\sigma^{5})}(0,9,0)|
@@ -1508,45 +1515,39 @@ terms of the corresponding probabilities (\ref{tom r}):}
   + \left( \tilde{p}_{\kappa }(1,\sigma ^{5})-\frac{1}{9}\right)
   |\tilde{\psi}_{\kappa }\rangle \langle \tilde{\psi}_{\kappa }|,
 \end{equation*}
+\end{adjustwidth}
 
+\begin{adjustwidth}{-\extralength}{0cm}
 \begin{eqnarray*}
-  p_{\kappa }^{\lambda }(1,\sigma ^{5})
+  p_{\kappa}^{\lambda}(1,\sigma^{5})
   &=& |\langle \psi_{\kappa }^{\lambda}
   |\psi_{0}^{(\beta ;1,\sigma ^{5})}(0,9,0)\rangle|^{2}
-  = \begin{array}{ccccccccc}
-    \alpha \backslash \beta  & 0 & \sigma  & \sigma ^{2} & \sigma ^{3} & \sigma
-    ^{4} & \sigma ^{5} & \sigma ^{6} & \sigma ^{7} \\ 
-    0 & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma  & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{}
-    & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{2} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{3} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{4} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{5} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{6} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{7} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{}%
-  \end{array}, \\
-  \tilde{p}_{\kappa }(1,\sigma ^{5})
-  &=&
+  = \left(\begin{array}{ccccccccc} \lambda \backslash \kappa  & 0 & \sigma  &
+      \sigma ^{2} & \sigma ^{3} & \sigma^{4} & \sigma ^{5} & \sigma ^{6} &
+      \sigma ^{7} \\ 
+    0 & \frac{1}{4} & 0 & \frac{1}{4} & 0 & 0 & 0 & \frac{1}{4} & \frac{1}{4} \\
+    [6pt]
+    \sigma & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8}
+           & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} \\ [6pt]
+    \sigma^{2} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} &
+    \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} \\  [6pt]
+    \sigma^{3} & \frac{1}{4} & 0 & 0 & 0 & \frac{1}{4} & \frac{1}{4} & 0 &
+    \frac{1}{4} \\  [6pt] \sigma^{4} & \frac{1}{4} & 0 & 0 & \frac{1}{4} &
+    \frac{1}{4} & 0 & \frac{1}{4} & 0 \\  [6pt]
+    \sigma^{5} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} &
+    \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} \\  [6pt] \sigma^{6} &
+    \frac{1}{2} & \frac{1}{2} & 0 & 0 & 0 & 0 & 0 & 0 \\  [6pt]
+    \sigma^{7} & \frac{1}{4} & 0 & \frac{1}{4} & \frac{1}{4} & 0 & \frac{1}{4} &
+    0 & 0
+  \end{array}\right), \\
+  \tilde{p}_{\kappa }(1,\sigma^{5})
+  &=& \frac{1}{8}, \quad \text{for all } \kappa \in \mathbb F_{2^3},
 \end{eqnarray*}
+\end{adjustwidth}
 
 and
 
+\begin{adjustwidth}{-\extralength}{0cm}
 \begin{equation*}
   |\psi_{0}^{(\beta;\sigma^{2},\sigma^{5})}(0,9,0)\rangle
   \langle \psi_{0}^{(\beta ; \sigma^{2},\sigma^{5})}(0,9,0)|
@@ -1557,62 +1558,57 @@ and
   + \left( \tilde{p}_{\kappa }(\sigma ^{2},\sigma ^{5})-\frac{1}{9} \right)
   |\tilde{\psi}_{\kappa }\rangle \langle \tilde{\psi}_{\kappa }|,
 \end{equation*}
+\end{adjustwidth}
 
+\begin{adjustwidth}{-\extralength}{0cm}
 \begin{eqnarray*}
   p_{\kappa }^{\lambda }\left(\sigma^{2}, \sigma^{5}\right)
   &=& |\langle\psi_{\kappa }^{\lambda }
   |\psi_{0}^{(\beta ;\sigma ^{2},\sigma^{5})}(0,9,0)\rangle|^{2}
-  = \begin{array}{ccccccccc}
-    \alpha \backslash \beta  & 0 & \sigma  & \sigma ^{2} & \sigma ^{3} & \sigma
-    ^{4} & \sigma ^{5} & \sigma ^{6} & \sigma ^{7} \\ 
-    0 & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} &
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} &
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma  & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{}
-            & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{}
-            & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{2} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} &
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} &
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{3} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} &
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} &
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{4} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{5} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{6} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} \\ 
-    \sigma ^{7} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & 
-    \multicolumn{1}{r}{} & \multicolumn{1}{r}{} & \multicolumn{1}{r}{}%
-  \end{array}, \\
-  \tilde{p}_{\kappa }(\sigma ^{2},\sigma ^{5})
-  &=& ,
+  = \left(\begin{array}{ccccccccc}
+    \lambda \backslash \kappa  & 0 & \sigma  & \sigma ^{2} & \sigma ^{3} &
+    \sigma ^{4} & \sigma ^{5} & \sigma ^{6} & \sigma ^{7} \\ 
+    0 & \frac{1}{2} & \frac{1}{2} & 0 & 0 & 0 & 0 & 0 & 0 \\ [6pt]
+    \sigma & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} &
+    \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} \\  [6pt]
+    \sigma^{2} & \frac{1}{4} & 0 & \frac{1}{4} & \frac{1}{4} & 0 &
+    \frac{1}{4} & 0 & 0 \\  [6pt]
+    \sigma^{3} & \frac{1}{4} & 0 & 0 & \frac{1}{4} & \frac{1}{4} & 0 &
+    \frac{1}{4} & 0 \\  [6pt]
+    \sigma^{4} & 0 & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & 0 & 0 &
+    \frac{1}{4} & 0 \\  [6pt]
+    \sigma^{5} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} &
+    \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} \\  [6pt]
+    \sigma^{6} & 0 & \frac{1}{4} & 0 & \frac{1}{4} & \frac{1}{4} &
+    \frac{1}{4} & 0 & 0 \\  [6pt]
+    \sigma^{7} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8} &
+    \frac{1}{8} & \frac{1}{8} & \frac{1}{8} & \frac{1}{8}
+  \end{array}\right), \\
+  \tilde{p}_{\kappa }(\sigma^{2},\sigma^{5})
+  &=& \frac{1}{8}, \quad \text{for all } \kappa \in \mathbb F_{2^3},
 \end{eqnarray*}
+\end{adjustwidth}
 
-{\color{teal}where the  MUBs associated with the partition of the DPS in rays
-(\ref{rays}) have the form,}
+where the MUBs associated with the partition of the DPS in rays (\ref{rays})
+have the form,
 
 \begin{eqnarray*}
   |\psi_{\kappa }^{\lambda }\rangle
-  &=& 2^{-3/2} \sum_{\alpha,\gamma \in \mathbb{F}_{2^{3}}}
+  &=& \frac{1}{2^3} \sum_{\alpha,\gamma \in \mathbb{F}_{2^{3}}}
   \Phi_{\alpha,\lambda \alpha} \;
   %(-1)^{\tr(\alpha (\kappa + \gamma))}
   \chi\left( \alpha(\kappa+\gamma) \right) 
-  |\gamma \rangle, \\
+  |\gamma \rangle, \\ [6pt]
   |\tilde{\psi}_{\kappa }\rangle
-  &=& 2^{-3/2} \sum_{\gamma \in \mathbb{F}_{2^{3}}}
+  &=& \frac{1}{\sqrt{2^3}} \sum_{\gamma \in \mathbb{F}_{2^{3}}}
   %(-1)^{\tr(\kappa \gamma)}
   \chi\left( \kappa\gamma \right) 
   |\gamma \rangle,
 \end{eqnarray*}
 
-{\color{teal}and the phases $\Phi_{\alpha,\beta}$ are defined in (\ref{ray
-dps}).}
+and the phases $\Phi_{\alpha,\beta}$ are defined in (\ref{ray dps}).
+
+\color{black}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
