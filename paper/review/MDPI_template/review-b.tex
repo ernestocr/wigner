@@ -64,6 +64,7 @@
 
 \usepackage{subfig}
 %\usepackage{amsfonts}
+\usepackage{xcolor}
 
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\Tr}{Tr}
@@ -199,18 +200,18 @@ eigenstates of disjoint sets of $p^{n}$ commuting monomials (stabilizers) formed
 by products of the generalized Pauli operators. In power-of-prime dimensions one
 can always arrange the operational basis formed by $p^{2n}-1$ monomials
 (excluding the identity operator) into $p^{n}+1$ disjoint stabilizers
-~\cite{Bandyopadhyay2002}. In addition, it is possible to associate lines in the
-DPS with projectors onto elements of a certain (stabilizer) basis in a way that
-parallel lines correspond to different components of the same basis, while
-(single) intersecting lines are related to states belonging to the mutually
-unbiased bases \cite{wootters1}. It is noteworthy that in the prime-dimensional
-case only straight lines can be related to MUBs.  However, in power-of-prime
-dimensions such an association exists with more complex geometrical structures,
-the so-called commutative curves \cite{GS2,JPA09}. This leads to a fundamental
-property of the discrete Wigner function: the tomographic condition. This
-condition means that summing the Wigner function over a line results in the
-probability that the system is in the state associated with that particular line
-\cite{wootters1, gibbons}.
+~\cite{Bandyopadhyay2002}. \textbf{\color{teal}In addition, it is possible to
+associate lines in the DPS with projectors onto elements of a certain
+(stabilizer) basis in a way that parallel lines correspond to different
+components of the same basis, while (single) intersecting lines are related to
+states belonging to the mutually unbiased bases} \cite{wootters1}. It is
+noteworthy that in the prime-dimensional case only straight lines can be related
+to MUBs.  However, in power-of-prime dimensions such an association exists with
+more complex geometrical structures, the so-called commutative curves
+\cite{GS2,JPA09}. This leads to a fundamental property of the discrete Wigner
+function: the tomographic condition. This condition means that summing the
+Wigner function over a line results in the probability that the system is in the
+state associated with that particular line \cite{wootters1, gibbons}.
 
 The mapping kernel from the Hilbert space into the DPS can be recast as a sum of
 projectors onto elements of an appropriate complete set of MUBs.  However, there
@@ -251,14 +252,15 @@ of delta functions along commutative curves belonging to other partitions. We
 analyze explicit results for the three-qubit case and discuss the implications
 of this observed property of $n$-qubit DWFs.
 
-The structure of this paper is as follows: In Sec. 2 we recall the basic
-properties of $n$-qudit operations in the Hilbert space, in particular: the
-construction of abelian displacement operators and the relation to different
-types of MUBs. In Sec. 3 we discuss geometric structures related to MUBs in the
-discrete phase-space and which are employed for the construction of the Wigner
-map. In Sec. 4 we focus on the tomographic universality of $n$-qudit Wigner
-functions for odd local dimensions and on identifying the stabilizer states with
-non-negative delta-like Wigner functions in the $n$-qubit case.
+\textbf{\color{teal}The structure of this paper is as follows: In Sec. 2 we
+  recall the basic properties of $n$-qudit operations in the Hilbert space, in
+  particular: the construction of abelian displacement operators and the
+  relation to different types of MUBs. In Sec. 3 we discuss geometric structures
+  related to MUBs in the discrete phase-space and which are employed for the
+  construction of the Wigner map. In Sec. 4 we focus on the tomographic
+  universality of $n$-qudit Wigner functions for odd local dimensions and on
+  identifying the stabilizer states with non-negative delta-like Wigner
+  functions in the $n$-qubit case.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -266,26 +268,24 @@ non-negative delta-like Wigner functions in the $n$-qubit case.
 
 Let us consider a system of $n$ qudits, each with a \textit{local} dimension
 that is a prime number $p$. It is convenient to relabel vectors of an
-orthonormal basis $|k_{1},\ldots,k_{n}\rangle$, $k_{i} \in \mathbb{Z}_{p}$ in
+orthonormal basis $|k_{1}, \ldots, k_{n}\rangle$, $k_{i}\in \mathbb{Z}_{p}$ in
 the corresponding Hilbert space $\mathcal{H}_{p^{n}}=\mathcal{H}_{p}^{\otimes
 n}$ by elements of a finite field, $|\kappa \rangle$, $\kappa \in
 \mathbb{F}_{p^{n}}$ according to
 
 \begin{equation}
   |k_{1}, \ldots, k_{n}\rangle
-  \Leftrightarrow |\kappa \rangle,
-  \quad \langle
-  \kappa^{\prime}|\kappa\rangle = \delta_{\kappa^{\prime},\kappa},
-  \quad
-  \kappa = \sum_{i=1}^{n} k_{i} \, \theta_{i} \in \mathbb{F}_{p^{n}},
+  \Leftrightarrow |\kappa\rangle, \quad \langle\kappa^{\prime}|\kappa\rangle
+  = \delta_{\kappa^{\prime},\kappa}, \quad \kappa =
+  \sum_{i=1}^{n} k_{i} \, \theta_{i} \in \mathbb{F}_{p^{n}},
   \label{basis}
 \end{equation}
 
 where $\{\theta_{1},\ldots,\theta_{n}\}$ is an abstract basis in the field
 $\mathbb{F}_{p^{n}}$, considered as a linear space; the components $k_{i}$,
 $i=1,..,n$ are obtained through the trace operation with a dual basis, $\{
-\tilde{\theta}_{1},\ldots ,\tilde{\theta}_{n}\}$ [i.e.,
-$\tr(\theta_{i}\,\tilde{\theta}_{j})=\delta_{ij}$], here $\tr(\alpha) = \alpha
+\tilde{\theta}_{1},\ldots ,\tilde{\theta}_{n}\}$ [i.e., $\tr(\theta _{i}\,
+\tilde{\theta}_{j})=\delta _{ij}$], here $\tr(\alpha) = \alpha
 +\alpha^{2}+\ldots + \alpha ^{p^{n-1}}$, for $\alpha \in \mathbb{F}_{p^{n}}$
 \cite{FF}.
 
@@ -578,9 +578,9 @@ A separation of $Op[\mathcal{H}_{p^{n}}]$ into disjoint stabilizers corresponds
 to a partition of the DPS into non-intersecting (except at the origin),
 non-degenerate (containing $p^{n}$ different points including the origin)
 \textit{commutative} curves $\{\Gamma =\left( \alpha (\tau ),\beta
-(\tau)\right), \; \tau \in \mathbb{F}_{p^{n}}\}$ \cite{GS2,JPA09}. In other
-words, the points of every commutative curve $\Gamma$ label a set of mutually
-commutative monomials,
+(\tau)\right), \; \tau \in \mathbb{F}_{p^{n}}\}$ \cite{GS2,JPA09}.
+\textbf{\color{teal} In other words, the points of every commutative curve
+$\Gamma$ label a set of mutually commutative monomials,}
 
 \begin{equation}
   \{\hat{Z}_{\alpha (\tau )}\hat{X}_{\beta (\tau )}, \;
@@ -589,16 +589,16 @@ commutative monomials,
   = 0, \; \left( \alpha (\tau ),\beta (\tau )\right) \in \Gamma \},
 \end{equation}
 
-such that the condition (\ref{CC}) is satisfied. There exist $p^{n}+1$
-commutative curves $\Gamma^{\lambda }$ in every DPS partition, so that the index
-$\lambda$, labelling curves within a given partition, takes $p^{n}+1$ distinct
-values. In addition, there are $p^{n}-1$ parallel curves $\{\Gamma _{\kappa
-}^{\lambda}$, $\kappa \in \mathbb{F}_{p^{n}}\}$ for each curve passing through
-the origin.  The whole bundle of $p^{n}$ parallel curves (called a striation)
-covers the DPS, and at every phase-space point $p^{n}+1$ curves (i.e.  one curve
-from each striation) intersect. It is worth stressing that only the monomials,
-labelled by the points of the curves crossing the origin, commute among each
-other.
+\textbf{\color{teal} such that the condition (\ref{CC}) is satisfied. There
+exist $p^{n}+1$ commutative curves $\Gamma^{\lambda }$ in every DPS partition,
+so that the index $\lambda$, labelling curves within a given partition, takes
+$p^{n}+1$ distinct values.} In addition, there are $p^{n}-1$ parallel curves
+$\{\Gamma _{\kappa }^{\lambda}$, $\kappa \in \mathbb{F}_{p^{n}}\}$ for each
+curve passing through the origin.  The whole bundle of $p^{n}$ parallel curves
+(called a striation) covers the DPS, \textbf{\color{teal} and at every
+phase-space point $p^{n}+1$ curves (i.e.  one curve from each striation)
+intersect. It is worth stressing that only the monomials, labelled by the points
+of the curves crossing the origin, commute among each other.}
 
 The set of rays (\ref{rays}) is the simplest example of such a partition, where
 the sets of parallel lines are explicitly defined as,
@@ -644,18 +644,18 @@ where the Hermitian mapping kernel $\hat{w}\left( \alpha ,\beta \right) =
 displacements (\ref{D}), and is defined as
 
 \begin{eqnarray}
-  \hat{w}\left( \alpha ,\beta \right)
-  &=&\hat{D}\left( \alpha ,\beta \right) 
+  \hat{w}\left( \alpha ,\beta \right)  &=&\hat{D}\left( \alpha ,\beta \right) 
   \hat{w}\left( 0,0\right) \hat{D}^{\dagger }\left( \alpha ,\beta \right) ,
   \label{Ds} \\
-  \hat{w}\left( 0,0\right)
-  &=&\sum_{\gamma ,\delta }\hat{D}(\gamma ,\delta ),
+  \hat{w}\left( 0,0\right)  &=&\sum_{\gamma ,\delta }\hat{D}(\gamma ,\delta ),
   \label{Dw0}
 \end{eqnarray}
 
-so that
+\textbf{\color{teal} so that}
 
 \begin{equation}
+  \color{teal}
+  \boldmath
   \hat{w} \left( \alpha, \beta \right)
   = p^{-n} \sum_{\gamma, \delta}
   \chi(\gamma \beta -\delta \alpha) \hat{D}(\gamma, \delta).
@@ -699,16 +699,17 @@ where the index $\lambda$, labels the stabilizers/projectors (\ref{states})
 within this partition. Geometrically, Eqs. (\ref{Dw00}) and (\ref{w0}) represent
 a summation along the curves that pass through the origin, i.e. of the form
 (\ref{curve1}). In other words, each point $(\alpha, \beta)$ of the DPS is
-assigned a specific phase $\Phi_{\alpha, \beta}\left( \tau \right)$ according to
-the unit commutative curve $\Gamma^{\lambda}$ that passes through that point and
-corresponding to the displacement operator
-$D\left(\alpha_{\lambda}(\tau),\beta_{\lambda}(\tau)\right)$.  In
-Figure~\ref{fig1} we plot all of the unit commutative curves
-$\{\Gamma^{\lambda}\}$ and the distribution of the corresponding phases
-$\{\Phi_{\alpha,\beta},(\alpha,\beta) \in \Gamma^{\lambda}\}$ along each curve,
-in the case of three qubits for two different partitions.
+assigned a specific phase $\Phi_{\alpha, \beta}\left( \tau \right)$ according
+to the unit commutative curve $\Gamma^{\lambda}$ that passes through that point
+and corresponding to the displacement operator
+$D\left(\alpha_{\lambda}(\tau),\beta_{\lambda}(\tau)\right)$.
+\textbf{\color{teal} In Figure~\ref{fig1} we plot all of the unit commutative
+  curves $\{\Gamma^{\lambda}\}$ and the distribution of the corresponding phases
+  $\{\Phi_{\alpha,\beta},(\alpha,\beta) \in \Gamma^{\lambda}\}$ along each
+curve, in the case of three qubits for two different partitions.}
 
 \begin{figure}[ht]
+  \color{teal}
   \centering
   \subfloat[\centering]{{
     \includegraphics[width=6.9cm]{DPS_rays_heat.eps}
@@ -716,13 +717,14 @@ in the case of three qubits for two different partitions.
   \subfloat[\centering]{{
     \includegraphics[width=6.9cm]{DPS_curve_heat.eps}
   }}
-  \caption{
+  \caption{\textbf{
+    \color{teal}
     Unit commutative curves along with the distribution of the respective phases
     (\ref{D}) satisfying the condition (\ref{Phi}) for the partitions: (a),
     $(3,0,6)$ described by the rays $\beta = \mu \alpha$, $\alpha = 0$, $\mu \in
     \mathbb F_{2^{3}}$; (b), $(1,6,2)$ described by the curves $\beta = \mu
     \alpha + \alpha^2 + \alpha^{4}$, $\mu \in \mathbb F_{2^{3}}$.
-  }
+  }}
   \label{fig1}
 \end{figure}
 
@@ -762,13 +764,15 @@ $\hat{D}^{\lambda }(\tau )$, with the eigenvalues $\chi (\kappa \tau )$, $\kappa
   \label{T1}
 \end{equation}
 
-as it immediately follows from the spectral decomposition (\ref{Dexp}) and Eq.
-(\ref{wabD}).
+\textbf{\color{teal}as it immediately follows from the spectral decomposition
+(\ref{Dexp}) and Eq. (\ref{wabD}).}
 
-On the other hand, it immediately follows from the decomposition (\ref{wab}) and
-the unbiasement condition (\ref{UB}), that
+\textbf{\color{teal}On the other hand, it immediately follows from the
+decomposition (\ref{wab}) and the unbiasement condition (\ref{UB}), that}
 
 \begin{equation}
+  \color{teal}
+  \boldmath
   \langle \psi_{\kappa }^{\lambda }|\hat{w}\left( \alpha ,\beta \right)
   |\psi_{\kappa }^{\lambda }\rangle
   = \sum_{\lambda^{\prime}(\alpha,\beta),\kappa^{\prime }(\alpha,\beta)}
@@ -779,12 +783,14 @@ the unbiasement condition (\ref{UB}), that
   \delta_{\lambda,\lambda^{\prime}}\delta_{\kappa,\kappa^{\prime}},
 \end{equation}
 
-which is just a delta-function along the curve $\Gamma_{\kappa}^{\lambda} =
-\{(\alpha_{\lambda }(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)),\,\tau \in
-\mathbb F_{p^{n}}\}$ associated with the state $|\psi_{\kappa }^{\lambda
-}\rangle$:
+\textbf{\color{teal}which is just a delta-function along the curve
+$\Gamma_{\kappa}^{\lambda} = \{(\alpha_{\lambda
+}(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)),\,\tau \in \mathbb F_{p^{n}}\}$
+associated with the state $|\psi_{\kappa }^{\lambda }\rangle$:}
 
 \begin{equation}
+  \color{teal}
+  \boldmath
   \langle \psi_{\kappa}^{\lambda}
   |\hat{w}\left( \alpha,\beta \right)
   |\psi_{\kappa }^{\lambda}
@@ -861,9 +867,9 @@ where
 \end{equation*}
 
 This implies that the mapping kernel $\hat{w}\left( \alpha ,\beta \right)$ does
-not depend on the particular partition of the DPS in the case of odd local
-dimension. Such a statement may not be immediately obvious from the
-representation (\ref{w0}). This is because different partitions involve
+not depend on the particular partition of the DPS \textbf{\color{teal}in the
+case of odd local dimension}. Such a statement may not be immediately obvious
+from the representation (\ref{w0}). This is because different partitions involve
 stabilizer states with different factorization properties (\ref{curve_part})
 \cite{Bjork2007}.
 
@@ -880,10 +886,11 @@ employed for the construction of the Wigner map, i.e.,
 \end{equation*}
 
 where $\hat{w}\left( \alpha ,\beta \,|\,\pi ^{\prime }\right) $ is a Wigner
-kernel corresponding to some other partition $\pi ^{\prime }$.  Actually, the
-factorization of the kernel (\ref{oddF}) implies that the Wigner function of an
-arbitrary $n$-qudit state has exactly the same form for any DPS partition in the
-case of odd local dimensions.
+kernel corresponding to some other partition $\pi ^{\prime }$.
+\textbf{\color{teal}Actually, the factorization of the kernel (\ref{oddF})
+implies that the Wigner function of an arbitrary $n$-qudit state has
+exactly the same form for any DPS partition in the case of odd local
+dimensions.}
 
 \subsection{Even local dimensions}
 
@@ -970,6 +977,8 @@ outside of this partition, leading to a DWF of the corresponding stabilizer
 states being delta-functions,
 
 \begin{equation}
+  \color{teal}
+  \boldmath
   \langle \psi_{\kappa }^{\lambda}
   (\pi)|\hat{w} \left(\alpha ,\beta \,|\,\pi_{0}\right)
   |\psi_{\kappa }^{\lambda}(\pi)\rangle
@@ -980,15 +989,18 @@ states being delta-functions,
   \right) \in \Gamma_{\kappa }^{\lambda }(\pi),
 \end{equation}
 
-where $\Gamma_{\kappa }^{\lambda}(\pi)$ is a curve associated with the state
-$|\psi_{\kappa }^{\lambda }(\pi)\rangle$ in the partition $\pi$. It is worth
-noting that these abelian curves may possess a factorization structure
-(\ref{curve_part}) not present in the original partition. 
+where \textbf{\color{teal} $\Gamma_{\kappa }^{\lambda}(\pi)$ is a curve
+associated with the state $|\psi_{\kappa }^{\lambda }(\pi)\rangle$ in the
+partition $\pi$}. It is worth noting that these abelian curves may possess a
+factorization structure (\ref{curve_part}) not present in the original
+partition. 
 
-The density matrix of a stabilizer state corresponding to an abelian curve not
-belonging to the core partition, aquires a simple form:
+\textbf{\color{teal}The density matrix of a stabilizer state corresponding to an
+abelian curve not belonging to the core partition, aquires a simple form:}
 
 \begin{equation}
+  \color{teal}
+  \boldmath
   |\psi_{\kappa }^{\lambda}(\pi)\rangle
   \langle \psi_{\kappa }^{\lambda }(\pi)|
   = 2^{-n} \sum_{\tau}
@@ -999,11 +1011,12 @@ belonging to the core partition, aquires a simple form:
   \in \Gamma_{\kappa}^{\lambda}(\pi),
 \end{equation}
 
-i.e., it is an equally weighted sum of the Wigner kernels in the core partition
-$\pi_{0}$ along the curve $\Gamma_{\kappa }^{\lambda}(\pi)$ associated with the
-state $|\psi_{\kappa}^{\lambda }(\pi)\rangle$. However, the reconstruction
-expression (\ref{tom r}) for a stabilizer state associated to an abelian curve
-does not have a form of a convex sum of the core MUBs projectors.
+\textbf{\color{teal}i.e., it is an equally weighted sum of the Wigner kernels in
+  the core partition $\pi_{0}$ along the curve $\Gamma_{\kappa }^{\lambda}(\pi)$
+  associated with the state $|\psi_{\kappa}^{\lambda }(\pi)\rangle$. However,
+  the reconstruction expression (\ref{tom r}) for a stabilizer state associated
+  to an abelian curve does not have a form of a convex sum of the core MUBs
+projectors.}
 
 In general, searching for abelian curves that do not belong to a given partition
 typically requires an involved analytical or numerical procedure.  In addition,
@@ -1099,7 +1112,7 @@ the following relation between parameters $\phi_{0}$ and $\phi$ is fulfilled:
   \item if $\phi = \sigma^{3}, \sigma^{5}, \sigma^{6}$, then $\phi_{0}=0,1$,
 
   \item if $\phi = 1$, there are no $\phi_{0}$ producing abelian curves, as can
-    be observed in the example of Figure~\ref{fig1} (b).
+    be observed in the example of Figure~(\ref{fig1}) (b).
 \end{enumerate}
 
 For instance, the bi-factorized curves in the partition $(0,9,0)$ defined in
@@ -1152,17 +1165,19 @@ On the other hand the curves from the same partition $(0,9,0)$,
   &=& \sigma^{2}\alpha +\sigma ^{3}\alpha ^{2}+\sigma ^{5}\alpha ^{4},
   \label{nac}
 \end{eqnarray}
-are not abelian, thus the DFWs corresponding to the stabilizer states
-$\{|\psi_\kappa^{(\beta; \sigma^2, \sigma^{5})}(0,9,0)\rangle, \kappa \in
-\mathbb F_{2^3}\}$ are not delta-functions. In Figure~\ref{fig2} we plot the
-Wigner function for the unit stabilizer states corresponding to the curves
-(\ref{ac2}) and (\ref{nac}) respectively. Reconstruction of the stabilizer
-states $|\psi_{0}^{(\beta ; 1,\sigma^{5})}(0,9,0)\rangle$ and $|\psi_{0}^{(\beta
-;\sigma ^{2},\sigma^{5})}(0,9,0)\rangle$ associated to the curves (\ref{ac2})
-and (\ref{nac}) in the form of an expansion on the ray-related (\ref{rays}) MUBs
-projectors, fixed by the phases (\ref{ray dps}), and in terms of the
-corresponding probabilities (\ref{tom r}) is given in Appendix \ref{appC}. As it
-is expected, the obtained representation is not a convex sum of projectors.
+
+are not abelian, so that the DFWs corresponding to the stabilizer states
+$\{|\psi_\kappa^{(\beta; \sigma^2, \sigma^{5})}, \kappa \in \mathbb F_{2^3}\}$
+are not delta-functions. In Figure~\ref{fig2} we plot the Wigner function for
+the unit stabilizer states corresponding to the curves (\ref{ac2}) and
+(\ref{nac}) respectively.  \textbf{\color{teal}Reconstruction of the stabilizer
+  states $|\psi_{0}^{(\beta ; 1,\sigma^{5})}(0,9,0)\rangle$ and
+  $|\psi_{0}^{(\beta ;\sigma ^{2},\sigma^{5})}(0,9,0)\rangle$ associated to the
+  curves (\ref{ac2}) and (\ref{nac}) in the form of an expansion on the
+  ray-related (\ref{rays}) MUBs projectors, fixed by the phases (\ref{ray dps}),
+and in terms of the corresponding probabilities (\ref{tom r}) is given in
+Appendix \ref{appC}. As it is expected, the obtained representation is not a
+convex sum of projectors.}
 
 \begin{figure}[ht]
   \centering
@@ -1292,18 +1307,23 @@ and, it can be justified by the same functional form of the recurrence equation
 \section[\appendixname~\thesection]{}
 \label{appA}
 
-In this Appendix we derive Eq. (\ref{WF qubit}) of the main text. Taking into
-account the expansion inverse to (\ref{Dexp}),
+\textbf{\color{teal} In this Appendix we derive Eq. (\ref{WF qubit}) of the main
+text. Taking into account the expansion inverse to (\ref{Dexp}),}
 
 \begin{equation}
+  \color{teal}
+  \boldmath
   |\psi_{\kappa }^{\lambda}\rangle \langle \psi_{\kappa }^{\lambda}|
   = \sum_{\tau }\chi (\kappa \tau )\hat{D}^{\lambda }(\tau )
 \end{equation}
 
-and the representation (\ref{wabD}) of the Wigner kernel, one obtains
+\textbf{\color{teal} and the representation (\ref{wabD}) of the Wigner kernel,
+one obtains}
 
 \begin{adjustwidth}{-\extralength}{0cm}
 \begin{equation}
+  \color{teal}
+  \mathbold
   \langle \psi_{\kappa}^{\lambda}(\pi)
   |\hat{w}\left(\alpha,\beta\,|\,\pi_{0}\right)
   |\psi_{\kappa}^{\lambda}(\pi)\rangle
@@ -1318,18 +1338,21 @@ and the representation (\ref{wabD}) of the Wigner kernel, one obtains
 \end{equation}
 \end{adjustwidth}
 
-where the sum over $\tau$ denotes a sum over the points of the curve
-$\left(\alpha_{\lambda}^{\prime}(\tau),\beta_{\lambda}^{\prime}(\tau)\right) \in
-\Gamma^{\lambda}(\pi)$; the displacement operators $D\left(\gamma,\delta
-|\,\pi_{0}\right)$ and
-$D\left(\alpha_{\lambda}^{\prime}(\tau),\beta_{\lambda}^{\prime
-}(\tau)|\pi\right)$ from the partitions $\pi_{0}$ and $\pi$ respectively,
-according to (\ref{D}), (\ref{Phi}) carry the corresponding phases
+\textbf{\color{teal}where the sum over $\tau$ denotes a sum over the points of
+  the curve
+  $\left(\alpha_{\lambda}^{\prime}(\tau),\beta_{\lambda}^{\prime}(\tau)\right)
+  \in \Gamma^{\lambda}(\pi)$; the displacement operators $D\left(\gamma,\delta
+  |\,\pi_{0}\right)$ and
+  $D\left(\alpha_{\lambda}^{\prime}(\tau),\beta_{\lambda}^{\prime
+  }(\tau)|\pi\right)$ from the partitions $\pi_{0}$ and $\pi$ respectively,
+  according to (\ref{D}), (\ref{Phi}) carry the corresponding phases
 $\Phi_{\gamma,\delta}^{\pi_{0}}$ and
 $\Phi_{\alpha^{\prime}(\tau),\beta^{\prime}(\tau )}^{\pi \ast }$, that guarantee
-the abelian property (\ref{DD}). Thus, one gets
+the abelian property (\ref{DD}). Thus, one gets}
 
 \begin{equation}
+  \color{teal}
+  \boldmath
   \langle \psi_{\kappa}^{\lambda }(\pi)
   |\hat{w}\left(\alpha,\beta\,|\,\pi _{0}\right)
   |\psi_{\kappa}^{\lambda}(\pi)\rangle
@@ -1341,8 +1364,8 @@ the abelian property (\ref{DD}). Thus, one gets
   \delta_{\beta^{\prime }(\tau),\delta},
 \end{equation}
 
-which after performing a sum over $\gamma$ and $\delta$, is reduced to Eq.
-(\ref{WF qubit}).
+\textbf{\color{teal}which after performing a sum over $\gamma$ and $\delta$, is
+reduced to Eq. (\ref{WF qubit}).}
 
 \section[\appendixname~\thesection]{}
 \label{appB}
@@ -1450,7 +1473,9 @@ The $(0,9,0)$ partitions include only curves with the factorization $\{1,2\}$,
 and always contain exceptional curves. One example of these partitions is given
 by the following seven regular and two exceptional curves:
 
-\begin{enumerate}[label = \alph*)]
+\begin{enumerate}
+  %\item $\left[label = \alpha*)\right]$
+
   \item Regular curves 
     \begin{equation}
       \begin{array}{ll}
@@ -1488,14 +1513,16 @@ by the following seven regular and two exceptional curves:
 \section[\appendixname~\thesection]{}
 \label{appC}
 
-In this Appendix we provide the explicit expressions for the reconstruction of
-the states $|\psi_{0}^{(\beta;1,\sigma^{5})}(0,9,0)\rangle$ and
-$|\psi_{0}^{(\beta ;\sigma^{2},\sigma^{5})}(0,9,0)\rangle$ associated to the
-curves (\ref{ac2}) and (\ref{nac}) in terms of ray-related MUBs projectors with
-the corresponding probabilities (\ref{tom r}):
+\textbf{\color{teal}In this Appendix we provide the explicit expressions for the
+  reconstruction of the states $|\psi_{0}^{(\beta;1,\sigma^{5})}(0,9,0)\rangle$
+  and $|\psi_{0}^{(\beta ;\sigma^{2},\sigma^{5})}(0,9,0)\rangle$ associated to
+  the curves (\ref{ac2}) and (\ref{nac}) in terms of ray-related MUBs projectors
+  with the corresponding probabilities (\ref{tom r}):}
 
 \begin{adjustwidth}{-\extralength}{0cm}
 \begin{equation}
+  \color{teal}
+  \boldmath
   |\psi _{0}^{(\beta ;1, \sigma^{5})}(0,9,0)\rangle
   \langle \psi_{0}^{(\beta;1,\sigma^{5})}(0,9,0)|
   = \sum_{\lambda ,\kappa \in \mathbb{F}_{2^{3}}}
@@ -1508,6 +1535,8 @@ the corresponding probabilities (\ref{tom r}):
 
 \begin{adjustwidth}{-\extralength}{0cm}
 \begin{eqnarray}
+  \color{teal}
+  \boldmath
   p_{\kappa}^{\lambda}(1,\sigma^{5})
   &=& |\langle \psi_{\kappa }^{\lambda}
   |\psi_{0}^{(\beta ;1,\sigma ^{5})}(0,9,0)\rangle|^{2}
@@ -1535,10 +1564,12 @@ the corresponding probabilities (\ref{tom r}):
 \end{eqnarray}
 \end{adjustwidth}
 
-and
+\textbf{\color{teal}and}
 
 \begin{adjustwidth}{-\extralength}{0cm}
 \begin{equation}
+  \color{teal}
+  \boldmath
   |\psi_{0}^{(\beta;\sigma^{2},\sigma^{5})}(0,9,0)\rangle
   \langle \psi_{0}^{(\beta ; \sigma^{2},\sigma^{5})}(0,9,0)|
   = \sum_{\lambda }\sum_{\kappa} \left(
@@ -1552,6 +1583,8 @@ and
 
 \begin{adjustwidth}{-\extralength}{0cm}
 \begin{eqnarray}
+  \color{teal}
+  \boldmath
   p_{\kappa }^{\lambda }\left(\sigma^{2}, \sigma^{5}\right)
   &=& |\langle\psi_{\kappa }^{\lambda }
   |\psi_{0}^{(\beta ;\sigma ^{2},\sigma^{5})}(0,9,0)\rangle|^{2}
@@ -1580,10 +1613,12 @@ and
 \end{eqnarray}
 \end{adjustwidth}
 
-where the MUBs associated with the partition of the DPS in rays (\ref{rays})
-have the form,
+\textbf{\color{teal}where the MUBs associated with the partition of the DPS in
+rays (\ref{rays}) have the form,}
 
 \begin{eqnarray}
+  \color{teal}
+  \boldmath
   |\psi_{\kappa }^{\lambda }\rangle
   &=& 2^{-3} \sum_{\alpha,\gamma \in \mathbb{F}_{2^{3}}}
   \Phi_{\alpha,\lambda \alpha} \;
@@ -1597,7 +1632,8 @@ have the form,
   |\gamma \rangle,
 \end{eqnarray}
 
-and the phases $\Phi_{\alpha,\beta}$ are defined in (\ref{ray dps}).
+\textbf{\color{teal}and the phases $\Phi_{\alpha,\beta}$ are defined in
+(\ref{ray dps}).}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
