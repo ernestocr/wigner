@@ -268,42 +268,42 @@ Let us consider a system of $n$ qudits, each with a \textit{local} dimension
 that is a prime number $p$. It is convenient to relabel vectors of an
 orthonormal basis $|k_{1},\ldots,k_{n}\rangle$, $k_{i} \in \mathbb{Z}_{p}$ in
 the corresponding Hilbert space $\mathcal{H}_{p^{n}}=\mathcal{H}_{p}^{\otimes
-n}$ by elements of a finite field, $|\kappa \rangle$, $\kappa \in
+n}$ by elements of a finite field, $|\kappa\rangle$, $\kappa \in
 \mathbb{F}_{p^{n}}$ according to
 
 \begin{equation}
-  |k_{1}, \ldots, k_{n}\rangle
-  \Leftrightarrow |\kappa \rangle,
-  \quad \langle
-  \kappa^{\prime}|\kappa\rangle = \delta_{\kappa^{\prime},\kappa},
-  \quad
-  \kappa = \sum_{i=1}^{n} k_{i} \, \theta_{i} \in \mathbb{F}_{p^{n}},
+  |k_{1},\ldots,k_{n}\rangle
+  \Leftrightarrow |\kappa\rangle,
+  \quad \langle\kappa^{\prime}|\kappa\rangle
+  = \delta_{\kappa^{\prime},\kappa},
+  \quad \kappa
+  = \sum_{i=1}^{n} k_{i} \, \theta_{i} \in \mathbb{F}_{p^{n}},
   \label{basis}
 \end{equation}
 
 where $\{\theta_{1},\ldots,\theta_{n}\}$ is an abstract basis in the field
 $\mathbb{F}_{p^{n}}$, considered as a linear space; the components $k_{i}$,
-$i=1,..,n$ are obtained through the trace operation with a dual basis, $\{
-\tilde{\theta}_{1},\ldots ,\tilde{\theta}_{n}\}$ [i.e.,
-$\tr(\theta_{i}\,\tilde{\theta}_{j})=\delta_{ij}$], here $\tr(\alpha) = \alpha
-+\alpha^{2}+\ldots + \alpha ^{p^{n-1}}$, for $\alpha \in \mathbb{F}_{p^{n}}$
+$i=1,\ldots,n$ are obtained through the trace operation with a dual basis,
+$\{\tilde{\theta}_{1},\ldots,\tilde{\theta}_{n}\}$ [i.e.,
+$\tr(\theta_{i}\,\tilde{\theta}_{j})=\delta_{ij}$], here $\tr(\alpha)=\alpha
++\alpha^{2}+\ldots+\alpha^{p^{n-1}}$, for $\alpha \in \mathbb{F}_{p^{n}}$
 \cite{FF}.
 
 In even dimensions there always exists a self-dual basis, i.e. a basis such that
 $\tr(\theta_{i}\,\theta_{j})=\delta_{ij}$, whereas in odd dimensions there are
 \textit{almost} self-dual bases, such that
 $\tr(\theta_{i}\,\theta_{j})=q_{j}\delta_{ij}$, where $q_{j}$ is equal to $1$
-with one possible exception, e.g. $q_{j} = (q-1)\delta_{jn}+1$ for some $q \in
+with one possible exception, e.g. $q_{j}=(q-1)\delta_{jn}+1$ for some $q \in
 \mathbb{Z}_p$.
 
 The generators of the Pauli group $\mathcal{P}_{n}$ can be expressed as,
 
 \begin{eqnarray}
-  \hat{Z}_{\alpha }
-  &=& \sum_{\kappa } \chi\left( \alpha \kappa \right)
-  |\kappa \rangle \langle \kappa|,
-  \qquad \hat{X}_{\beta }
-  = \sum_{\kappa} |\kappa + \beta \rangle \langle \kappa|,
+  \hat{Z}_{\alpha}
+  &=& \sum_{\kappa} \chi\left( \alpha\kappa \right)
+  |\kappa\rangle \langle\kappa|,
+  \qquad \hat{X}_{\beta}
+  = \sum_{\kappa} |\kappa + \beta\rangle \langle\kappa|,
   \label{XZ} \\
   \hat{Z}_{\alpha }^{\dagger}
   &=& \hat{Z}_{-\alpha}, \quad \hat{X}_{\beta }^{\dagger}
@@ -322,10 +322,10 @@ where
 are additive characters of the finite field,
 
 \begin{equation*}
-  \chi\left( \alpha +\beta \right)
+  \chi\left( \alpha+\beta \right)
   = \chi\left( \alpha \right) \chi\left( \beta \right),
-  \qquad \sum_{\kappa }\chi \left( \kappa \alpha \right)
-  = p^{n}\delta_{\alpha, 0}.
+  \qquad \sum_{\kappa }\chi\left( \kappa\alpha \right)
+  = p^{n}\delta_{\alpha,0}.
 \end{equation*}
 
 The operators (\ref{XZ}) satisfy the discrete counterpart of the Weyl form of
@@ -333,7 +333,7 @@ the commutation relations,
 
 \begin{equation}
   Z_{\alpha}X_{\beta }
-  = \chi \left( \alpha \beta \right) \, X_{\beta }Z_{\alpha} \,.
+  = \chi \left( \alpha\beta \right) \, X_{\beta }Z_{\alpha} \,.
   \label{commutation_relation}
 \end{equation}
 
@@ -341,15 +341,15 @@ In an almost self-dual basis the character of a product of field elements is
 factorized:
 
 \begin{equation}
-  \chi\left( \alpha \beta \right)
+  \chi\left( \alpha\beta \right)
   %= \Pi_{j=1}^{n} \omega{\left( \alpha_{j}\beta_{j}q_{j}\right)},
   = \Pi_{j=1}^{n} \omega^{\alpha_{j}\beta_{j}q_{j}},
   \label{chi fact}
 \end{equation}
 
-where $a_{i} = \tr(\alpha \tilde{\theta}_{i})$ and $b_{i} = \tr(\beta
-\tilde{\theta }_{i})$. This implies a factorization of $\hat{Z}_{\alpha}$ and
-$\hat{X}_{\beta }$ into a product of cyclic operators
+where $a_{i}=\tr(\alpha\tilde{\theta}_{i})$ and $b_{i} =
+\tr(\beta\tilde{\theta}_{i})$. This implies a factorization of
+$\hat{Z}_{\alpha}$ and $\hat{X}_{\beta }$ into a product of cyclic operators
 \cite{Schwinger1,Schwinger2},
 
 \begin{equation}
@@ -363,13 +363,14 @@ $\hat{X}_{\beta }$ into a product of cyclic operators
 according to
 
 \begin{equation}
-  \hat{Z}_{\alpha }
+  \hat{Z}_{\alpha}
   = \otimes \Pi_{j}\hat{Z}^{q_{j}a_{j}},
-  \qquad \hat{X}_{\beta} = \otimes \Pi _{j}\hat{X}^{b_{j}}.
+  \qquad \hat{X}_{\beta}
+  = \otimes \Pi_{j}\hat{X}^{b_{j}}.
   \label{ZXq}
 \end{equation}
 
-The monomials $\{\hat{Z}_{\alpha }\hat{X}_{\beta }$, $\alpha ,\beta \in
+The monomials $\{\hat{Z}_{\alpha}\hat{X}_{\beta}$, $\alpha,\beta \in
 \mathbb{F}_{p^{n}}\}$ form an operational basis in $Op[\mathcal{H}_{p^{N}}]$ and
 can be arranged in commuting sets of unitary displacement operators
 $\hat{D}(\alpha,\beta)$ obtained by Clifford transformations
@@ -377,22 +378,22 @@ $\hat{U}_{\alpha,\beta}$ of the set $\{\hat{Z}_{\tau}$, $\tau \in
 \mathbb{F}_{p^{n}}\}$:
 
 \begin{equation}
-  \hat{D} \left( \alpha (\tau ),\beta (\tau )\right)
+  \hat{D} \left( \alpha(\tau),\beta(\tau) \right)
   = \Phi_{\alpha,\beta} \left( \tau \right)
-  \hat{Z}_{\alpha (\tau)}\hat{X}_{\beta(\tau)}
-  = \hat{U}_{\alpha,\beta}\hat{Z}_{\tau}\hat{U}_{\alpha,\beta }^{\dagger}
-  = \hat{D}^{\dagger }\left(\alpha (-\tau),\beta (-\tau )\right),
+  \hat{Z}_{\alpha(\tau)}\hat{X}_{\beta(\tau)}
+  = \hat{U}_{\alpha,\beta}\hat{Z}_{\tau}\hat{U}_{\alpha,\beta}^{\dagger}
+  = \hat{D}^{\dagger}\left(\alpha(-\tau),\beta(-\tau)\right),
   \label{D}
 \end{equation}
 
-where $\Phi_{\alpha ,\beta }\left( \tau \right) \Phi_{\alpha ,\beta }^{\ast
-}\left( \tau \right) = 1$ is a phase factor. The operators (\ref{D}) from each
-commuting set $\lambda =\{\alpha ,\beta\}$ form an abelian group,
+where $\Phi_{\alpha,\beta}\left( \tau \right) \Phi_{\alpha,\beta}^{\ast}\left(
+\tau \right)=1$ is a phase factor. The operators (\ref{D}) from each commuting
+set $\lambda=\{\alpha,\beta\}$ form an abelian group,
 
 \begin{equation}
   \hat{D}\left( \alpha_{\lambda}(\tau),\beta_{\lambda }(\tau) \right)
   \hat{D}\left(
-    \alpha_{\lambda}(\tau^{\prime }),\beta_{\lambda }(\tau^{\prime })
+    \alpha_{\lambda}(\tau^{\prime}),\beta_{\lambda}(\tau^{\prime})
   \right)
   = \hat{D}\left(
     \alpha_{\lambda}(\tau + \tau^{\prime}),
@@ -401,17 +402,17 @@ commuting set $\lambda =\{\alpha ,\beta\}$ form an abelian group,
   \label{DD}
 \end{equation}
 
-as a consequence of the relation $\hat{Z}_{\tau }\hat{Z}_{\tau ^{\prime}} =
-\hat{Z}_{\tau +\tau^{\prime}}$. This implies that the phases $\Phi_{\alpha,\beta
-}\left( \tau \right) $, where $(\alpha ,\beta )\in \lambda$, $\Phi_{\alpha
-,\beta }\left( 0\right) = 1$ satisfy the equation,
+as a consequence of the relation $\hat{Z}_{\tau}\hat{Z}_{\tau^{\prime}} =
+\hat{Z}_{\tau+\tau^{\prime}}$. This implies that the phases
+$\Phi_{\alpha,\beta}\left( \tau \right)$, where $(\alpha ,\beta )\in \lambda$,
+$\Phi_{\alpha,\beta}\left(0\right) = 1$ satisfy the equation,
 
 \begin{equation}
   \Phi_{\alpha,\beta}\left( \tau \right)
   \Phi_{\alpha,\beta }\left(\tau^{\prime}\right)
-  = \Phi_{\alpha,\beta }\left( \tau +\tau^{\prime}\right)
-  \chi\left(\alpha_{\lambda}(\tau^{\prime})\beta_{\lambda}(\tau)\right)
-  = \Phi_{\alpha,\beta}\left(\tau + \tau^{\prime}\right)
+  = \Phi_{\alpha,\beta}\left( \tau+\tau^{\prime} \right)
+  \chi\left( \alpha_{\lambda}(\tau^{\prime})\beta_{\lambda}(\tau) \right)
+  = \Phi_{\alpha,\beta}\left(\tau+\tau^{\prime}\right)
   \chi\left(\alpha_{\lambda}(\tau)\beta_{\lambda}(\tau^{\prime })\right),
   \label{Phi}
 \end{equation}
@@ -419,8 +420,8 @@ as a consequence of the relation $\hat{Z}_{\tau }\hat{Z}_{\tau ^{\prime}} =
 leading to the following condition for the labels of elements of $\lambda$:
 
 \begin{equation}
-  \tr\left(\alpha_{\lambda}(\tau^{\prime })\beta_{\lambda }(\tau)\right)
-  = \tr\left(\alpha_{\lambda}(\tau)\beta_{\lambda }(\tau^{\prime })\right),
+  \tr\left(\alpha_{\lambda}(\tau^{\prime})\beta_{\lambda }(\tau)\right)
+  = \tr\left(\alpha_{\lambda}(\tau)\beta_{\lambda}(\tau^{\prime})\right),
   \quad \tau,\tau^{\prime} \in \mathbb{F}_{p^{n}}.
   \label{CC}
 \end{equation}
@@ -430,8 +431,8 @@ $\{\hat{D}\left(\alpha_{\lambda}(\tau),\beta_{\lambda}(\tau)\right) \equiv
 \hat{D}^{\lambda}(\tau)$, $\tau \in \mathbb{F}_{p^{n}}\}$,
 
 \begin{equation}
-  \hat{D}^{\lambda}(\tau) |\psi_{\kappa}^{\lambda}\rangle
-  = \chi(\kappa \tau) |\psi_{\kappa}^{\lambda }\rangle,
+  \hat{D}^{\lambda}(\tau)|\psi_{\kappa}^{\lambda}\rangle
+  = \chi(\kappa \tau) |\psi_{\kappa}^{\lambda}\rangle,
   \quad \kappa \in \mathbb{F}_{p^{n}},
   \label{states}
 \end{equation}
@@ -443,8 +444,8 @@ displacement operators satisfy the relation,
   \Tr\left(
     \hat{D}^{\lambda^{\prime}}(\tau^{\prime})\hat{D}^{\lambda\dagger}(\tau)
   \right)
-  = p^{n} \delta_{\lambda,\lambda^{\prime}} \delta_{\tau,\tau^{\prime }}
-  + p^{n}(1 - \delta_{\lambda,\lambda^{\prime}}) \delta_{\tau,0}
+  = p^{n} \delta_{\lambda,\lambda^{\prime}} \delta_{\tau,\tau^{\prime}}
+  + p^{n}(1-\delta_{\lambda,\lambda^{\prime}}) \delta_{\tau,0}
   \delta_{\tau^{\prime},0},
 \end{equation*}
 
@@ -458,7 +459,7 @@ and so the corresponding bases (\ref{states}) are mutually unbiased,
   \label{UB}
 \end{equation}
 
-Commuting sets of displacement operators $\{\hat{D}^{\lambda }(\tau ),\tau \in
+Commuting sets of displacement operators $\{\hat{D}^{\lambda }(\tau), \tau \in
 \mathbb{F}_{p^{n}}\}$, containing $p^{n}-1$ monomials (excluding the identity
 operator), are usually called stabilizers and the respective eigenstates are the
 stabilizer states. The entire set of $p^{2n}-1$ monomials can be partitioned
@@ -480,23 +481,23 @@ generalized Pauli operators. Each monomial (up to a phase),
 \end{equation*}
 
 can be divided into two parts, so that the first part contains $k$ operators,
-corresponding to the $(j_{1},\ldots ,j_{k})$ qudits and the second part contains
+corresponding to the $(j_{1},\ldots,j_{k})$ qudits and the second part contains
 the $n-k$ operators of the rest of the qudits. The stabilizer is factorized into
 at least two subsets if the products of Pauli operators from the first blocks of
 the all monomials commute between each other (the operators from all the second
 blocks satisfy the same condition).  Some mutually commuting sub-blocks may
 exist inside the first or second blocks, etc. Thus, one can represent any
-stabilizer $\lambda $ in the following form
+stabilizer $\lambda$ in the following form
 
 \begin{equation}
-  \lambda = \{m_{1}, m_{2}, \ldots, m_{n}\},
+  \lambda = \{m_{1},m_{2},\ldots,m_{n}\},
   \label{curve_part}
 \end{equation}
 
-where $0<m_{1}\leq m_{2}\leq \ldots \leq m_{N}$ and $\sum_{j}m_{j}=n$ is the
+where $0<m_{1}\leq m_{2} \leq \ldots \leq m_{N}$ and $\sum_{j}m_{j}=n$ is the
 number of qudits in the $j-$th block that cannot be factorized into commuting
 sub-blocks anymore. The partition $\lambda =\underbrace{\{1,1,\ldots ,1\}}_{n}$
-corresponds to a completely factorized stabilizer and $\lambda $ $=\{n\}$ to a
+corresponds to a completely factorized stabilizer and $\lambda=\{n\}$ to a
 completely non-factorized one. It is worth noting that different partitions may
 have the same factorization structure.
 
@@ -519,45 +520,46 @@ $\tau$ have the form \cite{GS2,JPA09},
 
 \begin{equation}
   \alpha_{\lambda }(\tau)
-  = \sum_{m=0}^{n-1} \alpha_{m}^{\lambda } \,
-  \tau^{p^{m}}, \qquad \beta_{\lambda}(\kappa)
+  = \sum_{m=0}^{n-1} \alpha_{m}^{\lambda } \, \tau^{p^{m}},
+  \qquad \beta_{\lambda}(\kappa)
   = \sum_{m=0}^{n-1}\beta_{m}^{\lambda} \, \tau^{p^{m}},
   \label{curve1}
 \end{equation}
 
-where the coefficients $\alpha_{m}$, $\beta _{m}$ $\in \mathbb{F}_{p^{n}}$
+where the coefficients $\alpha_{m}$, $\beta_{m}$ $\in \mathbb{F}_{p^{n}}$
 should satisfy conditions derived from (\ref{CC}), as, for instance,
 
 \begin{equation*}
-  \sum_{m \neq k} \tr(\alpha_{m}\beta _{k}) = 0, \quad k = 0,...,n.
+  \sum_{m \neq k} \tr(\alpha_{m}\beta_{k}) = 0, \quad k = 0,...,n.
 \end{equation*}
 
 It's worth noting that the displacement operators belonging to a given
-stabilizer $\lambda $ can be expanded into the projectors of the corresponding
-basis vectors $\{|\psi _{\kappa }^{\lambda }\rangle ,\kappa \in
+stabilizer $\lambda$ can be expanded into the projectors of the corresponding
+basis vectors $\{|\psi_{\kappa}^{\lambda}\rangle,\kappa \in
 \mathbb{F}_{p^{n}}\}$,
 
 \begin{equation}
   \hat{D}^{\lambda }(\tau )
-  = p^{-n} \sum_{\kappa }\chi (\kappa \tau )
-  |\psi _{\kappa }^{\lambda }\rangle \langle \psi _{\kappa }^{\lambda }|.
+  = p^{-n} \sum_{\kappa }\chi(\kappa\tau)
+  |\psi_{\kappa }^{\lambda }\rangle \langle \psi_{\kappa }^{\lambda }|.
   \label{Dexp}
 \end{equation}
 
 The above equation allows us to represent any state in terms of the
-probabilities $p_{\kappa }^{(\lambda )} = \langle \psi_{\kappa
-}^{\lambda}|\hat{\rho}|\psi _{\kappa }^{\lambda }\rangle $ of projections onto
-elements of MUBs, i.e. tomographically reconstruct the state
+probabilities $p_{\kappa}^{(\lambda)} = \langle
+\psi_{\kappa}^{\lambda}|\hat{\rho}|\psi_{\kappa}^{\lambda}\rangle$ of
+projections onto elements of MUBs, i.e. tomographically reconstruct the state
 \cite{gibbons,galvao,cormick,ivanovic,DFW11,DFW12,Durt2006}:
 
 \begin{equation}
   \hat{\rho}
-  = \sum_{\lambda }\sum_{\kappa }
-  p_{\kappa}^{(\lambda)} |\psi_{\kappa }^{\lambda }\rangle
-  \langle \psi _{\kappa }^{\lambda }| - \hat{I}
-  = \sum_{\lambda }\sum_{\kappa }\left( p_{\kappa }^{(\lambda)} -
-  \frac{1}{p^{n}+1}\right) |\psi _{\kappa }^{\lambda }\rangle \langle
-  \psi_{\kappa }^{\lambda }|.
+  = \sum_{\lambda}\sum_{\kappa}
+  p_{\kappa}^{(\lambda)} |\psi_{\kappa}^{\lambda}\rangle
+  \langle \psi_{\kappa}^{\lambda}| - \hat{I}
+  = \sum_{\lambda }\sum_{\kappa}\left(
+    p_{\kappa }^{(\lambda)}-\frac{1}{p^{n}+1}
+  \right)
+  |\psi_{\kappa}^{\lambda }\rangle \langle \psi_{\kappa}^{\lambda}|.
   \label{tom r}
 \end{equation}
 
@@ -566,9 +568,9 @@ elements of MUBs, i.e. tomographically reconstruct the state
 \section{Phase space construction and the Wigner map}
 
 The discrete phase-space (DPS) \cite{gibbons,galvao,cormick,DFW11,DFW12} is a
-$p^{n}\times p^{n}$ grid, where the points $(\alpha ,\beta )$, $\alpha,\beta \in
-\mathbb{F}_{p^{n}}$ label elements of monomials $\hat{Z}_{\alpha
-}\hat{X}_{\beta}$. This DPS is endowed with a finite geometry
+$p^{n} \times p^{n}$ grid, where the points $(\alpha ,\beta )$, $\alpha,\beta
+\in \mathbb{F}_{p^{n}}$ label elements of monomials
+$\hat{Z}_{\alpha}\hat{X}_{\beta}$. This DPS is endowed with a finite geometry
 \cite{gibbons,galvao,cormick,DFW11,DFW12,FF}, and admits a set of discrete
 symplectic transformations \cite{DFW2-1,DFW2-2,DFW2-3,DFW2-4,klimov06}.
 Similarly to the continuous case, the axes of the DPS are associated with the
@@ -577,28 +579,28 @@ observables $\hat{Z}_{\alpha}$ and $\hat{X}_{\beta}$.
 A separation of $Op[\mathcal{H}_{p^{n}}]$ into disjoint stabilizers corresponds
 to a partition of the DPS into non-intersecting (except at the origin),
 non-degenerate (containing $p^{n}$ different points including the origin)
-\textit{commutative} curves $\{\Gamma =\left( \alpha (\tau ),\beta
-(\tau)\right), \; \tau \in \mathbb{F}_{p^{n}}\}$ \cite{GS2,JPA09}. In other
-words, the points of every commutative curve $\Gamma$ label a set of mutually
-commutative monomials,
+\textit{commutative} curves $\{\Gamma =\left( \alpha(\tau),\beta(\tau)\right),
+\; \tau \in \mathbb{F}_{p^{n}}\}$ \cite{GS2,JPA09}. In other words, the points
+of every commutative curve $\Gamma$ label a set of mutually commutative
+monomials,
 
 \begin{equation}
-  \{\hat{Z}_{\alpha (\tau )}\hat{X}_{\beta (\tau )}, \;
-  [\hat{Z}_{\alpha(\tau)} \hat{X}_{\beta (\tau )},
-  \hat{Z}_{\alpha (\tau ^{\prime })}\hat{X}_{\beta(\tau^{\prime })}]
-  = 0, \; \left( \alpha (\tau ),\beta (\tau )\right) \in \Gamma \},
+  \{\hat{Z}_{\alpha(\tau)}\hat{X}_{\beta(\tau)}, \;
+  [\hat{Z}_{\alpha(\tau)} \hat{X}_{\beta(\tau)},
+  \hat{Z}_{\alpha (\tau^{\prime})}\hat{X}_{\beta(\tau^{\prime})}]
+  = 0, \; \left( \alpha(\tau),\beta(\tau)\right) \in \Gamma \},
 \end{equation}
 
 such that the condition (\ref{CC}) is satisfied. There exist $p^{n}+1$
-commutative curves $\Gamma^{\lambda }$ in every DPS partition, so that the index
+commutative curves $\Gamma^{\lambda}$ in every DPS partition, so that the index
 $\lambda$, labelling curves within a given partition, takes $p^{n}+1$ distinct
-values. In addition, there are $p^{n}-1$ parallel curves $\{\Gamma _{\kappa
-}^{\lambda}$, $\kappa \in \mathbb{F}_{p^{n}}\}$ for each curve passing through
-the origin.  The whole bundle of $p^{n}$ parallel curves (called a striation)
-covers the DPS, and at every phase-space point $p^{n}+1$ curves (i.e.  one curve
-from each striation) intersect. It is worth stressing that only the monomials,
-labelled by the points of the curves crossing the origin, commute among each
-other.
+values. In addition, there are $p^{n}-1$ parallel curves
+$\{\Gamma_{\kappa}^{\lambda}$, $\kappa \in \mathbb{F}_{p^{n}}\}$ for each curve
+passing through the origin.  The whole bundle of $p^{n}$ parallel curves (called
+a striation) covers the DPS, and at every phase-space point $p^{n}+1$ curves
+(i.e.  one curve from each striation) intersect. It is worth stressing that only
+the monomials, labelled by the points of the curves crossing the origin, commute
+among each other.
 
 The set of rays (\ref{rays}) is the simplest example of such a partition, where
 the sets of parallel lines are explicitly defined as,
@@ -617,48 +619,48 @@ the sets of parallel lines are explicitly defined as,
 Another way to establish a connection between the discrete geometry with the
 algebraic structures is to link the commutative curves with the eigenstates
 (\ref{states}) of the corresponding stabilizers. This approach associates each
-basis $\{|\psi _{\kappa }^{\lambda }\rangle $, $\kappa \in F_{p^{n}}\}$ with a
-striation of curves $\{\Gamma_{\kappa }^{\lambda } = \left( \alpha_{\lambda
-}(\tau ,\kappa ),\beta_{\lambda }(\tau ,\kappa )\right) ,\,\tau \in
+basis $\{|\psi_{\kappa}^{\lambda}\rangle $, $\kappa \in F_{p^{n}}\}$ with a
+striation of curves $\{\Gamma_{\kappa}^{\lambda} = \left(
+\alpha_{\lambda}(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)\right) ,\,\tau \in
 \mathbb{F}_{p^{n}}\}$, and the bases corresponding to different striations are
 mutually unbiased. In the conventional association, the curves that include the
-origin are put in correspondence with the states $|\psi_{\kappa = 0}^{\lambda
-}\rangle $ with unit eigenvalues (later called the unit stabilizer states). Such
-curves $\Gamma_{\kappa =0}^{\lambda }\equiv \Gamma^{\lambda }$, have the form
-(\ref{curve1}) and will be called unit commutative curves. 
+origin are put in correspondence with the states $|\psi_{\kappa =
+0}^{\lambda}\rangle $ with unit eigenvalues (later called the unit stabilizer
+states). Such curves $\Gamma_{\kappa=0}^{\lambda} \equiv \Gamma^{\lambda}$,
+have the form (\ref{curve1}) and will be called unit commutative curves. 
 
 Both $n$-qudit states and observables can be represented in the form of
 distributions in the DPS through a one-to-one map
 \cite{gross,DFW2-1,DFW2-2,DFW2-3,DFW2-4},
 
 \begin{align}
-  W_{f}\left( \alpha ,\beta \right)
-  &= \Tr \left[ \hat{f}\hat{w}\left(\alpha ,\beta \right) \right],
+  W_{f}\left( \alpha,\beta \right)
+  &= \Tr\left[ \hat{f}\hat{w}\left( \alpha,\beta \right) \right],
   \label{map} \\
   \hat{f}
-  &= p^{-n}\sum_{\alpha, \beta } W_{f}(\alpha,\beta) \hat{w}(\alpha,\beta),
+  &= p^{-n}\sum_{\alpha,\beta } W_{f}(\alpha,\beta) \hat{w}(\alpha,\beta),
 \end{align}
 
-where the Hermitian mapping kernel $\hat{w}\left( \alpha ,\beta \right) =
-\hat{w}^{\dagger }(\alpha ,\beta )$ is covariant under action of the discrete
+where the Hermitian mapping kernel $\hat{w}\left( \alpha,\beta \right) =
+\hat{w}^{\dagger}(\alpha,\beta)$ is covariant under action of the discrete
 displacements (\ref{D}), and is defined as
 
 \begin{eqnarray}
-  \hat{w}\left( \alpha ,\beta \right)
-  &=&\hat{D}\left( \alpha ,\beta \right) 
-  \hat{w}\left( 0,0\right) \hat{D}^{\dagger }\left( \alpha ,\beta \right) ,
+  \hat{w}\left( \alpha,\beta \right)
+  &=& \hat{D}\left( \alpha,\beta \right) 
+  \hat{w}\left( 0,0\right) \hat{D}^{\dagger}\left( \alpha,\beta \right) ,
   \label{Ds} \\
   \hat{w}\left( 0,0\right)
-  &=&\sum_{\gamma ,\delta }\hat{D}(\gamma ,\delta ),
+  &=& \sum_{\gamma,\delta}\hat{D}(\gamma,\delta),
   \label{Dw0}
 \end{eqnarray}
 
 so that
 
 \begin{equation}
-  \hat{w} \left( \alpha, \beta \right)
-  = p^{-n} \sum_{\gamma, \delta}
-  \chi(\gamma \beta -\delta \alpha) \hat{D}(\gamma, \delta).
+  \hat{w} \left( \alpha,\beta \right)
+  = p^{-n} \sum_{\gamma,\delta}
+  \chi(\gamma\beta-\delta\alpha) \hat{D}(\gamma,\delta).
   \label{wabD}
 \end{equation}
 
@@ -690,15 +692,15 @@ MUBs:
 
 \begin{equation}
   \hat{w}\left( 0,0\right)
-  = \sum_{\lambda } |\psi _{0}^{\lambda }\rangle
-  \langle \psi _{0}^{\lambda }| - \hat{I},
+  = \sum_{\lambda} |\psi_{0}^{\lambda}\rangle
+  \langle \psi_{0}^{\lambda}| - \hat{I},
   \label{w0}
 \end{equation}
 
 where the index $\lambda$, labels the stabilizers/projectors (\ref{states})
 within this partition. Geometrically, Eqs. (\ref{Dw00}) and (\ref{w0}) represent
 a summation along the curves that pass through the origin, i.e. of the form
-(\ref{curve1}). In other words, each point $(\alpha, \beta)$ of the DPS is
+(\ref{curve1}). In other words, each point $(\alpha,\beta)$ of the DPS is
 assigned a specific phase $\Phi_{\alpha, \beta}\left( \tau \right)$ according to
 the unit commutative curve $\Gamma^{\lambda}$ that passes through that point and
 corresponding to the displacement operator
@@ -730,10 +732,9 @@ By shifting $\hat{w}\left(0,0\right)$ through the action of the displacement
 operators (\ref{Ds}) to an arbitrary point $(\alpha,\beta )$ one obtains
 
 \begin{equation}
-  \hat{w}(\alpha, \beta)
+  \hat{w}(\alpha,\beta)
   = \sum_{\lambda(\alpha,\beta),\kappa(\alpha,\beta)}
-  |\psi _{\kappa }^{\lambda }\rangle \langle \psi _{\kappa }^{\lambda }|
-  - \hat{I},
+  |\psi_{\kappa}^{\lambda}\rangle \langle \psi_{\kappa}^{\lambda}| - \hat{I},
   \label{wab}
 \end{equation}
 
@@ -744,21 +745,20 @@ passing through the point $(\alpha,\beta)$.
 
 \subsection{Tomographic property for a given DPS partition}
 
-The Wigner function of any stabilizer state $|\psi _{\kappa }^{\lambda }\rangle
-$ within a partition used for the construction of $\hat{w}\left( 0,0\right) $,
-is a convolution of characters computed at the points of the unit commutative
-curve $\Gamma ^{\lambda }=\left( \gamma _{\lambda }\left( \tau \right) ,\delta
-_{\lambda }(\tau )\right) $, which labels the elements of a stabilizer
-$\hat{D}^{\lambda }(\tau )$, with the eigenvalues $\chi (\kappa \tau )$, $\kappa
-\in F_{p^{n}}$ that fixes a particular stabilizer state according to
-(\ref{states}),
+The Wigner function of any stabilizer state $|\psi_{\kappa}^{\lambda}\rangle$
+within a partition used for the construction of $\hat{w}\left(0,0\right)$, is a
+convolution of characters computed at the points of the unit commutative curve
+$\Gamma^{\lambda}=\left(\gamma_{\lambda}\left(\tau\right),\delta_{\lambda}(\tau)\right)
+$, which labels the elements of a stabilizer $\hat{D}^{\lambda}(\tau)$, with the
+eigenvalues $\chi(\kappa\tau)$, $\kappa \in F_{p^{n}}$ that fixes a particular
+stabilizer state according to (\ref{states}),
 
 \begin{equation}
-  \langle \psi_{\kappa }^{\lambda }|\hat{w}\left( \alpha ,\beta \right)
-  |\psi_{\kappa }^{\lambda }\rangle
+  \langle \psi_{\kappa}^{\lambda}|\hat{w}\left( \alpha,\beta \right)
+  |\psi_{\kappa}^{\lambda}\rangle
   = \sum_{\tau }\chi \left(
-    \gamma_{\lambda}(\tau)\beta -\alpha \delta_{\lambda }(\tau )
-  \right) \chi (\kappa \tau ),
+    \gamma_{\lambda}(\tau)\beta-\alpha \delta_{\lambda}(\tau)
+  \right) \chi(\kappa\tau),
   \label{T1}
 \end{equation}
 
@@ -769,8 +769,8 @@ On the other hand, it immediately follows from the decomposition (\ref{wab}) and
 the unbiasement condition (\ref{UB}), that
 
 \begin{equation}
-  \langle \psi_{\kappa }^{\lambda }|\hat{w}\left( \alpha ,\beta \right)
-  |\psi_{\kappa }^{\lambda }\rangle
+  \langle \psi_{\kappa }^{\lambda}|\hat{w}\left( \alpha,\beta \right)
+  |\psi_{\kappa}^{\lambda}\rangle
   = \sum_{\lambda^{\prime}(\alpha,\beta),\kappa^{\prime }(\alpha,\beta)}
   |\langle
     \psi_{\kappa^{\prime}}^{\lambda^{\prime }}|\psi_{\kappa}^{\lambda}
@@ -780,9 +780,9 @@ the unbiasement condition (\ref{UB}), that
 \end{equation}
 
 which is just a delta-function along the curve $\Gamma_{\kappa}^{\lambda} =
-\{(\alpha_{\lambda }(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)),\,\tau \in
-\mathbb F_{p^{n}}\}$ associated with the state $|\psi_{\kappa }^{\lambda
-}\rangle$:
+\{(\alpha_{\lambda}(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)),\,\tau \in
+\mathbb F_{p^{n}}\}$ associated with the state $|\psi_{\kappa
+}^{\lambda}\rangle$:
 
 \begin{equation}
   \langle \psi_{\kappa}^{\lambda}
@@ -797,7 +797,7 @@ This relationship can be derived from (\ref{wab}) and the unbiasement condition
 (\ref{UB}). Eq. (\ref{T2}) represents a flip side of the tomographic condition,
 
 \begin{equation}
-  \sum_{\tau } \Tr\left(
+  \sum_{\tau} \Tr\left(
     \hat{w}\left(
       \alpha_{\lambda}(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)
     \right) \hat{\rho}
@@ -808,9 +808,9 @@ This relationship can be derived from (\ref{wab}) and the unbiasement condition
 \end{equation}
 
 In other words, the sum of the Wigner function of a state $\hat{\rho}$ along a
-curve corresponding to a stabilizer state $|\psi _{\kappa }^{\lambda }\rangle$
-gives the probability of detecting the state $\hat{\rho}$ in $|\psi_{\kappa
-}^{\lambda}\rangle$.
+curve corresponding to a stabilizer state $|\psi_{\kappa}^{\lambda}\rangle$
+gives the probability of detecting the state $\hat{\rho}$ in
+$|\psi_{\kappa}^{\lambda}\rangle$.
 
 The properties (\ref{T2}) and (\ref{T3}) are automatically satisfied for the
 stabilizer states of the partition employed for the construction of the Wigner
@@ -824,7 +824,7 @@ In the case of odd local dimensions, the kernel at the origin, Eq. (\ref{Dw00}),
 takes on a simple form because the equation for the phase (\ref{Phi}), 
 
 \begin{equation*}
-  \Phi_{\alpha,\beta} (\tau) \Phi_{\alpha,\beta}(-\tau)
+  \Phi_{\alpha,\beta}(\tau) \Phi_{\alpha,\beta}(-\tau)
   = \chi\left(\alpha_{\lambda}(-\tau)\beta_{\lambda}(\tau)\right)
   = \chi\left(-\alpha_{\lambda}(\tau)\beta_{\lambda}(\tau)\right),
   \quad (\alpha,\beta) \in \lambda,
@@ -833,19 +833,19 @@ takes on a simple form because the equation for the phase (\ref{Phi}),
 has an explicit solution for every stabilizer of any partition:
 
 \begin{equation}
-  \Phi_{\alpha ,\beta }(\tau)
-  = \chi\left( -2^{-1}\alpha _{\lambda }(\tau)\beta_{\lambda}(\tau)\right),
+  \Phi_{\alpha,\beta }(\tau)
+  = \chi\left( -2^{-1}\alpha_{\lambda}(\tau)\beta_{\lambda}(\tau)\right),
   \label{Phio}
 \end{equation}
 
-where $\alpha (-\tau )=-\alpha (\tau )$ and $\beta (-\tau )=-\beta (\tau )$ due
-to (\ref{curve1}). The primary property of the phase (\ref{Phio}) is its
-factorization, as it follows from (\ref{chi fact}). As a consequence, the
-kernel $\hat{w}\left( 0,0\right)$ and thus, $\hat{w}\left(\alpha ,\beta\right)$
-are factorized in an almost self-dual basis for any partition,
+where $\alpha(-\tau)=-\alpha(\tau)$ and $\beta(-\tau)=-\beta(\tau)$ due to
+(\ref{curve1}). The primary property of the phase (\ref{Phio}) is its
+factorization, as it follows from (\ref{chi fact}). As a consequence, the kernel
+$\hat{w}\left(0,0\right)$ and thus, $\hat{w}\left(\alpha,\beta\right)$ are
+factorized in an almost self-dual basis for any partition,
 
 \begin{equation}
-  \hat{w}\left( \alpha ,\beta \right)
+  \hat{w}\left( \alpha,\beta \right)
   = \otimes \prod\limits_{j=1}^{n}\hat{w}\left(
     q_{j}\alpha_{j},\beta_{j}
   \right),
@@ -860,7 +860,7 @@ where
   \hat{Z}^{l} \,\hat{X}^{k}.
 \end{equation*}
 
-This implies that the mapping kernel $\hat{w}\left( \alpha ,\beta \right)$ does
+This implies that the mapping kernel $\hat{w}\left( \alpha,\beta \right)$ does
 not depend on the particular partition of the DPS in the case of odd local
 dimension. Such a statement may not be immediately obvious from the
 representation (\ref{w0}). This is because different partitions involve
@@ -868,7 +868,7 @@ stabilizer states with different factorization properties (\ref{curve_part})
 \cite{Bjork2007}.
 
 As a result, the tomographic conditions (\ref{T2}) and (\ref{T3}) are satisfied
-for any stabilizer state $|\psi_{\kappa }^{\lambda }(\pi )\rangle $ belonging to
+for any stabilizer state $|\psi_{\kappa}^{\lambda}(\pi)\rangle$ belonging to
 an arbitrary phase-space partition $\pi $, even if they are unrelated to the one
 employed for the construction of the Wigner map, i.e.,
 
@@ -879,8 +879,8 @@ employed for the construction of the Wigner map, i.e.,
   = \sum_{\tau} \delta_{\alpha_{\lambda}(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)},
 \end{equation*}
 
-where $\hat{w}\left( \alpha ,\beta \,|\,\pi ^{\prime }\right) $ is a Wigner
-kernel corresponding to some other partition $\pi ^{\prime }$.  Actually, the
+where $\hat{w}\left( \alpha,\beta \,|\,\pi^{\prime}\right) $ is a Wigner kernel
+corresponding to some other partition $\pi^{\prime}$.  Actually, the
 factorization of the kernel (\ref{oddF}) implies that the Wigner function of an
 arbitrary $n$-qudit state has exactly the same form for any DPS partition in the
 case of odd local dimensions.
@@ -894,9 +894,9 @@ displacement operators for stabilizers labelled by points of commutative curves
 recurrence (\ref{Phi}),
 
 \begin{equation}
-  \Phi_{\alpha,\beta}\left(\tau + \tau^{\prime}\right)
+  \Phi_{\alpha,\beta}\left(\tau+\tau^{\prime}\right)
   = \Phi_{\alpha,\beta}(\tau) \Phi_{\alpha,\beta }(\tau^{\prime})
-  \chi\left( \alpha_{\lambda }(\tau^{\prime}) \beta_{\lambda}(\tau) \right),
+  \chi\left( \alpha_{\lambda}(\tau^{\prime}) \beta_{\lambda}(\tau) \right),
   \label{phase 2}
 \end{equation}
 
@@ -904,22 +904,24 @@ under the condition,
 
 \begin{equation*}
   \Phi_{\alpha,\beta}^{2}(\tau)
-  = \chi \left( \alpha_{\lambda}(\tau) \beta_{\lambda}(\tau ) \right),
+  = \chi\left( \alpha_{\lambda}(\tau) \beta_{\lambda}(\tau ) \right),
   \quad \left(\alpha_{\lambda}(\tau), \beta_{\lambda}(\tau)\right)
   \in \Gamma^{\lambda},
 \end{equation*}
 
 is fixed by choosing signs of the phases corresponding to the elements of the
-self-dual basis $\{\theta _{k}$, $k=1,...,n\}$,
+self-dual basis $\{\theta_{k}$, $k=1,\ldots,n\}$,
 
 \begin{equation}
-  \Phi_{\alpha ,\beta }(\theta _{k})=\pm \sqrt{\chi \left( \alpha_{\lambda
-  }(\theta_{k})\beta_{\lambda }(\theta _{k})\right) },
+  \Phi_{\alpha,\beta}(\theta_{k})
+  = \pm \sqrt{\chi\left(
+    \alpha_{\lambda}(\theta_{k})\beta_{\lambda }(\theta_{k})
+  \right)},
   \label{Phib}
 \end{equation}
 
-where $\chi(\alpha) = (-1)^{tr(\alpha)}$. For instance, for all positive signs
-we have \cite{klimov06},
+where $\chi(\alpha)=(-1)^{tr(\alpha)}$. For instance, for all positive signs we
+have \cite{klimov06},
 
 \begin{equation}
   \Phi_{\alpha,\beta}\left(
@@ -929,54 +931,54 @@ we have \cite{klimov06},
     \sum\limits_{m=1}^{n-1} \alpha_{\lambda}(t_{m}\theta _{m})\beta_{\lambda}
     \left( \sum\limits_{k=m+1}^{n} t_{k} \theta_{k} \right)
   \right)
-  \prod\limits_{k=1}^{n}c_{\kappa }^{\alpha ,\beta },
+  \prod\limits_{k=1}^{n}c_{\kappa }^{\alpha,\beta },
   \label{Phi G}
 \end{equation}
 
-where $c_{\kappa }^{\alpha ,\beta }=\sqrt{\chi \left( \alpha _{\lambda
-}(t_{k}\theta _{k})\beta _{\lambda }\left( \alpha _{k}\theta _{k}\right) \right)
-}$. The non-factorized form of the phase $\Phi _{\alpha ,\beta }$ implies that
-the map $\hat{w}(\alpha ,\beta )$ essentially depends on the choice of a
+where $c_{\kappa}^{\alpha,\beta}=\sqrt{\chi\left(
+\alpha_{\lambda}(t_{k}\theta_{k})\beta_{\lambda}\left(\alpha_{k}\theta_{k}\right)
+\right)}$. The non-factorized form of the phase $\Phi_{\alpha,\beta}$ implies
+that the map $\hat{w}(\alpha,\beta)$ essentially depends on the choice of a
 complete set of disjoint stabilizers. In other words, it depends on the
-partition of the DPS into sets of commutative curves $\Gamma ^{\lambda }$.
+partition of the DPS into sets of commutative curves $\Gamma^{\lambda}$.
 
-In general, the Wigner function of a stabilizer state $|\psi_{\kappa }^{\lambda
-}(\pi )\rangle $ from an  arrangement $\pi $ in the (core) partition $\pi_{0}$
-has the form (see Appendix \ref{appA}),
+In general, the Wigner function of a stabilizer state
+$|\psi_{\kappa}^{\lambda}(\pi)\rangle$ from an  arrangement $\pi$ in the (core)
+partition $\pi_{0}$ has the form (see Appendix \ref{appA}),
 
 \begin{equation}
-  \langle \psi _{\kappa }^{\lambda }(\pi )
-  |\hat{w}\left( \alpha ,\beta\,|\,\pi _{0}\right)
-  |\psi _{\kappa }^{\lambda }(\pi )\rangle
+  \langle \psi_{\kappa}^{\lambda}(\pi)
+  |\hat{w}\left( \alpha,\beta\,|\,\pi_{0}\right)
+  |\psi_{\kappa}^{\lambda}(\pi)\rangle
   = \sum_{\tau} \chi\left(
-    \gamma_{\lambda }(\tau )\beta +\alpha \delta _{\lambda }(\tau)
+    \gamma_{\lambda}(\tau)\beta+\alpha \delta_{\lambda}(\tau)
   \right)
-  \chi(\kappa \tau ) \Phi_{\gamma, \delta}^{\pi_{0}}(\tau)
-  \Phi_{\gamma,\delta}^{\pi \ast}(\tau),
+  \chi(\kappa\tau) \Phi_{\gamma,\delta}^{\pi_{0}}(\tau)
+  \Phi_{\gamma,\delta}^{\pi\ast}(\tau),
   \label{WF qubit}
 \end{equation}
 
-where $\left( \gamma_{\lambda }(\tau ),\delta_{\lambda }(\tau )\right) \in
-\Gamma ^{\lambda }(\pi )$, $\Phi_{\gamma ,\delta }^{\pi }(\tau )$ are the phases
-along $\Gamma ^{\lambda }(\pi )$ and $\Phi _{\gamma ,\delta }^{\pi_{0}}(\tau )$
-are the phases assigned to each point $\left( \gamma_{\lambda }(\tau
-),\delta_{\lambda }(\tau )\right) $ of the DPS according to the partition $\pi
-_{0}$.  Therefore, Eq. (\ref{WF qubit}) can be reduced to the form (\ref{T2}) if
-the phases $\Phi_{\gamma,\delta }^{\pi_{0}}(\tau )$ and $\Phi _{\gamma ,\delta
-}^{\pi }(\tau )$ are the same along the curve $\Gamma^{\lambda }(\pi )$. Such
-curves will be referred as to \textit{abelian curves}. Obviously, all the curves
-that constitute a given partition are abelian. However, there are abelian curves
-outside of this partition, leading to a DWF of the corresponding stabilizer
-states being delta-functions,
+where $\left(\gamma_{\lambda}(\tau),\delta_{\lambda}(\tau)\right) \in
+\Gamma^{\lambda}(\pi)$, $\Phi_{\gamma,\delta }^{\pi}(\tau)$ are the phases
+along $\Gamma^{\lambda}(\pi)$ and $\Phi_{\gamma,\delta}^{\pi_{0}}(\tau)$ are the
+phases assigned to each point $\left(
+\gamma_{\lambda}(\tau),\delta_{\lambda}(\tau)\right)$ of the DPS according to
+the partition $\pi_{0}$. Therefore, Eq. (\ref{WF qubit}) can be reduced to the
+form (\ref{T2}) if the phases $\Phi_{\gamma,\delta }^{\pi_{0}}(\tau )$ and
+$\Phi_{\gamma,\delta}^{\pi}(\tau )$ are the same along the curve
+$\Gamma^{\lambda}(\pi)$. Such curves will be referred as to \textit{abelian
+curves}. Obviously, all the curves that constitute a given partition are
+abelian. However, there are abelian curves outside of this partition, leading to
+a DWF of the corresponding stabilizer states being delta-functions,
 
 \begin{equation}
   \langle \psi_{\kappa }^{\lambda}
-  (\pi)|\hat{w} \left(\alpha ,\beta \,|\,\pi_{0}\right)
+  (\pi)|\hat{w} \left(\alpha,\beta \,|\,\pi_{0}\right)
   |\psi_{\kappa }^{\lambda}(\pi)\rangle
   = \sum_{\tau }
   \delta_{\alpha_{\lambda}(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)},
   \quad \left(
-    \alpha_{\lambda }(\tau ,\kappa ), \beta_{\lambda }(\tau ,\kappa )
+    \alpha_{\lambda}(\tau,\kappa), \beta_{\lambda}(\tau,\kappa)
   \right) \in \Gamma_{\kappa }^{\lambda }(\pi),
 \end{equation}
 
@@ -994,7 +996,7 @@ belonging to the core partition, aquires a simple form:
   = 2^{-n} \sum_{\tau}
   \hat{w}(\alpha_{\lambda}(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)|\,\pi_{0}),
   \quad \left(
-    \alpha _{\lambda }(\tau ,\kappa ),\beta _{\lambda}(\tau ,\kappa )
+    \alpha_{\lambda }(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)
   \right)
   \in \Gamma_{\kappa}^{\lambda}(\pi),
 \end{equation}
@@ -1008,8 +1010,8 @@ does not have a form of a convex sum of the core MUBs projectors.
 In general, searching for abelian curves that do not belong to a given partition
 typically requires an involved analytical or numerical procedure.  In addition,
 there is the same freedom (\ref{Phib}) in the election of the phases of the
-displacement operators along such curves from a partition $\pi $, as for those
-of the core partition $\pi _{0}$. In what follows we give examples of abelian
+displacement operators along such curves from a partition $\pi$, as for those
+of the core partition $\pi_{0}$. In what follows we give examples of abelian
 curves in the case of three qubit systems.
 
 Let us choose a partition of the DPS for the field $\mathbb{F}_{2^{3}}$
@@ -1017,10 +1019,9 @@ corresponding to rays (\ref{rays}), and fix the phases of the stabilizers
 according to (\ref{Phi G}) in the same way for all slopes $\mu \neq 0$. We do
 this by choosing the all positive solutions of the recurrence relation
 (\ref{phase 2}) for the basis elements, i.e.,
-$\Phi_{\alpha,\mu\alpha}(\theta_{k}) =
-+\sqrt{\chi\left(\mu\theta_{k}^{2}\right)}$, where it is always fulfilled that
-$\Phi_{\alpha,0}(\tau) = 1$. This results in the following distribution of
-phases (where $\sigma$ is the field generator):
+$\Phi_{\alpha,\mu\alpha}(\theta_{k})=+\sqrt{\chi\left(\mu\theta_{k}^{2}\right)}$,
+where it is always fulfilled that $\Phi_{\alpha,0}(\tau)=1$. This results in
+the following distribution of phases (where $\sigma$ is the field generator):
 
 \begin{equation}
   \left[\Phi\right]_{\alpha ,\beta }
@@ -1084,7 +1085,7 @@ represented either in a parametric form or as relations of the type,
 
 where $\alpha$ and $\beta$ do not take all $2^{n}$ values of the field, but
 instead run only through an admissible set of points restricted by relations
-$\tr(\alpha \sigma_{1}) = 0$ and $\tr(\beta \sigma_{2}) = 0$, where
+$\tr(\alpha\sigma_{1}) = 0$ and $\tr(\beta\sigma_{2}) = 0$, where
 $\sigma_{1,2}$ are some fixed elements of $\mathbb{F}_{2^{n}}$.
 
 We have found that for the primitive polynomial $\sigma^{3} + \sigma + 1 = 0$
@@ -1146,10 +1147,10 @@ On the other hand the curves from the same partition $(0,9,0)$,
 
 \begin{eqnarray}
   \alpha
-  &=& \sigma^{6}\beta +\sigma ^{3}\beta ^{2}+\sigma ^{5}\beta ^{4},
+  &=& \sigma^{6}\beta +\sigma^{3}\beta^{2}+\sigma^{5}\beta^{4},
   \label{nac1} \\
   \beta
-  &=& \sigma^{2}\alpha +\sigma ^{3}\alpha ^{2}+\sigma ^{5}\alpha ^{4},
+  &=& \sigma^{2}\alpha +\sigma^{3}\alpha^{2}+\sigma^{5}\alpha^{4},
   \label{nac}
 \end{eqnarray}
 are not abelian, thus the DFWs corresponding to the stabilizer states
@@ -1158,7 +1159,7 @@ $\{|\psi_\kappa^{(\beta; \sigma^2, \sigma^{5})}(0,9,0)\rangle, \kappa \in
 Wigner function for the unit stabilizer states corresponding to the curves
 (\ref{ac2}) and (\ref{nac}) respectively. Reconstruction of the stabilizer
 states $|\psi_{0}^{(\beta ; 1,\sigma^{5})}(0,9,0)\rangle$ and $|\psi_{0}^{(\beta
-;\sigma ^{2},\sigma^{5})}(0,9,0)\rangle$ associated to the curves (\ref{ac2})
+;\sigma^{2},\sigma^{5})}(0,9,0)\rangle$ associated to the curves (\ref{ac2})
 and (\ref{nac}) in the form of an expansion on the ray-related (\ref{rays}) MUBs
 projectors, fixed by the phases (\ref{ray dps}), and in terms of the
 corresponding probabilities (\ref{tom r}) is given in Appendix \ref{appC}. As it
@@ -1191,9 +1192,10 @@ is expected, the obtained representation is not a convex sum of projectors.
 
 The abovementioned curves \textit{become} abelian for a different assignment of
 signs to the phases (\ref{Phib}). For instance, the curve (\ref{nac}) is abelian
-by choosing $\Phi_{\alpha,\mu \alpha }(\theta_{k}) = -\sqrt{\chi\left(\mu
-\theta_{k}^{2}\right)}$ for any $\mu \neq 0$. Under this assignment, the
-following regular curves (\ref{rc}) are abelian:
+by choosing
+$\Phi_{\alpha,\mu\alpha}(\theta_{k})=-\sqrt{\chi\left(\mu\theta_{k}^{2}\right)}$
+for any $\mu \neq 0$. Under this assignment, the following regular curves
+(\ref{rc}) are abelian:
 
 \begin{enumerate}
   \item if $\phi = \sigma, \sigma^{2}, \sigma^{4}$, then $\phi_{0} = \phi +
@@ -1210,10 +1212,10 @@ signs of $\Phi_{\alpha,\mu \alpha}(\theta_{k})$ depend of the value of the slope
 $\mu$.
 
 In general, in the three-qubit case and the specific $(3,0,6)$ DPS partition,
-certain choices of phase signs $\Phi_{\alpha,\mu \alpha}(\theta_{k})$ can make
+certain choices of phase signs $\Phi_{\alpha,\mu\alpha}(\theta_{k})$ can make
 all possible commutative curves abelian. The inverse statement is however not
 true: for a given curve, it is not always possible to establish a choice of
-signs of $\Phi_{\alpha,\beta }(\theta_{k})$ so that this curve becomes abelian
+signs of $\Phi_{\alpha,\beta}(\theta_{k})$ so that this curve becomes abelian
 for fixed phases $\Phi_{\alpha,\mu \alpha}(\tau)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1358,8 +1360,8 @@ and satisfies
 
 \begin{equation*}
   \tr\left( \alpha_{\lambda}(\tau^{\prime})\beta_{\lambda}(\tau) \right)
-  = \tr \left( \alpha_{\lambda}(\tau)\beta_{\lambda}(\tau^{\prime }) \right),
-  \quad \left( \alpha_{\lambda }(\tau), \beta_{\lambda}(\tau) \right)
+  = \tr\left( \alpha_{\lambda}(\tau)\beta_{\lambda}(\tau^{\prime}) \right),
+  \quad \left( \alpha_{\lambda}(\tau), \beta_{\lambda}(\tau) \right)
   \in \Gamma^{\lambda}.
 \end{equation*}
 
@@ -1378,16 +1380,16 @@ where the coefficients $\alpha_k$ and $\beta_k$ are such that $\sum_{m \neq k}
 
 \begin{equation}
   \left[
-    \hat{Z}_{\alpha (\tau )}\hat{X}_{\beta (\tau )},
-    \hat{Z}_{\alpha(\tau^{\prime })}\hat{X}_{\beta(\tau^{\prime})}
+    \hat{Z}_{\alpha(\tau)}\hat{X}_{\beta(\tau)},
+    \hat{Z}_{\alpha(\tau^{\prime})}\hat{X}_{\beta(\tau^{\prime})}
   \right] = 0,
   \qquad \left( \alpha_{\lambda}(\tau),\beta_{\lambda}(\tau) \right)
   \in \Gamma^{\lambda }.
   \label{stab}
 \end{equation}
 
-It is worth noting that $n$ appropriately chosen points of the curve, e.g. $\tau
-= \{\theta _{1},\ldots,\theta_{n}\}$ are enough to generate the entire curve.
+It is worth noting that $n$ appropriately chosen points of the curve, e.g.
+$\tau=\{\theta_{1},\ldots,\theta_{n}\}$ are enough to generate the entire curve.
 This is because the set of points of these curves form an abelian group where
 each element is of order two, and therefore the group is isomorphic to
 $\mathbb{Z}_{2}^n$.
@@ -1408,7 +1410,7 @@ where the coefficients $\phi_{k},\psi_{k} \in \mathbb{F}_{2^{n}}$ satisfy the
 following commutativity restrictions,
 
 \begin{equation}
-  \phi_{k} = \phi _{n-k}^{2^{k}}\,,
+  \phi_{k} = \phi_{n-k}^{2^{k}}\,,
   \qquad \psi_{k} = \psi_{n-k}^{2^{k}}\,,
   \qquad k=1,\ldots, \left\lfloor \frac{n-1}{2}\right\rfloor,
   \label{Acc}
@@ -1425,17 +1427,17 @@ for even $n$, the coefficients satisfy the additional restriction:
 The degenerate (or exceptional) curves are characterized by multiple appearances
 of the admissible points in both directions $\alpha $ and $\beta$. In other
 words, for every point $(\alpha_{j},\beta_{j})$ of such a curve, $\alpha_{j}$
-and $\beta_{j}$ take on only $2^{n-r_{\beta }}$ and $2^{n-r_{\alpha}}$ different
-values respectively, where $r_{\alpha }$ and $r_{\beta }$ are the degrees of
+and $\beta_{j}$ take on only $2^{n-r_{\beta}}$ and $2^{n-r_{\alpha}}$ different
+values respectively, where $r_{\alpha}$ and $r_{\beta}$ are the degrees of
 degenerations along the corresponding axes.  The admissible points of such
 curves are fixed by the relations $\tr(\sigma_{j}\beta)=0$ and
 $\tr(\sigma_{k}\alpha)=0$ where $\sigma_{j}, \sigma_{k}$ are some given elements
 of $\mathbb{F}_{2^{n}}$.
 
 The partitions of the DPS constituted by $2^{n}+1$ commutative curves are
-classified by their factorization structures (\ref{curve_part}), $\lambda =
-\{m_{1},m_{2},\ldots ,m_{n}\}\,$, where $\sum_{k}$ $m_{k}=2^{n}+1$, which
-indicates the number and the lengths of the commuting sub-blocks of the
+classified by their factorization structures (\ref{curve_part}),
+$\lambda=\{m_{1},m_{2},\ldots,m_{n}\}\,$, where $\sum_{k}$ $m_{k}=2^{n}+1$,
+which indicates the number and the lengths of the commuting sub-blocks of the
 stabilizers labelled by the points of a curve. Locally equivalent stabilizers
 can be labelled by points of different curves, but have the same factorization
 structure. On the other hand, curves with different factorization structures are
@@ -1472,15 +1474,15 @@ by the following seven regular and two exceptional curves:
 
   \item Exceptional curves 
     \begin{eqnarray}
-      \beta ^{2}+\sigma ^{5}\beta
-      &=& \sigma ^{2}\alpha ^{2}+\sigma ^{6}\alpha,
-      \qquad \tr(\sigma ^{4}\beta )=0,\quad \tr(\sigma ^{5}\alpha ) = 0;
+      \beta^{2}+\sigma^{5}\beta
+      &=& \sigma^{2}\alpha^{2}+\sigma^{6}\alpha,
+      \qquad \tr(\sigma^{4}\beta)=0,\quad \tr(\sigma^{5}\alpha) = 0;
       \notag \\
       && \\
-      \beta^{2}+\sigma ^{2}\beta
+      \beta^{2}+\sigma^{2}\beta
       &=& \sigma^{6}\alpha^{2} + \sigma^{5}\alpha,
       \qquad \tr(\sigma^{6}\beta) = 0,
-      \quad \tr(\sigma ^{2}\alpha ) = 0.
+      \quad \tr(\sigma^{2}\alpha) = 0.
       \notag
     \end{eqnarray}
 \end{enumerate}
