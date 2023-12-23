@@ -485,10 +485,9 @@ set $\lambda=\{\alpha,\beta\}$ form an abelian group,
 
 as a consequence of the relation $\hat{Z}_{\tau}\hat{Z}_{\tau^{\prime}} =
 \hat{Z}_{\tau+\tau^{\prime}}$. This implies that the phases \DIFdelbegin
-\DIFdel{$\Phi _{\alpha,\beta }\left( \tau \right) $, where $(\alpha ,\beta )\in
-\lambda $, $|\Phi _{\alpha ,\beta }\left( \tau \right) |=1$, }\DIFdelend
-\DIFaddbegin \DIFadd{$\Phi_{\alpha,\beta}\left( \tau \right)$, where
-$(\alpha,\beta )\in \lambda$, }\DIFaddend $\Phi_{\alpha,\beta}\left(0\right) =
+\DIFdel{$|\Phi _{\alpha ,\beta }\left( \tau \right) |=1$, }\DIFdelend
+$\Phi_{\alpha,\beta}\left( \tau \right)$, where
+$(\alpha,\beta )\in \lambda$, $\Phi_{\alpha,\beta}\left(0\right) =
 1$ satisfy the equation,
 
 \begin{equation}
@@ -873,7 +872,7 @@ the unbiasement condition (\ref{UB}), that
 
 \DIFaddend \begin{equation}
   \langle \psi_{\kappa}^{\lambda}|\hat{w}\left( \alpha,\beta \right)
-  |\psi\DIFdelbegin \DIFdel{_{\kappa }^{\lambda }}\DIFdelend \DIFaddbegin \DIFadd{_{\kappa}^{\lambda}}\DIFaddend \rangle
+  |\psi_{\kappa}^{\lambda} \rangle
   = \sum\DIFdelbegin \DIFdel{_{\tau } \chi}%DIFDELCMD < \left(
 %DIFDELCMD <     %%%
 \DIFdel{\gamma_{\lambda}(\tau) \beta + \alpha }\DIFdelend \DIFaddbegin \DIFadd{_{\lambda^{\prime}(\alpha,\beta),\kappa^{\prime }(\alpha,\beta)}
@@ -910,7 +909,7 @@ This relationship can be derived from (\ref{wab}) and the unbiasement condition
 (\ref{UB}). Eq. (\ref{T2}) represents a flip side of the tomographic condition,
 
 \begin{equation}
-  \sum\DIFdelbegin \DIFdel{_{\tau } }\DIFdelend \DIFaddbegin \DIFadd{_{\tau} }\DIFaddend \Tr\left(
+  \sum_{\tau} \Tr\left(
     \hat{w}\left(
       \alpha_{\lambda}(\tau,\kappa),\beta_{\lambda}(\tau,\kappa)
     \right) \hat{\rho}
@@ -1254,7 +1253,8 @@ fulfilled:
 \DIFaddbegin 
 
   \DIFaddend \item if $\phi = 1$, there are no $\phi_{0}$ producing abelian curves\DIFaddbegin \DIFadd{, as can
-    be observed in the example of Figure~\ref{fig1} (b)}\DIFaddend .
+    be observed in the example of Figure~\ref{fig1} (b), where the only abelian
+  curve is the ray $\alpha = 0$.}\DIFaddend
 \end{enumerate}
 
 For instance, the bi-factorized curves in the partition $(0,9,0)$ defined in
@@ -1320,8 +1320,9 @@ states $|\psi_{0}^{(\beta ; 1,\sigma^{5})}(0,9,0)\rangle$ and $|\psi_{0}^{(\beta
 and (\ref{nac}) in the form of an expansion on the ray-related (\ref{rays}) MUBs
 projectors, fixed by the phases (\ref{ray dps}), and in terms of the
 corresponding probabilities (\ref{tom r}) is given in Appendix \ref{appC}. As it
-is expected, the obtained representation is not a convex sum of projectors.
-}\DIFaddend 
+is expected, the obtained representations \eqref{ac recon} and \eqref{nac recon}
+are not convex sums of the projectors \eqref{explicit eigs}-\eqref{explicit
+eigf}.}\DIFaddend 
 
 \begin{figure}[ht]
   \centering
@@ -1705,7 +1706,9 @@ the corresponding probabilities (\ref{tom r}):
   |\psi_{\kappa}^{\lambda }\rangle \langle \psi_{\kappa }^{\lambda }|
   + \left( \tilde{p}_{\kappa }(1,\sigma ^{5})-\frac{1}{9}\right)
   |\tilde{\psi}_{\kappa }\rangle \langle \tilde{\psi}_{\kappa }|,
-}\end{equation}
+  }
+\label{ac recon}
+\end{equation}
 \end{adjustwidth}
 
 \begin{adjustwidth}{-\extralength}{0cm}
@@ -1750,7 +1753,9 @@ the corresponding probabilities (\ref{tom r}):
   |\psi_{\kappa}^{\lambda}\rangle \langle \psi_{\kappa}^{\lambda }|
   + \left( \tilde{p}_{\kappa }(\sigma ^{2},\sigma ^{5})-\frac{1}{9} \right)
   |\tilde{\psi}_{\kappa }\rangle \langle \tilde{\psi}_{\kappa }|,
-}\end{equation}
+  }
+  \label{nac recon}
+\end{equation}
 \end{adjustwidth}
 
 \begin{adjustwidth}{-\extralength}{0cm}
@@ -1793,13 +1798,16 @@ have the form,
   \Phi_{\alpha,\lambda \alpha} \;
   %DIF > (-1)^{\tr(\alpha (\kappa + \gamma))}
   \chi\left( \alpha(\kappa+\gamma) \right) 
-  |\gamma \rangle, }\\ \DIFadd{[6pt]}
+  |\gamma \rangle, }
+  \label{explicit eigs} \\ [6pt]
   \DIFadd{|\tilde{\psi}_{\kappa }\rangle
   }&\DIFadd{=}& \DIFadd{2^{-3 / 2} \sum_{\gamma \in \mathbb{F}_{2^{3}}}
   %DIF > (-1)^{\tr(\kappa \gamma)}
   \chi\left( \kappa\gamma \right) 
   |\gamma \rangle,
-}\end{eqnarray}
+  \label{explicit eigf}
+}
+\end{eqnarray}
 
 \DIFadd{and the phases $\Phi_{\alpha,\beta}$ are defined in (\ref{ray dps}).
 }
