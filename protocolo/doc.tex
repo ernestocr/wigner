@@ -1,0 +1,220 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.4in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{biblatex}
+\addbibresource{refs.biblatex}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\decimalpoint
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+
+\title{
+  \Large Protocolo de tésis\\[1in]
+  \huge Funciones de Wigner en el espacio de
+  fase discreto\\[1in]
+  \large \textbf{Autor}: Ernesto Camacho Ramírez\\
+  \textbf{Director de tésis}: Dr. Andrés García Sandoval
+}
+\date{12 de abril de 2023}
+\author{}
+\begin{document}
+
+  \begin{titlepage}
+    \begin{center}
+      \vspace{1.0in}
+
+      \huge
+      Universidad de Guadalajara\\
+      \vspace{0.2cm}
+      \large
+      Centro Universitario de Ciencias Exactas e Ingenerías\\
+      Licenciatura en Matemáticas\\
+
+      \vspace{0.5in}
+
+      \includegraphics[width=0.3\textwidth]{../thesis/imgs/udg}
+      
+      \vspace{0.5in}
+
+      \huge
+      \textbf{
+        Funciones de Wigner en el Espacio de Fase Discreto
+      }
+
+      \large
+      \vspace{1.0in}
+      
+      Autor: Ernesto Camacho Ramírez \\
+      \vspace{0.2cm}
+      Director de tésis: Dr. Andrés García Sandoval \\
+
+      \vfill
+           
+      \Large Protocolo de Tésis
+     \end{center}
+  \end{titlepage}
+
+
+  \newpage
+  \section{Introducción}
+
+  El número de elementos de un conjunto general de
+  operadores cuánticos unitarios sobre estados de $n$-qudit
+  generalmente crece exponencialmente con $n$. Una excepción
+  importante a ésta regla involucra el conjunto de
+  operadores de Clifford, que actúan sobre estados
+  estabilizadores. Los operadores de Clifford son los
+  operadores que normalizan el grupo de Pauli, y los
+  estados estabilizadores son los eigenestados simultáneos
+  de un subconjunto maximal de operadores de Pauli
+  conmutativos. Éstos estados juegan un papel importante
+  en la corrección de errores cuánticos \cite{gottesman1998}
+  y son cerrados bajo la acción de las compuertas de
+  Clifford. La simulación eficiente de dichos sistemas con
+  una computadora clásica se demostró con el algoritmo
+  tableau de Aaronson y Gottesman \cite{aaronson2004,
+  gottesman1998} para qubits ($d=2$). La busqueda de un
+  explicación de por qué un algoritmo tan eficiente es
+  posible para la simulación de circuitos de Clifford ha
+  sido un objeto de mucho estudio \cite{gottesman1999,
+  howard2014, mari2012}. El progreso reciente ha sido
+  resultado del trabajo de Wooters \cite{wootters1987},
+  Eisert \cite{mari2012}, Gross \cite{gross2006} y Emerson
+  \cite{howard2014}, quienes han formulado una nueva
+  perspectiva basada en los espacios de fase discretos de
+  estados y operadores en espacios de Hilbert finitos,
+  utilizando funciones discretas de Wigner.  La función de
+  Wigner en el caso continuo surge de vincular la mecánica
+  cuántica con la mecánica clásica estadística, mediante el
+  espacio de fase. Las funciones de Wigner nos dan una
+  representación alternativa de estados de sistemas
+  cuánticos, por medio de \textit{cuasi-distribuciones}
+  sobre el espacio de fase. Éstas funciones no son
+  distribuciones probabílisticas verdaderas ya que pueden
+  tomar valores negativos, y ésta negatividad ha sido
+  vinculada con la no-localidad. La generalización a
+  sistemas discretos a tomado distintas formas a traves de
+  los años, cada una con ventajas y desventajas. Para una
+  clase particular de funciones de Wigner discretas, se ha
+  demostrado que los estados estabilizadores son análogos
+  discretos a los estados Gaussianos en sistemas continuos
+  \cite{gross2006}, en el sentido de que tienen funciones de
+  Wigner no-negativas. Por otro lado se ha demostrado
+  que los operadores de Clifford son mapeos definidos
+  positivos, ésto implica que los circuitos de Clifford son
+  simulables eficientemente en computadores clásicas.
+
+  En este trabajo, buscamos construir de una manera
+  explícita, a los operadores \textit{puntuales de fase}
+  discretos (núcleos de la transformación de Wigner) para
+  qubits y qutrits. En particular, desarrollamos la
+  construcción \textit{estándar} siguiendo la metodología de
+  Gibbons y Wootters \cite{wootters1987}, y como
+  contribución del trabajo, buscamos una construcción
+  \textit{no estándar} de los núcleos por medio de bases no
+  equivalentes (bajo transformaciones unitarias) a las bases
+  de la construcción estándar. La motivación para realizar
+  éste trabajo es que los núcleos de la construcción no
+  estándar preservan las propiedades de la construcción
+  estándar por lo tanto pueden ser utilizados para definir
+  una función de Wigner. En particular, preservan la
+  propiedad tomográfica, la cual permite expresar la función
+  de Wigner de cualquier estado como una combinación lineal
+  de probabilidades observadas. La inequivalencia de las
+  construcciones conduce a la posibilidad de encontrar
+  estados no estabilizadores con funciones de Wigner
+  no-negativas, lo que contrasta con resultados previos para
+  el caso discreto \cite{gross2006, galvao2005,
+  cormick2006a}.
+
+  \section{Objetivos}
+
+  Los objetivos de éste trabajo de tesis son:
+  \begin{itemize}
+    \item \textbf{Objetivo general:} Comparar las funciones
+      de Wigner discretas que se obtienen mediante la
+      construcción estándar y la construcción no estándar.
+    \item \textbf{Objetivos particulares:}
+      \begin{itemize}
+        \item Revisar la bibliografía básica y especializada
+          de las funciones de Wigner.
+        \item Comprender y construir la función de Wigner
+          discreta estándar para qubits y qutrits.
+        \item Emular la construcción estándar de la función
+          discreta de Wigner para lograr una construcción
+          alternativa.
+        \item Revisar las propiedades matemáticas y físicas
+          de la nueva construcción para compararla con la
+          estándar.
+      \end{itemize}
+  \end{itemize}
+
+  \section{Metodología}
+
+  La construcción de la función de Wigner discreta
+  (estándar) para qubits y qutrits, se realizará en la forma
+  descrita en Wooters \cite{gibbons2004}, es decir
+  utilizando \textit{lineas} en el espacio de fase discreto
+  para etiquetar y determinar los núcleos de Wigner
+  necesarios.  Por otro lado, la construcción de la función
+  de Wigner discreta no estándar para qubits y qutrits, se
+  realizará utilizando conjuntos de bases unitariamente no
+  equivalentes a los que se utilizan en la construcción de
+  Wooters \cite{kantor2012}. Ambas construcciones requerirán
+  el uso de un software especializado para su construcción
+  explicita, pues los ejemplos más simples requieren
+  espacios discretos de dimensión $32 \times 32$ y $27
+  \times 27$, para qubits y qutrits, respectivamente.
+
+  \subsubsection{Plan de trabajo}
+
+  Habrá reuniones semanales con el director en donde se
+  presentan los avances, dudas y resultados que surgen del
+  trabajo. La bibliografía consiste de varios artículos y
+  libros sobre la función de Wigner y la mecánica cuántica
+  en el espacio de fase, entre otros temas, pero
+  especificamente se trabajará siguiendo la metodología de
+  Wootters \cite{gibbons2004} para la
+  construcción estándar de la función de Wigner discreta.
+  Por el momento no se contempla exponer el trabajo en algún
+  coloquio, taller o evento. Pero sí existe la posibilidad
+  de exponerlo en el seminario de álgebra, la cual se
+  agendaría despues de alcanzar el objetivo de la
+  construcción no estándar.
+
+  \section{Cronograma de actividades}
+
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{p{0.4\linewidth}ccccc}\toprule
+       & Enero & Febrero & Marzo & Abril & Mayo \\
+      Investigación bibliográfica & . & . & . & & \\
+      \addlinespace
+      Construcción del espacio de fase discreto & & . & . &
+                                                & \\
+      \addlinespace
+      Construcción de la función de Wigner estándar para
+      qubits y qutrits & & . & . & & \\
+      \addlinespace
+      Construcción de la función de Wigner no estándar para
+      qubits y qutrits & & & . & . & \\
+      \addlinespace
+      Escritura de la tesis & & & . & . & . \\
+      \addlinespace
+      Revisión por el director & & & & & .
+    \end{tabular}
+  \end{table}
+
+  \printbibliography
+  
+\end{document}

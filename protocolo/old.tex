@@ -1,0 +1,210 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\decimalpoint
+
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+
+%\newtheorem{definition}{Definición}
+%\newtheorem{theorem}{Teorema}
+%\newtheorem{proposition}{Proposición}
+%\newtheorem{lemma}{Lema}
+%\newtheorem{corollary}{Corolario}
+
+\title{
+  \large Protocolo de tésis\\[1in]
+  \huge Toolbox para la simulación de la medición de sistemas
+cuánticos\\[1in]
+  \large Autor: Ernesto Camacho Ramírez\\
+  Director de tésis: Dr. Andrés Sandoval García
+}
+\author{}
+\begin{document}
+  \maketitle
+
+  \newpage
+  \section{Introducción}
+
+  Resumen de la introducción de Nielsen.
+
+  \begin{itemize}
+    \item La teoría de la información cuántica implica un
+      cambio de perspectiva a la hora de analizar sistemas
+      cuánticos, mediante la introducción de la teoría de la
+      información y de computación. En lugar de usar la
+      teoría cuántica para estudiar sistemas o fenomenos
+      naturales, podemos usar la teoría para diseñar
+      sistemas.
+    \item Pertinente a éste trabajo, deseamos estudiar la
+      pregunta, ¿por qué los sistemas cuánticos son
+      dificiles de simular de manera clásica?, y ¿qué
+      podemos hacer para eficientar la simulación y estudio
+      de dichos sistemas?, ¿qué recursos físicos son
+      necesarios para la computación cuántica?, etc\ldots
+    \item Habido mucho progreso en el área de la
+      implementación de computadoras cúanticas. Aún no
+      existen computadoras de gran escala pero los avances
+      han sido notables (especialemente de \textit{iones
+      atrapados}).
+
+    \item ¿La computación cuántica se puede realizar sin el
+      uso de la dinámica unitaria, basta con solo la
+      medición?
+
+    \item ¿Qué hay de la simulación \textit{clásica} de
+      sistemas cuánticos?
+
+    \item La motivación principal para el trabajo en al área
+      de la información cuántica es la esperanza de obtener
+      algorítmos cuánticos para resolver problemas
+      computacionalmente difíciles. Pero, aún no se sabe
+      sobre que clase de problemas podemos esperar que las
+      computadoras cuánticas superen a las clásicas.
+
+    \item Podemos utilizar una computadora clásica para
+      simular una computadora cuántica, pero parecer ser
+      imposible hacer la simulación de manera eficiente. Por
+      lo tanto las computadoras cuánticas ofrecen un
+      incremento en la velocidad sobre las compus cláscias -
+      Nielsen. 
+
+    \item Es probable que una de las aplicaciones más
+      importantes de las computadoras cuánticas será la
+      simulación de sistemas cuánticos que son dificilmente
+      simulables en una computadora clásica.
+
+    \item ¿Qué otros problemas podemos resolver más rápido
+      que una compu clásica? No sabemos. El diseño de
+      algoritmos cuánticos es dificil - Nielsen.
+
+    %To design good quantum algorithms one must \textit{turn
+    %off} one's classical intuition for at least part of the
+    %design process, using truly quantum effects to achieve
+    %the desired algorithmic end.
+
+    %Simulating naturally occurring quantum mechanical
+    %systems is a candidate for which quantum computers may
+    %excel, but which is believed to be very difficult on a
+    %classical computer. The reason for this difficulty is
+    %that the number of complex numbers needed to describe a
+    %quantum system generally grows exponentially with size
+    %of the system.
+
+    %Although a quantum computer can simulate many quantum
+    %systems far more efficiently than a classical computer,
+    %this does not mean that the fast simulation will allow
+    %the desired information about the quantum system to be
+    %otained.
+
+    %The simulation of quantum systems is an important
+    %problem in many fields, ntoably quantum chemistry, where
+    %the computational constraints imposed by classical
+    %computers make it difficult to accurately simulate the
+    %behavior of even moderately sized molecules, much less
+    %the very large molecules that occur in many biological
+    %systems.
+  \end{itemize}
+  
+  
+
+  \subsection{Más preguntas}
+
+  ¿Qué tan \textit{poderosas} son las computadoras
+  cuánticas? ¿Qué les da su poder? No sabemos. La
+  factorización de enteros sugiere un potencial un potencial
+  superior a las computadoras clásicas, pero ésto no es
+  definitivo. Aún es posible que las computadoras cuánticas
+  no sean mas potentes que las clásicas, en el sentido de
+  que todo lo que puede ser eficientemente resuelto por una
+  computadora cuántica, también sea eficientmente resuelto
+  por una computadora clásica.
+
+  \subsection{Teoría de complejidad computacional}
+
+  És un rama de la ciencia computacional que clasifica la
+  dificultad de varios problemas computacionales, ya sean
+  clásicos o cuánticos. Una clase de complejidad es una
+  colección de problemas computacionales que comparten
+  caracterísiticas respecto a los recursos requeridos para
+  resolverlos. Las dos clases más importantes son $P$ y
+  $NP$.
+
+  %It is clear that $P \subset NP$, but it is still not
+  %clear that there are any problems in $NP$ which are not in
+  %$P$.
+
+  %There is an important subclass of $NP$ problems, the
+  %$NP$-complete problems, because there are many important
+  %problmes, and because any $NP$-complete problem is at
+  %least as hard as all other problems in $NP$. In particular
+  %if $P \neq NP$, then it will follow that no $NP$-complete
+  %problem can be efficiently solved on a classical computer.
+
+  %It is not known whether quantum computers can be used to
+  %quickly solve all the problems in $NP$, despite the fact
+  %that they can be used to solve \textit{some} problems,
+  %that are believed to be in $NP$ but no in $P$.
+
+  %It would be very exciting if we could solve all $NP$ 
+  %problems efficiently on a quantum computer, but quantum
+  %parallelism is already ruled out for this.
+
+  %Exactly where $BQP$ fits with respet to $P, NP$ and
+  %$PSPACE$ is yet unknown. Although we do know that $BQP$
+  %lies somewhere between $P$ and $PSPACE$.
+
+  %An interesting implication is, that if quantum computers
+  %are strictly more powerful than classical computers, then
+  %it will follow that $P$ is not equal to $PSPACE$. The
+  %difficulty of this last question suggests that it may be
+  %non-trivial to prove that quantum computers are more
+  %powerful than classical computers.
+  
+  \newpage
+  \section{Objetivos}
+
+  Aplicar toolboxes adecuadas para la solución de problemas
+  de sistemas cuánticos que involucran muchas partículas.
+
+  Otención del conocmiento mínimo de la mecánica cuántica
+  requerido para la comprensión y objetivos de éste trabajo.
+
+  Actividades:
+  \begin{itemize}
+    \item Investigación bibliográfica de toolboxes para
+      sistemas cuánticos.
+    \item instalación y manejo adecuado de al menos una
+      toolbox seleccionada.
+    \item elaboración de "manual" de uso para la toolbox
+      instalada.
+    \item Uso de la toolbox en la solución de problemas de
+      interés de sistemas cuánticos.
+  \end{itemize}
+  
+  \newpage
+  \section{Metodología}
+
+  \newpage
+  \section{Cronograma de actividades}
+
+  \newpage
+  \section{Bibliografía}
+  
+\end{document}
